@@ -30,7 +30,7 @@ Feature pillars (home): Create articles that sound like you · Get a strategy ta
 
 **Volume discounts (multi-site, automatic):** 2–4 sites 10% · 5–8 sites 12% · 9–14 sites 15% · 15+ sites 20% ("Talk to us").
 
-**Add-ons seen in-app:** AI prompt packs — 30 prompts $49/mo, 50 prompts $89/mo ("Takes you from 10 to 40 tracked prompts… Refreshed daily"); backlink credit subscriptions ("Add credits"); Reddit / Reddit autopilot / Quora+ ("Track 8× more keywords, Get daily opportunities"); Meta autopilot; language additions; SEO specialist hours ($150/h).
+**Add-ons seen in-app:** AI prompt packs — 30 prompts $49/mo, 50 prompts $89/mo ("Takes you from 10 to 40 tracked prompts… Refreshed daily"); backlink credit subscriptions ("Add credits"); Reddit / Reddit autopilot / Quora+ ("Track 8× more keywords, Get daily opportunities"); Meta autopilot; language additions (~$49/language/month — "3 extra languages worth $147/mo"); SEO specialist hours ($150/h).
 
 **Observed account:** Vaultio org on **Grow, $99/month per site** (invoices $99 monthly per site; one $49 add-on invoice; $0 trial invoices at signup).
 
