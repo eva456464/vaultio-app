@@ -105,7 +105,7 @@ limits).
 
 | Item | Why | Status |
 |---|---|---|
-| Anthropic and DataForSEO keys in the Mac `.env` | Agents that write and research | Hidden key dialogs were sent to the Mac; not yet confirmed that the keys are in and the app restarted |
+| Anthropic and DataForSEO keys in the Mac `.env` | Agents that write and research | **Not saved**: the hidden key pop-ups ran at 07:44 UTC but all three came back empty (skipped or timed out). Needs to be redone with someone at the Mac |
 | Google Cloud OAuth client | Google Analytics + Search Console (step 1 above) | Not started; steps were sent in chat |
 | Resend account + verified sender (`RESEND_API_KEY`, `REPORT_FROM_EMAIL`) | Monthly report emails | Not started |
 | OpenAI / Gemini keys (optional) | ChatGPT and Gemini in AI visibility | Optional |
@@ -136,7 +136,9 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 
 ## Running it locally
 
-On the Mac the app runs at http://localhost:3001. After pulling new code:
+On the Mac the app lives in `~/Documents/vaultio-research/vaultio-live` and runs at
+http://localhost:3001 (port 3000 was taken by another app). It was last updated to `2a9fd4b`
+(AI visibility), so Settings, Reporting and later changes are not there yet. After pulling new code:
 
 ```bash
 git pull
