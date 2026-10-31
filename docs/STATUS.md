@@ -67,7 +67,7 @@ Ground rules that apply to everything below:
 - The full onboarding → plan → research → write → publish pipeline ran against a local test
   website, with stand-in AI and keyword providers (`scripts/test-agents.ts`).
 - Publishing was tested against local mock webhook and WordPress servers; the content API was
-  tested for valid and invalid keys.
+  tested for valid and invalid keys. The test website and mocks are in `scripts/dev-fixtures/`.
 - The monthly report agent ran for real with only the email request intercepted.
 
 ## Not yet tested with real keys
@@ -109,10 +109,30 @@ limits).
 | Google Cloud OAuth client | Google Analytics + Search Console (step 1 above) | Not started; steps were sent in chat |
 | Resend account + verified sender (`RESEND_API_KEY`, `REPORT_FROM_EMAIL`) | Monthly report emails | Not started |
 | OpenAI / Gemini keys (optional) | ChatGPT and Gemini in AI visibility | Optional |
-| Vaultio logo files | Replace the placeholder "V" mark | Not received |
+| Vaultio logo files | Replace the placeholder "V" mark | Received (dragon mark, `research/assets/vaultio_favicon.png` on the `research` branch); not yet used in the app |
 | Stripe account | Billing | Later |
 | Hosting accounts (web, worker, Postgres) | Production launch | Later |
 | Leftover Blog Hosting setup for `blog.vaultio.co` in the live Babylovegrowth account | Created during research; decide whether to remove it | Waiting for a decision |
+
+## Work log
+
+All times 31 October 2026 (UTC). Each code commit message on `main` describes its change in detail.
+
+| Step | Where it is |
+|---|---|
+| Read-only research of the reference dashboard on the owner's Mac (Safari): every page, dialog, setting, API endpoint, data model, design tokens, screenshots, public docs | `research` branch, `research/README.md` |
+| Vaultio logo and site logos saved from the research session | `research` branch, `research/assets/` |
+| Foundation: Next.js app, design system, database, accounts, agencies and clients, white label, app shell, Overview, Clients, Invoices, agent engine and key-free agents | `main` af8b646 |
+| Strategy agents (brand profile, competitors, keywords, AI prompts, content plan, topic research), article writer, Blog content calendar and article page | `main` 01471e2 |
+| Overview shows agents waiting for keys; `npm run dev:all` | `main` 074aaa6, bb9e45e |
+| Site health page and public share link | `main` 45f6332 |
+| Publishing: content API, webhook, WordPress, auto-publish, Publishing settings | `main` c4d84f3 |
+| AI visibility tracking and pages | `main` 2a9fd4b |
+| Settings: account, business, branding, competitors, writing, schedule, saved pages | `main` 9150e0e |
+| Client reports and monthly email agent; brand colour fix | `main` b7531ad |
+| This status document, dev fixtures | `main` |
+| Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
+| App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
 ## Running it locally
 
