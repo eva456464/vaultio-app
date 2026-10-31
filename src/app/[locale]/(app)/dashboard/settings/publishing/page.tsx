@@ -9,8 +9,9 @@ import { getAppContext } from "@/server/context";
 export default async function PublishingSettingsPage() {
   const context = (await getAppContext())!;
   const site = context.site!;
-  const [t, connections, [apiKey]] = await Promise.all([
+  const [t, tSettings, connections, [apiKey]] = await Promise.all([
     getTranslations("settings.publishing"),
+    getTranslations("settings"),
     db.select().from(integrations).where(eq(integrations.orgWebsiteId, site.id)),
     db.select({ prefix: apiKeys.keyPrefix, lastUsedAt: apiKeys.lastUsedAt }).from(apiKeys).where(and(eq(apiKeys.orgWebsiteId, site.id), isNull(apiKeys.revokedAt))).limit(1),
   ]);
@@ -27,6 +28,7 @@ export default async function PublishingSettingsPage() {
     <>
       <h1 className="text-[28px] font-semibold tracking-[-0.025em] text-ink">{t("title")}</h1>
       <p className="mt-1 text-[15px] text-ink-secondary">{t("subtitle")}</p>
+      {context.member?.role !== "admin" && <p className="mt-1 text-sm text-ink-secondary">{tSettings("adminOnly")}</p>}
       <PublishingSettings
         apiBaseUrl={`${protocol}://${host}/api/integrations`}
         canEdit={context.member?.role === "admin"}

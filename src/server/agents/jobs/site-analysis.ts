@@ -53,7 +53,7 @@ async function firstReachableImage(candidates: (string | null)[]) {
 
 export async function sitemapSync({ site, runDate }: JobContext) {
   const origin = new URL(site.url).origin;
-  const { urls } = await readSitemapUrls(await discoverSitemaps(origin));
+  const { urls } = await readSitemapUrls(site.sitemapUrl ? [site.sitemapUrl] : await discoverSitemaps(origin));
   const sameSite = [...urls].filter(([url]) => {
     try {
       return new URL(url).hostname.replace(/^www\./, "") === new URL(origin).hostname.replace(/^www\./, "");

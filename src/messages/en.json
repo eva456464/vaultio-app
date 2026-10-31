@@ -699,7 +699,133 @@
       ],
       "lastError": "Last error: {error}"
     },
-    "comingSoon": "This settings section is being rebuilt."
+    "comingSoon": "This settings section is being rebuilt.",
+    "save": "Save changes",
+    "saving": "Saving...",
+    "saved": "Saved",
+    "adminOnly": "Only workspace admins can change these settings.",
+    "account": {
+      "title": "Profile",
+      "personal": "Personal details",
+      "name": "Name",
+      "email": "Email",
+      "password": "Change password",
+      "currentPassword": "Current password",
+      "newPassword": "New password (8+ characters)",
+      "changePassword": "Change password",
+      "passwordChanged": "Password changed.",
+      "passwordError": "Could not change the password. Check your current password.",
+      "session": "Session",
+      "logout": "Log out"
+    },
+    "business": {
+      "title": "Business details",
+      "about": "About the business",
+      "aboutHint": "Your agents use this to choose topics and write every article.",
+      "name": "Business name",
+      "description": "Business description",
+      "industry": "Industry",
+      "businessType": "Business type",
+      "positioning": "Positioning",
+      "positioningHint": "What sets you apart from competitors.",
+      "counter": "{count}/{max}",
+      "audience": "Who you serve",
+      "audienceHint": "Customer groups your articles speak to.",
+      "audiencePlaceholder": "e.g. Homeowners in Santa Barbara",
+      "offers": "What you sell",
+      "offersHint": "Products and services your articles can mention. Add prices only if you publish them.",
+      "offerName": "Name",
+      "offerKind": "Type",
+      "kinds": {
+        "service": "Service",
+        "product_line": "Product"
+      },
+      "amount": "Price",
+      "priceType": {
+        "fixed": "Fixed",
+        "from": "From"
+      },
+      "currency": "Currency",
+      "period": "Per",
+      "addOffer": "Add offer",
+      "remove": "Remove",
+      "add": "Add"
+    },
+    "branding": {
+      "title": "Branding",
+      "colors": "Colors",
+      "colorsHint": "Used in your images and infographics.",
+      "primary": "Primary color",
+      "secondary": "Secondary color",
+      "voice": "Voice",
+      "voiceHint": "Link an article whose writing style you like. Your agents use it as a style example.",
+      "exampleUrl": "Writing style example URL"
+    },
+    "competitors": {
+      "title": "Competitors",
+      "subtitle": "Websites to monitor",
+      "hint": "Competitors you want to outrank. Your agents scan them weekly for topics you haven't covered.",
+      "placeholder": "competitor.com",
+      "add": "Add",
+      "empty": "No competitors yet."
+    },
+    "writing": {
+      "title": "Writing",
+      "rules": "Writing instructions",
+      "rulesHint": "Rules every article follows.",
+      "rulePlaceholder": "Add a rule, e.g. \"Never use the word leverage\"",
+      "add": "Add",
+      "language": "Language & length",
+      "englishType": "English type",
+      "english": {
+        "american": "American",
+        "british": "British"
+      },
+      "length": "Article length",
+      "words": "About {count} words",
+      "structure": "What every article includes",
+      "tldr": "Summary at the top",
+      "summaryStyle": {
+        "tldr": "TL;DR",
+        "key_takeaways": "Key takeaways"
+      },
+      "toc": "Table of contents",
+      "sources": "Sources section",
+      "internalLinks": "Links to your own pages",
+      "perspective": "Write from your business's perspective",
+      "competitors": "Mention competitors when relevant",
+      "jsonLd": "Article structured data (JSON-LD)",
+      "faqJsonLd": "FAQ structured data",
+      "author": "Author name",
+      "authorPlaceholder": "Shown as the article author",
+      "disclaimer": "Disclaimer",
+      "disclaimerPlaceholder": "Added at the end of every article (optional)"
+    },
+    "schedule": {
+      "title": "Schedule",
+      "subtitle": "Article schedule",
+      "hint": "Choose the days your agents write and publish articles.",
+      "selected": "Selected: {days}",
+      "everyDay": "Every day",
+      "days": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ]
+    },
+    "savedPages": {
+      "title": "Saved pages",
+      "subtitle": "Synced from your sitemap",
+      "hint": "Your agents use these pages for internal links and to avoid writing about topics you already cover.",
+      "sitemap": "Sitemap URL",
+      "sitemapPlaceholder": "Found automatically from robots.txt",
+      "count": "{count, plural, one {# page} other {# pages}}",
+      "empty": "No pages yet. Your agents read your sitemap every day."
+    }
   },
   "aiVisibility": {
     "title": "AI visibility",
