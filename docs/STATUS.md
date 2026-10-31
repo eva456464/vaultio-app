@@ -145,7 +145,9 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 
 On the Mac the app lives in `~/Documents/vaultio-research/vaultio-live` and runs at
 http://localhost:3001 (port 3000 was taken by another app). It was last updated to `2a9fd4b`
-(AI visibility), so Settings, Reporting and later changes are not there yet. After pulling new code:
+(AI visibility), so Settings, Reporting, Site traffic and later changes are not there yet. The
+Remote Control connection that set it up ended at 18:51 UTC on 31 October, so the next update has
+to be run on the Mac (or after reconnecting Remote Control). After pulling new code:
 
 ```bash
 git pull
