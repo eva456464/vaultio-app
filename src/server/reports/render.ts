@@ -1,6 +1,7 @@
 /** Renders a client report as a standalone, printable A4 HTML document. */
 import { createTranslator } from "next-intl";
 import type { ReportBlock } from "@/db/schema";
+import { countryName } from "@/lib/countries";
 import { ASSISTANT_NAMES } from "@/lib/visibility";
 import en from "@/messages/en.json";
 import type { ReportData } from "./data";
@@ -129,7 +130,7 @@ export function renderReport({ data, blocks, kpiMetrics, brand, print }: Options
   const clicks = t("report.columns.clicks");
   const impressions = t("report.columns.impressions");
   if (has("countries") && data.countries.length)
-    sections.push(section(t("report.countries.title"), table([t("report.countries.column"), clicks, impressions], data.countries.map((r) => [r.key.toUpperCase(), r.clicks, r.impressions]))));
+    sections.push(section(t("report.countries.title"), table([t("report.countries.column"), clicks, impressions], data.countries.map((r) => [countryName(r.key, "en"), r.clicks, r.impressions]))));
   if (has("pages") && data.pages.length)
     sections.push(section(t("report.pages.title"), table([t("report.pages.column"), clicks, impressions], data.pages.map((r) => [host(r.key), r.clicks, r.impressions]))));
   if (has("keywords") && data.keywords.length)

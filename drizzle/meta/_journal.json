@@ -29,6 +29,13 @@
       "when": 1793432797018,
       "tag": "0003_report_snapshots",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793471203872,
+      "tag": "0004_traffic_sync",
+      "breakpoints": true
     }
   ]
 }

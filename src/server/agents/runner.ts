@@ -15,6 +15,7 @@ import {
   topicResearch,
 } from "./jobs/strategy";
 import { monthlyReport } from "./jobs/reporting";
+import { aiTrafficReport, analyticsSync, rankingsCheck } from "./jobs/traffic";
 import { aiVisibilityCheck } from "./jobs/visibility";
 import { writeArticle } from "./jobs/writer";
 import type { JobHandler } from "./jobs/types";
@@ -44,9 +45,9 @@ export const JOB_REGISTRY: Record<AgentJobName, Registration> = {
   domainRatingCheck: { requires: ["authorityData"], handler: domainRatingCheck },
   monthlyReport: { requires: ["email"], handler: monthlyReport },
 
-  analyticsSync: { requires: ["ga4"] },
-  aiTrafficReport: { requires: ["ga4"] },
-  rankingsCheck: { requires: ["gsc"] },
+  analyticsSync: { requires: ["ga4"], handler: analyticsSync },
+  aiTrafficReport: { requires: ["ga4"], handler: aiTrafficReport },
+  rankingsCheck: { requires: ["gsc"], handler: rankingsCheck },
   aiVisibilityCheck: { requires: ["llm"], handler: aiVisibilityCheck },
   joinBacklinkExchange: { requires: [] },
 };

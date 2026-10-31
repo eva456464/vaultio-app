@@ -3,15 +3,9 @@
 import { ArrowLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import { SETTINGS_GROUPS } from "@/lib/settings-sections";
 import { cn } from "@/lib/utils";
 
-export const SETTINGS_GROUPS = [
-  { key: "account", sections: ["account", "team-members", "billing", "white-label"] },
-  { key: "business", sections: ["business", "branding", "competitors", "product-catalog", "saved-pages"] },
-  { key: "articles", sections: ["writing", "visual", "schedule", "improvements"] },
-  { key: "integrations", sections: ["publishing", "analytics"] },
-  { key: "socials", sections: ["reddit", "quora"] },
-] as const;
 
 export function SettingsNav() {
   const t = useTranslations("settings");

@@ -34,6 +34,20 @@ python3 scripts/dev-fixtures/mock-endpoints.py 4300
 
 Received payloads are logged to `/tmp/mock-endpoints.log`.
 
+## Google mock (`mock-google.py`)
+
+Stands in for Google's consent screen, token endpoint, Analytics Admin/Data APIs and Search
+Console, with deterministic fake numbers for the test site (14 pages, AI referrals from ChatGPT,
+Perplexity, Gemini, Copilot and Claude, Search Console data from March 2026).
+
+```bash
+python3 scripts/dev-fixtures/mock-google.py 4400
+```
+
+Then in `.env`: `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` set to any value, and
+`GOOGLE_API_MOCK_URL=http://localhost:4400`. Settings → Analytics → Connect goes through the
+mock's consent redirect; pick "sunnyroofing.test - GA4" and "sunnyroofing.test".
+
 ## Running the agents against it
 
 ```bash

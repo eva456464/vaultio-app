@@ -18,7 +18,7 @@ import {
   type ActivityType,
   type Ga4Channel,
 } from "@/db/schema";
-import type { TrafficRange } from "@/lib/traffic";
+import { rangeStart, type TrafficRange } from "@/lib/traffic";
 import { availableRequirements } from "../agents/capabilities";
 import { ONBOARDING_STEPS } from "../agents/queue";
 import { JOB_REGISTRY } from "../agents/runner";
@@ -279,18 +279,17 @@ export async function getBusinessProfile(site: Site) {
 }
 
 
-const RANGE_DAYS: Record<TrafficRange, number | null> = { "1d": 1, "7d": 7, "30d": 30, "90d": 90, "12m": 365, all: null };
 
 export async function getTrafficSources(site: Site, range: TrafficRange) {
   const today = siteDay(new Date(), site.timeZone);
-  const days = RANGE_DAYS[range];
+  const start = rangeStart(today, range, "");
   const rows = await db
     .select({ date: ga4ChannelDaily.date, channel: ga4ChannelDaily.channel, users: ga4ChannelDaily.activeUsers })
     .from(ga4ChannelDaily)
     .where(
       and(
         eq(ga4ChannelDaily.orgWebsiteId, site.id),
-        days ? gte(ga4ChannelDaily.date, shiftDay(today, -days)) : undefined,
+        start ? gte(ga4ChannelDaily.date, start) : undefined,
         inArray(ga4ChannelDaily.channel, [...GA4_CHANNELS]),
       ),
     )

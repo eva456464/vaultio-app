@@ -93,7 +93,7 @@ Everything the agents do goes through one path, so work is never silently droppe
 | Hero / body images | next phase |
 | AI visibility: weekly + at onboarding, asks each prompt to Claude (web search), ChatGPT and Gemini when keyed; mentions, brands with sentiment, cited sources; Overview / Prompts / Brands / Sources pages | built |
 | Client reports: Reporting page with section switches and live preview, print-to-PDF, monthly email with a stored snapshot behind a share link (`/api/reports/shared/<token>`) | built |
-| GA4 + Search Console sync | needs a Google Cloud OAuth app |
+| Google Analytics + Search Console: per-site connection, daily GA4 sync (channels, pages, AI assistants), Search Console sync every 3 days, Site traffic pages | built |
 | Backlink exchange matcher, Reddit / Quora agents, Instagram & Facebook posting | later phases |
 
 The AI and keyword-data clients (`src/server/ai/claude.ts`, `src/server/seo/dataforseo.ts`) are
@@ -103,6 +103,29 @@ writer with stand-in providers to check the whole pipeline without API keys.
 Claude calls use `claude-opus-5-5` (override with `CLAUDE_MODEL`), structured outputs for JSON,
 streaming for long articles, Anthropic-hosted web search for research, prompt caching on the
 stable system prompts, and server-side refusal fallbacks (`fallbacks: "default"`).
+
+### Google Analytics and Search Console
+
+Each site connects GA4 and Search Console separately (Settings → Analytics), like the reference
+product: `/api/integrations/google/start` sends an admin to Google's consent screen with a signed
+state, `/api/integrations/google/callback` stores the refresh token encrypted on the site's `ga4` or
+`gsc` integration, then the admin picks the property. Choosing a property starts the sync agents at
+once; disconnecting revokes the token but keeps the property and the synced numbers, so reconnecting
+resumes without downloading history again. All Google calls are in `src/server/google/client.ts`.
+
+The agents copy Google's numbers into Vaultio's tables so pages never wait on Google:
+
+| Agent | Stores |
+|---|---|
+| `analyticsSync` (daily) | `ga4_channel_daily` (visitors per channel per day, AI assistants split out of Referral) and `ga4_range_metrics` totals, channels and pages for each period the pages offer |
+| `aiTrafficReport` (daily) | `ga4_ai_source_daily` (visitors per AI assistant, day and landing page) and the AI rows of `ga4_range_metrics` |
+| `rankingsCheck` (every 3 days) | `gsc_daily_metrics` and `gsc_dimension_metrics` (one row per day and page, search or country) |
+
+Unique visitors can't be added up across days, so GA4 periods are fetched whole; Search Console
+numbers add up, so its periods are summed from daily rows (positions weighted by impressions). The
+first run backfills history (GA4 from the property's creation, at most 5 years; Search Console about
+16 months); later runs re-fetch the last few days, which Google may still revise. A period is the last
+N days including today (`src/lib/traffic.ts`); Search Console periods end on its latest day of data.
 
 ### Client reports
 
@@ -122,7 +145,7 @@ Sections without data are switched off rather than shown with invented numbers.
 | Article writing, topic research, AI prompts | `ANTHROPIC_API_KEY` |
 | Keyword volumes, SERPs, competitors, domain rating | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
 | AI visibility checks | `OPENAI_API_KEY`, `GEMINI_API_KEY` (plus Anthropic) |
-| GA4 + Search Console | Google Cloud OAuth client with Analytics and Search Console APIs |
+| GA4 + Search Console | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`: a Google Cloud OAuth client with the Analytics Data, Analytics Admin and Search Console APIs |
 | Billing | Stripe keys + webhook secret |
 | Email (monthly reports; later invites) | `RESEND_API_KEY`, `REPORT_FROM_EMAIL` (verified sender), `APP_URL` for links |
 | White-label custom domains | Vercel API token (domain verification) |

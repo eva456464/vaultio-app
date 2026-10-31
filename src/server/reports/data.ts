@@ -56,15 +56,17 @@ export async function gatherReport(site: Site, period: ReportPeriod) {
   const totals = (rows: typeof daily) => {
     const clicks = rows.reduce((sum, row) => sum + row.clicks, 0);
     const impressions = rows.reduce((sum, row) => sum + row.impressions, 0);
-    const positioned = rows.filter((row) => row.position !== null);
-    const position = positioned.length ? positioned.reduce((sum, row) => sum + (row.position ?? 0), 0) / positioned.length : null;
+    // Average position weighted by impressions, as Search Console reports it.
+    const positioned = rows.filter((row) => row.position !== null && row.impressions > 0);
+    const weight = positioned.reduce((sum, row) => sum + row.impressions, 0);
+    const position = weight ? positioned.reduce((sum, row) => sum + (row.position ?? 0) * row.impressions, 0) / weight : null;
     return { clicks, impressions, position };
   };
   const search = totals(inPeriod);
   const searchBefore = totals(before);
   const dimension = async (kind: "country" | "page" | "query") =>
     db
-      .select({ key: gscDimensionMetrics.key, clicks: sql<number>`sum(${gscDimensionMetrics.clicks})::int`, impressions: sql<number>`sum(${gscDimensionMetrics.impressions})::int`, position: sql<number>`avg(${gscDimensionMetrics.position})` })
+      .select({ key: gscDimensionMetrics.key, clicks: sql<number>`sum(${gscDimensionMetrics.clicks})::int`, impressions: sql<number>`sum(${gscDimensionMetrics.impressions})::int`, position: sql<number>`sum(${gscDimensionMetrics.position} * ${gscDimensionMetrics.impressions}) / nullif(sum(${gscDimensionMetrics.impressions}), 0)` })
       .from(gscDimensionMetrics)
       .where(and(eq(gscDimensionMetrics.orgWebsiteId, site.id), eq(gscDimensionMetrics.dimension, kind), gte(gscDimensionMetrics.periodEnd, start), lte(gscDimensionMetrics.periodStart, end)))
       .groupBy(gscDimensionMetrics.key)

@@ -827,6 +827,55 @@
       "sitemapPlaceholder": "Found automatically from robots.txt",
       "count": "{count, plural, one {# page} other {# pages}}",
       "empty": "No pages yet. Your agents read your sitemap every day."
+    },
+    "analytics": {
+      "title": "Analytics",
+      "subtitle": "Connect Google Analytics and Search Console to track how your articles perform.",
+      "dataSources": "Data sources",
+      "dataSourcesHint": "Track clicks, impressions, and AI traffic for every article — right from your dashboard.",
+      "products": {
+        "ga4": {
+          "name": "Google Analytics 4",
+          "description": "Track AI-driven traffic and measure content performance.",
+          "pick": "Choose the Google Analytics property for {site}",
+          "empty": "This Google account can't see any Google Analytics 4 properties. Connect an account that has access to the site's property.",
+          "option": "Property {id} · {account}"
+        },
+        "gsc": {
+          "name": "Google Search Console",
+          "description": "Monitor organic search clicks and impressions.",
+          "pick": "Choose the Search Console property for {site}",
+          "empty": "This Google account can't see any verified Search Console properties. Connect an account that has access to the site.",
+          "option": "{kind, select, domain {Domain property} other {URL-prefix property}}"
+        }
+      },
+      "status": {
+        "connected": "Connected",
+        "pending": "Choose a property",
+        "error": "Needs attention",
+        "off": "Not connected"
+      },
+      "connect": "Connect",
+      "manage": "Manage",
+      "connectedAs": "Connected as {email}",
+      "property": "Property: {name}",
+      "lastSynced": "Last synced {date}",
+      "firstSync": "First sync in progress…",
+      "disconnect": "Disconnect account",
+      "cancel": "Cancel",
+      "save": "Use this property",
+      "saving": "Saving…",
+      "loadError": "Couldn't load your properties: {message}",
+      "notConfigured": "Google connections aren't set up on this server yet (GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET).",
+      "schedule": "Google Analytics is checked every day and Search Console every 3 days.",
+      "errors": {
+        "denied": "Google access wasn't granted, so nothing was connected.",
+        "exchange": "Google didn't finish the connection. Please try again.",
+        "state": "That connection link expired or belongs to another account. Please try again.",
+        "admin": "Only workspace admins can connect data sources.",
+        "notConfigured": "Google connections aren't set up on this server yet (GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET).",
+        "product": "Unknown data source."
+      }
     }
   },
   "aiVisibility": {
@@ -1089,6 +1138,173 @@
       "body": "Your {month} report for <b>{site}</b> is ready: articles published, Google and AI search visibility, authority and site health.",
       "cta": "View the report",
       "pdfHint": "To save it as a PDF, open the report and use your browser's Print › Save as PDF."
+    }
+  },
+  "traffic": {
+    "subtitle": "Analyze your site traffic across Google and AI search.",
+    "homepage": "Homepage",
+    "articleTag": "{brand} article",
+    "articlesOnly": "{brand} articles only",
+    "searchPages": "Search pages…",
+    "searchKeywords": "Search keywords…",
+    "showing": "Showing {from}–{to} of {total, plural, one {# item} other {# items}}",
+    "previous": "Previous",
+    "next": "Next",
+    "noMatches": "Nothing matches these filters.",
+    "noData": "No visits in this period yet.",
+    "connect": {
+      "ga4": {
+        "title": "Connect Google Analytics to see your traffic",
+        "body": "Your agents read visitors per channel, page and AI assistant from Google Analytics every day."
+      },
+      "gsc": {
+        "title": "Connect Search Console to see your Google traffic",
+        "body": "Your agents read clicks, impressions and rankings from Search Console every 3 days."
+      },
+      "button": "Connect in Settings",
+      "syncing": "Your first sync is running. Numbers appear here within a few minutes."
+    },
+    "all": {
+      "title": "All traffic",
+      "kpis": {
+        "activeUsers": {
+          "label": "Active users",
+          "caption": "Total active users in this period",
+          "hint": "People who visited your site at least once in this period."
+        },
+        "sessions": {
+          "label": "Sessions",
+          "caption": "Total sessions in this period",
+          "hint": "Visits to your site. One person can visit several times."
+        },
+        "topChannel": {
+          "label": "Top channel",
+          "caption": "Channel with most users",
+          "hint": "Where most of your visitors came from in this period."
+        },
+        "aiUsers": {
+          "label": "Users from AI searches",
+          "caption": "Users who came from AI searches",
+          "hint": "Visitors who arrived from ChatGPT, Gemini, Claude, Perplexity and other AI assistants."
+        }
+      },
+      "chartTitle": "Channel performance",
+      "chartSubtitle": "Compare which channels drive the most traffic to your site",
+      "pagesTitle": "Top pages",
+      "pagesSubtitle": "Pages with the highest number of active users during the selected period",
+      "columns": {
+        "page": "Page",
+        "activeUsers": "Active Users",
+        "pageShare": "Page Share",
+        "topSource": "Top Source"
+      },
+      "hints": {
+        "activeUsers": "People who viewed this page in the period.",
+        "pageShare": "This page's share of all active users on the site.",
+        "topSource": "The channel that sent the most visitors to this page."
+      }
+    },
+    "ai": {
+      "title": "AI search traffic",
+      "kpis": {
+        "activeUsers": {
+          "label": "Active users",
+          "caption": "Users who came from AI searches",
+          "hint": "Visitors who arrived from an AI assistant in this period."
+        },
+        "sessions": {
+          "label": "Sessions",
+          "caption": "Sessions from AI searches",
+          "hint": "Visits that started from an AI assistant."
+        },
+        "topModel": {
+          "label": "Top AI model",
+          "caption": "Top model by AI traffic",
+          "hint": "The AI assistant that sent you the most visitors."
+        },
+        "models": {
+          "label": "AI models",
+          "caption": "Number of AI models",
+          "hint": "How many different AI assistants sent you visitors."
+        }
+      },
+      "chartTitle": "AI search performance",
+      "chartSubtitle": "See which AI models drive the most traffic to your site",
+      "modelsTitle": "Top AI models",
+      "columns": {
+        "model": "AI model",
+        "activeUsers": "Active Users",
+        "share": "Share",
+        "page": "Page",
+        "pageShare": "Page Share",
+        "topModel": "Top AI Model"
+      },
+      "pagesTitle": "Top pages",
+      "pagesSubtitle": "Pages that AI search sends people to",
+      "groupBy": "Group by",
+      "groups": {
+        "pages": "Pages",
+        "models": "AI models"
+      },
+      "otherAi": "Other AI"
+    },
+    "google": {
+      "title": "Google traffic",
+      "kpis": {
+        "clicks": {
+          "label": "Clicks from Google",
+          "caption": "People who visited your site from their search results",
+          "hint": "Clicks on your site in Google search results, from Search Console."
+        },
+        "impressions": {
+          "label": "Total impressions",
+          "caption": "How often your site was listed when someone searched",
+          "hint": "How many times your pages appeared in Google search results."
+        },
+        "position": {
+          "label": "Average ranking",
+          "caption": "Lower number means higher on the page",
+          "hint": "Your average position in Google results across all searches."
+        }
+      },
+      "changeHint": "Change against the previous period of the same length",
+      "countriesTitle": "Clicks by country",
+      "chartTitle": "Google traffic over time",
+      "chartSubtitle": "How your clicks, impressions and ranking in Google changed over the selected period.",
+      "metrics": {
+        "clicks": "Clicks",
+        "impressions": "Impressions",
+        "position": "Avg. ranking"
+      },
+      "rankingNote": "Higher on the chart means a better ranking.",
+      "dataThrough": "Search Console data through {date}",
+      "pagesTitle": "Your most visited pages",
+      "pagesSubtitle": "Pages that bring in the most clicks from Google search.",
+      "columns": {
+        "page": "Page",
+        "clicks": "Clicks",
+        "impressions": "Impressions",
+        "clickShare": "Click Share",
+        "ctr": "CTR",
+        "position": "Avg Position"
+      },
+      "hints": {
+        "clicks": "Clicks from Google search to this page.",
+        "impressions": "Times this page appeared in Google results.",
+        "clickShare": "This page's share of all Google clicks to the site.",
+        "ctr": "Clicks divided by impressions.",
+        "position": "Average ranking in Google. Lower is better."
+      },
+      "keywordsTitle": "Searches that found you",
+      "keywordsSubtitle": "The search terms bringing the most clicks to your site.",
+      "keywordColumns": {
+        "keyword": "Keywords",
+        "clicks": "Organic Clicks",
+        "impressions": "Organic Impressions",
+        "position": "Avg Position"
+      },
+      "keywordsOnly": "{brand} keywords only",
+      "keywordTag": "{brand} keyword"
     }
   }
 }

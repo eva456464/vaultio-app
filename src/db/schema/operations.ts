@@ -14,6 +14,7 @@ import {
   timestamp,
   uniqueIndex,
 } from "drizzle-orm/pg-core";
+import type { TrafficRange } from "../../lib/traffic";
 import { organizations, orgWebsites } from "./organization";
 
 const timestamps = {
@@ -181,6 +182,7 @@ export const gscDimensionMetrics = pgTable(
       .references(() => orgWebsites.id, { onDelete: "cascade" }),
     dimension: text("dimension").$type<"query" | "page" | "country">().notNull(),
     key: text("key").notNull(),
+    // The sync stores one row per day (start = end); ranges are summed from these.
     periodStart: date("period_start").notNull(),
     periodEnd: date("period_end").notNull(),
     clicks: integer("clicks").notNull().default(0),
@@ -188,7 +190,10 @@ export const gscDimensionMetrics = pgTable(
     ctr: real("ctr"),
     position: real("position"),
   },
-  (t) => [index("gsc_dimension_site_idx").on(t.orgWebsiteId, t.dimension)],
+  (t) => [
+    index("gsc_dimension_site_idx").on(t.orgWebsiteId, t.dimension),
+    index("gsc_dimension_site_day_idx").on(t.orgWebsiteId, t.dimension, t.periodStart),
+  ],
 );
 
 export const GA4_CHANNELS = ["Direct", "Other", "Organic search", "LLM referrers", "Paid"] as const;
@@ -222,6 +227,33 @@ export const ga4AiSourceDaily = pgTable(
     activeUsers: integer("active_users").notNull().default(0),
   },
   (t) => [index("ga4_ai_source_site_date_idx").on(t.orgWebsiteId, t.date)],
+);
+
+export const GA4_RANGE_KINDS = ["total", "channel", "page", "aiTotal", "aiSource", "aiPage"] as const;
+export type Ga4RangeKind = (typeof GA4_RANGE_KINDS)[number];
+
+/**
+ * GA4 numbers for each period the Site traffic pages offer. Unique users can't be added up
+ * across days, so the analytics agents fetch every period from GA4 as a whole and replace these rows.
+ * `key` is the channel, page path or AI model; `subKey` is the page for `aiPage` rows.
+ */
+export const ga4RangeMetrics = pgTable(
+  "ga4_range_metrics",
+  {
+    id: serial("id").primaryKey(),
+    orgWebsiteId: integer("org_website_id")
+      .notNull()
+      .references(() => orgWebsites.id, { onDelete: "cascade" }),
+    range: text("range").$type<TrafficRange>().notNull(),
+    kind: text("kind").$type<Ga4RangeKind>().notNull(),
+    key: text("key").notNull().default(""),
+    subKey: text("sub_key").notNull().default(""),
+    activeUsers: integer("active_users").notNull().default(0),
+    sessions: integer("sessions").notNull().default(0),
+    topSource: text("top_source"),
+    syncedAt: timestamp("synced_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [index("ga4_range_site_idx").on(t.orgWebsiteId, t.range, t.kind)],
 );
 
 export const websiteMetricsHistory = pgTable("website_metrics_history", {

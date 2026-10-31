@@ -1,4 +1,7 @@
+import { and, eq, ne } from "drizzle-orm";
 import { PgBoss } from "pg-boss";
+import { db } from "@/db";
+import { agentJobRuns } from "@/db/schema";
 import type { AgentJob } from "./schedule";
 
 export const QUEUES = {
@@ -52,6 +55,14 @@ export async function enqueueAgentJob(boss: PgBoss, data: AgentJobData, startAft
     singletonKey: `${data.siteId}:${data.job}:${data.runDate}`,
     startAfter,
   });
+}
+
+/** Runs a job again today even if it already ran (after a data source is connected or changed). */
+export async function rerunAgentJob(siteId: number, job: AgentJobName, runDate: string) {
+  await db
+    .delete(agentJobRuns)
+    .where(and(eq(agentJobRuns.orgWebsiteId, siteId), eq(agentJobRuns.job, job), eq(agentJobRuns.runDate, runDate), ne(agentJobRuns.status, "running")));
+  return enqueueAgentJob(await getProducer(), { siteId, job, runDate });
 }
 
 export async function enqueueOnboarding(siteId: number) {

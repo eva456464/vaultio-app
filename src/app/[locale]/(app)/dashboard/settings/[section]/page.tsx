@@ -1,7 +1,7 @@
 import { Construction } from "lucide-react";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-import { SETTINGS_GROUPS } from "@/components/settings/settings-nav";
+import { SETTINGS_GROUPS } from "@/lib/settings-sections";
 
 const SECTIONS = new Set<string>(SETTINGS_GROUPS.flatMap((group) => group.sections));
 
