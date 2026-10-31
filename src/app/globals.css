@@ -112,3 +112,8 @@
 .article-body td { @apply border border-line px-3 py-2 align-top; }
 .article-body img { @apply rounded-xl; }
 .article-body hr { @apply my-10 border-line; }
+/* Smaller variant for side-by-side comparisons (improvement review) */
+.article-body-compact { @apply text-sm leading-relaxed; }
+.article-body-compact > * + * { @apply mt-3; }
+.article-body-compact h2, .article-body-compact h3 { @apply mt-4 text-base; }
+.article-body-compact table { @apply text-[13px]; }

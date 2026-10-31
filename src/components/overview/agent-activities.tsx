@@ -57,6 +57,8 @@ function ActivitySentence({ item }: { item: ActivityItem }) {
     case "articleWritten":
     case "topicResearched":
     case "reportSent":
+    case "articleImprovementPlanned":
+    case "articleImproved":
       return <>{t(item.type, { title: item.title ?? "" })}</>;
     default:
       return <>{t(item.type, { count })}</>;
@@ -113,7 +115,11 @@ function PlannedActionsPopover({ planned, today }: { planned: PlannedDay[]; toda
                   return (
                     <li key={index} className="flex items-center gap-2 text-sm text-ink">
                       <Icon className="size-4 text-ink-secondary" strokeWidth={1.75} />
-                      {action.job === "writeArticle" ? tPlanned("articleWritten", { title: action.title ?? "" }) : tPlanned(action.job as "sitemapSync")}
+                      {action.job === "writeArticle"
+                        ? tPlanned("articleWritten", { title: action.title ?? "" })
+                        : action.job === "improveArticle"
+                          ? tPlanned("improveArticle", { title: action.title ?? "" })
+                          : tPlanned(action.job as "sitemapSync")}
                     </li>
                   );
                 })}

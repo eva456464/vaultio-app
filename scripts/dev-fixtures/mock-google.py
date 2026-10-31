@@ -76,6 +76,7 @@ def ga4_report(req):
 
 def gsc_report(req):
     dims = req.get("dimensions", [])
+    only_page = next((f["expression"] for g in req.get("dimensionFilterGroups", []) for f in g.get("filters", []) if f.get("dimension") == "page"), None)
     rows = {}
     for day in days(req["startDate"], min(req["endDate"], str(TODAY - dt.timedelta(days=2))), GSC_START):
         growth = 1 + (day - GSC_START).days / 120
@@ -88,6 +89,8 @@ def gsc_report(req):
                     position = 3 + qi * 4 + pi * 1.5 + noise(day, pi, qi, ci, "p") * 3
                     clicks = int(impressions * max(0.01, 0.3 - position / 100) + noise(day, pi, qi, ci, "c"))
                     values = {"date": str(day), "page": SITE + page, "query": query, "country": country}
+                    if only_page and values["page"] != only_page:
+                        continue
                     key = tuple(values[d] for d in dims)
                     total = rows.setdefault(key, [0, 0, 0.0])
                     total[0] += clicks

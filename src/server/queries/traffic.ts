@@ -14,6 +14,7 @@ import {
   type orgWebsites,
 } from "@/db/schema";
 import { AI_SERIES, aiSeriesOf, type AiSeries } from "@/lib/ai-sources";
+import { pathOf } from "@/lib/paths";
 import { RANGE_DAYS, rangeStart, shiftDay, type SearchRange, type TrafficRange } from "@/lib/traffic";
 import { siteDay } from "../agents/schedule";
 import { getTrafficSources } from "./overview";
@@ -34,16 +35,6 @@ const share = (part: number, whole: number) => (whole ? (part / whole) * 100 : 0
 const escapeLike = (value: string) => value.replace(/[\\%_]/g, (char) => `\\${char}`);
 const paged = <T>(rows: T[], total: number, page: number): Paged<T> => ({ rows, total, page, pageSize: PAGE_SIZE });
 
-/** Path of a URL or path, without a trailing slash (except the homepage). */
-export function pathOf(urlOrPath: string) {
-  let path = urlOrPath;
-  try {
-    path = new URL(urlOrPath, "https://placeholder.invalid").pathname;
-  } catch {
-    // keep as given
-  }
-  return path.length > 1 ? path.replace(/\/+$/, "") : path;
-}
 
 export async function getGoogleConnections(siteId: number) {
   const rows = await db

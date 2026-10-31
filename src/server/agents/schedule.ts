@@ -34,6 +34,8 @@ export const AGENT_JOBS = [
   "writeArticle",
   "milestones",
   "monthlyReport",
+  "improvementScan",
+  "improveArticle",
 ] as const;
 export type AgentJob = (typeof AGENT_JOBS)[number];
 
@@ -52,6 +54,9 @@ export const AGENT_SCHEDULE: ScheduledAgent[] = [
   { job: "writeArticle", cadence: { kind: "daily" }, requires: ["llm"] },
   { job: "milestones", cadence: { kind: "daily" }, requires: [] },
   { job: "monthlyReport", cadence: { kind: "monthly", dayOfMonth: 1 }, requires: ["email"] },
+  // Both do nothing unless article improvements are on; improveArticle acts on improvement days.
+  { job: "improvementScan", cadence: { kind: "daily" }, requires: ["gsc"] },
+  { job: "improveArticle", cadence: { kind: "daily" }, requires: ["gsc", "llm"] },
 ];
 
 /** Calendar day (YYYY-MM-DD) in the site's time zone. */
@@ -90,6 +95,7 @@ export function plannedActions({
   available,
   days,
   articleDays,
+  improvementDays = new Map(),
 }: {
   now: Date;
   timeZone: string;
@@ -97,6 +103,8 @@ export function plannedActions({
   available: Set<Requirement>;
   days: number;
   articleDays: Map<string, string>;
+  /** Days an improvement will be prepared, with the article's title. */
+  improvementDays?: Map<string, string>;
 }): PlannedAction[] {
   const today = siteDay(now, timeZone);
   const actions: PlannedAction[] = [];
@@ -104,8 +112,10 @@ export function plannedActions({
     const day = formatISO(addDays(new Date(`${today}T12:00:00Z`), offset), { representation: "date" });
     const title = articleDays.get(day);
     if (title) actions.push({ day, job: "writeArticle", title });
+    const refresh = improvementDays.get(day);
+    if (refresh) actions.push({ day, job: "improveArticle", title: refresh });
     for (const agent of AGENT_SCHEDULE) {
-      if (agent.job === "milestones" || agent.job === "writeArticle") continue;
+      if (["milestones", "writeArticle", "improvementScan", "improveArticle"].includes(agent.job)) continue;
       if (!agent.requires.every((req) => available.has(req))) continue;
       if (isDueOn(agent.cadence, day, anchorDay)) actions.push({ day, job: agent.job });
     }

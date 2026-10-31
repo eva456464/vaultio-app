@@ -71,6 +71,8 @@ Everything the agents do goes through one path, so work is never silently droppe
 | Article writing + publishing | on content-plan days | LLM, image source, publishing integration |
 | Milestones (achievements) | daily | — |
 | Monthly client report email | monthly (1st) | email sending (Resend) + "Monthly email" on |
+| Improvement scan | daily (when improvements are on) | Search Console connected |
+| Article improvement | day before each improvement day (max 2/week); auto-publish on the day if on | Search Console + LLM |
 
 ### Agent status
 
@@ -91,6 +93,7 @@ Everything the agents do goes through one path, so work is never silently droppe
 | Publishing: content API (`/api/integrations/v1/articles`, `X-API-Key`), signed webhook, WordPress (application password); auto-publish after writing and "Publish now" | built |
 | Other platforms (Shopify, Webflow, Wix, Ghost, Framer, hosted blog...) | next phase |
 | Article images (cover in one of 6 styles, up to 2 body images), CTA cards (link, map, contact), promo paragraph, YouTube video | built |
+| Article improvements: opportunity scan, section-level rewrites with safety checks, per-change review, publish/update, impact | built (Vaultio articles) |
 | AI visibility: weekly + at onboarding, asks each prompt to Claude (web search), ChatGPT and Gemini when keyed; mentions, brands with sentiment, cited sources; Overview / Prompts / Brands / Sources pages | built |
 | Client reports: Reporting page with section switches and live preview, print-to-PDF, monthly email with a stored snapshot behind a share link (`/api/reports/shared/<token>`) | built |
 | Google Analytics + Search Console: per-site connection, daily GA4 sync (channels, pages, AI assistants), Search Console sync every 3 days, Site traffic pages | built |
@@ -143,6 +146,29 @@ Publishing to WordPress copies the images into the site's media library (the cov
 featured image) and remembers the post and uploads, so a regenerated cover updates the same post.
 Images live in Postgres to avoid running separate file storage; move them to object storage
 (S3, R2, Supabase) if volume grows.
+
+### Article improvements
+
+`improvementScan` (daily) reads each published Vaultio article's Search Console numbers and keeps a
+live list of candidates. A page qualifies after 90 days in Google with at least 100 impressions in
+90 days; pages improved in the last 6 months or rejected in the last 4 weeks are skipped, and pages
+already performing well (top 3 with a normal click-through rate and steady clicks) are left alone.
+The opportunity, in priority order: declining clicks (−30% on the previous 4 weeks), almost page one
+(position 8–20), low click-through for the position, thin content (< 800 words), outdated (> 1 year).
+
+`improveArticle` runs daily: the day before an improvement day it takes the candidate with the most
+impressions and asks Claude for section-level edits guided by the opportunity, the page's real
+searches (fetched live from Search Console) and fresh research. Dead links (404/410/missing domain,
+only when DNS works) and links to competitors are proposed for removal. Safety checks flag
+placeholders, links or images dropped from rewritten sections, duplicate FAQ sections, searches the
+new title no longer covers, and repeated paragraphs (`src/server/improvements`). Each change is
+approved or rejected on the review page; publishing applies only approved changes to the stored
+original and updates the live article through `publishArticle(..., { update: true })`. With
+auto-approve on, the improvement is published on its day unless it was flagged. Impact is measured
+from the page's Search Console rows 14 days before and after publishing.
+
+Only articles written by Vaultio are improved for now; existing WordPress posts need their block
+markup preserved and are a later step.
 
 ### Client reports
 

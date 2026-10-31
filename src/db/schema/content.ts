@@ -202,21 +202,70 @@ export const mediaAssets = pgTable(
   (t) => [index("media_assets_site_idx").on(t.orgWebsiteId)],
 );
 
-export const articleImprovements = pgTable("article_improvements", {
-  id: serial("id").primaryKey(),
-  orgWebsiteId: integer("org_website_id")
-    .notNull()
-    .references(() => orgWebsites.id, { onDelete: "cascade" }),
-  pageUrl: text("page_url").notNull(),
-  articleId: integer("article_id").references(() => articles.id, { onDelete: "set null" }),
-  status: text("status").$type<"candidate" | "pending" | "ready" | "published" | "dismissed">().notNull(),
-  reason: text("reason"),
-  originalContent: text("original_content"),
-  improvedContent: text("improved_content"),
-  gscSnapshot: jsonb("gsc_snapshot"),
-  publishedAt: timestamp("published_at", { withTimezone: true }),
-  ...timestamps,
-});
+export const IMPROVEMENT_STATUSES = ["candidate", "scheduled", "generating", "pending_review", "published", "rejected", "failed", "no_changes", "dismissed"] as const;
+export type ImprovementStatus = (typeof IMPROVEMENT_STATUSES)[number];
+export const OPPORTUNITIES = ["DECLINING", "LOW_CTR", "ALMOST_PAGE_ONE", "THIN_CONTENT", "STALE_CONTENT"] as const;
+export type Opportunity = (typeof OPPORTUNITIES)[number];
+
+/** Search Console numbers behind an opportunity (last 90 days unless noted). */
+export type ImprovementEvidence = {
+  clicks28: number;
+  previousClicks28: number;
+  impressions90: number;
+  clicks90: number;
+  position: number | null;
+  ctr: number;
+  words: number;
+  lastUpdated: string;
+  firstSeen: string;
+};
+
+/** One proposed edit; the article is rebuilt from the original plus the approved edits. */
+export type ImprovementChange = {
+  id: string;
+  kind: "title" | "meta" | "rewrite" | "add" | "removeLink";
+  status: "pending" | "approved" | "rejected";
+  /** rewrite: the section replaced; add: the section it goes after (-1 = after the introduction). */
+  sectionIndex?: number;
+  heading?: string;
+  original?: string;
+  suggested: string;
+  reason?: string;
+  linkUrl?: string;
+  linkReason?: "broken" | "competitor";
+};
+
+export type SafetyFlag = { check: string; detail: string; changeId?: string };
+
+/** Rewrites of published articles, chosen from Search Console opportunities. */
+export const articleImprovements = pgTable(
+  "article_improvements",
+  {
+    id: serial("id").primaryKey(),
+    orgWebsiteId: integer("org_website_id")
+      .notNull()
+      .references(() => orgWebsites.id, { onDelete: "cascade" }),
+    pageUrl: text("page_url").notNull(),
+    articleId: integer("article_id").references(() => articles.id, { onDelete: "set null" }),
+    status: text("status").$type<ImprovementStatus>().notNull(),
+    opportunity: text("opportunity").$type<Opportunity>(),
+    gscSnapshot: jsonb("gsc_snapshot").$type<ImprovementEvidence>(),
+    scheduledFor: date("scheduled_for"),
+    reason: text("reason"),
+    originalTitle: text("original_title"),
+    originalMeta: text("original_meta"),
+    originalContent: text("original_content"),
+    improvedContent: text("improved_content"),
+    changes: jsonb("changes").$type<ImprovementChange[]>().notNull().default([]),
+    safetyFlags: jsonb("safety_flags").$type<SafetyFlag[]>().notNull().default([]),
+    queries: jsonb("queries").$type<{ query: string; clicks: number; impressions: number; position: number }[]>().notNull().default([]),
+    error: text("error"),
+    decidedAt: timestamp("decided_at", { withTimezone: true }),
+    publishedAt: timestamp("published_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (t) => [index("article_improvements_site_idx").on(t.orgWebsiteId, t.status)],
+);
 
 export const products = pgTable("products", {
   id: serial("id").primaryKey(),

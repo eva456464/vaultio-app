@@ -121,7 +121,9 @@
       "keywordResearch": "Found {count, plural, one {# keyword} other {# keywords}}",
       "promptsGenerated": "Wrote {count, plural, one {# question} other {# questions}} customers ask AI",
       "firstMonthPlanned": "Planned {count, plural, one {# article} other {# articles}} for your first month",
-      "reportSent": "Emailed the {title} report"
+      "reportSent": "Emailed the {title} report",
+      "articleImprovementPlanned": "Agent planned a refresh: {title}",
+      "articleImproved": "Agent refreshed: {title}"
     },
     "planned": {
       "sitemapSync": "Will sync your sitemap",
@@ -134,7 +136,8 @@
       "topicResearched": "Will research tomorrow's topic",
       "articleWritten": "Will write: {title}",
       "competitorGapScan": "Will scan competitors for content gaps",
-      "monthlyReport": "Will email this month's client report"
+      "monthlyReport": "Will email this month's client report",
+      "improveArticle": "Will prepare a refresh: {title}"
     },
     "achievement": {
       "moreAchievements": "+{count} more achievements",
@@ -441,7 +444,151 @@
       "title": "Improved articles",
       "subtitle": "Articles that need updates to rank better on Google and AI search show up here.",
       "emptyTitle": "Scanning for opportunities",
-      "emptyBody": "Your agents watch how published articles perform in Google Search. When a page is worth improving, it will show up here."
+      "emptyBody": "Your agents watch how published articles perform in Google Search. When a page is worth improving, it will show up here.",
+      "nextScan": "Next scan {date}",
+      "howItWorks": "How it works",
+      "off": {
+        "title": "Article improvements are off",
+        "body": "Turn on article improvements and your agents will review how your published articles perform and prepare better versions for your review.",
+        "cta": "Enable in settings"
+      },
+      "needsGsc": {
+        "title": "Connect Google Search Console",
+        "body": "Improvements are chosen from how each article performs in Google Search.",
+        "cta": "Connect in Settings"
+      },
+      "scope": "Articles written by {brand} are improved. Other posts on your site will be supported later.",
+      "filter": {
+        "all": "All",
+        "queued": "Queued"
+      },
+      "status": {
+        "candidate": "Queued",
+        "scheduled": "Scheduled",
+        "generating": "Generating",
+        "pending_review": "Pending review",
+        "published": "Published",
+        "rejected": "Rejected",
+        "failed": "Failed",
+        "no_changes": "No changes",
+        "dismissed": "Discarded"
+      },
+      "opportunity": {
+        "DECLINING": [
+          "Declining traffic",
+          "Clicks from Google dropped noticeably compared to the previous month."
+        ],
+        "LOW_CTR": [
+          "Low CTR",
+          "The page gets fewer clicks than expected for its position in search results. A sharper title and description can win more of them."
+        ],
+        "ALMOST_PAGE_ONE": [
+          "Almost page one",
+          "The page ranks just below the top results with real search demand. A targeted push can move it onto page one."
+        ],
+        "THIN_CONTENT": [
+          "Thin content",
+          "The article is shorter than what usually ranks for this topic. Expanding it can help it compete."
+        ],
+        "STALE_CONTENT": [
+          "Outdated content",
+          "The article hasn't been updated in over a year. Refreshing facts and figures keeps it competitive."
+        ]
+      },
+      "evidence": {
+        "DECLINING": "Clicks from Google <b>fell {change}%</b> compared to the previous 4 weeks. A refresh can win them back.",
+        "LOW_CTR": "Averages position <b>{position}</b> in Google, but <b>only {ctr}% of searchers click through</b>. A sharper title and description can win more clicks.",
+        "ALMOST_PAGE_ONE": "Averages position <b>{position}</b> with <b>{impressions} impressions</b> in the last 90 days, <b>just short of page one</b>.",
+        "THIN_CONTENT": "At <b>{words} words</b>, it's <b>shorter than what usually ranks</b> for this topic. Expanding it can help it compete.",
+        "STALE_CONTENT": "<b>Last updated {date}</b>. Refreshing its facts and figures keeps it competitive."
+      },
+      "willImprove": "Will be improved on {date}",
+      "review": "Review changes",
+      "open": "Open",
+      "discard": "Discard",
+      "discardConfirm": "Discard this opportunity? This article won't be suggested for improvements again.",
+      "summary": "{changes, plural, one {# change} other {# changes}}",
+      "approvedSummary": "{approved} approved · {rejected} rejected",
+      "measured": "After {days} days: {clicks} clicks, {impressions} impressions",
+      "how": {
+        "title": "How article improvements work",
+        "intro": "We review how the articles on your website perform in Google Search. When the data shows a clear opportunity to rank better, we rewrite that article, changing only the parts that need it.",
+        "steps": [
+          [
+            "Scan performance",
+            "Through Google Search Console we track clicks, impressions, click-through rate and rankings for every article."
+          ],
+          [
+            "Rewrite with purpose",
+            "On each improvement day we rewrite the article with the clearest opportunity. It's prepared the day before, so it's ready for review on the day."
+          ],
+          [
+            "You stay in control",
+            "Approve or reject each change one by one. Nothing goes live until you approve, unless auto-approve is on. Flagged rewrites always wait for your review."
+          ],
+          [
+            "Measure the impact",
+            "Two weeks after an improvement goes live, we compare its clicks and impressions with the two weeks before."
+          ]
+        ],
+        "eligibilityTitle": "What we look for",
+        "eligibility": "Articles that already perform well are left alone. To qualify, a page needs at least 90 days in Google Search and real search demand. Pages improved in the last 6 months, or rejected in the last 4 weeks, are skipped. When several pages qualify, the one with the most impressions goes first."
+      },
+      "detail": {
+        "back": "Back",
+        "eyebrow": "Article improvement",
+        "approveAll": "Approve all",
+        "rejectAll": "Reject all",
+        "publish": "Publish approved changes",
+        "publishing": "Publishing…",
+        "published": "Improvement published to your site.",
+        "publishErrors": "Published, but updating your site failed: {errors}",
+        "rejected": "Improvement rejected.",
+        "progress": "{reviewed} of {total} reviewed",
+        "approve": "Approve",
+        "reject": "Reject",
+        "approvedState": "Approved",
+        "rejectedState": "Rejected",
+        "pendingState": "Not reviewed",
+        "original": "Original",
+        "suggested": "Suggested",
+        "card": "[CTA or video card stays here]",
+        "changes": {
+          "title": "Title",
+          "meta": "Meta description",
+          "rewrite": "Edited section: {heading}",
+          "intro": "Edited introduction",
+          "add": "New section: {heading}",
+          "removeLink": "Link removed",
+          "linkBroken": "This link no longer loads, so it was removed. Reject to keep it.",
+          "linkCompetitor": "This link points to a competitor, so it was removed. Reject to keep it."
+        },
+        "safety": {
+          "title": "Flagged for review",
+          "subtitle": "Before anything goes live, we compare the rewrite with your original article. These spots didn't line up and are worth a quick look.",
+          "checks": {
+            "placeholders": "Unfilled placeholder",
+            "missingLinks": "Link missing from a rewritten section",
+            "missingImages": "Image missing from a rewritten section",
+            "duplicateFaq": "More than one FAQ section",
+            "topicDrift": "Searches dropped from the title",
+            "duplicatedBlocks": "Paragraph repeated"
+          }
+        },
+        "data": "Article data",
+        "words": "Words",
+        "internalLinks": "Internal links",
+        "externalLinks": "External links",
+        "searches": "Searches this page gets",
+        "searchesHint": "From Google Search Console, last 3 months",
+        "impressions": "impressions",
+        "clicks": "clicks",
+        "position": "pos.",
+        "viewArticle": "View article",
+        "impact": "Impact",
+        "impactPending": "Measured 14 days after publishing.",
+        "error": "Preparing this improvement failed: {error}"
+      }
     },
     "emptyPlan": "Your content plan is empty. Your agents create it after keyword research finishes."
   },
@@ -1019,6 +1166,18 @@
         "channel": "Channel handle (optional)",
         "channelPlaceholder": "@yourchannel"
       }
+    },
+    "improvements": {
+      "subtitle": "We periodically review how the articles on your website perform and rewrite the ones with a clear opportunity to rank better.",
+      "view": "View improvements",
+      "enable": "Enable article improvements",
+      "enableHint": "On each improvement day, we pick the article with the clearest opportunity to rank higher and rewrite it.",
+      "days": "Improvement days",
+      "daysHint": "Pick up to 2 days a week. One article gets improved per day.",
+      "autoPublish": "Approve automatically",
+      "autoPublishHint": "Publish improvements on their day without review. Flagged improvements always wait for you.",
+      "needsGsc": "Improvements need Google Search Console. Connect it in Analytics.",
+      "connect": "Connect Search Console"
     }
   },
   "aiVisibility": {

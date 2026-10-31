@@ -221,3 +221,24 @@ export async function updateVisuals(input: z.input<typeof visualsSchema>): Promi
   refresh();
   return { ok: true };
 }
+
+const improvementsSchema = z
+  .object({ enabled: z.boolean(), weekdays: z.array(z.number().int().min(0).max(6)).max(2, "Pick up to 2 days a week"), autoPublish: z.boolean() })
+  .refine((value) => !value.enabled || value.weekdays.length > 0, { message: "Pick at least one improvement day" });
+
+export async function updateImprovements(input: z.input<typeof improvementsSchema>): Promise<Result> {
+  const site = await requireAdminSite();
+  const parsed = improvementsSchema.safeParse(input);
+  if (!parsed.success) return fail(parsed.error);
+  await db
+    .update(orgWebsites)
+    .set({
+      improvementsEnabled: parsed.data.enabled,
+      improvementWeekdays: [...new Set(parsed.data.weekdays)].sort(),
+      improvementsAutoPublish: parsed.data.autoPublish,
+      updatedAt: new Date(),
+    })
+    .where(eq(orgWebsites.id, site.id));
+  refresh();
+  return { ok: true };
+}

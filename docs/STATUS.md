@@ -35,17 +35,17 @@ Ground rules that apply to everything below:
 | Overview | `/dashboard/overview` | Built: daily agent activity, planned actions, agents waiting for keys, achievements, what we learned (brand profile), traffic sources card |
 | Blog content: calendar | `/dashboard/content-plan` | Built: change topic, instructions, delete, add keywords |
 | Blog content: article | `/dashboard/articles/[id]` | Built: article with images and CTA cards, cover image panel (regenerate, up to 5 times), sources, FAQ, quality checks, publish now, export |
-| Blog content: improvements | `/dashboard/content-plan/improvements` | Empty state only (agent not built) |
+| Blog content: improvements | `/dashboard/content-plan/improvements` + `/[id]` | Built: opportunities with evidence, status, discard, how it works; review page with per-change approve/reject, safety flags, publish, impact |
 | Site health | `/dashboard/geo-audit` + public share page | Built |
 | AI visibility (overview, prompts, brands, sources, prompt detail) | `/dashboard/ai-visibility` | Built |
 | Reporting | `/dashboard/reporting` | Built: sections, live preview, Download PDF, monthly email |
-| Settings: Account, Business, Branding, Competitors, Saved pages, Writing, Visuals, Schedule, Publishing, Analytics | `/dashboard/settings/*` | Built (Visuals: the infographic style is saved but infographics aren't generated yet) |
+| Settings: Account, Business, Branding, Competitors, Saved pages, Writing, Visuals, Schedule, Improvements, Publishing, Analytics | `/dashboard/settings/*` | Built (Visuals: the infographic style is saved but infographics aren't generated yet) |
 | Site traffic: All traffic, AI search traffic, Google traffic | `/dashboard/analytics/ga4`, `/ai-traffic`, `/google-traffic` | Built: KPIs, channel / AI-model / Google charts, breakdowns, countries, top pages and searches with search, "brand articles only" and paging; connect state until Google is connected |
 | Clients (agency) | `/clients` | Built |
 | Invoices (agency) | `/clients/invoices` | Built; empty until billing exists |
 | Backlinks | `/dashboard/backlink-exchange` | **Placeholder** |
 | Socials (Reddit, Quora) | `/dashboard/socials` | **Placeholder** |
-| Settings: Team members, Billing, White label, Product catalog, Improvements, Reddit, Quora | `/dashboard/settings/*` | **Placeholder** |
+| Settings: Team members, Billing, White label, Product catalog, Reddit, Quora | `/dashboard/settings/*` | **Placeholder** |
 | Agency settings: Profile, Branding, Hosting, Members, Talk with team | `/clients/settings/*` | **Placeholder** |
 
 ### Agents
@@ -60,7 +60,8 @@ Ground rules that apply to everything below:
 | Monthly client report email | Built (Resend) |
 | Article images, CTA cards, promo paragraph, YouTube video | Built (OpenAI or Gemini images; Claude for scenes, wording and the video search) |
 | Google Analytics sync, AI traffic report, Google rankings check (Search Console) | Built |
-| Backlink exchange, content improvements, Reddit / Quora, infographics | Not built |
+| Article improvements (scan + improve) | Built for articles Vaultio wrote; existing WordPress posts later |
+| Backlink exchange, Reddit / Quora, infographics | Not built |
 
 ### How it was checked
 
@@ -87,21 +88,21 @@ These are written against the providers' documentation but have not run live yet
   checked against current docs from this workspace, so the model names are configurable.
 - The promo paragraph and the YouTube video search (they need real Claude answers).
 - Uploading images to a real WordPress media library.
+- Improvement rewrites with real Claude, and the live Search Console page-query lookup.
 
 The first live run on the Mac should be watched; fixes are expected to be small (field names,
 limits).
 
 ## Still to build, in recommended order
 
-1. **Content improvements**: agent that refreshes older articles; Improvements tab and settings
-   (can reuse the article update path built for cover regeneration).
-2. **Backlinks**: backlink exchange matcher between client sites, Backlinks page, credits.
-3. **Socials**: Reddit and Quora agents, Socials page, their settings (also fills the report's
+1. **Backlinks**: backlink exchange matcher between client sites, Backlinks page, credits.
+2. **Socials**: Reddit and Quora agents, Socials page, their settings (also fills the report's
    community section).
-4. **Team and billing**: Team members (invites), Billing with Stripe, invoices, White label settings.
-5. **Agency settings**: profile, branding, custom domain hosting, members, talk with team.
-6. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
-7. **Infographics**: one chart-style image per article in the Editorial or Classic style.
+3. **Team and billing**: Team members (invites), Billing with Stripe, invoices, White label settings.
+4. **Agency settings**: profile, branding, custom domain hosting, members, talk with team.
+5. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
+6. **Infographics**: one chart-style image per article in the Editorial or Classic style.
+7. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
 8. **Product catalog** settings.
 9. **Translations** for the other languages.
 10. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
@@ -144,7 +145,8 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Client reports and monthly email agent; brand colour fix | `main` b7531ad |
 | This status document, dev fixtures | `main` c783eed |
 | Google Analytics + Search Console: connection, sync agents, Site traffic pages, Settings → Analytics | `main` c614000 |
-| Article images, Settings → Visuals, CTA cards, promo paragraph, YouTube video, WordPress media upload and post updates | `main` |
+| Article images, Settings → Visuals, CTA cards, promo paragraph, YouTube video, WordPress media upload and post updates | `main` 92ce96e |
+| Article improvements: scan, improve agent, review page, Settings → Improvements | `main` |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

@@ -19,6 +19,7 @@ import {
   type Ga4Channel,
 } from "@/db/schema";
 import { rangeStart, type TrafficRange } from "@/lib/traffic";
+import { topCandidate } from "../agents/jobs/improvements";
 import { availableRequirements } from "../agents/capabilities";
 import { ONBOARDING_STEPS } from "../agents/queue";
 import { JOB_REGISTRY } from "../agents/runner";
@@ -190,13 +191,30 @@ export async function getPlannedActions(site: Site, days = 14): Promise<PlannedD
       ),
     );
   const articleDays = new Map(plan.map((row) => [row.day, row.title ?? row.keyword ?? ""]));
+  const available = await availableRequirements(site.id);
+
+  // An improvement is prepared the day before each improvement day, for the best candidate.
+  const improvementDays = new Map<string, string>();
+  if (site.improvementsEnabled && available.has("gsc") && available.has("llm")) {
+    const candidate = await topCandidate(site.id);
+    const [article] = candidate?.articleId ? await db.select({ title: articles.title }).from(articles).where(eq(articles.id, candidate.articleId)) : [];
+    const weekdays = new Set(site.improvementWeekdays);
+    for (let offset = 1; offset <= days && article; offset++) {
+      const day = shiftDay(today, offset);
+      if (weekdays.has(new Date(`${shiftDay(day, 1)}T12:00:00Z`).getUTCDay())) {
+        improvementDays.set(day, article.title);
+        break; // later ones depend on what the scan finds
+      }
+    }
+  }
   const actions = plannedActions({
     now: new Date(),
     timeZone: site.timeZone,
     anchorDay: siteDay(site.createdAt, site.timeZone),
-    available: await availableRequirements(site.id),
+    available,
     days,
     articleDays,
+    improvementDays,
   });
   const byDay = new Map<string, PlannedDay>();
   for (const action of actions) {

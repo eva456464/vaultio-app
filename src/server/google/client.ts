@@ -239,14 +239,22 @@ export async function listGscSites(row: IntegrationRow): Promise<GscSiteOption[]
 export type GscRow = { keys: string[]; clicks: number; impressions: number; ctr: number; position: number };
 
 /** Search analytics rows for the given dimensions, following pages up to `maxRows`. */
-export async function queryGsc(row: IntegrationRow, siteUrl: string, request: { startDate: string; endDate: string; dimensions: string[] }, maxRows = 250_000): Promise<GscRow[]> {
+export async function queryGsc(
+  row: IntegrationRow,
+  siteUrl: string,
+  request: { startDate: string; endDate: string; dimensions: string[]; page?: string },
+  maxRows = 250_000,
+): Promise<GscRow[]> {
+  const { page, ...query } = request;
+  const filter = page ? { dimensionFilterGroups: [{ filters: [{ dimension: "page", operator: "equals", expression: page }] }] } : {};
   const out: GscRow[] = [];
   const pageSize = 25_000;
   for (let startRow = 0; startRow < maxRows; startRow += pageSize) {
     const response = await googleFetch<{ rows?: GscRow[] }>(row, `${ENDPOINTS.searchConsole}/sites/${encodeURIComponent(siteUrl)}/searchAnalytics/query`, {
-      ...request,
+      ...query,
+      ...filter,
       type: "web",
-      rowLimit: pageSize,
+      rowLimit: Math.min(pageSize, maxRows),
       startRow,
     });
     out.push(...(response.rows ?? []));

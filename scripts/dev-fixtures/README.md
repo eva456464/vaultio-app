@@ -56,3 +56,9 @@ npx tsx --tsconfig tsconfig.json scripts/test-agents.ts <siteId>
 
 This runs onboarding, topic research, the article writer and the domain-rating check with
 stand-in AI and keyword providers, so no API keys are needed.
+
+Article improvements (needs Search Console data, e.g. from the Google mock, and a published article):
+
+```bash
+npx tsx --tsconfig tsconfig.json scripts/test-improvements.ts <siteId> [--publish]
+```

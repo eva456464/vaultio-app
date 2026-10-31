@@ -37,7 +37,7 @@ export async function recordSyncError<T>(siteId: number, product: GoogleProduct,
   }
 }
 
-async function connectedIntegration(siteId: number, product: GoogleProduct) {
+export async function connectedIntegration(siteId: number, product: GoogleProduct) {
   const [row] = await db
     .select()
     .from(integrations)

@@ -33,7 +33,7 @@ const ARTICLE_TYPE_GUIDE: Record<ArticleType, string> = {
   opinion: "an expert opinion piece",
 };
 
-function writingSystemPrompt(site: Site) {
+export function writingSystemPrompt(site: Site) {
   const voice = Object.entries(site.brandVoice ?? {})
     .map(([key, value]) => `- ${key.replaceAll("_", " ")}: ${value}`)
     .join("\n");
