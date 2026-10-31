@@ -71,6 +71,7 @@ Everything the agents do goes through one path, so work is never silently droppe
 | Article writing + publishing | on content-plan days | LLM, image source, publishing integration |
 | Milestones (achievements) | daily | — |
 | Monthly client report email | monthly (1st) | email sending (Resend) + "Monthly email" on |
+| Backlink check (exchange links in this site's articles are live) | daily | — |
 | Improvement scan | daily (when improvements are on) | Search Console connected |
 | Article improvement | day before each improvement day (max 2/week); auto-publish on the day if on | Search Console + LLM |
 
@@ -94,6 +95,7 @@ Everything the agents do goes through one path, so work is never silently droppe
 | Other platforms (Shopify, Webflow, Wix, Ghost, Framer, hosted blog...) | next phase |
 | Article images (cover in one of 6 styles, up to 2 body images), CTA cards (link, map, contact), promo paragraph, YouTube video | built |
 | Article improvements: opportunity scan, section-level rewrites with safety checks, per-change review, publish/update, impact | built (Vaultio articles) |
+| Backlink exchange: join with 100 credits, contextual placement by the writer, daily live/nofollow check, credits ledger, Backlinks page | built |
 | AI visibility: weekly + at onboarding, asks each prompt to Claude (web search), ChatGPT and Gemini when keyed; mentions, brands with sentiment, cited sources; Overview / Prompts / Brands / Sources pages | built |
 | Client reports: Reporting page with section switches and live preview, print-to-PDF, monthly email with a stored snapshot behind a share link (`/api/reports/shared/<token>`) | built |
 | Google Analytics + Search Console: per-site connection, daily GA4 sync (channels, pages, AI assistants), Search Console sync every 3 days, Site traffic pages | built |
@@ -169,6 +171,26 @@ from the page's Search Console rows 14 days before and after publishing.
 
 Only articles written by Vaultio are improved for now; existing WordPress posts need their block
 markup preserved and are a later step.
+
+### Backlink exchange
+
+The network is every site on this installation with the exchange on (`src/server/backlinks`).
+Joining (an onboarding step, or switching the exchange on) adds 100 credits to
+`backlink_credit_ledger`. A site receives links from sites whose domain rating is at least its own
+minus 25 (or its minimum giver rating); a site whose balance is not positive receives none. When an
+article is written, partner pages from up to 15 eligible sites are offered to Claude, which may add
+at most two links by rewriting one sentence each; an edit is kept only if the sentence exists, carries
+exactly that link and reads the same without it. Repeats to the same site within 30 days and links
+back to a site that linked here in the last 90 days are avoided.
+
+`backlinkCheck` (daily, per giving site) fetches each published article and finds each link:
+a live dofollow link earns the giver its domain rating (max 25) and costs the receiver the giver's
+rating; a nofollow or missing link earns nothing, and a credited link that turns nofollow or
+disappears is reversed. Receivers see "Agent got you a backlink" the first time a link goes live.
+Buying credits needs billing and isn't built.
+
+Exchanging links is a link scheme in Google's spam policies when done for ranking; keeping links
+few, contextual and relevant (as here) reduces but doesn't remove that risk.
 
 ### Client reports
 

@@ -3,6 +3,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 LOG = open('/tmp/mock-endpoints.log', 'a')
 class H(BaseHTTPRequestHandler):
     media_id = 500
+    posts = {}  # slug -> html, so published posts can be fetched like a live site
     def reply(self, code, body):
         data = json.dumps(body).encode()
         self.send_response(code); self.send_header('content-type', 'application/json'); self.send_header('content-length', str(len(data))); self.end_headers(); self.wfile.write(data)
@@ -12,6 +13,11 @@ class H(BaseHTTPRequestHandler):
         auth = self.headers.get('authorization', '')
         return auth == 'Basic ' + base64.b64encode(b'editor:abcdabcdabcdabcdabcdabcd').decode()
     def do_GET(self):
+        slug = self.path.strip('/')
+        if slug in H.posts:
+            data = f"<!doctype html><html><body><article>{H.posts[slug]}</article></body></html>".encode()
+            self.send_response(200); self.send_header('content-type', 'text/html'); self.send_header('content-length', str(len(data))); self.end_headers(); self.wfile.write(data)
+            return
         if self.path.startswith('/wp-json/wp/v2/users/me'):
             return self.reply(200, {'id': 1, 'name': 'editor'}) if self.wp_ok() else self.reply(401, {'message': 'Invalid credentials'})
         self.reply(404, {})
@@ -31,6 +37,7 @@ class H(BaseHTTPRequestHandler):
             if not self.wp_ok(): return self.reply(401, {'message': 'Invalid credentials'})
             payload = self.body()
             post_id = int(post.group(1)) if post.group(1) else 99
+            H.posts[payload.get('slug') or str(post_id)] = payload.get('content') or ''
             images = re.findall(r'<img[^>]+src="([^"]+)"', payload.get('content') or '')
             LOG.write(('wordpress-update ' if post.group(1) else 'wordpress ') + json.dumps({'id': post_id, **{k: payload.get(k) for k in ('title', 'slug', 'status', 'featured_media')}, 'images': images, 'cards': (payload.get('content') or '').count('vaultio-cta')}) + '\n'); LOG.flush()
             return self.reply(200 if post.group(1) else 201, {'id': post_id, 'link': f"http://localhost:4300/{payload.get('slug')}/"})

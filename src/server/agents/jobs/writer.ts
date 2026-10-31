@@ -17,6 +17,7 @@ import {
 import { ai, type ResearchSource } from "@/server/ai/claude";
 import { images } from "@/server/ai/images";
 import { createArticleImages, findVideo, insertBodyImages, placeBlocks, planCtaBlocks, planImages } from "@/server/articles/visuals";
+import { placeBacklinks, recordPlacements, type Placement } from "@/server/backlinks/exchange";
 import { safeColor } from "@/server/brand";
 import { renderArticleHtml } from "@/server/markdown";
 import { publishArticle } from "@/server/publishing/publish";
@@ -182,9 +183,17 @@ export async function writeArticle({ site, runDate }: JobContext) {
     prompt: `Keyword: ${keyword}\n\nArticle:\n${markdownBody}`,
   });
 
-  // 4. Images, CTA cards and video (each optional; a failure here never stops the article)
+  // 4. Exchange links to partner sites, images, CTA cards and video (each optional; a failure here never stops the article)
   const visualErrors: string[] = [];
   let body = markdownBody.trim();
+  let placements: Placement[] = [];
+  try {
+    const placed = await placeBacklinks(site, body, { title: meta.title, keyword });
+    body = placed.markdown;
+    placements = placed.placements;
+  } catch (error) {
+    visualErrors.push(`backlinks: ${(error as Error).message}`);
+  }
   let hero: ArticleMedia | null = null;
   let media: ArticleMedia[] = [];
   let mediaIds: string[] = [];
@@ -289,6 +298,7 @@ export async function writeArticle({ site, runDate }: JobContext) {
     .returning();
 
   if (mediaIds.length) await db.update(mediaAssets).set({ articleId: article!.id }).where(inArray(mediaAssets.id, mediaIds));
+  await recordPlacements(site, article!.id, placements);
   await db
     .update(contentPlanItems)
     .set({ articleId: article!.id, generationStatus: "generated", updatedAt: new Date() })
@@ -299,5 +309,5 @@ export async function writeArticle({ site, runDate }: JobContext) {
     published = result.published;
   }
   if (!published) await logActivity(site.id, "articleWritten", { title: meta.title, articleId: article!.id });
-  return { articleId: article!.id, words: wordCount, sources: citedSources.length, images: media.length, blocks: blocks.map((block) => block.kind), published };
+  return { articleId: article!.id, words: wordCount, sources: citedSources.length, images: media.length, blocks: blocks.map((block) => block.kind), backlinks: placements.length, published };
 }

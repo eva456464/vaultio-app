@@ -137,7 +137,8 @@
       "articleWritten": "Will write: {title}",
       "competitorGapScan": "Will scan competitors for content gaps",
       "monthlyReport": "Will email this month's client report",
-      "improveArticle": "Will prepare a refresh: {title}"
+      "improveArticle": "Will prepare a refresh: {title}",
+      "backlinkCheck": "Will check your exchange backlinks are live"
     },
     "achievement": {
       "moreAchievements": "+{count} more achievements",
@@ -1607,6 +1608,101 @@
       },
       "keywordsOnly": "{brand} keywords only",
       "keywordTag": "{brand} keyword"
+    }
+  },
+  "backlinks": {
+    "title": "Backlinks exchange",
+    "subtitle": "Grow your site authority by exchanging contextual links with other sites in the network.",
+    "exchangeOn": "Exchange on",
+    "howCredits": "How do credits work?",
+    "offNote": "The exchange is off: this site doesn't give or receive new backlinks. Links already live stay in place.",
+    "negativeNote": "Your credit balance is below zero, so new incoming backlinks are paused. They resume automatically as your articles give links to other sites.",
+    "kpis": {
+      "credits": {
+        "label": "Credits",
+        "caption": "backlink credits",
+        "hint": "Giving a backlink earns credits; receiving one spends them."
+      },
+      "received": {
+        "label": "Backlinks received",
+        "caption": "backlinks worth ≈ {value}",
+        "hint": "Live links to your site from other sites in the network, and what they would cost to buy."
+      },
+      "given": {
+        "label": "Backlinks given",
+        "caption": "to partner sites",
+        "hint": "Live links from your articles to other sites in the network."
+      },
+      "rating": {
+        "label": "Domain rating",
+        "caption": "{change} since {date}",
+        "captionNone": "No history yet",
+        "hint": "The strength of your site's backlink profile (0–100), checked monthly."
+      }
+    },
+    "pool": {
+      "title": "Backlink exchange pool",
+      "inRange": "{count, plural, one {# site} other {# sites}}",
+      "inRangeHint": "in your match range",
+      "range": "Your match range: DR {from}–100",
+      "yours": "Your domain rating = {rating}",
+      "bucket": "DR {from}–{to}: {count, plural, one {# site} other {# sites}}",
+      "axis": "Sites by domain rating",
+      "note": "You're matched with sites of similar or higher domain rating, since that's most natural to search engines. As your DR grows, you'll match with higher-authority sites.",
+      "noRating": "Your domain rating hasn't been checked yet, so you're matched from DR 0."
+    },
+    "given": {
+      "title": "Backlinks given",
+      "flow": "Post articles → Give backlinks → Earn credits",
+      "source": "Source article",
+      "sourceHint": "Your article that links to the partner site",
+      "destination": "Destination website",
+      "destinationHint": "The partner site your article links to",
+      "empty": "No backlinks given yet. Your agents add them to new articles when a partner page genuinely helps the reader."
+    },
+    "received": {
+      "title": "Backlinks received",
+      "flow": "Mentioned in other articles → Get backlinks → Spend credits",
+      "source": "Source article",
+      "sourceHint": "The partner article that links to your site",
+      "customer": "Customer website",
+      "customerHint": "The partner site that published the link",
+      "credits": "Credits used",
+      "creditsHint": "Credits spent for this backlink (the giver's domain rating)",
+      "empty": "No backlinks received yet. New sites usually get their first links within a few weeks."
+    },
+    "date": "Date",
+    "status": {
+      "live": "Live",
+      "awaiting": "Awaiting partner publication",
+      "awaitingOwn": "Awaiting publication",
+      "nofollow": "Nofollow: no credit until fixed",
+      "removed": "Removed"
+    },
+    "showMore": "Show more ({count} more)",
+    "showLess": "Show less",
+    "credits": {
+      "title": "Backlink exchange explained",
+      "steps": [
+        [
+          "Starting credits",
+          "Every site starts with 100 credits, so it can receive backlinks right away."
+        ],
+        [
+          "Earn credits",
+          "When one of your articles gives a live backlink, you earn credits equal to your domain rating, up to 25 per backlink."
+        ],
+        [
+          "Spend credits",
+          "When you receive a backlink, you spend credits equal to the giving site's domain rating. A link from a stronger site costs more than one of yours earns, so your balance can dip below zero for a while."
+        ],
+        [
+          "Self-balancing",
+          "While your balance is below zero, incoming backlinks pause. Your new articles keep giving links, which brings it back up automatically."
+        ]
+      ],
+      "placementTitle": "Where are backlinks placed?",
+      "placement": "Links are added inside new articles published by sites in the network, only where the linked page genuinely helps the reader. They are normal (dofollow) links in the text, and they count once we've seen them live on the page."
     }
   }
 }

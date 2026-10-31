@@ -43,7 +43,7 @@ Ground rules that apply to everything below:
 | Site traffic: All traffic, AI search traffic, Google traffic | `/dashboard/analytics/ga4`, `/ai-traffic`, `/google-traffic` | Built: KPIs, channel / AI-model / Google charts, breakdowns, countries, top pages and searches with search, "brand articles only" and paging; connect state until Google is connected |
 | Clients (agency) | `/clients` | Built |
 | Invoices (agency) | `/clients/invoices` | Built; empty until billing exists |
-| Backlinks | `/dashboard/backlink-exchange` | **Placeholder** |
+| Backlinks | `/dashboard/backlink-exchange` | Built: exchange switch, how credits work, credits / received (value) / given / domain rating cards, exchange pool chart, given and received tables with live, awaiting, nofollow and removed states |
 | Socials (Reddit, Quora) | `/dashboard/socials` | **Placeholder** |
 | Settings: Team members, Billing, White label, Product catalog, Reddit, Quora | `/dashboard/settings/*` | **Placeholder** |
 | Agency settings: Profile, Branding, Hosting, Members, Talk with team | `/clients/settings/*` | **Placeholder** |
@@ -61,7 +61,8 @@ Ground rules that apply to everything below:
 | Article images, CTA cards, promo paragraph, YouTube video | Built (OpenAI or Gemini images; Claude for scenes, wording and the video search) |
 | Google Analytics sync, AI traffic report, Google rankings check (Search Console) | Built |
 | Article improvements (scan + improve) | Built for articles Vaultio wrote; existing WordPress posts later |
-| Backlink exchange, Reddit / Quora, infographics | Not built |
+| Backlink exchange: placement in new articles, daily live check, credits | Built |
+| Reddit / Quora, infographics | Not built |
 
 ### How it was checked
 
@@ -89,23 +90,23 @@ These are written against the providers' documentation but have not run live yet
 - The promo paragraph and the YouTube video search (they need real Claude answers).
 - Uploading images to a real WordPress media library.
 - Improvement rewrites with real Claude, and the live Search Console page-query lookup.
+- Backlink placement with real Claude, and live-link checks against real client sites.
 
 The first live run on the Mac should be watched; fixes are expected to be small (field names,
 limits).
 
 ## Still to build, in recommended order
 
-1. **Backlinks**: backlink exchange matcher between client sites, Backlinks page, credits.
-2. **Socials**: Reddit and Quora agents, Socials page, their settings (also fills the report's
+1. **Socials**: Reddit and Quora agents, Socials page, their settings (also fills the report's
    community section).
-3. **Team and billing**: Team members (invites), Billing with Stripe, invoices, White label settings.
-4. **Agency settings**: profile, branding, custom domain hosting, members, talk with team.
-5. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
-6. **Infographics**: one chart-style image per article in the Editorial or Classic style.
-7. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
-8. **Product catalog** settings.
-9. **Translations** for the other languages.
-10. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
+2. **Team and billing**: Team members (invites), Billing with Stripe (including backlink credit top-ups), invoices, White label settings.
+3. **Agency settings**: profile, branding, custom domain hosting, members, talk with team.
+4. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
+5. **Infographics**: one chart-style image per article in the Editorial or Classic style.
+6. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
+7. **Product catalog** settings.
+8. **Translations** for the other languages.
+9. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
     `app.vaultio.co` at Vaultio instead of the Babylovegrowth white label.
 
 Smaller follow-ups:
@@ -146,7 +147,8 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | This status document, dev fixtures | `main` c783eed |
 | Google Analytics + Search Console: connection, sync agents, Site traffic pages, Settings → Analytics | `main` c614000 |
 | Article images, Settings → Visuals, CTA cards, promo paragraph, YouTube video, WordPress media upload and post updates | `main` 92ce96e |
-| Article improvements: scan, improve agent, review page, Settings → Improvements | `main` |
+| Article improvements: scan, improve agent, review page, Settings → Improvements | `main` 8b61cfc |
+| Backlink exchange: joining, placement, daily live check, credits, Backlinks page | `main` |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

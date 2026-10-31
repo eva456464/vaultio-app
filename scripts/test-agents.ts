@@ -79,6 +79,13 @@ const standInAi: AiProvider = {
         map: null,
       } as never;
     }
+    if (system.includes("contextual links")) {
+      // Links the gutter sentence to a partner page about gutters, if one is offered.
+      const page = request.prompt.match(/^(\d+)\. .*gutter.* — (\S+)$/im);
+      const sentence = "Clogged gutters let rainwater back up under the shingles and slowly rot the roof deck.";
+      if (!page || !request.prompt.includes(sentence)) return { links: [] } as never;
+      return { links: [{ page: Number(page[1]), original: sentence, rewritten: `[Clogged gutters](${page[2]}) let rainwater back up under the shingles and slowly rot the roof deck.`, reason: "Gutter maintenance is the fix for this cause." }] } as never;
+    }
     if (system.includes("SEO metadata")) {
       return { title: "How Long Does a Roof Last? Lifespan by Material", slug: "how-long-does-a-roof-last", metaDescription: "Asphalt shingles last 20 to 30 years, tile and metal much longer. See lifespans by material and the signs a roof needs replacing.", faq: [{ question: "How long does a shingle roof last?", answer: "Usually 20 to 30 years." }], whyThisStructure: ["Answer first", "Material table", "FAQ"], characteristics: ["Cites sources", "Local angle", "Checklist"], semanticKeywords: ["asphalt shingles", "roof lifespan", "metal roof"] } as never;
     }
@@ -91,6 +98,7 @@ const standInAi: AiProvider = {
       "", "**TL;DR:**", "- Asphalt shingles: 20–30 years", "- Metal: 40–70 years", "- Tile: 50+ years",
       "", "## Roof lifespan by material", "", "| Material | Lifespan |", "|---|---|", "| Asphalt | 20–30 years |", "| Metal | 40–70 years |",
       "", "## What shortens a roof's life", "", `Sun and poor ventilation are the usual causes; see our [roof repair service](${internal}).`,
+      "", "Clogged gutters let rainwater back up under the shingles and slowly rot the roof deck.",
       "", "## Signs you need a new roof", "", "- Curling shingles\n- Daylight in the attic",
       "", "## Repair or replace?", "", "If more than 30% of the roof is damaged, replacement is usually cheaper over time [(NRCA)](https://www.nrca.net/).",
       "", "## FAQ", "", "### How long does a shingle roof last?", "", "Usually 20 to 30 years.",

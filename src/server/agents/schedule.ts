@@ -36,6 +36,7 @@ export const AGENT_JOBS = [
   "monthlyReport",
   "improvementScan",
   "improveArticle",
+  "backlinkCheck",
 ] as const;
 export type AgentJob = (typeof AGENT_JOBS)[number];
 
@@ -57,6 +58,8 @@ export const AGENT_SCHEDULE: ScheduledAgent[] = [
   // Both do nothing unless article improvements are on; improveArticle acts on improvement days.
   { job: "improvementScan", cadence: { kind: "daily" }, requires: ["gsc"] },
   { job: "improveArticle", cadence: { kind: "daily" }, requires: ["gsc", "llm"] },
+  // Checks that the exchange links in this site's published articles are live.
+  { job: "backlinkCheck", cadence: { kind: "daily" }, requires: [] },
 ];
 
 /** Calendar day (YYYY-MM-DD) in the site's time zone. */

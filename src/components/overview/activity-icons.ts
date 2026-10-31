@@ -53,4 +53,5 @@ export const ACTIVITY_ICONS: Record<string, LucideIcon> = {
   improveArticle: RefreshCw,
   articleImprovementPlanned: RefreshCw,
   articleImproved: RefreshCw,
+  backlinkCheck: Link2,
 };

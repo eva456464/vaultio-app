@@ -17,6 +17,7 @@ import {
 import { monthlyReport } from "./jobs/reporting";
 import { aiTrafficReport, analyticsSync, rankingsCheck } from "./jobs/traffic";
 import { improveArticle, improvementScan } from "./jobs/improvements";
+import { backlinkCheck, joinBacklinkExchange } from "../backlinks/exchange";
 import { aiVisibilityCheck } from "./jobs/visibility";
 import { writeArticle } from "./jobs/writer";
 import type { JobHandler } from "./jobs/types";
@@ -47,12 +48,13 @@ export const JOB_REGISTRY: Record<AgentJobName, Registration> = {
   monthlyReport: { requires: ["email"], handler: monthlyReport },
   improvementScan: { requires: ["gsc"], handler: improvementScan },
   improveArticle: { requires: ["gsc", "llm"], handler: improveArticle },
+  backlinkCheck: { requires: [], handler: backlinkCheck },
 
   analyticsSync: { requires: ["ga4"], handler: analyticsSync },
   aiTrafficReport: { requires: ["ga4"], handler: aiTrafficReport },
   rankingsCheck: { requires: ["gsc"], handler: rankingsCheck },
   aiVisibilityCheck: { requires: ["llm"], handler: aiVisibilityCheck },
-  joinBacklinkExchange: { requires: [] },
+  joinBacklinkExchange: { requires: [], handler: joinBacklinkExchange },
 };
 
 export type RunOutcome = { status: "completed" | "skipped" | "already_done"; detail?: string; result?: unknown };
