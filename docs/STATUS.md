@@ -252,7 +252,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Publishing to Shopify, Webflow, Wix and Ghost, and the hosted blog on clients' subdomains | `main` 830fc80 |
 | Infographics: one per article, Editorial or Classic, numbers checked against the article | `main` 6e2e5ab |
 | Improvements for existing WordPress posts (block and classic editor), keeping their blocks and styling | `main` a638a11 |
-| Product catalog: Shopify, WooCommerce, feeds and files; catalog sync and product matching agents; products in articles | `main` (this commit) |
+| Product catalog: Shopify, WooCommerce, feeds and files; catalog sync and product matching agents; products in articles | `main` 096b5b4 |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
