@@ -86,6 +86,11 @@ const standInAi: AiProvider = {
       if (!page || !request.prompt.includes(sentence)) return { links: [] } as never;
       return { links: [{ page: Number(page[1]), original: sentence, rewritten: `[Clogged gutters](${page[2]}) let rainwater back up under the shingles and slowly rot the roof deck.`, reason: "Gutter maintenance is the fix for this cause." }] } as never;
     }
+    if (system.includes("You design one infographic")) {
+      const section = request.prompt.match(/\[(\d+)\] ## Roof lifespan by material/)?.[1];
+      const empty = { steps: [], checklist: [], comparison: { columns: [], rows: [] }, stats: [] };
+      return { ...empty, section: section ? Number(section) : -1, layout: "bars", title: "How long each roof lasts", subtitle: "Typical lifespan by material", illustration: "a house roof with shingles and metal panels", bars: [{ label: "Asphalt shingles", value: 25, display: "20–30 years" }, { label: "Metal", value: 55, display: "40–70 years" }] } as never;
+    }
     if (system.includes("SEO metadata")) {
       return { title: "How Long Does a Roof Last? Lifespan by Material", slug: "how-long-does-a-roof-last", metaDescription: "Asphalt shingles last 20 to 30 years, tile and metal much longer. See lifespans by material and the signs a roof needs replacing.", faq: [{ question: "How long does a shingle roof last?", answer: "Usually 20 to 30 years." }], whyThisStructure: ["Answer first", "Material table", "FAQ"], characteristics: ["Cites sources", "Local angle", "Checklist"], semanticKeywords: ["asphalt shingles", "roof lifespan", "metal roof"] } as never;
     }

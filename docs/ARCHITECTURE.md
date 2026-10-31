@@ -149,6 +149,23 @@ featured image) and remembers the post and uploads, so a regenerated cover updat
 Images live in Postgres to avoid running separate file storage; move them to object storage
 (S3, R2, Supabase) if volume grows.
 
+### Infographics
+
+When "Add an infographic" is on in Settings → Visuals (on by default), the writer adds one infographic
+per article after the images (`src/server/infographics/`). Claude reads the article's sections
+(not the FAQ, sources or conclusion) and either picks the one best shown visually or answers that
+none is. It returns a spec in one of five layouts: bars, steps, checklist, comparison or 2–4 key
+figures. `checkSpec` drops the spec if any number on it isn't written in that section, or if a bar's
+length doesn't match the number it's labelled with, so an infographic never shows figures the article
+doesn't. Vaultio typesets the spec itself (satori → SVG → PNG with sharp, bundled Inter and Source
+Serif fonts) in the client's brand colour with its logo, name and domain, in the style chosen in
+Settings: Editorial (warm paper, serif title, a small topic illustration from the image provider when
+one is configured) or Classic (the cover image as a header band). Because Vaultio draws the text, the
+lettering is always correct, unlike text drawn by an image model. The image is stored as a 1600px-wide
+WebP in `media_assets` (kind `infographic`), placed at the end of the chosen section, and gets an alt
+text listing its data. Latin, Cyrillic, Greek and Vietnamese scripts are covered; Chinese, Japanese,
+Korean and Arabic need extra fonts before those languages are offered.
+
 ### Article improvements
 
 `improvementScan` (daily) reads each published Vaultio article's Search Console numbers and keeps a

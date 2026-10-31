@@ -24,6 +24,7 @@ export default async function VisualSettingsPage() {
           heroImageStyle: asCoverStyle(site.heroImageStyle),
           bodyImageStyle: asBodyStyle(site.bodyImageStyle),
           infographicStyle: asInfographicStyle(site.infographicStyle),
+          includeInfographic: site.includeInfographic,
           imageMood: site.imageMood ?? "",
           links: { enabled: cta.links?.enabled ?? false, items: cta.links?.items ?? [] },
           map: { enabled: cta.map?.enabled ?? false, address: cta.map?.address ?? "", mapsUrl: cta.map?.mapsUrl ?? "" },

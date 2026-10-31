@@ -43,7 +43,7 @@ Ground rules that apply to everything below:
 | Site health | `/dashboard/geo-audit` + public share page | Built |
 | AI visibility (overview, prompts, brands, sources, prompt detail) | `/dashboard/ai-visibility` | Built |
 | Reporting | `/dashboard/reporting` | Built: sections, live preview, Download PDF, monthly email |
-| Settings: Account, Business, Branding, Competitors, Saved pages, Writing, Visuals, Schedule, Improvements, Publishing, Analytics | `/dashboard/settings/*` | Built (Visuals: the infographic style is saved but infographics aren't generated yet) |
+| Settings: Account, Business, Branding, Competitors, Saved pages, Writing, Visuals, Schedule, Improvements, Publishing, Analytics | `/dashboard/settings/*` | Built (Visuals includes the infographic switch and style) |
 | Site traffic: All traffic, AI search traffic, Google traffic | `/dashboard/analytics/ga4`, `/ai-traffic`, `/google-traffic` | Built: KPIs, channel / AI-model / Google charts, breakdowns, countries, top pages and searches with search, "brand articles only" and paging; connect state until Google is connected |
 | Clients (agency) | `/clients` | Built |
 | Invoices (agency) | `/clients/invoices` | Built: invoices across all client websites (from Stripe); "Manage all subscriptions" on Clients opens Stripe's portal |
@@ -72,7 +72,7 @@ Ground rules that apply to everything below:
 | Article improvements (scan + improve) | Built for articles Vaultio wrote; existing WordPress posts later |
 | Backlink exchange: placement in new articles, daily live check, credits | Built |
 | Reddit and Quora: keyword suggestions, weekly thread search (Google via DataForSEO, or Claude web search), relevance scoring, reply drafts | Built (Claude; DataForSEO and the Reddit Data API optional) |
-| Infographics | Not built |
+| Infographics: one per article, Editorial or Classic style, numbers checked against the article | Built (Claude picks the section and data; Vaultio draws it in the brand colours and logo; the Editorial illustration needs OpenAI or Gemini) |
 
 ### How it was checked
 
@@ -101,6 +101,10 @@ Ground rules that apply to everything below:
 - Reddit and Quora: both search paths (Google results and web search) ran with stand-in answers
   (`scripts/test-socials.ts`), plus the Reddit Data API mock; the pages were driven in a browser
   (copy & open, mark replied, edit, not relevant, keywords, subreddits, reply style).
+- Infographics: all five layouts drawn in both styles (including Cyrillic text) and checked by eye;
+  an article written with a stand-in answer got its infographic with the site's logo and colour at
+  the end of the right section; made-up numbers and bars that don't match their labels are rejected;
+  the Visuals switch saves on and off.
 
 ## Not yet tested with real keys
 
@@ -130,20 +134,22 @@ These are written against the providers' documentation but have not run live yet
   get no cover image yet).
 - White label against the live Vercel and Resend APIs (domain add/verify/config, Resend domains):
   written from their documented APIs, which couldn't be fetched from this workspace to double-check.
+- Infographic specs from real Claude (how often it finds a section worth charting and passes the
+  number checks), and the Editorial illustration from a real image provider.
 
 The first live run on the Mac should be watched; fixes are expected to be small (field names,
 limits).
 
 ## Still to build, in recommended order
 
-1. **Infographics**: one chart-style image per article in the Editorial or Classic style.
-2. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
-3. **Product catalog** settings (Shopify / WooCommerce products mentioned in articles).
-4. **More languages**: content in extra languages per website (the Scale plan's 3 languages and the
-   language add-on), and translations of the app itself.
-5. **Remaining publishing platforms**: Framer (needs a Vaultio Framer plugin published on Framer's
+1. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
+2. **Product catalog** settings (Shopify / WooCommerce products mentioned in articles).
+3. **More languages**: content in extra languages per website (the Scale plan's 3 languages and the
+   language add-on), and translations of the app itself. Infographics will need Chinese, Japanese,
+   Korean and Arabic fonts for those languages.
+4. **Remaining publishing platforms**: Framer (needs a Vaultio Framer plugin published on Framer's
    marketplace), Lovable, GoHighLevel, Duda, BigCommerce.
-6. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
+5. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
    `app.vaultio.co` at Vaultio instead of the Babylovegrowth white label.
 
 White-label items not built yet: a white-labelled WordPress plugin, and Google sign-in on agency
@@ -214,6 +220,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Billing with Stripe: plans, add-ons, checkout, portal, webhooks, plan limits, agents paused without a plan | `main` ba01389 |
 | Agency settings and white label: profile (language, account deletion), members, branding, hosting and sending domains, talk with team, password reset | `main` 2fb49a4 |
 | Publishing to Shopify, Webflow, Wix and Ghost, and the hosted blog on clients' subdomains | `main` 830fc80 |
+| Infographics: one per article, Editorial or Classic, numbers checked against the article | `main` (this commit) |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

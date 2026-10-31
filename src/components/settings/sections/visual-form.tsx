@@ -7,13 +7,14 @@ import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { BODY_STYLES, COVER_STYLES, hasTitle, INFOGRAPHIC_STYLES, type BodyStyle, type CoverStyle, type InfographicStyle } from "@/lib/visuals";
 import { updateVisuals } from "@/server/actions/settings";
-import { inputClass, ListInput, useSave } from "../form-kit";
+import { inputClass, ListInput, Toggle, useSave } from "../form-kit";
 
 export type VisualSettings = {
   rules: string[];
   heroImageStyle: CoverStyle;
   bodyImageStyle: BodyStyle;
   infographicStyle: InfographicStyle;
+  includeInfographic: boolean;
   imageMood: string;
   links: { enabled: boolean; items: { label: string; url: string }[] };
   map: { enabled: boolean; address: string; mapsUrl: string };
@@ -226,7 +227,10 @@ export function VisualForm({ canEdit, initial, brandColor, brandName, imagesAvai
             return <OptionCard key={style} selected={form.infographicStyle === style} onSelect={() => set("infographicStyle", style)} disabled={!canEdit} name={name} description={description} />;
           })}
         </div>
-        <p className="mt-4 rounded-xl bg-canvas p-3 text-sm text-ink-secondary">{t("infographic.soon")}</p>
+        <div className="mt-4">
+          <Toggle id="include-infographic" label={t("infographic.enable")} checked={form.includeInfographic} onChange={(value) => set("includeInfographic", value)} disabled={!canEdit} />
+          <p className="text-xs text-ink-subtle">{t("infographic.note")}</p>
+        </div>
       </Section>
 
       <Section title={t("ctas.title")} hint={t("ctas.hint")}>

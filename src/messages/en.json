@@ -1181,7 +1181,8 @@
       "infographic": {
         "title": "Infographic style",
         "hint": "When an article has a section worth charting, such as steps, figures or a comparison, it gets one infographic made from that section. Choose the look.",
-        "soon": "Coming soon: your choice is saved and used once infographics are generated."
+        "enable": "Add an infographic to articles",
+        "note": "Made from the article's own content: every number in it is checked against the article, and nothing is added when no section is worth charting."
       },
       "styles": {
         "realistic_with_title": [

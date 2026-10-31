@@ -19,6 +19,7 @@ import { images } from "@/server/ai/images";
 import { createArticleImages, findVideo, insertBodyImages, placeBlocks, planCtaBlocks, planImages } from "@/server/articles/visuals";
 import { placeBacklinks, recordPlacements, type Placement } from "@/server/backlinks/exchange";
 import { safeColor } from "@/server/brand";
+import { createInfographic } from "@/server/infographics";
 import { renderArticleHtml } from "@/server/markdown";
 import { publishArticle } from "@/server/publishing/publish";
 import { logActivity } from "../activity";
@@ -208,6 +209,19 @@ export async function writeArticle({ site, runDate }: JobContext) {
       visualErrors.push(...created.errors);
     } catch (error) {
       visualErrors.push(`images: ${(error as Error).message}`);
+    }
+  }
+  if (site.includeInfographic) {
+    try {
+      const infographic = await createInfographic(site, { title: meta.title, markdown: body, hero });
+      if (infographic) {
+        body = infographic.markdown;
+        media.push(infographic.media);
+        mediaIds.push(infographic.mediaId);
+        visualErrors.push(...infographic.errors);
+      }
+    } catch (error) {
+      visualErrors.push(`infographic: ${(error as Error).message}`);
     }
   }
   const blocks: ArticleBlock[] = [];

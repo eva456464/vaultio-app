@@ -250,6 +250,8 @@ export const orgWebsites = pgTable(
     heroImageStyle: text("hero_image_style").notNull().default("realistic_with_title"),
     bodyImageStyle: text("body_image_style").notNull().default("realistic"),
     infographicStyle: text("infographic_style").notNull().default("editorial"),
+    // One chart-style image per article, from a section worth charting (on by default).
+    includeInfographic: boolean("include_infographic").notNull().default(true),
 
     // Schedule
     articleScheduleWeekdays: jsonb("article_schedule_weekdays").$type<number[]>().notNull().default([]),

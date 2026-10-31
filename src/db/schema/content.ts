@@ -196,7 +196,7 @@ export const mediaAssets = pgTable(
       .notNull()
       .references(() => orgWebsites.id, { onDelete: "cascade" }),
     articleId: integer("article_id").references(() => articles.id, { onDelete: "set null" }),
-    kind: text("kind").$type<"hero" | "body" | "upload">().notNull(),
+    kind: text("kind").$type<"hero" | "body" | "upload" | "infographic">().notNull(),
     mimeType: text("mime_type").notNull(),
     width: integer("width"),
     height: integer("height"),

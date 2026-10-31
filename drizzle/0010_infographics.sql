@@ -1,0 +1,1 @@
+ALTER TABLE "org_websites" ADD COLUMN "include_infographic" boolean DEFAULT true NOT NULL;

@@ -178,6 +178,7 @@ const visualsSchema = z
     heroImageStyle: z.enum(COVER_STYLES),
     bodyImageStyle: z.enum(BODY_STYLES),
     infographicStyle: z.enum(INFOGRAPHIC_STYLES),
+    includeInfographic: z.boolean(),
     imageMood: z.string().trim().max(600, "Keep the image description under 600 characters"),
     links: z.object({ enabled: z.boolean(), items: z.array(z.object({ label: z.string().trim().min(1, "Add the button text").max(40), url: httpUrl })).max(5) }),
     map: z.object({ enabled: z.boolean(), address: z.string().trim().max(200), mapsUrl: z.union([httpUrl, z.literal("")]) }),
