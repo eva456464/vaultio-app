@@ -482,5 +482,122 @@
     "statusPublished": "Published",
     "statusReady": "Ready to publish",
     "why": "Why this article"
+  },
+  "siteHealth": {
+    "title": "Site health",
+    "subtitle": "Finds issues that can stop Google and ChatGPT from reading and ranking your site",
+    "choosePages": "Choose pages",
+    "whatWeCheck": "What we check",
+    "share": "Share",
+    "overall": "Overall score",
+    "status": {
+      "good": "Good",
+      "fair": "Needs work",
+      "poor": "Poor"
+    },
+    "pageSpeed": "Page speed",
+    "llmOptimization": "LLM optimization",
+    "technicalSeo": "Technical SEO",
+    "crawlerFiles": "Crawler files",
+    "crawlerFilesHint": "Files that tell search engines and AI assistants how to read your site",
+    "issuesTitle": "Issues detected",
+    "issuesSummary": "{types, plural, one {# issue type} other {# issue types}} on {pages, plural, one {# page} other {# pages}}",
+    "noIssues": "No issues found. Nice work.",
+    "byIssue": "By issue",
+    "byPage": "By page",
+    "pagesCount": "{count, plural, one {# page} other {# pages}}",
+    "wholeSite": "Whole site",
+    "howToFix": "How to fix",
+    "fixAll": "How to fix the whole site",
+    "fixAllBody": "We found {count, plural, one {# thing} other {# things}} to fix. Copy the text below and send it to your developer, or paste it into Claude or any other AI agent.",
+    "copy": "Copy",
+    "copied": "Copied",
+    "nextCheck": "Next check {date}",
+    "lastChecked": "Last checked {date}",
+    "issuesOnPage": "{count, plural, =0 {No issues} one {# issue} other {# issues}}",
+    "severity": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "category": {
+      "crawler": "Crawler files",
+      "technical": "Technical SEO",
+      "ai": "AI readiness"
+    },
+    "empty": {
+      "title": "Your first check is on its way",
+      "body": "Your agents check the homepage and up to 20 pages during onboarding and every week after that."
+    },
+    "choose": {
+      "title": "Choose pages to audit",
+      "subtitle": "Pick up to {max} pages. The homepage is always included, and we fill the rest automatically.",
+      "selected": "{count} / {max} selected",
+      "search": "Search pages",
+      "save": "Save pages",
+      "noPages": "No pages yet. Your agents read your sitemap during onboarding."
+    },
+    "shareDialog": {
+      "title": "Share site health check",
+      "body": "Anyone with this link can see your latest site health results. It always shows the newest audit.",
+      "preview": "Open link"
+    },
+    "checks": {
+      "intro": "Your homepage and up to 20 pages · Checked every week",
+      "crawler": [
+        "robots.txt missing",
+        "AI crawlers blocked in robots.txt",
+        "Sitemap missing or unreadable",
+        "llms.txt missing"
+      ],
+      "technical": [
+        "Missing page title",
+        "Title too long or too short",
+        "Missing meta description",
+        "Meta description too long",
+        "No main heading (H1)",
+        "More than one H1",
+        "No canonical tag",
+        "Page set to noindex",
+        "No mobile viewport tag",
+        "Page language not declared",
+        "Missing Open Graph tags",
+        "Slow response",
+        "Broken or unreachable page",
+        "Images without alt text",
+        "Thin content"
+      ],
+      "ai": [
+        "No structured data (JSON-LD)",
+        "Structured data can't be read"
+      ]
+    },
+    "issueNames": {
+      "missing_robots_txt": "robots.txt missing",
+      "missing_sitemap": "Sitemap missing",
+      "missing_llms_txt": "llms.txt missing",
+      "ai_crawlers_blocked": "AI crawlers blocked",
+      "not_https": "Not served over HTTPS",
+      "missing_title": "Missing page title",
+      "long_title": "Title too long",
+      "short_title": "Title too short",
+      "missing_meta_description": "Missing meta description",
+      "long_meta_description": "Meta description too long",
+      "missing_h1": "No main heading (H1)",
+      "multiple_h1": "More than one H1",
+      "missing_canonical": "No canonical tag",
+      "noindex": "Page set to noindex",
+      "missing_viewport": "No mobile viewport tag",
+      "missing_lang": "Page language not declared",
+      "missing_open_graph": "Missing Open Graph tags",
+      "slow_response": "Slow response",
+      "http_error": "Page returns an error",
+      "unreachable": "Page unreachable",
+      "images_missing_alt": "Images without alt text",
+      "thin_content": "Thin content",
+      "missing_structured_data": "No structured data",
+      "invalid_structured_data": "Structured data can't be read"
+    },
+    "publicFooter": "Site health report by {brand}"
   }
 }

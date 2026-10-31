@@ -4,6 +4,7 @@ import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { geoAuditIssues, geoAuditPages, geoAudits, geoAuditSelectedPages, orgWebsites, sitePages } from "@/db/schema";
 import { logActivity } from "../activity";
+import { categoryOf, MAX_AUDIT_PAGES } from "@/lib/site-health";
 import { discoverSitemaps, fetchText, parsePage, readSitemapUrls, type PageFacts } from "../web";
 import type { JobContext } from "./types";
 
@@ -85,7 +86,6 @@ export async function sitemapSync({ site, runDate }: JobContext) {
 type Issue = { issueType: string; severity: "low" | "medium" | "high"; description: string; action: string };
 
 const AI_CRAWLERS = ["GPTBot", "ChatGPT-User", "OAI-SearchBot", "ClaudeBot", "PerplexityBot", "Google-Extended"];
-const MAX_AUDIT_PAGES = 20;
 
 function pageIssues(facts: PageFacts, status: number, ms: number, isHome: boolean): Issue[] {
   const issues: Issue[] = [];
@@ -130,6 +130,9 @@ export async function siteHealthAudit({ site }: JobContext) {
   try {
     // Crawler files
     const siteIssues: Issue[] = [];
+    if (new URL(site.url).protocol !== "https:") {
+      siteIssues.push({ issueType: "not_https", severity: "high", description: "The site is not served over HTTPS.", action: "Install an SSL certificate and redirect all http:// URLs to https://." });
+    }
     const robots = await fetchText(`${origin}/robots.txt`).catch(() => null);
     const robotsOk = Boolean(robots && robots.status < 400);
     if (!robotsOk) siteIssues.push({ issueType: "missing_robots_txt", severity: "medium", description: "robots.txt was not found.", action: "Add a robots.txt that allows crawling and lists your sitemap." });
@@ -149,12 +152,14 @@ export async function siteHealthAudit({ site }: JobContext) {
     // Pages: the user's selection, else the homepage plus pages from the sitemap.
     const selected = await db.select({ url: geoAuditSelectedPages.url }).from(geoAuditSelectedPages).where(eq(geoAuditSelectedPages.orgWebsiteId, site.id));
     const candidates = selected.length
-      ? selected.map((row) => row.url)
+      ? [`${origin}/`, ...selected.map((row) => row.url)]
       : [`${origin}/`, ...[...sitemapUrls.urls.keys()].filter((url) => url.replace(/\/$/, "") !== origin)];
     const pagesToAudit = [...new Set(candidates)].slice(0, MAX_AUDIT_PAGES);
 
     let issueCount = siteIssues.length;
     const pageScores: number[] = [];
+    const pageTechnicalScores: number[] = [];
+    const pageAiScores: number[] = [];
     const speeds: number[] = [];
     for (const url of pagesToAudit) {
       let issues: Issue[];
@@ -166,10 +171,11 @@ export async function siteHealthAudit({ site }: JobContext) {
       } catch (error) {
         issues = [{ issueType: "unreachable", severity: "high", description: `The page could not be loaded (${(error as Error).message}).`, action: "Make sure the page is online and reachable." }];
       }
-      const geoScore = score(issues);
-      pageScores.push(geoScore);
+      pageScores.push(score(issues));
+      pageTechnicalScores.push(score(issues.filter((issue) => categoryOf(issue.issueType) === "technical")));
+      pageAiScores.push(score(issues.filter((issue) => categoryOf(issue.issueType) === "ai")));
       if (ms) speeds.push(ms);
-      const [pageRow] = await db.insert(geoAuditPages).values({ geoAuditId: audit!.id, url, geoScore }).returning();
+      const [pageRow] = await db.insert(geoAuditPages).values({ geoAuditId: audit!.id, url, geoScore: score(issues) }).returning();
       if (issues.length) {
         await db.insert(geoAuditIssues).values(issues.map((issue) => ({ ...issue, geoAuditId: audit!.id, pageId: pageRow!.id })));
       }
@@ -181,8 +187,11 @@ export async function siteHealthAudit({ site }: JobContext) {
 
     const average = (values: number[]) => (values.length ? Math.round(values.reduce((a, b) => a + b, 0) / values.length) : 0);
     const averageGeoScore = average(pageScores);
-    const llmOptimizationScore = score(siteIssues.filter((issue) => ["ai_crawlers_blocked", "missing_llms_txt"].includes(issue.issueType)));
-    const technicalSeoScore = score(siteIssues.filter((issue) => !["ai_crawlers_blocked", "missing_llms_txt"].includes(issue.issueType)));
+    // Each area combines whole-site problems with the average page result for that area.
+    const siteAi = siteIssues.filter((issue) => issue.issueType === "ai_crawlers_blocked" || issue.issueType === "missing_llms_txt");
+    const siteTechnical = siteIssues.filter((issue) => !siteAi.includes(issue));
+    const llmOptimizationScore = Math.round((score(siteAi) * average(pageAiScores)) / 100);
+    const technicalSeoScore = Math.round((score(siteTechnical) * average(pageTechnicalScores)) / 100);
     // Response time mapped to a 0–100 speed score (under 0.5s is 100, 5s or more is 0).
     const averagePageSpeed = speeds.length ? Math.max(0, Math.min(100, Math.round(100 - ((average(speeds) - 500) / 4500) * 100))) : null;
 
@@ -196,7 +205,7 @@ export async function siteHealthAudit({ site }: JobContext) {
         averagePageSpeed,
         llmOptimizationScore,
         technicalSeoScore,
-        overallScore: Math.round(averageGeoScore * 0.5 + technicalSeoScore * 0.25 + llmOptimizationScore * 0.25),
+        overallScore: Math.round(averageGeoScore * 0.4 + technicalSeoScore * 0.3 + llmOptimizationScore * 0.3),
         robotsTxt: { status: robotsOk ? "ok" : "missing" },
         sitemap: { status: sitemapOk ? "ok" : "missing" },
         llmsTxt: { status: llmsOk ? "ok" : "missing" },
