@@ -1,0 +1,201 @@
+{
+ "page": "https://app.vaultio.co/en/clients/invoices",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793423630898,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/clients/invoices?_rsc=ihc8i",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22clients%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Ctrue%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/clients"
+   },
+   "reqBody": null,
+   "page": "/en/clients",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793423631421,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/clients/invoices",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423631478,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/subscriptions/organization-invoices",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/clients/invoices",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "data": [
+     {
+      "id": "in_1UV4FtLiGzfLlQttBT1lTBBd",
+      "created": 1793083989,
+      "amount_due": 9900,
+      "currency": "usd",
+      "status": "paid",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1QGKexLiGzfLlQtt/live_YWNjdF8xUUdLZXhMaUd6ZkxsUXR0LF9WVzZTUFp3bWFEMzRSd2tYRWgwSU84b0RyWks1Rkh0LDE4Mzk2NDQzMQ02004OEpLZp0/pdf?s=ap",
+      "websiteUrl": "https://vaultio.co"
+     },
+     {
+      "id": "in_1URKqsLiGzfLlQttyxjvHIij",
+      "created": 1792194474,
+      "amount_due": 4900,
+      "currency": "usd",
+      "status": "paid",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1QGKexLiGzfLlQtt/live_YWNjdF8xUUdLZXhMaUd6ZkxsUXR0LF9WU0ZMSWg2WmJmWUlMRWppanAxTk1iM2RtT2FZTUdDLDE4Mzk2NDQzMQ0200R3l6kkMA/pdf?s=ap",
+      "websiteUrl": "https://vaultio.co"
+     },
+     {
+      "id": "in_1UN1DOLiGzfLlQttMKNILNzA",
+      "created": 1791165678,
+      "amount_due": 9900,
+      "currency": "usd",
+      "status": "paid",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1QGKexLiGzfLlQtt/live_YWNjdF8xUUdLZXhMaUd6ZkxsUXR0LF9WTm1tV1VOcDBEb3NzcnlwZmxMejFoQ2FMVEVVZFpNLDE4Mzk2NDQzMQ0200hOJ8Q63v/pdf?s=ap",
+      "websiteUrl": "https://goletapressurewashing.com"
+     },
+     {
+      "id": "in_1UKBxPLiGzfLlQttTwfiz6yg",
+      "created": 1790491987,
+      "amount_due": 9900,
+      "currency": "usd",
+      "status": "paid",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1QGKexLiGzfLlQtt/live_YWNjdF8xUUdLZXhMaUd6ZkxsUXR0LF9WS3JnR283SUhDUjJPZVdSTk1lcFhZQlpVMXlvY3dBLDE4Mzk2NDQzMQ0200f5qvusfL/pdf?s=ap",
+      "websiteUrl": "https://vaultio.co"
+     },
+     {
+      "id": "in_1UC8vlLiGzfLlQttDNZY5oZx",
+      "created": 1788573729,
+      "amount_due": 9900,
+      "currency": "usd",
+      "status": "paid",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1QGKexLiGzfLlQtt/live_YWNjdF8xUUdLZXhMaUd6ZkxsUXR0LF9WQ1kxSm1nbnQxVTBkUEJCYVNrVmFUc3BrTGdOQVJWLDE4Mzk2NDQzMQ0200twErJ5g6/pdf?s=ap",
+      "websiteUrl": "https://goletapressurewashing.com"
+     },
+     {
+      "id": "in_1U8xB5LiGzfLlQttenXgir7J",
+      "created": 1787813567,
+      "amount_due": 9900,
+      "currency": "usd",
+      "status": "paid",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1QGKexLiGzfLlQtt/live_YWNjdF8xUUdLZXhMaUd6ZkxsUXR0LF9WOUZnZ3BrT2ZlNDFPcEJGNHIzWmtTNE83RWVOWU5LLDE4Mzk2NDQzMQ0200p5tkg8UP/pdf?s=ap",
+      "websiteUrl": "https://vaultio.co"
+     },
+     {
+      "id": "in_1U0u8rLiGzfLlQtt4NxRgqFp",
+      "created": 1785895273,
+      "amount_due": 9900,
+      "currency": "usd",
+      "status": "paid",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1QGKexLiGzfLlQtt/live_YWNjdF8xUUdLZXhMaUd6ZkxsUXR0LF9WMHcweUE1OEl3N29QaG1qanVsVFFiRllUMmFZSm4zLDE4Mzk2NDQzMQ02007gscSCPx/pdf?s=ap",
+      "websiteUrl": "https://goletapressurewashing.com"
+     },
+     {
+      "id": "in_1U0sjXLiGzfLlQttH79LXaZM",
+      "created": 1785889859,
+      "amount_due": 0,
+      "currency": "usd",
+      "status": "paid",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1QGKexLiGzfLlQtt/live_YWNjdF8xUUdLZXhMaUd6ZkxsUXR0LF9WMHVZSDh5elViZTRvYTluYVI3NGZCd0xCa3RsOExRLDE4Mzk2NDQzMQ0200hsHQuUfe/pdf?s=ap",
+      "websiteUrl": "https://goletapressurewashing.com"
+     },
+     {
+      "id": "in_1TxiPbLiGzfLlQttfI5cPorb",
+      "created": 1785135199,
+      "amount_due": 9900,
+      "currency": "usd",
+      "status": "paid",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1QGKexLiGzfLlQtt/live_YWNjdF8xUUdLZXhMaUd6ZkxsUXR0LF9VeGRnMFRHMWpFVklEenRyMW93VURWTktmVkJ3dUE1LDE4Mzk2NDQzMQ0200BgztaS1k/pdf?s=ap",
+      "websiteUrl": "https://vaultio.co"
+     },
+     {
+      "id": "in_1Tmq6JLiGzfLlQttipzVNsD6",
+      "created": 1782543147,
+      "amount_due": 9900,
+      "currency": "usd",
+      "status": "paid",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1QGKexLiGzfLlQtt/live_YWNjdF8xUUdLZXhMaUd6ZkxsUXR0LF9VbU91QWMybTNzc0hCRmo5OWZ6Q0E3cHlPU0pzQ2g0LDE4Mzk2NDQzMQ0200DRDLv3Pt/pdf?s=ap",
+      "websiteUrl": "https://vaultio.co"
+     },
+     {
+      "id": "in_1TmpE8LiGzfLlQttL1788ZHM",
+      "created": 1782539788,
+      "amount_due": 0,
+      "currency": "usd",
+      "status": "paid",
+      "invoice_pdf": "https://pay.stripe.com/invoice/acct_1QGKexLiGzfLlQtt/live_YWNjdF8xUUdLZXhMaUd6ZkxsUXR0LF9VbU8wT002VnUzOGpQc3FxRExCaGVkNG9qV2R0QlVFLDE4Mzk2NDQzMQ0200BimeuV2d/pdf?s=ap",
+      "websiteUrl": "https://vaultio.co"
+     }
+    ],
+    "message": "Invoices retrieved successfully"
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793423632448,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793423632442&cv=11&fst=1793423632442&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fclients%2Finvoices&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fclients&rcb=0&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/clients/invoices",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423632450,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=156&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fclients%2Finvoices&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Fwriting&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=1172533",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/clients/invoices",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423632458,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=0&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fclients%2Finvoices&scrsrc=www.googletagmanager.com&rnd=2083431636.1793422461&navt=n&npa=0&ae=a&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&tft=1793423632457&tfd=1172539&_gsid=UjM29SyMoMIgL331vq5GpOK7AGKsVzeJAw&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/clients/invoices",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423632464,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=157&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fclients%2Finvoices&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fclients&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=1172546",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/clients/invoices",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

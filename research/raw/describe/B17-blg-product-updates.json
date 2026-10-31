@@ -1,0 +1,40 @@
+{
+ "url": "https://www.babylovegrowth.ai/en/dashboard/product-updates",
+ "title": "BabyLoveGrowth - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Product updates",
+  "H2: Your articles now recommend your products",
+  "H2: Your articles now post themselves to Instagram and Facebook",
+  "H2: Your articles now look like they came out of a magazine",
+  "H2: You can edit any article with AI",
+  "H2: Realistic photo covers with your title in the image",
+  "H2: Monthly reports for your sites",
+  "H2: Backlink subscriptions are available again"
+ ],
+ "buttons": [
+  "Request a feature",
+  "(Play video) [icon:lucide-play]",
+  "Try it now [icon:lucide-arrow-right] -> /en/dashboard/settings/product-catalog",
+  "Try it now [icon:lucide-arrow-right] -> /en/dashboard/socials?tab=meta",
+  "() -> /en/dashboard/settings/visual#featured-image-style",
+  "Try it now [icon:lucide-arrow-right] -> /en/dashboard/settings/visual#featured-image-style"
+ ],
+ "tabs": [],
+ "inputs": [],
+ "tables": [],
+ "icons": [
+  "lucide-lightbulb",
+  "lucide-play",
+  "lucide-arrow-right"
+ ],
+ "images": [
+  "Your articles now recommend your products | https://img.youtube.com/vi/d4toLd6XqOw/maxresdefault.jpg",
+  "Your articles now post themselves to Instagram and Facebook | https://img.youtube.com/vi/VrSlF_uzZoo/maxresdefault.jpg",
+  "Your articles now look like they came out of a magazine | https://img.youtube.com/vi/DwY6nDMMcac/maxresdefault.jpg",
+  "You can edit any article with AI | https://img.youtube.com/vi/fyx8iuIC9Gk/maxresdefault.jpg",
+  "Realistic photo covers with your title in the image | https://www.babylovegrowth.ai/_next/image?url=%2Fimages%2Fsettings%2Fimage-styles%2Frealistic_with_title%2F3.jpg&w=3840&q=75",
+  "Monthly reports for your sites | https://www.babylovegrowth.ai/_next/image?url=%2Fimages%2Fnotifications%2Fmonthly-reports-banner.png&w=3840&q=75",
+  "Backlink subscriptions are available again | https://www.babylovegrowth.ai/_next/image?url=%2Fimages%2Fnotifications%2Fbacklink-banner.png&w=3840&q=75"
+ ],
+ "charts": 0
+}

@@ -1,0 +1,190 @@
+{
+ "page": "https://www.babylovegrowth.ai/en/dashboard/socials",
+ "title": "BabyLoveGrowth - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793424284677,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/socials?_rsc=ti75p",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22socials%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2C%22refetch%22%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/settings/white-label"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/white-label",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424285026,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/socials",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424285106,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/subscriptions/language-addition-eligibility",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "x-org-website-id": "41420",
+    "Authorization": "[REDACTED]"
+   },
+   "page": "/en/dashboard/socials",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "data": {
+     "hasScalePrimary": false,
+     "hasFreeSlotRemaining": false,
+     "slotsUsed": 0,
+     "totalSlots": 3,
+     "freeSlotsRemaining": 0,
+     "languagePriceId": "price_1Sx3EzLiGzfLlQtt6jRRljQr",
+     "primaryStripeSubscriptionId": "sub_1TmpE7LiGzfLlQttDwgNlrsX",
+     "primaryOrgWebsiteId": 41420,
+     "pausedComplimentaryLanguages": []
+    },
+    "message": "Language addition eligibility resolved"
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793424285107,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/subscriptions/get-org-website-subscription?type=reddit",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/socials",
+   "reqBody": null,
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424285107,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/subscriptions/get-org-website-subscription?type=reddit_autopilot",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/socials",
+   "reqBody": null,
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424285107,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/reddit/configuration",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/socials",
+   "reqBody": null,
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424285107,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/reddit/relevant-posts?page=1&limit=100&filter=all",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/socials",
+   "reqBody": null,
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424285109,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://px.ads.linkedin.com/wa/?medium=fetch&fmt=g",
+   "reqHeaders": {
+    "Content-Type": "text/plain;charset=UTF-8",
+    "Accept": "*"
+   },
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/socials",
+   "status": 204,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424286030,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793424286024&cv=11&fst=1793424286024&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13t3t3l3l5l1&dma=0&tag_exp=115938465~115938469~118897920~118897930~119793974~120213116~120385423~120412528~120469145~120469153~121246026~121246034~123691370~123814944&u_w=1728&u_h=1117&url=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsocials&ref=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Fwhite-label&gclaw_src=32_2&rcb=19&frm=0&tiba=BabyLoveGrowth%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&gclaw=Cj0KCQjwlsfWBhD4ARIsACL7p1HeK3cawFXjoj5Fl-mDu1Y8-F8QgYlu0NNwQiM9eLxbb9jEpXi9QYEaAni9EALw_wcB&pscdl=noapi&auid=811030586.1793412074&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/socials",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424286032,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793424197218&gcs=G111&gcd=13t3t3l3l5l1&npa=0&dma=0&_eu=AAAAACQC&cid=486294686.1793412074&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=19&sr=1728x1117&ul=en-us&_s=28&tag_exp=115938465~115938469~118897920~118897930~119793974~120213116~120385423~120412528~120469145~120469153~121246026~121246034~123691370~123814944&sid=1793424197&sct=3&seg=1&dl=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsocials&dr=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Freferrals&dt=BabyLoveGrowth%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=90261",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/socials",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424286035,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=19&frm=0&apvc=0&auid=811030586.1793412074&dt=BabyLoveGrowth%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsocials&scrsrc=www.googletagmanager.com&rnd=706509847.1793424198&navt=n&npa=0&ae=a&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcs=G111&gcd=13t3t3l3l5l1&dma=0&tag_exp=115938465~115938469~118897920~118897930~119793974~120213116~120385423~120412528~120469145~120469153~121246026~121246034~123691370~123814944&tft=1793424286035&tfd=90263&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/socials",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424286038,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793424197218&gcs=G111&gcd=13t3t3l3l5l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=486294686.1793412074&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=19&sr=1728x1117&ul=en-us&_s=29&tag_exp=115938465~115938469~118897920~118897930~119793974~120213116~120385423~120412528~120469145~120469153~121246026~121246034~123691370~123814944&dl=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsocials&dr=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Fwhite-label&sid=1793424197&sct=3&seg=1&dt=BabyLoveGrowth%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=90267",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/socials",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

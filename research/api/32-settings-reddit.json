@@ -1,0 +1,114 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/settings/reddit",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793423515661,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/settings/reddit?_rsc=1k0wy",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22settings%22%2C%7B%22children%22%3A%5B%22reddit%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2C%22refetch%22%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/settings/quora"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/quora",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793423516130,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/settings/reddit",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423516162,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/reddit/configuration",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/settings/reddit",
+   "reqBody": null,
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793423516432,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/reddit/subreddits",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/settings/reddit",
+   "reqBody": null,
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793423517148,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793423517143&cv=11&fst=1793423517143&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Freddit&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Fquora&rcb=0&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/reddit",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423517152,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=129&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Freddit&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Fpublishing&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=1057236",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/reddit",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423517154,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=0&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Freddit&scrsrc=www.googletagmanager.com&rnd=2083431636.1793422461&navt=n&npa=0&ae=a&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&tft=1793423517154&tfd=1057238&_gsid=UjM29SyMoMIgL331vq5GpOK7AGKsVzeJAw&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/reddit",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423517157,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=130&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Freddit&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Fquora&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=1057241",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/reddit",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

@@ -1,0 +1,87 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/billing",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Subscription",
+  "H2: Active Subscription",
+  "H2: Payment History"
+ ],
+ "buttons": [
+  "(Manage Subscription) [icon:lucide-settings]",
+  "Pause billing [icon:lucide-circle-pause]",
+  "Cancel subscription",
+  "See what Scale offers [icon:lucide-chevron-right]",
+  "Download"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "checkbox",
+   "name": "",
+   "placeholder": "",
+   "label": "Email me my invoices",
+   "value": "on",
+   "checked": null
+  },
+  {
+   "tag": "SELECT",
+   "type": "select-one",
+   "name": "",
+   "placeholder": "",
+   "label": "",
+   "value": "main",
+   "checked": null
+  }
+ ],
+ "tables": [
+  {
+   "headers": [
+    "Invoice ID",
+    "Billing Date",
+    "Amount",
+    "Status",
+    "Invoice PDF"
+   ],
+   "rows": 6,
+   "sample": [
+    [
+     "in_1UV4FtLiGzfLlQttBT1lTBBd",
+     "Oct 26, 2026",
+     "$99.00",
+     "Paid",
+     "Download"
+    ],
+    [
+     "in_1UKBxPLiGzfLlQttTwfiz6yg",
+     "Sep 26, 2026",
+     "$99.00",
+     "Paid",
+     "Download"
+    ],
+    [
+     "in_1U8xB5LiGzfLlQttenXgir7J",
+     "Aug 26, 2026",
+     "$99.00",
+     "Paid",
+     "Download"
+    ],
+    [
+     "in_1TxiPbLiGzfLlQttfI5cPorb",
+     "Jul 26, 2026",
+     "$99.00",
+     "Paid",
+     "Download"
+    ]
+   ]
+  }
+ ],
+ "icons": [
+  "lucide-check",
+  "lucide-settings",
+  "lucide-circle-pause",
+  "lucide-chevron-right"
+ ],
+ "images": [],
+ "charts": 0
+}

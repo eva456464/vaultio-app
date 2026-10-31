@@ -1,0 +1,103 @@
+Instagram & Facebook
+Carousel posts are generated from your articles, reviewed and posted to Meta.
+See my posts
+Connected accounts
+Choose the Facebook Page and Instagram account your posts are published to.
+Reconnect
+Validate
+Disconnect
+POSTING TO
+
+
+Vaultio
+Facebook Page and its linked Instagram account
+Connected
+Facebook
+Vaultio
+Posting
+
+
+Instagram
+@vaultiohq
+Posting
+
+Review & post
+Who approves posts and when they go out
+Who approves posts
+
+Automatic
+Hands-off
+Posts on its own
+
+Automatic with review
+Approve first
+You approve, we post
+
+Manual
+Full control
+You approve and post
+Posts wait for your approval; approved posts go out at their scheduled time. A post not reviewed and approved before its scheduled time is NOT posted automatically — it waits until you post it manually.
+Schedule
+Every
+Sun
+Mon
+Tue
+Wed
+Thu
+Fri
+Sat
+Every day
+at
+
+in America/Los_Angeles · 12:30 UTC
+Content
+What each carousel looks like
+Post categories
+4 enabled · we rotate between them
+
+Educational
+Teach one practical takeaway per slide — numbers, steps, mistakes to avoid.
+
+Philosophical
+A reflective angle on your article's deeper theme.
+
+Myth-busting
+A common misconception confronted with your article's evidence.
+
+Storytelling
+A short narrative built from your article's material, ending in a lesson.
+Image style
+Example 1 of 5
+
+
+Choose how your carousel images look. Both styles are shown on the same example post.
+
+
+Photo realistic
+Lifelike photography — editorial, studio, macro and lifestyle scenes.
+
+Sketch
+Hand-drawn illustration — ink & watercolor, flat vector and paper collage.
+Text style
+Only the slide text and the brand mark — the image is not affected
+
+
+Bold & clean
+Big modern type with key words in your brand color. Fits most brands.
+
+
+Elegant
+Refined serif type, centered and airy — beauty, wellness, luxury, professional services.
+
+
+Playful
+Loud extra-bold type with highlighted words — consumer, lifestyle, food, fitness.
+
+
+Vintage
+Classic display serif with an old-print feel — artisanal, heritage and craft brands.
+Show brand name on slides
+Your domain as a small mark on every slide. The link on the last slide always stays.
+
+Applies to newly generated posts only.
+

@@ -1,0 +1,28 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/product-catalog",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Product catalog",
+  "H2: Add your products"
+ ],
+ "buttons": [
+  "Shopify Connect your Shopify store and import products automatically. [icon:lucide-arrow-right]",
+  "WooCommerce Connect your WooCommerce store and import products automatically. [icon:lucide-arrow-right]",
+  "Add manually Add products one by one, upload a file, or import a Google or Faceb [icon:lucide-file-text]",
+  "XML Feed (URL) Import products from an existing XML feed URL. [icon:lucide-link2]"
+ ],
+ "tabs": [],
+ "inputs": [],
+ "tables": [],
+ "icons": [
+  "lucide-arrow-right",
+  "lucide-file-text",
+  "lucide-link2"
+ ],
+ "images": [
+  " | https://app.vaultio.co/logos/logoShopify.svg",
+  " | https://app.vaultio.co/logos/Woo_logo_color.svg",
+  " | https://app.vaultio.co/images/PC1.svg"
+ ],
+ "charts": 0
+}

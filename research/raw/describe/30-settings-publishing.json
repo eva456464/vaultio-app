@@ -1,0 +1,61 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/publishing",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Publishing",
+  "H2: Website connections",
+  "H2: Connect Your Website",
+  "H2: For developers"
+ ],
+ "buttons": [
+  "Next.js Blog Connected Render your articles as a blog on your own Next.js site. ",
+  "WordPress Auto-publish articles to your WordPress site. Connect [icon:lucide-plus]",
+  "Shopify Auto-publish articles to your Shopify site. Connect [icon:lucide-plus]",
+  "Webflow Auto-publish articles to your Webflow site. Connect [icon:lucide-plus]",
+  "Wix Auto-publish articles to your Wix site. Connect [icon:lucide-plus]",
+  "Ghost Auto-publish articles to your Ghost site. Connect [icon:lucide-plus]",
+  "Framer Auto-publish articles to your Framer site. Connect [icon:lucide-plus]",
+  "Lovable Add a self-updating blog to your Lovable site with one prompt. Connect [icon:lucide-plus]",
+  "GoHighLevel Auto-publish articles to your GoHighLevel site. Connect [icon:lucide-plus]",
+  "Duda Auto-publish articles to your Duda site. Connect [icon:lucide-plus]",
+  "BigCommerce Auto-publish articles to your BigCommerce site. Connect [icon:lucide-plus]",
+  "Snapps Auto-publish articles to your Snapps site. Connect [icon:lucide-plus]",
+  "☁️ Blog Hosting We can host the blogs on your subdomain. Add DNS record →",
+  "API Connected Fetch articles and backlinks over our API. Manage",
+  "Webhook Send articles to your webhook URL. Connect [icon:lucide-plus]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "checkbox",
+   "name": "",
+   "placeholder": "",
+   "label": "Automatically Publish",
+   "value": "on",
+   "checked": true
+  }
+ ],
+ "tables": [],
+ "icons": [
+  "lucide-plus",
+  "lucide-zap"
+ ],
+ "images": [
+  "Next.js | https://app.vaultio.co/logos/nextjs.png",
+  "WordPress | https://app.vaultio.co/logos/integrations/wordpress.svg",
+  "Shopify | https://app.vaultio.co/logos/integrations/shopify.svg",
+  "Webflow | https://app.vaultio.co/logos/integrations/webflow.svg",
+  "Wix | https://app.vaultio.co/logos/integrations/wix.svg",
+  "Ghost | https://app.vaultio.co/logos/integrations/ghost.png",
+  "Framer | https://app.vaultio.co/logos/integrations/framer.svg",
+  "Lovable | https://app.vaultio.co/logos/integrations/lovable.svg",
+  "GoHighLevel | https://app.vaultio.co/logos/integrations/gohighlevel.png",
+  "Duda | https://app.vaultio.co/logos/duda_logo_orange.svg",
+  "BigCommerce | https://app.vaultio.co/logos/integrations/bigcommerce.svg",
+  "Snapps | https://app.vaultio.co/logos/integrations/snapps.svg",
+  "API | https://app.vaultio.co/logos/integrations/api.svg",
+  "Webhook | https://app.vaultio.co/logos/integrations/webhook.svg"
+ ],
+ "charts": 0
+}

@@ -1,0 +1,66 @@
+{
+ "url": "https://app.vaultio.co/en/clients",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Welcome back, Damian",
+  "H2: Your clients (2)"
+ ],
+ "buttons": [
+  "Manage all subscriptions",
+  "Add client [icon:lucide-plus]",
+  "vaultio.co",
+  "(Preview of the vaultio.co client dashboard) [icon:lucide-arrow-right]",
+  "goletapressurewashing.com",
+  "(Preview of the goletapressurewashing.com client dashboard) [icon:lucide-arrow-right]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "search",
+   "name": "",
+   "placeholder": "Search clients",
+   "label": "Search clients",
+   "value": "",
+   "checked": null
+  }
+ ],
+ "tables": [
+  {
+   "headers": [
+    "WEBSITE",
+    "LANGUAGE",
+    "SUBSCRIPTION",
+    "DATE ADDED",
+    "Open client dashboard"
+   ],
+   "rows": 2,
+   "sample": [
+    [
+     "vaultio.co https://vaultio.co",
+     "English",
+     "Active",
+     "Jun 27, 2026",
+     ""
+    ],
+    [
+     "goletapressurewashing.com https://goletapressurewashing.com",
+     "English",
+     "Active",
+     "Aug 5, 2026",
+     ""
+    ]
+   ]
+  }
+ ],
+ "icons": [
+  "lucide-search",
+  "lucide-plus",
+  "lucide-arrow-right"
+ ],
+ "images": [
+  "https://vaultio.co | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dvaultio.co%26default%3Ddata%253Aimage%252Fsvg%252Bxml%2",
+  "https://goletapressurewashing.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dgoletapressurewashing.com%26default%3Ddata%253Aimage%25"
+ ],
+ "charts": 0
+}

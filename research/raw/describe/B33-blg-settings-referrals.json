@@ -1,0 +1,24 @@
+{
+ "url": "https://www.babylovegrowth.ai/en/dashboard/settings/referrals",
+ "title": "BabyLoveGrowth - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Refer and earn",
+  "H2: Your referral link",
+  "H2: How it works",
+  "H2: Your rewards",
+  "H2: Your referred friends"
+ ],
+ "buttons": [
+  "Share & earn [icon:lucide-gift]"
+ ],
+ "tabs": [],
+ "inputs": [],
+ "tables": [],
+ "icons": [
+  "lucide-gift",
+  "lucide-credit-card",
+  "lucide-user-plus"
+ ],
+ "images": [],
+ "charts": 0
+}

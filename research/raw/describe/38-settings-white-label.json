@@ -1,0 +1,76 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/white-label",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Branding and domains",
+  "H2: Brand"
+ ],
+ "buttons": [
+  "(Shown in the sidebar, in your clients' emails and on their reports. Your client [icon:lucide-info]",
+  "(Shown in the sidebar, on your clients' sign-in screen and on their reports.) [icon:lucide-info]",
+  "Upload a logo [icon:lucide-upload]",
+  "(The small icon in your clients' browser tab.) [icon:lucide-info]",
+  "Upload a favicon [icon:lucide-upload]",
+  "(Replaces our orange accents in your clients' dashboard. Buttons and text keep t [icon:lucide-info]",
+  "(Toggle color picker)",
+  "(Used for secondary accents across your clients' dashboard, like badges and high [icon:lucide-info]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "",
+   "label": "Agency name",
+   "value": "Vaultio",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "",
+   "label": "Hosting domain",
+   "value": "app.vaultio.co",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "",
+   "label": "Email sending domain",
+   "value": "app.vaultio.co",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "000000",
+   "label": "Primary color",
+   "value": "E94545",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "000000",
+   "label": "Accent color",
+   "value": "000000",
+   "checked": null
+  }
+ ],
+ "tables": [],
+ "icons": [
+  "lucide-info",
+  "lucide-upload"
+ ],
+ "images": [
+  "Vaultio | https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/whitelabel/vaultio/vaultio_favicon.png",
+  " | https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/whitelabel/vaultio/vaultio_favicon.png"
+ ],
+ "charts": 0
+}

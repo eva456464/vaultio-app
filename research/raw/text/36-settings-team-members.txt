@@ -1,0 +1,36 @@
+Members
+Name your workspace and manage who has access to it.
+Workspace name
+This name is shown across your team workspace
+Workspace name
+
+Members & roles
+Add member
+Member
+Role
+Status
+VM
+Vaultio Marketing VA
+zepohd@gmail.com
+Member
+Active
+
+D
+damian
+yungrichdj@icloud.com
+Member
+Active
+
+G
+gkahn810
+gkahn810@gmail.com
+Member
+Pending
+
+DK
+Damian Knights
+knightsdamian@gmail.com
+Admin
+Active
+
+

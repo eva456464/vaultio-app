@@ -1,0 +1,20 @@
+Profile
+Your name, email, password and platform language.
+Personal details
+Your personal account details
+Name
+
+Email
+knightsdamian@gmail.com
+Change password
+Dashboard Language
+
+
+English
+Session
+Sign out of your account on this device.
+Log out
+Danger zone
+Delete your account. You'll have 14 days to change your mind before deletion becomes permanent.
+Delete account
+

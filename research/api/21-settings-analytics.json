@@ -1,0 +1,149 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/settings/analytics",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793423414261,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/settings/analytics?_rsc=10cpy",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22settings%22%2C%7B%22children%22%3A%5B%22analytics%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2C%22refetch%22%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/settings/account"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/account",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793423414652,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/settings/analytics",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423414696,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/account-info",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/settings/analytics",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "GA4 account info fetched successfully",
+    "data": {
+     "email": "knightsdamian@gmail.com",
+     "name": "Damian Knights",
+     "picture": "https://lh3.googleusercontent.com/a/ACg8ocKn1zclXsApjm0EbyUcCsZIukPP-GeD9DEIcS9N2X-LArLf9rOh=s96-c"
+    }
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793423414697,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/gsc/account-info",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/settings/analytics",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "GSC account info fetched successfully",
+    "data": {
+     "email": "knightsdamian@gmail.com",
+     "name": "Damian Knights",
+     "picture": "https://lh3.googleusercontent.com/a/ACg8ocKn1zclXsApjm0EbyUcCsZIukPP-GeD9DEIcS9N2X-LArLf9rOh=s96-c"
+    }
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793423414697,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/gsc/generate-gsc-consent-url?redirectPath=%2Fdashboard%2Fsettings%2Fanalytics",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/settings/analytics",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "URL generated successfully",
+    "data": {
+     "authUrl": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fwebmasters.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&prompt=consent&state=eyJyZXR1cm5PcmlnaW4iOiJodHRwczovL2FwcC52YXVsdGlvLmNvIiwicmV0dXJuUGF0aCI6Ii9kYXNoYm9hcmQvc2V0dGluZ3MvYW5hbHl0aWNzIn0&response_type=code&client_id=15985225912-eoi611locb5hcoico2rit098iv76sd9r.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fanalytics-connector.com%2Fapi%2Fgoogle-oauth-bridge"
+    }
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793423415672,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793423415666&cv=11&fst=1793423415666&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Fanalytics&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Faccount&rcb=0&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/analytics",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423415676,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=96&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Fanalytics&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fcontent-plan&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=955760",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/analytics",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423415679,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=0&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Fanalytics&scrsrc=www.googletagmanager.com&rnd=2083431636.1793422461&navt=n&npa=0&ae=a&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&tft=1793423415679&tfd=955763&_gsid=UjM29SyMoMIgL331vq5GpOK7AGKsVzeJAw&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/analytics",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423415684,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=97&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Fanalytics&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Faccount&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=955768",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/analytics",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

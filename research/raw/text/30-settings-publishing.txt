@@ -1,0 +1,90 @@
+Publishing
+Connect your website so finished articles publish automatically.
+Website connections
+Automatically Publish
+New articles get published on auto-pilot.
+
+Connect Your Website
+Connect your website once and new articles will get published to your blog automatically.
+
+
+Next.js Blog
+Connected
+Render your articles as a blog on your own Next.js site.
+Manage
+
+
+WordPress
+Auto-publish articles to your WordPress site.
+Connect
+
+
+Shopify
+Auto-publish articles to your Shopify site.
+Connect
+
+
+Webflow
+Auto-publish articles to your Webflow site.
+Connect
+
+
+Wix
+Auto-publish articles to your Wix site.
+Connect
+
+
+Ghost
+Auto-publish articles to your Ghost site.
+Connect
+
+
+Framer
+Auto-publish articles to your Framer site.
+Connect
+
+
+Lovable
+Add a self-updating blog to your Lovable site with one prompt.
+Connect
+
+
+GoHighLevel
+Auto-publish articles to your GoHighLevel site.
+Connect
+
+
+Duda
+Auto-publish articles to your Duda site.
+Connect
+
+
+BigCommerce
+Auto-publish articles to your BigCommerce site.
+Connect
+
+
+Snapps
+Auto-publish articles to your Snapps site.
+Connect
+YOUR WEBSITE NOT SUPPORTED? NO PROBLEM.
+Add 1 DNS record and articles will auto-publish to your site. Get all SEO & AEO benefits.
+
+☁️
+Blog Hosting
+We can host the blogs on your subdomain.
+Add DNS record →
+For developers
+No platform match? Publish anywhere with the API or webhooks.
+
+
+API
+Connected
+Fetch articles and backlinks over our API.
+Manage
+
+
+Webhook
+Send articles to your webhook URL.
+Connect
+

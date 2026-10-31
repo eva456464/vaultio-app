@@ -1,0 +1,11 @@
+{
+ "u": "/en/dashboard/overview",
+ "cap": [
+  "GET https://api.babylovegrowth.ai/api/organization/get-org-website 200",
+  "GET https://api.babylovegrowth.ai/api/content-plan 200",
+  "GET https://api.babylovegrowth.ai/api/articles/1036058 200"
+ ],
+ "pop": [
+  "Why this topic?\nWhy this topic?\n\n\nLocal SEO Ranking Factors for Contractors in 2026\nTarget keyword:\nlocal seo ranking factors\n320 searches/mo\nWhy this topic?\nContractors searching local SEO ranking factors want to know what to fix to get more calls, and this article ranks the factors and gives them a priority order.\nIt serves Vaultio by tying visibility to fast lead response and linking naturally to its AI SEO offer and trade guides.\nIt stays within the supplied sources and client facts.\nWhy this structure?\nArticle characteristics\n"
+ ]
+}

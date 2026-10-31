@@ -1,0 +1,56 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/branding",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Branding",
+  "H2: Logo",
+  "H2: Colors",
+  "H2: Voice"
+ ],
+ "buttons": [
+  "(Your main brand color, used for images and infographics.) [icon:lucide-info]",
+  "(Toggle color picker)",
+  "(An accent color that complements your primary brand color.) [icon:lucide-info]",
+  "(Add an article URL that represents your brand's writing style. The AI will anal [icon:lucide-info]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "000000",
+   "label": "Primary color",
+   "value": "E94545",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "000000",
+   "label": "Secondary color",
+   "value": "000000",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "https://yourblog.com/example-post",
+   "label": "",
+   "value": "https://vaultio.co",
+   "checked": null
+  }
+ ],
+ "tables": [],
+ "icons": [
+  "lucide-upload",
+  "lucide-trash2",
+  "lucide-info"
+ ],
+ "images": [
+  "Current brand logo | https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/user-uploads/org-website-41420/logo-1783405856651.png?v=1793423433183"
+ ],
+ "charts": 0
+}

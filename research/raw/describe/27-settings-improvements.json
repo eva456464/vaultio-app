@@ -1,0 +1,41 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/improvements",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Article improvements",
+  "H2: Enable article improvements"
+ ],
+ "buttons": [
+  "How it works [icon:lucide-book-open]",
+  "View improvements [icon:lucide-list] -> /en/dashboard/content-plan/improvements",
+  "Sunday [icon:lucide-x] [disabled]",
+  "Monday [icon:lucide-check]",
+  "Tuesday [icon:lucide-x] [disabled]",
+  "Wednesday [icon:lucide-check]",
+  "Thursday [icon:lucide-x] [disabled]",
+  "Friday [icon:lucide-x] [disabled]",
+  "Saturday [icon:lucide-x] [disabled]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "checkbox",
+   "name": "",
+   "placeholder": "",
+   "label": "Enable article improvements",
+   "value": "on",
+   "checked": true
+  }
+ ],
+ "tables": [],
+ "icons": [
+  "lucide-book-open",
+  "lucide-list",
+  "lucide-arrow-right",
+  "lucide-x",
+  "lucide-check"
+ ],
+ "images": [],
+ "charts": 0
+}

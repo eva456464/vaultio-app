@@ -1,0 +1,82 @@
+Writing
+Language, length, tone and instructions for every article.
+Writing instructions
+Optional
+Anything every future article should do or avoid: words, claims, topics, audience, tone, facts about your business.
+Image rules are in Visuals
+
+Never use AI buzzwords.
+Added 1 week ago
+
+
+Write genuine, useful, EEAT-focused content.
+Added 1 week ago
+
+
+Write for contractors looking to grow their company.
+Added 1 week ago
+
+
+Add
+Recent changes (1)
+Language & length
+How the writing sounds and how long it runs
+English Type
+
+American
+Article Length
+
+
+What every article includes
+Toggle the structural elements BLG adds to each piece
+Author Perspective
+
+
+Author name
+
+
+Table of Contents (TOC)
+
+
+Recommended Reads
+
+
+Sources section
+
+
+Citations
+
+
+Mention competitors when relevant
+
+
+Schema Markup (JSON-LD)
+
+
+Summary
+
+
+
+TL;DR
+
+TL;DR
+3-5 bullet points in a highlighted box
+
+Key takeaways
+One-sentence claim and a Point / Details table
+Internal Linking
+Control internal linking settings.
+Enable internal links in articles
+
+Add 'www' prefix to internal links
+Enable to append www to internal links generated within the articles.
+
+Add '/' trailing slash to internal links
+Enable to append a trailing slash to internal links generated within the articles.
+
+Article disclaimer
+Optional text added at the very end of every article
+Disclaimer text
+
+
+

@@ -1,0 +1,3495 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/overview",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793423460889,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/settings/gbp?_rsc=42hdd",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22settings%22%2C%7B%22children%22%3A%5B%22competitors%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/settings/competitors"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/competitors",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793423461336,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/settings/gbp",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423461398,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/overview?_rsc=eunv3",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22settings%22%2C%7B%22children%22%3A%5B%22gbp%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/settings/gbp"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/gbp",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793423461717,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/overview",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423461743,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/subscriptions/language-addition-eligibility",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "x-org-website-id": "41420",
+    "Authorization": "[REDACTED]"
+   },
+   "page": "/en/dashboard/overview",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "data": {
+     "hasScalePrimary": false,
+     "hasFreeSlotRemaining": false,
+     "slotsUsed": 0,
+     "totalSlots": 3,
+     "freeSlotsRemaining": 0,
+     "languagePriceId": "price_1Sx3EzLiGzfLlQtt6jRRljQr",
+     "primaryStripeSubscriptionId": "sub_1TmpE7LiGzfLlQttDwgNlrsX",
+     "primaryOrgWebsiteId": 41420,
+     "pausedComplimentaryLanguages": []
+    },
+    "message": "Language addition eligibility resolved"
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793423461744,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/overview/agent-activities?tz=America%2FLos_Angeles",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/overview",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "timeZone": "America/Los_Angeles",
+    "firstDate": "2026-06-26",
+    "lastDate": "2026-11-13",
+    "selectedDate": "2026-10-30",
+    "days": [
+     {
+      "date": "2026-10-28",
+      "isToday": false,
+      "count": 8,
+      "featuredArticle": {
+       "articleId": 1031495,
+       "contentPlanId": null,
+       "title": "How to Get More Contractor Leads in Florida",
+       "articleType": "guide_how_to",
+       "keyword": "how to get more contractor leads florida",
+       "searchVolume": 190,
+       "keywordDifficulty": 5,
+       "imageUrl": "https://media.babylovegrowth.ai/blog-images/organization-29411/1793211828479_Florida-homeowner-calls-arriving-contractor.jpeg",
+       "whyThisTopic": [
+        "Florida contractors searching this keyword want a practical lead plan, and Vaultio's buyers are exactly those owners.",
+        "The article gives a usable checklist grounded in Google and SBA guidance, then shows where Vaultio's services fit.",
+        "It earns trust first and presents the offers and guarantee where a reader is ready to act."
+       ],
+       "publishedUrl": "https://vaultio.co/blog/how-to-get-more-contractor-leads-florida",
+       "status": "published"
+      },
+      "items": [
+       {
+        "type": "analyticsSync",
+        "date": "2026-10-28T00:00:00.000Z",
+        "day": "2026-10-28",
+        "count": 29
+       },
+       {
+        "type": "aiTrafficReport",
+        "date": "2026-10-28T00:00:00.000Z",
+        "day": "2026-10-28",
+        "count": 0
+       },
+       {
+        "type": "cannibalizationCheck",
+        "date": "2026-10-28T00:00:00.000Z",
+        "day": "2026-10-28",
+        "count": 1
+       },
+       {
+        "type": "topicsPlanned",
+        "date": "2026-10-28T00:00:00.000Z",
+        "day": "2026-10-28",
+        "count": 2
+       },
+       {
+        "type": "backlinkReceived",
+        "date": "2026-10-28T07:04:25.475Z",
+        "sourceUrl": "https://kudoflix.com",
+        "domainRating": 27
+       },
+       {
+        "type": "backlinkReceived",
+        "date": "2026-10-28T07:05:11.349Z",
+        "sourceUrl": "https://droxy.ai",
+        "domainRating": 43
+       },
+       {
+        "type": "topicResearched",
+        "date": "2026-10-28T19:35:15.854Z",
+        "title": "hvac ai receptionist"
+       },
+       {
+        "type": "articlePublished",
+        "date": "2026-10-29T04:31:39.577Z",
+        "title": "How to Get More Contractor Leads in Florida",
+        "articleId": 1031495,
+        "publishedUrl": "https://vaultio.co/blog/how-to-get-more-contractor-leads-florida"
+       }
+      ]
+     },
+     {
+      "date": "2026-10-29",
+      "isToday": false,
+      "count": 12,
+      "featuredArticle": {
+       "articleId": 1032094,
+       "contentPlanId": null,
+       "title": "HVAC AI Receptionist: What It Does and How to Pick One",
+       "articleType": "guide_explainer",
+       "keyword": "hvac ai receptionist",
+       "searchVolume": 50,
+       "keywordDifficulty": 4,
+       "imageUrl": "https://media.babylovegrowth.ai/blog-images/organization-29411/1793221503463_HVAC-dispatcher-answering-an-incoming-customer-call.jpeg",
+       "whyThisTopic": [
+        "HVAC contractors searching this term want to know what an AI receptionist does, how to test one, and whether it pays back.",
+        "The article serves owners and managers weighing a front-desk fix for missed calls.",
+        "It positions Vaultio's published $449 per month system and guarantee as the natural next step without naming rivals."
+       ],
+       "publishedUrl": "https://vaultio.co/blog/hvac-ai-receptionist",
+       "status": "published"
+      },
+      "items": [
+       {
+        "type": "cannibalizationCheck",
+        "date": "2026-10-29T00:00:00.000Z",
+        "day": "2026-10-29",
+        "count": 1
+       },
+       {
+        "type": "analyticsSync",
+        "date": "2026-10-29T00:00:00.000Z",
+        "day": "2026-10-29",
+        "count": 27
+       },
+       {
+        "type": "aiTrafficReport",
+        "date": "2026-10-29T00:00:00.000Z",
+        "day": "2026-10-29",
+        "count": 0
+       },
+       {
+        "type": "sitemapSync",
+        "date": "2026-10-29T00:00:00.000Z",
+        "day": "2026-10-29",
+        "count": 817
+       },
+       {
+        "type": "topicResearched",
+        "date": "2026-10-29T19:35:41.101Z",
+        "title": "local seo ranking factors"
+       },
+       {
+        "type": "socialPostPublished",
+        "date": "2026-10-29T19:51:12.407Z",
+        "title": "facebook",
+        "sourceUrl": "https://www.facebook.com/122183136914704157/posts/122184265532704157"
+       },
+       {
+        "type": "socialPostPublished",
+        "date": "2026-10-29T19:51:40.915Z",
+        "title": "instagram",
+        "sourceUrl": "https://www.instagram.com/p/DfFzMkRF5Na/"
+       },
+       {
+        "type": "backlinkReceived",
+        "date": "2026-10-30T04:01:26.538Z",
+        "sourceUrl": "https://monobot.ai",
+        "domainRating": 59
+       },
+       {
+        "type": "backlinkReceived",
+        "date": "2026-10-30T04:01:30.734Z",
+        "sourceUrl": "https://digitalfractal.com",
+        "domainRating": 39
+       },
+       {
+        "type": "articlePublished",
+        "date": "2026-10-30T04:31:42.443Z",
+        "title": "HVAC AI Receptionist: What It Does and How to Pick One",
+        "articleId": 1032094,
+        "publishedUrl": "https://vaultio.co/blog/hvac-ai-receptionist"
+       },
+       {
+        "type": "socialPostPublished",
+        "date": "2026-10-30T05:11:41.555Z",
+        "title": "facebook",
+        "sourceUrl": "https://www.facebook.com/122183136914704157/posts/122184298574704157"
+       },
+       {
+        "type": "socialPostPublished",
+        "date": "2026-10-30T05:12:09.369Z",
+        "title": "instagram",
+        "sourceUrl": "https://www.instagram.com/p/DfGzVx4l9bQ/"
+       }
+      ]
+     },
+     {
+      "date": "2026-10-30",
+      "isToday": true,
+      "count": 10,
+      "featuredArticle": {
+       "articleId": 1036058,
+       "contentPlanId": null,
+       "title": "Local SEO Ranking Factors for Contractors in 2026",
+       "articleType": "listicle_educational",
+       "keyword": "local seo ranking factors",
+       "searchVolume": 320,
+       "keywordDifficulty": 40,
+       "imageUrl": "https://media.babylovegrowth.ai/blog-images/organization-29411/1793310131420_Contractor-reviewing-local-search-results-on-phone.jpeg",
+       "whyThisTopic": [
+        "Contractors searching local SEO ranking factors want to know what to fix to get more calls, and this article ranks the factors and gives them a priority order.",
+        "It serves Vaultio by tying visibility to fast lead response and linking naturally to its AI SEO offer and trade guides.",
+        "It stays within the supplied sources and client facts."
+       ],
+       "publishedUrl": "https://vaultio.co/blog/local-seo-ranking-factors",
+       "status": "published"
+      },
+      "items": [
+       {
+        "type": "competitorGapScan",
+        "date": "2026-10-30T00:00:00.000Z",
+        "day": "2026-10-30",
+        "count": 10
+       },
+       {
+        "type": "topicsPlanned",
+        "date": "2026-10-30T00:00:00.000Z",
+        "day": "2026-10-30",
+        "count": 2
+       },
+       {
+        "type": "cannibalizationCheck",
+        "date": "2026-10-30T00:00:00.000Z",
+        "day": "2026-10-30",
+        "count": 1
+       },
+       {
+        "type": "analyticsSync",
+        "date": "2026-10-30T00:00:00.000Z",
+        "day": "2026-10-30",
+        "count": 27
+       },
+       {
+        "type": "aiTrafficReport",
+        "date": "2026-10-30T00:00:00.000Z",
+        "day": "2026-10-30",
+        "count": 0
+       },
+       {
+        "type": "rankingsCheck",
+        "date": "2026-10-30T00:00:00.000Z",
+        "day": "2026-10-30",
+        "count": 15,
+        "total": 1612
+       },
+       {
+        "type": "backlinkReceived",
+        "date": "2026-10-30T07:02:45.638Z",
+        "sourceUrl": "https://sendsync.com",
+        "domainRating": 27
+       },
+       {
+        "type": "socialPostPublished",
+        "date": "2026-10-31T02:01:42.601Z",
+        "title": "facebook",
+        "sourceUrl": "https://www.facebook.com/122183136914704157/posts/122184368162704157"
+       },
+       {
+        "type": "socialPostPublished",
+        "date": "2026-10-31T02:02:08.555Z",
+        "title": "instagram",
+        "sourceUrl": "https://www.instagram.com/p/DfJCY4Slxkn/"
+       },
+       {
+        "type": "articlePublished",
+        "date": "2026-10-31T04:23:02.153Z",
+        "title": "Local SEO Ranking Factors for Contractors in 2026",
+        "articleId": 1036058,
+        "publishedUrl": "https://vaultio.co/blog/local-seo-ranking-factors"
+       }
+      ]
+     },
+     {
+      "date": "2026-10-31",
+      "isToday": false,
+      "count": 3,
+      "featuredArticle": null,
+      "items": [
+       {
+        "type": "sitemapSync",
+        "date": "2026-11-01T05:11:01.914Z",
+        "isPlanned": true
+       },
+       {
+        "type": "analyticsSync",
+        "date": "2026-11-01T06:20:05.996Z",
+        "isPlanned": true
+       },
+       {
+        "type": "aiTrafficReport",
+        "date": "2026-11-01T06:20:05.996Z",
+        "isPlanned": true
+       }
+      ]
+     },
+     {
+      "date": "2026-11-01",
+      "isToday": false,
+      "count": 3,
+      "featuredArticle": null,
+      "items": [
+       {
+        "type": "sitemapSync",
+        "date": "2026-11-02T05:11:01.914Z",
+        "isPlanned": true
+       },
+       {
+        "type": "analyticsSync",
+        "date": "2026-11-02T06:20:05.996Z",
+        "isPlanned": true
+       },
+       {
+        "type": "aiTrafficReport",
+        "date": "2026-11-02T06:20:05.996Z",
+        "isPlanned": true
+       }
+      ]
+     },
+     {
+      "date": "2026-11-02",
+      "isToday": false,
+      "count": 5,
+      "featuredArticle": null,
+      "items": [
+       {
+        "type": "rankingsCheck",
+        "date": "2026-11-02T11:40:07.266Z",
+        "isPlanned": true
+       },
+       {
+        "type": "aiVisibilityCheck",
+        "date": "2026-11-03T03:57:32.278Z",
+        "isPlanned": true
+       },
+       {
+        "type": "sitemapSync",
+        "date": "2026-11-03T05:11:01.914Z",
+        "isPlanned": true
+       },
+       {
+        "type": "analyticsSync",
+        "date": "2026-11-03T06:20:05.996Z",
+        "isPlanned": true
+       },
+       {
+        "type": "aiTrafficReport",
+        "date": "2026-11-03T06:20:05.996Z",
+        "isPlanned": true
+       }
+      ]
+     },
+     {
+      "date": "2026-11-03",
+      "isToday": false,
+      "count": 4,
+      "featuredArticle": null,
+      "items": [
+       {
+        "type": "siteHealthAudit",
+        "date": "2026-11-03T16:07:08.323Z",
+        "isPlanned": true
+       },
+       {
+        "type": "sitemapSync",
+        "date": "2026-11-04T05:11:01.914Z",
+        "isPlanned": true
+       },
+       {
+        "type": "analyticsSync",
+        "date": "2026-11-04T06:20:05.996Z",
+        "isPlanned": true
+       },
+       {
+        "type": "aiTrafficReport",
+        "date": "2026-11-04T06:20:05.996Z",
+        "isPlanned": true
+       }
+      ]
+     },
+     {
+      "date": "2026-11-04",
+      "isToday": false,
+      "count": 3,
+      "featuredArticle": null,
+      "items": [
+       {
+        "type": "sitemapSync",
+        "date": "2026-11-05T05:11:01.914Z",
+        "isPlanned": true
+       },
+       {
+        "type": "analyticsSync",
+        "date": "2026-11-05T06:20:05.996Z",
+        "isPlanned": true
+       },
+       {
+        "type": "aiTrafficReport",
+        "date": "2026-11-05T06:20:05.996Z",
+        "isPlanned": true
+       }
+      ]
+     }
+    ]
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793423461744,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/overview/setup-checklist",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/overview",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "items": [
+     {
+      "key": "connect_website",
+      "isDone": true
+     },
+     {
+      "key": "connect_gsc",
+      "isDone": true
+     },
+     {
+      "key": "connect_ga4",
+      "isDone": true
+     },
+     {
+      "key": "connect_instagram",
+      "isDone": true
+     },
+     {
+      "key": "watch_walkthrough",
+      "isDone": true
+     },
+     {
+      "key": "read_docs",
+      "isDone": false
+     }
+    ]
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793423461744,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/overview/milestones",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/overview",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "cards": [
+     {
+      "id": 56170,
+      "category": "backlinks",
+      "threshold": 10,
+      "achievedAt": "2026-10-12T01:03:18.041Z",
+      "seenAt": "2026-10-23T06:36:12.439Z",
+      "proof": {
+       "kind": "backlinks",
+       "more": {
+        "count": 0
+       },
+       "items": [
+        {
+         "liveSince": "2026-10-12",
+         "sourceUrl": "https://bigeyedeers.co.uk",
+         "domainRating": 44
+        },
+        {
+         "liveSince": "2026-10-05",
+         "sourceUrl": "https://stampdesign4u.co.uk",
+         "domainRating": 32
+        },
+        {
+         "liveSince": "2026-10-05",
+         "sourceUrl": "https://equiptrack.us",
+         "domainRating": 30
+        },
+        {
+         "liveSince": "2026-10-04",
+         "sourceUrl": "https://lahvaclc.com",
+         "domainRating": 36
+        },
+        {
+         "liveSince": "2026-08-05",
+         "sourceUrl": "https://ag-plumbing.com",
+         "domainRating": 17
+        },
+        {
+         "liveSince": "2026-08-04",
+         "sourceUrl": "https://pikpikpow.co.uk",
+         "domainRating": 23
+        },
+        {
+         "liveSince": "2026-07-07",
+         "sourceUrl": "https://coastalroofingfla.com",
+         "domainRating": 6
+        },
+        {
+         "liveSince": "2026-07-04",
+         "sourceUrl": "https://hometsair.com",
+         "domainRating": 20
+        },
+        {
+         "liveSince": "2026-07-04",
+         "sourceUrl": "https://wallsneedlove.com",
+         "domainRating": 49
+        },
+        {
+         "liveSince": "2026-07-04",
+         "sourceUrl": "https://chicagohomeinspector.com",
+         "domainRating": 33
+        }
+       ]
+      },
+      "value": 19,
+      "gainLast7Days": 5,
+      "nextThreshold": 20
+     },
+     {
+      "id": 373214,
+      "category": "backlinks_value",
+      "threshold": 2500,
+      "achievedAt": "2026-10-12T07:05:04.383Z",
+      "seenAt": null,
+      "proof": {
+       "kind": "backlinks_value",
+       "more": {
+        "count": 0,
+        "valueUsd": 0
+       },
+       "items": [
+        {
+         "valueUsd": 250,
+         "liveSince": "2026-10-12",
+         "sourceUrl": "https://bigeyedeers.co.uk",
+         "domainRating": 44
+        },
+        {
+         "valueUsd": 250,
+         "liveSince": "2026-07-04",
+         "sourceUrl": "https://chicagohomeinspector.com",
+         "domainRating": 33
+        },
+        {
+         "valueUsd": 250,
+         "liveSince": "2026-10-05",
+         "sourceUrl": "https://equiptrack.us",
+         "domainRating": 30
+        },
+        {
+         "valueUsd": 250,
+         "liveSince": "2026-10-04",
+         "sourceUrl": "https://lahvaclc.com",
+         "domainRating": 36
+        },
+        {
+         "valueUsd": 250,
+         "liveSince": "2026-10-12",
+         "sourceUrl": "https://rendimension.com",
+         "domainRating": 34
+        },
+        {
+         "valueUsd": 250,
+         "liveSince": "2026-10-05",
+         "sourceUrl": "https://stampdesign4u.co.uk",
+         "domainRating": 32
+        },
+        {
+         "valueUsd": 250,
+         "liveSince": "2026-07-04",
+         "sourceUrl": "https://wallsneedlove.com",
+         "domainRating": 49
+        },
+        {
+         "valueUsd": 250,
+         "liveSince": "2026-10-12",
+         "sourceUrl": "https://www.noleggioqui.it",
+         "domainRating": 33
+        },
+        {
+         "valueUsd": 175,
+         "liveSince": "2026-08-05",
+         "sourceUrl": "https://ag-plumbing.com",
+         "domainRating": 17
+        },
+        {
+         "valueUsd": 175,
+         "liveSince": "2026-07-04",
+         "sourceUrl": "https://hometsair.com",
+         "domainRating": 20
+        },
+        {
+         "valueUsd": 175,
+         "liveSince": "2026-08-04",
+         "sourceUrl": "https://pikpikpow.co.uk",
+         "domainRating": 23
+        },
+        {
+         "valueUsd": 125,
+         "liveSince": "2026-07-07",
+         "sourceUrl": "https://coastalroofingfla.com",
+         "domainRating": 6
+        }
+       ],
+       "priceTiers": [
+        {
+         "valueUsd": 250,
+         "minDomainRating": 25
+        },
+        {
+         "valueUsd": 175,
+         "minDomainRating": 16
+        },
+        {
+         "valueUsd": 150,
+         "minDomainRating": 10
+        },
+        {
+         "valueUsd": 125,
+         "minDomainRating": 5
+        },
+        {
+         "valueUsd": 75,
+         "minDomainRating": 0
+        }
+       ]
+      },
+      "value": 4225,
+      "gainLast7Days": 0,
+      "nextThreshold": 5000
+     },
+     {
+      "id": 183105,
+      "category": "total_clicks",
+      "threshold": 1,
+      "achievedAt": "2026-08-09T00:00:00.000Z",
+      "seenAt": "2026-10-27T18:15:45.696Z",
+      "proof": {
+       "kind": "search_traffic",
+       "more": {
+        "count": 0,
+        "clicks": 0,
+        "impressions": 0
+       },
+       "items": [
+        {
+         "clicks": 1,
+         "article": {
+          "id": 593180,
+          "url": "https://vaultio.co/blog/pay-per-lead-marketing-agencies-3",
+          "title": "Top 3 Pay Per Lead Marketing Agencies 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/pay-per-lead-marketing-agencies-3",
+         "impressions": 49
+        }
+       ],
+       "metric": "clicks",
+       "period": {
+        "to": "2026-08-09",
+        "from": "2026-07-06",
+        "window": "lifetime"
+       },
+       "leadArticleId": null
+      },
+      "value": 9,
+      "gainLast7Days": 0,
+      "nextThreshold": 10
+     },
+     {
+      "id": 183104,
+      "category": "total_impressions",
+      "threshold": 5000,
+      "achievedAt": "2026-10-15T00:00:00.000Z",
+      "seenAt": null,
+      "proof": {
+       "kind": "search_traffic",
+       "more": {
+        "count": 59,
+        "clicks": 1,
+        "impressions": 405
+       },
+       "items": [
+        {
+         "clicks": 0,
+         "article": {
+          "id": 612754,
+          "url": "https://vaultio.co/blog/tree-service-leads",
+          "title": "Best Tree Service Leads in 2026: Exclusive and Verified"
+         },
+         "gscPage": "https://vaultio.co/Blog/tree-service-leads",
+         "impressions": 1307
+        },
+        {
+         "clicks": 2,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "impressions": 846
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 615687,
+          "url": "https://vaultio.co/blog/web-design-ventura",
+          "title": "Best Web Design Ventura Agencies: 2026 Ranked Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/web-design-ventura",
+         "impressions": 781
+        },
+        {
+         "clicks": 2,
+         "article": {
+          "id": 593180,
+          "url": "https://vaultio.co/blog/pay-per-lead-marketing-agencies-3",
+          "title": "Top 3 Pay Per Lead Marketing Agencies 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/pay-per-lead-marketing-agencies-3",
+         "impressions": 386
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 604847,
+          "url": "https://vaultio.co/blog/plumber-leads-agencies-5",
+          "title": "Top 5 Agencies for Plumber Leads 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/plumber-leads-agencies-5",
+         "impressions": 134
+        },
+        {
+         "clicks": 1,
+         "article": {
+          "id": 638017,
+          "url": "https://vaultio.co/blog/rynosscom-alternatives",
+          "title": "Best Rynoss.com Alternatives for Home Service Contractors"
+         },
+         "gscPage": "https://vaultio.co/Blog/rynosscom-alternatives",
+         "impressions": 132
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 754934,
+          "url": "https://vaultio.co/blog/what-is-a-landing-page",
+          "title": "What Is a Landing Page? Definition, Types, and Best Practices"
+         },
+         "gscPage": "https://vaultio.co/Blog/what-is-a-landing-page",
+         "impressions": 107
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 762518,
+          "url": "https://vaultio.co/blog/what-is-a-job-scheduling-system",
+          "title": "What Is a Job Scheduling System for Home Service Businesses?"
+         },
+         "gscPage": "https://vaultio.co/Blog/what-is-a-job-scheduling-system",
+         "impressions": 98
+        },
+        {
+         "clicks": 1,
+         "article": {
+          "id": 857891,
+          "url": "https://vaultio.co/blog/llm-citations",
+          "title": "Ship Verifiable LLM Citations: 3 Architectures, Tests, Tactics"
+         },
+         "gscPage": "https://vaultio.co/Blog/llm-citations",
+         "impressions": 97
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 737055,
+          "url": "https://vaultio.co/blog/thousand-oaks-google-maps",
+          "title": "Thousand Oaks Google Maps Rankings: A Contractor's Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/thousand-oaks-google-maps",
+         "impressions": 78
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 725030,
+          "url": "https://vaultio.co/blog/roofer-seo-keywords",
+          "title": "Roofer SEO Keywords: High-Intent List and Mapping Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/roofer-seo-keywords",
+         "impressions": 76
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 709305,
+          "url": "https://vaultio.co/blog/window-cleaning-seo",
+          "title": "Window Cleaning SEO: Get More Local Jobs Fast"
+         },
+         "gscPage": "https://vaultio.co/Blog/window-cleaning-seo",
+         "impressions": 68
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 766591,
+          "url": "https://vaultio.co/blog/build-electrician-google-maps-presence",
+          "title": "Build a Google Maps Presence That Actually Books Jobs"
+         },
+         "gscPage": "https://vaultio.co/Blog/build-electrician-google-maps-presence",
+         "impressions": 67
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 853876,
+          "url": "https://vaultio.co/blog/appointment-booking-automation",
+          "title": "Book Jobs 24/7: Appointment Booking Automation for Contractors"
+         },
+         "gscPage": "https://vaultio.co/Blog/appointment-booking-automation",
+         "impressions": 60
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 840954,
+          "url": "https://vaultio.co/blog/local-link-building",
+          "title": "Contractors: A 90 Day Local Link Building Plan to Win Local Visibility"
+         },
+         "gscPage": "https://vaultio.co/Blog/local-link-building",
+         "impressions": 59
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 590696,
+          "url": "https://vaultio.co/blog/plumbing-marketing-agency-alternatives-3",
+          "title": "Top 3 Plumbing Marketing Agency Alternatives 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/plumbing-marketing-agency-alternatives-3",
+         "impressions": 58
+        },
+        {
+         "clicks": 1,
+         "article": {
+          "id": 740481,
+          "url": "https://vaultio.co/blog/types-of-home-service-lead-funnels",
+          "title": "Types of Home Service Lead Funnels: What to Use and When"
+         },
+         "gscPage": "https://vaultio.co/Blog/types-of-home-service-lead-funnels",
+         "impressions": 45
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 733714,
+          "url": "https://vaultio.co/blog/citation-cleanup",
+          "title": "Citation Cleanup: Fix NAP Errors and Rank Higher"
+         },
+         "gscPage": "https://vaultio.co/Blog/citation-cleanup",
+         "impressions": 40
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 557117,
+          "url": "https://vaultio.co/blog/email-automation-for-leads-a-contractors-2026-guide",
+          "title": "Email Automation for Leads: A Contractor's 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/email-automation-for-leads-a-contractors-2026-guide",
+         "impressions": 32
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 790298,
+          "url": "https://vaultio.co/blog/click-fraud-protection",
+          "title": "Shortlist: Click Fraud Protection Vendors That Restore Smart Bidding"
+         },
+         "gscPage": "https://vaultio.co/Blog/click-fraud-protection",
+         "impressions": 32
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 924499,
+          "url": "https://vaultio.co/blog/review-gating-policy",
+          "title": "Avoid FTC Penalties: Review Gating Policy in 5 Steps for Marketers"
+         },
+         "gscPage": "https://vaultio.co/Blog/review-gating-policy",
+         "impressions": 29
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 767349,
+          "url": "https://vaultio.co/blog/stop-form-spam",
+          "title": "How to Stop Form Spam Without Blocking Real Customers"
+         },
+         "gscPage": "https://vaultio.co/Blog/stop-form-spam",
+         "impressions": 27
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 572232,
+          "url": "https://vaultio.co/blog/how-digital-marketing-drives-bookings-for-home-services",
+          "title": "How Digital Marketing Drives Bookings for Home Services"
+         },
+         "gscPage": "https://vaultio.co/Blog/how-digital-marketing-drives-bookings-for-home-services",
+         "impressions": 24
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 535710,
+          "url": "https://vaultio.co/blog/ai-friendly-content-for-home-services-2026-guide",
+          "title": "AI-Friendly Content for Home Services: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/ai-friendly-content-for-home-services-2026-guide",
+         "impressions": 23
+        },
+        {
+         "clicks": 0,
+         "article": {
+          "id": 587353,
+          "url": "https://vaultio.co/blog/contractor-keyword-targeting-examples-that-book-more-jobs",
+          "title": "Contractor Keyword Targeting Examples That Book More Jobs"
+         },
+         "gscPage": "https://vaultio.co/Blog/contractor-keyword-targeting-examples-that-book-more-jobs",
+         "impressions": 21
+        }
+       ],
+       "metric": "impressions",
+       "period": {
+        "to": "2026-10-15",
+        "from": "2026-07-06",
+        "window": "lifetime"
+       },
+       "leadArticleId": null
+      },
+      "value": 5848,
+      "gainLast7Days": 0,
+      "nextThreshold": 6000
+     },
+     {
+      "id": 143025,
+      "category": "ai_referral_first",
+      "threshold": 10,
+      "achievedAt": "2026-09-10T00:00:00.000Z",
+      "seenAt": null,
+      "proof": {
+       "kind": "ai_visits",
+       "more": {
+        "count": 0,
+        "visits": 0
+       },
+       "items": [
+        {
+         "date": "2026-09-10",
+         "visits": 1
+        },
+        {
+         "date": "2026-08-25",
+         "visits": 1
+        },
+        {
+         "date": "2026-08-04",
+         "visits": 1
+        },
+        {
+         "date": "2026-08-02",
+         "visits": 2
+        },
+        {
+         "date": "2026-07-14",
+         "visits": 1
+        },
+        {
+         "date": "2026-07-13",
+         "visits": 4
+        }
+       ],
+       "provider": null
+      },
+      "value": 17,
+      "gainLast7Days": 0,
+      "nextThreshold": 20
+     },
+     {
+      "id": 56209,
+      "category": "ai_visitors_chatgpt",
+      "threshold": 10,
+      "achievedAt": "2026-10-19T00:00:00.000Z",
+      "seenAt": null,
+      "proof": {
+       "kind": "ai_visits",
+       "more": {
+        "count": 0,
+        "visits": 0
+       },
+       "items": [
+        {
+         "date": "2026-10-19",
+         "visits": 1
+        },
+        {
+         "date": "2026-10-10",
+         "visits": 1
+        },
+        {
+         "date": "2026-09-27",
+         "visits": 1
+        },
+        {
+         "date": "2026-09-17",
+         "visits": 1
+        },
+        {
+         "date": "2026-09-10",
+         "visits": 1
+        },
+        {
+         "date": "2026-08-25",
+         "visits": 1
+        },
+        {
+         "date": "2026-08-04",
+         "visits": 1
+        },
+        {
+         "date": "2026-08-02",
+         "visits": 2
+        },
+        {
+         "date": "2026-07-13",
+         "visits": 1
+        }
+       ],
+       "provider": "chatgpt"
+      },
+      "value": 10,
+      "gainLast7Days": 0,
+      "nextThreshold": 20
+     },
+     {
+      "id": 56211,
+      "category": "ai_visitors_perplexity",
+      "threshold": 1,
+      "achievedAt": "2026-07-13T00:00:00.000Z",
+      "seenAt": "2026-10-23T06:36:12.439Z",
+      "proof": {
+       "kind": "ai_visits",
+       "more": {
+        "count": 0,
+        "visits": 0
+       },
+       "items": [
+        {
+         "date": "2026-07-13",
+         "visits": 3
+        }
+       ],
+       "provider": "perplexity"
+      },
+      "value": 4,
+      "gainLast7Days": 0,
+      "nextThreshold": 5
+     },
+     {
+      "id": 56212,
+      "category": "ai_visitors_gemini",
+      "threshold": 1,
+      "achievedAt": "2026-09-16T00:00:00.000Z",
+      "seenAt": "2026-10-23T06:36:12.439Z",
+      "proof": {
+       "kind": "ai_visits",
+       "more": {
+        "count": 0,
+        "visits": 0
+       },
+       "items": [
+        {
+         "date": "2026-09-16",
+         "visits": 2
+        }
+       ],
+       "provider": "gemini"
+      },
+      "value": 3,
+      "gainLast7Days": 0,
+      "nextThreshold": 5
+     },
+     {
+      "id": 56213,
+      "category": "ai_mentions",
+      "threshold": 1,
+      "achievedAt": "2026-09-06T18:43:49.350Z",
+      "seenAt": "2026-10-23T06:36:12.439Z",
+      "proof": {
+       "kind": "ai_mentions",
+       "more": {
+        "count": 0
+       },
+       "items": [
+        {
+         "prompt": {
+          "id": 533740,
+          "text": "what do users say about local SEO services for contractors"
+         },
+         "provider": "claude",
+         "firstMentionedOn": "2026-09-06"
+        }
+       ]
+      },
+      "value": 3,
+      "gainLast7Days": 0,
+      "nextThreshold": 5
+     },
+     {
+      "id": 56206,
+      "category": "ai_mention_chatgpt",
+      "threshold": 1,
+      "achievedAt": "2026-09-20T20:40:58.247Z",
+      "seenAt": "2026-10-23T06:36:12.439Z",
+      "proof": {
+       "kind": "ai_mentions",
+       "more": {
+        "count": 0
+       },
+       "items": [
+        {
+         "prompt": {
+          "id": 533740,
+          "text": "what do users say about local SEO services for contractors"
+         },
+         "provider": "chatgpt",
+         "firstMentionedOn": "2026-09-20"
+        }
+       ]
+      },
+      "value": null,
+      "gainLast7Days": null,
+      "nextThreshold": null
+     },
+     {
+      "id": 56210,
+      "category": "ai_mention_claude",
+      "threshold": 1,
+      "achievedAt": "2026-09-06T18:43:49.350Z",
+      "seenAt": "2026-10-23T06:36:12.439Z",
+      "proof": {
+       "kind": "ai_mentions",
+       "more": {
+        "count": 0
+       },
+       "items": [
+        {
+         "prompt": {
+          "id": 533740,
+          "text": "what do users say about local SEO services for contractors"
+         },
+         "provider": "claude",
+         "firstMentionedOn": "2026-09-06"
+        }
+       ]
+      },
+      "value": null,
+      "gainLast7Days": null,
+      "nextThreshold": null
+     },
+     {
+      "id": 56216,
+      "category": "ai_citations",
+      "threshold": 10,
+      "achievedAt": "2026-07-07T04:03:55.727Z",
+      "seenAt": "2026-10-23T06:36:12.439Z",
+      "proof": {
+       "kind": "ai_citations",
+       "more": {
+        "count": 0
+       },
+       "items": [
+        {
+         "prompt": {
+          "id": 407357,
+          "text": "Is vaultio.co worth it for plumbers?"
+         },
+         "citedUrl": "https://vaultio.co/Blog/generative-ai-local-business-ranking-in-2026",
+         "provider": "perplexity",
+         "firstCitedOn": "2026-07-07"
+        },
+        {
+         "prompt": {
+          "id": 407357,
+          "text": "Is vaultio.co worth it for plumbers?"
+         },
+         "citedUrl": "https://vaultio.co/Blog/best-ai-for-plumbers-2026",
+         "provider": "perplexity",
+         "firstCitedOn": "2026-07-07"
+        },
+        {
+         "prompt": {
+          "id": 407357,
+          "text": "Is vaultio.co worth it for plumbers?"
+         },
+         "citedUrl": "https://vaultio.co/Blog/ai-friendly-content-for-home-services-2026-guide",
+         "provider": "perplexity",
+         "firstCitedOn": "2026-07-07"
+        },
+        {
+         "prompt": {
+          "id": 407355,
+          "text": "vaultio.co vs 805seo for Google rankings"
+         },
+         "citedUrl": "https://vaultio.co/JunkRemovalMarketing",
+         "provider": "perplexity",
+         "firstCitedOn": "2026-07-07"
+        },
+        {
+         "prompt": {
+          "id": 407355,
+          "text": "vaultio.co vs 805seo for Google rankings"
+         },
+         "citedUrl": "https://vaultio.co/HomeSecurityMarketing",
+         "provider": "perplexity",
+         "firstCitedOn": "2026-07-07"
+        },
+        {
+         "prompt": {
+          "id": 407355,
+          "text": "vaultio.co vs 805seo for Google rankings"
+         },
+         "citedUrl": "https://vaultio.co/HandymanMarketing",
+         "provider": "perplexity",
+         "firstCitedOn": "2026-07-07"
+        },
+        {
+         "prompt": {
+          "id": 407355,
+          "text": "vaultio.co vs 805seo for Google rankings"
+         },
+         "citedUrl": "https://vaultio.co/Blog/local-seo-hvac-companies",
+         "provider": "perplexity",
+         "firstCitedOn": "2026-07-07"
+        },
+        {
+         "prompt": {
+          "id": 407355,
+          "text": "vaultio.co vs 805seo for Google rankings"
+         },
+         "citedUrl": "https://vaultio.co/AutoDetailingMarketing",
+         "provider": "perplexity",
+         "firstCitedOn": "2026-07-07"
+        },
+        {
+         "prompt": {
+          "id": 407348,
+          "text": "vaultio.co vs Scorpion for lead generation"
+         },
+         "citedUrl": "https://vaultio.co/SolarPanelMarketing",
+         "provider": "perplexity",
+         "firstCitedOn": "2026-07-07"
+        },
+        {
+         "prompt": {
+          "id": 407348,
+          "text": "vaultio.co vs Scorpion for lead generation"
+         },
+         "citedUrl": "https://vaultio.co/DrywallMarketing",
+         "provider": "perplexity",
+         "firstCitedOn": "2026-07-07"
+        }
+       ]
+      },
+      "value": 11,
+      "gainLast7Days": 0,
+      "nextThreshold": 25
+     },
+     {
+      "id": 183126,
+      "category": "ai_cited_blg_article",
+      "threshold": 1,
+      "achievedAt": "2026-07-07T04:03:55.727Z",
+      "seenAt": "2026-10-27T18:15:45.696Z",
+      "proof": {
+       "kind": "ai_citations",
+       "more": {
+        "count": 0
+       },
+       "items": [
+        {
+         "prompt": {
+          "id": 407357,
+          "text": "Is vaultio.co worth it for plumbers?"
+         },
+         "citedUrl": "https://vaultio.co/Blog/ai-friendly-content-for-home-services-2026-guide",
+         "provider": "perplexity",
+         "firstCitedOn": "2026-07-07"
+        }
+       ]
+      },
+      "value": 3,
+      "gainLast7Days": 0,
+      "nextThreshold": 5
+     },
+     {
+      "id": 136662,
+      "category": "dr_badge",
+      "threshold": 40,
+      "achievedAt": "2026-10-25T18:17:33.818Z",
+      "seenAt": null,
+      "proof": {
+       "kind": "domain_rating",
+       "rating": 42,
+       "reachedOn": "2026-10-25",
+       "startRating": 28
+      },
+      "value": 42,
+      "gainLast7Days": 0,
+      "nextThreshold": 50
+     },
+     {
+      "id": 136661,
+      "category": "dr_gain",
+      "threshold": 10,
+      "achievedAt": "2026-10-25T18:17:33.818Z",
+      "seenAt": null,
+      "proof": {
+       "kind": "domain_rating",
+       "rating": 42,
+       "reachedOn": "2026-10-25",
+       "startRating": 28
+      },
+      "value": 14,
+      "gainLast7Days": 0,
+      "nextThreshold": 15
+     },
+     {
+      "id": 183095,
+      "category": "articles_indexed",
+      "threshold": 50,
+      "achievedAt": "2026-09-03T00:00:00.000Z",
+      "seenAt": "2026-10-27T18:15:45.696Z",
+      "proof": {
+       "kind": "indexed_articles",
+       "more": {
+        "count": 25
+       },
+       "items": [
+        {
+         "article": {
+          "id": 689930,
+          "url": "https://vaultio.co/blog/chatgpt-seo",
+          "title": "ChatGPT SEO for Contractors: Get Booked by AI Search"
+         },
+         "gscPage": "https://vaultio.co/Blog/chatgpt-seo",
+         "firstImpressionOn": "2026-09-03"
+        },
+        {
+         "article": {
+          "id": 803497,
+          "url": "https://vaultio.co/blog/home-service-marketing",
+          "title": "Book More Home Service Jobs in 90 Days for Contractors with GBP, Reviews, Ads"
+         },
+         "gscPage": "https://vaultio.co/Blog/home-service-marketing",
+         "firstImpressionOn": "2026-09-03"
+        },
+        {
+         "article": {
+          "id": 696167,
+          "url": "https://vaultio.co/blog/ai-search-visibility",
+          "title": "AI Search Visibility: The 2026 Playbook for Marketers"
+         },
+         "gscPage": "https://vaultio.co/Blog/ai-search-visibility",
+         "firstImpressionOn": "2026-09-01"
+        },
+        {
+         "article": {
+          "id": 740481,
+          "url": "https://vaultio.co/blog/types-of-home-service-lead-funnels",
+          "title": "Types of Home Service Lead Funnels: What to Use and When"
+         },
+         "gscPage": "https://vaultio.co/Blog/types-of-home-service-lead-funnels",
+         "firstImpressionOn": "2026-08-29"
+        },
+        {
+         "article": {
+          "id": 675380,
+          "url": "https://vaultio.co/blog/role-of-brand-mentions-in-ai-search",
+          "title": "Brand Mentions in AI Search: What Actually Drives Visibility"
+         },
+         "gscPage": "https://vaultio.co/Blog/role-of-brand-mentions-in-ai-search",
+         "firstImpressionOn": "2026-08-28"
+        },
+        {
+         "article": {
+          "id": 751624,
+          "url": "https://vaultio.co/blog/how-response-speed-affects-booking",
+          "title": "Response Speed Is the Difference Between a Booking and a Bounce"
+         },
+         "gscPage": "https://vaultio.co/Blog/how-response-speed-affects-booking",
+         "firstImpressionOn": "2026-08-27"
+        },
+        {
+         "article": {
+          "id": 748967,
+          "url": "https://vaultio.co/blog/role-of-trust-signals-in-lead-capture",
+          "title": "Trust Signals in B2B Lead Capture: What Converts in 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/role-of-trust-signals-in-lead-capture",
+         "firstImpressionOn": "2026-08-26"
+        },
+        {
+         "article": {
+          "id": 716779,
+          "url": "https://vaultio.co/blog/perplexity-seo",
+          "title": "Perplexity SEO: Get Cited by AI Search in 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/perplexity-seo",
+         "firstImpressionOn": "2026-08-26"
+        },
+        {
+         "article": {
+          "id": 767349,
+          "url": "https://vaultio.co/blog/stop-form-spam",
+          "title": "How to Stop Form Spam Without Blocking Real Customers"
+         },
+         "gscPage": "https://vaultio.co/Blog/stop-form-spam",
+         "firstImpressionOn": "2026-08-26"
+        },
+        {
+         "article": {
+          "id": 754934,
+          "url": "https://vaultio.co/blog/what-is-a-landing-page",
+          "title": "What Is a Landing Page? Definition, Types, and Best Practices"
+         },
+         "gscPage": "https://vaultio.co/Blog/what-is-a-landing-page",
+         "firstImpressionOn": "2026-08-25"
+        },
+        {
+         "article": {
+          "id": 732559,
+          "url": "https://vaultio.co/blog/ventura-marketing",
+          "title": "Ventura Marketing for Contractors: Who to Hire and Why"
+         },
+         "gscPage": "https://vaultio.co/Blog/ventura-marketing",
+         "firstImpressionOn": "2026-08-25"
+        },
+        {
+         "article": {
+          "id": 737055,
+          "url": "https://vaultio.co/blog/thousand-oaks-google-maps",
+          "title": "Thousand Oaks Google Maps Rankings: A Contractor's Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/thousand-oaks-google-maps",
+         "firstImpressionOn": "2026-08-25"
+        },
+        {
+         "article": {
+          "id": 733714,
+          "url": "https://vaultio.co/blog/citation-cleanup",
+          "title": "Citation Cleanup: Fix NAP Errors and Rank Higher"
+         },
+         "gscPage": "https://vaultio.co/Blog/citation-cleanup",
+         "firstImpressionOn": "2026-08-25"
+        },
+        {
+         "article": {
+          "id": 766591,
+          "url": "https://vaultio.co/blog/build-electrician-google-maps-presence",
+          "title": "Build a Google Maps Presence That Actually Books Jobs"
+         },
+         "gscPage": "https://vaultio.co/Blog/build-electrician-google-maps-presence",
+         "firstImpressionOn": "2026-08-25"
+        },
+        {
+         "article": {
+          "id": 762518,
+          "url": "https://vaultio.co/blog/what-is-a-job-scheduling-system",
+          "title": "What Is a Job Scheduling System for Home Service Businesses?"
+         },
+         "gscPage": "https://vaultio.co/Blog/what-is-a-job-scheduling-system",
+         "firstImpressionOn": "2026-08-24"
+        },
+        {
+         "article": {
+          "id": 699781,
+          "url": "https://vaultio.co/blog/electrician-seo-keywords",
+          "title": "Electrician SEO Keywords: High-Intent List & 30-Day Plan"
+         },
+         "gscPage": "https://vaultio.co/Blog/electrician-seo-keywords",
+         "firstImpressionOn": "2026-08-24"
+        },
+        {
+         "article": {
+          "id": 651039,
+          "url": "https://vaultio.co/blog/ai-seo-for-contractors",
+          "title": "AI SEO for Contractors: Win Local Leads in 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/ai-seo-for-contractors",
+         "firstImpressionOn": "2026-08-22"
+        },
+        {
+         "article": {
+          "id": 632276,
+          "url": "https://vaultio.co/blog/locksmith-leads",
+          "title": "How to Get Locksmith Leads: Proven 2026 Strategies"
+         },
+         "gscPage": "https://vaultio.co/Blog/locksmith-leads",
+         "firstImpressionOn": "2026-08-20"
+        },
+        {
+         "article": {
+          "id": 709305,
+          "url": "https://vaultio.co/blog/window-cleaning-seo",
+          "title": "Window Cleaning SEO: Get More Local Jobs Fast"
+         },
+         "gscPage": "https://vaultio.co/Blog/window-cleaning-seo",
+         "firstImpressionOn": "2026-08-19"
+        },
+        {
+         "article": {
+          "id": 659631,
+          "url": "https://vaultio.co/blog/role-of-urgency-in-hvac-sales",
+          "title": "Urgency in HVAC Sales: Close More Jobs Every Day"
+         },
+         "gscPage": "https://vaultio.co/Blog/role-of-urgency-in-hvac-sales",
+         "firstImpressionOn": "2026-08-19"
+        },
+        {
+         "article": {
+          "id": 725030,
+          "url": "https://vaultio.co/blog/roofer-seo-keywords",
+          "title": "Roofer SEO Keywords: High-Intent List and Mapping Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/roofer-seo-keywords",
+         "firstImpressionOn": "2026-08-17"
+        },
+        {
+         "article": {
+          "id": 720620,
+          "url": "https://vaultio.co/blog/marketing-budget-contractors",
+          "title": "Marketing Budget for Contractors: Allocation & Calculator"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-budget-contractors",
+         "firstImpressionOn": "2026-08-17"
+        },
+        {
+         "article": {
+          "id": 534436,
+          "url": "https://vaultio.co/blog/contractor-sales-pipeline-management-2026-guide",
+          "title": "Contractor Sales Pipeline Management: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/contractor-sales-pipeline-management-2026-guide",
+         "firstImpressionOn": "2026-08-17"
+        },
+        {
+         "article": {
+          "id": 704017,
+          "url": "https://vaultio.co/blog/thousand-oaks-local-seo",
+          "title": "Thousand Oaks Local SEO for Home Service Contractors"
+         },
+         "gscPage": "https://vaultio.co/Blog/thousand-oaks-local-seo",
+         "firstImpressionOn": "2026-08-16"
+        },
+        {
+         "article": {
+          "id": 615687,
+          "url": "https://vaultio.co/blog/web-design-ventura",
+          "title": "Best Web Design Ventura Agencies: 2026 Ranked Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/web-design-ventura",
+         "firstImpressionOn": "2026-08-16"
+        }
+       ]
+      },
+      "value": 97,
+      "gainLast7Days": 0,
+      "nextThreshold": 100
+     },
+     {
+      "id": 183111,
+      "category": "article_clicks",
+      "threshold": 1,
+      "achievedAt": "2026-08-09T00:00:00.000Z",
+      "seenAt": "2026-10-27T18:15:45.696Z",
+      "proof": {
+       "kind": "search_traffic",
+       "more": {
+        "count": 0,
+        "clicks": 0,
+        "impressions": 0
+       },
+       "items": [
+        {
+         "clicks": 1,
+         "article": {
+          "id": 593180,
+          "url": "https://vaultio.co/blog/pay-per-lead-marketing-agencies-3",
+          "title": "Top 3 Pay Per Lead Marketing Agencies 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/pay-per-lead-marketing-agencies-3",
+         "impressions": 49
+        }
+       ],
+       "metric": "clicks",
+       "period": {
+        "to": "2026-08-09",
+        "from": "2026-07-06",
+        "window": "lifetime"
+       },
+       "leadArticleId": 593180
+      },
+      "value": 2,
+      "gainLast7Days": 0,
+      "nextThreshold": 5
+     },
+     {
+      "id": 290442,
+      "category": "article_impressions",
+      "threshold": 1400,
+      "achievedAt": "2026-10-21T00:00:00.000Z",
+      "seenAt": null,
+      "proof": {
+       "kind": "search_traffic",
+       "more": {
+        "count": 0,
+        "clicks": 0,
+        "impressions": 0
+       },
+       "items": [
+        {
+         "clicks": 0,
+         "article": {
+          "id": 612754,
+          "url": "https://vaultio.co/blog/tree-service-leads",
+          "title": "Best Tree Service Leads in 2026: Exclusive and Verified"
+         },
+         "gscPage": "https://vaultio.co/Blog/tree-service-leads",
+         "impressions": 1405
+        }
+       ],
+       "metric": "impressions",
+       "period": {
+        "to": "2026-10-21",
+        "from": "2026-07-06",
+        "window": "lifetime"
+       },
+       "leadArticleId": 612754
+      },
+      "value": 1463,
+      "gainLast7Days": 0,
+      "nextThreshold": 1500
+     },
+     {
+      "id": 183125,
+      "category": "keywords_top3",
+      "threshold": 1,
+      "achievedAt": "2026-10-27T18:15:45.696Z",
+      "seenAt": "2026-10-27T18:15:45.696Z",
+      "proof": {
+       "band": 3,
+       "kind": "keywords",
+       "more": {
+        "count": 0
+       },
+       "items": [
+        {
+         "query": "directory vault link building services",
+         "clicks": 0,
+         "article": {
+          "id": 840954,
+          "url": "https://vaultio.co/blog/local-link-building",
+          "title": "Contractors: A 90 Day Local Link Building Plan to Win Local Visibility"
+         },
+         "gscPage": "https://vaultio.co/Blog/local-link-building",
+         "position": 1.98,
+         "impressions": 56
+        }
+       ],
+       "period": {
+        "to": "2026-10-27",
+        "from": "2025-10-27",
+        "window": "last_12_months"
+       }
+      },
+      "value": 2,
+      "gainLast7Days": 0,
+      "nextThreshold": 5
+     },
+     {
+      "id": 183124,
+      "category": "keywords_top10",
+      "threshold": 10,
+      "achievedAt": "2026-10-27T18:15:45.696Z",
+      "seenAt": "2026-10-27T18:15:45.696Z",
+      "proof": {
+       "band": 10,
+       "kind": "keywords",
+       "more": {
+        "count": 0
+       },
+       "items": [
+        {
+         "query": "electrical support company google maps listing",
+         "clicks": 0,
+         "article": {
+          "id": 766591,
+          "url": "https://vaultio.co/blog/build-electrician-google-maps-presence",
+          "title": "Build a Google Maps Presence That Actually Books Jobs"
+         },
+         "gscPage": "https://vaultio.co/Blog/build-electrician-google-maps-presence",
+         "position": 8.82,
+         "impressions": 57
+        },
+        {
+         "query": "directory vault link building services",
+         "clicks": 0,
+         "article": {
+          "id": 840954,
+          "url": "https://vaultio.co/blog/local-link-building",
+          "title": "Contractors: A 90 Day Local Link Building Plan to Win Local Visibility"
+         },
+         "gscPage": "https://vaultio.co/Blog/local-link-building",
+         "position": 1.98,
+         "impressions": 56
+        },
+        {
+         "query": "best pay-per-lead campaigns companies 2025",
+         "clicks": 0,
+         "article": {
+          "id": 593180,
+          "url": "https://vaultio.co/blog/pay-per-lead-marketing-agencies-3",
+          "title": "Top 3 Pay Per Lead Marketing Agencies 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/pay-per-lead-marketing-agencies-3",
+         "position": 5.61,
+         "impressions": 18
+        },
+        {
+         "query": "ciaro click fraud",
+         "clicks": 0,
+         "article": {
+          "id": 790298,
+          "url": "https://vaultio.co/blog/click-fraud-protection",
+          "title": "Shortlist: Click Fraud Protection Vendors That Restore Smart Bidding"
+         },
+         "gscPage": "https://vaultio.co/Blog/click-fraud-protection",
+         "position": 6.53,
+         "impressions": 17
+        },
+        {
+         "query": "google maps thousand oaks",
+         "clicks": 0,
+         "article": {
+          "id": 737055,
+          "url": "https://vaultio.co/blog/thousand-oaks-google-maps",
+          "title": "Thousand Oaks Google Maps Rankings: A Contractor's Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/thousand-oaks-google-maps",
+         "position": 5.33,
+         "impressions": 15
+        },
+        {
+         "query": "\"electrical contractor\" \"appointment scheduling\" \"ai\" or \"automation\" -article -guide -blog site:.com",
+         "clicks": 0,
+         "article": {
+          "id": 853876,
+          "url": "https://vaultio.co/blog/appointment-booking-automation",
+          "title": "Book Jobs 24/7: Appointment Booking Automation for Contractors"
+         },
+         "gscPage": "https://vaultio.co/Blog/appointment-booking-automation",
+         "position": 9.5,
+         "impressions": 10
+        },
+        {
+         "query": "\"lead marketing agency\" acquisition or acquires or acquired -site:crunchbase.com -site:pitchbook.com -site:mergr.com -site:tracxn.com -site:cbinsights.com -site:zoominfo.com -site:dealroom.co -site:mergermarket.com -site:capitaliq.com -site:northdata.com -site:grokipedia.com -site:owler.com -site:linkedin.com -site:facebook.com -site:instagram.com -site:twitter.com -site:x.com -site:reddit.com -site:youtube.com -site:tiktok.com -site:pinterest.com -site:quora.com -site:wikipedia.org -site:glassdoor.com -site:indeed.com -site:jooble.org -site:expertini.com -site:jobly.fi",
+         "clicks": 0,
+         "article": {
+          "id": 593180,
+          "url": "https://vaultio.co/blog/pay-per-lead-marketing-agencies-3",
+          "title": "Top 3 Pay Per Lead Marketing Agencies 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/pay-per-lead-marketing-agencies-3",
+         "position": 9,
+         "impressions": 7
+        },
+        {
+         "query": "evaluate the service‑industry automation company chiirp on crm strategy and management",
+         "clicks": 0,
+         "article": {
+          "id": 590696,
+          "url": "https://vaultio.co/blog/plumbing-marketing-agency-alternatives-3",
+          "title": "Top 3 Plumbing Marketing Agency Alternatives 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/plumbing-marketing-agency-alternatives-3",
+         "position": 8.33,
+         "impressions": 6
+        },
+        {
+         "query": "\"pay per lead marketing agency\" \"payperlead.com\"",
+         "clicks": 0,
+         "article": {
+          "id": 593180,
+          "url": "https://vaultio.co/blog/pay-per-lead-marketing-agencies-3",
+          "title": "Top 3 Pay Per Lead Marketing Agencies 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/pay-per-lead-marketing-agencies-3",
+         "position": 6.4,
+         "impressions": 5
+        },
+        {
+         "query": "affordable website seo solutions ventura",
+         "clicks": 0,
+         "article": {
+          "id": 615687,
+          "url": "https://vaultio.co/blog/web-design-ventura",
+          "title": "Best Web Design Ventura Agencies: 2026 Ranked Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/web-design-ventura",
+         "position": 7,
+         "impressions": 3
+        }
+       ],
+       "period": {
+        "to": "2026-10-27",
+        "from": "2025-10-27",
+        "window": "last_12_months"
+       }
+      },
+      "value": 17,
+      "gainLast7Days": 0,
+      "nextThreshold": 25
+     },
+     {
+      "id": 183121,
+      "category": "keywords_top20",
+      "threshold": 50,
+      "achievedAt": "2026-10-27T18:15:45.696Z",
+      "seenAt": "2026-10-27T18:15:45.696Z",
+      "proof": {
+       "band": 20,
+       "kind": "keywords",
+       "more": {
+        "count": 25
+       },
+       "items": [
+        {
+         "query": "ventura web design",
+         "clicks": 0,
+         "article": {
+          "id": 615687,
+          "url": "https://vaultio.co/blog/web-design-ventura",
+          "title": "Best Web Design Ventura Agencies: 2026 Ranked Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/web-design-ventura",
+         "position": 13,
+         "impressions": 157
+        },
+        {
+         "query": "how many keywords should you target on a roofer's website",
+         "clicks": 0,
+         "article": {
+          "id": 725030,
+          "url": "https://vaultio.co/blog/roofer-seo-keywords",
+          "title": "Roofer SEO Keywords: High-Intent List and Mapping Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/roofer-seo-keywords",
+         "position": 12.91,
+         "impressions": 93
+        },
+        {
+         "query": "ventura seo",
+         "clicks": 0,
+         "article": {
+          "id": 615687,
+          "url": "https://vaultio.co/blog/web-design-ventura",
+          "title": "Best Web Design Ventura Agencies: 2026 Ranked Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/web-design-ventura",
+         "position": 15.37,
+         "impressions": 63
+        },
+        {
+         "query": "electrical support company google maps listing",
+         "clicks": 0,
+         "article": {
+          "id": 766591,
+          "url": "https://vaultio.co/blog/build-electrician-google-maps-presence",
+          "title": "Build a Google Maps Presence That Actually Books Jobs"
+         },
+         "gscPage": "https://vaultio.co/Blog/build-electrician-google-maps-presence",
+         "position": 8.82,
+         "impressions": 57
+        },
+        {
+         "query": "directory vault link building services",
+         "clicks": 0,
+         "article": {
+          "id": 840954,
+          "url": "https://vaultio.co/blog/local-link-building",
+          "title": "Contractors: A 90 Day Local Link Building Plan to Win Local Visibility"
+         },
+         "gscPage": "https://vaultio.co/Blog/local-link-building",
+         "position": 1.98,
+         "impressions": 56
+        },
+        {
+         "query": "marketing firms santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 13.86,
+         "impressions": 56
+        },
+        {
+         "query": "marketing companies santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 16.19,
+         "impressions": 54
+        },
+        {
+         "query": "santa barbara marketing companies",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 18,
+         "impressions": 43
+        },
+        {
+         "query": "santa barbara marketing agency",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 15.79,
+         "impressions": 42
+        },
+        {
+         "query": "ventura franchise web design",
+         "clicks": 0,
+         "article": {
+          "id": 615687,
+          "url": "https://vaultio.co/blog/web-design-ventura",
+          "title": "Best Web Design Ventura Agencies: 2026 Ranked Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/web-design-ventura",
+         "position": 10.66,
+         "impressions": 41
+        },
+        {
+         "query": "rynoss",
+         "clicks": 0,
+         "article": {
+          "id": 638017,
+          "url": "https://vaultio.co/blog/rynosscom-alternatives",
+          "title": "Best Rynoss.com Alternatives for Home Service Contractors"
+         },
+         "gscPage": "https://vaultio.co/Blog/rynosscom-alternatives",
+         "position": 8.8,
+         "impressions": 40
+        },
+        {
+         "query": "home service funnels",
+         "clicks": 0,
+         "article": {
+          "id": 740481,
+          "url": "https://vaultio.co/blog/types-of-home-service-lead-funnels",
+          "title": "Types of Home Service Lead Funnels: What to Use and When"
+         },
+         "gscPage": "https://vaultio.co/Blog/types-of-home-service-lead-funnels",
+         "position": 17.1,
+         "impressions": 39
+        },
+        {
+         "query": "marketing agency santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 17.31,
+         "impressions": 36
+        },
+        {
+         "query": "marketing companies in santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 18.91,
+         "impressions": 32
+        },
+        {
+         "query": "best digital marketing agency santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 13.34,
+         "impressions": 29
+        },
+        {
+         "query": "ventura small business web design",
+         "clicks": 0,
+         "article": {
+          "id": 615687,
+          "url": "https://vaultio.co/blog/web-design-ventura",
+          "title": "Best Web Design Ventura Agencies: 2026 Ranked Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/web-design-ventura",
+         "position": 12.62,
+         "impressions": 29
+        },
+        {
+         "query": "affordable website design ventura",
+         "clicks": 0,
+         "article": {
+          "id": 615687,
+          "url": "https://vaultio.co/blog/web-design-ventura",
+          "title": "Best Web Design Ventura Agencies: 2026 Ranked Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/web-design-ventura",
+         "position": 12.82,
+         "impressions": 28
+        },
+        {
+         "query": "marketing santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 18.09,
+         "impressions": 23
+        },
+        {
+         "query": "ventura web design & marketing",
+         "clicks": 0,
+         "article": {
+          "id": 615687,
+          "url": "https://vaultio.co/blog/web-design-ventura",
+          "title": "Best Web Design Ventura Agencies: 2026 Ranked Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/web-design-ventura",
+         "position": 17.96,
+         "impressions": 23
+        },
+        {
+         "query": "ventura legal web design",
+         "clicks": 0,
+         "article": {
+          "id": 615687,
+          "url": "https://vaultio.co/blog/web-design-ventura",
+          "title": "Best Web Design Ventura Agencies: 2026 Ranked Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/web-design-ventura",
+         "position": 16.55,
+         "impressions": 22
+        },
+        {
+         "query": "santa barbara adwords agency",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 13.9,
+         "impressions": 20
+        },
+        {
+         "query": "best pay-per-lead campaigns companies 2025",
+         "clicks": 0,
+         "article": {
+          "id": 593180,
+          "url": "https://vaultio.co/blog/pay-per-lead-marketing-agencies-3",
+          "title": "Top 3 Pay Per Lead Marketing Agencies 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/pay-per-lead-marketing-agencies-3",
+         "position": 5.61,
+         "impressions": 18
+        },
+        {
+         "query": "local seo for home services companies thousand oaks ca",
+         "clicks": 0,
+         "article": {
+          "id": 704017,
+          "url": "https://vaultio.co/blog/thousand-oaks-local-seo",
+          "title": "Thousand Oaks Local SEO for Home Service Contractors"
+         },
+         "gscPage": "https://vaultio.co/Blog/thousand-oaks-local-seo",
+         "position": 15.33,
+         "impressions": 18
+        },
+        {
+         "query": "ciaro click fraud",
+         "clicks": 0,
+         "article": {
+          "id": 790298,
+          "url": "https://vaultio.co/blog/click-fraud-protection",
+          "title": "Shortlist: Click Fraud Protection Vendors That Restore Smart Bidding"
+         },
+         "gscPage": "https://vaultio.co/Blog/click-fraud-protection",
+         "position": 6.53,
+         "impressions": 17
+        },
+        {
+         "query": "ventura ca website design agency",
+         "clicks": 0,
+         "article": {
+          "id": 615687,
+          "url": "https://vaultio.co/blog/web-design-ventura",
+          "title": "Best Web Design Ventura Agencies: 2026 Ranked Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/web-design-ventura",
+         "position": 16.69,
+         "impressions": 16
+        }
+       ],
+       "period": {
+        "to": "2026-10-27",
+        "from": "2025-10-27",
+        "window": "last_12_months"
+       }
+      },
+      "value": 61,
+      "gainLast7Days": 0,
+      "nextThreshold": 100
+     },
+     {
+      "id": 183116,
+      "category": "keywords_top30",
+      "threshold": 50,
+      "achievedAt": "2026-10-27T18:15:45.696Z",
+      "seenAt": "2026-10-27T18:15:45.696Z",
+      "proof": {
+       "band": 30,
+       "kind": "keywords",
+       "more": {
+        "count": 25
+       },
+       "items": [
+        {
+         "query": "how many keywords should you target on a roofer's website",
+         "clicks": 0,
+         "article": {
+          "id": 725030,
+          "url": "https://vaultio.co/blog/roofer-seo-keywords",
+          "title": "Roofer SEO Keywords: High-Intent List and Mapping Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/roofer-seo-keywords",
+         "position": 12.91,
+         "impressions": 93
+        },
+        {
+         "query": "pay per lead marketing agency",
+         "clicks": 1,
+         "article": {
+          "id": 593180,
+          "url": "https://vaultio.co/blog/pay-per-lead-marketing-agencies-3",
+          "title": "Top 3 Pay Per Lead Marketing Agencies 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/pay-per-lead-marketing-agencies-3",
+         "position": 29.06,
+         "impressions": 87
+        },
+        {
+         "query": "electrical support company google maps listing",
+         "clicks": 0,
+         "article": {
+          "id": 766591,
+          "url": "https://vaultio.co/blog/build-electrician-google-maps-presence",
+          "title": "Build a Google Maps Presence That Actually Books Jobs"
+         },
+         "gscPage": "https://vaultio.co/Blog/build-electrician-google-maps-presence",
+         "position": 8.82,
+         "impressions": 57
+        },
+        {
+         "query": "directory vault link building services",
+         "clicks": 0,
+         "article": {
+          "id": 840954,
+          "url": "https://vaultio.co/blog/local-link-building",
+          "title": "Contractors: A 90 Day Local Link Building Plan to Win Local Visibility"
+         },
+         "gscPage": "https://vaultio.co/Blog/local-link-building",
+         "position": 1.98,
+         "impressions": 56
+        },
+        {
+         "query": "marketing firms santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 13.86,
+         "impressions": 56
+        },
+        {
+         "query": "marketing companies santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 16.19,
+         "impressions": 54
+        },
+        {
+         "query": "rynoss",
+         "clicks": 0,
+         "article": {
+          "id": 638017,
+          "url": "https://vaultio.co/blog/rynosscom-alternatives",
+          "title": "Best Rynoss.com Alternatives for Home Service Contractors"
+         },
+         "gscPage": "https://vaultio.co/Blog/rynosscom-alternatives",
+         "position": 8.8,
+         "impressions": 40
+        },
+        {
+         "query": "home service funnels",
+         "clicks": 0,
+         "article": {
+          "id": 740481,
+          "url": "https://vaultio.co/blog/types-of-home-service-lead-funnels",
+          "title": "Types of Home Service Lead Funnels: What to Use and When"
+         },
+         "gscPage": "https://vaultio.co/Blog/types-of-home-service-lead-funnels",
+         "position": 17.1,
+         "impressions": 39
+        },
+        {
+         "query": "rynoss.com",
+         "clicks": 0,
+         "article": {
+          "id": 638017,
+          "url": "https://vaultio.co/blog/rynosscom-alternatives",
+          "title": "Best Rynoss.com Alternatives for Home Service Contractors"
+         },
+         "gscPage": "https://vaultio.co/Blog/rynosscom-alternatives",
+         "position": 22.84,
+         "impressions": 37
+        },
+        {
+         "query": "marketing agency santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 17.31,
+         "impressions": 36
+        },
+        {
+         "query": "marketing companies in santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 18.91,
+         "impressions": 32
+        },
+        {
+         "query": "best digital marketing agency santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 13.34,
+         "impressions": 29
+        },
+        {
+         "query": "affordable website design ventura",
+         "clicks": 0,
+         "article": {
+          "id": 615687,
+          "url": "https://vaultio.co/blog/web-design-ventura",
+          "title": "Best Web Design Ventura Agencies: 2026 Ranked Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/web-design-ventura",
+         "position": 12.82,
+         "impressions": 28
+        },
+        {
+         "query": "marketing santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 18.09,
+         "impressions": 23
+        },
+        {
+         "query": "santa barbara adwords agency",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 13.9,
+         "impressions": 20
+        },
+        {
+         "query": "best pay-per-lead campaigns companies 2025",
+         "clicks": 0,
+         "article": {
+          "id": 593180,
+          "url": "https://vaultio.co/blog/pay-per-lead-marketing-agencies-3",
+          "title": "Top 3 Pay Per Lead Marketing Agencies 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/pay-per-lead-marketing-agencies-3",
+         "position": 5.61,
+         "impressions": 18
+        },
+        {
+         "query": "local seo for home services companies thousand oaks ca",
+         "clicks": 0,
+         "article": {
+          "id": 704017,
+          "url": "https://vaultio.co/blog/thousand-oaks-local-seo",
+          "title": "Thousand Oaks Local SEO for Home Service Contractors"
+         },
+         "gscPage": "https://vaultio.co/Blog/thousand-oaks-local-seo",
+         "position": 15.33,
+         "impressions": 18
+        },
+        {
+         "query": "moz nap clean up",
+         "clicks": 0,
+         "article": {
+          "id": 733714,
+          "url": "https://vaultio.co/blog/citation-cleanup",
+          "title": "Citation Cleanup: Fix NAP Errors and Rank Higher"
+         },
+         "gscPage": "https://vaultio.co/Blog/citation-cleanup",
+         "position": 21.67,
+         "impressions": 18
+        },
+        {
+         "query": "ciaro click fraud",
+         "clicks": 0,
+         "article": {
+          "id": 790298,
+          "url": "https://vaultio.co/blog/click-fraud-protection",
+          "title": "Shortlist: Click Fraud Protection Vendors That Restore Smart Bidding"
+         },
+         "gscPage": "https://vaultio.co/Blog/click-fraud-protection",
+         "position": 6.53,
+         "impressions": 17
+        },
+        {
+         "query": "job scheduling systems",
+         "clicks": 0,
+         "article": {
+          "id": 762518,
+          "url": "https://vaultio.co/blog/what-is-a-job-scheduling-system",
+          "title": "What Is a Job Scheduling System for Home Service Businesses?"
+         },
+         "gscPage": "https://vaultio.co/Blog/what-is-a-job-scheduling-system",
+         "position": 21.38,
+         "impressions": 16
+        },
+        {
+         "query": "google maps thousand oaks",
+         "clicks": 0,
+         "article": {
+          "id": 737055,
+          "url": "https://vaultio.co/blog/thousand-oaks-google-maps",
+          "title": "Thousand Oaks Google Maps Rankings: A Contractor's Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/thousand-oaks-google-maps",
+         "position": 5.33,
+         "impressions": 15
+        },
+        {
+         "query": "dynamic number insertion",
+         "clicks": 0,
+         "article": {
+          "id": 819921,
+          "url": "https://vaultio.co/blog/dynamic-number-insertion",
+          "title": "Turn Calls Into Booked Jobs with Dynamic Number Insertion for Contractors"
+         },
+         "gscPage": "https://vaultio.co/Blog/dynamic-number-insertion",
+         "position": 22.43,
+         "impressions": 14
+        },
+        {
+         "query": "local marketing experts for plumber marketers",
+         "clicks": 0,
+         "article": {
+          "id": 604847,
+          "url": "https://vaultio.co/blog/plumber-leads-agencies-5",
+          "title": "Top 5 Agencies for Plumber Leads 2026"
+         },
+         "gscPage": "https://vaultio.co/Blog/plumber-leads-agencies-5",
+         "position": 16,
+         "impressions": 13
+        },
+        {
+         "query": "local seo wordpress marketing agency santa barbara",
+         "clicks": 0,
+         "article": {
+          "id": 623513,
+          "url": "https://vaultio.co/blog/marketing-agency-santa-barbara",
+          "title": "Best Marketing Agency in Santa Barbara: 2026 Guide"
+         },
+         "gscPage": "https://vaultio.co/Blog/marketing-agency-santa-barbara",
+         "position": 19.92,
+         "impressions": 13
+        },
+        {
+         "query": "how important is factual accuracy for llm citation rates?",
+         "clicks": 0,
+         "article": {
+          "id": 857891,
+          "url": "https://vaultio.co/blog/llm-citations",
+          "title": "Ship Verifiable LLM Citations: 3 Architectures, Tests, Tactics"
+         },
+         "gscPage": "https://vaultio.co/Blog/llm-citations",
+         "position": 7.17,
+         "impressions": 12
+        }
+       ],
+       "period": {
+        "to": "2026-10-27",
+        "from": "2025-10-27",
+        "window": "last_12_months"
+       }
+      },
+      "value": 84,
+      "gainLast7Days": 0,
+      "nextThreshold": 100
+     }
+    ],
+    "unseen": [
+     {
+      "id": 373214,
+      "category": "backlinks_value",
+      "threshold": 2500,
+      "achievedAt": "2026-10-12T07:05:04.383Z"
+     },
+     {
+      "id": 183104,
+      "category": "total_impressions",
+      "threshold": 5000,
+      "achievedAt": "2026-10-15T00:00:00.000Z"
+     },
+     {
+      "id": 143025,
+      "category": "ai_referral_first",
+      "threshold": 10,
+      "achievedAt": "2026-09-10T00:00:00.000Z"
+     },
+     {
+      "id": 56209,
+      "category": "ai_visitors_chatgpt",
+      "threshold": 10,
+      "achievedAt": "2026-10-19T00:00:00.000Z"
+     },
+     {
+      "id": 136662,
+      "category": "dr_badge",
+      "threshold": 40,
+      "achievedAt": "2026-10-25T18:17:33.818Z"
+     },
+     {
+      "id": 136661,
+      "category": "dr_gain",
+      "threshold": 10,
+      "achievedAt": "2026-10-25T18:17:33.818Z"
+     },
+     {
+      "id": 290442,
+      "category": "article_impressions",
+      "threshold": 1400,
+      "achievedAt": "2026-10-21T00:00:00.000Z"
+     }
+    ],
+    "gscProperty": "sc-domain:vaultio.co"
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793423461744,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/status",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/overview",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "GA4 integration status",
+    "data": {
+     "connected": true,
+     "selectedGa4Property": "properties/534109473",
+     "ga4InitialSyncCompleted": true
+    }
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793423461977,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/channel-timeseries?range=90d",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/overview",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "Channel timeseries fetched successfully",
+    "data": [
+     {
+      "date": "2026-08-02",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-08-03",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-04",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 6,
+      "Other": 3,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-08-05",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-06",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-07",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-08",
+      "Direct": 25,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-09",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-10",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-11",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-12",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-13",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-14",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-15",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-16",
+      "Direct": 12,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-17",
+      "Direct": 13,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-18",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-19",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-20",
+      "Direct": 8,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-21",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-22",
+      "Direct": 22,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-23",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-24",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-25",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-08-26",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-27",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 5,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-28",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-29",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-30",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-31",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-01",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-02",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-03",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-04",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-05",
+      "Direct": 14,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-06",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-07",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-08",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-09",
+      "Direct": 11,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-10",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-11",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-12",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-13",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-14",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-15",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-16",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-17",
+      "Direct": 682,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 167,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-18",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-19",
+      "Direct": 20,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-20",
+      "Direct": 13,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-21",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-22",
+      "Direct": 12,
+      "Paid": 0,
+      "Organic search": 5,
+      "Other": 7,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-23",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-24",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-25",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-26",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-27",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-28",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-29",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-30",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-01",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-02",
+      "Direct": 11,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-03",
+      "Direct": 26,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-04",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-05",
+      "Direct": 8,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 12,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-06",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-07",
+      "Direct": 11,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-08",
+      "Direct": 14,
+      "Paid": 0,
+      "Organic search": 6,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-09",
+      "Direct": 23,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-10",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 3,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-10-11",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-12",
+      "Direct": 9,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-13",
+      "Direct": 9,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-14",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-15",
+      "Direct": 10,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-16",
+      "Direct": 10,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-17",
+      "Direct": 21,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-18",
+      "Direct": 10,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-19",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 0,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-10-20",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-21",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-22",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-23",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-24",
+      "Direct": 8,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-25",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-26",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-27",
+      "Direct": 8,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-28",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-29",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-30",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     }
+    ]
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793423461977,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/channel-breakdown?range=90d",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/overview",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "Channel breakdown fetched successfully",
+    "data": [
+     {
+      "channelGroup": "Direct",
+      "activeUsers": 1230,
+      "percentage": 72.2
+     },
+     {
+      "channelGroup": "Other",
+      "activeUsers": 322,
+      "percentage": 18.9
+     },
+     {
+      "channelGroup": "Organic search",
+      "activeUsers": 142,
+      "percentage": 8.3
+     },
+     {
+      "channelGroup": "LLM referrers",
+      "activeUsers": 10,
+      "percentage": 0.6
+     },
+     {
+      "channelGroup": "Paid",
+      "activeUsers": 0,
+      "percentage": 0
+     }
+    ],
+    "total": 1704
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793423462742,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793423462736&cv=11&fst=1793423462736&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Foverview&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Fcompetitors&rcb=0&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/overview",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423462745,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=111&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Foverview&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Fbusiness&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=1002829",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/overview",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423462748,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=0&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Foverview&scrsrc=www.googletagmanager.com&rnd=2083431636.1793422461&navt=n&npa=0&ae=a&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&tft=1793423462748&tfd=1002832&_gsid=UjM29SyMoMIgL331vq5GpOK7AGKsVzeJAw&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/overview",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793423462751,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=112&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Foverview&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsettings%2Fcompetitors&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=1002835",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/overview",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

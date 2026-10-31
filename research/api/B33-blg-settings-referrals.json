@@ -1,0 +1,451 @@
+{
+ "page": "https://www.babylovegrowth.ai/en/dashboard/settings/referrals",
+ "title": "BabyLoveGrowth - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793424266687,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/referrals?_rsc=tjvt1",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22settings%22%2C%7B%22children%22%3A%5B%22referrals%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2C%22refetch%22%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424267053,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/settings/referrals",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424267094,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://px.ads.linkedin.com/wa/?medium=fetch&fmt=g",
+   "reqHeaders": {
+    "Content-Type": "text/plain;charset=UTF-8",
+    "Accept": "*"
+   },
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/settings/referrals",
+   "status": 204,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424267124,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/users/me",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/settings/referrals",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "data": {
+     "id": 30402,
+     "email": "knightsdamian@gmail.com",
+     "name": "Damian Knights",
+     "isActive": true,
+     "role": "admin",
+     "stripeCustomerId": "cus_UTQeBR3aZ4JKPx",
+     "newsSubscribed": true,
+     "isInvoiceEmailEnabled": false,
+     "platformLanguage": "en",
+     "referralCode": "T3YLMLLQ",
+     "linkedinPostCompleted": false,
+     "linkedinExperiencePostCompleted": false,
+     "isG2ReviewCompleted": false,
+     "hasWatchedWelcomeVideo": true,
+     "hasSeenArticleHints": true,
+     "watchedVideos": [],
+     "completedSetupItems": [],
+     "lastSeenProductUpdateAt": "2026-10-23",
+     "resendAbandonedStartedAt": "2026-06-24T05:54:03.908Z",
+     "resendChurnedStartedAt": null,
+     "resendOnboardingStartedAt": null,
+     "resendActiveUserStartedAt": "2026-09-26T01:01:34.116Z",
+     "deletionRequestedAt": null,
+     "lastLoginAt": "2026-10-31T02:01:48.536Z",
+     "createdAt": "2026-05-07T15:10:56.359Z",
+     "updatedAt": "2026-10-31T02:01:48.536Z",
+     "supabaseId": "cf01a7df-95e5-44bf-bf55-a261c2e300ea",
+     "organizationId": 29411,
+     "websiteAccess": []
+    },
+    "message": "User fetched successfully"
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793424267124,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/reditus/referral-summary",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/settings/referrals",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "data": {
+     "cardReward": {
+      "amountUsd": 60,
+      "holdDays": 3
+     },
+     "tiers": [
+      {
+       "id": "bronze",
+       "minReferrals": 1,
+       "perReferral": {
+        "accountCreditUsd": 0
+       },
+       "entryBadge": null
+      },
+      {
+       "id": "silver",
+       "minReferrals": 3,
+       "perReferral": {
+        "accountCreditUsd": 0
+       },
+       "entryBadge": null
+      },
+      {
+       "id": "gold",
+       "minReferrals": 6,
+       "perReferral": {
+        "accountCreditUsd": 0
+       },
+       "entryBadge": null
+      }
+     ],
+     "status": {
+      "tier": null,
+      "convertedCount": 0,
+      "badges": [],
+      "earned": {
+       "totalUsd": 0
+      },
+      "nextTier": {
+       "id": "bronze",
+       "minReferrals": 1,
+       "remaining": 1
+      }
+     },
+     "friends": [],
+     "cards": [],
+     "friendDiscount": {
+      "percentOff": 30,
+      "durationMonths": 3,
+      "monthlyPlansOnly": true
+     }
+    },
+    "message": "Referral summary fetched"
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793424268056,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793424197218&_gaz=1&gcs=G111&gcd=13t3t3l3l5l1&npa=0&dma=0&_eu=AAAAACQC&cid=486294686.1793412074&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=19&sr=1728x1117&ul=en-us&_s=22&tag_exp=115938465~115938469~118897920~118897930~119793974~120213116~120385423~120412528~120469145~120469153~121246026~121246034~123691370~123814944&sid=1793424197&sct=3&seg=1&dl=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Freferrals&dr=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Foverview&dt=BabyLoveGrowth%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=72284",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/referrals",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424268063,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793424268056&cv=11&fst=1793424268056&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13t3t3l3l5l1&dma=0&tag_exp=115938465~115938469~118897920~118897930~119793974~120213116~120385423~120412528~120469145~120469153~121246026~121246034~123691370~123814944&u_w=1728&u_h=1117&url=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Freferrals&ref=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Fmeta&gclaw_src=32_2&rcb=19&frm=0&tiba=BabyLoveGrowth%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&gclaw=Cj0KCQjwlsfWBhD4ARIsACL7p1HeK3cawFXjoj5Fl-mDu1Y8-F8QgYlu0NNwQiM9eLxbb9jEpXi9QYEaAni9EALw_wcB&pscdl=noapi&auid=811030586.1793412074&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/referrals",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424268070,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=19&frm=0&apvc=0&auid=811030586.1793412074&dt=BabyLoveGrowth%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Freferrals&scrsrc=www.googletagmanager.com&rnd=706509847.1793424198&navt=n&npa=0&ae=a&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcs=G111&gcd=13t3t3l3l5l1&dma=0&tag_exp=115938465~115938469~118897920~118897930~119793974~120213116~120385423~120412528~120469145~120469153~121246026~121246034~123691370~123814944&tft=1793424268070&tfd=72298&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/referrals",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424268070,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://ad.doubleclick.net/ccm/s/collect?auid=811030586.1793412074&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/referrals",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424268076,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793424197218&gcs=G111&gcd=13t3t3l3l5l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=486294686.1793412074&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=19&sr=1728x1117&ul=en-us&_s=23&tag_exp=115938465~115938469~118897920~118897930~119793974~120213116~120385423~120412528~120469145~120469153~121246026~121246034~123691370~123814944&dl=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Freferrals&dr=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Fmeta&sid=1793424197&sct=3&seg=1&dt=BabyLoveGrowth%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=72304",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/referrals",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424270145,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/subscriptions/get-org-website-subscription?type=main",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/settings/referrals",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "data": {
+     "id": "sub_1TmpE7LiGzfLlQttDwgNlrsX",
+     "object": "subscription",
+     "application": null,
+     "application_fee_percent": null,
+     "automatic_tax": {
+      "disabled_reason": null,
+      "enabled": false,
+      "liability": null
+     },
+     "billing_cycle_anchor": 1782543146,
+     "billing_cycle_anchor_config": null,
+     "billing_mode": {
+      "flexible": null,
+      "type": "classic"
+     },
+     "billing_thresholds": null,
+     "cancel_at": null,
+     "cancel_at_period_end": false,
+     "canceled_at": null,
+     "cancellation_details": {
+      "comment": null,
+      "feedback": null,
+      "feedback_option": null,
+      "reason": null
+     },
+     "collection_method": "charge_automatically",
+     "created": 1782539787,
+     "currency": "usd",
+     "current_period_end": 1795762346,
+     "current_period_start": 1793083946,
+     "customer": "cus_UTQeBR3aZ4JKPx",
+     "customer_account": null,
+     "days_until_due": null,
+     "default_payment_method": "pm_1TmpE4LiGzfLlQtt6zc5sU3x",
+     "default_source": null,
+     "default_tax_rates": [],
+     "description": "https://vaultio.co (English)",
+     "discount": null,
+     "discounts": [],
+     "ended_at": null,
+     "invoice_settings": {
+      "account_tax_ids": null,
+      "custom_fields": null,
+      "description": null,
+      "footer": null,
+      "issuer": {
+       "type": "self"
+      }
+     },
+     "items": {
+      "object": "list",
+      "data": [
+       {
+        "id": "si_UmO0cFfS8NFEA3",
+        "object": "subscription_item",
+        "billing_thresholds": null,
+        "created": 1782539788,
+        "current_period_end": 1795762346,
+        "current_period_start": 1793083946,
+        "current_trial": null,
+        "discounts": [],
+        "metadata": {},
+        "plan": {
+         "id": "price_1SwexZLiGzfLlQttzFmWxaHk",
+         "object": "plan",
+         "active": true,
+         "aggregate_usage": null,
+         "amount": 9900,
+         "amount_decimal": "9900",
+         "billing_scheme": "per_unit",
+         "created": 1770107265,
+         "currency": "usd",
+         "interval": "month",
+         "interval_count": 1,
+         "livemode": true,
+         "metadata": {},
+         "meter": null,
+         "nickname": null,
+         "product": "prod_SaCePenmmQNCmk",
+         "tiers_mode": null,
+         "transform_usage": null,
+         "trial_period_days": null,
+         "usage_type": "licensed"
+        },
+        "price": {
+         "id": "price_1SwexZLiGzfLlQttzFmWxaHk",
+         "object": "price",
+         "active": true,
+         "billing_scheme": "per_unit",
+         "created": 1770107265,
+         "currency": "usd",
+         "custom_unit_amount": null,
+         "livemode": true,
+         "lookup_key": null,
+         "metadata": {},
+         "nickname": null,
+         "product": "prod_SaCePenmmQNCmk",
+         "recurring": {
+          "aggregate_usage": null,
+          "interval": "month",
+          "interval_count": 1,
+          "meter": null,
+          "trial_period_days": null,
+          "usage_type": "licensed"
+         },
+         "tax_behavior": "unspecified",
+         "tiers_mode": null,
+         "transform_quantity": null,
+         "type": "recurring",
+         "unit_amount": 9900,
+         "unit_amount_decimal": "9900"
+        },
+        "quantity": 1,
+        "subscription": "sub_1TmpE7LiGzfLlQttDwgNlrsX",
+        "tax_rates": []
+       }
+      ],
+      "has_more": false,
+      "total_count": 1,
+      "url": "/v1/subscription_items?subscription=sub_1TmpE7LiGzfLlQttDwgNlrsX"
+     },
+     "latest_invoice": "in_1UV4FtLiGzfLlQttBT1lTBBd",
+     "livemode": true,
+     "managed_payments": {
+      "enabled": false
+     },
+     "metadata": {
+      "clientIp": "146.75.175.1",
+      "clientUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15",
+      "fbp": "fb.1.1782539053062.620131230",
+      "orgWebsiteId": "41420",
+      "orgWebsiteUrl": "https://vaultio.co",
+      "pendingPlanChangeFromPriceId": "price_1SwexZLiGzfLlQttzFmWxaHk",
+      "selectedLanguage": "en",
+      "subscriptionType": "main",
+      "userId": "30402"
+     },
+     "next_pending_invoice_item_invoice": null,
+     "on_behalf_of": null,
+     "pause_collection": null,
+     "payment_settings": {
+      "payment_method_options": {
+       "acss_debit": null,
+       "bancontact": null,
+       "billie": null,
+       "blik": null,
+       "card": {
+        "network": null,
+        "request_three_d_secure": "automatic"
+       },
+       "customer_balance": null,
+       "konbini": null,
+       "payto": null,
+       "pix": null,
+       "sepa_debit": null,
+       "upi": null,
+       "us_bank_account": null
+      },
+      "payment_method_types": [
+       "card"
+      ],
+      "save_default_payment_method": "off"
+     },
+     "pending_invoice_item_interval": null,
+     "pending_setup_intent": null,
+     "pending_update": null,
+     "plan": {
+      "id": "price_1SwexZLiGzfLlQttzFmWxaHk",
+      "object": "plan",
+      "active": true,
+      "aggregate_usage": null,
+      "amount": 9900,
+      "amount_decimal": "9900",
+      "billing_scheme": "per_unit",
+      "created": 1770107265,
+      "currency": "usd",
+      "interval": "month",
+      "interval_count": 1,
+      "livemode": true,
+      "metadata": {},
+      "meter": null,
+      "nickname": null,
+      "product": "prod_SaCePenmmQNCmk",
+      "tiers_mode": null,
+      "transform_usage": null,
+      "trial_period_days": null,
+      "usage_type": "licensed"
+     },
+     "quantity": 1,
+     "schedule": null,
+     "start_date": 1782539787,
+     "status": "active",
+     "test_clock": null,
+     "transfer_data": null,
+     "trial_end": 1782543145,
+     "trial_settings": {
+      "end_behavior": {
+       "billing_cycle_anchor": "now",
+       "missing_payment_method": "create_invoice"
+      }
+     },
+     "trial_start": 1782539787
+    },
+    "message": "Subscription found successfully",
+    "hasActiveSubscription": true
+   },
+   "thirdParty": false
+  }
+ ]
+}

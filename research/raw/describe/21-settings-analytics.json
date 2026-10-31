@@ -1,0 +1,21 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/analytics",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Analytics",
+  "H2: Data sources"
+ ],
+ "buttons": [
+  "Google Analytics 4 Connected Track AI-driven traffic and measure content perform",
+  "Google Search Console Connected Monitor organic search clicks and impressions. M"
+ ],
+ "tabs": [],
+ "inputs": [],
+ "tables": [],
+ "icons": [],
+ "images": [
+  " | https://app.vaultio.co/logos/integrations/ga4.svg",
+  " | https://app.vaultio.co/logos/integrations/google-search-console.svg"
+ ],
+ "charts": 0
+}

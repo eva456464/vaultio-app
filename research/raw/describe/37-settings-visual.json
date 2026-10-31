@@ -1,0 +1,151 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/visual",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Visuals",
+  "H2: Image instructions Optional",
+  "H2: Cover image style",
+  "H2: Body image style",
+  "H2: Infographic style",
+  "H2: Calls to action (CTAs)",
+  "H2: YouTube video"
+ ],
+ "buttons": [
+  "Writing rules are in Writing [icon:lucide-arrow-up-right] -> /en/dashboard/settings/writing",
+  "Make images bold and attention-grabbing, like a scroll-stopping ad.",
+  "(Rule options) [icon:lucide-ellipsis]",
+  "Make images relatable and compelling to the viewer.",
+  "Add [disabled]",
+  "Recent changes (1) [icon:lucide-history]",
+  "(Use the Realistic with title style for the cover)",
+  "(Preview Realistic with title examples) [icon:lucide-eye]",
+  "(Use the 3D illustration style for the cover)",
+  "(Preview 3D illustration examples) [icon:lucide-eye]",
+  "(Use the Sketch with title style for the cover)",
+  "(Preview Sketch with title examples) [icon:lucide-eye]",
+  "(Use the Sketch style for the cover)",
+  "(Preview Sketch examples) [icon:lucide-eye]",
+  "(Use the Watercolor with title style for the cover)",
+  "(Preview Watercolor with title examples) [icon:lucide-eye]",
+  "(Use the Realistic style for the cover)",
+  "(Preview Realistic examples) [icon:lucide-eye]",
+  "Edit branding [icon:lucide-palette] -> /en/dashboard/settings/branding",
+  "(Use the Realistic style for body images)",
+  "(Use the Sketch style for body images)",
+  "(A short description of your visual mood and style. Guides every generated image [icon:lucide-info]",
+  "Editorial A magazine-style sheet with illustrations drawn for the article's cont",
+  "(Preview Editorial examples) [icon:lucide-eye]",
+  "Classic A typeset layout of cards and charts under a photo or sketch header",
+  "(Preview Classic examples) [icon:lucide-eye]",
+  "Link card Right after the summary A card which drives article readers to specifi [icon:]",
+  "(Remove page) [icon:lucide-trash2]",
+  "Add a page [icon:lucide-plus]",
+  "Start Today [icon:] -> https://vaultio.co",
+  "Map card Inside the article body A card that shows your business location. [icon:]",
+  "Contact card End of the article A card which drives article readers to contact y [icon:]",
+  "Promo paragraph Before the FAQ A text paragraph which promotes your business at  [icon:]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "TEXTAREA",
+   "type": "textarea",
+   "name": "",
+   "placeholder": "Add a rule, e.g. \"Never show faces\"",
+   "label": "Add",
+   "value": "",
+   "checked": null
+  },
+  {
+   "tag": "TEXTAREA",
+   "type": "textarea",
+   "name": "",
+   "placeholder": "e.g. Warm, minimal, natural light, earthy tones; real people, no stock-photo feel.",
+   "label": "",
+   "value": "Vaultio embodies a bold, aggressive aesthetic with a dark, commanding presence—a fierce dragon logo rendered in stark wh",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "checkbox",
+   "name": "",
+   "placeholder": "",
+   "label": "Link card",
+   "value": "on",
+   "checked": true
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "Book a session",
+   "label": "Button text for page 1",
+   "value": "Start Today",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "https://vaultio.co/book-a-session",
+   "label": "Link for page 1",
+   "value": "https://vaultio.co",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "checkbox",
+   "name": "",
+   "placeholder": "",
+   "label": "Map card",
+   "value": "on",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "checkbox",
+   "name": "",
+   "placeholder": "",
+   "label": "Contact card",
+   "value": "on",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "checkbox",
+   "name": "",
+   "placeholder": "",
+   "label": "Include a video",
+   "value": "on",
+   "checked": null
+  }
+ ],
+ "tables": [],
+ "icons": [
+  "lucide-arrow-up-right",
+  "lucide-check",
+  "lucide-ellipsis",
+  "lucide-plus",
+  "lucide-history",
+  "lucide-eye",
+  "lucide-palette",
+  "lucide-info",
+  "lucide-trash2"
+ ],
+ "images": [
+  " | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Fimage-styles%2Frealistic_with_title%2F3.jpg&w=3840&q=75",
+  " | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Fimage-styles%2F3d_illustration%2F1.png&w=3840&q=75",
+  " | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Fimage-styles%2Fsketch_with_title%2F1.jpeg&w=3840&q=75",
+  " | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Fimage-styles%2Fsketch%2F1.png&w=3840&q=75",
+  " | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Fimage-styles%2Fwatercolor_with_title%2F1.jpg&w=3840&q=75",
+  " | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Fimage-styles%2Frealistic%2F5.png&w=3840&q=75",
+  " | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Fimage-styles%2Frealistic%2F4.png&w=3840&q=75",
+  "Editorial | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Finfographic-style%2Feditorial1.jpg&w=3840&q=75",
+  "Classic | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Finfographic-style%2Fclassic1.jpg&w=3840&q=75",
+  " | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Fcta%2Flink-cta.png&w=3840&q=75",
+  " | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Fcta%2Fmaps-cta.png&w=3840&q=75",
+  " | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Fcta%2Fcontact-cta2.png&w=3840&q=75",
+  " | https://app.vaultio.co/_next/image?url=%2Fimages%2Fsettings%2Fcta%2Fcta-promo-section.png&w=3840&q=75"
+ ],
+ "charts": 0
+}

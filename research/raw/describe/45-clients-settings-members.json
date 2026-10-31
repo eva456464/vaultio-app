@@ -1,0 +1,34 @@
+{
+ "url": "https://app.vaultio.co/en/clients/settings/members",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Members",
+  "H2: Workspace name",
+  "H2: Members & roles"
+ ],
+ "buttons": [
+  "Add member [icon:lucide-plus]",
+  "() [icon:lucide-ellipsis-vertical]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "Your workspace",
+   "label": "",
+   "value": "Vaultio Organization",
+   "checked": null
+  }
+ ],
+ "tables": [],
+ "icons": [
+  "lucide-plus",
+  "lucide-user",
+  "lucide-ellipsis-vertical",
+  "lucide-crown"
+ ],
+ "images": [],
+ "charts": 0
+}

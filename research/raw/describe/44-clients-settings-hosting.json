@@ -1,0 +1,33 @@
+{
+ "url": "https://app.vaultio.co/en/clients/settings/hosting",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Hosting"
+ ],
+ "buttons": [],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "",
+   "label": "Hosting domain",
+   "value": "app.vaultio.co",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "",
+   "label": "Email sending domain",
+   "value": "app.vaultio.co",
+   "checked": null
+  }
+ ],
+ "tables": [],
+ "icons": [],
+ "images": [],
+ "charts": 0
+}

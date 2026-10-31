@@ -1,0 +1,38 @@
+Invoices
+All invoices across your client websites.
+Manage all subscriptions
+Client	Invoice ID	Billing Date	Amount	Status	Invoice PDF
+vaultio.co	in_1UV4FtLiGzfLlQttBT1lTBBd	Oct 26, 2026	$99.00	
+Paid
+Download
+vaultio.co	in_1URKqsLiGzfLlQttyxjvHIij	Oct 16, 2026	$49.00	
+Paid
+Download
+goletapressurewashing.com	in_1UN1DOLiGzfLlQttMKNILNzA	Oct 4, 2026	$99.00	
+Paid
+Download
+vaultio.co	in_1UKBxPLiGzfLlQttTwfiz6yg	Sep 26, 2026	$99.00	
+Paid
+Download
+goletapressurewashing.com	in_1UC8vlLiGzfLlQttDNZY5oZx	Sep 4, 2026	$99.00	
+Paid
+Download
+vaultio.co	in_1U8xB5LiGzfLlQttenXgir7J	Aug 26, 2026	$99.00	
+Paid
+Download
+goletapressurewashing.com	in_1U0u8rLiGzfLlQtt4NxRgqFp	Aug 4, 2026	$99.00	
+Paid
+Download
+goletapressurewashing.com	in_1U0sjXLiGzfLlQttH79LXaZM	Aug 4, 2026	$0.00	
+Paid
+Download
+vaultio.co	in_1TxiPbLiGzfLlQttfI5cPorb	Jul 26, 2026	$99.00	
+Paid
+Download
+vaultio.co	in_1Tmq6JLiGzfLlQttipzVNsD6	Jun 26, 2026	$99.00	
+Paid
+Download
+vaultio.co	in_1TmpE8LiGzfLlQttL1788ZHM	Jun 26, 2026	$0.00	
+Paid
+Download
+

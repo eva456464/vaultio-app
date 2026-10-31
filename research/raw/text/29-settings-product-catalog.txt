@@ -1,0 +1,20 @@
+Product catalog
+Products from your store that articles can feature and link to.
+Add your products
+Connect your store to automatically import your products, or add them manually. We'll then feature them in your articles with relevant links.
+
+
+Shopify
+Connect your Shopify store and import products automatically.
+
+
+WooCommerce
+Connect your WooCommerce store and import products automatically.
+
+Add manually
+Add products one by one, upload a file, or import a Google or Facebook feed.
+
+XML Feed (URL)
+Import products from an existing XML feed URL.
+
+

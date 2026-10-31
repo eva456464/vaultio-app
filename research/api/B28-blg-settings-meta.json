@@ -1,0 +1,749 @@
+{
+ "page": "https://www.babylovegrowth.ai/en/dashboard/settings/meta",
+ "title": "BabyLoveGrowth - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793424255334,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/meta?_rsc=1v15n",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22settings%22%2C%7B%22children%22%3A%5B%22meta%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2C%22refetch%22%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/overview"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/overview",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424255681,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424255722,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/meta-posting/settings",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/settings/meta",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "OK",
+    "data": {
+     "publishMode": "auto_review",
+     "publishTime": "12:30",
+     "publishWeekdays": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "postToFacebook": true,
+     "postToInstagram": true,
+     "generationEnabled": true,
+     "showBrandMark": true,
+     "enabledPostTypes": [
+      "educational",
+      "philosophical",
+      "myth_busting",
+      "storytelling"
+     ],
+     "slideTextStyle": "default",
+     "slideImageStyle": "photo_realistic",
+     "publishConnectionId": 1870
+    }
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793424255725,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://px.ads.linkedin.com/wa/?medium=fetch&fmt=g",
+   "reqHeaders": {
+    "Content-Type": "text/plain;charset=UTF-8",
+    "Accept": "*"
+   },
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/settings/meta",
+   "status": 204,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424255746,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/schedule?_rsc=ddkxg",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424255746,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/writing?_rsc=ddkxg",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424255746,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/saved-pages?_rsc=ddkxg",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424255746,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/competitors?_rsc=ddkxg",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424255958,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/branding?_rsc=ddkxg",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424255959,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/business?_rsc=ddkxg",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256010,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/white-label?_rsc=ddkxg",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256011,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/referrals?_rsc=ddkxg",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256136,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/billing?_rsc=ddkxg",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256152,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/team-members?_rsc=ddkxg",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256228,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/account?_rsc=ddkxg",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256246,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/overview?_rsc=ddkxg",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/settings/meta"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256308,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/meta?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256308,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/quora?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256383,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/reddit?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256415,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/analytics?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256453,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/publishing?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256456,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/improvements?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256546,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/schedule?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256575,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/writing?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256604,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/saved-pages?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256623,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/competitors?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256692,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793424256686&cv=11&fst=1793424256686&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13t3t3l3l5l1&dma=0&tag_exp=115938465~115938469~118897920~118897930~119793974~120213116~120385423~120412528~120469145~120469153~121246026~121246034~123691370~123814944&u_w=1728&u_h=1117&url=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Fmeta&ref=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Foverview&gclaw_src=32_2&rcb=19&frm=0&tiba=BabyLoveGrowth%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&gclaw=Cj0KCQjwlsfWBhD4ARIsACL7p1HeK3cawFXjoj5Fl-mDu1Y8-F8QgYlu0NNwQiM9eLxbb9jEpXi9QYEaAni9EALw_wcB&pscdl=noapi&auid=811030586.1793412074&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256695,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793424197218&gcs=G111&gcd=13t3t3l3l5l1&npa=0&dma=0&_eu=AAAAACQC&cid=486294686.1793412074&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=19&sr=1728x1117&ul=en-us&_s=19&tag_exp=115938465~115938469~118897920~118897930~119793974~120213116~120385423~120412528~120469145~120469153~121246026~121246034~123691370~123814944&sid=1793424197&sct=3&seg=1&dl=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Fmeta&dr=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fproduct-updates&dt=BabyLoveGrowth%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=60923",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256698,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=19&frm=0&apvc=0&auid=811030586.1793412074&dt=BabyLoveGrowth%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Fmeta&scrsrc=www.googletagmanager.com&rnd=706509847.1793424198&navt=n&npa=0&ae=a&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcs=G111&gcd=13t3t3l3l5l1&dma=0&tag_exp=115938465~115938469~118897920~118897930~119793974~120213116~120385423~120412528~120469145~120469153~121246026~121246034~123691370~123814944&tft=1793424256697&tfd=60926&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256702,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793424197218&gcs=G111&gcd=13t3t3l3l5l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=486294686.1793412074&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=19&sr=1728x1117&ul=en-us&_s=20&tag_exp=115938465~115938469~118897920~118897930~119793974~120213116~120385423~120412528~120469145~120469153~121246026~121246034~123691370~123814944&dl=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Fsettings%2Fmeta&dr=https%3A%2F%2Fwww.babylovegrowth.ai%2Fen%2Fdashboard%2Foverview&sid=1793424197&sct=3&seg=1&dt=BabyLoveGrowth%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=60930",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256710,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/branding?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256739,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/business?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256780,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/white-label?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256859,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/referrals?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256894,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/billing?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256927,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/team-members?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424256944,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/settings/account?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424257043,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://www.babylovegrowth.ai/en/dashboard/overview?_rsc=opmim",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/settings/meta",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/settings/meta",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793424257228,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/organization/get-org-websites",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/settings/meta",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "Organization websites fetched successfully",
+    "data": [
+     {
+      "id": 30098,
+      "organizationId": 29411,
+      "url": "https://vaultio.co",
+      "brandName": "Vaultio",
+      "selectedLanguage": "en",
+      "onboardingStatus": "not_started",
+      "onboardingCompletedAt": null,
+      "brandColor": "#E94545",
+      "brandSecondaryColor": "#000000",
+      "logoUrl": null,
+      "screenshotUrl": null,
+      "createdAt": "2026-05-07T15:11:02.994Z",
+      "isHidden": false,
+      "subscriptions": []
+     },
+     {
+      "id": 30923,
+      "organizationId": 29411,
+      "url": "https://vaultio.co",
+      "brandName": "Vaultio",
+      "selectedLanguage": "en",
+      "onboardingStatus": "not_started",
+      "onboardingCompletedAt": null,
+      "brandColor": "#E94545",
+      "brandSecondaryColor": "#000000",
+      "logoUrl": null,
+      "screenshotUrl": null,
+      "createdAt": "2026-05-11T17:29:21.106Z",
+      "isHidden": false,
+      "subscriptions": []
+     },
+     {
+      "id": 41420,
+      "organizationId": 29411,
+      "url": "https://vaultio.co",
+      "brandName": "Vaultio",
+      "selectedLanguage": "en",
+      "onboardingStatus": "completed",
+      "onboardingCompletedAt": "2026-06-27T06:19:27.248Z",
+      "brandColor": "#E94545",
+      "brandSecondaryColor": "#000000",
+      "logoUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/user-uploads/org-website-41420/logo-1783405856651.png",
+      "screenshotUrl": "https://media.babylovegrowth.ai/blog-images/organization-29411/1791865105817_vaultio.jpg",
+      "createdAt": "2026-06-27T05:46:34.193Z",
+      "isHidden": false,
+      "subscriptions": [
+       {
+        "type": "main",
+        "status": "active"
+       },
+       {
+        "type": "meta_autopilot",
+        "status": "active"
+       }
+      ]
+     },
+     {
+      "id": 51141,
+      "organizationId": 29411,
+      "url": "https://goletapressurewashing.com",
+      "brandName": "Goleta Pressure Washing",
+      "selectedLanguage": "en",
+      "onboardingStatus": "completed",
+      "onboardingCompletedAt": "2026-08-05T00:47:51.408Z",
+      "brandColor": "#0B3050",
+      "brandSecondaryColor": "#0E5FA6",
+      "logoUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/user-uploads/org-website-51141/logo-1785994773976.png",
+      "screenshotUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-29411/1785890564695_goletapressurewashing.jpg",
+      "createdAt": "2026-08-05T00:30:15.488Z",
+      "isHidden": false,
+      "subscriptions": [
+       {
+        "type": "main",
+        "status": "active"
+       }
+      ]
+     }
+    ]
+   },
+   "thirdParty": false
+  }
+ ]
+}

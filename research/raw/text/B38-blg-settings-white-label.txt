@@ -1,0 +1,30 @@
+Branding and domains
+Your agency's white-label brand and the domains your clients sign in at and get emails from.
+Brand
+What your clients see when they sign in.
+Agency name
+
+
+Hosting domain
+Where your clients sign in. If you change it, click Setup pending at the top of this card to see the new DNS record.
+
+
+Email sending domain
+Invites and password resets are emailed from this domain. If you change it, click Setup pending at the top of this card to see the new DNS records.
+
+
+Logo
+
+Upload a logo
+Favicon
+
+Upload a favicon
+Primary color
+
+#
+
+Accent color
+
+#
+
+

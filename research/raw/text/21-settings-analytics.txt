@@ -1,0 +1,17 @@
+Analytics
+Connect Google Analytics and Search Console to track how your articles perform.
+Data sources
+Track clicks, impressions, and AI traffic for every article — right from your dashboard.
+
+
+Google Analytics 4
+Connected
+Track AI-driven traffic and measure content performance.
+Manage
+
+
+Google Search Console
+Connected
+Monitor organic search clicks and impressions.
+Manage
+

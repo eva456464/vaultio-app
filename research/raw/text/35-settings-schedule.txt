@@ -1,0 +1,20 @@
+Schedule
+Which days of the week new articles are generated.
+Article Schedule
+Control on which days you want to generate articles
+
+Sunday
+
+Monday
+
+Tuesday
+
+Wednesday
+
+Thursday
+
+Friday
+
+Saturday
+Selected: Every day
+

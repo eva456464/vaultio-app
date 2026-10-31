@@ -1,0 +1,37 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/account",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Profile",
+  "H2: Personal details",
+  "H2: Session",
+  "H2: Danger zone"
+ ],
+ "buttons": [
+  "Change password",
+  "(Select your interface language) [icon:lucide-info]",
+  "English [icon:lucide-chevron-down]",
+  "Log out [icon:lucide-log-out]",
+  "Delete account"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "John Wick",
+   "label": "",
+   "value": "Damian Knights",
+   "checked": null
+  }
+ ],
+ "tables": [],
+ "icons": [
+  "lucide-info",
+  "lucide-chevron-down",
+  "lucide-log-out"
+ ],
+ "images": [],
+ "charts": 0
+}

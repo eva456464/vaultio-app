@@ -1,0 +1,57 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/reddit",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Reddit",
+  "H2: Reddit Monitored keywords",
+  "H2: Subreddits to monitor",
+  "H2: Customize your replies"
+ ],
+ "buttons": [
+  "(Stop monitoring this keyword) [icon:lucide-x]",
+  "contractorindependence.com alternatives [disabled]",
+  "(Delete keyword) [icon:lucide-x]",
+  "surmarketing.io alternatives [disabled]",
+  "stonesystems.io alternatives [disabled]",
+  "rynoss.com alternatives [disabled]",
+  "805seo.com alternatives [disabled]",
+  "payperlead.com alternatives [disabled]",
+  "scorpion.co alternatives [disabled]",
+  "npdigital.com alternatives [disabled]",
+  "thefinalcode.com alternatives [disabled]",
+  "venturadigitalmarketingagency.com alternatives [disabled]",
+  "(Add) [icon:lucide-plus] [disabled]",
+  "Get Reddit+",
+  "4 selected [icon:lucide-chevron-down]",
+  "(Remove subreddit) [icon:lucide-x]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "Add custom keyword",
+   "label": "",
+   "value": "",
+   "checked": null
+  },
+  {
+   "tag": "TEXTAREA",
+   "type": "textarea",
+   "name": "",
+   "placeholder": "Write like a real person with firsthand experience. Keep the response easy to read and avoid generic AI phrasing.",
+   "label": "",
+   "value": "Write like a real person with firsthand experience. Keep the response easy to read and avoid generic AI phrasing.",
+   "checked": null
+  }
+ ],
+ "tables": [],
+ "icons": [
+  "lucide-x",
+  "lucide-plus",
+  "lucide-chevron-down"
+ ],
+ "images": [],
+ "charts": 0
+}

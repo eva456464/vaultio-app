@@ -1,0 +1,52 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/competitors",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Competitors",
+  "H2: Websites to monitor"
+ ],
+ "buttons": [
+  "(type competitor domain here, e.g. competitor.com) [icon:lucide-plus] [disabled]",
+  "contractorindependence.com -> https://contractorindependence.com",
+  "() [icon:lucide-x]",
+  "surmarketing.io -> https://surmarketing.io",
+  "stonesystems.io -> https://stonesystems.io",
+  "rynoss.com -> https://rynoss.com",
+  "805seo.com -> https://805seo.com",
+  "payperlead.com -> https://payperlead.com",
+  "scorpion.co -> https://scorpion.co",
+  "npdigital.com -> https://npdigital.com",
+  "thefinalcode.com -> https://thefinalcode.com",
+  "venturadigitalmarketingagency.com -> https://venturadigitalmarketingagency.com"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "type competitor domain here, e.g. competitor.com",
+   "label": "",
+   "value": "",
+   "checked": null
+  }
+ ],
+ "tables": [],
+ "icons": [
+  "lucide-plus",
+  "lucide-x"
+ ],
+ "images": [
+  "contractorindependence.com favicon | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dcontractorindependence.com%26default%3Ddata%253Aimage%2",
+  "surmarketing.io favicon | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dsurmarketing.io%26default%3Ddata%253Aimage%252Fsvg%252B",
+  "stonesystems.io favicon | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dstonesystems.io%26default%3Ddata%253Aimage%252Fsvg%252B",
+  "rynoss.com favicon | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Drynoss.com%26default%3Ddata%253Aimage%252Fsvg%252Bxml%2",
+  "805seo.com favicon | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3D805seo.com%26default%3Ddata%253Aimage%252Fsvg%252Bxml%2",
+  "payperlead.com favicon | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dpayperlead.com%26default%3Ddata%253Aimage%252Fsvg%252Bx",
+  "scorpion.co favicon | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dscorpion.co%26default%3Ddata%253Aimage%252Fsvg%252Bxml%",
+  "npdigital.com favicon | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dnpdigital.com%26default%3Ddata%253Aimage%252Fsvg%252Bxm",
+  "thefinalcode.com favicon | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dthefinalcode.com%26default%3Ddata%253Aimage%252Fsvg%252",
+  "venturadigitalmarketingagency.com favicon | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dventuradigitalmarketingagency.com%26default%3Ddata%253A"
+ ],
+ "charts": 0
+}

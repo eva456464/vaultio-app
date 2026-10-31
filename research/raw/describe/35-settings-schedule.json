@@ -1,0 +1,25 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/schedule",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Schedule",
+  "H2: Article Schedule"
+ ],
+ "buttons": [
+  "Sunday [icon:lucide-check]",
+  "Monday [icon:lucide-check]",
+  "Tuesday [icon:lucide-check]",
+  "Wednesday [icon:lucide-check]",
+  "Thursday [icon:lucide-check]",
+  "Friday [icon:lucide-check]",
+  "Saturday [icon:lucide-check]"
+ ],
+ "tabs": [],
+ "inputs": [],
+ "tables": [],
+ "icons": [
+  "lucide-check"
+ ],
+ "images": [],
+ "charts": 0
+}

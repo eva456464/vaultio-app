@@ -1,0 +1,11 @@
+Hosting
+Where your clients sign in and where their invites and password resets are sent from.
+Hosting domain
+Where your clients sign in. If you change it, click Setup pending at the top of this card to see the new DNS record.
+
+
+Email sending domain
+Invites and password resets are emailed from this domain. If you change it, click Setup pending at the top of this card to see the new DNS records.
+
+
+

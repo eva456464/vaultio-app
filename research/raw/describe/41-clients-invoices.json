@@ -1,0 +1,63 @@
+{
+ "url": "https://app.vaultio.co/en/clients/invoices",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Invoices"
+ ],
+ "buttons": [
+  "Manage all subscriptions",
+  "Download"
+ ],
+ "tabs": [],
+ "inputs": [],
+ "tables": [
+  {
+   "headers": [
+    "Client",
+    "Invoice ID",
+    "Billing Date",
+    "Amount",
+    "Status",
+    "Invoice PDF"
+   ],
+   "rows": 11,
+   "sample": [
+    [
+     "vaultio.co",
+     "in_1UV4FtLiGzfLlQttBT1lTBBd",
+     "Oct 26, 2026",
+     "$99.00",
+     "Paid",
+     "Download"
+    ],
+    [
+     "vaultio.co",
+     "in_1URKqsLiGzfLlQttyxjvHIij",
+     "Oct 16, 2026",
+     "$49.00",
+     "Paid",
+     "Download"
+    ],
+    [
+     "goletapressurewashing.com",
+     "in_1UN1DOLiGzfLlQttMKNILNzA",
+     "Oct 4, 2026",
+     "$99.00",
+     "Paid",
+     "Download"
+    ],
+    [
+     "vaultio.co",
+     "in_1UKBxPLiGzfLlQttTwfiz6yg",
+     "Sep 26, 2026",
+     "$99.00",
+     "Paid",
+     "Download"
+    ]
+   ]
+  }
+ ],
+ "icons": [],
+ "images": [],
+ "charts": 0
+}
