@@ -114,8 +114,11 @@ export async function saveWordpress(input: { siteUrl: string; username: string; 
   return { ok: true };
 }
 
-export async function disconnectIntegration(type: "webhook" | "wordpress") {
+const DISCONNECTABLE = ["webhook", "wordpress", "ghost", "webflow", "shopify", "wix", "hosted_blog"] as const;
+
+export async function disconnectIntegration(type: (typeof DISCONNECTABLE)[number]) {
   const site = await requireAdminSite();
+  if (!DISCONNECTABLE.includes(type)) throw new Error("Unknown integration");
   await db.delete(integrations).where(and(eq(integrations.orgWebsiteId, site.id), eq(integrations.type, type)));
   refresh();
 }

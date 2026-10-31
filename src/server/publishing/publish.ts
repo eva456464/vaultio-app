@@ -5,11 +5,19 @@ import { apiKeys, articles, contentPlanItems, integrations, orgWebsites, type Ar
 import { logActivity } from "../agents/activity";
 import { decryptJson } from "../crypto";
 import { loadMedia, mediaIdFromUrl } from "../media";
+import { postInput } from "./platforms/common";
+import { deliverGhost, type GhostConfig, type GhostCredentials } from "./platforms/ghost";
+import { deliverShopify, type ShopifyConfig, type ShopifyCredentials } from "./platforms/shopify";
+import { deliverWebflow, type WebflowConfig, type WebflowCredentials } from "./platforms/webflow";
+import { deliverWix, type WixConfig, type WixCredentials } from "./platforms/wix";
+
+export type HostedBlogConfig = { domain: string; displayName: string; verified?: boolean };
+export const hostedBlogUrl = (config: HostedBlogConfig, slug: string) => `https://${config.domain}/${slug}`;
 
 type Article = typeof articles.$inferSelect;
 type Site = typeof orgWebsites.$inferSelect;
 
-export const PUBLISHING_TYPES = ["webhook", "wordpress"] as const;
+export const PUBLISHING_TYPES = ["webhook", "wordpress", "ghost", "webflow", "shopify", "wix", "hosted_blog"] as const;
 export type PublishingType = (typeof PUBLISHING_TYPES)[number];
 
 export type WebhookCredentials = { token: string };
@@ -156,20 +164,64 @@ export async function publishArticle(siteId: number, articleId: number, options:
 
   let url: string | null = null;
   let delivered = false;
+  let live = false;
   const errors: string[] = [];
+  const remember = async (deliveries: Partial<ArticleDeliveries>) => {
+    article.deliveries = { ...article.deliveries, ...deliveries };
+    await db.update(articles).set({ deliveries: article.deliveries }).where(eq(articles.id, article.id));
+  };
   for (const connection of connections) {
-    if (!connection.credentialsEncrypted) continue;
-    const config = connection.config as { url?: string; siteUrl?: string; categoryId?: number };
+    if (!connection.credentialsEncrypted && connection.type !== "hosted_blog") continue;
+    const config = connection.config as Record<string, unknown>;
+    const secret = <T,>() => decryptJson<T>(connection.credentialsEncrypted!);
+    const post = postInput(article);
     let result: DeliveryResult;
-    if (connection.type === "webhook") {
-      result = await deliverWebhook(config.url!, decryptJson<WebhookCredentials>(connection.credentialsEncrypted), webhookPayload(article, site));
-    } else {
-      const wordpress = await deliverWordpress(config.siteUrl!, decryptJson<WordpressCredentials>(connection.credentialsEncrypted), article, config.categoryId);
-      if (wordpress.ok && wordpress.delivery) {
-        article.deliveries = { ...article.deliveries, wordpress: wordpress.delivery };
-        await db.update(articles).set({ deliveries: article.deliveries }).where(eq(articles.id, article.id));
+    // Platforms set to "save as draft" don't make the article live.
+    let draft = false;
+    switch (connection.type) {
+      case "webhook":
+        result = await deliverWebhook(config.url as string, secret<WebhookCredentials>(), webhookPayload(article, site));
+        break;
+      case "wordpress": {
+        const wordpress = await deliverWordpress(config.siteUrl as string, secret<WordpressCredentials>(), article, config.categoryId as number | undefined);
+        if (wordpress.ok && wordpress.delivery) await remember({ wordpress: wordpress.delivery });
+        result = wordpress;
+        break;
       }
-      result = wordpress;
+      case "ghost": {
+        const ghost = await deliverGhost(config as GhostConfig, secret<GhostCredentials>(), post, article.deliveries.ghost);
+        if (ghost.ok) await remember({ ghost: ghost.delivery });
+        draft = (config as GhostConfig).mode === "draft";
+        result = ghost;
+        break;
+      }
+      case "webflow": {
+        const webflow = await deliverWebflow(config as WebflowConfig, secret<WebflowCredentials>(), post, article.deliveries.webflow);
+        if (webflow.ok) await remember({ webflow: webflow.delivery });
+        draft = (config as WebflowConfig).mode === "draft";
+        result = webflow;
+        break;
+      }
+      case "shopify": {
+        const shopify = await deliverShopify(config as ShopifyConfig, secret<ShopifyCredentials>(), post, article.deliveries.shopify);
+        if (shopify.ok) await remember({ shopify: shopify.delivery });
+        draft = (config as ShopifyConfig).mode === "draft";
+        result = shopify;
+        break;
+      }
+      case "wix": {
+        const wix = await deliverWix(config as WixConfig, secret<WixCredentials>(), post, article.deliveries.wix);
+        if (wix.ok) await remember({ wix: wix.delivery });
+        draft = (config as WixConfig).mode === "draft";
+        result = wix;
+        break;
+      }
+      case "hosted_blog":
+        // Vaultio serves the blog itself: the article is live there as soon as it exists.
+        result = { ok: true, url: hostedBlogUrl(config as HostedBlogConfig, article.slug) };
+        break;
+      default:
+        continue;
     }
     await db
       .update(integrations)
@@ -177,6 +229,7 @@ export async function publishArticle(siteId: number, articleId: number, options:
       .where(eq(integrations.id, connection.id));
     if (result.ok) {
       delivered = true;
+      if (!draft) live = true;
       url ??= result.url;
     } else errors.push(`${connection.type}: ${result.error}`);
   }
@@ -187,6 +240,8 @@ export async function publishArticle(siteId: number, articleId: number, options:
   const publishedUrl = url ?? articleUrl(site, article.slug);
   await db.update(articles).set({ publishedUrl, publishedAt: new Date(), updatedAt: new Date() }).where(eq(articles.id, article.id));
   await db.update(contentPlanItems).set({ generationStatus: "published", updatedAt: new Date() }).where(eq(contentPlanItems.articleId, article.id));
-  await logActivity(siteId, "articlePublished", { title: article.title, articleId: article.id, publishedUrl });
-  return { published: true, url: publishedUrl, errors };
+  // Only drafts were saved (and nothing pulls articles through the API): say so instead of "published".
+  const draftOnly = !live && !apiKey;
+  await logActivity(siteId, draftOnly ? "articleSentAsDraft" : "articlePublished", { title: article.title, articleId: article.id, publishedUrl });
+  return { published: true, draft: draftOnly, url: publishedUrl, errors };
 }

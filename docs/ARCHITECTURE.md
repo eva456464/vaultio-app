@@ -233,6 +233,36 @@ empty workspace; accepting an invitation removes it and joins the inviting one. 
 already runs a workspace with websites or other members can't join a second one (the app has one
 workspace per account).
 
+### Publishing platforms and the hosted blog
+
+`publishArticle` sends an article through every connected integration and remembers each
+platform's post id in `articles.deliveries`, so republishing (improvements, cover changes) updates
+the same post. Credentials are verified with the platform before they are stored (encrypted), and
+each platform can publish immediately or save drafts (`src/server/publishing/platforms/`):
+
+| Platform | Connection | Article |
+|---|---|---|
+| WordPress | site URL, username, application password | REST post, images copied to the media library |
+| Ghost | site URL, Admin API key (short-lived HS256 token) | Admin API post from HTML, cover image, FAQ schema in the head |
+| Webflow | API token → site → CMS collection | collection item; body, summary and cover fields mapped when connecting |
+| Shopify | store + Dev Dashboard app Client ID/secret (client-credentials token) or an Admin API token | GraphQL `articleCreate` / `articleUpdate` on the chosen blog |
+| Wix | Site ID + account API key (author = a site member) | draft post from Ricos JSON converted from the markdown, then published |
+| Webhook / API | see above | JSON payload / pulled by the client |
+
+When every delivery was a draft (and nothing pulls the API) the activity says the article was
+sent as a draft instead of published. Framer (needs a published Framer plugin), Lovable,
+GoHighLevel, Duda and BigCommerce aren't built.
+
+The hosted blog serves a site's published articles on its own subdomain (`blog.client.com`). The
+domain is set up like agency domains (Vercel or a CNAME). The proxy (`src/proxy.ts`) can't query
+the database, so for hosts other than the app's own it asks `/api/hosts/<host>` (cached a minute)
+and rewrites hosted-blog requests to `src/app/hosted-blog/[host]` (index, article pages with meta
+tags and JSON-LD, `sitemap.xml`, `robots.txt`, `rss.xml`); those pages answer only on their own
+host. The blog uses the site's logo and brand colour and shows no Vaultio branding.
+
+These platform clients follow each vendor's documented API and were tested against a local mock
+(`scripts/dev-fixtures/mock-cms.py`), not live accounts.
+
 ### White label and agency settings
 
 Agency settings live under `/clients/settings` (Profile, Members, Branding, Hosting, Talk with team);

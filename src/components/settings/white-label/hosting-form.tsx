@@ -43,7 +43,7 @@ function CopyValue({ value }: { value: string }) {
   );
 }
 
-function Records({ records, intro }: { records: { type: string; name: string; value: string; status?: string }[]; intro: string }) {
+export function Records({ records, intro }: { records: { type: string; name: string; value: string; status?: string }[]; intro: string }) {
   const t = useTranslations("settings.whiteLabel");
   const withStatus = records.some((record) => record.status);
   return (

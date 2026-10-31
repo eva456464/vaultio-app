@@ -881,18 +881,93 @@
       },
       "comingSoon": "Coming soon",
       "otherPlatforms": [
-        "Shopify",
-        "Webflow",
-        "Wix",
-        "Ghost",
         "Framer",
         "Lovable",
         "GoHighLevel",
         "Duda",
-        "BigCommerce",
-        "Hosted blog"
+        "BigCommerce"
       ],
-      "lastError": "Last error: {error}"
+      "lastError": "Last error: {error}",
+      "morePlatforms": "More platforms",
+      "modes": {
+        "publish": "Publish immediately",
+        "draft": "Save as draft"
+      },
+      "modeLabel": "How new articles appear",
+      "modeHint": {
+        "publish": "Articles go live as soon as they're ready.",
+        "draft": "Articles are saved as drafts for you to review first."
+      },
+      "connecting": "Checking…",
+      "next": "Continue",
+      "back": "Back",
+      "connected": "Connected",
+      "reconnect": "Change credentials",
+      "verifyNote": "We check the credentials with {platform} before saving them. They're stored encrypted and never shown again.",
+      "ghost": {
+        "name": "Ghost",
+        "description": "Publish articles to your Ghost site.",
+        "siteUrl": "Ghost site address",
+        "siteUrlHint": "The API URL shown in your Ghost custom integration, e.g. https://yourblog.ghost.io.",
+        "adminKey": "Admin API key",
+        "adminKeyHint": "In Ghost: Settings → Integrations → Add custom integration, then copy the Admin API key.",
+        "summary": "Publishing to {site}"
+      },
+      "webflow": {
+        "name": "Webflow",
+        "description": "Publish articles as items in your Webflow CMS collection.",
+        "token": "API token",
+        "tokenHint": "In Webflow: Site settings → Apps & integrations → Generate API token, with CMS read & write and Sites read permissions.",
+        "loadSites": "Find my sites",
+        "site": "Webflow site",
+        "collection": "Blog collection",
+        "fields": "Fields used: body {body}{summary, select, none {} other {, summary {summary}}}{image, select, none {} other {, cover image {image}}}.",
+        "summary": "Publishing to {collection} on {site}"
+      },
+      "shopify": {
+        "name": "Shopify",
+        "description": "Publish articles to your Shopify store's blog.",
+        "shop": "Store address",
+        "shopHint": "Your .myshopify.com address (you can paste the whole admin link).",
+        "clientId": "Client ID",
+        "clientSecret": "Client secret",
+        "credentialsHint": "Create an app in the Shopify Dev Dashboard with the read_content and write_content scopes, install it on your store, then copy its Client ID and secret from the app's Settings.",
+        "useToken": "I have an Admin API access token instead",
+        "useClient": "Use the app's Client ID and secret",
+        "accessToken": "Admin API access token",
+        "loadBlogs": "Find my blogs",
+        "blog": "Blog",
+        "author": "Author name",
+        "authorHint": "Shown on each article. Leave empty to use the store name.",
+        "summary": "Publishing to {blog} on {shop}"
+      },
+      "wix": {
+        "name": "Wix",
+        "description": "Publish articles to your Wix blog.",
+        "siteId": "Site ID",
+        "siteIdHint": "The ID in your Wix dashboard address (manage.wix.com/dashboard/your-site-id/home). You can paste the whole address.",
+        "apiKey": "API key",
+        "apiKeyHint": "Create it at manage.wix.com/account/api-keys as the site owner, with the Wix Blog and Wix Contacts & Members permissions. We create and delete a test draft to check it.",
+        "summary": "Publishing to Wix site {site}",
+        "note": "Wix doesn't take a cover image through this connection yet; the article's images appear in the post body."
+      },
+      "hostedBlog": {
+        "name": "Blog hosting",
+        "description": "We host your blog on your own subdomain, e.g. blog.yoursite.com. No plugins or theme setup: add one DNS record and new articles appear there automatically.",
+        "domain": "Blog address",
+        "domainHint": "A subdomain of your website. Subdomains get the same SEO value as your main domain.",
+        "displayName": "Blog name",
+        "displayNameHint": "Shown at the top of your blog. Your logo and brand colour come from Settings → Branding.",
+        "setUp": "Host my blog",
+        "save": "Save",
+        "live": "Your blog is live at {url}",
+        "view": "View blog",
+        "pending": "Add this DNS record to finish. If you use Cloudflare, turn the proxy off (grey cloud) for this record.",
+        "check": "Check again",
+        "remove": "Stop hosting",
+        "removeConfirm": "Stop hosting the blog at {domain}? Readers will no longer find the articles there.",
+        "manual": "Point the subdomain at the app with this record. Your hosting provider must also serve HTTPS for it."
+      }
     },
     "comingSoon": "This settings section is being rebuilt.",
     "save": "Save changes",
@@ -2191,5 +2266,20 @@
     "expired": "This invitation to {workspace} has expired. Ask an admin to send a new one.",
     "accepted": "This invitation to {workspace} has already been used.",
     "goToApp": "Go to the dashboard"
+  },
+  "hostedBlog": {
+    "latest": "Latest articles",
+    "readMore": "Read more",
+    "newer": "Newer articles",
+    "older": "Older articles",
+    "pageOf": "Page {page} of {pages}",
+    "empty": "No articles yet. New articles appear here as soon as they're published.",
+    "backToSite": "Visit {site}",
+    "backToBlog": "All articles",
+    "published": "Published {date}",
+    "by": "By {author}",
+    "related": "Keep reading",
+    "rights": "© {year} {name}",
+    "rssTitle": "{name} blog"
   }
 }

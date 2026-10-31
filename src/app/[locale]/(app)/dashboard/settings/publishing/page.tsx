@@ -5,6 +5,8 @@ import { PublishingSettings } from "@/components/settings/publishing-settings";
 import { db } from "@/db";
 import { apiKeys, integrations } from "@/db/schema";
 import { getAppContext } from "@/server/context";
+import type { BlogConfig } from "@/server/hosted-blog";
+import { vercelConfigured } from "@/server/whitelabel/domains";
 
 export default async function PublishingSettingsPage() {
   const context = (await getAppContext())!;
@@ -24,6 +26,15 @@ export default async function PublishingSettingsPage() {
     return { status: row.status, lastError: row.lastError, config: row.config as Record<string, string> };
   };
 
+  // Only non-secret settings go to the browser.
+  const platform = (type: "ghost" | "webflow" | "shopify" | "wix") => {
+    const row = connections.find((connection) => connection.type === type);
+    return row ? { status: row.status, lastError: row.lastError, config: row.config as Record<string, unknown> } : null;
+  };
+  const blogRow = connections.find((connection) => connection.type === "hosted_blog");
+  const blog = blogRow?.config as BlogConfig | undefined;
+  const siteHost = new URL(site.url).hostname.replace(/^www\./, "");
+
   return (
     <>
       <h1 className="text-[28px] font-semibold tracking-[-0.025em] text-ink">{t("title")}</h1>
@@ -36,6 +47,11 @@ export default async function PublishingSettingsPage() {
         apiKey={apiKey ? { prefix: apiKey.prefix, lastUsedAt: apiKey.lastUsedAt?.toISOString() ?? null } : null}
         webhook={describe("webhook")}
         wordpress={describe("wordpress")}
+        platforms={{ ghost: platform("ghost"), webflow: platform("webflow"), shopify: platform("shopify"), wix: platform("wix") }}
+        hostedBlog={blog?.domain ? { domain: blog.domain, displayName: blog.displayName, verified: Boolean(blog.verified), records: blog.records ?? [], error: blog.error ?? null } : null}
+        blogSuggestion={`blog.${siteHost}`}
+        defaultBlogName={site.brandName ?? siteHost}
+        onVercel={vercelConfigured()}
       />
     </>
   );

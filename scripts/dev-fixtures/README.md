@@ -113,3 +113,18 @@ RESEND_API_KEY=re_test RESEND_API_BASE=http://localhost:4700`. Domains stay "Set
 `POST /test/dns/<domain>` (hosting) or `POST /test/email-dns/<domain>` (sending); sent emails are at
 `GET /test/emails`. To open the app on an agency domain locally, map it in `/etc/hosts`.
 
+## CMS mock (`mock-cms.py`)
+
+Stands in for Ghost, Webflow, Shopify and Wix with fake test credentials (listed at the top of
+the file) and records every article it receives.
+
+```bash
+python3 scripts/dev-fixtures/mock-cms.py 4800
+```
+
+Run the app with `WEBFLOW_API_BASE=http://localhost:4800/webflow/v2
+SHOPIFY_API_BASE=http://localhost:4800/shopify WIX_API_BASE=http://localhost:4800/wix`; connect
+Ghost with the site address `http://localhost:4800`. Received articles are at `GET /test/log`.
+To try the hosted blog, map e.g. `blog.sunnyroofing.test` to 127.0.0.1 in `/etc/hosts`, set it up
+in Settings → Publishing (with the domain mock), then open `http://blog.sunnyroofing.test:3000/`.
+

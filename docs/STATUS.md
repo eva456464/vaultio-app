@@ -65,7 +65,7 @@ Ground rules that apply to everything below:
 | Brand profile, AI prompts, content plan, topic research, article writer | Built (Claude) |
 | Competitors, keyword research, competitor gap scan, domain rating | Built (DataForSEO) |
 | AI visibility check (Claude, plus ChatGPT and Gemini when keyed) | Built |
-| Publishing: content API, webhook, WordPress, auto-publish | Built |
+| Publishing: content API, webhook, WordPress, Shopify, Webflow, Wix, Ghost, hosted blog, auto-publish | Built (publish or save as draft per platform; republishing updates the same post) |
 | Monthly client report email | Built (Resend) |
 | Article images, CTA cards, promo paragraph, YouTube video | Built (OpenAI or Gemini images; Claude for scenes, wording and the video search) |
 | Google Analytics sync, AI traffic report, Google rankings check (Search Console) | Built |
@@ -86,6 +86,11 @@ Ground rules that apply to everything below:
   reconnect ran end to end against a local mock of Google's APIs (`scripts/dev-fixtures/mock-google.py`).
 - Team: invite → sign up with the invited email → accept → limited website access → role and
   access changes → remove, in a browser.
+- Publishing platforms: connecting Ghost (including a wrong key), Webflow (site and collection picked
+  from the token), Shopify (client credentials, blog list) and Wix (site ID from the dashboard
+  address) in the browser, then publishing an article to all of them and republishing it (each
+  updated the same post), against a local mock (`scripts/dev-fixtures/mock-cms.py`); the hosted
+  blog on a local test domain from DNS setup to live, with its pages, sitemap, robots and RSS.
 - White label: logo and favicon upload, colours, hosting and sending domains from "Setup pending" with
   DNS records to "Connected", the agency's brand on its own domain, and an invite email sent from
   the agency's domain with a link to it, against a local Vercel/Resend mock
@@ -120,6 +125,9 @@ These are written against the providers' documentation but have not run live yet
 - Stripe itself: real Checkout, the customer portal, proration on plan changes, webhook delivery
   and invoice PDFs (written against the Stripe SDK's types for API version 2026-10-28).
 - Invitation and invoice emails through Resend.
+- Shopify, Webflow, Wix and Ghost against real accounts (written from their documented APIs, which
+  couldn't be fetched from this workspace to double-check; Wix is the least certain, and Wix posts
+  get no cover image yet).
 - White label against the live Vercel and Resend APIs (domain add/verify/config, Resend domains):
   written from their documented APIs, which couldn't be fetched from this workspace to double-check.
 
@@ -128,12 +136,13 @@ limits).
 
 ## Still to build, in recommended order
 
-1. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
-2. **Infographics**: one chart-style image per article in the Editorial or Classic style.
-3. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
-4. **Product catalog** settings.
-5. **More languages**: content in extra languages per website (the Scale plan's 3 languages and the
+1. **Infographics**: one chart-style image per article in the Editorial or Classic style.
+2. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
+3. **Product catalog** settings (Shopify / WooCommerce products mentioned in articles).
+4. **More languages**: content in extra languages per website (the Scale plan's 3 languages and the
    language add-on), and translations of the app itself.
+5. **Remaining publishing platforms**: Framer (needs a Vaultio Framer plugin published on Framer's
+   marketplace), Lovable, GoHighLevel, Duda, BigCommerce.
 6. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
    `app.vaultio.co` at Vaultio instead of the Babylovegrowth white label.
 
@@ -177,7 +186,7 @@ Smaller follow-ups:
 | Booking link and support email (`SUPPORT_BOOKING_URL`, `SUPPORT_EMAIL`) | Agency settings → Talk with team | Not set |
 | Which workspaces aren't billed | Vaultio's own workspace should be exempt: `update organizations set billing_exempt = true where id = …` | Waiting for the production database |
 | Hosting accounts (web, worker, Postgres) | Production launch | Later |
-| Leftover Blog Hosting setup for `blog.vaultio.co` in the live Babylovegrowth account | Created during research; decide whether to remove it | Waiting for a decision |
+| Leftover Blog Hosting setup for `blog.vaultio.co` in the live Babylovegrowth account | Created during research. Vaultio can now host that blog itself (Settings → Publishing → Blog hosting) once it runs in production; until then decide whether to remove the old setup | Waiting for a decision |
 
 ## Work log
 
@@ -204,6 +213,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Team members: invitations, roles, website access, invite acceptance | `main` 11232fb |
 | Billing with Stripe: plans, add-ons, checkout, portal, webhooks, plan limits, agents paused without a plan | `main` ba01389 |
 | Agency settings and white label: profile (language, account deletion), members, branding, hosting and sending domains, talk with team, password reset | `main` 2fb49a4 |
+| Publishing to Shopify, Webflow, Wix and Ghost, and the hosted blog on clients' subdomains | `main` |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

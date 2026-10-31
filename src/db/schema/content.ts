@@ -120,7 +120,14 @@ export type ArticleBlock =
   | { kind: "video"; title: string; videoId: string };
 
 /** Where an article was delivered, so later updates change the same post instead of creating another. */
-export type ArticleDeliveries = { wordpress?: { postId: number; featuredMediaId?: number; uploads: Record<string, { id: number; url: string }> } };
+/** Where an article was sent on each platform, so republishing updates the same post. */
+export type ArticleDeliveries = {
+  wordpress?: { postId: number; featuredMediaId?: number; uploads: Record<string, { id: number; url: string }> };
+  ghost?: { postId: string };
+  webflow?: { itemId: string };
+  shopify?: { articleId: string };
+  wix?: { postId: string };
+};
 
 export type QualityCheck = { key: string; passed: boolean; detail?: string };
 
