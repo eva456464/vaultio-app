@@ -1,0 +1,62 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0 15px 15px;
+  font-size: 12px;
+}
+
+.panel header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--framer-color-divider);
+}
+
+.panel h1 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--framer-color-text);
+}
+
+.panel p {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--framer-color-text-tertiary);
+}
+
+.panel form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.panel label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--framer-color-text-secondary);
+}
+
+.panel input {
+  width: 100%;
+}
+
+.panel .link {
+  align-self: flex-start;
+  padding: 0;
+  height: auto;
+  background: none;
+  color: var(--framer-color-tint);
+}
+
+.panel .error {
+  color: var(--framer-color-text-danger, #e5484d);
+}
+
+.panel button[type="submit"] {
+  width: 100%;
+  margin-top: 4px;
+}

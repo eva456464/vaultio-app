@@ -942,16 +942,7 @@
         "help": "Create one in WordPress under Users › Profile › Application passwords.",
         "verified": "Credentials verified. The first article will confirm publishing."
       },
-      "comingSoon": "Coming soon",
-      "otherPlatforms": [
-        "Framer",
-        "Lovable",
-        "GoHighLevel",
-        "Duda",
-        "BigCommerce"
-      ],
       "lastError": "Last error: {error}",
-      "morePlatforms": "More platforms",
       "modes": {
         "publish": "Publish immediately",
         "draft": "Save as draft"
@@ -1030,6 +1021,231 @@
         "remove": "Stop hosting",
         "removeConfirm": "Stop hosting the blog at {domain}? Readers will no longer find the articles there.",
         "manual": "Point the subdomain at the app with this record. Your hosting provider must also serve HTTPS for it."
+      },
+      "pullPlatforms": "Platforms that pull your articles",
+      "bigcommerce": {
+        "name": "BigCommerce",
+        "description": "Publish articles to your BigCommerce store's blog.",
+        "storeHash": "Store hash",
+        "storeHashHint": "The letters between \"store-\" and \".mybigcommerce.com\" in your store's address, e.g. mh5fua96uw. You can paste the whole address.",
+        "accessToken": "Access token",
+        "accessTokenHint": "In BigCommerce go to Settings → Store-level API accounts → Create API account. Set Content to Modify (and Information & settings to Read-only to show your store's name), save, and copy the access token.",
+        "author": "Author name",
+        "authorHint": "Shown on each article. Leave empty to leave it blank.",
+        "coverImages": "Also upload cover images to the store",
+        "coverImagesHint": "Uses your store's WebDAV login (Server settings → File access (WebDAV)). Without it, the cover image is placed at the top of each post instead.",
+        "webdavUrl": "WebDAV address",
+        "webdavUser": "WebDAV username",
+        "webdavPassword": "WebDAV password",
+        "summary": "Publishing to the blog of {store}",
+        "summaryImages": "Publishing to the blog of {store}, with cover images"
+      },
+      "gohighlevel": {
+        "name": "GoHighLevel",
+        "description": "Publish articles to a blog in your GoHighLevel sub-account.",
+        "before": "Create at least one blog in the sub-account first (Sites → Blogs), so there's a blog to publish to.",
+        "locationId": "Location ID",
+        "locationIdHint": "In the sub-account, open Settings → Business Profile and copy the Location ID.",
+        "token": "Private Integration token",
+        "tokenHint": "In the sub-account, open Settings → Private Integrations → Create new integration, name it (e.g. Blog sync), tick the scopes below, then copy the token (it starts with pit-). It's shown only once.",
+        "scopesTitle": "Scopes to tick",
+        "scopes": [
+          "View blogs list (blogs/list.readonly)",
+          "View blog posts (blogs/posts.readonly)",
+          "Create blog post (blogs/post.write)",
+          "Update blog post (blogs/post-update.write)",
+          "Check blog post slug (blogs/check-slug.readonly)",
+          "View blog categories (blogs/category.readonly)",
+          "View blog authors (blogs/author.readonly)"
+        ],
+        "loadBlogs": "Find my blogs",
+        "blog": "Blog",
+        "author": "Author",
+        "noAuthor": "No author",
+        "categories": "Categories",
+        "categoriesHint": "Every new article is filed under the categories you tick.",
+        "summary": "Publishing to {blog}",
+        "urlNote": "GoHighLevel doesn't share each post's address, so the article links to your website until you open it there."
+      },
+      "wizard": {
+        "step": "Step {step} of {total}",
+        "continue": "Continue",
+        "back": "Back",
+        "done": "Done",
+        "copy": "Copy",
+        "copied": "Copied",
+        "checking": "Working…",
+        "contentPlan": "Go to your content plan",
+        "keyTitle": "Your API key",
+        "keyCreate": "Create API key",
+        "keyReplace": "Create a new key",
+        "keyNew": "Copy your key now. It won't be shown again.",
+        "keyActive": "Key {prefix}… is active · last used {lastUsed}",
+        "keyNeverUsed": "not used yet",
+        "keyLost": "Lost it? Create a new key: the old one stops working, so paste the new one where you used the old.",
+        "keyNeeded": "Create a key to continue.",
+        "remove": "Disconnect",
+        "removeConfirm": "Disconnect {platform}? Its key stops working and it can no longer fetch your articles."
+      },
+      "duda": {
+        "name": "Duda",
+        "description": "Duda pulls your published articles from a private RSS feed.",
+        "summary": "RSS feed active",
+        "steps": {
+          "before": {
+            "title": "Before you start",
+            "body": "Duda doesn't connect directly: it reads an RSS feed of your published articles. You'll create the feed here, then add it in the Duda editor.",
+            "check1": "I can edit and publish this Duda site",
+            "emptyTitle": "No articles published yet?",
+            "emptyBody": "You can still set it up now. The feed stays empty until your first article is published, then Duda shows it on its own."
+          },
+          "feed": {
+            "title": "Your RSS feed address",
+            "body": "Copy this address. You'll paste it into Duda in the next step.",
+            "create": "Create feed address",
+            "tip": "Change limit=10 at the end of the address to show more or fewer articles (up to 100).",
+            "regenerate": "Create a new address",
+            "regenerateHint": "A new address turns the old one off. If you already added it to Duda, replace it there.",
+            "regenerateConfirm": "Create a new feed address? The current one stops working."
+          },
+          "widget": {
+            "title": "Show the articles on a page",
+            "body": "Add Duda's RSS Feed widget where you want your articles:",
+            "items": [
+              "Open your site in the Duda editor.",
+              "In the left panel, click Add → Elements, search for \"RSS Feed\" and drag the widget onto the page.",
+              "In the widget's content settings (right-click → Edit content if it doesn't open), paste the feed address.",
+              "Choose how many posts to show and the layout, then click Publish."
+            ],
+            "note": "The widget shows your articles on that page; it doesn't create posts in Duda's blog. To get real blog posts, use the next step."
+          },
+          "blog": {
+            "title": "Or import them into Duda's blog",
+            "body": "Duda's blog can import the same feed as real blog posts:",
+            "items": [
+              "Open your site in the Duda editor.",
+              "In the left panel, click Blog and open the Import tab.",
+              "Paste the feed address into the RSS feed field.",
+              "Click Import posts, then publish your site."
+            ],
+            "note": "Duda checks the feed for new articles on its own schedule, so new posts can take a while to appear."
+          },
+          "done": {
+            "title": "You're all set",
+            "body": "Duda takes new articles from the feed as they're published.",
+            "items": [
+              "Publish your Duda site if you haven't yet.",
+              "Open the page with the RSS Feed widget, or your blog if you imported the posts.",
+              "Check your articles are there. The first time, Duda can take a few minutes to read the feed."
+            ]
+          }
+        }
+      },
+      "lovable": {
+        "name": "Lovable",
+        "description": "Paste one prompt into your Lovable project and it builds a blog that fills itself with your articles.",
+        "summary": "Key active · last fetched {lastUsed}",
+        "summaryNew": "Key created, waiting for Lovable to fetch articles",
+        "steps": {
+          "before": {
+            "title": "Before you start",
+            "body": "You'll paste one prompt into your Lovable project. Lovable builds the blog pages and keeps a copy of your published articles in your project, refreshed every hour.",
+            "check1": "I can edit and publish this Lovable project",
+            "check2": "The project has Lovable Cloud (the prompt turns it on if not)",
+            "alternative": "Rather not change your Lovable project? Use Blog hosting above: we host the blog on a subdomain like blog.yoursite.com."
+          },
+          "key": {
+            "title": "Create your API key",
+            "body": "Lovable asks for this key while it builds the blog. Create it now and keep it handy."
+          },
+          "prompt": {
+            "title": "Paste the prompt into Lovable",
+            "body": "This prompt tells Lovable exactly what to build: the blog pages, SEO tags, sitemap and the hourly refresh.",
+            "copy": "Copy prompt",
+            "items": [
+              "Open the Lovable project you want the blog on.",
+              "Paste the prompt into the chat and send it.",
+              "Let Lovable build. It asks for the key in the next step."
+            ]
+          },
+          "secret": {
+            "title": "Paste the key when Lovable asks",
+            "body": "Lovable opens a secure field for the key, named {secret}. Paste it there.",
+            "warning": "Never paste the key into the normal chat: chat messages are saved in the project's history.",
+            "items": [
+              "Wait for Lovable to ask for {secret}.",
+              "Paste the key from step 2 into the secure field.",
+              "Confirm. Lovable carries on and imports your articles."
+            ]
+          },
+          "done": {
+            "title": "Check your blog, then publish",
+            "body": "When Lovable is finished:",
+            "items": [
+              "Open /blog in Lovable's preview and check your articles are there.",
+              "Ask Lovable in plain words for any design changes.",
+              "Click Publish in Lovable to put the blog live."
+            ],
+            "note": "New articles appear within an hour of being published here. Publish your Lovable project again after any design change."
+          }
+        }
+      },
+      "framer": {
+        "name": "Framer",
+        "description": "Import your articles into a Framer CMS collection with the {brand} plugin.",
+        "summary": "Key active · last import {lastUsed}",
+        "summaryNew": "Key created, waiting for the first import",
+        "steps": {
+          "before": {
+            "title": "Before you start",
+            "body": "You'll add the {brand} plugin to your Framer project and import your published articles into a CMS collection.",
+            "check1": "I can edit and publish this Framer project",
+            "check2": "My Framer plan includes the CMS",
+            "note": "Framer doesn't publish on its own: to bring in new articles, open the plugin again or press Sync on the collection."
+          },
+          "install": {
+            "title": "Add the plugin",
+            "body": "Add the {brand} plugin to your Framer project:",
+            "open": "Open the {brand} plugin",
+            "items": [
+              "Open the plugin page, or in Framer open Plugins in the toolbar and search for \"{brand}\".",
+              "Click Install (or Open) and choose your Framer project.",
+              "When Framer asks, name the new collection, e.g. Blog."
+            ]
+          },
+          "key": {
+            "title": "Create your API key",
+            "body": "The plugin asks for this key. Keep it private.",
+            "address": "API address (only if the plugin asks for it)"
+          },
+          "import": {
+            "title": "Import your articles",
+            "body": "In the plugin:",
+            "items": [
+              "Paste your API key.",
+              "Click Import articles.",
+              "Your published articles appear in the collection."
+            ]
+          },
+          "pages": {
+            "title": "Build the blog pages",
+            "body": "Create the pages that show the collection:",
+            "items": [
+              "In the Pages panel click +, choose New CMS page and pick your collection, with the Index layout: this is the list of articles.",
+              "Add a second CMS page for the same collection with the Detail layout (usually /blog/:slug): this is the article page.",
+              "Bind the Title, Cover image and Content fields (Content goes in a Formatted Text element), style them, and publish your site."
+            ]
+          },
+          "done": {
+            "title": "You're all set",
+            "body": "To bring in new articles:",
+            "items": [
+              "Publish an article here (or let auto-publish do it).",
+              "In Framer, press Sync on the collection, or open the plugin and click Import articles.",
+              "Publish your Framer site."
+            ]
+          }
+        }
       }
     },
     "save": "Save changes",

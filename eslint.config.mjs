@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Separate packages with their own tooling (e.g. the Framer plugin).
+    "integrations/**",
   ]),
 ]);
 

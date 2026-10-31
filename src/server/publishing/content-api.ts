@@ -1,4 +1,4 @@
-import { and, eq, isNull } from "drizzle-orm";
+import { and, desc, eq, isNotNull, isNull } from "drizzle-orm";
 import { NextResponse } from "next/server";
 import { db } from "@/db";
 import { apiKeys, articles, keywordClusters, orgWebsites, seedKeywords } from "@/db/schema";
@@ -19,16 +19,47 @@ export async function siteFromApiKey(request: Request) {
   return row.site;
 }
 
-export const unauthorized = () => NextResponse.json({ error: "Invalid or missing API key" }, { status: 401 });
+export const unauthorized = (request: Request) => NextResponse.json({ error: "Invalid or missing API key" }, { status: 401, headers: corsHeaders(request) });
 
-export async function listArticles(site: typeof orgWebsites.$inferSelect, limit: number, offset: number) {
+/**
+ * Browsers may only call the content API from the platforms that need it (the Framer plugin runs
+ * in Framer's editor). CONTENT_API_CORS_ORIGINS replaces the list; "*." matches any subdomain.
+ */
+const DEFAULT_CORS_ORIGINS = ["https://*.framercdn.com", "https://*.framer.com", "https://localhost:5173"];
+
+function allowedOrigin(origin: string) {
+  const patterns = process.env.CONTENT_API_CORS_ORIGINS?.split(",").map((value) => value.trim()).filter(Boolean) ?? DEFAULT_CORS_ORIGINS;
+  return patterns.some((pattern) => {
+    if (pattern === origin) return true;
+    const wildcard = pattern.match(/^(https?:\/\/)\*\.(.+)$/);
+    return Boolean(wildcard && origin.startsWith(wildcard[1]!) && origin.endsWith(`.${wildcard[2]}`));
+  });
+}
+
+export function corsHeaders(request: Request): Record<string, string> {
+  const origin = request.headers.get("origin");
+  if (!origin || !allowedOrigin(origin)) return { vary: "Origin" };
+  return {
+    "access-control-allow-origin": origin,
+    "access-control-allow-methods": "GET, OPTIONS",
+    "access-control-allow-headers": "X-API-Key, Authorization, Content-Type",
+    "access-control-max-age": "600",
+    vary: "Origin",
+  };
+}
+
+/** The preflight answer for both content API routes. */
+export const preflight = (request: Request) => new Response(null, { status: 204, headers: corsHeaders(request) });
+
+/** `publishedOnly`: just the articles that went live (auto-publish or "Publish now"), for platforms that pull. */
+export async function listArticles(site: typeof orgWebsites.$inferSelect, limit: number, offset: number, publishedOnly = false) {
   const rows = await db
     .select({ article: articles, keyword: seedKeywords.value, cluster: keywordClusters.keywords })
     .from(articles)
     .leftJoin(keywordClusters, eq(keywordClusters.id, articles.keywordClusterId))
     .leftJoin(seedKeywords, eq(seedKeywords.id, keywordClusters.seedKeywordId))
-    .where(eq(articles.orgWebsiteId, site.id))
-    .orderBy(articles.createdAt)
+    .where(and(eq(articles.orgWebsiteId, site.id), publishedOnly ? isNotNull(articles.publishedAt) : undefined))
+    .orderBy(desc(articles.createdAt), desc(articles.id))
     .limit(limit)
     .offset(offset);
   return rows.map(({ article, keyword, cluster }) => ({ article, keyword, keywords: (cluster ?? []).map((k) => k.keyword) }));
@@ -48,6 +79,9 @@ export function summary(site: typeof orgWebsites.$inferSelect, { article, keywor
     excerpt: text.slice(0, 220),
     orgWebsite: site.url,
     created_at: article.createdAt.toISOString(),
+    updated_at: article.updatedAt.toISOString(),
+    published: Boolean(article.publishedAt),
+    published_at: article.publishedAt?.toISOString() ?? null,
     published_url: article.publishedUrl ?? articleUrl(site, article.slug),
     seedKeyword: keyword,
     keywords,

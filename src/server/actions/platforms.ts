@@ -1,5 +1,6 @@
 "use server";
 
+import { randomBytes } from "node:crypto";
 import { and, eq, ne, sql } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
@@ -7,16 +8,20 @@ import { db } from "@/db";
 import { integrations, whitelabelConfigs, type IntegrationType } from "@/db/schema";
 import { getAppContext } from "../context";
 import type { BlogConfig } from "../hosted-blog";
-import { encryptJson } from "../crypto";
+import { encryptJson, sha256 } from "../crypto";
+import { requestOrigin } from "../invites";
+import { dudaFeedUrl } from "../publishing/feeds";
+import { normalizeStoreHash, verifyBigCommerce, verifyWebdav } from "../publishing/platforms/bigcommerce";
 import type { PublishMode } from "../publishing/platforms/common";
 import { verifyGhost } from "../publishing/platforms/ghost";
+import { inspectGhl, type GhlChoice } from "../publishing/platforms/gohighlevel";
 import { inspectShopify, normalizeShop, type ShopifyChoice, type ShopifyCredentials } from "../publishing/platforms/shopify";
 import { listWebflow, mapWebflowFields, type WebflowChoice } from "../publishing/platforms/webflow";
 import { verifyWix } from "../publishing/platforms/wix";
 import { checkHostingDomain, connectHostingDomain, disconnectHostingDomain, normalizeDomain, platformHosts } from "../whitelabel/domains";
 
 type Result = { ok: true } | { error: string };
-const PLATFORM_TYPES = ["ghost", "webflow", "shopify", "wix"] as const;
+const PLATFORM_TYPES = ["ghost", "webflow", "shopify", "wix", "bigcommerce", "gohighlevel"] as const;
 type PlatformType = (typeof PLATFORM_TYPES)[number];
 
 async function requireAdminSite() {
@@ -166,6 +171,100 @@ export async function connectWix(input: z.input<typeof wixSchema>): Promise<Resu
   if (!check.ok) return { error: check.error };
   await store(site.id, "wix", { siteId: parsed.data.siteId, memberId: check.memberId, mode: parsed.data.mode }, { apiKey: parsed.data.apiKey });
   return { ok: true };
+}
+
+// ------------------------------------------------------------------ BigCommerce
+
+const bigCommerceSchema = z.object({
+  storeHash: z.string().transform((value, context) => {
+    const hash = normalizeStoreHash(value);
+    if (!hash) context.addIssue({ code: "custom", message: "Paste the store hash (the letters after /stores/ in the API path)" });
+    return hash ?? "";
+  }),
+  accessToken: z.string().trim().min(20, "Paste the API account's access token"),
+  author: z.string().trim().max(60),
+  webdav: z
+    .object({ url: z.string().trim(), username: z.string().trim(), password: z.string() })
+    .optional()
+    .transform((value) => (value?.url && value.username && value.password ? value : undefined)),
+  mode,
+});
+
+export async function connectBigCommerce(input: z.input<typeof bigCommerceSchema>): Promise<Result> {
+  const site = await requireAdminSite();
+  const parsed = bigCommerceSchema.safeParse(input);
+  if (!parsed.success) return { error: parsed.error.issues[0]!.message };
+  const check = await verifyBigCommerce(parsed.data.storeHash, parsed.data.accessToken);
+  if (!check.ok) return { error: check.error };
+  let webdav = parsed.data.webdav;
+  if (webdav) {
+    const url = httpsUrl.safeParse(webdav.url.replace(/\/dav\/?$/i, ""));
+    if (!url.success) return { error: "Enter the WebDAV address shown in BigCommerce (Server Settings → File Access)" };
+    webdav = { ...webdav, url: `${url.data}/dav` };
+    const failed = await verifyWebdav(webdav);
+    if (failed) return { error: failed };
+  }
+  await store(
+    site.id,
+    "bigcommerce",
+    { storeHash: parsed.data.storeHash, storeUrl: check.storeUrl, storeName: check.storeName, author: parsed.data.author, mode: parsed.data.mode, coverImages: Boolean(webdav) },
+    { accessToken: parsed.data.accessToken, webdav },
+  );
+  return { ok: true };
+}
+
+// ------------------------------------------------------------------ GoHighLevel
+
+const ghlCredentialsSchema = z.object({
+  locationId: z.string().trim().regex(/^[A-Za-z0-9]{10,40}$/, "Paste the sub-account's Location ID (Settings → Business Profile)"),
+  token: z.string().trim().min(20, "Paste the Private Integration token"),
+});
+
+export async function loadGhlBlogs(input: z.input<typeof ghlCredentialsSchema>): Promise<{ ok: true; choice: GhlChoice } | { error: string }> {
+  await requireAdminSite();
+  const parsed = ghlCredentialsSchema.safeParse(input);
+  if (!parsed.success) return { error: parsed.error.issues[0]!.message };
+  const result = await inspectGhl(parsed.data.locationId, parsed.data.token);
+  return result.ok ? result : { error: result.error };
+}
+
+const ghlSchema = z.object({
+  credentials: ghlCredentialsSchema,
+  blogId: z.string().min(1, "Choose a blog"),
+  authorId: z.string().optional(),
+  categoryIds: z.array(z.string()).max(10).default([]),
+  mode,
+});
+
+export async function connectGhl(input: z.input<typeof ghlSchema>): Promise<Result> {
+  const site = await requireAdminSite();
+  const parsed = ghlSchema.safeParse(input);
+  if (!parsed.success) return { error: parsed.error.issues[0]!.message };
+  const { locationId, token } = parsed.data.credentials;
+  const result = await inspectGhl(locationId, token);
+  if (!result.ok) return { error: result.error };
+  const blog = result.choice.blogs.find((entry) => entry.id === parsed.data.blogId);
+  if (!blog) return { error: "Choose a blog from the list" };
+  const author = result.choice.authors.find((entry) => entry.id === parsed.data.authorId);
+  const categories = result.choice.categories.filter((entry) => parsed.data.categoryIds.includes(entry.id));
+  await store(
+    site.id,
+    "gohighlevel",
+    { locationId, blogId: blog.id, blogName: blog.name, authorId: author?.id ?? null, authorName: author?.name ?? null, categoryIds: categories.map((entry) => entry.id), categoryNames: categories.map((entry) => entry.name), mode: parsed.data.mode },
+    { token },
+  );
+  return { ok: true };
+}
+
+// ------------------------------------------------------------------ Duda (RSS feed Duda imports)
+
+/** Creates the website's Duda feed, or replaces its key (the old address stops working). Returns the feed address once. */
+export async function setupDudaFeed(): Promise<{ ok: true; feedUrl: string } | { error: string }> {
+  const site = await requireAdminSite();
+  const token = randomBytes(20).toString("hex");
+  const origin = await requestOrigin();
+  await store(site.id, "duda", { tokenHash: sha256(token), origin, createdAt: new Date().toISOString() }, { token });
+  return { ok: true, feedUrl: dudaFeedUrl(origin, token) };
 }
 
 // ------------------------------------------------------------------ Shared

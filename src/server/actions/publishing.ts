@@ -17,21 +17,28 @@ async function requireAdminSite() {
 
 const refresh = () => revalidatePath("/[locale]/dashboard/settings/publishing", "page");
 
-/** Creates a new API key (replacing any existing one). The raw key is returned once. */
-export async function generateApiKey() {
+/** Who a content-API key is for: the API card itself, or a platform that reads through it. */
+const KEY_SOURCES = ["api", "framer", "lovable"] as const;
+export type ApiKeySource = (typeof KEY_SOURCES)[number];
+const activeKeys = (siteId: number, source: ApiKeySource) => and(eq(apiKeys.orgWebsiteId, siteId), eq(apiKeys.source, source), isNull(apiKeys.revokedAt));
+
+/** A new key for one source (its previous key stops working). The key is shown once. */
+export async function generateApiKey(source: ApiKeySource = "api") {
   const site = await requireAdminSite();
+  if (!KEY_SOURCES.includes(source)) throw new Error("Unknown key");
   const key = newApiKey();
   await db.transaction(async (tx) => {
-    await tx.update(apiKeys).set({ revokedAt: new Date() }).where(and(eq(apiKeys.orgWebsiteId, site.id), isNull(apiKeys.revokedAt)));
-    await tx.insert(apiKeys).values({ orgWebsiteId: site.id, keyHash: key.hash, keyPrefix: key.prefix });
+    await tx.update(apiKeys).set({ revokedAt: new Date() }).where(activeKeys(site.id, source));
+    await tx.insert(apiKeys).values({ orgWebsiteId: site.id, keyHash: key.hash, keyPrefix: key.prefix, source });
   });
   refresh();
   return { key: key.raw };
 }
 
-export async function revokeApiKey() {
+export async function revokeApiKey(source: ApiKeySource = "api") {
   const site = await requireAdminSite();
-  await db.update(apiKeys).set({ revokedAt: new Date() }).where(and(eq(apiKeys.orgWebsiteId, site.id), isNull(apiKeys.revokedAt)));
+  if (!KEY_SOURCES.includes(source)) throw new Error("Unknown key");
+  await db.update(apiKeys).set({ revokedAt: new Date() }).where(activeKeys(site.id, source));
   refresh();
 }
 
@@ -114,7 +121,7 @@ export async function saveWordpress(input: { siteUrl: string; username: string; 
   return { ok: true };
 }
 
-const DISCONNECTABLE = ["webhook", "wordpress", "ghost", "webflow", "shopify", "wix", "hosted_blog"] as const;
+const DISCONNECTABLE = ["webhook", "wordpress", "ghost", "webflow", "shopify", "wix", "bigcommerce", "gohighlevel", "duda", "hosted_blog"] as const;
 
 export async function disconnectIntegration(type: (typeof DISCONNECTABLE)[number]) {
   const site = await requireAdminSite();

@@ -1,0 +1,6 @@
+{
+  "id": "vltio1",
+  "name": "Vaultio",
+  "modes": ["configureManagedCollection", "syncManagedCollection"],
+  "icon": "/icon.svg"
+}

@@ -6,6 +6,8 @@ import { logActivity } from "../agents/activity";
 import { decryptJson } from "../crypto";
 import { loadMedia, mediaIdFromUrl } from "../media";
 import { postInput } from "./platforms/common";
+import { deliverBigCommerce, type BigCommerceConfig, type BigCommerceCredentials } from "./platforms/bigcommerce";
+import { deliverGhl, type GhlConfig, type GhlCredentials } from "./platforms/gohighlevel";
 import { deliverGhost, type GhostConfig, type GhostCredentials } from "./platforms/ghost";
 import { deliverShopify, type ShopifyConfig, type ShopifyCredentials } from "./platforms/shopify";
 import { deliverWebflow, type WebflowConfig, type WebflowCredentials } from "./platforms/webflow";
@@ -17,7 +19,9 @@ export const hostedBlogUrl = (config: HostedBlogConfig, slug: string) => `https:
 type Article = typeof articles.$inferSelect;
 type Site = typeof orgWebsites.$inferSelect;
 
-export const PUBLISHING_TYPES = ["webhook", "wordpress", "ghost", "webflow", "shopify", "wix", "hosted_blog"] as const;
+export const PUBLISHING_TYPES = ["webhook", "wordpress", "ghost", "webflow", "shopify", "wix", "bigcommerce", "gohighlevel", "duda", "hosted_blog"] as const;
+/** Platforms that fetch articles themselves (RSS feed, the content API): an article counts as published once it exists. */
+export const PULL_TYPES = ["duda"] as const;
 export type PublishingType = (typeof PUBLISHING_TYPES)[number];
 
 export type WebhookCredentials = { token: string };
@@ -216,6 +220,23 @@ export async function publishArticle(siteId: number, articleId: number, options:
         result = wix;
         break;
       }
+      case "bigcommerce": {
+        const bigcommerce = await deliverBigCommerce(config as BigCommerceConfig, secret<BigCommerceCredentials>(), post, article.deliveries.bigcommerce);
+        if (bigcommerce.ok) await remember({ bigcommerce: bigcommerce.delivery });
+        draft = (config as BigCommerceConfig).mode === "draft";
+        result = bigcommerce;
+        break;
+      }
+      case "gohighlevel": {
+        const ghl = await deliverGhl(config as GhlConfig, secret<GhlCredentials>(), post, article.deliveries.gohighlevel);
+        if (ghl.ok) await remember({ gohighlevel: ghl.delivery });
+        draft = (config as GhlConfig).mode === "draft";
+        result = ghl;
+        break;
+      }
+      case "duda":
+        // Duda reads the RSS feed on its own schedule.
+        continue;
       case "hosted_blog":
         // Vaultio serves the blog itself: the article is live there as soon as it exists.
         result = { ok: true, url: hostedBlogUrl(config as HostedBlogConfig, article.slug) };
@@ -234,14 +255,15 @@ export async function publishArticle(siteId: number, articleId: number, options:
     } else errors.push(`${connection.type}: ${result.error}`);
   }
 
-  if (!delivered && !apiKey) return { published: false, url: null, errors };
+  const pulled = Boolean(apiKey) || connections.some((connection) => (PULL_TYPES as readonly string[]).includes(connection.type) && connection.status === "connected");
+  if (!delivered && !pulled) return { published: false, url: null, errors };
   if (updating) return { published: true, url: article.publishedUrl, errors };
 
   const publishedUrl = url ?? articleUrl(site, article.slug);
   await db.update(articles).set({ publishedUrl, publishedAt: new Date(), updatedAt: new Date() }).where(eq(articles.id, article.id));
   await db.update(contentPlanItems).set({ generationStatus: "published", updatedAt: new Date() }).where(eq(contentPlanItems.articleId, article.id));
   // Only drafts were saved (and nothing pulls articles through the API): say so instead of "published".
-  const draftOnly = !live && !apiKey;
+  const draftOnly = !live && !pulled;
   await logActivity(siteId, draftOnly ? "articleSentAsDraft" : "articlePublished", { title: article.title, articleId: article.id, publishedUrl });
   return { published: true, draft: draftOnly, url: publishedUrl, errors };
 }

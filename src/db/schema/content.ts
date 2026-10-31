@@ -131,6 +131,8 @@ export type ArticleDeliveries = {
   ghost?: { postId: string };
   webflow?: { itemId: string };
   shopify?: { articleId: string };
+  bigcommerce?: { postId: number; thumbnailPath: string | null };
+  gohighlevel?: { postId: string; slug: string; publishedAt?: string };
   wix?: { postId: string };
 };
 

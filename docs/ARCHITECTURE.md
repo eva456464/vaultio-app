@@ -92,7 +92,7 @@ Everything the agents do goes through one path, so work is never silently droppe
 | Competitor content-gap scan, domain rating | built (DataForSEO) |
 | Milestones engine | built |
 | Publishing: content API (`/api/integrations/v1/articles`, `X-API-Key`), signed webhook, WordPress (application password); auto-publish after writing and "Publish now" | built |
-| Other platforms (Shopify, Webflow, Wix, Ghost, Framer, hosted blog...) | next phase |
+| Other platforms: Shopify, Webflow, Wix, Ghost, BigCommerce, GoHighLevel, hosted blog; Framer (plugin), Lovable (prompt) and Duda (RSS feed) pull published articles | built |
 | Article images (cover in one of 6 styles, up to 2 body images), CTA cards (link, map, contact), promo paragraph, YouTube video | built |
 | Article improvements: opportunity scan, section-level rewrites with safety checks, per-change review, publish/update, impact | built (Vaultio articles) |
 | Backlink exchange: join with 100 credits, contextual placement by the writer, daily live/nofollow check, credits ledger, Backlinks page | built |
@@ -288,11 +288,37 @@ each platform can publish immediately or save drafts (`src/server/publishing/pla
 | Webflow | API token → site → CMS collection | collection item; body, summary and cover fields mapped when connecting |
 | Shopify | store + Dev Dashboard app Client ID/secret (client-credentials token) or an Admin API token | GraphQL `articleCreate` / `articleUpdate` on the chosen blog |
 | Wix | Site ID + account API key (author = a site member) | draft post from Ricos JSON converted from the markdown, then published |
+| BigCommerce | store hash + store-level API account token (Content: Modify); optional WebDAV login | REST v2 blog post at `/blog/<slug>/` ("-2"… when taken; an update keeps the address); with WebDAV the cover is copied to `product_images/uploaded_images/` (digest auth) and used as the thumbnail, otherwise it opens the post body |
+| GoHighLevel | Location ID + Private Integration token (seven blog scopes) → blog, author, categories | API v2 blog post (`rawHTML`, cover URL, free slug checked first; an update keeps slug and date). GoHighLevel doesn't return the post's address |
 | Webhook / API | see above | JSON payload / pulled by the client |
 
-When every delivery was a draft (and nothing pulls the API) the activity says the article was
-sent as a draft instead of published. Framer (needs a published Framer plugin), Lovable,
-GoHighLevel, Duda and BigCommerce aren't built.
+When every delivery was a draft (and nothing pulls the articles) the activity says the article was
+sent as a draft instead of published.
+
+Three platforms fetch the articles themselves, so an article counts as published as soon as it's
+published here:
+
+- **Content API** (`/api/integrations/v1/articles`, newest first, `?status=published` for live
+  articles only, `updated_at` for incremental syncs). Keys are per source (`api_keys.source`: `api`,
+  `framer`, `lovable`), each shown once and replaced independently; "last used" tells whether the
+  platform is fetching. Browsers may call it only from `CONTENT_API_CORS_ORIGINS` (default: Framer's
+  plugin hosts and `https://localhost:5173` for plugin development).
+- **Framer**: the plugin in `integrations/framer-plugin` (a separate Vite package built with
+  `framer-plugin`, excluded from the app's TypeScript and lint) manages a CMS collection: it asks
+  for the key (and the API address, for agencies on their own domain), imports the published
+  articles as items (title, HTML content, cover, description, dates, keyword, language, original
+  address), fetches only new or changed ones, removes unpublished ones, and runs without a panel
+  when the user presses Sync in Framer's CMS. Its name and default API address are build settings,
+  so it can be published under an agency's brand. Settings links to it with `FRAMER_PLUGIN_URL`.
+- **Lovable**: `src/lib/lovable-prompt.ts` builds the prompt the client pastes into Lovable: a
+  backend function copies the published articles into the project's own database every hour
+  (leased, budgeted, incremental by `updated_at`, cleaned HTML), then `/blog` pages with SEO tags,
+  JSON-LD pointed at the right address, sitemap and robots. The secret's name follows the brand
+  (`VAULTIO_API_KEY`).
+- **Duda**: Duda can only read RSS, so the website gets a private feed
+  (`/api/integrations/rss?key=…&limit=10`, full HTML in `content:encoded`, cover as enclosure). The
+  key's hash is stored on the `duda` integration and the key itself encrypted, so admins can copy the
+  address again; a new address turns the old one off.
 
 The hosted blog serves a site's published articles on its own subdomain (`blog.client.com`). The
 domain is set up like agency domains (Vercel or a CNAME). The proxy (`src/proxy.ts`) can't query

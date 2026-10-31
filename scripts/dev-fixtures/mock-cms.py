@@ -1,14 +1,19 @@
-"""Offline stand-in for the Ghost, Webflow, Shopify and Wix APIs Vaultio publishes to, for development only.
+"""Offline stand-in for the Ghost, Webflow, Shopify, Wix, BigCommerce and GoHighLevel APIs Vaultio
+publishes to, for development only.
 
     python3 scripts/dev-fixtures/mock-cms.py 4800
 
 App env: WEBFLOW_API_BASE=http://localhost:4800/webflow/v2 SHOPIFY_API_BASE=http://localhost:4800/shopify
-         WIX_API_BASE=http://localhost:4800/wix
+         WIX_API_BASE=http://localhost:4800/wix BIGCOMMERCE_API_BASE=http://localhost:4800/bigcommerce
+         GOHIGHLEVEL_API_BASE=http://localhost:4800/ghl
 Test credentials (fake):
-  Ghost   site http://localhost:4800, Admin API key 6489abcdef0123456789abcd:<64 hex chars of "1">
-  Webflow token wf-test-token-0123456789abcdef
-  Shopify store test-store.myshopify.com, Client ID shp-client / secret shp-secret (or token shpat_test)
-  Wix     site ID 01c24d92-2ba6-48bd-90cd-87e33d2e9957, API key wix-test-key-0123456789
+  Ghost        site http://localhost:4800, Admin API key 6489abcdef0123456789abcd:<64 hex chars of "1">
+  Webflow      token wf-test-token-0123456789abcdef
+  Shopify      store test-store.myshopify.com, Client ID shp-client / secret shp-secret (or token shpat_test)
+  Wix          site ID 01c24d92-2ba6-48bd-90cd-87e33d2e9957, API key wix-test-key-0123456789
+  BigCommerce  store hash mh5fua96uw, access token bc-test-token-0123456789abcdef
+               WebDAV http://localhost:4800/dav, user webdav-user, password webdav-pass (digest auth)
+  GoHighLevel  Location ID ve9EPM428h8vShlRW1KT, token pit-test-0123456789abcdef0123
 Everything received is listed at GET /test/log.
 """
 import base64, hashlib, hmac, json, re, sys, time, uuid
@@ -18,6 +23,26 @@ from urllib.parse import parse_qs, urlparse
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 4800
 GHOST_KEY_ID, GHOST_SECRET = "6489abcdef0123456789abcd", "1" * 64
 LOG, GHOST_POSTS, WEBFLOW_ITEMS, SHOPIFY_ARTICLES, WIX_POSTS = [], {}, {}, {}, {}
+BC_HASH, BC_TOKEN, BC_POSTS, DAV_FILES = "mh5fua96uw", "bc-test-token-0123456789abcdef", {}, {}
+DAV_USER, DAV_PASSWORD, DAV_REALM, DAV_NONCE = "webdav-user", "webdav-pass", "BigCommerce WebDAV", uuid.uuid4().hex
+GHL_LOCATION, GHL_TOKEN, GHL_POSTS = "ve9EPM428h8vShlRW1KT", "pit-test-0123456789abcdef0123", {}
+
+
+def md5(value):
+    return hashlib.md5(value.encode()).hexdigest()
+
+
+def digest_ok(header, method, uri):
+    if not header.startswith("Digest "):
+        return False
+    fields = dict(re.findall(r'(\w+)="?([^",]+)"?', header[7:]))
+    ha1 = md5(f"{DAV_USER}:{DAV_REALM}:{DAV_PASSWORD}")
+    ha2 = md5(f"{method}:{uri}")
+    if fields.get("qop") == "auth":
+        expected = md5(f"{ha1}:{fields.get('nonce')}:{fields.get('nc')}:{fields.get('cnonce')}:auth:{ha2}")
+    else:
+        expected = md5(f"{ha1}:{fields.get('nonce')}:{ha2}")
+    return fields.get("username") == DAV_USER and fields.get("nonce") == DAV_NONCE and fields.get("uri") == uri and fields.get("response") == expected
 
 
 def ghost_ok(header):
@@ -54,6 +79,8 @@ class Handler(BaseHTTPRequestHandler):
         auth = self.headers.get("authorization", "")
         if path == "/test/log":
             return self.reply({"log": LOG})
+        if path == "/test/files":
+            return self.reply({"files": sorted(DAV_FILES)})
 
         # ---------------- Ghost
         if path.startswith("/ghost/api/admin/"):
@@ -141,6 +168,86 @@ class Handler(BaseHTTPRequestHandler):
                 WIX_POSTS[post_id] = draft
                 LOG.append({"platform": "wix", "method": method, "title": draft.get("title"), "publish": data.get("publish", data.get("action")), "node_types": sorted({n["type"] for n in nodes}), "member": draft.get("memberId")})
                 return self.reply({"draftPost": {"id": post_id, "url": {"base": "https://www.sunnyroofing-wix.test", "path": f"/post/{draft.get('seoSlug', 'post')}"}}})
+        # ---------------- BigCommerce (REST v2 blog + store, WebDAV with digest auth)
+        if path.startswith("/bigcommerce/stores/"):
+            m = re.match(r"^/bigcommerce/stores/([a-z0-9]+)/v2(/.*)$", path)
+            if not m or m.group(1) != BC_HASH:
+                return self.reply([{"status": 404, "message": "Store not found"}], 404)
+            if self.headers.get("x-auth-token") != BC_TOKEN:
+                return self.reply([{"status": 401, "message": "Unauthorized"}], 401)
+            sub = m.group(2)
+            if sub == "/store":
+                return self.reply({"name": "Sunny Roofing Store", "domain": "sunnyroofing-bc.test", "secure_url": "https://sunnyroofing-bc.test"})
+            if sub == "/blog/posts" and method == "GET":
+                return self.reply(list(BC_POSTS.values()))
+            pm = re.match(r"^/blog/posts(?:/(\d+))?$", sub)
+            if pm and method in ("POST", "PUT"):
+                data = self.body()
+                post_id = int(pm.group(1)) if pm.group(1) else len(BC_POSTS) + 1
+                if pm.group(1) and post_id not in BC_POSTS:
+                    return self.reply([{"status": 404, "message": "The requested resource was not found."}], 404)
+                url = data.get("url") or BC_POSTS.get(post_id, {}).get("url")
+                if any(other["url"] == url and other_id != post_id for other_id, other in BC_POSTS.items()):
+                    return self.reply([{"status": 409, "message": "The field 'url' is invalid: a post with this URL already exists."}], 409)
+                if not data.get("title") or not data.get("body"):
+                    return self.reply([{"status": 400, "message": "The required field 'title' was not supplied."}], 400)
+                BC_POSTS[post_id] = {**BC_POSTS.get(post_id, {}), **data, "id": post_id, "url": url}
+                LOG.append({"platform": "bigcommerce", "method": method, "id": post_id, "title": data["title"], "url": url, "is_published": data.get("is_published"), "author": data.get("author"), "thumbnail_path": data.get("thumbnail_path"), "body_starts_with_image": data["body"].startswith("<p><img")})
+                return self.reply(BC_POSTS[post_id], 201 if method == "POST" else 200)
+        if path.startswith("/dav/"):
+            length = int(self.headers.get("content-length") or 0)
+            data = self.rfile.read(length) if length else b""
+            if method not in ("PUT", "DELETE"):
+                return self.reply({"message": "Only PUT and DELETE in this mock"}, 405)
+            if not digest_ok(auth, method, path):
+                self.send_response(401)
+                self.send_header("www-authenticate", f'Digest realm="{DAV_REALM}", nonce="{DAV_NONCE}", qop="auth", opaque="{md5("opaque")}"')
+                self.send_header("content-length", "0")
+                self.end_headers()
+                return
+            if method == "DELETE":
+                DAV_FILES.pop(path, None)
+            else:
+                DAV_FILES[path] = data
+            LOG.append({"platform": "bigcommerce-webdav", "method": method, "path": path, "bytes": len(data), "type": self.headers.get("content-type")})
+            self.send_response(204 if method == "DELETE" else 201)
+            self.send_header("content-length", "0")
+            self.end_headers()
+            return
+
+        # ---------------- GoHighLevel (API v2 blogs)
+        if path.startswith("/ghl/"):
+            query = {k: v[0] for k, v in parse_qs(urlparse(self.path).query).items()}
+            if auth != f"Bearer {GHL_TOKEN}":
+                return self.reply({"statusCode": 401, "message": "Invalid JWT"}, 401)
+            if self.headers.get("version") != "2021-07-28":
+                return self.reply({"statusCode": 400, "message": "Version header is missing"}, 400)
+            sub = path[len("/ghl"):]
+            if method == "GET" and query.get("locationId") not in (None, GHL_LOCATION):
+                return self.reply({"statusCode": 403, "message": "The token does not have access to this location"}, 403)
+            if sub == "/blogs/site/all":
+                return self.reply({"data": [{"_id": "blog-sunny", "name": "Sunny Roofing Blog"}, {"_id": "blog-news", "name": "Company news"}]})
+            if sub == "/blogs/authors":
+                return self.reply({"authors": [{"_id": "author-dana", "name": "Dana Roofer"}]})
+            if sub == "/blogs/categories":
+                return self.reply({"categories": [{"_id": "cat-tips", "label": "Roofing tips", "urlSlug": "roofing-tips"}, {"_id": "cat-news", "label": "News", "urlSlug": "news"}]})
+            if sub == "/blogs/posts/url-slug-exists":
+                taken = any(post.get("urlSlug") == query.get("urlSlug") for post in GHL_POSTS.values())
+                return self.reply({"exists": taken})
+            pm = re.match(r"^/blogs/posts(?:/([a-z0-9-]+))?$", sub)
+            if pm and method in ("POST", "PUT"):
+                data = self.body()
+                post_id = pm.group(1) or f"post-{len(GHL_POSTS) + 1}"
+                if pm.group(1) and post_id not in GHL_POSTS:
+                    return self.reply({"statusCode": 404, "message": "Blog post not found"}, 404)
+                if data.get("locationId") != GHL_LOCATION:
+                    return self.reply({"statusCode": 403, "message": "The token does not have access to this location"}, 403)
+                missing = [key for key in ("title", "blogId", "rawHTML", "status", "urlSlug") if not data.get(key)]
+                if missing:
+                    return self.reply({"statusCode": 422, "message": [f"{key} should not be empty" for key in missing]}, 422)
+                GHL_POSTS[post_id] = {**data, "_id": post_id}
+                LOG.append({"platform": "gohighlevel", "method": method, "id": post_id, "title": data["title"], "status": data["status"], "urlSlug": data["urlSlug"], "blogId": data["blogId"], "author": data.get("author"), "categories": data.get("categories"), "imageUrl": bool(data.get("imageUrl"))})
+                return self.reply({"data": GHL_POSTS[post_id]}, 201 if method == "POST" else 200)
         return self.reply({"message": f"No mock route {method} {path}"}, 404)
 
     def do_GET(self):

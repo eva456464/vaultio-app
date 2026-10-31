@@ -1,0 +1,30 @@
+{
+  "name": "vaultio-framer-plugin",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Framer plugin that imports a website's published articles into a Framer CMS collection.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview",
+    "pack": "npm run build && npx framer-plugin-tools@latest pack",
+    "test": "tsx scripts/test-sync.ts"
+  },
+  "dependencies": {
+    "framer-plugin": "^3.10.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.0",
+    "vite-plugin-framer": "^1.1.1",
+    "vite-plugin-mkcert": "^1.17.8",
+    "tsx": "^4.20.0"
+  }
+}

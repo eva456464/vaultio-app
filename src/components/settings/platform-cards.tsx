@@ -6,13 +6,27 @@ import { useState, useTransition, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import { connectGhost, connectShopify, connectWebflow, connectWix, checkHostedBlog, loadShopifyBlogs, loadWebflowSites, removeHostedBlog, setPublishMode, setupHostedBlog } from "@/server/actions/platforms";
+import {
+  checkHostedBlog,
+  connectBigCommerce,
+  connectGhl,
+  connectGhost,
+  connectShopify,
+  connectWebflow,
+  connectWix,
+  loadGhlBlogs,
+  loadShopifyBlogs,
+  loadWebflowSites,
+  removeHostedBlog,
+  setPublishMode,
+  setupHostedBlog,
+} from "@/server/actions/platforms";
 import { disconnectIntegration } from "@/server/actions/publishing";
 import { Records } from "./white-label/hosting-form";
 
 export type PlatformConnection = { status: string; lastError: string | null; config: Record<string, unknown> } | null;
 type Mode = "publish" | "draft";
-type Platform = "ghost" | "webflow" | "shopify" | "wix";
+export type Platform = "ghost" | "webflow" | "shopify" | "wix" | "bigcommerce" | "gohighlevel";
 
 const field = "mt-1.5 h-11 w-full rounded-control border border-control bg-white px-3.5 text-sm text-ink outline-none placeholder:text-ink-subtle focus:border-ink/40";
 const BADGE: Record<Platform, { letter: string; color: string }> = {
@@ -20,6 +34,8 @@ const BADGE: Record<Platform, { letter: string; color: string }> = {
   webflow: { letter: "W", color: "#146EF5" },
   shopify: { letter: "S", color: "#5E8E3E" },
   wix: { letter: "W", color: "#0C6EFC" },
+  bigcommerce: { letter: "B", color: "#121118" },
+  gohighlevel: { letter: "H", color: "#155EEF" },
 };
 
 function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
@@ -227,6 +243,131 @@ function WixForm({ onDone }: { onDone: () => void }) {
   );
 }
 
+function BigCommerceForm({ onDone }: { onDone: () => void }) {
+  const t = useTranslations("settings.publishing");
+  const [form, setForm] = useState({ storeHash: "", accessToken: "", author: "", mode: "publish" as Mode });
+  const [images, setImages] = useState(false);
+  const [webdav, setWebdav] = useState({ url: "", username: "", password: "" });
+  const { error, pending, run } = useAction();
+  return (
+    <form className="mt-5 space-y-4" onSubmit={(event) => { event.preventDefault(); run(() => connectBigCommerce({ ...form, webdav: images ? webdav : undefined }), onDone); }}>
+      <Field label={t("bigcommerce.storeHash")} hint={t("bigcommerce.storeHashHint")}>
+        <input className={field} value={form.storeHash} onChange={(e) => setForm({ ...form, storeHash: e.target.value })} placeholder="mh5fua96uw" required />
+      </Field>
+      <Field label={t("bigcommerce.accessToken")} hint={t("bigcommerce.accessTokenHint")}>
+        <input className={field} type="password" autoComplete="off" value={form.accessToken} onChange={(e) => setForm({ ...form, accessToken: e.target.value })} required />
+      </Field>
+      <Field label={t("bigcommerce.author")} hint={t("bigcommerce.authorHint")}>
+        <input className={field} value={form.author} maxLength={60} onChange={(e) => setForm({ ...form, author: e.target.value })} />
+      </Field>
+      <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-line p-3">
+        <input type="checkbox" className="mt-0.5 size-4 accent-ink" checked={images} onChange={(e) => setImages(e.target.checked)} />
+        <span>
+          <span className="block text-sm font-medium text-ink">{t("bigcommerce.coverImages")}</span>
+          <span className="mt-0.5 block text-xs text-ink-subtle">{t("bigcommerce.coverImagesHint")}</span>
+        </span>
+      </label>
+      {images && (
+        <div className="space-y-3 rounded-xl bg-canvas p-3">
+          <Field label={t("bigcommerce.webdavUrl")}>
+            <input className={field} value={webdav.url} onChange={(e) => setWebdav({ ...webdav, url: e.target.value })} placeholder="https://store-mh5fua96uw.mybigcommerce.com/dav" required />
+          </Field>
+          <Field label={t("bigcommerce.webdavUser")}>
+            <input className={field} autoComplete="off" value={webdav.username} onChange={(e) => setWebdav({ ...webdav, username: e.target.value })} required />
+          </Field>
+          <Field label={t("bigcommerce.webdavPassword")}>
+            <input className={field} type="password" autoComplete="off" value={webdav.password} onChange={(e) => setWebdav({ ...webdav, password: e.target.value })} required />
+          </Field>
+        </div>
+      )}
+      <ModePicker value={form.mode} onChange={(mode) => setForm({ ...form, mode })} />
+      {error && <p className="text-sm text-[#9A3412]">{error}</p>}
+      <Footer pending={pending} onCancel={onDone} submit={t("connect")} />
+    </form>
+  );
+}
+
+type GhlChoices = { blogs: { id: string; name: string }[]; authors: { id: string; name: string }[]; categories: { id: string; name: string }[] };
+
+function GhlForm({ onDone }: { onDone: () => void }) {
+  const t = useTranslations("settings.publishing");
+  const [credentials, setCredentials] = useState({ locationId: "", token: "" });
+  const [choices, setChoices] = useState<GhlChoices | null>(null);
+  const [choice, setChoice] = useState({ blogId: "", authorId: "", categoryIds: [] as string[], mode: "publish" as Mode });
+  const { error, pending, run } = useAction();
+  return (
+    <form
+      className="mt-5 space-y-4"
+      onSubmit={(event) => {
+        event.preventDefault();
+        if (!choices)
+          run(() => loadGhlBlogs(credentials), (result) => {
+            setChoices(result.choice);
+            setChoice({ ...choice, blogId: result.choice.blogs[0]?.id ?? "", authorId: result.choice.authors[0]?.id ?? "" });
+          });
+        else run(() => connectGhl({ credentials, ...choice, authorId: choice.authorId || undefined }), onDone);
+      }}
+    >
+      {!choices && <p className="rounded-xl bg-canvas p-3 text-sm text-ink">{t("gohighlevel.before")}</p>}
+      <Field label={t("gohighlevel.locationId")} hint={t("gohighlevel.locationIdHint")}>
+        <input className={field} value={credentials.locationId} disabled={Boolean(choices)} onChange={(e) => setCredentials({ ...credentials, locationId: e.target.value })} placeholder="ve9EPM428h8vShlRW1KT" required />
+      </Field>
+      <Field label={t("gohighlevel.token")} hint={choices ? undefined : t("gohighlevel.tokenHint")}>
+        <input className={field} type="password" autoComplete="off" value={credentials.token} disabled={Boolean(choices)} onChange={(e) => setCredentials({ ...credentials, token: e.target.value })} placeholder="pit-…" required />
+      </Field>
+      {!choices && (
+        <details className="rounded-xl border border-line p-3 text-sm">
+          <summary className="cursor-pointer font-medium text-ink">{t("gohighlevel.scopesTitle")}</summary>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-xs text-ink-secondary">
+            {(t.raw("gohighlevel.scopes") as string[]).map((scope) => <li key={scope}>{scope}</li>)}
+          </ul>
+        </details>
+      )}
+      {choices && (
+        <>
+          <Field label={t("gohighlevel.blog")}>
+            <select className={field} value={choice.blogId} onChange={(e) => setChoice({ ...choice, blogId: e.target.value })}>
+              {choices.blogs.map((blog) => <option key={blog.id} value={blog.id}>{blog.name}</option>)}
+            </select>
+          </Field>
+          <Field label={t("gohighlevel.author")}>
+            <select className={field} value={choice.authorId} onChange={(e) => setChoice({ ...choice, authorId: e.target.value })}>
+              <option value="">{t("gohighlevel.noAuthor")}</option>
+              {choices.authors.map((author) => <option key={author.id} value={author.id}>{author.name}</option>)}
+            </select>
+          </Field>
+          {choices.categories.length > 0 && (
+            <fieldset>
+              <legend className="text-sm font-medium text-ink">{t("gohighlevel.categories")}</legend>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {choices.categories.map((category) => {
+                  const on = choice.categoryIds.includes(category.id);
+                  return (
+                    <label key={category.id} className={cn("cursor-pointer rounded-full border px-3 py-1.5 text-sm", on ? "border-ink bg-canvas text-ink" : "border-line text-ink-secondary hover:bg-canvas")}>
+                      <input
+                        type="checkbox"
+                        className="sr-only"
+                        checked={on}
+                        onChange={() => setChoice({ ...choice, categoryIds: on ? choice.categoryIds.filter((id) => id !== category.id) : [...choice.categoryIds, category.id] })}
+                      />
+                      {category.name}
+                    </label>
+                  );
+                })}
+              </div>
+              <p className="mt-1 text-xs text-ink-subtle">{t("gohighlevel.categoriesHint")}</p>
+            </fieldset>
+          )}
+          <ModePicker value={choice.mode} onChange={(mode) => setChoice({ ...choice, mode })} />
+          <p className="text-xs text-ink-subtle">{t("gohighlevel.urlNote")}</p>
+        </>
+      )}
+      {error && <p className="text-sm text-[#9A3412]">{error}</p>}
+      <Footer pending={pending} onCancel={onDone} submit={choices ? t("connect") : t("gohighlevel.loadBlogs")} disabled={Boolean(choices) && !choice.blogId} />
+    </form>
+  );
+}
+
 function summaryOf(platform: Platform, config: Record<string, unknown>, t: ReturnType<typeof useTranslations<"settings.publishing">>) {
   switch (platform) {
     case "ghost":
@@ -237,6 +378,10 @@ function summaryOf(platform: Platform, config: Record<string, unknown>, t: Retur
       return t("shopify.summary", { blog: String(config.blogTitle ?? ""), shop: String(config.shop ?? "") });
     case "wix":
       return t("wix.summary", { site: String(config.siteId ?? "").slice(0, 8) });
+    case "bigcommerce":
+      return t(config.coverImages ? "bigcommerce.summaryImages" : "bigcommerce.summary", { store: String(config.storeName ?? config.storeHash ?? "") });
+    case "gohighlevel":
+      return t("gohighlevel.summary", { blog: String(config.blogName ?? "") });
   }
 }
 
@@ -252,7 +397,14 @@ export function PlatformCard({ platform, connection, canEdit, statusPill }: { pl
     setOpen(false);
     setReconnect(false);
   };
-  const form = { ghost: <GhostForm onDone={close} />, webflow: <WebflowForm onDone={close} />, shopify: <ShopifyForm onDone={close} />, wix: <WixForm onDone={close} /> }[platform];
+  const form = {
+    ghost: <GhostForm onDone={close} />,
+    webflow: <WebflowForm onDone={close} />,
+    shopify: <ShopifyForm onDone={close} />,
+    wix: <WixForm onDone={close} />,
+    bigcommerce: <BigCommerceForm onDone={close} />,
+    gohighlevel: <GhlForm onDone={close} />,
+  }[platform];
 
   return (
     <section className="card flex flex-col p-5">
@@ -270,7 +422,7 @@ export function PlatformCard({ platform, connection, canEdit, statusPill }: { pl
       </div>
       {connection?.lastError && <p className="mt-3 text-xs text-[#9A3412]">{t("lastError", { error: connection.lastError })}</p>}
       {canEdit && (
-        <div className="mt-4 flex justify-end">
+        <div className="mt-auto flex justify-end pt-4">
           <Button variant={connected ? "outline" : "primary"} size="sm" onClick={() => setOpen(true)}>
             {connected ? t("manage") : t("connect")}
           </Button>

@@ -115,16 +115,28 @@ RESEND_API_KEY=re_test RESEND_API_BASE=http://localhost:4700`. Domains stay "Set
 
 ## CMS mock (`mock-cms.py`)
 
-Stands in for Ghost, Webflow, Shopify and Wix with fake test credentials (listed at the top of
-the file) and records every article it receives.
+Stands in for Ghost, Webflow, Shopify, Wix, BigCommerce (blog API and a WebDAV server with digest
+authentication) and GoHighLevel with fake test credentials (listed at the top of the file) and
+records every article it receives.
 
 ```bash
 python3 scripts/dev-fixtures/mock-cms.py 4800
 ```
 
 Run the app with `WEBFLOW_API_BASE=http://localhost:4800/webflow/v2
-SHOPIFY_API_BASE=http://localhost:4800/shopify WIX_API_BASE=http://localhost:4800/wix`; connect
-Ghost with the site address `http://localhost:4800`. Received articles are at `GET /test/log`.
+SHOPIFY_API_BASE=http://localhost:4800/shopify WIX_API_BASE=http://localhost:4800/wix
+BIGCOMMERCE_API_BASE=http://localhost:4800/bigcommerce GOHIGHLEVEL_API_BASE=http://localhost:4800/ghl`;
+connect Ghost with the site address `http://localhost:4800` and BigCommerce's WebDAV with
+`http://localhost:4800/dav`. Received articles are at `GET /test/log`, WebDAV files at
+`GET /test/files`. Posts are kept in memory, so after a restart republishing creates them again.
+
+Framer, Lovable and Duda need no mock: they read the app's own content API and RSS feed. The
+Framer plugin's sync can be run against the dev server with a stand-in Framer collection (create a
+key in Settings → Publishing → Framer and pass it in the environment, not on screen):
+
+```bash
+cd integrations/framer-plugin && npm install && API_BASE=http://localhost:3000/api/integrations API_KEY=<key> npm test
+```
 To try the hosted blog, map e.g. `blog.sunnyroofing.test` to 127.0.0.1 in `/etc/hosts`, set it up
 in Settings → Publishing (with the domain mock), then open `http://blog.sunnyroofing.test:3000/`.
 

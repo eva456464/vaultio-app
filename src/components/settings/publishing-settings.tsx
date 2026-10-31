@@ -5,7 +5,8 @@ import { useFormatter, useTranslations } from "next-intl";
 import { useState, useTransition, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { HostedBlogCard, PlatformCard, type HostedBlogState, type PlatformConnection } from "./platform-cards";
+import { HostedBlogCard, PlatformCard, type HostedBlogState, type Platform, type PlatformConnection } from "./platform-cards";
+import { PullPlatformCards, type PullKey } from "./pull-platforms";
 import {
   disconnectIntegration,
   generateApiKey,
@@ -68,8 +69,18 @@ export function PublishingSettings({
   blogSuggestion,
   defaultBlogName,
   onVercel,
+  pullKeys,
+  duda,
+  brandName,
+  framerPluginUrl,
+  settingsUrl,
 }: {
-  platforms: Record<"ghost" | "webflow" | "shopify" | "wix", PlatformConnection>;
+  platforms: Record<Platform, PlatformConnection>;
+  pullKeys: { framer: PullKey; lovable: PullKey };
+  duda: { feedUrl: string | null } | null;
+  brandName: string;
+  framerPluginUrl: string | null;
+  settingsUrl: string;
   hostedBlog: HostedBlogState;
   blogSuggestion: string;
   defaultBlogName: string;
@@ -116,19 +127,21 @@ export function PublishingSettings({
         <HostedBlogCard blog={hostedBlog} suggestion={blogSuggestion} defaultName={defaultBlogName} canEdit={canEdit} onVercel={onVercel} />
         <WordpressCard connection={wordpress} canEdit={canEdit} />
         <div className="grid gap-4 md:grid-cols-2">
-          {(["shopify", "webflow", "wix", "ghost"] as const).map((platform) => (
+          {(["shopify", "webflow", "wix", "ghost", "bigcommerce", "gohighlevel"] as const).map((platform) => (
             <PlatformCard key={platform} platform={platform} connection={platforms[platform]} canEdit={canEdit} statusPill={<StatusPill status={platforms[platform]?.status ?? "off"} />} />
           ))}
         </div>
-        <p className="pt-2 text-[11px] font-medium uppercase tracking-[1.1px] text-section">{t("morePlatforms")}</p>
-        <div className="grid gap-2 sm:grid-cols-2">
-          {(t.raw("otherPlatforms") as string[]).map((name) => (
-            <div key={name} className="flex items-center justify-between rounded-2xl border border-line bg-white px-4 py-3">
-              <span className="text-sm font-medium text-ink">{name}</span>
-              <span className="text-xs text-ink-subtle">{t("comingSoon")}</span>
-            </div>
-          ))}
-        </div>
+        <p className="pt-2 text-[11px] font-medium uppercase tracking-[1.1px] text-section">{t("pullPlatforms")}</p>
+        <PullPlatformCards
+          canEdit={canEdit}
+          keys={pullKeys}
+          duda={duda}
+          apiBaseUrl={apiBaseUrl}
+          brandName={brandName}
+          framerPluginUrl={framerPluginUrl}
+          settingsUrl={settingsUrl}
+          statusPill={(status) => <StatusPill status={status} />}
+        />
       </div>
     </div>
   );

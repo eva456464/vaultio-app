@@ -44,6 +44,7 @@ Ground rules that apply to everything below:
 | AI visibility (overview, prompts, brands, sources, prompt detail) | `/dashboard/ai-visibility` | Built |
 | Reporting | `/dashboard/reporting` | Built: sections, live preview, Download PDF, monthly email |
 | Settings: Account, Business, Branding, Competitors, Saved pages, Writing, Visuals, Schedule, Improvements, Publishing, Analytics | `/dashboard/settings/*` | Built (Visuals includes the infographic switch and style) |
+| Settings: Publishing | `/dashboard/settings/publishing` | Built: auto-publish, API, webhook, blog hosting, WordPress, Shopify, Webflow, Wix, Ghost, BigCommerce, GoHighLevel, and the platforms that pull articles: Framer (plugin), Lovable (one prompt) and Duda (RSS feed), each with a step-by-step setup guide |
 | Site traffic: All traffic, AI search traffic, Google traffic | `/dashboard/analytics/ga4`, `/ai-traffic`, `/google-traffic` | Built: KPIs, channel / AI-model / Google charts, breakdowns, countries, top pages and searches with search, "brand articles only" and paging; connect state until Google is connected |
 | Clients (agency) | `/clients` | Built |
 | Invoices (agency) | `/clients/invoices` | Built: invoices across all client websites (from Stripe); "Manage all subscriptions" on Clients opens Stripe's portal |
@@ -65,7 +66,7 @@ Ground rules that apply to everything below:
 | Brand profile, AI prompts, content plan, topic research, article writer | Built (Claude) |
 | Competitors, keyword research, competitor gap scan, domain rating | Built (DataForSEO) |
 | AI visibility check (Claude, plus ChatGPT and Gemini when keyed) | Built |
-| Publishing: content API, webhook, WordPress, Shopify, Webflow, Wix, Ghost, hosted blog, auto-publish | Built (publish or save as draft per platform; republishing updates the same post) |
+| Publishing: content API, webhook, WordPress, Shopify, Webflow, Wix, Ghost, BigCommerce, GoHighLevel, hosted blog, auto-publish | Built (publish or save as draft per platform; republishing updates the same post). Framer, Lovable and Duda fetch published articles themselves (content API or RSS feed) |
 | Monthly client report email | Built (Resend) |
 | Article images, CTA cards, promo paragraph, YouTube video | Built (OpenAI or Gemini images; Claude for scenes, wording and the video search) |
 | Google Analytics sync, AI traffic report, Google rankings check (Search Console) | Built |
@@ -92,6 +93,21 @@ Ground rules that apply to everything below:
   address) in the browser, then publishing an article to all of them and republishing it (each
   updated the same post), against a local mock (`scripts/dev-fixtures/mock-cms.py`); the hosted
   blog on a local test domain from DNS setup to live, with its pages, sitemap, robots and RSS.
+- More publishing platforms, in a browser against the local mock (`scripts/dev-fixtures/mock-cms.py`):
+  BigCommerce (store hash taken from a pasted store address, wrong token, wrong WebDAV password, then
+  connected with cover images; the WebDAV login is checked with digest authentication and the check
+  file removed again) and GoHighLevel (Location ID and token, blogs, authors and categories listed,
+  saved as drafts). Publishing an article sent it to both (cover copied to the store as the post
+  thumbnail; author and category on GoHighLevel); republishing updated the same posts and kept their
+  address and date; a post deleted on the platform was created again, and a BigCommerce address
+  already taken got "-2". Framer, Lovable and Duda guides: checklists, separate Framer and Lovable keys
+  (each shown once, "last used" on the card), the Lovable prompt copied with the agency's brand and
+  API address, the Duda feed address created, shown again, replaced (the old one then answers 401) and
+  disconnected. The Framer plugin's sync ran against the dev API with a stand-in Framer collection
+  (`integrations/framer-plugin/scripts/test-sync.ts`: first import, nothing changed on a second run, a
+  changed article fetched again, a removed one taken out, a wrong key explained); the content API
+  answers the plugin's browser preflight only from Framer's addresses. The Duda feed is valid RSS
+  with each article's full text and cover image; the hosted blog's RSS still works.
 - White label: logo and favicon upload, colours, hosting and sending domains from "Setup pending" with
   DNS records to "Connected", the agency's brand on its own domain, and an invite email sent from
   the agency's domain with a link to it, against a local Vercel/Resend mock
@@ -171,6 +187,12 @@ These are written against the providers' documentation but have not run live yet
   Shopify's documentation, which couldn't be fetched from this workspace to double-check, API version
   set by `SHOPIFY_API_VERSION`), WooCommerce's REST API on a real store, and real Google Merchant Center
   and Facebook feeds; product matching with real Claude.
+- BigCommerce, GoHighLevel, Duda, Framer and Lovable against real accounts: written from their
+  documented APIs and help pages, which couldn't be fetched from this workspace to double-check.
+  Least certain: GoHighLevel's list response keys and which post fields it requires, BigCommerce's
+  WebDAV address and digest login, the origin Framer's editor loads plugins from (the content API
+  allows `*.framercdn.com` and `*.framer.com`; `CONTENT_API_CORS_ORIGINS` changes it), and how well
+  Lovable follows the prompt. The Framer plugin has only run outside Framer.
 - Improving existing posts on a real WordPress site: how real posts from different themes and
   plugins are cut into pieces, whether WordPress's editor accepts the new blocks without a
   "This block contains unexpected content" notice (they are written like the site's own blocks, in
@@ -182,9 +204,7 @@ limits).
 
 ## Still to build, in recommended order
 
-1. **Remaining publishing platforms**: Framer (needs a Vaultio Framer plugin published on Framer's
-   marketplace), Lovable, GoHighLevel, Duda, BigCommerce.
-2. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
+1. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
    `app.vaultio.co` at Vaultio instead of the Babylovegrowth white label.
 
 White-label items not built yet: a white-labelled WordPress plugin, and Google sign-in on agency
@@ -234,6 +254,7 @@ Smaller follow-ups:
 | Booking link and support email (`SUPPORT_BOOKING_URL`, `SUPPORT_EMAIL`) | Agency settings → Talk with team | Not set |
 | Which workspaces aren't billed | Vaultio's own workspace should be exempt: `update organizations set billing_exempt = true where id = …` | Waiting for the production database |
 | Hosting accounts (web, worker, Postgres) | Production launch | Later |
+| Publish the Framer plugin | Clients import articles into Framer with it | Not started. In `integrations/framer-plugin`: set `VITE_API_BASE` (the production app address + `/api/integrations`) and `VITE_BRAND_NAME`, run `npm install && npm run pack`, submit `plugin.zip` at framer.com/developers (needs a Framer account), then put the marketplace link in `FRAMER_PLUGIN_URL`. Until then the Framer guide tells clients to search the Plugins menu |
 | Leftover Blog Hosting setup for `blog.vaultio.co` in the live Babylovegrowth account | Created during research. Vaultio can now host that blog itself (Settings → Publishing → Blog hosting) once it runs in production; until then decide whether to remove the old setup | Waiting for a decision |
 
 ## Work log
@@ -266,6 +287,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Improvements for existing WordPress posts (block and classic editor), keeping their blocks and styling | `main` a638a11 |
 | Product catalog: Shopify, WooCommerce, feeds and files; catalog sync and product matching agents; products in articles | `main` 096b5b4 |
 | More languages: language sites (36 content languages), Scale's included languages and the language add-on, infographic fonts for more scripts, dashboard translation script | `main` 2281efb |
+| Publishing to BigCommerce and GoHighLevel; Framer plugin, Lovable prompt and Duda RSS feed | `main` (this commit) |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
