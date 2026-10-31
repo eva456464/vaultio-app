@@ -206,7 +206,8 @@
         "generatePrompts": "Write the questions customers ask AI",
         "planFirstMonth": "Plan your first month of articles",
         "joinBacklinkExchange": "Join the backlink exchange",
-        "milestones": "Check your achievements"
+        "milestones": "Check your achievements",
+        "buildBrandProfile": "Write your brand profile"
       }
     }
   },
@@ -346,5 +347,138 @@
     "invalidUrl": "Enter a valid website address, like example.com.",
     "notAllowed": "Only workspace admins can add websites.",
     "back": "Back"
+  },
+  "content": {
+    "title": "Blog content",
+    "titleInfo": "Your agents write each article on its day in the calendar, then publish it to your site.",
+    "subtitle": "View your content calendar and improvements made to existing articles.",
+    "tabs": {
+      "calendar": "Content Calendar",
+      "improvements": "Improvements",
+      "beta": "Beta"
+    },
+    "toolbar": "View and manage your content plan.",
+    "counts": {
+      "published": "{count} Published",
+      "ready": "{count} Ready",
+      "queued": "{count} Queued"
+    },
+    "addKeywords": "Add keywords",
+    "previousMonth": "Previous month",
+    "nextMonth": "Next month",
+    "weekdays": {
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat",
+      "sun": "Sun"
+    },
+    "today": "Today",
+    "status": {
+      "published": "Published",
+      "ready": "Ready",
+      "queued": "Queued"
+    },
+    "readyHint": "Written and waiting to be published",
+    "difficulty": "Difficulty: {value}",
+    "volume": "Volume: {value}",
+    "local": "Local",
+    "articleTypes": {
+      "guide_explainer": "Explainer Article",
+      "guide_how_to": "How To Article",
+      "listicle_educational": "Listicle Article",
+      "listicle_comparison": "Comparison List",
+      "comparison": "Comparison Article",
+      "case_study": "Case Study",
+      "opinion": "Opinion Article"
+    },
+    "actions": {
+      "changeTopic": "Change topic",
+      "addInstructions": "Add instructions",
+      "delete": "Delete"
+    },
+    "changeTopic": {
+      "title": "Choose an alternative topic",
+      "subtitle": "Pick another keyword from your research for this day.",
+      "search": "Search topics",
+      "empty": "No other topics are available yet. Your agents add more during keyword research.",
+      "columns": {
+        "keyword": "Keyword",
+        "volume": "Volume",
+        "difficulty": "Difficulty"
+      },
+      "confirm": "Use this topic"
+    },
+    "instructions": {
+      "title": "Article instructions",
+      "subtitle": "Tell your agents what this article should cover or emphasize.",
+      "instruction": "Instructions",
+      "instructionPlaceholder": "e.g. Mention our free roof inspection and include a cost table.",
+      "counter": "{count}/1000 characters",
+      "supportUrl": "Reference URL (optional)",
+      "save": "Save instructions"
+    },
+    "deleteDialog": {
+      "title": "Delete this topic?",
+      "body": "\"{title}\" will be removed from your calendar. The keyword goes back to your topic pool.",
+      "confirm": "Delete topic"
+    },
+    "addKeywordsDialog": {
+      "title": "Add keywords",
+      "subtitle": "Add your own keywords, one per line. Each becomes an article topic scheduled after your current plan.",
+      "placeholder": "roof inspection cost\nhow to choose a roofer",
+      "submit": "Add keywords",
+      "added": "{count, plural, one {# topic added} other {# topics added}} to your calendar."
+    },
+    "improvements": {
+      "title": "Improved articles",
+      "subtitle": "Articles that need updates to rank better on Google and AI search show up here.",
+      "emptyTitle": "Scanning for opportunities",
+      "emptyBody": "Your agents watch how published articles perform in Google Search. When a page is worth improving, it will show up here."
+    },
+    "emptyPlan": "Your content plan is empty. Your agents create it after keyword research finishes."
+  },
+  "article": {
+    "back": "Back to articles",
+    "eyebrow": "Article",
+    "stats": "{words} words · {minutes} min read",
+    "toc": "Table of contents",
+    "customize": "Customize writing settings",
+    "aiOptimized": "AI Search optimized",
+    "checksPassed": "{passed} of {total} checks passed",
+    "checks": {
+      "answerFirst": "Answer-first writing",
+      "credibleSources": "Credible sources",
+      "optimalStructure": "Optimal structure",
+      "internalLinks": "Internal links",
+      "statistics": "Statistics and data points",
+      "semanticKeywords": "Semantic keywords",
+      "metaTags": "Optimized meta tags",
+      "jsonLd": "JSON-LD schema"
+    },
+    "publishedUrl": "Published URL",
+    "publishedUrlHint": "Live URL of the published article",
+    "notPublished": "Not published yet. Connect a publishing integration in Settings to publish automatically.",
+    "data": "Article data",
+    "dataHint": "Key metrics for this article",
+    "searchVolume": "Search vol: {value}",
+    "difficulty": "Difficulty: {value}",
+    "wordCount": "Word count",
+    "internalLinks": "Internal links",
+    "externalLinks": "External links",
+    "sources": "Sources cited",
+    "slug": "Slug",
+    "slugHint": "The article's URL path",
+    "metaDescription": "Meta description",
+    "metaHint": "Description shown in search results",
+    "characters": "{count}/160 characters",
+    "export": "Export article",
+    "downloadMarkdown": "Download Markdown",
+    "exportHtml": "Export as HTML",
+    "statusPublished": "Published",
+    "statusReady": "Ready to publish",
+    "why": "Why this article"
   }
 }

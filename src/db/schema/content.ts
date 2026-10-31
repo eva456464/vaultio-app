@@ -63,6 +63,12 @@ export const keywordClusters = pgTable(
   (t) => [index("keyword_clusters_site_idx").on(t.orgWebsiteId)],
 );
 
+export type TopicResearch = {
+  serp?: { url: string; title: string; position: number }[];
+  cannibalizationCheckedAt?: string;
+  replacedKeyword?: string;
+};
+
 export type GenerationStatus = "queued" | "researching" | "generating" | "generated" | "published" | "failed";
 
 export const contentPlanItems = pgTable(
@@ -85,6 +91,9 @@ export const contentPlanItems = pgTable(
     isLocalKeyword: boolean("is_local_keyword").notNull().default(false),
     keywordLocation: text("keyword_location"),
     whyThisTopic: jsonb("why_this_topic").$type<string[]>().notNull().default([]),
+    plannedTitle: text("planned_title"),
+    articleType: text("article_type").$type<ArticleType>(),
+    research: jsonb("research").$type<TopicResearch>(),
     ...timestamps,
   },
   (t) => [index("content_plan_site_date_idx").on(t.orgWebsiteId, t.scheduledFor)],
@@ -99,6 +108,8 @@ export type ArticleMedia = {
   selected?: boolean;
   thumbnailUrl?: string;
 };
+
+export type QualityCheck = { key: string; passed: boolean; detail?: string };
 
 export type GenerationRationale = {
   whyThisTopic?: string[];
@@ -135,6 +146,9 @@ export const articles = pgTable(
     backlinksCount: integer("backlinks_count").notNull().default(0),
     generationRationale: jsonb("generation_rationale").$type<GenerationRationale>(),
     generationSettings: jsonb("generation_settings"),
+    qualityChecks: jsonb("quality_checks").$type<QualityCheck[]>().notNull().default([]),
+    sources: jsonb("sources").$type<{ url: string; title: string }[]>().notNull().default([]),
+    faq: jsonb("faq").$type<{ question: string; answer: string }[]>().notNull().default([]),
     publishedUrl: text("published_url"),
     publishedAt: timestamp("published_at", { withTimezone: true }),
     lastUrlCheckAt: timestamp("last_url_check_at", { withTimezone: true }),

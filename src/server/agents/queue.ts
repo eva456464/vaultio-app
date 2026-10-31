@@ -13,6 +13,7 @@ export type AgentJobData = { siteId: number; job: AgentJobName; runDate: string 
 /** Steps run once when a client is added, in this order. */
 export const ONBOARDING_STEPS = [
   "analyzeWebsite",
+  "buildBrandProfile",
   "sitemapSync",
   "siteHealthAudit",
   "findCompetitors",

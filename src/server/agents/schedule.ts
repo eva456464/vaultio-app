@@ -43,10 +43,12 @@ export const AGENT_SCHEDULE: ScheduledAgent[] = [
   { job: "rankingsCheck", cadence: { kind: "everyNDays", days: 3 }, requires: ["gsc"] },
   { job: "aiVisibilityCheck", cadence: { kind: "weekly", weekday: 1 }, requires: ["llm"] },
   { job: "siteHealthAudit", cadence: { kind: "weekly", weekday: 2 }, requires: [] },
-  { job: "competitorGapScan", cadence: { kind: "weekly", weekday: 4 }, requires: ["keywordData", "llm"] },
+  { job: "competitorGapScan", cadence: { kind: "weekly", weekday: 4 }, requires: ["keywordData"] },
   { job: "domainRatingCheck", cadence: { kind: "monthly", dayOfMonth: 1 }, requires: ["authorityData"] },
   // Researches tomorrow's topic and checks the site doesn't already rank for it.
   { job: "topicResearch", cadence: { kind: "daily" }, requires: ["llm"] },
+  // Writes the article planned for the day, if any (shown via the content plan).
+  { job: "writeArticle", cadence: { kind: "daily" }, requires: ["llm"] },
   { job: "milestones", cadence: { kind: "daily" }, requires: [] },
 ];
 
@@ -101,7 +103,7 @@ export function plannedActions({
     const title = articleDays.get(day);
     if (title) actions.push({ day, job: "writeArticle", title });
     for (const agent of AGENT_SCHEDULE) {
-      if (agent.job === "milestones") continue;
+      if (agent.job === "milestones" || agent.job === "writeArticle") continue;
       if (!agent.requires.every((req) => available.has(req))) continue;
       if (isDueOn(agent.cadence, day, anchorDay)) actions.push({ day, job: agent.job });
     }

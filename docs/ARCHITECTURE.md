@@ -75,16 +75,31 @@ Everything the agents do goes through one path, so work is never silently droppe
 
 | Agent | Status |
 |---|---|
-| Website analysis (brand name, description, logo, platform, theme color) | built (HTML analysis; LLM-written profile pending) |
+| Website analysis (brand name, description, logo, platform, theme color) | built, no keys needed |
+| Brand profile (positioning, audience, offers with prices, brand voice, seed topics, country) | built (Claude) |
 | Sitemap sync | built |
 | Site health audit (≤20 pages, 15 page checks, robots/sitemap/llms.txt, AI-crawler blocking, scores) | built |
-| Milestones engine (backlinks, value, clicks, impressions, AI visitors/mentions, DR) | built |
-| Competitors, keyword research, AI prompts, content plan, topic research | needs `DATAFORSEO_LOGIN/PASSWORD` + `ANTHROPIC_API_KEY` |
-| Article writer + images + internal links + JSON-LD, publishing integrations | next phase |
-| AI visibility checks (ChatGPT, Claude, Gemini) | needs OpenAI / Anthropic / Google keys |
+| Competitors (DataForSEO competitor domains, falls back to who ranks for the seed topics) | built |
+| Keyword research (DataForSEO keyword ideas, filtered and grouped into topic clusters, skipping keywords the site already ranks for) | built |
+| AI prompts customers ask (10 per site) | built (Claude) |
+| First-month content plan + daily top-up to ~30 days ahead | built (Claude picks from clusters with a reason per topic) |
+| Topic research (tomorrow's topic: duplicate-content check against the sitemap, SERP snapshot) | built |
+| Article writer (Claude web research with real sources → article in the brand voice → meta, FAQ, JSON-LD, quality checks) | built |
+| Competitor content-gap scan, domain rating | built (DataForSEO) |
+| Milestones engine | built |
+| Publishing integrations (WordPress, Next.js, Webflow, Shopify, API...) | next phase |
+| Hero / body images | next phase |
+| AI visibility checks (ChatGPT, Claude, Gemini) | next phase |
 | GA4 + Search Console sync | needs a Google Cloud OAuth app |
-| Backlink exchange matcher | next phase |
-| Reddit / Quora opportunity agents, Instagram & Facebook posting | later phase |
+| Backlink exchange matcher, Reddit / Quora agents, Instagram & Facebook posting | later phases |
+
+The AI and keyword-data clients (`src/server/ai/claude.ts`, `src/server/seo/dataforseo.ts`) are
+swappable. `npx tsx scripts/test-agents.ts <siteId>` runs onboarding, topic research and the
+writer with stand-in providers to check the whole pipeline without API keys.
+
+Claude calls use `claude-opus-5-5` (override with `CLAUDE_MODEL`), structured outputs for JSON,
+streaming for long articles, Anthropic-hosted web search for research, prompt caching on the
+stable system prompts, and server-side refusal fallbacks (`fallbacks: "default"`).
 
 ## Accounts and keys needed in production
 

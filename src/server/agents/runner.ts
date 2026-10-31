@@ -4,6 +4,17 @@ import { agentJobRuns, orgWebsites } from "@/db/schema";
 import { availableRequirements, REQUIREMENT_LABELS } from "./capabilities";
 import { analyzeWebsite, siteHealthAudit, sitemapSync } from "./jobs/site-analysis";
 import { computeMilestones } from "./jobs/milestones";
+import {
+  buildBrandProfile,
+  competitorGapScan,
+  domainRatingCheck,
+  findCompetitors,
+  generatePrompts,
+  keywordResearch,
+  planFirstMonth,
+  topicResearch,
+} from "./jobs/strategy";
+import { writeArticle } from "./jobs/writer";
 import type { JobHandler } from "./jobs/types";
 import type { AgentJobName } from "./queue";
 import type { Requirement } from "./schedule";
@@ -20,18 +31,20 @@ export const JOB_REGISTRY: Record<AgentJobName, Registration> = {
   siteHealthAudit: { requires: [], handler: siteHealthAudit },
   milestones: { requires: [], handler: computeMilestones },
 
+  buildBrandProfile: { requires: ["llm"], handler: buildBrandProfile },
+  findCompetitors: { requires: ["keywordData"], handler: findCompetitors },
+  keywordResearch: { requires: ["keywordData"], handler: keywordResearch },
+  generatePrompts: { requires: ["llm"], handler: generatePrompts },
+  planFirstMonth: { requires: ["keywordData", "llm"], handler: planFirstMonth },
+  topicResearch: { requires: ["llm"], handler: topicResearch },
+  writeArticle: { requires: ["llm"], handler: writeArticle },
+  competitorGapScan: { requires: ["keywordData"], handler: competitorGapScan },
+  domainRatingCheck: { requires: ["authorityData"], handler: domainRatingCheck },
+
   analyticsSync: { requires: ["ga4"] },
   aiTrafficReport: { requires: ["ga4"] },
   rankingsCheck: { requires: ["gsc"] },
   aiVisibilityCheck: { requires: ["llm"] },
-  competitorGapScan: { requires: ["keywordData", "llm"] },
-  domainRatingCheck: { requires: ["authorityData"] },
-  topicResearch: { requires: ["llm"] },
-  writeArticle: { requires: ["llm"] },
-  findCompetitors: { requires: ["keywordData"] },
-  keywordResearch: { requires: ["keywordData"] },
-  generatePrompts: { requires: ["llm"] },
-  planFirstMonth: { requires: ["keywordData", "llm"] },
   joinBacklinkExchange: { requires: [] },
 };
 

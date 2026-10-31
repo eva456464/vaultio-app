@@ -186,6 +186,8 @@ export const orgWebsites = pgTable(
     promoWebsiteUrl: text("promo_website_url"),
     sitemapUrl: text("sitemap_url"),
     researchUrls: jsonb("research_urls").$type<string[]>().notNull().default([]),
+    // Search phrases potential customers use; seeds for keyword research.
+    seedTopics: jsonb("seed_topics").$type<string[]>().notNull().default([]),
 
     // Writing settings
     articleInstructions: text("article_instructions"),

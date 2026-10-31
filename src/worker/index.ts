@@ -14,9 +14,9 @@ async function main() {
   await boss.start();
   await ensureQueues(boss);
 
-  await boss.work<{ siteId: number }>(QUEUES.onboarding, async ([job]) => {
-    console.log(`[onboarding] site ${job!.data.siteId}`);
-    await runOnboarding(job!.data.siteId);
+  await boss.work<{ siteId: number; resume?: boolean }>(QUEUES.onboarding, async ([job]) => {
+    console.log(`[onboarding] site ${job!.data.siteId}${job!.data.resume ? " (resume)" : ""}`);
+    await runOnboarding(job!.data.siteId, job!.data.resume);
   });
 
   await boss.work<AgentJobData>(QUEUES.agentJob, { localConcurrency: 4 }, async ([job]) => {
