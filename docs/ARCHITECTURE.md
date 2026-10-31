@@ -186,8 +186,32 @@ original and updates the live article through `publishArticle(..., { update: tru
 auto-approve on, the improvement is published on its day unless it was flagged. Impact is measured
 from the page's Search Console rows 14 days before and after publishing.
 
-Only articles written by Vaultio are improved for now; existing WordPress posts need their block
-markup preserved and are a later step.
+Existing WordPress posts (not written by Vaultio) are improved too when the site's WordPress is
+connected under Publishing (`src/server/improvements/wordpress/`). The scan lists the site's
+published posts through the REST API, matches them to Search Console pages (same host and path)
+and leaves out Vaultio's own posts. When an improvement is prepared, the post is read fresh in its
+stored form (`context=edit`) and cut into top-level pieces: plain paragraphs, plain lists and plain
+sub-headings become markdown Claude can rewrite; everything else (images, galleries, embeds, tables,
+FAQ, table-of-contents and other plugin blocks, styled or anchored blocks, shortcodes, the "more"
+marker) becomes a `[[KEEP-n]]` token, explained to Claude in a legend and shown on the review page as
+"[Image stays here]" and so on. Classic-editor posts are cut the same way (paragraphs at blank
+lines). Publishing applies the approved changes to the content as it was when the improvement was
+prepared: sections without an approved rewrite are copied byte for byte, a rewritten section keeps
+its elements (any Claude left out go at its end and are flagged), new blocks are written the way
+the site's WordPress already writes them, and rewritten links keep their original attributes
+(`rel="nofollow"`, `target`). Before updating, the post is read again: if it was edited in
+WordPress since, nothing is changed and the improvement is prepared again later. WordPress keeps
+the previous version in the post's revisions. Extra checks for these posts flag elements left out of
+a rewrite, the post's own inline styling lost in a rewrite, markdown that wouldn't turn into
+formatting, and a second FAQ next to an FAQ block.
+
+The title and meta description are only changed when that changes what search engines see: the
+live page's title has to contain the post title (a title template), and its meta description has to
+come from the post excerpt. A custom SEO title or description set in Yoast, Rank Math and similar
+plugins can't be written through WordPress's API, so those stay as they are and the review page
+says so. Posts built with a page builder (Elementor, Divi, WPBakery, Beaver Builder, Bricks, Avada,
+Oxygen, Cornerstone, Enfold) keep their own copy of the page and are skipped. Other platforms'
+existing posts (Shopify, Webflow, Wix, Ghost) aren't improved yet.
 
 ### Backlink exchange
 

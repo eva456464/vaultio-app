@@ -38,6 +38,7 @@ export async function publishImprovementNow(id: number) {
     refresh();
     return { ok: true as const, published: result.published, errors: result.errors };
   } catch (error) {
+    refresh();
     return { error: (error as Error).message };
   }
 }

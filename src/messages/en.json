@@ -483,7 +483,10 @@
         "body": "Improvements are chosen from how each article performs in Google Search.",
         "cta": "Connect in Settings"
       },
-      "scope": "Articles written by {brand} are improved. Other posts on your site will be supported later.",
+      "scope": {
+        "wordpress": "Articles written by {brand} and the other posts on your WordPress site are improved.",
+        "vaultio": "Articles written by {brand} are improved. Connect WordPress in Settings → Publishing to include your other posts too."
+      },
       "filter": {
         "all": "All",
         "queued": "Queued"
@@ -558,7 +561,9 @@
           ]
         ],
         "eligibilityTitle": "What we look for",
-        "eligibility": "Articles that already perform well are left alone. To qualify, a page needs at least 90 days in Google Search and real search demand. Pages improved in the last 6 months, or rejected in the last 4 weeks, are skipped. When several pages qualify, the one with the most impressions goes first."
+        "eligibility": "Articles that already perform well are left alone. To qualify, a page needs at least 90 days in Google Search and real search demand. Pages improved in the last 6 months, or rejected in the last 4 weeks, are skipped. When several pages qualify, the one with the most impressions goes first.",
+        "scopeTitle": "Which articles",
+        "scope": "Articles written here, on any publishing platform, and every other post on your WordPress site once WordPress is connected. In those posts, images, videos, tables, FAQ and other blocks stay exactly as they are, sections that aren't improved aren't touched, and WordPress keeps the previous version in the post's revisions. Posts built with a page builder such as Elementor or Divi are skipped."
       },
       "detail": {
         "back": "Back",
@@ -598,7 +603,10 @@
             "missingImages": "Image missing from a rewritten section",
             "duplicateFaq": "More than one FAQ section",
             "topicDrift": "Searches dropped from the title",
-            "duplicatedBlocks": "Paragraph repeated"
+            "duplicatedBlocks": "Paragraph repeated",
+            "lostElements": "Element moved to the end of its section",
+            "lostMarkup": "Styling lost in a rewritten section",
+            "markdownArtifacts": "Formatting may show as raw symbols"
           }
         },
         "data": "Article data",
@@ -613,8 +621,35 @@
         "viewArticle": "View article",
         "impact": "Impact",
         "impactPending": "Measured 14 days after publishing.",
-        "error": "Preparing this improvement failed: {error}"
-      }
+        "error": "Preparing this improvement failed: {error}",
+        "element": "[{element} stays here]",
+        "elementText": "[{element} stays here: “{text}”]",
+        "elements": {
+          "image": "Image",
+          "embed": "Video or embed",
+          "table": "Table",
+          "quote": "Quote",
+          "html": "Custom HTML",
+          "button": "Button",
+          "faq": "FAQ block",
+          "toc": "Table of contents",
+          "separator": "Divider",
+          "code": "Code",
+          "layout": "Layout block",
+          "heading": "Heading",
+          "text": "Styled text",
+          "more": "“Read more” marker",
+          "block": "Block"
+        },
+        "post": "Post data",
+        "viewPost": "View post",
+        "editInWordpress": "Edit in WordPress",
+        "seoTitle": "Your SEO plugin sets this post's search title, so the title stays as it is.",
+        "seoMeta": "Your SEO plugin sets this post's meta description, so it stays as it is.",
+        "revisions": "Publishing updates the post on WordPress. The current version stays in the post's revisions."
+      },
+      "existingPost": "WordPress post",
+      "builder": "Not changed: this post is built with {builder}, which keeps its own copy of the page, so editing the post wouldn't change what visitors see."
     },
     "emptyPlan": "Your content plan is empty. Your agents create it after keyword research finishes."
   },

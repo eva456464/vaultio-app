@@ -1,7 +1,7 @@
 /** Read models for the Improvements tab and the improvement review page. */
-import { and, desc, eq, gte, lt, ne, sum } from "drizzle-orm";
+import { and, desc, eq, gte, inArray, isNotNull, lt, ne, sum } from "drizzle-orm";
 import { db } from "@/db";
-import { articleImprovements, articles, gscDimensionMetrics, type orgWebsites } from "@/db/schema";
+import { articleImprovements, articles, gscDimensionMetrics, integrations, type orgWebsites } from "@/db/schema";
 import { shiftDay } from "@/lib/traffic";
 import { availableRequirements } from "../agents/capabilities";
 import { siteDay } from "../agents/schedule";
@@ -12,9 +12,19 @@ const MEASURE_DAYS = 14;
 // Waiting for the user first, then upcoming, then history.
 const ORDER: Record<string, number> = { pending_review: 0, generating: 1, scheduled: 2, candidate: 3, failed: 4, published: 5, no_changes: 6, rejected: 7 };
 
+/** Whether existing WordPress posts can be improved (WordPress connected under Publishing). */
+async function wordpressConnected(siteId: number) {
+  const [row] = await db
+    .select({ id: integrations.id })
+    .from(integrations)
+    .where(and(eq(integrations.orgWebsiteId, siteId), eq(integrations.type, "wordpress"), inArray(integrations.status, ["connected", "pending", "error"]), isNotNull(integrations.credentialsEncrypted)));
+  return Boolean(row);
+}
+
 export async function getImprovementsList(site: Site) {
-  const [available, rows] = await Promise.all([
+  const [available, wordpress, rows] = await Promise.all([
     availableRequirements(site.id),
+    wordpressConnected(site.id),
     db
       .select({ improvement: articleImprovements, title: articles.title, url: articles.publishedUrl })
       .from(articleImprovements)
@@ -34,7 +44,7 @@ export async function getImprovementsList(site: Site) {
       break;
     }
   }
-  return { enabled: site.improvementsEnabled, gscConnected: available.has("gsc"), nextScan: shiftDay(today, 1), nextDay, rows: sorted };
+  return { enabled: site.improvementsEnabled, gscConnected: available.has("gsc"), wordpressConnected: wordpress, nextScan: shiftDay(today, 1), nextDay, rows: sorted };
 }
 
 async function pageTotals(siteId: number, pageUrl: string, from: string, to: string) {

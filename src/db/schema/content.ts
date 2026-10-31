@@ -244,6 +244,18 @@ export type ImprovementChange = {
 
 export type SafetyFlag = { check: string; detail: string; changeId?: string };
 
+/** The WordPress post behind an improvement of a post Vaultio didn't write. */
+export type ImprovementWordpressPost = {
+  postId: number;
+  link: string;
+  editUrl?: string;
+  /** Whether the post title / excerpt is what search engines see (not a custom title or description set in an SEO plugin). */
+  titleWritable?: boolean;
+  metaWritable?: boolean;
+  /** Page builder that keeps its own copy of the content (the post can't be edited safely). */
+  builder?: string;
+};
+
 /** Rewrites of published articles, chosen from Search Console opportunities. */
 export const articleImprovements = pgTable(
   "article_improvements",
@@ -253,7 +265,10 @@ export const articleImprovements = pgTable(
       .notNull()
       .references(() => orgWebsites.id, { onDelete: "cascade" }),
     pageUrl: text("page_url").notNull(),
+    /** "vaultio": an article Vaultio wrote; "wordpress": an existing post on the client's WordPress site. */
+    source: text("source").$type<"vaultio" | "wordpress">().notNull().default("vaultio"),
     articleId: integer("article_id").references(() => articles.id, { onDelete: "set null" }),
+    wordpress: jsonb("wordpress").$type<ImprovementWordpressPost>(),
     status: text("status").$type<ImprovementStatus>().notNull(),
     opportunity: text("opportunity").$type<Opportunity>(),
     gscSnapshot: jsonb("gsc_snapshot").$type<ImprovementEvidence>(),

@@ -1,7 +1,8 @@
 /**
  * Article improvements: find published articles with a clear opportunity in Search Console
  * (improvementScan, daily) and rewrite the best one on each improvement day (improveArticle).
- * Only articles Vaultio wrote are improved: we hold their text and can update them on any platform.
+ * Articles Vaultio wrote are improved on any platform (we hold their text); other posts are
+ * improved when the site's WordPress is connected (read and updated through its REST API).
  */
 import { and, eq, inArray, isNotNull, max, sql } from "drizzle-orm";
 import { db } from "@/db";
@@ -9,6 +10,8 @@ import { articleImprovements, articles, gscDailyMetrics, gscDimensionMetrics, ty
 import { shiftDay } from "@/lib/traffic";
 import { generateImprovement } from "@/server/improvements/generate";
 import { publishImprovement } from "@/server/improvements/publish";
+import { wordCount } from "@/server/improvements/wordpress/blocks";
+import { builderInContent, listPosts, postContents, wordpressConnection } from "@/server/improvements/wordpress/client";
 import { pathOf } from "@/lib/paths";
 import { logActivity } from "../activity";
 import type { JobContext } from "./types";
@@ -19,6 +22,15 @@ const IMPROVED_COOLDOWN_DAYS = 180;
 const REJECTED_COOLDOWN_DAYS = 28;
 const THIN_WORDS = 800;
 const STALE_DAYS = 365;
+
+const hostOf = (url: string) => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "").toLowerCase();
+  } catch {
+    return "";
+  }
+};
+const sameHost = (a: string, b: string) => hostOf(a) === hostOf(b);
 
 /** Typical click-through rate by Google position (rounded industry averages). */
 export function expectedCtr(position: number) {
@@ -61,62 +73,108 @@ export async function improvementScan({ site, runDate }: JobContext) {
     .where(and(eq(gscDimensionMetrics.orgWebsiteId, site.id), eq(gscDimensionMetrics.dimension, "page")))
     .groupBy(gscDimensionMetrics.key);
   const byPath = new Map(pages.map((page) => [pathOf(page.key), page]));
+  type Page = (typeof pages)[number];
+  const qualifies = (page: Page) => page.firstSeen <= shiftDay(end, -MIN_DAYS_IN_GOOGLE) && page.impressions90 >= MIN_IMPRESSIONS_90;
+  const evidenceFor = (page: Page, words: number, lastUpdated: string): ImprovementEvidence => ({
+    clicks28: page.clicks28,
+    previousClicks28: page.previousClicks28,
+    impressions90: page.impressions90,
+    clicks90: page.clicks90,
+    position: page.impressions90 ? Math.round((Number(page.weighted90) / page.impressions90) * 10) / 10 : null,
+    ctr: page.impressions90 ? page.clicks90 / page.impressions90 : 0,
+    words,
+    lastUpdated,
+    firstSeen: page.firstSeen,
+  });
 
   const published = await db
-    .select({ id: articles.id, url: articles.publishedUrl, words: articles.wordCount, publishedAt: articles.publishedAt, updatedAt: articles.updatedAt })
+    .select({ id: articles.id, url: articles.publishedUrl, words: articles.wordCount, publishedAt: articles.publishedAt, updatedAt: articles.updatedAt, deliveries: articles.deliveries })
     .from(articles)
     .where(and(eq(articles.orgWebsiteId, site.id), isNotNull(articles.publishedUrl)));
   const history = await db
-    .select({ id: articleImprovements.id, articleId: articleImprovements.articleId, status: articleImprovements.status, decidedAt: articleImprovements.decidedAt, publishedAt: articleImprovements.publishedAt })
+    .select({
+      id: articleImprovements.id,
+      articleId: articleImprovements.articleId,
+      source: articleImprovements.source,
+      wordpress: articleImprovements.wordpress,
+      status: articleImprovements.status,
+      decidedAt: articleImprovements.decidedAt,
+      publishedAt: articleImprovements.publishedAt,
+    })
     .from(articleImprovements)
     .where(eq(articleImprovements.orgWebsiteId, site.id));
 
-  // Articles that must not be suggested right now.
+  // Articles and posts that must not be suggested right now.
   const blocked = new Set<number>();
+  const blockedPosts = new Set<number>();
   const improvedSince = new Date(`${shiftDay(runDate, -IMPROVED_COOLDOWN_DAYS)}T00:00:00Z`);
   const rejectedSince = new Date(`${shiftDay(runDate, -REJECTED_COOLDOWN_DAYS)}T00:00:00Z`);
   for (const row of history) {
-    if (!row.articleId) continue;
     const active = ["scheduled", "generating", "pending_review", "dismissed"].includes(row.status);
     const recentlyImproved = row.status === "published" && row.publishedAt && row.publishedAt >= improvedSince;
     const recentlyRejected = (row.status === "rejected" || row.status === "no_changes") && row.decidedAt && row.decidedAt >= rejectedSince;
-    if (active || recentlyImproved || recentlyRejected) blocked.add(row.articleId);
+    if (!(active || recentlyImproved || recentlyRejected)) continue;
+    if (row.articleId) blocked.add(row.articleId);
+    if (row.source === "wordpress" && row.wordpress) blockedPosts.add(row.wordpress.postId);
   }
 
-  const candidates: { articleId: number; pageUrl: string; opportunity: Opportunity; evidence: ImprovementEvidence }[] = [];
+  type Candidate = { articleId: number | null; postId: number | null; link?: string; title?: string; pageUrl: string; opportunity: Opportunity; evidence: ImprovementEvidence };
+  const candidates: Candidate[] = [];
   for (const article of published) {
     const page = byPath.get(pathOf(article.url!));
-    if (!page || blocked.has(article.id)) continue;
-    if (page.firstSeen > shiftDay(end, -MIN_DAYS_IN_GOOGLE) || page.impressions90 < MIN_IMPRESSIONS_90) continue;
-    const evidence: ImprovementEvidence = {
-      clicks28: page.clicks28,
-      previousClicks28: page.previousClicks28,
-      impressions90: page.impressions90,
-      clicks90: page.clicks90,
-      position: page.impressions90 ? Math.round((Number(page.weighted90) / page.impressions90) * 10) / 10 : null,
-      ctr: page.impressions90 ? page.clicks90 / page.impressions90 : 0,
-      words: article.words ?? 0,
-      lastUpdated: (article.updatedAt ?? article.publishedAt!).toISOString().slice(0, 10),
-      firstSeen: page.firstSeen,
-    };
+    if (!page || blocked.has(article.id) || !qualifies(page)) continue;
+    const evidence = evidenceFor(page, article.words ?? 0, (article.updatedAt ?? article.publishedAt!).toISOString().slice(0, 10));
     const opportunity = detectOpportunity(evidence, runDate);
-    if (opportunity) candidates.push({ articleId: article.id, pageUrl: page.key, opportunity, evidence });
+    if (opportunity) candidates.push({ articleId: article.id, postId: null, pageUrl: page.key, opportunity, evidence });
   }
 
-  // Candidates are a live list: refreshed every scan, dropped when they stop qualifying.
+  // Existing WordPress posts: every published post with Search Console data that Vaultio didn't write.
+  const wordpress = await wordpressConnection(site.id);
+  let postsScanned: number | null = null;
+  if (wordpress) {
+    try {
+      const vaultioPosts = new Set(published.map((article) => article.deliveries.wordpress?.postId).filter(Boolean));
+      const vaultioPaths = new Set(published.map((article) => pathOf(article.url!)));
+      const posts = await listPosts(wordpress);
+      const matched = posts.flatMap((post) => {
+        const page = byPath.get(pathOf(post.link));
+        if (!page || !sameHost(post.link, page.key) || vaultioPosts.has(post.id) || vaultioPaths.has(pathOf(post.link)) || blockedPosts.has(post.id) || !qualifies(page)) return [];
+        return [{ post, page }];
+      });
+      const contents = await postContents(wordpress, matched.map(({ post }) => post.id));
+      for (const { post, page } of matched) {
+        const raw = contents.get(post.id);
+        if (raw === undefined || builderInContent(raw)) continue;
+        const evidence = evidenceFor(page, wordCount(raw), post.modified.slice(0, 10));
+        const opportunity = detectOpportunity(evidence, runDate);
+        if (opportunity) candidates.push({ articleId: null, postId: post.id, link: post.link, title: post.title, pageUrl: page.key, opportunity, evidence });
+      }
+      postsScanned = posts.length;
+    } catch (error) {
+      console.warn(`[improvements] WordPress posts for site ${site.id}: ${(error as Error).message}`);
+    }
+  }
+
+  // Candidates are a live list: refreshed every scan, dropped when they stop qualifying. When
+  // WordPress couldn't be read this time, its candidates stay as they were.
   const existing = history.filter((row) => row.status === "candidate");
-  const keep = new Set(candidates.map((c) => c.articleId));
-  const stale = existing.filter((row) => !row.articleId || !keep.has(row.articleId)).map((row) => row.id);
+  const sameCandidate = (row: (typeof existing)[number], candidate: Candidate) =>
+    candidate.postId ? row.source === "wordpress" && row.wordpress?.postId === candidate.postId : row.articleId === candidate.articleId;
+  const stale = existing
+    .filter((row) => (row.source === "wordpress" ? postsScanned !== null || !wordpress : true))
+    .filter((row) => !candidates.some((candidate) => sameCandidate(row, candidate)))
+    .map((row) => row.id);
   await db.transaction(async (tx) => {
     if (stale.length) await tx.delete(articleImprovements).where(inArray(articleImprovements.id, stale));
     for (const candidate of candidates) {
-      const row = existing.find((other) => other.articleId === candidate.articleId);
-      const values = { pageUrl: candidate.pageUrl, opportunity: candidate.opportunity, gscSnapshot: candidate.evidence, updatedAt: new Date() };
+      const row = existing.find((other) => sameCandidate(other, candidate));
+      const post = candidate.postId ? { wordpress: { ...row?.wordpress, postId: candidate.postId, link: candidate.link!, editUrl: `${wordpress!.siteUrl}/wp-admin/post.php?post=${candidate.postId}&action=edit` }, originalTitle: candidate.title } : {};
+      const values = { pageUrl: candidate.pageUrl, opportunity: candidate.opportunity, gscSnapshot: candidate.evidence, ...post, updatedAt: new Date() };
       if (row) await tx.update(articleImprovements).set(values).where(eq(articleImprovements.id, row.id));
-      else await tx.insert(articleImprovements).values({ orgWebsiteId: site.id, articleId: candidate.articleId, status: "candidate", ...values });
+      else await tx.insert(articleImprovements).values({ orgWebsiteId: site.id, source: candidate.postId ? "wordpress" : "vaultio", articleId: candidate.articleId, status: "candidate", ...values });
     }
   });
-  return { scanned: true, articles: published.length, candidates: candidates.length };
+  return { scanned: true, articles: published.length, posts: postsScanned, candidates: candidates.length };
 }
 
 /** The candidate to improve next: the one with the most impressions goes first. */
@@ -137,7 +195,7 @@ const weekdayOf = (day: string) => new Date(`${day}T12:00:00Z`).getUTCDay();
 export async function improveArticle({ site, runDate }: JobContext) {
   if (!site.improvementsEnabled) return { skipped: "Article improvements are off" };
   const days = new Set(site.improvementWeekdays);
-  const result: { published?: number; prepared?: number; changes?: number; flags?: number } = {};
+  const result: { published?: number; publishError?: string; prepared?: number; changes?: number; flags?: number } = {};
 
   if (days.has(weekdayOf(runDate)) && site.improvementsAutoPublish) {
     const [ready] = await db
@@ -145,8 +203,13 @@ export async function improveArticle({ site, runDate }: JobContext) {
       .from(articleImprovements)
       .where(and(eq(articleImprovements.orgWebsiteId, site.id), eq(articleImprovements.status, "pending_review"), eq(articleImprovements.scheduledFor, runDate)));
     if (ready && !ready.safetyFlags.length) {
-      await publishImprovement(site.id, ready.id, { approveAll: true });
-      result.published = ready.id;
+      try {
+        await publishImprovement(site.id, ready.id, { approveAll: true });
+        result.published = ready.id;
+      } catch (error) {
+        // Recorded on the improvement (e.g. the post changed since); tomorrow's is still prepared.
+        result.publishError = (error as Error).message;
+      }
     }
   }
 
@@ -159,9 +222,9 @@ export async function improveArticle({ site, runDate }: JobContext) {
     const candidate = already ? null : await topCandidate(site.id);
     if (candidate) {
       await db.update(articleImprovements).set({ status: "scheduled", scheduledFor: tomorrow, updatedAt: new Date() }).where(eq(articleImprovements.id, candidate.id));
-      const [article] = await db.select({ title: articles.title }).from(articles).where(eq(articles.id, candidate.articleId!));
+      const [article] = candidate.articleId ? await db.select({ title: articles.title }).from(articles).where(eq(articles.id, candidate.articleId)) : [];
       const outcome = await generateImprovement(site, candidate.id);
-      if (outcome.changes) await logActivity(site.id, "articleImprovementPlanned", { title: article?.title, articleId: candidate.articleId ?? undefined });
+      if (outcome.changes) await logActivity(site.id, "articleImprovementPlanned", { title: article?.title ?? candidate.originalTitle ?? undefined, articleId: candidate.articleId ?? undefined });
       Object.assign(result, { prepared: candidate.id, ...outcome });
     }
   }

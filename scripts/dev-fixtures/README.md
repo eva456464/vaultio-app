@@ -128,3 +128,26 @@ Ghost with the site address `http://localhost:4800`. Received articles are at `G
 To try the hosted blog, map e.g. `blog.sunnyroofing.test` to 127.0.0.1 in `/etc/hosts`, set it up
 in Settings → Publishing (with the domain mock), then open `http://blog.sunnyroofing.test:3000/`.
 
+
+## WordPress site with existing posts (`mock-wordpress.py`)
+
+Stands in for a client's own WordPress site at `http://sunnyroofing.test`: the REST API (posts
+list, a post in edit context, updates, new posts and media) and the live post pages, with posts
+that weren't written by Vaultio: a block-editor post with images, a table, an embed, a styled
+paragraph and a Yoast FAQ block (`wordpress/metal-roof-cost.html`), a classic-editor post with a
+caption shortcode and a custom SEO title and description (`wordpress/flat-roof-leaks.html`), an
+Elementor post, a post without Search Console data and the WordPress copy of Vaultio's article.
+Every other path is served from `testsite/`, so it replaces `serve-testsite.py` on port 80. Posts
+are kept in memory and reset on restart.
+
+```bash
+python3 scripts/dev-fixtures/mock-wordpress.py 80
+```
+
+Connect WordPress in Settings → Publishing with the site URL `http://sunnyroofing.test`, any
+username and any application password of 16+ characters. Then, with the Google mock's Search
+Console data synced:
+
+```bash
+npx tsx --tsconfig tsconfig.json scripts/test-wordpress-improvements.ts <siteId> --publish
+```

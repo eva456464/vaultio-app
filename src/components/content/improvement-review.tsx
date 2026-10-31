@@ -75,7 +75,7 @@ export function ImprovementReview({ id, status, changes: initial, flags, canEdit
                 <a href={flag.changeId ? `#change-${flag.changeId}` : undefined} className="font-medium text-ink hover:underline">
                   {t.has(`safety.checks.${flag.check}`) ? t(`safety.checks.${flag.check}` as "safety.checks.placeholders") : flag.check}
                 </a>
-                <span className="ml-2 break-all text-ink-secondary">{flag.detail}</span>
+                <span className="ml-2 break-all text-ink-secondary">{flag.check === "lostElements" && t.has(`elements.${flag.detail}`) ? t(`elements.${flag.detail}` as "elements.image") : flag.detail}</span>
               </li>
             ))}
           </ul>

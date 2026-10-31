@@ -1,4 +1,4 @@
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, PenLine } from "lucide-react";
 import { notFound } from "next/navigation";
 import { getFormatter, getTranslations } from "next-intl/server";
 import { ImprovementReview, type ReviewChange } from "@/components/content/improvement-review";
@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { pathOf } from "@/lib/paths";
 import { getAppContext } from "@/server/context";
 import { protectBlocks } from "@/server/improvements/sections";
+import { documentStats, documentView, parseWordpress } from "@/server/improvements/wordpress/blocks";
 import { renderArticleHtml } from "@/server/markdown";
 import { getImprovement } from "@/server/queries/improvements";
 
@@ -17,8 +18,19 @@ export default async function ImprovementPage({ params }: PageProps<"/[locale]/d
   if (!data) notFound();
   const { improvement, article, impact } = data;
   const [t, tList, format] = await Promise.all([getTranslations("content.improvements.detail"), getTranslations("content.improvements"), getFormatter()]);
-  // CTA and video cards are kept as they are; in the preview they show as a note.
-  const html = (markdown?: string) => (markdown === undefined ? undefined : renderArticleHtml(protectBlocks(markdown).replace(/\[\[KEEP-\d+\]\]/g, `*${t("card")}*`)));
+  // CTA and video cards (and a WordPress post's other elements) are kept as they are; in the preview they show as a note.
+  const post = improvement.source === "wordpress" && improvement.originalContent !== null ? improvement.originalContent : null;
+  const elements = post === null ? null : documentView(parseWordpress(post)).elements;
+  const note = (index: number) => {
+    const element = elements?.[index];
+    if (!element) return t("card");
+    const name = t(`elements.${element.kind}`);
+    return element.text ? t("elementText", { element: name, text: element.text }) : t("element", { element: name });
+  };
+  const html = (markdown?: string) =>
+    markdown === undefined ? undefined : renderArticleHtml((elements ? markdown : protectBlocks(markdown)).replace(/\[\[KEEP-(\d+)\]\]/g, (_, index: string) => `*${note(Number(index)).replace(/[*_[\]]/g, "\\$&")}*`));
+  const stats = post === null ? null : documentStats(post, site.url);
+  const wordpress = improvement.wordpress;
   const changes: ReviewChange[] = improvement.changes.map((change) =>
     change.kind === "rewrite" || change.kind === "add" ? { ...change, originalHtml: html(change.original), suggestedHtml: html(change.suggested) } : change,
   );
@@ -77,6 +89,43 @@ export default async function ImprovementPage({ params }: PageProps<"/[locale]/d
                 <ExternalLink className="size-3.5" />
               </Link>
               <p className="mt-1 truncate text-xs text-ink-subtle">{pathOf(improvement.pageUrl)}</p>
+            </section>
+          )}
+          {stats && wordpress && (
+            <section className="rounded-2xl border border-line bg-white p-5">
+              <p className="text-[15px] font-semibold text-ink">{t("post")}</p>
+              <dl className="mt-3 divide-y divide-line text-sm">
+                {[
+                  [t("words"), stats.words],
+                  [t("internalLinks"), stats.internalLinks],
+                  [t("externalLinks"), stats.externalLinks],
+                ].map(([name, value]) => (
+                  <div key={String(name)} className="flex justify-between py-2">
+                    <dt className="text-ink-secondary">{name}</dt>
+                    <dd className="tabular-nums text-ink">{format.number(Number(value))}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+                <a href={improvement.pageUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-sm font-medium text-ink hover:underline">
+                  {t("viewPost")}
+                  <ExternalLink className="size-3.5" />
+                </a>
+                {wordpress.editUrl && (
+                  <a href={wordpress.editUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-sm font-medium text-ink hover:underline">
+                    {t("editInWordpress")}
+                    <PenLine className="size-3.5" />
+                  </a>
+                )}
+              </div>
+              <p className="mt-1 truncate text-xs text-ink-subtle">{pathOf(improvement.pageUrl)}</p>
+              {(wordpress.titleWritable === false || wordpress.metaWritable === false || improvement.status === "pending_review") && (
+                <div className="mt-3 space-y-1.5 border-t border-line pt-3 text-xs text-ink-secondary">
+                  {wordpress.titleWritable === false && <p>{t("seoTitle")}</p>}
+                  {wordpress.metaWritable === false && <p>{t("seoMeta")}</p>}
+                  {improvement.status === "pending_review" && <p>{t("revisions")}</p>}
+                </div>
+              )}
             </section>
           )}
           {improvement.queries.length > 0 && (

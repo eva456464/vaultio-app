@@ -39,7 +39,7 @@ Ground rules that apply to everything below:
 | Overview | `/dashboard/overview` | Built: daily agent activity, planned actions, agents waiting for keys, achievements, what we learned (brand profile), traffic sources card |
 | Blog content: calendar | `/dashboard/content-plan` | Built: change topic, instructions, delete, add keywords |
 | Blog content: article | `/dashboard/articles/[id]` | Built: article with images and CTA cards, cover image panel (regenerate, up to 5 times), sources, FAQ, quality checks, publish now, export |
-| Blog content: improvements | `/dashboard/content-plan/improvements` + `/[id]` | Built: opportunities with evidence, status, discard, how it works; review page with per-change approve/reject, safety flags, publish, impact |
+| Blog content: improvements | `/dashboard/content-plan/improvements` + `/[id]` | Built: opportunities with evidence, status, discard, how it works; review page with per-change approve/reject, safety flags, publish, impact; existing WordPress posts marked as such, with their kept elements, post data and an "Edit in WordPress" link |
 | Site health | `/dashboard/geo-audit` + public share page | Built |
 | AI visibility (overview, prompts, brands, sources, prompt detail) | `/dashboard/ai-visibility` | Built |
 | Reporting | `/dashboard/reporting` | Built: sections, live preview, Download PDF, monthly email |
@@ -69,7 +69,7 @@ Ground rules that apply to everything below:
 | Monthly client report email | Built (Resend) |
 | Article images, CTA cards, promo paragraph, YouTube video | Built (OpenAI or Gemini images; Claude for scenes, wording and the video search) |
 | Google Analytics sync, AI traffic report, Google rankings check (Search Console) | Built |
-| Article improvements (scan + improve) | Built for articles Vaultio wrote; existing WordPress posts later |
+| Article improvements (scan + improve) | Built for articles Vaultio wrote (any platform) and existing WordPress posts (block and classic editor, keeping their images, embeds, tables, plugin blocks and styling; page-builder posts are skipped) |
 | Backlink exchange: placement in new articles, daily live check, credits | Built |
 | Reddit and Quora: keyword suggestions, weekly thread search (Google via DataForSEO, or Claude web search), relevance scoring, reply drafts | Built (Claude; DataForSEO and the Reddit Data API optional) |
 | Infographics: one per article, Editorial or Classic style, numbers checked against the article | Built (Claude picks the section and data; Vaultio draws it in the brand colours and logo; the Editorial illustration needs OpenAI or Gemini) |
@@ -105,6 +105,16 @@ Ground rules that apply to everything below:
   an article written with a stand-in answer got its infographic with the site's logo and colour at
   the end of the right section; made-up numbers and bars that don't match their labels are rejected;
   the Visuals switch saves on and off.
+- Improvements of existing WordPress posts, against a mock WordPress site with a block-editor post
+  (image, table, embed, styled paragraph, anchored heading, Yoast FAQ and table of contents), a
+  classic-editor post (caption shortcode, "more" marker, custom SEO title) and an Elementor post
+  (`scripts/test-wordpress-improvements.ts`, `scripts/dev-fixtures/mock-wordpress.py`): every post
+  reassembles byte for byte, untouched sections stay byte for byte the same after publishing, every
+  element and the link attributes survive a rewrite, the competitor link is removed, the SEO-plugin
+  title and description are left alone, the Elementor post is skipped and a post edited in WordPress
+  in the meantime isn't overwritten. The list and review pages were checked in a browser, and a
+  classic post was published from the review page. Improvements of Vaultio's own articles were run
+  again end to end.
 
 ## Not yet tested with real keys
 
@@ -136,20 +146,24 @@ These are written against the providers' documentation but have not run live yet
   written from their documented APIs, which couldn't be fetched from this workspace to double-check.
 - Infographic specs from real Claude (how often it finds a section worth charting and passes the
   number checks), and the Editorial illustration from a real image provider.
+- Improving existing posts on a real WordPress site: how real posts from different themes and
+  plugins are cut into pieces, whether WordPress's editor accepts the new blocks without a
+  "This block contains unexpected content" notice (they are written like the site's own blocks, in
+  the older form when unsure), detection of SEO-plugin titles and descriptions from the live page,
+  and Claude keeping the element tokens in place.
 
 The first live run on the Mac should be watched; fixes are expected to be small (field names,
 limits).
 
 ## Still to build, in recommended order
 
-1. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
-2. **Product catalog** settings (Shopify / WooCommerce products mentioned in articles).
-3. **More languages**: content in extra languages per website (the Scale plan's 3 languages and the
+1. **Product catalog** settings (Shopify / WooCommerce products mentioned in articles).
+2. **More languages**: content in extra languages per website (the Scale plan's 3 languages and the
    language add-on), and translations of the app itself. Infographics will need Chinese, Japanese,
    Korean and Arabic fonts for those languages.
-4. **Remaining publishing platforms**: Framer (needs a Vaultio Framer plugin published on Framer's
+3. **Remaining publishing platforms**: Framer (needs a Vaultio Framer plugin published on Framer's
    marketplace), Lovable, GoHighLevel, Duda, BigCommerce.
-5. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
+4. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
    `app.vaultio.co` at Vaultio instead of the Babylovegrowth white label.
 
 White-label items not built yet: a white-labelled WordPress plugin, and Google sign-in on agency
@@ -221,6 +235,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Agency settings and white label: profile (language, account deletion), members, branding, hosting and sending domains, talk with team, password reset | `main` 2fb49a4 |
 | Publishing to Shopify, Webflow, Wix and Ghost, and the hosted blog on clients' subdomains | `main` 830fc80 |
 | Infographics: one per article, Editorial or Classic, numbers checked against the article | `main` 6e2e5ab |
+| Improvements for existing WordPress posts (block and classic editor), keeping their blocks and styling | `main` (this commit) |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

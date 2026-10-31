@@ -76,7 +76,7 @@ export async function deliverWebhook(url: string, credentials: WebhookCredential
   }
 }
 
-const wordpressAuth = (credentials: WordpressCredentials) => `Basic ${Buffer.from(`${credentials.username}:${credentials.appPassword.replace(/\s+/g, "")}`).toString("base64")}`;
+export const wordpressAuth = (credentials: WordpressCredentials) => `Basic ${Buffer.from(`${credentials.username}:${credentials.appPassword.replace(/\s+/g, "")}`).toString("base64")}`;
 
 /** Uploads one of our images to the WordPress media library (once per image). */
 async function uploadToWordpress(api: string, credentials: WordpressCredentials, mediaId: string, name: string, altText: string, uploads: WordpressDelivery["uploads"]) {

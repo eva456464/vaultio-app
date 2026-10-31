@@ -34,7 +34,7 @@ export default async function ImprovementsPage() {
           <div>
             <h2 className="text-[22px] font-semibold tracking-[-0.44px] text-ink">{t("title")}</h2>
             <p className="mt-1 text-[15px] text-ink-secondary">{t("subtitle")}</p>
-            <p className="mt-1 text-xs text-ink-subtle">{t("scope", { brand: brand.name })}</p>
+            <p className="mt-1 text-xs text-ink-subtle">{t(data.wordpressConnected ? "scope.wordpress" : "scope.vaultio", { brand: brand.name })}</p>
           </div>
           <HowItWorks />
         </div>
@@ -80,6 +80,8 @@ export default async function ImprovementsPage() {
                 approved: improvement.changes.filter((change) => change.status === "approved").length,
                 rejected: improvement.changes.filter((change) => change.status === "rejected").length,
                 error: improvement.error,
+                wordpress: improvement.source === "wordpress",
+                builder: improvement.status === "no_changes" ? (improvement.wordpress?.builder ?? null) : null,
               }))}
             />
           </div>

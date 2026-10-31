@@ -24,6 +24,10 @@ export type ImprovementRow = {
   approved: number;
   rejected: number;
   error: string | null;
+  /** An existing post on the client's WordPress site (not written by Vaultio). */
+  wordpress: boolean;
+  /** Page builder that kept the post from being improved. */
+  builder: string | null;
 };
 
 const STATUS_STYLE: Partial<Record<ImprovementStatus, string>> = {
@@ -60,6 +64,8 @@ export function HowItWorks() {
           </ol>
           <p className="mt-6 text-sm font-semibold text-ink">{t("how.eligibilityTitle")}</p>
           <p className="mt-1 text-sm text-ink-secondary">{t("how.eligibility")}</p>
+          <p className="mt-6 text-sm font-semibold text-ink">{t("how.scopeTitle")}</p>
+          <p className="mt-1 text-sm text-ink-secondary">{t("how.scope")}</p>
         </DialogContent>
       </Dialog>
     </>
@@ -114,6 +120,7 @@ export function ImprovementsList({ rows, nextDay, canEdit }: { rows: Improvement
             <li key={row.id} className="card p-5">
               <div className="flex flex-wrap items-center gap-2">
                 <span className={cn("rounded-full px-2.5 py-1 text-xs font-medium", STATUS_STYLE[row.status] ?? "bg-[#F3F4F6] text-ink-secondary")}>{t(`status.${row.status}`)}</span>
+                {row.wordpress && <span className="rounded-full bg-[#F3F4F6] px-2.5 py-1 text-xs font-medium text-ink-secondary">{t("existingPost")}</span>}
                 {row.opportunity && (
                   <Tooltip content={opportunityHint}>
                     <span className="cursor-help rounded-full border border-brand/30 bg-brand/5 px-2.5 py-1 text-xs font-medium text-brand">{opportunityName}</span>
@@ -132,6 +139,7 @@ export function ImprovementsList({ rows, nextDay, canEdit }: { rows: Improvement
                   <p className="truncate text-xs text-ink-subtle">{pathOf(row.pageUrl)}</p>
                   {row.opportunity && row.evidence && <Evidence opportunity={row.opportunity} evidence={row.evidence} />}
                   {row.status === "failed" && row.error && <p className="mt-2 text-sm text-[#9A3412]">{row.error}</p>}
+                  {row.builder && <p className="mt-2 text-sm text-ink-secondary">{t("builder", { builder: row.builder })}</p>}
                 </div>
                 <div className="flex shrink-0 flex-col items-end gap-2 text-sm">
                   {row.status === "pending_review" && (
