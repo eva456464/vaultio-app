@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Sunny Roofing Shop</title>
+    <link>https://shop.sunnyroofing.test</link>
+    <item>
+      <g:id>RV-1-8FT</g:id>
+      <g:item_group_id>RV-1</g:item_group_id>
+      <title>Ridge Vent - 8 ft</title>
+      <g:title>Shingle-Over Ridge Vent</g:title>
+      <g:description>Low-profile ridge vent that lets attic heat and moisture escape along the peak.</g:description>
+      <g:link>https://shop.sunnyroofing.test/products/ridge-vent</g:link>
+      <g:image_link>http://127.0.0.1:4900/images/ridge-vent.png</g:image_link>
+      <g:price>34.99 USD</g:price>
+      <g:brand>GAF</g:brand>
+      <g:product_type>Ventilation &gt; Ridge vents</g:product_type>
+      <g:availability>in stock</g:availability>
+    </item>
+    <item>
+      <g:id>RV-1-20FT</g:id>
+      <g:item_group_id>RV-1</g:item_group_id>
+      <g:title>Shingle-Over Ridge Vent</g:title>
+      <g:link>https://shop.sunnyroofing.test/products/ridge-vent?variant=20</g:link>
+      <g:price>79.99 USD</g:price>
+    </item>
+    <item>
+      <g:id>SG-1</g:id>
+      <g:title>Metal Roof Snow Guards (10-pack)</g:title>
+      <g:description>Clamp-on snow guards for standing seam metal roofs.</g:description>
+      <g:link>https://shop.sunnyroofing.test/products/snow-guards</g:link>
+      <g:image_link>http://127.0.0.1:4900/images/snow-guards.png</g:image_link>
+      <g:price>1.249,00 EUR</g:price>
+      <g:sale_price>119.00 USD</g:sale_price>
+      <g:brand>RoofGuard</g:brand>
+      <g:product_type>Metal roofs &gt; Accessories</g:product_type>
+    </item>
+  </channel>
+</rss>

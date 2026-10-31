@@ -28,6 +28,12 @@ function blockHtml(block: ArticleBlock, accent: string) {
     }
     case "map":
       return `<aside class="vaultio-cta vaultio-cta-map" style="${card}"><div style="padding:20px 24px;display:flex;gap:14px;align-items:flex-start"><span aria-hidden="true" style="flex:none;width:40px;height:40px;border-radius:12px;background:${accent};color:#fff;display:grid;place-items:center;font-size:20px">&#9906;</span><div><p style="margin:0 0 4px;font-size:1.15em;font-weight:700">${esc(block.title)}</p><p style="margin:0 0 12px">${esc(block.address)}</p><a href="${safeHref(block.mapsUrl)}" style="${button}">Google Maps &rarr;</a></div></div></aside>`;
+    case "product": {
+      const image = block.imageUrl && /^https?:\/\//i.test(block.imageUrl)
+        ? `<a href="${safeHref(block.url)}" style="flex:none;display:block;width:140px;height:140px;border-radius:12px;overflow:hidden;background:#f3f4f6"><img src="${esc(block.imageUrl)}" alt="${esc(block.name)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></a>`
+        : "";
+      return `<aside class="vaultio-cta vaultio-product" style="${card}"><div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:20px;align-items:center">${image}<div style="flex:1;min-width:200px"><p style="margin:0 0 4px;font-size:1.15em;font-weight:700;line-height:1.3"><a href="${safeHref(block.url)}" style="color:inherit;text-decoration:none">${esc(block.name)}</a></p>${block.priceLabel ? `<p style="margin:0 0 8px;font-weight:600;color:${accent}">${esc(block.priceLabel)}</p>` : ""}<p style="margin:0 0 14px">${esc(block.pitch)}</p><a href="${safeHref(block.url)}" style="${button}">${esc(block.buttonLabel)} &rarr;</a></div></div></aside>`;
+    }
     case "video":
       return `<figure class="vaultio-video" style="margin:2em 0"><div style="position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/${esc(block.videoId)}" title="${esc(block.title)}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><figcaption style="margin-top:8px;font-size:.9em;color:#6b7280">${esc(block.title)}</figcaption></figure>`;
   }

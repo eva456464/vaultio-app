@@ -1,0 +1,5 @@
+id,title,description,link,image_link,price,currency_code,brand,product_type
+SR-101,Mesh Gutter Guard (5-pack),"Stainless micro-mesh guards that keep leaves and pine needles out of 5"" gutters.",https://shop.sunnyroofing.test/products/mesh-gutter-guard,http://127.0.0.1:4900/images/gutter-guard.png,49.99,USD,Sunny Roofing,Gutters > Guards
+SR-102,Elastomeric Roof Coating 5 gal,"Reflective white coating for flat and low-slope roofs; seals hairline cracks and lowers attic heat.",https://shop.sunnyroofing.test/products/roof-coating,http://127.0.0.1:4900/images/roof-coating.png,"189,00",USD,Sunny Roofing,Flat roofs > Coatings
+SR-103,Skylight Flashing Kit,Step flashing and sealant for curb-mounted skylights up to 30 x 46 in.,https://shop.sunnyroofing.test/products/skylight-flashing-kit,,74.5,USD,Velux,Skylights
+SR-104,Roof Inspection Voucher,A full roof inspection with a written report and photos.,,,,USD,Sunny Roofing,Services

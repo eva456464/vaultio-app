@@ -53,6 +53,8 @@ export const ACTIVITY_TYPES = [
   "quoraOpportunitiesFound",
   "backlinkCreditsAdded",
   "articleSentAsDraft",
+  "catalogSynced",
+  "productsMatched",
 ] as const;
 export type ActivityType = (typeof ACTIVITY_TYPES)[number];
 
@@ -365,6 +367,10 @@ export const INTEGRATION_TYPES = [
   "api",
   "gsc",
   "ga4",
+  // Product catalog sources (Settings → Product catalog), separate from blog publishing.
+  "shopify_catalog",
+  "woocommerce",
+  "product_feed",
 ] as const;
 export type IntegrationType = (typeof INTEGRATION_TYPES)[number];
 

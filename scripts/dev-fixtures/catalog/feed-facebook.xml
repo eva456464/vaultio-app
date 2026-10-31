@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0">
+  <title>Sunny Roofing catalog</title>
+  <entry>
+    <g:id>FB-1</g:id>
+    <g:title>Roof Leak Repair Tape</g:title>
+    <g:description>Butyl tape for emergency leak repairs on flashing and seams.</g:description>
+    <g:link>https://shop.sunnyroofing.test/products/leak-tape</g:link>
+    <g:image_link>http://127.0.0.1:4900/images/leak-tape.png</g:image_link>
+    <g:price>24.95 USD</g:price>
+    <g:brand>Sunny Roofing</g:brand>
+    <g:availability>in stock</g:availability>
+  </entry>
+</feed>

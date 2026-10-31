@@ -13,6 +13,7 @@ const SIZES: Record<Kind, { width: number; height: number }> = {
   body: { width: 1200, height: 800 },
   upload: { width: 1600, height: 1200 },
   infographic: { width: 1600, height: 4000 },
+  product: { width: 1200, height: 1200 },
 };
 
 export const mediaBaseUrl = () => (process.env.APP_URL || process.env.BETTER_AUTH_URL || "http://localhost:3000").replace(/\/$/, "");
@@ -26,8 +27,8 @@ export function mediaIdFromUrl(url: string) {
 export async function storeImage(input: { siteId: number; articleId?: number | null; kind: Kind; bytes: Buffer; prompt?: string; model?: string }) {
   const size = SIZES[input.kind];
   const { data, info } = await sharp(input.bytes)
-    // Uploads and infographics keep their proportions; infographics keep text crisp with a higher quality.
-    .resize(size.width, size.height, { fit: input.kind === "upload" || input.kind === "infographic" ? "inside" : "cover", position: "centre", withoutEnlargement: input.kind === "upload" || input.kind === "infographic" })
+    // Uploads, product photos and infographics keep their proportions; infographics keep text crisp with a higher quality.
+    .resize(size.width, size.height, { fit: ["upload", "infographic", "product"].includes(input.kind) ? "inside" : "cover", position: "centre", withoutEnlargement: ["upload", "infographic", "product"].includes(input.kind) })
     .webp({ quality: input.kind === "infographic" ? 90 : 80 })
     .toBuffer({ resolveWithObject: true });
   const id = randomBytes(15).toString("base64url");

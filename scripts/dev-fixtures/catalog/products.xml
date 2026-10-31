@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+  <product>
+    <id>SR-201</id>
+    <title>Solar Attic Fan</title>
+    <description>Solar-powered fan that pulls hot air out of the attic to extend shingle life.</description>
+    <link>https://shop.sunnyroofing.test/products/solar-attic-fan</link>
+    <image_link>http://127.0.0.1:4900/images/attic-fan.png</image_link>
+    <price>329.00</price>
+    <currency_code>USD</currency_code>
+    <brand>Sunny Roofing</brand>
+    <product_type>Ventilation &gt; Attic fans</product_type>
+  </product>
+  <product>
+    <id>SR-202</id>
+    <title>Copper Rain Chain</title>
+    <link>https://shop.sunnyroofing.test/products/copper-rain-chain</link>
+    <price>89 USD</price>
+  </product>
+</products>

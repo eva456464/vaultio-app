@@ -6,7 +6,7 @@
 import { addDays, formatISO, getDate, getDay } from "date-fns";
 import { toZonedTime } from "date-fns-tz";
 
-export type Requirement = "ga4" | "gsc" | "llm" | "keywordData" | "authorityData" | "email";
+export type Requirement = "ga4" | "gsc" | "llm" | "keywordData" | "authorityData" | "email" | "catalog" | "products";
 
 export type Cadence =
   | { kind: "daily" }
@@ -39,6 +39,8 @@ export const AGENT_JOBS = [
   "backlinkCheck",
   "redditSearch",
   "quoraSearch",
+  "catalogSync",
+  "productMatching",
 ] as const;
 export type AgentJob = (typeof AGENT_JOBS)[number];
 
@@ -65,6 +67,10 @@ export const AGENT_SCHEDULE: ScheduledAgent[] = [
   // Daily, but each monitored keyword is searched only once a week (and soon after it is added).
   { job: "redditSearch", cadence: { kind: "daily" }, requires: ["llm"] },
   { job: "quoraSearch", cadence: { kind: "daily" }, requires: ["llm"] },
+  // Keeps products from the connected store and product feed up to date.
+  { job: "catalogSync", cadence: { kind: "daily" }, requires: ["catalog"] },
+  // Proposes products for upcoming articles when the catalog or the plan changed (Claude when available).
+  { job: "productMatching", cadence: { kind: "daily" }, requires: ["products"] },
 ];
 
 /** Calendar day (YYYY-MM-DD) in the site's time zone. */

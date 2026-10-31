@@ -55,7 +55,7 @@ Ground rules that apply to everything below:
 | Invitation | `/invite/[token]` | Built: create an account or sign in with the invited email, then join |
 | Settings: White label ("Branding and domains") | `/dashboard/settings/white-label` | Built: brand (name, logo, favicon, colours, preview) and domains (hosting + email sending, DNS records, check again) |
 | Agency settings: Profile, Members, Branding, Hosting, Talk with team | `/clients/settings/*` | Built (Profile also on Settings → Account: dashboard language and account deletion after 14 days) |
-| Settings: Product catalog | `/dashboard/settings/product-catalog` | **Placeholder** |
+| Settings: Product catalog | `/dashboard/settings/product-catalog` | Built: Shopify and WooCommerce connection wizards, sync status and "Sync catalog", products table with search, status filter, paging and "Include in articles", add by hand (with photo), file import (XML, CSV, Excel), Google Shopping / Facebook feeds, synced product view; product picker in the article instructions, product chips in the calendar, featured products on the article page |
 
 ### Agents
 
@@ -72,6 +72,7 @@ Ground rules that apply to everything below:
 | Article improvements (scan + improve) | Built for articles Vaultio wrote (any platform) and existing WordPress posts (block and classic editor, keeping their images, embeds, tables, plugin blocks and styling; page-builder posts are skipped) |
 | Backlink exchange: placement in new articles, daily live check, credits | Built |
 | Reddit and Quora: keyword suggestions, weekly thread search (Google via DataForSEO, or Claude web search), relevance scoring, reply drafts | Built (Claude; DataForSEO and the Reddit Data API optional) |
+| Product catalog: catalog sync (Shopify, WooCommerce, feeds) and product matching for upcoming articles; articles link their products and show a product card | Built (matching uses Claude when available, otherwise distinctive words of the product name) |
 | Infographics: one per article, Editorial or Classic style, numbers checked against the article | Built (Claude picks the section and data; Vaultio draws it in the brand colours and logo; the Editorial illustration needs OpenAI or Gemini) |
 
 ### How it was checked
@@ -105,6 +106,15 @@ Ground rules that apply to everything below:
   an article written with a stand-in answer got its infographic with the site's logo and colour at
   the end of the right section; made-up numbers and bars that don't match their labels are rejected;
   the Visuals switch saves on and off.
+- Product catalog, against a local store and feed mock (`scripts/dev-fixtures/mock-store.py`) in a
+  browser: Shopify connect (wrong and right credentials) and sync through the worker, WooCommerce
+  errors (wrong key, key without Read access, a store URL that redirects) and sync, one store platform
+  at a time, disconnect (synced products removed, manual kept), adding a product with a photo, CSV, XML
+  and Excel imports (photos copied), a Google Shopping feed with variants, search, filters, the include
+  switch and its URL rule, edit and delete. Matching and writing with stand-in answers
+  (`scripts/test-catalog.ts`): products matched only where they fit, nothing re-matched while the
+  catalog is unchanged, the article links its products and shows the card after the right paragraph;
+  the picker (edit, save, back to the suggestion) and the article page in a browser.
 - Improvements of existing WordPress posts, against a mock WordPress site with a block-editor post
   (image, table, embed, styled paragraph, anchored heading, Yoast FAQ and table of contents), a
   classic-editor post (caption shortcode, "more" marker, custom SEO title) and an Elementor post
@@ -146,6 +156,10 @@ These are written against the providers' documentation but have not run live yet
   written from their documented APIs, which couldn't be fetched from this workspace to double-check.
 - Infographic specs from real Claude (how often it finds a section worth charting and passes the
   number checks), and the Editorial illustration from a real image provider.
+- The product catalog against real stores: Shopify's GraphQL products query (field names from
+  Shopify's documentation, which couldn't be fetched from this workspace to double-check, API version
+  set by `SHOPIFY_API_VERSION`), WooCommerce's REST API on a real store, and real Google Merchant Center
+  and Facebook feeds; product matching with real Claude.
 - Improving existing posts on a real WordPress site: how real posts from different themes and
   plugins are cut into pieces, whether WordPress's editor accepts the new blocks without a
   "This block contains unexpected content" notice (they are written like the site's own blocks, in
@@ -157,13 +171,12 @@ limits).
 
 ## Still to build, in recommended order
 
-1. **Product catalog** settings (Shopify / WooCommerce products mentioned in articles).
-2. **More languages**: content in extra languages per website (the Scale plan's 3 languages and the
+1. **More languages**: content in extra languages per website (the Scale plan's 3 languages and the
    language add-on), and translations of the app itself. Infographics will need Chinese, Japanese,
    Korean and Arabic fonts for those languages.
-3. **Remaining publishing platforms**: Framer (needs a Vaultio Framer plugin published on Framer's
+2. **Remaining publishing platforms**: Framer (needs a Vaultio Framer plugin published on Framer's
    marketplace), Lovable, GoHighLevel, Duda, BigCommerce.
-4. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
+3. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
    `app.vaultio.co` at Vaultio instead of the Babylovegrowth white label.
 
 White-label items not built yet: a white-labelled WordPress plugin, and Google sign-in on agency
@@ -187,6 +200,9 @@ Left out on purpose:
 Smaller follow-ups:
 
 - Use the Vaultio dragon logo in place of the "V" mark.
+- Product catalog: products in generated article images (the reference turns packshots into
+  editorial visuals; Vaultio shows the real product photo in the product card instead), and a white
+  label for the Shopify app name shown to store owners.
 - Some timestamps (e.g. "API key last used") are formatted in the server's or browser's time zone;
   format them in the site's time zone to avoid mismatches in production.
 
@@ -236,6 +252,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Publishing to Shopify, Webflow, Wix and Ghost, and the hosted blog on clients' subdomains | `main` 830fc80 |
 | Infographics: one per article, Editorial or Classic, numbers checked against the article | `main` 6e2e5ab |
 | Improvements for existing WordPress posts (block and classic editor), keeping their blocks and styling | `main` a638a11 |
+| Product catalog: Shopify, WooCommerce, feeds and files; catalog sync and product matching agents; products in articles | `main` (this commit) |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

@@ -1,14 +1,16 @@
 "use client";
 
-import { ArrowRightLeft, Check, ChevronLeft, ChevronRight, MapPin, Pencil, Plus, Search, Trash2 } from "lucide-react";
+import { ArrowRightLeft, Check, ChevronLeft, ChevronRight, MapPin, Package, Pencil, Plus, Search, Trash2 } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { useMemo, useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogTitle } from "@/components/ui/dialog";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
+import { setTopicProducts } from "@/server/actions/catalog";
 import { addKeywords, changeTopic, deleteTopic, setTopicInstructions } from "@/server/actions/content";
 import type { AlternativeTopic, CalendarItem } from "@/server/queries/content";
+import { ProductPicker } from "./product-picker";
 
 const WEEKDAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] as const;
 const shiftMonth = (month: string, delta: number) => {
@@ -160,6 +162,12 @@ function CalendarCard({ item, alternatives }: { item: CalendarItem; alternatives
           )}
         </div>
       )}
+      {item.products.length > 0 && (
+        <p className="mt-3 inline-flex max-w-full items-center gap-1 rounded-full bg-brand/5 px-2 py-0.5 text-xs text-brand" title={item.products.map((product) => product.name).join(", ")}>
+          <Package className="size-3 shrink-0" />
+          <span className="truncate">{item.products.length === 1 ? item.products[0]!.name : t("productsChip", { count: item.products.length })}</span>
+        </p>
+      )}
       {typeLabel && (
         <p className="mt-4 border-t border-line pt-3 text-xs text-ink-secondary underline decoration-ink-subtle underline-offset-2">{typeLabel}</p>
       )}
@@ -276,10 +284,13 @@ function InstructionsDialog({ item, onClose }: { item: CalendarItem; onClose: ()
   const tCommon = useTranslations("common");
   const [instruction, setInstruction] = useState(item.instruction ?? "");
   const [supportUrl, setSupportUrl] = useState(item.supportUrl ?? "");
+  const [products, setProducts] = useState({ selected: item.products, custom: item.productsCustomized });
+  const [productsTouched, setProductsTouched] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
   return (
     <Dialog open onOpenChange={(open) => !open && onClose()}>
-      <DialogContent>
+      <DialogContent className="max-w-xl">
         <DialogTitle>{t("title")}</DialogTitle>
         <DialogDescription>{t("subtitle")}</DialogDescription>
         <label className="mt-5 block text-sm font-medium text-ink">
@@ -302,12 +313,26 @@ function InstructionsDialog({ item, onClose }: { item: CalendarItem; onClose: ()
             className="mt-1.5 h-11 w-full rounded-control border border-control px-3 text-sm outline-none focus:border-ink/40"
           />
         </label>
+        <ProductPicker
+          selected={products.selected}
+          custom={products.custom}
+          proposedIds={item.proposedProductIds}
+          onChange={(value) => {
+            setProducts(value);
+            setProductsTouched(true);
+          }}
+        />
+        {error && <p className="mt-3 rounded-xl bg-[#FBEAE6] p-3 text-sm text-[#9A3412]" role="alert">{error}</p>}
         <DialogFooter>
           <DialogClose asChild>
             <Button variant="outline" size="lg">{tCommon("cancel")}</Button>
           </DialogClose>
           <Button size="lg" disabled={pending} onClick={() => startTransition(async () => {
             await setTopicInstructions(item.id, { instruction, supportUrl: supportUrl.trim() });
+            if (productsTouched) {
+              const result = await setTopicProducts(item.id, products.custom ? products.selected.map((product) => product.id) : null);
+              if ("error" in result && result.error) return setError(result.error);
+            }
             onClose();
           })}>
             {t("save")}

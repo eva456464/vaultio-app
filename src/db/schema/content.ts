@@ -11,6 +11,7 @@ import {
   serial,
   text,
   timestamp,
+  uniqueIndex,
 } from "drizzle-orm/pg-core";
 import { orgWebsites } from "./organization";
 
@@ -87,8 +88,11 @@ export const contentPlanItems = pgTable(
     generationStatus: text("generation_status").$type<GenerationStatus>().notNull().default("queued"),
     userInstruction: text("user_instruction"),
     supportUrl: text("support_url"),
+    /** Products the agent matched to this topic, and the ones chosen by hand (used when productsCustomized). */
     proposedProductIds: jsonb("proposed_product_ids").$type<number[]>().notNull().default([]),
     selectedProductIds: jsonb("selected_product_ids").$type<number[]>().notNull().default([]),
+    productsCustomized: boolean("products_customized").notNull().default(false),
+    productsMatchedAt: timestamp("products_matched_at", { withTimezone: true }),
     isLocalKeyword: boolean("is_local_keyword").notNull().default(false),
     keywordLocation: text("keyword_location"),
     whyThisTopic: jsonb("why_this_topic").$type<string[]>().notNull().default([]),
@@ -117,7 +121,8 @@ export type ArticleBlock =
   | { kind: "link"; title: string; pitch: string; buttonLabel: string; buttonUrl: string }
   | { kind: "contact"; title: string; pitch: string; phone?: string; whatsapp?: string; email?: string }
   | { kind: "map"; title: string; address: string; mapsUrl: string }
-  | { kind: "video"; title: string; videoId: string };
+  | { kind: "video"; title: string; videoId: string }
+  | { kind: "product"; productId: number; name: string; url: string; imageUrl: string | null; priceLabel: string | null; pitch: string; buttonLabel: string };
 
 /** Where an article was delivered, so later updates change the same post instead of creating another. */
 /** Where an article was sent on each platform, so republishing updates the same post. */
@@ -176,6 +181,7 @@ export const articles = pgTable(
     feedbackComment: text("feedback_comment"),
     aiImageRegenerationCount: integer("ai_image_regeneration_count").notNull().default(0),
     blocks: jsonb("blocks").$type<ArticleBlock[]>().notNull().default([]),
+    featuredProducts: jsonb("featured_products").$type<FeaturedProduct[]>().notNull().default([]),
     deliveries: jsonb("deliveries").$type<ArticleDeliveries>().notNull().default({}),
     ...timestamps,
   },
@@ -196,7 +202,7 @@ export const mediaAssets = pgTable(
       .notNull()
       .references(() => orgWebsites.id, { onDelete: "cascade" }),
     articleId: integer("article_id").references(() => articles.id, { onDelete: "set null" }),
-    kind: text("kind").$type<"hero" | "body" | "upload" | "infographic">().notNull(),
+    kind: text("kind").$type<"hero" | "body" | "upload" | "infographic" | "product">().notNull(),
     mimeType: text("mime_type").notNull(),
     width: integer("width"),
     height: integer("height"),
@@ -289,18 +295,38 @@ export const articleImprovements = pgTable(
   (t) => [index("article_improvements_site_idx").on(t.orgWebsiteId, t.status)],
 );
 
-export const products = pgTable("products", {
-  id: serial("id").primaryKey(),
-  orgWebsiteId: integer("org_website_id")
-    .notNull()
-    .references(() => orgWebsites.id, { onDelete: "cascade" }),
-  source: text("source").$type<"manual" | "feed" | "shopify" | "woocommerce">().notNull(),
-  externalId: text("external_id"),
-  name: text("name").notNull(),
-  description: text("description"),
-  url: text("url"),
-  imageUrl: text("image_url"),
-  price: text("price"),
-  currency: text("currency"),
-  ...timestamps,
-});
+/** Where a catalog product comes from. File imports count as manual products. */
+export const PRODUCT_SOURCES = ["manual", "shopify", "woocommerce", "google_shopping", "facebook"] as const;
+export type ProductSource = (typeof PRODUCT_SOURCES)[number];
+
+/** The client's products (Settings → Product catalog), featured and linked in articles. */
+export const products = pgTable(
+  "products",
+  {
+    id: serial("id").primaryKey(),
+    orgWebsiteId: integer("org_website_id")
+      .notNull()
+      .references(() => orgWebsites.id, { onDelete: "cascade" }),
+    source: text("source").$type<ProductSource>().notNull(),
+    /** The product's id in its store, feed or import file (none for products added one by one). */
+    externalId: text("external_id"),
+    name: text("name").notNull(),
+    description: text("description"),
+    url: text("url"),
+    imageUrl: text("image_url"),
+    price: text("price"),
+    currency: text("currency"),
+    brand: text("brand"),
+    category: text("category"),
+    status: text("status").$type<"active" | "draft">().notNull().default("active"),
+    variants: integer("variants").notNull().default(1),
+    /** Whether articles may feature it (needs a product URL). Kept across syncs. */
+    includeInArticles: boolean("include_in_articles").notNull().default(true),
+    syncedAt: timestamp("synced_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (t) => [index("products_site_idx").on(t.orgWebsiteId, t.source), uniqueIndex("products_site_external_idx").on(t.orgWebsiteId, t.source, t.externalId)],
+);
+
+/** A product as featured in an article (kept as it was when the article was written). */
+export type FeaturedProduct = { id: number; name: string; url: string; imageUrl: string | null; price: string | null; currency: string | null };

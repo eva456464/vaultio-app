@@ -151,3 +151,24 @@ Console data synced:
 ```bash
 npx tsx --tsconfig tsconfig.json scripts/test-wordpress-improvements.ts <siteId> --publish
 ```
+
+## Store and product feed mock (`mock-store.py`)
+
+Stands in for a client's online store: Shopify's GraphQL Admin API (products, including a draft and
+an archived one), the WooCommerce REST API (with a variable product and a draft), Google Shopping and
+Facebook feeds (`catalog/feed-google.xml`, `catalog/feed-facebook.xml`) and product photos.
+
+```bash
+python3 scripts/dev-fixtures/mock-store.py 4900
+```
+
+Run the app (and the worker, which syncs the catalog) with `SHOPIFY_API_BASE=http://localhost:4900`.
+In Settings → Product catalog: Shopify with any store name, Client ID `catalog-client` and secret
+`catalog-secret`; WooCommerce with store URL `http://localhost:4900`, key `ck_test_catalog` and
+secret `cs_test_catalog` (`ck_writeonly` gives a key without Read access, a store URL ending in
+`/redirect` redirects to www); feeds at `http://localhost:4900/feeds/google.xml` and `/feeds/facebook.xml`.
+Files to import are in `catalog/` (`products.csv`, `products.xml`, `products.xlsx`). Then:
+
+```bash
+npx tsx --tsconfig tsconfig.json scripts/test-catalog.ts <siteId>
+```

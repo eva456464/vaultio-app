@@ -53,6 +53,8 @@ function ActivitySentence({ item }: { item: ActivityItem }) {
       return <>{t("aiVisibilityCheck", { count, mentions: item.total ?? 0 })}</>;
     case "domainRatingCheck":
       return <>{t("domainRatingCheck", { count: item.domainRating ?? count })}</>;
+    case "catalogSynced":
+      return <>{t("catalogSynced", { count, source: item.title ?? "" })}</>;
     case "articlePublished":
     case "articleWritten":
     case "topicResearched":

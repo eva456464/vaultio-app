@@ -19,6 +19,7 @@ import { images } from "@/server/ai/images";
 import { createArticleImages, findVideo, insertBodyImages, placeBlocks, planCtaBlocks, planImages } from "@/server/articles/visuals";
 import { placeBacklinks, recordPlacements, type Placement } from "@/server/backlinks/exchange";
 import { safeColor } from "@/server/brand";
+import { linkedProducts, productCard, productsBrief, productsForArticle } from "@/server/catalog/articles";
 import { createInfographic } from "@/server/infographics";
 import { renderArticleHtml } from "@/server/markdown";
 import { publishArticle } from "@/server/publishing/publish";
@@ -133,6 +134,13 @@ export async function writeArticle({ site, runDate }: JobContext) {
     .set({ articleGenerationAttempts: sql`${keywordClusters.articleGenerationAttempts} + 1` })
     .where(eq(keywordClusters.id, item.cluster.id));
 
+  // Products from the catalog to feature (matched to the topic, or chosen by hand).
+  const visualErrors: string[] = [];
+  const featured = await productsForArticle(site, item.plan, runDate).catch((error: Error) => {
+    visualErrors.push(`products: ${error.message}`);
+    return [];
+  });
+
   // 1. Research on the live web
   const competingPages = (item.plan.research?.serp ?? []).slice(0, 10).map((r) => `${r.position}. ${r.title} — ${r.url}`).join("\n");
   const research = await ai.research({
@@ -169,8 +177,10 @@ export async function writeArticle({ site, runDate }: JobContext) {
       `\nResearch notes:\n${research.notes}`,
       `\nSources you may cite (use these URLs only):\n${research.sources.map((s) => `- ${s.title}: ${s.url}`).join("\n")}`,
       site.includeInternalLinks && linkable.length ? `\nInternal pages you may link to:\n${linkable.map((p) => `- ${p.url}${p.title ? ` (${p.title})` : ""}`).join("\n")}` : "",
+      productsBrief(featured),
     ].join("\n"),
   });
+  const featuredProducts = linkedProducts(markdownBody, featured);
 
   // 3. Meta, FAQ and rationale
   const meta = await ai.generateObject({
@@ -185,7 +195,6 @@ export async function writeArticle({ site, runDate }: JobContext) {
   });
 
   // 4. Exchange links to partner sites, images, CTA cards and video (each optional; a failure here never stops the article)
-  const visualErrors: string[] = [];
   let body = markdownBody.trim();
   let placements: Placement[] = [];
   try {
@@ -229,6 +238,14 @@ export async function writeArticle({ site, runDate }: JobContext) {
     blocks.push(...(await planCtaBlocks(site, { title: meta.title, keyword })));
   } catch (error) {
     visualErrors.push(`cta: ${(error as Error).message}`);
+  }
+  if (featuredProducts[0]) {
+    try {
+      const first = featured.find((product) => product.id === featuredProducts[0]!.id);
+      blocks.push(await productCard(site, featuredProducts[0], { title: meta.title, keyword }, first?.description ?? null));
+    } catch (error) {
+      visualErrors.push(`product card: ${(error as Error).message}`);
+    }
   }
   if (site.includeYoutube) {
     try {
@@ -289,6 +306,7 @@ export async function writeArticle({ site, runDate }: JobContext) {
       heroImageUrl: hero?.url ?? null,
       media,
       blocks,
+      featuredProducts,
       outline: (markdown.match(/^## .+$/gm) ?? []).map((heading) => heading.slice(3)),
       jsonLd: site.includeJsonLd ? jsonLd : null,
       faqJsonLd: site.includeFaqJsonLd ? faqJsonLd : null,
@@ -323,5 +341,5 @@ export async function writeArticle({ site, runDate }: JobContext) {
     published = result.published;
   }
   if (!published) await logActivity(site.id, "articleWritten", { title: meta.title, articleId: article!.id });
-  return { articleId: article!.id, words: wordCount, sources: citedSources.length, images: media.length, blocks: blocks.map((block) => block.kind), backlinks: placements.length, published };
+  return { articleId: article!.id, words: wordCount, sources: citedSources.length, images: media.length, blocks: blocks.map((block) => block.kind), backlinks: placements.length, products: featuredProducts.length, published };
 }

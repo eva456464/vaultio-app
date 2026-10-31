@@ -1,10 +1,11 @@
 import "server-only";
 import { addDays, endOfMonth, endOfWeek, formatISO, startOfMonth, startOfWeek } from "date-fns";
-import { and, asc, desc, eq, gte, isNotNull, isNull, lte, sql } from "drizzle-orm";
+import { and, asc, desc, eq, gte, inArray, isNotNull, isNull, lte, sql } from "drizzle-orm";
 import { db } from "@/db";
-import { articles, contentPlanItems, keywordClusters, seedKeywords } from "@/db/schema";
+import { articles, contentPlanItems, keywordClusters, products, seedKeywords } from "@/db/schema";
 import type { Site } from "../agents/jobs/types";
 import { siteDay } from "../agents/schedule";
+import { effectiveProductIds } from "../catalog/matching";
 
 const iso = (date: Date) => formatISO(date, { representation: "date" });
 
@@ -23,7 +24,12 @@ export type CalendarItem = {
   instruction: string | null;
   supportUrl: string | null;
   isLocal: boolean;
+  /** Products the article features: chosen by hand, proposed by the agent, or (once written) linked in it. */
+  products: CalendarProduct[];
+  productsCustomized: boolean;
+  proposedProductIds: number[];
 };
+export type CalendarProduct = { id: number; name: string; imageUrl: string | null; url: string | null };
 
 /** Calendar grid for a month (full weeks, Monday first) plus plan-wide counts. */
 export async function getContentCalendar(site: Site, month: string | undefined) {
@@ -35,7 +41,7 @@ export async function getContentCalendar(site: Site, month: string | undefined) 
   const rows = await db
     .select({
       plan: contentPlanItems,
-      article: { id: articles.id, title: articles.title, publishedUrl: articles.publishedUrl, type: articles.articleType },
+      article: { id: articles.id, title: articles.title, publishedUrl: articles.publishedUrl, type: articles.articleType, featuredProducts: articles.featuredProducts },
       keyword: seedKeywords.value,
       volume: seedKeywords.avgSearchVolume,
       difficulty: seedKeywords.keywordDifficulty,
@@ -54,6 +60,10 @@ export async function getContentCalendar(site: Site, month: string | undefined) 
     )
     .orderBy(asc(contentPlanItems.scheduledFor));
 
+  const wanted = [...new Set(rows.flatMap((row) => (row.article?.id ? [] : effectiveProductIds(row.plan))))];
+  const catalog = new Map(
+    (wanted.length ? await db.select({ id: products.id, name: products.name, imageUrl: products.imageUrl, url: products.url }).from(products).where(and(eq(products.orgWebsiteId, site.id), inArray(products.id, wanted))) : []).map((product) => [product.id, product]),
+  );
   const items: CalendarItem[] = rows.map((row) => ({
     id: row.plan.id,
     day: row.plan.scheduledFor,
@@ -67,6 +77,11 @@ export async function getContentCalendar(site: Site, month: string | undefined) 
     instruction: row.plan.userInstruction,
     supportUrl: row.plan.supportUrl,
     isLocal: row.plan.isLocalKeyword,
+    products: row.article?.id
+      ? row.article.featuredProducts.map((product) => ({ id: product.id, name: product.name, imageUrl: product.imageUrl, url: product.url }))
+      : effectiveProductIds(row.plan).flatMap((id) => (catalog.has(id) ? [catalog.get(id)!] : [])),
+    productsCustomized: row.plan.productsCustomized,
+    proposedProductIds: row.plan.proposedProductIds,
   }));
 
   const [counts] = await db

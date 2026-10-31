@@ -22,6 +22,7 @@ import { backlinkCheck, joinBacklinkExchange } from "../backlinks/exchange";
 import { quoraSearch, redditSearch } from "../community/agent";
 import { aiVisibilityCheck } from "./jobs/visibility";
 import { writeArticle } from "./jobs/writer";
+import { catalogSync, productMatching } from "./jobs/catalog";
 import type { JobHandler } from "./jobs/types";
 import type { AgentJobName } from "./queue";
 import type { Requirement } from "./schedule";
@@ -53,6 +54,8 @@ export const JOB_REGISTRY: Record<AgentJobName, Registration> = {
   backlinkCheck: { requires: [], handler: backlinkCheck },
   redditSearch: { requires: ["llm"], handler: redditSearch },
   quoraSearch: { requires: ["llm"], handler: quoraSearch },
+  catalogSync: { requires: ["catalog"], handler: catalogSync },
+  productMatching: { requires: ["products"], handler: productMatching },
 
   analyticsSync: { requires: ["ga4"], handler: analyticsSync },
   aiTrafficReport: { requires: ["ga4"], handler: aiTrafficReport },
@@ -64,7 +67,8 @@ export const JOB_REGISTRY: Record<AgentJobName, Registration> = {
 export type RunOutcome = { status: "completed" | "skipped" | "already_done"; detail?: string; result?: unknown };
 
 /** Jobs that keep running without a subscription: they cost nothing and keep the exchange fair for partners. */
-const FREE_JOBS = new Set<AgentJobName>(["milestones", "backlinkCheck"]);
+// Catalog sync only reads the client's own store, so it keeps the catalog page current without a plan.
+const FREE_JOBS = new Set<AgentJobName>(["milestones", "backlinkCheck", "catalogSync"]);
 export const NO_SUBSCRIPTION = "No active subscription for this website";
 
 /**

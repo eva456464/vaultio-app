@@ -200,6 +200,15 @@ function blockMarkdown(block: ArticleBlock, index: number) {
         return [`> **${block.title}**`, ">", `> ${block.address}`, ">", `> [Google Maps →](${block.mapsUrl})`];
       case "video":
         return [`[▶ ${block.title}](https://www.youtube.com/watch?v=${block.videoId})`];
+      case "product":
+        return [
+          ...(block.imageUrl ? [`> ![${block.name.replace(/[[\]]/g, "")}](${block.imageUrl})`, ">"] : []),
+          `> **${block.name}**${block.priceLabel ? ` · ${block.priceLabel}` : ""}`,
+          ">",
+          `> ${block.pitch}`,
+          ">",
+          `> [${block.buttonLabel} →](${block.url})`,
+        ];
     }
   })();
   return ["", `<!-- vaultio:block ${index} -->`, ...body, "<!-- /vaultio:block -->", ""];
@@ -207,7 +216,8 @@ function blockMarkdown(block: ArticleBlock, index: number) {
 
 /**
  * Places blocks: link card after the summary list, video after the second section's first
- * paragraph, map card before the FAQ, contact card at the end of the article body.
+ * paragraph, map card before the FAQ, a product card after the paragraph that first links the
+ * product (or before the FAQ), contact card at the end of the article body.
  */
 export function placeBlocks(markdown: string, blocks: ArticleBlock[]) {
   let lines = markdown.split("\n");
@@ -227,6 +237,16 @@ export function placeBlocks(markdown: string, blocks: ArticleBlock[]) {
     } else if (block.kind === "map") {
       const faq = lines.findIndex((line) => /^##\s+(FAQ|Frequently asked)/i.test(line));
       insert(faq >= 0 ? faq : lines.length, block);
+    } else if (block.kind === "product") {
+      // Not inside another card: only lines outside <!-- vaultio:block --> markers count.
+      let inBlock = false;
+      const linked = lines.findIndex((line) => {
+        if (line.startsWith("<!-- vaultio:block")) inBlock = true;
+        if (line.startsWith("<!-- /vaultio:block")) inBlock = false;
+        return !inBlock && !/^#{1,6}\s/.test(line) && line.includes(`](${block.url})`);
+      });
+      const faq = lines.findIndex((line) => /^##\s+(FAQ|Frequently asked)/i.test(line));
+      insert(linked >= 0 ? afterFirstBlock(lines, linked - 1) : faq >= 0 ? faq : lines.length, block);
     } else {
       insert(lines.length, block);
     }

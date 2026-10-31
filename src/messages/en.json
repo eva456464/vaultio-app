@@ -127,7 +127,9 @@
       "articleImproved": "Agent refreshed: {title}",
       "redditOpportunitiesFound": "Agent found {count, plural, one {# Reddit thread} other {# Reddit threads}} worth replying to",
       "quoraOpportunitiesFound": "Agent found {count, plural, one {# Quora question} other {# Quora questions}} worth answering",
-      "backlinkCreditsAdded": "Added {count} backlink credits from your subscription"
+      "backlinkCreditsAdded": "Added {count} backlink credits from your subscription",
+      "catalogSynced": "Synced your product catalog: {count, plural, one {# product} other {# products}} from {source}",
+      "productsMatched": "Matched your products to {count, plural, one {# upcoming article} other {# upcoming articles}}"
     },
     "planned": {
       "sitemapSync": "Will sync your sitemap",
@@ -144,7 +146,9 @@
       "improveArticle": "Will prepare a refresh: {title}",
       "backlinkCheck": "Will check your exchange backlinks are live",
       "redditSearch": "Will look for Reddit threads to reply to",
-      "quoraSearch": "Will look for Quora questions to answer"
+      "quoraSearch": "Will look for Quora questions to answer",
+      "catalogSync": "Will sync your product catalog",
+      "productMatching": "Will match your products to upcoming articles"
     },
     "achievement": {
       "moreAchievements": "+{count} more achievements",
@@ -452,7 +456,24 @@
       "instructionPlaceholder": "e.g. Mention our free roof inspection and include a cost table.",
       "counter": "{count}/1000 characters",
       "supportUrl": "Reference URL (optional)",
-      "save": "Save instructions"
+      "save": "Save instructions",
+      "products": {
+        "title": "Featured products",
+        "subtitle": "The article links to these products where they help the reader, and shows a card for the first one. Up to {max}.",
+        "suggested": "Suggested by your agents",
+        "chosenByHand": "Chosen by you",
+        "selected": "Selected products",
+        "none": "No products",
+        "remove": "Remove {name}",
+        "clear": "Clear selection",
+        "restore": "Use the suggested products",
+        "search": "Search your products",
+        "noResults": "No products found",
+        "max": "You can feature up to {max} products per article",
+        "emptyTitle": "Feature your products in articles",
+        "emptyBody": "Connect your store, add products yourself or import a feed, and your agents link the right products in each article.",
+        "goToCatalog": "Go to Product catalog"
+      }
     },
     "deleteDialog": {
       "title": "Delete this topic?",
@@ -651,7 +672,8 @@
       "existingPost": "WordPress post",
       "builder": "Not changed: this post is built with {builder}, which keeps its own copy of the page, so editing the post wouldn't change what visitors see."
     },
-    "emptyPlan": "Your content plan is empty. Your agents create it after keyword research finishes."
+    "emptyPlan": "Your content plan is empty. Your agents create it after keyword research finishes.",
+    "productsChip": "{count, plural, one {# product} other {# products}}"
   },
   "article": {
     "back": "Back to articles",
@@ -710,7 +732,9 @@
       "updatedLive": "New cover saved and sent to your site.",
       "publishFailed": "New cover saved, but updating your site failed: {errors}",
       "settings": "Change image styles in Visuals"
-    }
+    },
+    "featuredProducts": "Featured products",
+    "featuredProductsHint": "From your product catalog, linked in this article"
   },
   "siteHealth": {
     "title": "Site health",
@@ -1004,7 +1028,6 @@
         "manual": "Point the subdomain at the app with this record. Your hosting provider must also serve HTTPS for it."
       }
     },
-    "comingSoon": "This settings section is being rebuilt.",
     "save": "Save changes",
     "saving": "Saving...",
     "saved": "Saved",
@@ -1671,6 +1694,272 @@
       "button": "Book a call",
       "email": "Prefer email? Write to <link>{email}</link>.",
       "notSet": "Calls aren't bookable yet. Contact your account manager directly."
+    },
+    "catalog": {
+      "subtitle": "Products from your store that articles can feature and link to.",
+      "empty": {
+        "title": "Add your products",
+        "body": "Connect your store to import your products automatically, or add them yourself. Your agents then feature them in articles, with links to their pages."
+      },
+      "sources": {
+        "shopify": {
+          "title": "Shopify",
+          "description": "Connect your Shopify store and import products automatically."
+        },
+        "woocommerce": {
+          "title": "WooCommerce",
+          "description": "Connect your WooCommerce store and import products automatically."
+        },
+        "manual": {
+          "title": "Add manually",
+          "description": "Add products one by one, upload a file, or import a Google or Facebook feed."
+        },
+        "feed": {
+          "title": "XML Feed (URL)",
+          "description": "Import products from an existing XML feed URL."
+        }
+      },
+      "connected": "Connected",
+      "onePlatform": "One store platform per website: disconnect {platform} first.",
+      "addProducts": "Add products",
+      "addProductsTitle": "Add products",
+      "platforms": {
+        "shopify": "Shopify",
+        "woocommerce": "WooCommerce",
+        "google_shopping": "Google Shopping feed",
+        "facebook": "Facebook catalog feed",
+        "manual": "Manual"
+      },
+      "store": {
+        "title": "Store",
+        "products": "Products",
+        "lastSync": "Last sync",
+        "never": "Never",
+        "currency": "Currency"
+      },
+      "count": "{count, plural, one {# product} other {# products}}",
+      "syncStatus": {
+        "syncing": "Syncing",
+        "success": "Synced",
+        "notice": "Synced with a note",
+        "failed": "Failed"
+      },
+      "failedBanner": "The last sync failed: {error}",
+      "noticeBanner": "Synced, with one note: {note}",
+      "sync": "Sync catalog",
+      "syncStarted": "Catalog sync started. New and changed products appear here in a minute or two.",
+      "editConnection": "Edit connection",
+      "disconnect": "Disconnect",
+      "disconnectTitle": "Disconnect {platform}?",
+      "disconnectBody": "This removes every product synced from {platform} and disconnects the store. Products you added yourself are kept.",
+      "disconnectConfirm": "Disconnect and remove products",
+      "feed": {
+        "title": "Product feed",
+        "daily": "Checked for changes every day",
+        "remove": "Remove feed",
+        "removeTitle": "Remove the feed?",
+        "removeBody": "This removes the feed and every product imported from it. Other products are kept.",
+        "removeConfirm": "Remove feed and its products"
+      },
+      "table": {
+        "search": "Search products",
+        "searchPlaceholder": "Search by name, brand, category or ID",
+        "searchButton": "Search",
+        "status": "Status",
+        "all": "All",
+        "active": "Active",
+        "draft": "Draft",
+        "product": "Product",
+        "source": "Source",
+        "price": "Price",
+        "updated": "Updated",
+        "include": "Include in articles",
+        "actions": "Actions",
+        "variants": "{count, plural, one {# variant} other {# variants}}",
+        "noMatches": "No products match your search.",
+        "includeNeedsUrl": "Add a product URL before including this product in articles",
+        "edit": "Edit",
+        "delete": "Delete",
+        "view": "View",
+        "previous": "Previous",
+        "next": "Next",
+        "page": "Page {page} of {pages}",
+        "showing": "{count, plural, one {# product} other {# products}}",
+        "includeShort": "In articles"
+      },
+      "manual": {
+        "title": "Add products manually",
+        "subtitle": "How do you want to add products?",
+        "methods": {
+          "oneByOne": {
+            "title": "One by one",
+            "description": "Add products yourself, one at a time."
+          },
+          "import": {
+            "title": "Import file",
+            "description": "Upload an XML, CSV or Excel file with your products."
+          },
+          "google_shopping": {
+            "title": "Google Shopping feed",
+            "description": "Import products from your Google Merchant Center feed URL."
+          },
+          "facebook": {
+            "title": "Facebook catalog feed",
+            "description": "Import products from your Facebook catalog feed URL."
+          }
+        }
+      },
+      "form": {
+        "addTitle": "Add a product",
+        "editTitle": "Edit product",
+        "subtitle": "A product your articles can feature and link to.",
+        "importedId": "Product ID {id}, set by your import file",
+        "name": "Product name",
+        "namePlaceholder": "Product name",
+        "description": "Description (optional)",
+        "descriptionPlaceholder": "What it is and who it's for",
+        "url": "Product URL",
+        "urlPlaceholder": "https://yoursite.com/product",
+        "price": "Price",
+        "pricePlaceholder": "29.99",
+        "currency": "Currency",
+        "image": "Product image",
+        "uploadImage": "Choose an image or drag it here",
+        "replaceImage": "Replace the image",
+        "imageHint": "PNG, JPG or WEBP",
+        "uploading": "Uploading…",
+        "removeImage": "Remove image",
+        "include": "Include in articles",
+        "includeHint": "When on, articles can feature this product and link to it. It needs a product URL.",
+        "preview": "Preview",
+        "add": "Add product",
+        "save": "Save changes",
+        "added": "Product added",
+        "saved": "Product updated"
+      },
+      "deleteProduct": {
+        "title": "Delete product?",
+        "body": "This permanently removes “{name}” from your catalog.",
+        "confirm": "Delete product"
+      },
+      "import": {
+        "title": "Import products from a file",
+        "subtitle": "Upload your products as XML, CSV or Excel (.xlsx). They're added as manual products; importing again updates products with the same id.",
+        "choose": "Choose a file or drag it here",
+        "chosen": "{name} · {size}",
+        "hint": "XML (.xml), CSV (.csv) or Excel (.xlsx), up to 20 MB",
+        "required": "Required columns: id, title",
+        "optional": "Optional: description, link, image_link (copied to our servers), price, currency_code, brand, product_type",
+        "csvHint": "The first row must be the column names.",
+        "excelHint": "Use the same columns in the first worksheet, with the column names in row 1.",
+        "import": "Import products",
+        "importing": "Importing…",
+        "done": "Imported {count, plural, one {# product} other {# products}}: {added} new, {updated} updated.",
+        "skipped": "{count, plural, one {# row was skipped} other {# rows were skipped}} (no id or title)."
+      },
+      "feedImport": {
+        "title": "Import products from a feed",
+        "subtitle": "Use the XML feed you already have for Google Merchant Center or your Facebook catalog. It's checked for changes every day.",
+        "format": "Feed format",
+        "formats": {
+          "google_shopping": "Google Shopping",
+          "facebook": "Facebook"
+        },
+        "url": "XML feed URL",
+        "urlPlaceholder": "https://yourstore.com/feed.xml",
+        "hint": {
+          "google_shopping": "An RSS 2.0 feed with g: product fields: the file you submit to Google Merchant Center.",
+          "facebook": "The XML product feed you use for your Facebook catalog."
+        },
+        "replaces": "Importing a new URL replaces the saved feed.",
+        "import": "Import products",
+        "importing": "Importing…",
+        "done": "Imported {count, plural, one {# product} other {# products}} from the feed."
+      },
+      "shopify": {
+        "title": "Connect Shopify",
+        "updateTitle": "Update the Shopify connection",
+        "intro": "Sync products from your Shopify store so articles can feature them. Read-only: the app can never change your store. This is separate from publishing to a Shopify blog.",
+        "steps": [
+          [
+            "Create an app",
+            "In the Shopify Dev Dashboard, click Create app, start from the Dev Dashboard, give it any name and create it."
+          ],
+          [
+            "Give it product access",
+            "Under API access, select the scopes read_products and read_inventory, then click Release."
+          ],
+          [
+            "Install it on your store",
+            "On the app's Overview page, click Install app and choose your store."
+          ],
+          [
+            "Copy the credentials",
+            "Open the app's Settings and copy the Client ID and Client secret."
+          ]
+        ],
+        "openDashboard": "Open the Shopify Dev Dashboard",
+        "next": "I've copied my credentials",
+        "store": "Store name",
+        "storeHint": "Your store name (e.g. my-store) or the full my-store.myshopify.com address.",
+        "clientId": "Client ID",
+        "clientSecret": "Client secret",
+        "keepHint": "Leave the Client ID and secret empty to keep the saved ones.",
+        "connect": "Connect store",
+        "connecting": "Checking your store…",
+        "connected": "Shopify connected. The first sync has started."
+      },
+      "woocommerce": {
+        "title": "Connect WooCommerce",
+        "updateTitle": "Update the WooCommerce connection",
+        "intro": "Sync products from your WooCommerce store so articles can feature them. Read-only: the key can never change your store. This is separate from publishing to WordPress.",
+        "steps": [
+          [
+            "Open the REST API settings",
+            "In WordPress, go to WooCommerce → Settings → Advanced → REST API and click Add key."
+          ],
+          [
+            "Create a Read key",
+            "Give it a description, keep your administrator account as the user and set Permissions to Read."
+          ],
+          [
+            "Copy the key and secret",
+            "Click Generate API key and copy the Consumer key (ck_…) and Consumer secret (cs_…). WooCommerce shows them only once."
+          ]
+        ],
+        "next": "I've generated my key",
+        "storeUrl": "Store URL",
+        "storeUrlPlaceholder": "https://yourstore.com",
+        "storeUrlHint": "Your store's address exactly as it loads in the browser (with www if it uses www).",
+        "consumerKey": "Consumer key",
+        "consumerSecret": "Consumer secret",
+        "keepHint": "Leave the key and secret empty to keep the saved ones. A new store URL needs its own key and secret.",
+        "connect": "Connect store",
+        "connecting": "Checking your store, this can take up to 30 seconds…",
+        "connected": "WooCommerce connected. The first sync has started."
+      },
+      "synced": {
+        "note": "This product is synced from {platform}. Its details, image and price update when the catalog syncs and can't be edited here.",
+        "name": "Name",
+        "brand": "Brand",
+        "category": "Category",
+        "price": "Price",
+        "url": "Product URL",
+        "id": "ID in {platform}",
+        "description": "Description",
+        "noDescription": "No description"
+      },
+      "back": "Back",
+      "cancel": "Cancel",
+      "close": "Close",
+      "continue": "Continue",
+      "sourceShort": {
+        "shopify": "Shopify",
+        "woocommerce": "WooCommerce",
+        "google_shopping": "Google feed",
+        "facebook": "Facebook feed",
+        "manual": "Manual"
+      }
     }
   },
   "aiVisibility": {

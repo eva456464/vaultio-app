@@ -10,6 +10,7 @@ import {
   Lightbulb,
   Link,
   Mail,
+  Package,
   RefreshCw,
   Link2,
   MessageCircleQuestion,
@@ -59,4 +60,8 @@ export const ACTIVITY_ICONS: Record<string, LucideIcon> = {
   redditOpportunitiesFound: MessagesSquare,
   quoraSearch: MessageCircleQuestion,
   quoraOpportunitiesFound: MessageCircleQuestion,
+  catalogSync: Package,
+  catalogSynced: Package,
+  productMatching: Package,
+  productsMatched: Package,
 };

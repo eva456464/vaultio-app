@@ -1,6 +1,7 @@
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray } from "drizzle-orm";
 import { db } from "@/db";
-import { integrations } from "@/db/schema";
+import { integrations, products } from "@/db/schema";
+import { featurable } from "../catalog/catalog";
 import type { Requirement } from "./schedule";
 
 /** Which providers and integrations are available to a site's agents. */
@@ -20,6 +21,14 @@ export async function availableRequirements(siteId: number): Promise<Set<Require
     if (row.type === "ga4") available.add("ga4");
     if (row.type === "gsc") available.add("gsc");
   }
+  const [store] = await db
+    .select({ id: integrations.id })
+    .from(integrations)
+    .where(and(eq(integrations.orgWebsiteId, siteId), inArray(integrations.type, ["shopify_catalog", "woocommerce", "product_feed"]), inArray(integrations.status, ["connected", "error"])))
+    .limit(1);
+  if (store) available.add("catalog");
+  const [product] = await db.select({ id: products.id }).from(products).where(featurable(siteId)).limit(1);
+  if (product) available.add("products");
   return available;
 }
 
@@ -30,4 +39,6 @@ export const REQUIREMENT_LABELS: Record<Requirement, string> = {
   keywordData: "Keyword data provider is not configured (DATAFORSEO_LOGIN / DATAFORSEO_PASSWORD)",
   authorityData: "Domain authority provider is not configured (DATAFORSEO_LOGIN / DATAFORSEO_PASSWORD)",
   email: "Email sending is not configured (RESEND_API_KEY / REPORT_FROM_EMAIL)",
+  catalog: "No store or product feed is connected (Settings → Product catalog)",
+  products: "No products can be featured yet (Settings → Product catalog)",
 };

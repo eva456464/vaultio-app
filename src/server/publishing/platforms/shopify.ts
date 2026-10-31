@@ -40,7 +40,8 @@ async function accessToken(shop: string, credentials: ShopifyCredentials) {
 
 type GraphQLResult<T> = { data?: T; errors?: { message: string }[] };
 
-async function graphql<T>(shop: string, credentials: ShopifyCredentials, query: string, variables: Record<string, unknown> = {}) {
+/** A GraphQL Admin API call; `scopes` names what the app needs when Shopify refuses access. */
+export async function shopifyGraphql<T>(shop: string, credentials: ShopifyCredentials, query: string, variables: Record<string, unknown> = {}, scopes = "read_content and write_content") {
   const token = await accessToken(shop, credentials);
   const result = await call<GraphQLResult<T>>(`${origin(shop)}/admin/api/${API_VERSION()}/graphql.json`, {
     method: "POST",
@@ -48,10 +49,14 @@ async function graphql<T>(shop: string, credentials: ShopifyCredentials, query: 
     body: JSON.stringify({ query, variables }),
   });
   if (result.status === 401) throw new Error("Shopify rejected the credentials");
-  if (result.status === 403) throw new Error("The app needs the read_content and write_content scopes");
+  if (result.status === 403) throw new Error(`The app needs the ${scopes} scopes`);
+  const denied = result.body?.errors?.find((error) => /access denied|required access/i.test(error.message));
+  if (denied) throw new Error(`The app needs the ${scopes} scopes`);
   if (result.status >= 400 || !result.body?.data) throw new Error(result.body?.errors?.[0]?.message ?? `Shopify returned HTTP ${result.status}`);
   return result.body.data;
 }
+
+const graphql = <T,>(shop: string, credentials: ShopifyCredentials, query: string, variables: Record<string, unknown> = {}) => shopifyGraphql<T>(shop, credentials, query, variables);
 
 export type ShopifyChoice = { shopName: string; storeUrl: string; blogs: { id: string; title: string; handle: string }[] };
 

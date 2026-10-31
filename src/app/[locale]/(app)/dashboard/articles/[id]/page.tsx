@@ -1,4 +1,4 @@
-import { ArrowLeft, Check, ExternalLink, FileText, Link2, Link as LinkIcon, Quote, Settings2, Sparkles, X } from "lucide-react";
+import { ArrowLeft, Check, ExternalLink, FileText, Link2, Link as LinkIcon, Package, Quote, Settings2, Sparkles, X } from "lucide-react";
 import { notFound } from "next/navigation";
 import { getFormatter, getTranslations } from "next-intl/server";
 import { ArticleExportMenu } from "@/components/content/article-export-menu";
@@ -6,6 +6,7 @@ import { CoverImagePanel } from "@/components/content/cover-image-panel";
 import { PublishButton } from "@/components/content/publish-button";
 import { Link } from "@/i18n/navigation";
 import { withHeadingIds } from "@/lib/article-html";
+import { formatPrice } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
 import { images } from "@/server/ai/images";
 import { getAppContext } from "@/server/context";
@@ -110,6 +111,30 @@ export default async function ArticlePage({ params }: PageProps<"/[locale]/dashb
             <Panel title={t("why")}>
               <ul className="list-disc space-y-1 pl-5 text-sm leading-relaxed text-ink-secondary">
                 {rationale.whyThisTopic!.map((reason) => <li key={reason}>{reason}</li>)}
+              </ul>
+            </Panel>
+          )}
+
+          {article.featuredProducts.length > 0 && (
+            <Panel title={t("featuredProducts")} hint={t("featuredProductsHint")}>
+              <ul className="space-y-2">
+                {article.featuredProducts.map((product) => (
+                  <li key={product.id}>
+                    <a href={product.url} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-xl p-1 hover:bg-canvas">
+                      {product.imageUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element -- product photo from the client's catalog
+                        <img src={product.imageUrl} alt="" className="size-10 shrink-0 rounded-lg border border-line object-cover" />
+                      ) : (
+                        <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-canvas text-ink-subtle"><Package className="size-4" /></span>
+                      )}
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate text-sm font-medium text-ink">{product.name}</span>
+                        {product.price && <span className="block text-xs text-ink-secondary">{formatPrice(product.price, product.currency, site.selectedLanguage)}</span>}
+                      </span>
+                      <ExternalLink className="size-3.5 shrink-0 text-ink-subtle" />
+                    </a>
+                  </li>
+                ))}
               </ul>
             </Panel>
           )}

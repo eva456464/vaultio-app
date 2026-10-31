@@ -85,6 +85,13 @@
       "when": 1793482589328,
       "tag": "0011_wordpress_improvements",
       "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1793483654862,
+      "tag": "0012_product_catalog",
+      "breakpoints": true
     }
   ]
 }

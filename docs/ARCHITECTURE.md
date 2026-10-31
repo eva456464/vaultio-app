@@ -358,6 +358,47 @@ onboarding, milestones and the backlink check run; the Overview says the agents 
 Without `STRIPE_SECRET_KEY` billing is off (nothing billed, base limits). Workspaces with
 `organizations.billing_exempt` (e.g. Vaultio's own) aren't billed and get Scale limits.
 
+### Product catalog
+
+Settings → Product catalog holds the products articles can feature (`products`, `src/server/catalog/`).
+Four sources, all read-only towards the client's systems:
+
+- **Shopify** (integration `shopify_catalog`): an app from the Shopify Dev Dashboard with
+  `read_products` and `read_inventory`, connected with the store name, Client ID and secret (the same
+  client-credentials grant as Shopify blog publishing, which is a separate connection). Products are read
+  through the GraphQL Admin API, 100 at a time, waiting when Shopify throttles; archived products are
+  left out, drafts are kept but can't be featured.
+- **WooCommerce** (`woocommerce`): a REST API key with Read permission. A redirect to another host
+  (www or not) is reported instead of followed, because it would drop the key. One store platform per
+  website.
+- **Google Shopping or Facebook feed** (`product_feed`): an RSS 2.0 or Atom feed with `g:` fields;
+  variants sharing an `item_group_id` become one product with the lowest price.
+- **Manual**: one by one (with an uploaded photo, stored like article images), or a file (XML, CSV or
+  Excel .xlsx, read with fflate and htmlparser2; old .xls isn't supported). Re-importing updates the
+  products with the same id; photos linked in a file are copied to Vaultio's storage (200 per import).
+
+Store and feed products are kept in sync by `catalogSync` (daily, and on "Sync catalog" or right after
+connecting; it runs without a plan because it only reads the client's own store). Up to 10,000 products
+per source. Syncs update only products whose details changed and keep each product's "Include in
+articles" choice (turned off when a product loses its URL); products gone from the store or feed are
+removed. Disconnecting removes that source's products; manual products always stay.
+
+`productMatching` proposes up to 3 products for every upcoming topic that hasn't been written or had its
+products chosen by hand. Products are shortlisted by the words they share with the topic, weighted by how
+rare each word is (a word in many product names or most topics, like "roof" for a roofer, counts for
+nothing). With Claude, small catalogs (80 products or fewer) go whole and bigger ones as shortlists, and
+Claude picks the products a reader would genuinely want, or none. Without Claude, a distinctive word of the
+product's name has to be in the topic. It runs daily (a no-op when nothing changed) and right after
+catalog changes; a topic is matched again when the catalog changed since or a proposed product can no
+longer be featured. In the content calendar a chip shows each topic's products, and the article
+instructions dialog has a product picker (search, up to 3, clear, back to the suggestion).
+
+The writer gets the article's products in its brief and links each one once, by name, where it helps
+the reader, using only the product data given. The products it actually linked are kept on the article
+(`featured_products`, shown on the article page), and the first gets a product card (photo, price in the
+site's language, one sentence and a button) after the paragraph that links it. Product photos in
+generated images aren't used yet.
+
 ### Client reports
 
 `src/server/reports/data.ts` gathers one site's numbers for a period (Search Console, authority,
