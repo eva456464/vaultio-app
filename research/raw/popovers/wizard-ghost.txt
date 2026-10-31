@@ -1,0 +1,13 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 5
+
+Open your Ghost dashboard
+Access your Ghost admin to create a secure connection token.
+Important: This integration only allows us to publish blog posts to your site.
+Open Ghost Dashboard
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":null,"non":[]}

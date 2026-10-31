@@ -1,0 +1,167 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 7
+
+This is a developer integration
+The BabyLoveGrowth API lets you fetch your articles programmatically and push them to any CMS or backend, using code you write.
+
+I can write code (Node.js, Python, cURL…) to call a REST API
+Continue
+View detailed instructions
+Delete
+INFO {"inputs":[],"cb":1,"cont":"Continue(disabled)","non":[]}
+=============== STEP VIEW 2
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 2 of 7
+
+Generate your API key
+Below you can find your API key.
+API KEY
+[REDACTED]
+
+Regenerate API Key
+Important: Never expose your API key in client-side code or public repos. Rotate it immediately if it gets leaked.
+Back
+Continue
+View detailed instructions
+Delete
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 3
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 3 of 7
+
+Authenticate your requests
+Every API request needs these two headers. Add them to all your calls.
+Prefer to let an AI agent build this? Switch to "Copy for agent" for paste-ready instructions.
+Guide
+Copy for agent
+REQUIRED HEADERS
+Copy
+X-API-Key: your_api_key_here
+Content-Type: application/json
+BASE URL
+Copy
+https://api.babylovegrowth.ai/api/integrations
+Back
+Continue
+View detailed instructions
+Delete
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 4
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 4 of 7
+
+Fetch your articles
+Use a GET request to list your articles. This returns summaries — no full content yet.
+Guide
+Copy for agent
+LIST ALL ARTICLES
+Copy
+curl -X GET \
+  "https://api.babylovegrowth.ai/api/integrations/v1/articles" \
+  -H "X-API-Key: your_api_key" \
+  -H "Content-Type: application/json"
+GET ONE ARTICLE (FULL CONTENT)
+Copy
+curl -X GET \
+  "...v1/articles/12345" \
+  -H "X-API-Key: your_api_key" \
+  -H "Content-Type: application/json"
+Replace 12345 with the article id from the list response to get full content_html and content_markdown.
+Back
+Continue
+View detailed instructions
+Delete
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 5
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 5 of 7
+
+Paginate large results
+Control how many articles you fetch at once using limit and offset.
+Guide
+Copy for agent
+PAGINATION PARAMETERS
+Copy
+# First 50 articles
+...v1/articles?limit=50&offset=0
+
+# Next 50 (page 2)
+...v1/articles?limit=50&offset=50
+
+# Max per call: 500
+Articles are sorted newest first. If a response returns fewer articles than your limit, you've reached the end.
+Store it yourself — don't fetch on demand
+The API is rate-limited, so don't call it on every page view. Sync all articles into your own storage (files or a database) and serve them from there.
+Publish new articles automatically: run the sync on a schedule — a cron job, a scheduled CI workflow (e.g. GitHub Actions), your framework's build hook / ISR, or a background job — so new content appears without manual work.
+Back
+Continue
+View detailed instructions
+Delete
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 6
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 6 of 7
+
+Map fields to your CMS
+Each article returns these fields. Map them to what your CMS expects.
+Guide
+Copy for agent
+title
+Post title
+content_html
+Full HTML — use for most CMS platforms
+content_markdown
+Markdown version — use if your CMS prefers it
+slug
+URL-friendly post identifier
+meta_description
+SEO meta description
+hero_image_url
+Featured image URL
+jsonLd
+Article schema markup for SEO
+published_url
+Live URL on your site once we detect it; empty until then
+Back
+Continue
+View detailed instructions
+Delete
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 7
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 7 of 7
+
+You're all set
+Your API key is ready — pull your articles from the API and push them wherever you need.
+https://vaultio.co
+API key active
+The API is pull-based: your code fetches articles when you want them. Nothing publishes automatically.
+Something not working?
+Chat with support
+Back
+Done
+View detailed instructions
+Delete
+INFO {"inputs":[],"cb":0,"cont":"Done","non":[]}

@@ -1,0 +1,51 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 4
+
+How blog hosting works
+Add one DNS record and your blogs will be live on blog.vaultio.co.
+https://blog.vaultio.co
+Add DNS record
+Articles auto-publish
+Full SEO and AEO benefits
+Same as hosting directly on your site.
+You add just 1 DNS record.
+Every article is auto-published to your blog subdomain.
+You will get full SEO and AEO benefits. Same as hosting directly on your site.
+Get started
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Get started","non":[]}
+=============== STEP VIEW 2
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 2 of 4
+
+Add the DNS records
+Copy the values below into your DNS provider. We will verify automatically — it can take 1–2h to propagate.
+Open your DNS provider (GoDaddy) and add the records below to your zone.
+DNS record
+Recheck
+NAME	TYPE	VALUE	STATUS
+_vercel
+
+TXT	
+vc-domain-verify=blog.vaultio.co,21677ecc9722c37e69c6
+
+NOT FOUND
+blog
+
+CNAME	
+cf1fa72d4a49c931.vercel-dns-016.com.
+
+NOT FOUND
+Stuck on the DNS setup?
+Chat with support
+Back
+Waiting on DNS
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":null,"non":["POST https://api.babylovegrowth.ai/api/integrations/blog-hosting"]}

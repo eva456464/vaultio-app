@@ -1,0 +1,10 @@
+{
+ "u": "/en/dashboard/overview",
+ "cap": [
+  "GET https://api.babylovegrowth.ai/api/subscriptions/language-addition-eligibility 200",
+  "GET https://api.babylovegrowth.ai/api/subscriptions/get-org-website-subscription?type=main 200"
+ ],
+ "pop": [
+  "Dialog\nAdd Additional Languages\nSelect the languages you want to add and reach more people.\nWEBSITE URL\ngoletapressurewashing.com\nSELECT LANGUAGES (0)\n\nSpanish\n[ES]\n800 million\n\nFrench\n[FR]\n430 million\n\nGerman\n[DE]\n230 million\n\nCzech\n[CS]\n11 million\n\nRomanian\n[RO]\n28 million\n\nDutch\n[NL]\n30 million\n\nPortuguese (Portugal)\n[PT]\n280 million\n\nBrazilian Portuguese\n[PT_BR]\n215 million\n\nItalian\n[IT]\n65 million\n\nPolish\n[PL]\n50 million\n\nSlovak\n[SK]\n6 million\n\nSlovenian\n[SL]\n2.5 million\n\nNorwegian\n[NO]\n6 million\n\nFinnish\n[FI]\n6 million\n\nSwedish\n[SV]\n11 million\n\nDanish\n[DA]\n6 million\n\nLatvian\n[LV]\n2 million\n\nEstonian\n[ET]\n2 million\n\nLithuanian\n[LT]\n3 million\n\nGreek\n[EL]\n13 million\n\nChinese\n[ZH]\n918 million\n\nMalay\n[MS]\n290 million\n\nThai\n[TH]\n70 million\n\nBulgarian\n[BG]\n7 million\n\nHungarian\n[HU]\n10 million\n\nRussian\n[RU]\n258 million\n\nCroatian\n[HR]\n5.5 million\n\nSerbian\n[SR]\n12 million\n\nMacedonian\n[MK]\n2 million\n\nTurkish\n[TR]\n85 million\n\nIcelandic\n[IS]\n0.4 million\nSubscription\n$0/month\nCancel\nContinue\n"
+ ]
+}

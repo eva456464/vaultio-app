@@ -4,7 +4,7 @@ Captured 2026-10-30 from the owner's logged-in Safari (read-only), on both `http
 
 ## Start here
 1. `pages/00-app-shell.md` — header, sidebar, modes, routing, global data.
-2. `pages/01-overview.md` → `02-blog-content.md` → `04-backlinks-05-site-health.md` → `06-socials-08-reporting.md` → `09-ai-visibility-13-traffic.md` → `20-settings.md` → `40-agency-mode.md` → `92-onboarding.md` → `90-differences-blg-vs-vaultio-and-sites.md`.
+2. `pages/01-overview.md` → `02-blog-content.md` → `04-backlinks-05-site-health.md` → `06-socials-08-reporting.md` → `09-ai-visibility-13-traffic.md` → `20-settings.md` → `40-agency-mode.md` → `92-onboarding.md` → `93-gap-pass.md` (second sweep: topic dialogs, all publishing wizards, invite/GA4/catalog/language dialogs, auth pages) → `90-differences-blg-vs-vaultio-and-sites.md`.
 3. `api/ENDPOINTS.md` (consolidated API + inferred background jobs), `data-model.md`, `design-tokens.md`, `public-site.md` (plans, limits, integrations).
 4. `i18n/en-dashboard.json`, `i18n/en-onboarding.json`, `i18n/en-auth.json` — **the app's own English UI string catalog** (every label, empty state, tooltip, error message), extracted from the public guest-onboarding page payload. `i18n/en-messages.full.json` = entire catalog incl. marketing site.
 5. `docs/` — all 39 public documentation pages as markdown + `docs/img/` (88 images, mostly real dashboard screenshots) — explains how each feature works behind the scenes.
@@ -45,7 +45,8 @@ Captured 2026-10-30 from the owner's logged-in Safari (read-only), on both `http
 ## Coverage notes / what could not be covered
 - **Read-only rule respected:** nothing was saved, published, generated, connected, deleted or submitted. The only non-GET calls observed were made by pages themselves on load (e.g. `POST /agency-reporting/preview` renders the report preview; analytics pixels).
 - **Write endpoints** were therefore not observed live; they are documented from the JS bundle (`API-MAP-FROM-BUNDLE.md`, `API-SERVICES-FROM-BUNDLE.md`) — request body shapes for writes are mostly inferred.
-- **Modals not opened:** Change topic / Add instructions / Delete on queued topics (hover-only buttons didn't open via scripted events) — covered by docs images `docs/img/change-topic*.png`, `content-instruction*.png`, `content-delete*.png` and i18n `dashboard.contentPlan`. "Add keywords" modal, billing "Pause/Cancel" flows, Stripe portal ("Manage all subscriptions"), member invite, "Add new client" onboarding, GA4/GSC "Manage" — not opened/submitted to avoid side effects; copy is in `i18n/en-dashboard.json`.
+- **Second sweep (`pages/93-gap-pass.md`)** covered Change topic, Add instructions, Add keywords, all publishing wizards (until credentials), invite member, GA4 manage, product catalog add, add-language, Reddit menus, auth pages. **Still deliberately not opened:** Delete confirmations, billing Pause/Cancel flows, Stripe checkout/portal, `Generate with AI`, `Draft a reply`, AI rewrite menu — copy for all is in `i18n/en-dashboard.json`.
+- **Side effect:** the Blog Hosting wizard's `Get started` created a pending hosted-blog record (id 6212, `blog.vaultio.co`, not live). Reported to the owner.
 - **Improvements detail** — no improvements exist yet (empty state captured).
 - **Google Business Profile** — feature gated ("Soon"); only i18n/API map.
 - **Mobile** — captured at 430px (menu sheet) + breakpoint checks at 768/1024/1280.

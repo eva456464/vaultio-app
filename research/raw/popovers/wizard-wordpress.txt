@@ -1,0 +1,33 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 6
+
+Before you start
+One quick thing to confirm — the whole setup takes about 3 minutes.
+Important: This integration only allows us to publish blog posts to your site.
+
+I have Administrator role on my WordPress site
+You'll install our free plugin, paste one key, and publish a test article. Most people finish in under 3 minutes.
+Can't install plugins? Connect manually instead
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":1,"cont":"Continue(disabled)","non":[]}
+=============== STEP VIEW 2
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 2 of 6
+
+What's your WordPress URL?
+Enter the address where your blog lives.
+WORDPRESS SITE URL
+
+Looks good.
+Back
+Continue
+View detailed instructions
+INFO {"inputs":["https://www.yoursite.com"],"cb":0,"cont":"Continue","non":[]}

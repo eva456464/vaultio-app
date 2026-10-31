@@ -1,0 +1,114 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 5
+
+Before you start
+Duda doesn't connect directly, it uses an RSS feed to pull your articles automatically.
+
+I have a Duda site I can edit and publish
+
+I've published at least one article (the RSS feed needs content to pull)
+No article published yet?
+No problem — you can set this up now. The feed will be empty until your first article publishes, then Duda fills it in automatically. You can generate and publish one from your Content Plan.
+Go to your Content Plan
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":2,"cont":"Continue(disabled)","non":[]}
+=============== STEP VIEW 2
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 2 of 5
+
+Generate your RSS feed URL
+Duda pulls your articles from an RSS feed. Generate the URL below, then add it to your Duda site — that's the whole setup.
+YOUR RSS FEED URL (COPY IT!)
+https://api.babylovegrowth.ai/api/public/rss?domain=vaultio.co&limit=10&key=[REDACTED]
+
+Copy this URL — you'll paste it into Duda in the next step.
+Tip: change limit=10 in the URL to control how many articles Duda shows.
+Regenerate URL
+Regenerating creates a new URL and disables the old one — if you've already added it to Duda, update it there with the new URL.
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 3
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 3 of 5
+
+Add the RSS feed to Duda
+Add Duda's built-in RSS Feed widget to the page where you want your articles, then paste your feed URL.
+Do this in the Duda editor. Open your site from your Duda dashboard:
+Open your Duda sites
+1
+Open your site in the Duda Website Editor.
+2
+In the left sidebar, click Add → Elements, search “RSS Feed”, and drag the widget onto the page where you want your articles.
+3
+The RSS Feed Content panel usually opens automatically when you drop the widget. If it doesn't, right-click the widget and select Edit Content (in Flex mode and Editor 2.0, use the widget's floating Edit Content button).
+4
+Paste the RSS feed URL you copied into the field, adjust the display settings (number of posts, layout), then click Publish.
+The RSS Feed widget displays your articles on this page, it doesn't add them to Duda's native Blog. Want real blog posts instead? The next step imports the same feed into your Duda Blog.
+Stuck? See Duda's RSS Feed widget guide
+
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 4
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 4 of 5
+
+Import your articles into Duda's Blog
+Duda's native Blog can import the same feed, turning your articles into real blog posts on your site.
+Do this in the Duda editor, on the site where you want the posts:
+Open your Duda sites
+1
+Open your site in the Duda Website Editor.
+2
+In the left sidebar, click Blog, then open the Import tab.
+3
+Paste the RSS feed URL you copied into the Enter RSS feed URL field.
+4
+Click Import Posts, then Publish your site so the posts go live.
+
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 5
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 5 of 5
+
+You're all set
+Duda pulls your articles from the RSS feed you added, new articles appear automatically.
+vaultio.co
+RSS feed active
+CHECK IT'S WORKING
+1
+Publish your Duda site if you haven't already
+2
+Open your live site and go to the page with the RSS Feed widget, or to your Blog if you imported the posts
+3
+Confirm your BabyLoveGrowth articles appear (it can take Duda a few minutes to pull the feed the first time)
+Duda syncs from the RSS feed, so make sure at least one article is published for it to show content.
+Feed not showing your articles?
+Chat with support
+Back
+Done
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Done","non":[]}

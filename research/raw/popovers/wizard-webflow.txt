@@ -1,0 +1,13 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 7
+
+Open your Webflow dashboard
+Click the button below to open Webflow.
+Important: This integration only allows us to publish blog posts to your site.
+Open Webflow Dashboard
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":null,"non":[]}

@@ -1,0 +1,38 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 10
+
+Before you start
+Just one quick check — it prevents almost every problem later on.
+
+I can sign in to Shopify as the store owner (or my account is allowed to create apps)
+Not sure? Here's how Shopify permissions work
+The setup takes about 10 minutes and we'll guide you through every click. Your store, theme and products are never touched — this connection can only read and publish blog posts.
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":1,"cont":"Continue(disabled)","non":[]}
+=============== STEP VIEW 2
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 2 of 10
+
+Find your store name
+Every Shopify store has its own .myshopify.com address. Paste it below — we check it with Shopify as you type.
+The button opens your Shopify domain settings, where your .myshopify.com address is listed.
+Open my domain settings
+Example domain
+na70yq-bn.myshopify.com
+Paste the whole address if you like (e.g. na70yq-bn.myshopify.com ) — we'll trim it for you.
+STORE NAME
+
+.myshopify.com
+
+Back
+Continue
+View detailed instructions
+INFO {"inputs":["your-store-name"],"cb":0,"cont":"Continue(disabled)","non":[]}

@@ -1,0 +1,10 @@
+{
+ "u": "/en/dashboard/settings/business",
+ "cap": [
+  "GET https://api.babylovegrowth.ai/api/organization/business-profile 200",
+  "GET https://api.babylovegrowth.ai/api/locations 200",
+  "GET https://api.babylovegrowth.ai/api/locations/regen-status 200",
+  "GET https://api.babylovegrowth.ai/api/organization/get-org-websites undefined"
+ ],
+ "pop": []
+}

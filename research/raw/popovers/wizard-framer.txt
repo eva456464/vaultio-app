@@ -1,0 +1,126 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 6
+
+Before you start
+You'll install our free Framer plugin, then import your articles into a CMS collection.
+How it works: Framer imports your articles into a CMS collection in your project — nothing is published automatically.
+
+I can edit and publish my Framer project
+
+My Framer plan includes the CMS
+No code needed — everything happens in the Framer plugin.
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":2,"cont":"Continue(disabled)","non":[]}
+=============== STEP VIEW 2
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 2 of 6
+
+Install and activate the plugin
+Install our official plugin from the Framer Marketplace, then open it inside your Framer project.
+Open the official plugin page in the Framer Marketplace and add it to your project:
+Open the BabyLoveGrowth plugin
+1
+Click Open the BabyLoveGrowth plugin above (or, in Framer, open the Plugins menu in the top toolbar and search “BabyLoveGrowth”).
+2
+Click Install, then choose the Framer project to add it to.
+3
+Open the plugin from the Plugins menu — it opens in a panel on the right, ready for the next step.
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 3
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 3 of 6
+
+Get your BLG API key
+Your API key is ready to use in Framer. Keep it secure and never share it publicly.
+API KEY
+[REDACTED]
+
+Regenerate API Key
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 4
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 4 of 6
+
+Connect the plugin & import articles
+In the Framer plugin follow these two actions:
+Enter a collection name (e.g., "Blog" or "Articles"). This is where your articles will live in Framer's CMS.
+1
+Paste the API key you just copied from your dashboard
+2
+Click Next
+3
+Click Import Articles
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 5
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 5 of 6
+
+Build your blog pages in Framer
+Your articles are in Framer. Now create pages to display them:
+1
+In Framer, open the Pages panel (left sidebar), click the +, and choose New CMS Page.
+2
+Select the collection you named earlier (e.g. "Blog"), then choose the Index template — this becomes your blog listing page that shows all articles.
+3
+Add another page: + → New CMS Page → the same collection → choose the Detail template (Framer usually names it /blog/:slug). This is the individual article page.
+4
+On both pages, bind the elements to your CMS fields — title, cover image, and a Formatted Text element for the content — then style and publish your Framer site.
+New to Framer's CMS pages? This short Framer Academy lesson walks through Index and Detail pages:
+Framer Academy: CMS pages
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 6
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 6 of 6
+
+Framer connected!
+Your site is linked. Follow the steps below to confirm it's working.
+https://vaultio.co
+Connected
+VERIFY IT'S WORKING
+1
+Go to your Content Plan
+2
+Publish / Re-publish any article
+3
+In Framer, re-open the plugin and click Import Articles
+4
+Your article appears in your Framer CMS collection
+Remember: Framer does not auto-publish. To import new articles, re-open the plugin in Framer and click Import Articles again.
+Not seeing your articles in Framer?
+Chat with support
+Back
+Done
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Done","non":[]}

@@ -1,0 +1,9 @@
+{
+ "u": "/en/dashboard/settings/analytics",
+ "cap": [
+  "GET https://api.babylovegrowth.ai/api/ga4/properties undefined"
+ ],
+ "pop": [
+  "Dialog\nGoogle Analytics 4\nGoogle Analytics 4\nConnected as knightsdamian@gmail.com\nDisconnect account\nCancel\nClose"
+ ]
+}

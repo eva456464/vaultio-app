@@ -1,0 +1,9 @@
+{
+ "u": "/en/dashboard/content-plan",
+ "cap": [
+  "GET https://api.babylovegrowth.ai/api/product-catalog/status 200"
+ ],
+ "pop": [
+  "Dialog\nArticle Instructions for online reviews for contractors\nSpecial Instructions\n0/1000\n\nReference URL \n\nAdd products to feature in articles\nConnect Shopify, add products manually, or import a catalog so selected products can be linked in generated articles.\nGo to Product Catalog\nCancel\nSave\n"
+ ]
+}

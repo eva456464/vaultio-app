@@ -1,0 +1,37 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 6
+
+Before you start
+The Wix integration requires an existing blog with at least one published post. If no blog is detected, the connection will fail with a "No blog instance found" error.
+Important: This integration only allows us to publish blog posts to your site.
+
+The Wix Blog app is added to my site
+How to add a blog in Wix
+
+I can sign in as the site's account owner — API keys created by co-owners or collaborators are rejected by Wix
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":2,"cont":"Continue(disabled)","non":[]}
+=============== STEP VIEW 2
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 2 of 6
+
+Find your Site ID
+Open your Wix dashboard and look at the URL in your browser address bar.
+Example URL
+manage.wix.com/dashboard/01c24d92-2ba6-48bd-90cd-87e33d2e9957/home
+Copy everything after /dashboard/. ( e.g 01c24d92-2ba6-48bd-90cd-87e33d2e9957 )
+SITE ID
+
+
+Back
+Continue
+View detailed instructions
+INFO {"inputs":["Paste here..."],"cb":0,"cont":"Continue(disabled)","non":[]}

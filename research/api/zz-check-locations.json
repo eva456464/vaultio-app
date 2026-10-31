@@ -1,0 +1,37 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/settings/business",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/locations",
+   "status": 200,
+   "resBody": [
+    {
+     "locationCode": 2840,
+     "subLocations": [
+      21137,
+      9057173,
+      1014332,
+      21135,
+      21136,
+      21138,
+      21142,
+      21144,
+      21146,
+      21162,
+      21149,
+      9059413,
+      200635,
+      21176,
+      21175
+     ]
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  }
+ ]
+}

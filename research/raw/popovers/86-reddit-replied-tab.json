@@ -1,0 +1,7 @@
+{
+ "u": "/en/dashboard/socials",
+ "cap": [
+  "GET https://api.babylovegrowth.ai/api/reddit/relevant-posts?page=1&limit=10&filter=commented 200"
+ ],
+ "pop": []
+}

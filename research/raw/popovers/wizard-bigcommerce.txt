@@ -1,0 +1,18 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 6
+
+Find your Store Hash
+Open your BigCommerce store URL and copy the part between "store-" and ".mybigcommerce.com"
+Example URL:
+https://store-mh5fua96uw.mybigcommerce.com/...
+Store Hash → mh5fua96uw
+STORE HASH
+
+Important: This integration only allows us to publish blog posts to your site.
+Continue
+View detailed instructions
+INFO {"inputs":["Paste here..."],"cb":0,"cont":"Continue(disabled)","non":[]}

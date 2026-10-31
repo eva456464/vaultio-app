@@ -1,0 +1,43 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/settings/publishing",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/integrations",
+   "status": 200,
+   "resBody": {
+    "wordpress": null,
+    "wordpressCom": null,
+    "wix": null,
+    "shopify": null,
+    "webflow": null,
+    "webhook": null,
+    "wordpressWebhook": null,
+    "bigcommerce": null,
+    "snapps": null,
+    "ghost": null,
+    "gohighlevel": null,
+    "blog": {
+     "id": 6212,
+     "blogDomain": "blog.vaultio.co",
+     "blogName": "",
+     "brandColor": "#E94545",
+     "brandLogoUrl": "",
+     "orgWebsiteId": 41420,
+     "isIntegrated": false,
+     "footerLinks": null,
+     "createdAt": "2026-10-31T06:09:35.565Z",
+     "updatedAt": "2026-10-31T06:09:35.565Z"
+    },
+    "apiKey": "[REDACTED]",
+    "apiKeySource": null,
+    "nextjsBlogConnected": true
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  }
+ ]
+}

@@ -1,0 +1,127 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 6
+
+Before you start
+You'll paste one prompt into your Lovable project, and Lovable builds the whole blog for you.
+How it works: Lovable keeps a copy of your articles inside your own project and refreshes it every hour, so new articles appear on your site on their own.
+
+I can edit and publish this Lovable project
+
+My project has Lovable Cloud enabled (the prompt turns it on if not)
+No coding needed — you paste one prompt and one API key.
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":2,"cont":"Continue(disabled)","non":[]}
+=============== STEP VIEW 2
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 2 of 6
+
+Get your BLG API key
+Lovable will ask for this key while it builds your blog. Generate it now and keep it handy.
+API KEY
+[REDACTED]
+
+Regenerate API Key
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 3
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 3 of 6
+
+Paste the prompt into Lovable
+This one prompt tells Lovable exactly what to build — blog pages, SEO tags, sitemap and the hourly refresh.
+Copy prompt
+Then paste it into your Lovable project chat.
+1
+Open the Lovable project you want the blog on.
+2
+Paste the prompt into the chat box and send it.
+3
+Lovable starts building. Leave it running — the next step happens on its own.
+
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 4
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 4 of 6
+
+Paste your API key when Lovable asks
+Lovable opens a secure secret field for your key. Paste it there.
+Never paste your API key into the normal chat box. Chat messages are saved in your project history. Only use the secure secret field Lovable opens for you.
+1
+Wait for Lovable to ask for BABYLOVEGROWTH_API_KEY.
+2
+Paste the key from the previous step into the secure field it opens.
+3
+Confirm, and Lovable continues building and starts importing your articles.
+
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 5
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 5 of 6
+
+Check your blog, then publish
+Lovable builds the pages and pulls in your articles. Review it, then push it live.
+1
+When Lovable finishes, open /blog in the preview to check it.
+2
+Ask Lovable in plain language for any design changes you want.
+3
+Click Publish in Lovable to push the blog live.
+The first import takes a few minutes. Our API is rate limited, so articles arrive in batches of 20 and the import keeps running in the background on its own. If your blog looks short at first, wait a few minutes and refresh.
+
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 6
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 6 of 6
+
+Lovable connected!
+Your key is linked. Follow the steps below to confirm it's working.
+https://vaultio.co
+Connected
+VERIFY IT'S WORKING
+1
+Go to your Content Plan
+2
+Publish / Re-publish any article
+3
+Wait for the hourly sync, or ask Lovable to "run blg-sync now"
+4
+Your article appears on /blog on your site
+Remember: Publish your Lovable project again after any design change, otherwise your visitors keep seeing the old version.
+Not seeing your articles on your site?
+Chat with support
+
+Back
+Done
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Done","non":[]}

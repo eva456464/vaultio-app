@@ -1,0 +1,13 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 5
+
+Open your Snapps dashboard
+Access your Snapps dashboard to get your API key.
+Important: This integration only allows us to publish blog posts to your site.
+Open Snapps Dashboard
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":null,"non":[]}

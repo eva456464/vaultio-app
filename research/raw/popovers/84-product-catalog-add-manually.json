@@ -1,0 +1,9 @@
+{
+ "u": "/en/dashboard/settings/product-catalog",
+ "cap": [
+  "GET https://api.babylovegrowth.ai/api/organization/get-org-websites 200"
+ ],
+ "pop": [
+  "Add products manuallyClose\nAdd products manually\n1\nChoose method\n2\nAdd products\nHow do you want to add products?\nChoose the option that works best for you.\n\nOne by one\nAdd products manually, one at a time.\n\nImport file\nUpload an XML, CSV or Excel file with your products.\n\n\nGoogle Shopping feed\nImport products from your Google Merchant Center feed URL.\n\n\nFacebook catalog feed\nImport products from your Facebook catalog feed URL.\n\nAdd your own products\nUse your existing product data\nStart featuring them in your articles\nCancel\nContinue\n"
+ ]
+}

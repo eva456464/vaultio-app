@@ -1,0 +1,72 @@
+=============== STEP VIEW 1
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 7
+
+Before you start
+Create at least one blog in your GoHighLevel account before connecting. Without one, BabyLoveGrowth won't be able to detect a blog to publish to.
+Important: This integration only allows us to publish blog posts to your site.
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 2
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 2 of 7
+
+Create a Private Integration
+Open your GoHighLevel sub-account and follow the breadcrumb below to create a Private Integration.
+Settings
+Private Integrations
+Create New Integration
+1
+Click Create New Integration.
+2
+Give the integration a name like Blog Sync.
+3
+Open the next step to see which scopes to enable.
+Screenshot coming soon
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 3
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 3 of 7
+
+Enable these scopes
+Tick every scope below — we need all of them to publish posts.
+blogs/post.write — Create blog post
+blogs/post-update.write — Update blog post
+blogs/check-slug.readonly — Check blog post slug
+blogs/category.readonly — View blog categories
+blogs/author.readonly — View blog authors
+blogs/posts.readonly — View blog posts
+blogs/list.readonly — View blogs list
+Back
+Continue
+View detailed instructions
+INFO {"inputs":[],"cb":0,"cont":"Continue","non":[]}
+=============== STEP VIEW 4
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 4 of 7
+
+Paste your access token
+Once you save the Private Integration, GoHighLevel will reveal a token — copy and paste it here.
+ACCESS TOKEN
+
+Important: This token is shown only once. If you lose it, you’ll need to recreate the Private Integration.
+Back
+Continue
+View detailed instructions
+INFO {"inputs":["pit-…"],"cb":0,"cont":"Continue(disabled)","non":[]}
