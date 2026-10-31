@@ -1,2 +1,4 @@
-research/raw/
+research/raw/*.html
+research/raw/docs-html/
+research/raw/*.txt
 .DS_Store

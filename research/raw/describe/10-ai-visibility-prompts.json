@@ -1,0 +1,65 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/ai-visibility?tab=prompts",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Tracked prompts"
+ ],
+ "buttons": [
+  "Manage prompts [icon:lucide-settings2]",
+  "See prompt packs"
+ ],
+ "tabs": [],
+ "inputs": [],
+ "tables": [
+  {
+   "headers": [
+    "Prompts",
+    "Intent",
+    "Vaultio mentioned in",
+    "Vaultio sentiment",
+    ""
+   ],
+   "rows": 10,
+   "sample": [
+    [
+     "How do I rank higher on Google?",
+     "Awareness",
+     "-",
+     "-",
+     ""
+    ],
+    [
+     "My business isn’t showing up in search",
+     "Awareness",
+     "-",
+     "-",
+     ""
+    ],
+    [
+     "Best marketing for plumbers",
+     "Research",
+     "-",
+     "-",
+     ""
+    ],
+    [
+     "Tools for ranking on ChatGPT as a contractor",
+     "Research",
+     "-",
+     "-",
+     ""
+    ]
+   ]
+  }
+ ],
+ "icons": [
+  "lucide-settings2",
+  "lucide-info",
+  "lucide-chevron-right"
+ ],
+ "images": [
+  "ChatGPT | https://app.vaultio.co/_next/image?url=%2Flogos%2Fchatgpt-logo.png&w=32&q=75",
+  "Claude | https://app.vaultio.co/logos/claude-ai-icon.svg"
+ ],
+ "charts": 0
+}

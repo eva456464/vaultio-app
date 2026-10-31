@@ -1,0 +1,104 @@
+Brands mentioned
+Brands AI recommends most often alongside yours
+#	
+Brand
+Mentioned in
+Visibility
+Sentiment
+#1	
+Google
+14/20	70%	
+61
+#2	
+Google Search Console
+3/20	15%	
+50
+#3	
+Google Business Profile
+3/20	15%	
+67
+#4	
+Yelp
+3/20	15%	
+50
+#5	
+Clutch
+3/20	15%	
+50
+#6	
+Scorpion
+3/20	15%	
+67
+#7	
+Google Maps
+2/20	10%	
+50
+#8	
+BBB
+2/20	10%	
+50
+#9	
+Facebook
+2/20	10%	
+50
+#10	
+ChatGPT
+2/20	10%	
+50
+Brands by prompt
+Expand a prompt to see the brands AI mentioned in its answers
+#
+Prompts
+Brands
+Intent
+
+#1
+How do I rank higher on Google?
+6 brands
+Awareness
+
+#2
+My business isn’t showing up in search
+5 brands
+Awareness
+
+#3
+Best marketing for plumbers
+7 brands
+Research
+
+#4
+Tools for ranking on ChatGPT as a contractor
+15 brands
+Research
+
+#5
+what do users say about local SEO services for contractors
+14 brands
+Comparison
+
+#6
+is Scorpion worth it for getting more plumbing leads
+4 brands
+Comparison
+
+#7
+what is local SEO for home service businesses
+7 brands
+Learning
+
+#8
+What helps contractors rank on Google?
+5 brands
+Research
+
+#9
+local SEO services for plumbing contractors in Ventura County
+15 brands
+Buying intent
+
+#10
+cheapest HVAC marketing agencies in Ventura County 2026
+13 brands
+Buying intent
+

@@ -1,0 +1,180 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/geo-audit",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793422638625,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/geo-audit?_rsc=szmnl",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22backlink-exchange%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/backlink-exchange"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793422639020,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/geo-audit",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422640029,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793422640025&cv=11&fst=1793422640025&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fgeo-audit&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&rcb=0&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/geo-audit",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422640032,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=46&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fgeo-audit&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fcontent-plan%2Fimprovements&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=180114",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/geo-audit",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422640035,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=0&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fgeo-audit&scrsrc=www.googletagmanager.com&rnd=2083431636.1793422461&navt=n&npa=0&ae=a&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&tft=1793422640035&tfd=180116&_gsid=ZBI9AbIQeQFc3LvpNrGvZIwAHJxHp20NjA&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/geo-audit",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422640037,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=47&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fgeo-audit&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=180119",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/geo-audit",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422641032,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/organization/get-org-websites",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/geo-audit",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "Organization websites fetched successfully",
+    "data": [
+     {
+      "id": 30098,
+      "organizationId": 29411,
+      "url": "https://vaultio.co",
+      "brandName": "Vaultio",
+      "selectedLanguage": "en",
+      "onboardingStatus": "not_started",
+      "onboardingCompletedAt": null,
+      "brandColor": "#E94545",
+      "brandSecondaryColor": "#000000",
+      "logoUrl": null,
+      "screenshotUrl": null,
+      "createdAt": "2026-05-07T15:11:02.994Z",
+      "isHidden": false,
+      "subscriptions": []
+     },
+     {
+      "id": 30923,
+      "organizationId": 29411,
+      "url": "https://vaultio.co",
+      "brandName": "Vaultio",
+      "selectedLanguage": "en",
+      "onboardingStatus": "not_started",
+      "onboardingCompletedAt": null,
+      "brandColor": "#E94545",
+      "brandSecondaryColor": "#000000",
+      "logoUrl": null,
+      "screenshotUrl": null,
+      "createdAt": "2026-05-11T17:29:21.106Z",
+      "isHidden": false,
+      "subscriptions": []
+     },
+     {
+      "id": 41420,
+      "organizationId": 29411,
+      "url": "https://vaultio.co",
+      "brandName": "Vaultio",
+      "selectedLanguage": "en",
+      "onboardingStatus": "completed",
+      "onboardingCompletedAt": "2026-06-27T06:19:27.248Z",
+      "brandColor": "#E94545",
+      "brandSecondaryColor": "#000000",
+      "logoUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/user-uploads/org-website-41420/logo-1783405856651.png",
+      "screenshotUrl": "https://media.babylovegrowth.ai/blog-images/organization-29411/1791865105817_vaultio.jpg",
+      "createdAt": "2026-06-27T05:46:34.193Z",
+      "isHidden": false,
+      "subscriptions": [
+       {
+        "type": "main",
+        "status": "active"
+       },
+       {
+        "type": "meta_autopilot",
+        "status": "active"
+       }
+      ]
+     },
+     {
+      "id": 51141,
+      "organizationId": 29411,
+      "url": "https://goletapressurewashing.com",
+      "brandName": "Goleta Pressure Washing",
+      "selectedLanguage": "en",
+      "onboardingStatus": "completed",
+      "onboardingCompletedAt": "2026-08-05T00:47:51.408Z",
+      "brandColor": "#0B3050",
+      "brandSecondaryColor": "#0E5FA6",
+      "logoUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/user-uploads/org-website-51141/logo-1785994773976.png",
+      "screenshotUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-29411/1785890564695_goletapressurewashing.jpg",
+      "createdAt": "2026-08-05T00:30:15.488Z",
+      "isHidden": false,
+      "subscriptions": [
+       {
+        "type": "main",
+        "status": "active"
+       }
+      ]
+     }
+    ]
+   },
+   "thirdParty": false
+  }
+ ]
+}

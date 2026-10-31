@@ -1,0 +1,126 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/analytics/ai-traffic",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: AI search traffic",
+  "H3: AI search performance"
+ ],
+ "buttons": [
+  "All time [icon:lucide-calendar-days]",
+  "All models [icon:lucide-chevron-down]",
+  "ChatGPT",
+  "Perplexity",
+  "Gemini",
+  "Copilot",
+  "Claude",
+  "You.com",
+  "Phind",
+  "Poe",
+  "Groq",
+  "Meta AI",
+  "AI model",
+  "Active Users ↓",
+  "Share",
+  "Pages [icon:]",
+  "Vaultio articles only",
+  "(Active Users explanation) [icon:lucide-info]",
+  "(Page Share explanation) [icon:lucide-info]",
+  "(Top AI model explanation) [icon:lucide-info]",
+  "Homepage [icon:lucide-external-link] -> https://vaultio.co/",
+  "/About [icon:lucide-external-link] -> https://vaultio.co/About",
+  "/AIReceptionist [icon:lucide-external-link] -> https://vaultio.co/AIReceptionist",
+  "/B2BOutreach [icon:lucide-external-link] -> https://vaultio.co/B2BOutreach",
+  "/Blog [icon:lucide-external-link] -> https://vaultio.co/Blog",
+  "/Blog/llm-citations [icon:lucide-external-link] -> https://vaultio.co/Blog/llm-citations",
+  "/Blog/website-design-home-services [icon:lucide-external-link] -> https://vaultio.co/Blog/website-design-home-services",
+  "/CarpetCleanersMarketing [icon:lucide-external-link] -> https://vaultio.co/CarpetCleanersMarketing",
+  "/GarageDoorsMarketing [icon:lucide-external-link] -> https://vaultio.co/GarageDoorsMarketing",
+  "/HomeSecurityMarketing [icon:lucide-external-link] -> https://vaultio.co/HomeSecurityMarketing",
+  "Previous [icon:lucide-chevron-left] [disabled]",
+  "Next [icon:lucide-chevron-right]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Reporting period",
+   "value": "All time",
+   "checked": "closed"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Group pages table by",
+   "value": "Pages",
+   "checked": "closed"
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "Search pages...",
+   "label": "Search pages",
+   "value": "",
+   "checked": null
+  }
+ ],
+ "tables": [
+  {
+   "headers": [
+    "Page",
+    "Active Users",
+    "Page Share",
+    "Top AI Model"
+   ],
+   "rows": 10,
+   "sample": [
+    [
+     "Homepage",
+     "11",
+     "44.0%",
+     "ChatGPT"
+    ],
+    [
+     "/About",
+     "3",
+     "12.0%",
+     "ChatGPT"
+    ],
+    [
+     "/AIReceptionist",
+     "1",
+     "4.0%",
+     "Perplexity"
+    ],
+    [
+     "/B2BOutreach",
+     "1",
+     "4.0%",
+     "ChatGPT"
+    ]
+   ]
+  }
+ ],
+ "icons": [
+  "lucide-calendar-days",
+  "lucide-info",
+  "lucide-chevron-down",
+  "lucide-search",
+  "lucide-external-link",
+  "lucide-chevron-left",
+  "lucide-chevron-right"
+ ],
+ "images": [
+  "ChatGPT | https://app.vaultio.co/_next/image?url=%2Flogos%2Fchatgpt-logo.png&w=32&q=75",
+  "Gemini | https://app.vaultio.co/logos/gemini.svg",
+  "Perplexity | https://app.vaultio.co/logos/perplexity.svg",
+  "Copilot | https://app.vaultio.co/logos/copilot.svg",
+  " | https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/whitelabel/vaultio/vaultio_favicon.png"
+ ],
+ "charts": 2
+}

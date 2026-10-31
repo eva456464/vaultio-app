@@ -1,0 +1,37 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/geo-audit",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Site health",
+  "H2: Health score",
+  "H2: Issues detected"
+ ],
+ "buttons": [
+  "Choose pages [icon:lucide-list-checks]",
+  "What we check [icon:lucide-info]",
+  "Share [icon:lucide-share2]",
+  "(Files that help Google and AI tools find and understand your pages.) [icon:lucide-info]",
+  "How to fix the whole site [icon:lucide-sparkles]",
+  "Next check in 3d 11h [icon:lucide-refresh-cw]",
+  "By issue [icon:lucide-layers]",
+  "By page [icon:lucide-file-text]",
+  "Medium Irrelevant meta description Technical SEO 4 pages [icon:lucide-chevron-down]",
+  "Low Large image Technical SEO 7 pages [icon:lucide-chevron-down]"
+ ],
+ "tabs": [],
+ "inputs": [],
+ "tables": [],
+ "icons": [
+  "lucide-list-checks",
+  "lucide-info",
+  "lucide-share2",
+  "lucide-check",
+  "lucide-sparkles",
+  "lucide-refresh-cw",
+  "lucide-layers",
+  "lucide-file-text",
+  "lucide-chevron-down"
+ ],
+ "images": [],
+ "charts": 0
+}

@@ -1,0 +1,112 @@
+Top AI sources
+Websites AI models relied on most when answering questions
+#
+Source
+Citation share
+
+#1
+
+backlinko.com
+14%
+
+#2
+
+sianamarketing.com
+14%
+
+#3
+
+semrush.com
+9%
+
+#4
+
+clutch.co
+9%
+
+#5
+
+pipelineon.com
+9%
+
+#6
+
+g2.com
+9%
+
+#7
+
+hookagency.com
+9%
+
+#8
+1
+1seo.com
+9%
+
+#9
+
+leadadvisors.com
+9%
+
+#10
+
+socialcali.com
+9%
+Sources by prompt
+Expand a prompt to see the websites AI cited in its answers
+#
+Prompts
+Sources
+Intent
+
+#1
+How do I rank higher on Google?
+10 sources
+Awareness
+
+#2
+My business isn’t showing up in search
+9 sources
+Awareness
+
+#3
+Best marketing for plumbers
+10 sources
+Research
+
+#4
+Tools for ranking on ChatGPT as a contractor
+10 sources
+Research
+
+#5
+what do users say about local SEO services for contractors
+7 sources
+Comparison
+
+#6
+is Scorpion worth it for getting more plumbing leads
+8 sources
+Comparison
+
+#7
+what is local SEO for home service businesses
+10 sources
+Learning
+
+#8
+What helps contractors rank on Google?
+10 sources
+Research
+
+#9
+local SEO services for plumbing contractors in Ventura County
+10 sources
+Buying intent
+
+#10
+cheapest HVAC marketing agencies in Ventura County 2026
+10 sources
+Buying intent
+

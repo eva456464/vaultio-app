@@ -1,0 +1,1216 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/ai-visibility?tab=sources",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793422702663,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/ai-visibility?tab=sources&_rsc=f9765",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22ai-visibility%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Ctrue%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/ai-visibility"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility?tab=brands-mentioned",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793422703007,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422703057,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources?promptId=407334",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "backlinko.com",
+     "count": 3,
+     "urls": [
+      {
+       "url": "https://backlinko.com/hub/seo/best-practices",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://backlinko.com/rank-high-on-google",
+       "sourceType": "blog"
+      },
+      {
+       "url": "https://backlinko.com/google-seo-guide",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "lovarank.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.lovarank.com/blog/google-seo-best-practices",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "semrush.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.semrush.com/blog/google-seo/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "shopify.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.shopify.com/blog/seo-best-practices",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "searchatlas.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://searchatlas.com/blog/how-to-boost-google-rankings/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "wordstream.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.wordstream.com/blog/ws/2022/07/06/how-to-rank-higher-on-google",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "trafficthinktank.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://trafficthinktank.com/seo-best-practices/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "webador.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.webador.com/blog/how-to-rank-higher-on-google/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "podium.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.podium.com/article/how-to-rank-higher-on-google-15-easy-steps",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "oneparkfinancial.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.oneparkfinancial.com/blog/how-to-rank-high-on-google-seo-best-practices-for-beginners",
+       "sourceType": "blog"
+      }
+     ]
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793422703058,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources?promptId=407336",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "vyncedigital.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://vyncedigital.com/blog/why-your-business-not-showing-up-on-google-10-fixes",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "schulzecreativellc.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.schulzecreativellc.com/blog/why-is-my-business-not-showing-up-on-google",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "krofile.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://krofile.com/blog/why-is-my-business-not-showing-up-on-google",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "twofourmedia.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.twofourmedia.com/post/why-your-small-business-is-not-showing-up-on-google-and-how-to-fix-it",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "tabscap.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.tabscap.com/blog/business-not-showing-on-google-5-common-reasons-and-how-to-fix-them",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "ignitedigitalmarketingsolutions.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.ignitedigitalmarketingsolutions.com/post/why-your-business-isnt-showing-up-on-google-and-how-to-fix-it",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "cited.so",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://cited.so/blog/local-business-not-showing-up-in-search-results",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "google.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.google.com/business/",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "revved.digital",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://revved.digital/business-not-showing-up-on-google-search/",
+       "sourceType": "blog"
+      }
+     ]
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793422703058,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources?promptId=407346",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "comradeweb.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://comradeweb.com/blog/plumber-digital-marketing-how-to-increase-leads-and-sales/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "daltonmills.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://daltonmills.com/resources/blog/marketing-guide-for-plumbers",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "neutrinomarketing.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://neutrinomarketing.com/blog/plumbing-marketing",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "housecallpro.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.housecallpro.com/resources/best-plumbing-marketing-ideas/",
+       "sourceType": "resource_page"
+      }
+     ]
+    },
+    {
+     "domain": "callrail.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.callrail.com/blog/plumber-marketing",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "usehatchapp.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.usehatchapp.com/blog/plumbing-marketing-ideas",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "tradifyhq.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.tradifyhq.com/blog/plumber-marketing-strategies",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "forbes.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.forbes.com/councils/forbesagencycouncil/2023/06/21/how-to-create-a-successful-marketing-strategy-for-plumbers/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "plumbingwebmasters.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.plumbingwebmasters.com/plumbing-marketing/",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "insideadvisorpro.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.insideadvisorpro.com/plumber-advertising-tips-to-drive-more-leads/",
+       "sourceType": "blog"
+      }
+     ]
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793422703059,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources?promptId=407345",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "kime.ai",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://kime.ai/blog/best-chatgpt-rank-tracking-tools",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "useomnia.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.useomnia.com/blog/chatgpt-rank-tracking-tool",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "eano.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.eano.com/blogs/aeo-guide-for-contractors",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "projecta.ai",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.projecta.ai/rankings/",
+       "sourceType": "category_page"
+      }
+     ]
+    },
+    {
+     "domain": "beamtrace.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://beamtrace.com/blog/best-tools-for-monitoring-chatgpt-mentions",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "visible.seranking.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://visible.seranking.com/blog/chatgpt-rank-tracking-tools-2026/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "semrush.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://semrush.com/news/395783-monitor-chatgpt-search-in-position-tracking-tool",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "elfsight.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://elfsight.com/blog/best-tools-for-monitoring-chatgpt-mentions/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "brightlocal.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.brightlocal.com/local-seo-tools/local-ai-visibility/",
+       "sourceType": "feature_page"
+      }
+     ]
+    },
+    {
+     "domain": "localfalcon.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.localfalcon.com/features/chatgpt",
+       "sourceType": "feature_page"
+      }
+     ]
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793422703059,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources?promptId=533740",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "sianamarketing.com",
+     "count": 3,
+     "urls": [
+      {
+       "url": "https://www.sianamarketing.com/resources/top-local-seo-agencies-for-contractors",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://www.sianamarketing.com/resources/best-seo-agencies-for-contractors",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://www.sianamarketing.com/resources/best-local-seo-agencies-for-general-contractors",
+       "sourceType": "resource_page"
+      }
+     ]
+    },
+    {
+     "domain": "clutch.co",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://clutch.co/seo-firms/local",
+       "sourceType": "category_page"
+      }
+     ]
+    },
+    {
+     "domain": "goodfirms.co",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.goodfirms.co/seo-agencies/local",
+       "sourceType": "category_page"
+      }
+     ]
+    },
+    {
+     "domain": "getlocalpresence.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://getlocalpresence.com/blog/best-local-seo-companies-for-general-contractors/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "helloroketto.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.helloroketto.com/articles/seo-for-contractors",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "contractorplus.app",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://contractorplus.app/blog/9-best-local-seo-tools-services-for-contractors-in-2026",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "pipelineon.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://pipelineon.com/blog/local-seo-tools/",
+       "sourceType": "blog"
+      }
+     ]
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793422703060,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources?promptId=533741",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "g2.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://www.g2.com/products/scorpion/reviews?qs=pros-and-cons",
+       "sourceType": "product_page"
+      },
+      {
+       "url": "https://www.g2.com/products/scorpion/reviews",
+       "sourceType": "product_page"
+      }
+     ]
+    },
+    {
+     "domain": "trustpilot.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.trustpilot.com/review/scorpion.co",
+       "sourceType": "other"
+      }
+     ]
+    },
+    {
+     "domain": "designrush.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.designrush.com/agency/profile/scorpion",
+       "sourceType": "category_page"
+      }
+     ]
+    },
+    {
+     "domain": "scorpion.co",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.scorpion.co/plumbing/",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "clutch.co",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://clutch.co/profile/scorpion",
+       "sourceType": "other"
+      }
+     ]
+    },
+    {
+     "domain": "builtrightdigital.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://builtrightdigital.com/best-plumbing-lead-generation-agencies/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "transactional.net",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://transactional.net/scorpion-marketing-reviews/",
+       "sourceType": "other"
+      }
+     ]
+    },
+    {
+     "domain": "elevateclientsinc.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://elevateclientsinc.com/best-lead-generation-agencies-for-commercial-cleaning-companies",
+       "sourceType": "blog"
+      }
+     ]
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793422703062,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources?promptId=533742",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "hookagency.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://hookagency.com/blog/local-seo-for-home-service-businesses/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "1seo.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://1seo.com/blog/seo-for-home-service-businesses-how-to-rank-locally-in-2025/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "blueprintdigital.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://blueprintdigital.com/blog/local-seo-for-home-services/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "253media.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.253media.com/resources/the-complete-guide-to-home-service-seo-how-to-get-more-local-leads-online",
+       "sourceType": "resource_page"
+      }
+     ]
+    },
+    {
+     "domain": "gbppromote.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://gbppromote.com/blog/guide/local-seo-for-home-services/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "gomarketing.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://gomarketing.com/blog/the-complete-local-seo-guide-for-home-service-contractors-in-2026/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "pipelineon.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://pipelineon.com/blog/local-seo-for-home-service-businesses/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "rankeasydigital.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://rankeasydigital.com/local-seo-home-services",
+       "sourceType": "solution_page"
+      }
+     ]
+    },
+    {
+     "domain": "digimau.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.digimau.com/home-services-seo-guide-2026/",
+       "sourceType": "resource_page"
+      }
+     ]
+    },
+    {
+     "domain": "trailfire.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://trailfire.com/guides/local-seo-for-home-services/",
+       "sourceType": "resource_page"
+      }
+     ]
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793422703062,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources?promptId=407341",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "leadadvisors.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://leadadvisors.com/blog/seo-for-contractors/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "findabledigitalmarketing.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.findabledigitalmarketing.com/blog/local-seo-construction/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "kangomedia.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://kangomedia.com/blog/local-seo-for-contractors-the-complete-2026-guide-to/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "blog.mauveverse.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://blog.mauveverse.com/seo-tips-contractors-google-maps-3/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "gushwork.ai",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.gushwork.ai/blog/local-seo-for-contractors",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "blog.renovationfind.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://blog.renovationfind.com/how-contractors-can-improve-google-rankings-seo-and-get-found-in-ai-search/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "parrishdesign.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.parrishdesign.com/insights/seo-for-contractors",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "surfsurge.co",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://surfsurge.co/google-ranking-for-contractors/",
+       "sourceType": "resource_page"
+      }
+     ]
+    },
+    {
+     "domain": "givemesomeleads.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.givemesomeleads.com/resources/contractor-seo-how-to-rank-higher-and-generate-more-leads",
+       "sourceType": "resource_page"
+      }
+     ]
+    },
+    {
+     "domain": "searchengineland.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://searchengineland.com/guide/seo-for-contractors",
+       "sourceType": "resource_page"
+      }
+     ]
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793422703062,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources?promptId=556092",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "socialcali.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://www.socialcali.com/locations/thousand-oaks/plumber-seo-services/",
+       "sourceType": "location_page"
+      },
+      {
+       "url": "https://www.socialcali.com/locations/camarillo/plumber-seo-services/",
+       "sourceType": "location_page"
+      }
+     ]
+    },
+    {
+     "domain": "rankingsb.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.rankingsb.com/industries/plumber-seo",
+       "sourceType": "solution_page"
+      }
+     ]
+    },
+    {
+     "domain": "localseo.ericscottstudios.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://localseo.ericscottstudios.com/services/local-seo-agency-ventura-county",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "boostcliques.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://boostcliques.com/plumbing-marketing-ventura-ca/",
+       "sourceType": "solution_page"
+      }
+     ]
+    },
+    {
+     "domain": "oxconlabs.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://oxconlabs.com/",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "5d3media.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://5d3media.com/",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "ericscottstudios.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://ericscottstudios.com/services/local-seo-agency-ventura-county",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "12amagency.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://12amagency.com/services/ventura/seo-for-plumbing-ventura-ca/",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "colmfitzgerald.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://colmfitzgerald.com/local-seo-ventura",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "localisedseo.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://localisedseo.com/local-seo/",
+       "sourceType": "landing_page"
+      }
+     ]
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793422703062,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources?promptId=598774",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "explorehvac.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://explorehvac.com/blog/top-hvac-marketing-agencies-2026/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "lockarddesignco.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.lockarddesignco.com/blog/best-hvac-marketing-agencies/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "bessondigital.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://bessondigital.com/best-contractor-marketing-agencies/best-hvac-marketing-agencies-2026",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "lmh.agency",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://lmh.agency/best-hvac-marketing-agencies/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "redbarnmg.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://redbarnmg.com/hvac-marketing/",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "ciwebgroup.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://ciwebgroup.com/industries/hvac",
+       "sourceType": "category_page"
+      }
+     ]
+    },
+    {
+     "domain": "landonscales.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.landonscales.com/industries/hvac",
+       "sourceType": "category_page"
+      }
+     ]
+    },
+    {
+     "domain": "quantimedia.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://quantimedia.com/hvac-marketing-exclusive-leads-in-ventura-ca-santa-clara-county/",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "paradigmmedianetworks.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://paradigmmedianetworks.com/best-hvac-marketing-agencies-compared/",
+       "sourceType": "comparison_page"
+      }
+     ]
+    },
+    {
+     "domain": "mediagistic.com",
+     "count": 1,
+     "urls": [
+      {
+       "url": "https://www.mediagistic.com/pricing",
+       "sourceType": "pricing_page"
+      }
+     ]
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793422704027,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793422704020&cv=11&fst=1793422704020&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility%3Ftab%3Dsources&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility%3Ftab%3Dbrands-mentioned&rcb=0&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422704031,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=67&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility%3Ftab%3Dsources&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility%3Ftab%3Dprompts&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=244113",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422704035,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=0&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility&scrsrc=www.googletagmanager.com&rnd=2083431636.1793422461&navt=n&npa=0&ae=a&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&tft=1793422704034&tfd=244116&_gsid=ZBI9AbIQeQFc3LvpNrGvZIwAHJxHp20NjA&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422704039,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=68&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility%3Ftab%3Dsources&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility%3Ftab%3Dbrands-mentioned&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=244121",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility?tab=sources",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

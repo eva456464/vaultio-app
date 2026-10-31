@@ -1,0 +1,63 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/socials?tab=quora",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Quora",
+  "H3: How do I boost home service lead generation effectively?",
+  "H3: Are SEO services for contractors really helpful?",
+  "H3: How can I optimize my website to attract more leads for my home service business?",
+  "H3: How do contractor SEO services help?",
+  "H3: What innovative digital marketing strategies can I employ to reach out to construction contractors and builders?",
+  "H3: Which is the best SEO company in San Francisco, California?",
+  "H3: What is the best way for a local home improvement business to generate leads?",
+  "H3: Which company provide best SEO(Search Engine Optimization) services in the California?",
+  "H3: What are the most effective strategies for home improvement lead generation?",
+  "H3: What is the role of an SEO company in California?",
+  "H3: Personalized Quora questions from your articles"
+ ],
+ "buttons": [
+  "Manage keywords [icon:lucide-settings2] -> /en/dashboard/settings/quora",
+  "To reply",
+  "Replied",
+  "How do I boost home service lead generation effectively? -> https://www.quora.com/What-are-the-top-methods-for-home-service-lead-generation",
+  "Draft a reply [icon:lucide-sparkles]",
+  "(More actions) [icon:lucide-ellipsis-vertical]",
+  "Are SEO services for contractors really helpful? -> https://www.quora.com/Are-SEO-services-for-contractors-really-helpful",
+  "How can I optimize my website to attract more leads for my home service business -> https://www.quora.com/How-can-I-optimize-my-website-to-attract-more-leads-for-my-home-service-business",
+  "How do contractor SEO services help? -> https://www.quora.com/How-do-contractor-SEO-services-help",
+  "What innovative digital marketing strategies can I employ to reach out to constr -> https://www.quora.com/What-innovative-digital-marketing-strategies-can-I-employ-to-reach-out-to-construction-contractors-and-builders",
+  "Which is the best SEO company in San Francisco, California? -> https://www.quora.com/Which-is-the-best-SEO-company-in-San-Francisco-California",
+  "What is the best way for a local home improvement business to generate leads? -> https://www.quora.com/What-is-the-best-way-for-a-local-home-improvement-business-to-generate-leads",
+  "Which company provide best SEO(Search Engine Optimization) services in the Calif -> https://www.quora.com/Which-company-provide-best-SEO-Search-Engine-Optimization-services-in-the-California",
+  "What are the most effective strategies for home improvement lead generation? -> https://www.quora.com/What-are-the-most-effective-strategies-for-home-improvement-lead-generation",
+  "What is the role of an SEO company in California? -> https://www.quora.com/What-is-the-role-of-an-SEO-company-in-California",
+  "(Previous page) [icon:lucide-chevron-left] [disabled]",
+  "1",
+  "2",
+  "3",
+  "(Next page) [icon:lucide-chevron-right]",
+  "(Dismiss) [icon:lucide-x]",
+  "Upgrade to Quora+"
+ ],
+ "tabs": [
+  "To reply [selected]",
+  "Replied"
+ ],
+ "inputs": [],
+ "tables": [],
+ "icons": [
+  "lucide-settings2",
+  "lucide-sparkles",
+  "lucide-ellipsis-vertical",
+  "lucide-search",
+  "lucide-chevron-left",
+  "lucide-chevron-right",
+  "lucide-x",
+  "lucide-check"
+ ],
+ "images": [
+  " | https://app.vaultio.co/logos/chatgpt-logo.svg",
+  " | https://app.vaultio.co/logos/claude-ai-icon.svg"
+ ],
+ "charts": 0
+}

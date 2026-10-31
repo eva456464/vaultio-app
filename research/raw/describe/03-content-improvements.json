@@ -1,0 +1,25 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/content-plan/improvements",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Blog content",
+  "H2: Improved Articles",
+  "H3: Scanning for opportunities"
+ ],
+ "buttons": [
+  "Content Calendar [icon:lucide-calendar-days] -> /en/dashboard/content-plan",
+  "Improvements Beta [icon:lucide-sparkles] -> /en/dashboard/content-plan/improvements",
+  "How it works [icon:lucide-info]"
+ ],
+ "tabs": [],
+ "inputs": [],
+ "tables": [],
+ "icons": [
+  "lucide-calendar-days",
+  "lucide-sparkles",
+  "lucide-info",
+  "lucide-radar"
+ ],
+ "images": [],
+ "charts": 0
+}

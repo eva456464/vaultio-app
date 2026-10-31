@@ -1,0 +1,172 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/analytics/google-traffic",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Google traffic",
+  "H3: Clicks by country",
+  "H2: Google traffic over time"
+ ],
+ "buttons": [
+  "All time [icon:lucide-calendar-days]",
+  "Clicks from Google 248 +21 People who visited your site from their search result [icon:lucide-info]",
+  "Total impressions 37,956 +4,465 How often your site was listed when someone sear [icon:lucide-info]",
+  "Average ranking 23.5 Lower number means higher on the page [icon:lucide-info]",
+  "Clicks",
+  "Impressions",
+  "Avg. ranking",
+  "Vaultio articles only",
+  "Page",
+  "Clicks [icon:lucide-chevron-down]",
+  "(Number of times someone clicked through to this page from Google search results [icon:lucide-info]",
+  "(Number of times this page appeared in Google search results.) [icon:lucide-info]",
+  "Click Share",
+  "(Percentage of your site's total Google clicks that this page earned.) [icon:lucide-info]",
+  "CTR",
+  "(Clicks divided by impressions — how often people click this page when they see  [icon:lucide-info]",
+  "Avg Position",
+  "(Average position of this page in Google search results. Lower is better.) [icon:lucide-info]",
+  "Homepage [icon:lucide-external-link] -> https://vaultio.co/",
+  "Homepage [icon:lucide-external-link] -> http://vaultio.co/",
+  "/About [icon:lucide-external-link] -> https://vaultio.co/About",
+  "/city/solvang/meta-ads [icon:lucide-external-link] -> https://vaultio.co/city/solvang/meta-ads",
+  "/city/ventura [icon:lucide-external-link] -> https://vaultio.co/city/ventura",
+  "/city/goleta/seo [icon:lucide-external-link] -> https://vaultio.co/city/goleta/seo",
+  "/Mentorship [icon:lucide-external-link] -> https://vaultio.co/Mentorship",
+  "/BuildersMarketing [icon:lucide-external-link] -> https://vaultio.co/BuildersMarketing",
+  "/city/ventura/seo [icon:lucide-external-link] -> https://vaultio.co/city/ventura/seo",
+  "/city/thousand-oaks/web-design [icon:lucide-external-link] -> https://vaultio.co/city/thousand-oaks/web-design",
+  "Previous [icon:lucide-chevron-left] [disabled]",
+  "Next [icon:lucide-chevron-right]",
+  "Vaultio keywords only",
+  "Keywords [icon:lucide-chevron-down]",
+  "(Searches that brought visitors to articles Vaultio wrote, as reported by Google [icon:lucide-info]",
+  "Organic Clicks [icon:lucide-chevron-down]",
+  "Organic Impressions [icon:lucide-chevron-down]",
+  "Avg Position [icon:lucide-chevron-down]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Period",
+   "value": "All time",
+   "checked": "closed"
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "Search pages...",
+   "label": "Search pages",
+   "value": "",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "Search keywords...",
+   "label": "Search keywords",
+   "value": "",
+   "checked": null
+  }
+ ],
+ "tables": [
+  {
+   "headers": [
+    "Page",
+    "Clicks",
+    "Impressions",
+    "Click Share",
+    "CTR",
+    "Avg Position"
+   ],
+   "rows": 10,
+   "sample": [
+    [
+     "Homepage",
+     "154",
+     "14,719",
+     "60.2%",
+     "1%",
+     "9.4"
+    ],
+    [
+     "Homepage",
+     "19",
+     "2,568",
+     "7.4%",
+     "0.7%",
+     "2.7"
+    ],
+    [
+     "/About",
+     "8",
+     "383",
+     "3.1%",
+     "2.1%",
+     "5.7"
+    ],
+    [
+     "/city/solvang/meta-ads",
+     "6",
+     "165",
+     "2.3%",
+     "3.6%",
+     "5.0"
+    ]
+   ]
+  },
+  {
+   "headers": [
+    "Keywords",
+    "Organic Clicks",
+    "Organic Impressions",
+    "Avg Position"
+   ],
+   "rows": 10,
+   "sample": [
+    [
+     "vaultio Vaultio keyword",
+     "90",
+     "645",
+     "2.1"
+    ],
+    [
+     "goleta seo company",
+     "3",
+     "474",
+     "11.7"
+    ],
+    [
+     "meta solvang",
+     "3",
+     "107",
+     "4.8"
+    ],
+    [
+     "local seo thousand oaks Vaultio keyword",
+     "2",
+     "43",
+     "3.6"
+    ]
+   ]
+  }
+ ],
+ "icons": [
+  "lucide-calendar-days",
+  "lucide-info",
+  "lucide-search",
+  "lucide-chevron-down",
+  "lucide-external-link",
+  "lucide-chevron-left",
+  "lucide-chevron-right"
+ ],
+ "images": [
+  " | https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/whitelabel/vaultio/vaultio_favicon.png"
+ ],
+ "charts": 2
+}

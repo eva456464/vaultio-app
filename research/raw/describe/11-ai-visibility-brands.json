@@ -1,0 +1,79 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/ai-visibility?tab=brands-mentioned",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Brands mentioned",
+  "H3: #1 How do I rank higher on Google? 6 brands Awareness",
+  "H3: #2 My business isn’t showing up in search 5 brands Awareness",
+  "H3: #3 Best marketing for plumbers 7 brands Research",
+  "H3: #4 Tools for ranking on ChatGPT as a contractor 15 brands Research",
+  "H3: #5 what do users say about local SEO services for contractors 14 brands Comparison",
+  "H3: #6 is Scorpion worth it for getting more plumbing leads 4 brands Comparison",
+  "H3: #7 what is local SEO for home service businesses 7 brands Learning",
+  "H3: #8 What helps contractors rank on Google? 5 brands Research",
+  "H3: #9 local SEO services for plumbing contractors in Ventura County 15 brands Buying intent",
+  "H3: #10 cheapest HVAC marketing agencies in Ventura County 2026 13 brands Buying intent"
+ ],
+ "buttons": [
+  "#1 How do I rank higher on Google? 6 brands Awareness [icon:lucide-chevron-down]",
+  "#2 My business isn’t showing up in search 5 brands Awareness [icon:lucide-chevron-down]",
+  "#3 Best marketing for plumbers 7 brands Research [icon:lucide-chevron-down]",
+  "#4 Tools for ranking on ChatGPT as a contractor 15 brands Research [icon:lucide-chevron-down]",
+  "#5 what do users say about local SEO services for contractors 14 brands Comparis [icon:lucide-chevron-down]",
+  "#6 is Scorpion worth it for getting more plumbing leads 4 brands Comparison [icon:lucide-chevron-down]",
+  "#7 what is local SEO for home service businesses 7 brands Learning [icon:lucide-chevron-down]",
+  "#8 What helps contractors rank on Google? 5 brands Research [icon:lucide-chevron-down]",
+  "#9 local SEO services for plumbing contractors in Ventura County 15 brands Buyin [icon:lucide-chevron-down]",
+  "#10 cheapest HVAC marketing agencies in Ventura County 2026 13 brands Buying int [icon:lucide-chevron-down]"
+ ],
+ "tabs": [],
+ "inputs": [],
+ "tables": [
+  {
+   "headers": [
+    "#",
+    "Brand",
+    "Mentioned in",
+    "Visibility",
+    "Sentiment"
+   ],
+   "rows": 10,
+   "sample": [
+    [
+     "#1",
+     "Google",
+     "14/20",
+     "70%",
+     "61"
+    ],
+    [
+     "#2",
+     "Google Search Console",
+     "3/20",
+     "15%",
+     "50"
+    ],
+    [
+     "#3",
+     "Google Business Profile",
+     "3/20",
+     "15%",
+     "67"
+    ],
+    [
+     "#4",
+     "Yelp",
+     "3/20",
+     "15%",
+     "50"
+    ]
+   ]
+  }
+ ],
+ "icons": [
+  "lucide-info",
+  "lucide-chevron-down"
+ ],
+ "images": [],
+ "charts": 0
+}

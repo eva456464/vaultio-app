@@ -1,0 +1,126 @@
+AI search traffic
+Analyze your site traffic across Google and AI search.
+
+All time
+Active users
+
+26
+Users who came from AI searches
+Sessions
+
+30
+Sessions from AI searches
+Top AI model
+
+ChatGPT
+Top model by AI traffic
+AI models
+
+4
+Number of AI models
+AI search performance
+See which AI models drive the most traffic to your site
+All models
+
+ChatGPT
+
+Perplexity
+
+Gemini
+
+Copilot
+
+Claude
+
+You.com
+
+Phind
+
+Poe
+
+Groq
+
+Meta AI
+Apr 26
+May 12
+May 28
+Jun 13
+Jun 28
+Jul 13
+Jul 27
+Aug 11
+Aug 27
+Sep 12
+Sep 28
+Oct 14
+Oct 30
+0
+1
+2
+3
+4
+Top AI models
+AI model
+Active Users ↓
+Share
+ChatGPT
+15
+60.0%
+Gemini
+4
+16.0%
+Perplexity
+4
+16.0%
+Copilot
+2
+8.0%
+Top pages
+Analyze which pages get the most traffic from AI searches
+Group by
+
+Pages
+
+Vaultio articles only
+Page	
+Active Users
+
+Page Share
+
+Top AI Model
+
+Homepage
+11	44.0%	
+ChatGPT
+/About
+3	12.0%	
+ChatGPT
+/AIReceptionist
+1	4.0%	
+Perplexity
+/B2BOutreach
+1	4.0%	
+ChatGPT
+/Blog
+1	4.0%	
+Gemini
+/Blog/llm-citations
+Vaultio article
+1	4.0%	
+Gemini
+/Blog/website-design-home-services
+1	4.0%	
+ChatGPT
+/CarpetCleanersMarketing
+1	4.0%	
+Gemini
+/GarageDoorsMarketing
+1	4.0%	
+ChatGPT
+/HomeSecurityMarketing
+1	4.0%	
+ChatGPT
+Showing 1–10 of 13 items
+Previous
+Next
+

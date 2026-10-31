@@ -1,0 +1,33 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/ai-visibility",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: AI visibility overview"
+ ],
+ "buttons": [
+  "Brand mentions 0 /20 answers [icon:lucide-info]",
+  "Top AI sources Websites AI models relied on most when answering questions Source [icon:lucide-info] -> /dashboard/ai-visibility?tab=sources",
+  "(See all brands) -> /dashboard/ai-visibility?tab=brands-mentioned"
+ ],
+ "tabs": [],
+ "inputs": [],
+ "tables": [],
+ "icons": [
+  "lucide-info"
+ ],
+ "images": [
+  "ChatGPT | https://app.vaultio.co/_next/image?url=%2Flogos%2Fchatgpt-logo.png&w=48&q=75",
+  "Gemini | https://app.vaultio.co/logos/gemini.svg",
+  "Claude | https://app.vaultio.co/logos/claude-ai-icon.svg",
+  "backlinko.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dbacklinko.com%26default%3Ddata%253Aimage%252Fsvg%252Bxm",
+  "sianamarketing.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dsianamarketing.com%26default%3Ddata%253Aimage%252Fsvg%2",
+  "semrush.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dsemrush.com%26default%3Ddata%253Aimage%252Fsvg%252Bxml%",
+  "clutch.co | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dclutch.co%26default%3Ddata%253Aimage%252Fsvg%252Bxml%25",
+  "pipelineon.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dpipelineon.com%26default%3Ddata%253Aimage%252Fsvg%252Bx",
+  "g2.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dg2.com%26default%3Ddata%253Aimage%252Fsvg%252Bxml%253Bb",
+  "hookagency.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dhookagency.com%26default%3Ddata%253Aimage%252Fsvg%252Bx",
+  "leadadvisors.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dleadadvisors.com%26default%3Ddata%253Aimage%252Fsvg%252",
+  "socialcali.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dsocialcali.com%26default%3Ddata%253Aimage%252Fsvg%252Bx"
+ ],
+ "charts": 2
+}

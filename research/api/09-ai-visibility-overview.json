@@ -1,0 +1,282 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/ai-visibility",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793422675351,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/ai-visibility?_rsc=1qbgv",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22reporting%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/reporting"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/reporting",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793422675645,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/ai-visibility",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422675679,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "backlinko.com",
+     "count": 3,
+     "urls": [
+      {
+       "url": "https://backlinko.com/hub/seo/best-practices",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://backlinko.com/rank-high-on-google",
+       "sourceType": "blog"
+      },
+      {
+       "url": "https://backlinko.com/google-seo-guide",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "sianamarketing.com",
+     "count": 3,
+     "urls": [
+      {
+       "url": "https://www.sianamarketing.com/resources/top-local-seo-agencies-for-contractors",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://www.sianamarketing.com/resources/best-seo-agencies-for-contractors",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://www.sianamarketing.com/resources/best-local-seo-agencies-for-general-contractors",
+       "sourceType": "resource_page"
+      }
+     ]
+    },
+    {
+     "domain": "semrush.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://www.semrush.com/blog/google-seo/",
+       "sourceType": "blog"
+      },
+      {
+       "url": "https://semrush.com/news/395783-monitor-chatgpt-search-in-position-tracking-tool",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "clutch.co",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://clutch.co/seo-firms/local",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://clutch.co/profile/scorpion",
+       "sourceType": "other"
+      }
+     ]
+    },
+    {
+     "domain": "pipelineon.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://pipelineon.com/blog/local-seo-tools/",
+       "sourceType": "blog"
+      },
+      {
+       "url": "https://pipelineon.com/blog/local-seo-for-home-service-businesses/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "g2.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://www.g2.com/products/scorpion/reviews?qs=pros-and-cons",
+       "sourceType": "product_page"
+      },
+      {
+       "url": "https://www.g2.com/products/scorpion/reviews",
+       "sourceType": "product_page"
+      }
+     ]
+    },
+    {
+     "domain": "hookagency.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://hookagency.com/blog/local-seo-for-home-service-businesses/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "1seo.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://1seo.com/blog/seo-for-home-service-businesses-how-to-rank-locally-in-2025/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "leadadvisors.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://leadadvisors.com/blog/seo-for-contractors/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "socialcali.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://www.socialcali.com/locations/thousand-oaks/plumber-seo-services/",
+       "sourceType": "location_page"
+      },
+      {
+       "url": "https://www.socialcali.com/locations/camarillo/plumber-seo-services/",
+       "sourceType": "location_page"
+      }
+     ]
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793422675680,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/history",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "date": "2026-08-23",
+     "visibilityScore": 0,
+     "totalMentions": 0,
+     "totalAnswers": 20
+    },
+    {
+     "date": "2026-09-06",
+     "visibilityScore": 4.55,
+     "totalMentions": 1,
+     "totalAnswers": 22
+    },
+    {
+     "date": "2026-09-20",
+     "visibilityScore": 5,
+     "totalMentions": 1,
+     "totalAnswers": 20
+    },
+    {
+     "date": "2026-10-05",
+     "visibilityScore": 5,
+     "totalMentions": 1,
+     "totalAnswers": 20
+    },
+    {
+     "date": "2026-10-20",
+     "visibilityScore": 0,
+     "totalMentions": 0,
+     "totalAnswers": 20
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793422676653,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793422676650&cv=11&fst=1793422676650&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Freporting&rcb=0&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422676656,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=58&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsocials%3Ftab%3Dquora&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=216737",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422676658,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=0&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility&scrsrc=www.googletagmanager.com&rnd=2083431636.1793422461&navt=n&npa=0&ae=a&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&tft=1793422676658&tfd=216740&_gsid=ZBI9AbIQeQFc3LvpNrGvZIwAHJxHp20NjA&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422676661,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=59&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Freporting&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=216743",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

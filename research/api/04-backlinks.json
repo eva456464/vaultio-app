@@ -1,0 +1,2843 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/backlink-exchange",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793422628865,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/backlink-exchange?_rsc=kht09",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22content-plan%22%2C%7B%22children%22%3A%5B%22improvements%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Cfalse%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/content-plan/improvements"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/content-plan/improvements",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793422629123,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422629158,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/users/me",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/backlink-exchange",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "data": {
+     "id": 30402,
+     "email": "knightsdamian@gmail.com",
+     "name": "Damian Knights",
+     "isActive": true,
+     "role": "admin",
+     "stripeCustomerId": "cus_UTQeBR3aZ4JKPx",
+     "newsSubscribed": true,
+     "isInvoiceEmailEnabled": false,
+     "platformLanguage": "en",
+     "referralCode": "T3YLMLLQ",
+     "linkedinPostCompleted": false,
+     "linkedinExperiencePostCompleted": false,
+     "isG2ReviewCompleted": false,
+     "hasWatchedWelcomeVideo": true,
+     "hasSeenArticleHints": true,
+     "watchedVideos": [],
+     "completedSetupItems": [],
+     "lastSeenProductUpdateAt": "2026-10-23",
+     "resendAbandonedStartedAt": "2026-06-24T05:54:03.908Z",
+     "resendChurnedStartedAt": null,
+     "resendOnboardingStartedAt": null,
+     "resendActiveUserStartedAt": "2026-09-26T01:01:34.116Z",
+     "deletionRequestedAt": null,
+     "lastLoginAt": "2026-10-31T02:01:48.536Z",
+     "createdAt": "2026-05-07T15:10:56.359Z",
+     "updatedAt": "2026-10-31T02:01:48.536Z",
+     "supabaseId": "cf01a7df-95e5-44bf-bf55-a261c2e300ea",
+     "organizationId": 29411,
+     "websiteAccess": []
+    },
+    "message": "User fetched successfully"
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793422629159,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/backlinks",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/backlink-exchange",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "creditBalance": 382,
+    "given": [
+     {
+      "id": 874905,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 54369,
+      "url": "https://dblscanner.com/blog/site-architecture-seo",
+      "isBacklinkPresent": true,
+      "articleId": 1022286,
+      "articleClusterId": 7212082,
+      "linkPower": 42,
+      "becameOnlineAt": "2026-10-28T00:56:26.429Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-28T00:56:26.429Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-26T14:04:05.653Z",
+      "updatedAt": "2026-10-28T00:56:26.432Z",
+      "targetOrgWebsite": {
+       "url": "https://dblscanner.com"
+      },
+      "article": {
+       "title": "Flooring Website Design: What Turns Visitors Into Quote Requests",
+       "publishedUrl": "https://vaultio.co/blog/flooring-website-design",
+       "publishedAt": "2026-10-28T00:56:22.539Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-28T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 865282,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 51287,
+      "url": "https://installer.com/blog/customer-self-scheduling",
+      "isBacklinkPresent": true,
+      "articleId": 1014211,
+      "articleClusterId": 7174036,
+      "linkPower": 36,
+      "becameOnlineAt": "2026-10-26T19:01:53.486Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T19:01:53.486Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-25T00:37:19.247Z",
+      "updatedAt": "2026-10-26T19:01:53.488Z",
+      "targetOrgWebsite": {
+       "url": "https://installer.com"
+      },
+      "article": {
+       "title": "After-Hours Call Handling for Contractors: 2026 Setup Guide",
+       "publishedUrl": "https://vaultio.co/blog/after-hours-call-handling",
+       "publishedAt": "2026-10-25T00:45:11.293Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-25T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 865280,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 63360,
+      "url": "https://krastor.com/insights/after-hours-calls-home-services-lead-capture",
+      "isBacklinkPresent": true,
+      "articleId": 1014211,
+      "articleClusterId": 7174036,
+      "linkPower": 36,
+      "becameOnlineAt": "2026-10-26T19:01:53.008Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T19:01:53.008Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-25T00:37:19.245Z",
+      "updatedAt": "2026-10-26T19:01:53.011Z",
+      "targetOrgWebsite": {
+       "url": "https://krastor.com"
+      },
+      "article": {
+       "title": "After-Hours Call Handling for Contractors: 2026 Setup Guide",
+       "publishedUrl": "https://vaultio.co/blog/after-hours-call-handling",
+       "publishedAt": "2026-10-25T00:45:11.293Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-25T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 865281,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 3780,
+      "url": "https://solution4guru.com/automation-in-business-examples",
+      "isBacklinkPresent": true,
+      "articleId": 1014211,
+      "articleClusterId": 7174036,
+      "linkPower": 36,
+      "becameOnlineAt": "2026-10-26T19:01:53.192Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T19:01:53.192Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-25T00:37:19.245Z",
+      "updatedAt": "2026-10-26T19:01:53.308Z",
+      "targetOrgWebsite": {
+       "url": "https://solution4guru.com"
+      },
+      "article": {
+       "title": "After-Hours Call Handling for Contractors: 2026 Setup Guide",
+       "publishedUrl": "https://vaultio.co/blog/after-hours-call-handling",
+       "publishedAt": "2026-10-25T00:45:11.293Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-25T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 821336,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 50426,
+      "url": "https://blog.bereavementcleanoutservices.com/blog/cleanout-before-closing",
+      "isBacklinkPresent": true,
+      "articleId": 980171,
+      "articleClusterId": 6319910,
+      "linkPower": 36,
+      "becameOnlineAt": "2026-10-27T19:00:38.457Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-27T19:00:38.457Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-16T04:53:11.698Z",
+      "updatedAt": "2026-10-27T19:00:38.464Z",
+      "targetOrgWebsite": {
+       "url": "https://bereavementcleanoutservices.com"
+      },
+      "article": {
+       "title": "Cleaning Service Marketing Ideas to Try Before Paying for Ads",
+       "publishedUrl": "https://vaultio.co/blog/cleaning-service-marketing-ideas",
+       "publishedAt": "2026-10-18T02:01:29.513Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-18T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 812823,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 38924,
+      "url": "https://designflow-build.com/blog/customer-portal-construction",
+      "isBacklinkPresent": true,
+      "articleId": 972408,
+      "articleClusterId": 6319906,
+      "linkPower": 36,
+      "becameOnlineAt": "2026-10-16T07:03:15.374Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-28T13:36:16.940Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-14T05:22:36.329Z",
+      "updatedAt": "2026-10-28T13:36:16.945Z",
+      "targetOrgWebsite": {
+       "url": "https://designflow-build.com"
+      },
+      "article": {
+       "title": "6 Contractor Website Examples to Copy, From Phone Bars to Portfolios",
+       "publishedUrl": "https://vaultio.co/Blog/contractor-website-examples",
+       "publishedAt": "2026-10-16T02:01:15.479Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-16T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 802901,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 38839,
+      "url": "https://thebuild.us/#offering",
+      "isBacklinkPresent": true,
+      "articleId": 964331,
+      "articleClusterId": 6319905,
+      "linkPower": 36,
+      "becameOnlineAt": "2026-10-14T22:02:38.162Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T19:13:34.588Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-12T04:48:35.087Z",
+      "updatedAt": "2026-10-26T19:13:34.591Z",
+      "targetOrgWebsite": {
+       "url": "https://thebuild.us"
+      },
+      "article": {
+       "title": "Pressure Washing Marketing Ideas: Leads for Contractors in 90 Days",
+       "publishedUrl": "https://vaultio.co/Blog/pressure-washing-marketing-ideas",
+       "publishedAt": "2026-10-14T02:32:06.232Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-14T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 797585,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 29040,
+      "url": "https://trystellor.com/blog/strengthen-your-google-business-profile-for-leads",
+      "isBacklinkPresent": true,
+      "articleId": 960373,
+      "articleClusterId": 6319904,
+      "linkPower": 36,
+      "becameOnlineAt": "2026-10-13T07:02:06.498Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-25T04:53:40.781Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-11T04:19:42.484Z",
+      "updatedAt": "2026-10-25T04:53:40.787Z",
+      "targetOrgWebsite": {
+       "url": "https://trystellor.com"
+      },
+      "article": {
+       "title": "Landscaping Marketing Ideas: Google, Yard Signs, and Off Season Leads",
+       "publishedUrl": "https://vaultio.co/Blog/landscaping-marketing-ideas",
+       "publishedAt": "2026-10-13T02:31:28.702Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-13T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 791802,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 38839,
+      "url": "https://thebuild.us/#offering",
+      "isBacklinkPresent": true,
+      "articleId": 956390,
+      "articleClusterId": 5745742,
+      "linkPower": 35,
+      "becameOnlineAt": "2026-10-12T07:03:22.749Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T01:49:28.697Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-10T04:23:18.389Z",
+      "updatedAt": "2026-10-24T01:49:28.699Z",
+      "targetOrgWebsite": {
+       "url": "https://thebuild.us"
+      },
+      "article": {
+       "title": "Plumber Ad Budgets in 2026: $1,500 Buys About 16 Leads, Not Jobs",
+       "publishedUrl": "https://vaultio.co/Blog/plumber-ads-budget",
+       "publishedAt": "2026-10-12T01:01:46.740Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-12T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 785743,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 9706,
+      "url": "https://jrhardwoodfloorrefinishingandcleaning.com/real-estate-floor-care-workflow-property-managers-guide",
+      "isBacklinkPresent": true,
+      "articleId": 952324,
+      "articleClusterId": 6319899,
+      "linkPower": 35,
+      "becameOnlineAt": "2026-10-12T07:01:20.015Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T01:47:50.866Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-09T05:21:06.350Z",
+      "updatedAt": "2026-10-24T01:47:50.901Z",
+      "targetOrgWebsite": {
+       "url": "https://jrhardwoodfloorrefinishingandcleaning.com"
+      },
+      "article": {
+       "title": "4 SMS Appointment Reminder Texts Contractors Can Test",
+       "publishedUrl": "https://vaultio.co/Blog/sms-appointment-reminders",
+       "publishedAt": "2026-10-11T03:02:08.524Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-11T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 779825,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 39525,
+      "url": "https://c3dynamicsolutions.com/real-estate-content-creation-with-ai-simplifying-prompts",
+      "isBacklinkPresent": true,
+      "articleId": 948470,
+      "articleClusterId": 6319902,
+      "linkPower": 35,
+      "becameOnlineAt": "2026-10-10T07:02:53.791Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-21T19:33:35.644Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-08T04:21:59.735Z",
+      "updatedAt": "2026-10-21T19:33:35.647Z",
+      "targetOrgWebsite": {
+       "url": "https://c3dynamicsolutions.com"
+      },
+      "article": {
+       "title": "AI Lead Qualification for Contractors: Why Rules Alone Miss Hot Leads",
+       "publishedUrl": "https://vaultio.co/Blog/ai-lead-qualification",
+       "publishedAt": "2026-10-10T02:32:24.602Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-10T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 748500,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 6370,
+      "url": "https://surfacesgalore.com/blogs/news/avoid-these-common-installation-mistakes-with-marble-limestone-and-travertine",
+      "isBacklinkPresent": true,
+      "articleId": 928327,
+      "articleClusterId": 6319895,
+      "linkPower": 35,
+      "becameOnlineAt": "2026-10-09T19:00:19.572Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-21T01:20:41.963Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-03T04:50:14.075Z",
+      "updatedAt": "2026-10-21T01:20:41.966Z",
+      "targetOrgWebsite": {
+       "url": "https://surfacesgalore.com"
+      },
+      "article": {
+       "title": "Contractors: Fix Google Business Profile Categories in 24–72 Hours",
+       "publishedUrl": "https://vaultio.co/Blog/google-business-profile-categories",
+       "publishedAt": "2026-10-05T04:01:22.553Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-05T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 748499,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 57211,
+      "url": "https://pnvleads.com/",
+      "isBacklinkPresent": true,
+      "articleId": 928327,
+      "articleClusterId": 6319895,
+      "linkPower": 35,
+      "becameOnlineAt": "2026-10-09T19:00:19.726Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-21T01:20:42.120Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-03T04:50:14.074Z",
+      "updatedAt": "2026-10-21T01:20:42.122Z",
+      "targetOrgWebsite": {
+       "url": "https://pnvleads.com"
+      },
+      "article": {
+       "title": "Contractors: Fix Google Business Profile Categories in 24–72 Hours",
+       "publishedUrl": "https://vaultio.co/Blog/google-business-profile-categories",
+       "publishedAt": "2026-10-05T04:01:22.553Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-05T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 735438,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 25213,
+      "url": "https://apachexclean.com/services",
+      "isBacklinkPresent": true,
+      "articleId": 920623,
+      "articleClusterId": 6319890,
+      "linkPower": 35,
+      "becameOnlineAt": "2026-10-09T07:02:26.743Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-20T11:24:29.703Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-01T05:55:24.348Z",
+      "updatedAt": "2026-10-20T11:24:29.706Z",
+      "targetOrgWebsite": {
+       "url": "https://apachexclean.com"
+      },
+      "article": {
+       "title": "Cleaning Website Design: Fast Templates and Local SEO That Book Jobs",
+       "publishedUrl": "https://vaultio.co/Blog/cleaning-website-design",
+       "publishedAt": "2026-10-03T03:30:53.318Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-03T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 735437,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 18821,
+      "url": "https://berkspressurewashing.com/",
+      "isBacklinkPresent": true,
+      "articleId": 920623,
+      "articleClusterId": 6319890,
+      "linkPower": 35,
+      "becameOnlineAt": "2026-10-09T07:02:26.647Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-20T11:24:29.545Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-01T05:55:24.347Z",
+      "updatedAt": "2026-10-20T11:24:29.594Z",
+      "targetOrgWebsite": {
+       "url": "https://berkspressurewashing.com"
+      },
+      "article": {
+       "title": "Cleaning Website Design: Fast Templates and Local SEO That Book Jobs",
+       "publishedUrl": "https://vaultio.co/Blog/cleaning-website-design",
+       "publishedAt": "2026-10-03T03:30:53.318Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-03T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 716861,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 58960,
+      "url": "https://localgrowthdirect.com/",
+      "isBacklinkPresent": false,
+      "articleId": 904393,
+      "articleClusterId": 6319922,
+      "linkPower": 35,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-23T19:53:22.802Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-23T19:53:22.802Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-27T08:52:36.899Z",
+      "updatedAt": "2026-10-23T19:53:22.804Z",
+      "targetOrgWebsite": {
+       "url": "https://localgrowthdirect.com"
+      },
+      "article": {
+       "title": "HVAC Google Business Profile: 6 Steps to Claim, Verify and Convert",
+       "publishedUrl": "https://vaultio.co/blog/hvac-google-business-profile",
+       "publishedAt": "2026-09-29T04:32:56.819Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-29T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 695248,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 57554,
+      "url": "https://washerauthority.com/",
+      "isBacklinkPresent": false,
+      "articleId": 873238,
+      "articleClusterId": 5745719,
+      "linkPower": 35,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-22T01:33:13.529Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-22T01:33:13.529Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-19T04:12:55.359Z",
+      "updatedAt": "2026-10-22T01:33:13.532Z",
+      "targetOrgWebsite": {
+       "url": "https://washerauthority.com"
+      },
+      "article": {
+       "title": "Convert in 90 Seconds: Service Page Design Templates for Contractors",
+       "publishedUrl": "https://vaultio.co/blog/service-page-design",
+       "publishedAt": "2026-09-21T02:01:50.283Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-21T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 685756,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 34191,
+      "url": "https://bidware.tech/software-for/general-contractors",
+      "isBacklinkPresent": false,
+      "articleId": 862007,
+      "articleClusterId": 5745710,
+      "linkPower": 35,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-21T04:40:17.637Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-21T04:40:17.637Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-16T04:43:31.222Z",
+      "updatedAt": "2026-10-21T04:40:17.674Z",
+      "targetOrgWebsite": {
+       "url": "https://bidware.tech"
+      },
+      "article": {
+       "title": "GEO for Contractors: 30–40% More AI Citations in 30–90 Days",
+       "publishedUrl": "https://vaultio.co/blog/generative-engine-optimization",
+       "publishedAt": "2026-09-18T03:00:50.809Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-18T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 678476,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 11493,
+      "url": "https://serviciodereparacion.es/blog/workflow-revision-preventiva-edificio",
+      "isBacklinkPresent": false,
+      "articleId": 853876,
+      "articleClusterId": 5745708,
+      "linkPower": 33,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-20T19:22:16.473Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-20T19:22:16.473Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-14T04:13:35.808Z",
+      "updatedAt": "2026-10-20T19:22:16.476Z",
+      "targetOrgWebsite": {
+       "url": "https://serviciodereparacion.es"
+      },
+      "article": {
+       "title": "Book Jobs 24/7: Appointment Booking Automation for Contractors",
+       "publishedUrl": "https://vaultio.co/blog/appointment-booking-automation",
+       "publishedAt": "2026-09-16T02:30:41.694Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-16T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 666095,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 53762,
+      "url": "https://corneliuswrecking.com/",
+      "isBacklinkPresent": false,
+      "articleId": 840954,
+      "articleClusterId": 5745694,
+      "linkPower": 33,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-19T16:52:34.150Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-19T16:52:34.150Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-11T04:13:46.918Z",
+      "updatedAt": "2026-10-19T16:52:34.152Z",
+      "targetOrgWebsite": {
+       "url": "https://corneliuswrecking.com"
+      },
+      "article": {
+       "title": "Contractors: A 90 Day Local Link Building Plan to Win Local Visibility",
+       "publishedUrl": "https://vaultio.co/blog/local-link-building",
+       "publishedAt": "2026-09-13T02:30:29.562Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-13T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 661096,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 49588,
+      "url": "https://ai-seo-company.pl/blog/seo-lokalne-dla-firm-w-warszawie",
+      "isBacklinkPresent": false,
+      "articleId": 836259,
+      "articleClusterId": 5745695,
+      "linkPower": 33,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-19T16:30:30.940Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-19T16:30:30.940Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-10T05:18:00.421Z",
+      "updatedAt": "2026-10-19T16:30:30.980Z",
+      "targetOrgWebsite": {
+       "url": "https://ai-seo-company.pl"
+      },
+      "article": {
+       "title": "7 Steps to Fix Local Business Schema for Contractors With a Single @id",
+       "publishedUrl": "https://vaultio.co/blog/local-business-schema",
+       "publishedAt": "2026-09-12T02:30:30.552Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-12T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 646911,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 55878,
+      "url": "https://vadacom.com/",
+      "isBacklinkPresent": true,
+      "articleId": 824186,
+      "articleClusterId": 5745690,
+      "linkPower": 33,
+      "becameOnlineAt": "2026-10-31T04:24:34.541Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-31T04:24:34.541Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-07T04:46:28.467Z",
+      "updatedAt": "2026-10-31T04:24:34.545Z",
+      "targetOrgWebsite": {
+       "url": "https://vadacom.com"
+      },
+      "article": {
+       "title": "Two Way Texting for Contractors: Book 10–15 Extra Jobs a Month",
+       "publishedUrl": "https://vaultio.co/blog/two-way-texting",
+       "publishedAt": "2026-09-09T03:00:41.970Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-09T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 641837,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 38839,
+      "url": "https://thebuild.us/distributors.html",
+      "isBacklinkPresent": true,
+      "articleId": 819921,
+      "articleClusterId": 5745688,
+      "linkPower": 33,
+      "becameOnlineAt": "2026-10-30T19:18:19.544Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T19:18:19.544Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-06T04:44:45.482Z",
+      "updatedAt": "2026-10-30T19:18:19.547Z",
+      "targetOrgWebsite": {
+       "url": "https://thebuild.us"
+      },
+      "article": {
+       "title": "Turn Calls Into Booked Jobs with Dynamic Number Insertion for Contractors",
+       "publishedUrl": "https://vaultio.co/blog/dynamic-number-insertion",
+       "publishedAt": "2026-09-08T03:30:24.015Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-08T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 631585,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 38839,
+      "url": "https://thebuild.us/distributors.html",
+      "isBacklinkPresent": true,
+      "articleId": 811430,
+      "articleClusterId": 5745679,
+      "linkPower": 33,
+      "becameOnlineAt": "2026-10-29T22:47:27.162Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-29T22:47:27.162Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-04T04:10:27.402Z",
+      "updatedAt": "2026-10-29T22:47:27.165Z",
+      "targetOrgWebsite": {
+       "url": "https://thebuild.us"
+      },
+      "article": {
+       "title": "Contractors: Speed to Lead: Cut Response From Two Days to 5 Minutes",
+       "publishedUrl": "https://vaultio.co/blog/speed-to-lead",
+       "publishedAt": "2026-09-06T03:01:25.740Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-06T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 623529,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 5695,
+      "url": "https://searchoneers.com/google-ads-optimization-services",
+      "isBacklinkPresent": true,
+      "articleId": 803497,
+      "articleClusterId": 5956164,
+      "linkPower": 33,
+      "becameOnlineAt": "2026-10-29T04:27:10.089Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-29T04:27:10.089Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-02T04:48:22.431Z",
+      "updatedAt": "2026-10-29T04:27:10.092Z",
+      "targetOrgWebsite": {
+       "url": "https://searchoneers.com"
+      },
+      "article": {
+       "title": "Book More Home Service Jobs in 90 Days for Contractors with GBP, Reviews, Ads",
+       "publishedUrl": "https://vaultio.co/blog/home-service-marketing",
+       "publishedAt": "2026-09-04T04:00:41.566Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-04T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 603649,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 38839,
+      "url": "https://thebuild.us/distributors.html",
+      "isBacklinkPresent": true,
+      "articleId": 784662,
+      "articleClusterId": 5745729,
+      "linkPower": 33,
+      "becameOnlineAt": "2026-10-27T10:23:32.025Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-27T10:23:32.025Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-29T01:46:08.021Z",
+      "updatedAt": "2026-10-27T10:23:32.028Z",
+      "targetOrgWebsite": {
+       "url": "https://thebuild.us"
+      },
+      "article": {
+       "title": "Data First 8 Step Lead Routing Launch for Contractors and Operators",
+       "publishedUrl": "https://vaultio.co/blog/lead-routing-best-practices",
+       "publishedAt": "2026-08-31T03:00:44.403Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-31T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 587813,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 38839,
+      "url": "https://thebuild.us/distributors.html",
+      "isBacklinkPresent": true,
+      "articleId": 772104,
+      "articleClusterId": 5745715,
+      "linkPower": 31,
+      "becameOnlineAt": "2026-10-26T13:59:26.916Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T13:59:26.916Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-25T02:51:16.207Z",
+      "updatedAt": "2026-10-26T13:59:26.919Z",
+      "targetOrgWebsite": {
+       "url": "https://thebuild.us"
+      },
+      "article": {
+       "title": "Citations for Contractors: The 2026 Local SEO Playbook",
+       "publishedUrl": "https://vaultio.co/blog/citations-for-contractors",
+       "publishedAt": "2026-08-28T03:00:41.847Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-28T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 582990,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 52961,
+      "url": "https://propertyimprovementestimator.com/for-contractors",
+      "isBacklinkPresent": true,
+      "articleId": 767349,
+      "articleClusterId": 5745717,
+      "linkPower": 31,
+      "becameOnlineAt": "2026-10-26T02:07:10.708Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T02:07:10.708Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-24T00:36:37.696Z",
+      "updatedAt": "2026-10-26T02:07:11.616Z",
+      "targetOrgWebsite": {
+       "url": "https://propertyimprovementestimator.com"
+      },
+      "article": {
+       "title": "How to Stop Form Spam Without Blocking Real Customers",
+       "publishedUrl": "https://vaultio.co/blog/stop-form-spam",
+       "publishedAt": "2026-08-27T03:01:09.410Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-27T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 513571,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 28110,
+      "url": "https://ez-plumbing.com/",
+      "isBacklinkPresent": false,
+      "articleId": 704017,
+      "articleClusterId": 5745754,
+      "linkPower": 28,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-20T13:47:49.108Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-20T13:47:49.108Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-09T15:05:54.659Z",
+      "updatedAt": "2026-10-20T13:47:49.122Z",
+      "targetOrgWebsite": {
+       "url": "https://ez-plumbing.com"
+      },
+      "article": {
+       "title": "Thousand Oaks Local SEO for Home Service Contractors",
+       "publishedUrl": "https://vaultio.co/blog/thousand-oaks-local-seo",
+       "publishedAt": "2026-08-12T04:00:23.728Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-12T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 508629,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 10490,
+      "url": "https://larrysgutters.com/uscitynet-alternatives",
+      "isBacklinkPresent": false,
+      "articleId": 699781,
+      "articleClusterId": 5745720,
+      "linkPower": 28,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-20T01:44:46.185Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-20T01:44:46.185Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-08T14:05:00.940Z",
+      "updatedAt": "2026-10-20T01:44:46.187Z",
+      "targetOrgWebsite": {
+       "url": "https://larrysgutters.com"
+      },
+      "article": {
+       "title": "Electrician SEO Keywords: High-Intent List & 30-Day Plan",
+       "publishedUrl": "https://vaultio.co/blog/electrician-seo-keywords",
+       "publishedAt": "2026-08-11T03:30:24.399Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-11T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 497680,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 6050,
+      "url": "https://trinityinspectionsllc.com/post/7-essential-home-maintenance-tips-every-homeowner-1",
+      "isBacklinkPresent": false,
+      "articleId": 689930,
+      "articleClusterId": 5745711,
+      "linkPower": 28,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-19T04:24:41.690Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-19T04:24:41.690Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-05T21:32:49.838Z",
+      "updatedAt": "2026-10-19T04:24:41.693Z",
+      "targetOrgWebsite": {
+       "url": "https://trinityinspectionsllc.com"
+      },
+      "article": {
+       "title": "ChatGPT SEO for Contractors: Get Booked by AI Search",
+       "publishedUrl": "https://vaultio.co/blog/chatgpt-seo",
+       "publishedAt": "2026-08-08T16:30:27.882Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-08T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 481914,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 36158,
+      "url": "https://workily.ie/",
+      "isBacklinkPresent": true,
+      "articleId": 675380,
+      "articleClusterId": 4944082,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-30T19:41:57.520Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T19:41:57.520Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-02T03:51:40.429Z",
+      "updatedAt": "2026-10-30T19:41:57.591Z",
+      "targetOrgWebsite": {
+       "url": "https://workily.ie"
+      },
+      "article": {
+       "title": "Brand Mentions in AI Search: What Actually Drives Visibility",
+       "publishedUrl": "https://vaultio.co/blog/role-of-brand-mentions-in-ai-search",
+       "publishedAt": "2026-08-05T12:04:16.480Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-05T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 477253,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 19093,
+      "url": "https://brcks.io/blog/reducing-construction-disputes-effective-communication",
+      "isBacklinkPresent": true,
+      "articleId": 671384,
+      "articleClusterId": 4944071,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-30T16:07:26.197Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T16:07:26.197Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-01T03:53:30.227Z",
+      "updatedAt": "2026-10-30T16:07:26.199Z",
+      "targetOrgWebsite": {
+       "url": "https://brcks.io"
+      },
+      "article": {
+       "title": "Reduce Contractor Booking Cancellations: A Proven Playbook",
+       "publishedUrl": "https://vaultio.co/blog/reduce-contractor-booking-cancellations",
+       "publishedAt": "2026-08-04T08:06:09.085Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-04T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 472903,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 10490,
+      "url": "https://larrysgutters.com/uscitynet-alternatives",
+      "isBacklinkPresent": true,
+      "articleId": 667319,
+      "articleClusterId": 4944022,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-30T10:07:17.080Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T10:07:17.080Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-31T04:23:34.763Z",
+      "updatedAt": "2026-10-30T10:07:17.085Z",
+      "targetOrgWebsite": {
+       "url": "https://larrysgutters.com"
+      },
+      "article": {
+       "title": "Pest Control Digital Marketing Company: Win More Jobs",
+       "publishedUrl": "https://vaultio.co/blog/pest-control-digital-marketing-company",
+       "publishedAt": "2026-08-03T08:21:54.136Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-03T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 469624,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 36158,
+      "url": "https://workily.ie/",
+      "isBacklinkPresent": true,
+      "articleId": 663483,
+      "articleClusterId": 4944052,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-30T02:04:56.326Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T02:04:56.326Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-30T04:26:35.099Z",
+      "updatedAt": "2026-10-30T02:04:56.329Z",
+      "targetOrgWebsite": {
+       "url": "https://workily.ie"
+      },
+      "article": {
+       "title": "Appliance Repair Leads: Top Channels for Local Shops",
+       "publishedUrl": "https://vaultio.co/blog/appliance-repair-leads",
+       "publishedAt": "2026-08-02T08:12:07.426Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-02T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 464133,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 44135,
+      "url": "https://stateracontracting.com/blog/smart-renovations-for-calgary-homes-2026-guide",
+      "isBacklinkPresent": true,
+      "articleId": 659631,
+      "articleClusterId": 4944062,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-29T22:21:51.867Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-29T22:21:51.867Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-29T03:53:33.724Z",
+      "updatedAt": "2026-10-29T22:21:51.889Z",
+      "targetOrgWebsite": {
+       "url": "https://stateracontracting.com"
+      },
+      "article": {
+       "title": "Urgency in HVAC Sales: Close More Jobs Every Day",
+       "publishedUrl": "https://vaultio.co/blog/role-of-urgency-in-hvac-sales",
+       "publishedAt": "2026-08-01T08:22:58.141Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-01T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 457343,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 24554,
+      "url": "https://floridacc.com/role-of-pressure-washing-in-home-listings",
+      "isBacklinkPresent": true,
+      "articleId": 655456,
+      "articleClusterId": 4944317,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-07-31T21:13:25.422Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-29T19:13:39.557Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-28T04:23:29.382Z",
+      "updatedAt": "2026-10-29T19:13:39.561Z",
+      "targetOrgWebsite": {
+       "url": "https://floridacc.com"
+      },
+      "article": {
+       "title": "Best Santa Barbara SEO Company for Contractors",
+       "publishedUrl": "https://vaultio.co/Blog/santa-barbara-seo-company",
+       "publishedAt": "2026-07-31T16:22:25.501Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-31T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 450872,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 36158,
+      "url": "https://workily.ie/",
+      "isBacklinkPresent": true,
+      "articleId": 651039,
+      "articleClusterId": 5171905,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-29T07:06:00.511Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-29T07:06:00.511Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-27T04:23:41.614Z",
+      "updatedAt": "2026-10-29T07:06:00.514Z",
+      "targetOrgWebsite": {
+       "url": "https://workily.ie"
+      },
+      "article": {
+       "title": "AI SEO for Contractors: Win Local Leads in 2026",
+       "publishedUrl": "https://vaultio.co/blog/ai-seo-for-contractors",
+       "publishedAt": "2026-07-30T10:33:29.428Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-30T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 443413,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 45044,
+      "url": "https://fixmovehaul.com/premium/realtor-services",
+      "isBacklinkPresent": true,
+      "articleId": 646706,
+      "articleClusterId": 4944005,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-29T01:07:29.568Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-29T01:07:29.568Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-26T03:51:19.030Z",
+      "updatedAt": "2026-10-29T01:07:29.615Z",
+      "targetOrgWebsite": {
+       "url": "https://fixmovehaul.com"
+      },
+      "article": {
+       "title": "Best Lead Services for Contractors: Own Your Pipeline",
+       "publishedUrl": "https://vaultio.co/blog/lead-services-contractors",
+       "publishedAt": "2026-07-29T08:27:34.456Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-29T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 437032,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 42739,
+      "url": "https://denversnowremovals.com/blog/hdlandscapeservice-com-alternatives-snow-removal-3",
+      "isBacklinkPresent": true,
+      "articleId": 642973,
+      "articleClusterId": 4944050,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-28T16:49:49.786Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-28T16:49:49.786Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-25T04:26:31.076Z",
+      "updatedAt": "2026-10-28T16:49:49.796Z",
+      "targetOrgWebsite": {
+       "url": "https://denversnowremovals.com"
+      },
+      "article": {
+       "title": "Top GEO Platforms for Home Service Companies in 2026",
+       "publishedUrl": "https://vaultio.co/blog/top-geo-platforms-home-service-companies",
+       "publishedAt": "2026-07-28T08:25:19.934Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-28T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 429279,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 17848,
+      "url": "https://ag-plumbing.com/homeyou-com-alternatives-4-plumbing-providers",
+      "isBacklinkPresent": true,
+      "articleId": 638017,
+      "articleClusterId": 4943981,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-28T10:11:27.676Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-28T10:11:27.676Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-24T00:20:25.331Z",
+      "updatedAt": "2026-10-28T10:11:27.680Z",
+      "targetOrgWebsite": {
+       "url": "https://ag-plumbing.com"
+      },
+      "article": {
+       "title": "Best Rynoss.com Alternatives for Home Service Contractors",
+       "publishedUrl": "https://vaultio.co/blog/rynosscom-alternatives",
+       "publishedAt": "2026-07-27T12:08:06.049Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-27T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 421818,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 44475,
+      "url": "https://tricountyelectricservice.com/services-2",
+      "isBacklinkPresent": true,
+      "articleId": 632276,
+      "articleClusterId": 4944054,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-27T16:51:44.866Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-27T16:51:44.866Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-22T08:50:47.604Z",
+      "updatedAt": "2026-10-27T16:51:44.871Z",
+      "targetOrgWebsite": {
+       "url": "https://tricountyelectricservice.com"
+      },
+      "article": {
+       "title": "How to Get Locksmith Leads: Proven 2026 Strategies",
+       "publishedUrl": "https://vaultio.co/blog/locksmith-leads",
+       "publishedAt": "2026-07-25T08:41:15.996Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-25T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 416611,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 38603,
+      "url": "https://msbgroup.co.uk/services/commercial-plumbing-heating",
+      "isBacklinkPresent": true,
+      "articleId": 628192,
+      "articleClusterId": 4944231,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-27T04:32:10.049Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-27T04:32:10.049Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-21T11:19:19.518Z",
+      "updatedAt": "2026-10-27T04:32:10.068Z",
+      "targetOrgWebsite": {
+       "url": "https://msbgroup.co.uk"
+      },
+      "article": {
+       "title": "Digital Marketing for Home Services: Win More Leads in 2026",
+       "publishedUrl": "https://vaultio.co/blog/digital-marketing-for-home-services",
+       "publishedAt": "2026-07-24T10:10:39.599Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-24T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 394505,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 31166,
+      "url": "https://petratalent.com/how-to-source-hvac-talent-locally-a-contractors-guide",
+      "isBacklinkPresent": true,
+      "articleId": 611044,
+      "articleClusterId": 4944248,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-26T07:35:02.987Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T07:35:02.987Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-17T08:10:41.085Z",
+      "updatedAt": "2026-10-26T07:35:02.991Z",
+      "targetOrgWebsite": {
+       "url": "https://petratalent.com"
+      },
+      "article": {
+       "title": "AI Search Ranking Factors for Home Services: 2026 Guide",
+       "publishedUrl": "https://vaultio.co/blog/ai-search-ranking-factors-for-home-services-2026-guide",
+       "publishedAt": "2026-07-20T18:35:22.868Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-20T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 391985,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 27381,
+      "url": "https://smartcleaningwa.com/local-cleaners-boost-home-seattle-community",
+      "isBacklinkPresent": true,
+      "articleId": 607029,
+      "articleClusterId": 4944000,
+      "linkPower": 28,
+      "becameOnlineAt": "2026-10-26T04:40:59.238Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T04:40:59.238Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-16T07:35:22.163Z",
+      "updatedAt": "2026-10-26T04:40:59.240Z",
+      "targetOrgWebsite": {
+       "url": "https://smartcleaningwa.com"
+      },
+      "article": {
+       "title": "Local Advertising Agency Guide for Small Businesses",
+       "publishedUrl": "https://vaultio.co/blog/local-advertising-agency-guide-for-small-businesses",
+       "publishedAt": "2026-07-19T09:18:08.383Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-19T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 383457,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 26746,
+      "url": "https://blog.yourlocalseo.us/blog/why-local-search-matters-for-your-small-business",
+      "isBacklinkPresent": false,
+      "articleId": 591281,
+      "articleClusterId": 4944235,
+      "linkPower": 28,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-25T16:55:03.495Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-25T16:55:03.495Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-12T10:05:54.121Z",
+      "updatedAt": "2026-10-25T16:55:03.576Z",
+      "targetOrgWebsite": {
+       "url": "https://yourlocalseo.us"
+      },
+      "article": {
+       "title": "SEO for Home Services: Win More Local Jobs in 2026",
+       "publishedUrl": "https://vaultio.co/blog/seo-for-home-services-win-more-local-jobs-in-2026",
+       "publishedAt": "2026-07-15T12:27:52.740Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-15T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 383456,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 26746,
+      "url": "https://blog.yourlocalseo.us/blog/optimize-your-google-business-profile-for-local-success",
+      "isBacklinkPresent": false,
+      "articleId": 591281,
+      "articleClusterId": 4944235,
+      "linkPower": 28,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-25T16:54:56.114Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-25T16:54:56.114Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-12T10:05:54.120Z",
+      "updatedAt": "2026-10-25T16:54:56.116Z",
+      "targetOrgWebsite": {
+       "url": "https://yourlocalseo.us"
+      },
+      "article": {
+       "title": "SEO for Home Services: Win More Local Jobs in 2026",
+       "publishedUrl": "https://vaultio.co/blog/seo-for-home-services-win-more-local-jobs-in-2026",
+       "publishedAt": "2026-07-15T12:27:52.740Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-15T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 380991,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 12711,
+      "url": "https://fullyops.com/field-service-optimisation-tips-strategies-efficiency",
+      "isBacklinkPresent": false,
+      "articleId": 587353,
+      "articleClusterId": 4944250,
+      "linkPower": 28,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-25T16:47:47.531Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-25T16:47:47.531Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-11T09:33:56.448Z",
+      "updatedAt": "2026-10-25T16:47:47.534Z",
+      "targetOrgWebsite": {
+       "url": "https://fullyops.com"
+      },
+      "article": {
+       "title": "Contractor Keyword Targeting Examples That Book More Jobs",
+       "publishedUrl": "https://vaultio.co/blog/contractor-keyword-targeting-examples-that-book-more-jobs",
+       "publishedAt": "2026-07-14T10:17:47.733Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-14T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 362900,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 38682,
+      "url": "https://hometsair.com/blog/hvac-emergency-repair-checklist-for-homeowners",
+      "isBacklinkPresent": false,
+      "articleId": 557117,
+      "articleClusterId": 4944017,
+      "linkPower": 28,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-24T22:25:27.071Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T22:25:27.071Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-03T10:07:25.848Z",
+      "updatedAt": "2026-10-24T22:25:27.074Z",
+      "targetOrgWebsite": {
+       "url": "https://hometsair.com"
+      },
+      "article": {
+       "title": "Email Automation for Leads: A Contractor's 2026 Guide",
+       "publishedUrl": "https://vaultio.co/blog/email-automation-for-leads-a-contractors-2026-guide",
+       "publishedAt": "2026-07-06T09:05:19.757Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-06T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 360616,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 32951,
+      "url": "https://pulpaistudio.com/blog/ai-receptionist-for-plumbers",
+      "isBacklinkPresent": false,
+      "articleId": 553090,
+      "articleClusterId": 4944039,
+      "linkPower": 28,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-24T19:38:26.315Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T19:38:26.315Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-07-02T09:36:33.345Z",
+      "updatedAt": "2026-10-24T19:38:26.317Z",
+      "targetOrgWebsite": {
+       "url": "https://pulpaistudio.com"
+      },
+      "article": {
+       "title": "Appointment Scheduling Software for Contractors: 2026 Guide",
+       "publishedUrl": "https://vaultio.co/blog/appointment-scheduling-software-for-contractors-2026-guide",
+       "publishedAt": "2026-07-05T08:57:17.850Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-05T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 353268,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 32627,
+      "url": "https://blog.locatehire.com/blog/the-real-role-of-customer-service-hvac-techs",
+      "isBacklinkPresent": false,
+      "articleId": 542113,
+      "articleClusterId": 4944029,
+      "linkPower": 28,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-24T16:37:23.872Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T16:37:23.872Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-06-29T09:37:50.317Z",
+      "updatedAt": "2026-10-24T16:37:23.974Z",
+      "targetOrgWebsite": {
+       "url": "https://locatehire.com"
+      },
+      "article": {
+       "title": "Dispatch Software's Role in Lead Capture for Contractors",
+       "publishedUrl": "https://vaultio.co/blog/dispatch-softwares-role-in-lead-capture-for-contractors",
+       "publishedAt": "2026-07-02T10:17:17.054Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-02T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 353267,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 31801,
+      "url": "https://roofingandexteriorpros.com/emergency-roof-repair-service-when-time-matters",
+      "isBacklinkPresent": false,
+      "articleId": 542113,
+      "articleClusterId": 4944029,
+      "linkPower": 28,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-24T16:37:23.976Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T16:37:23.976Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-06-29T09:37:50.315Z",
+      "updatedAt": "2026-10-24T16:37:23.987Z",
+      "targetOrgWebsite": {
+       "url": "https://roofingandexteriorpros.com"
+      },
+      "article": {
+       "title": "Dispatch Software's Role in Lead Capture for Contractors",
+       "publishedUrl": "https://vaultio.co/blog/dispatch-softwares-role-in-lead-capture-for-contractors",
+       "publishedAt": "2026-07-02T10:17:17.054Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-02T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 351003,
+      "sourceOrgWebsiteId": 41420,
+      "targetOrgWebsiteId": 2706,
+      "url": "https://ottawacabinetpainting.com/post/7-must-know-tips-seasonal-home-maintenance",
+      "isBacklinkPresent": false,
+      "articleId": 538863,
+      "articleClusterId": 4944035,
+      "linkPower": 28,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-24T16:09:24.623Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T16:09:24.623Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-06-28T10:06:30.748Z",
+      "updatedAt": "2026-10-24T16:09:24.626Z",
+      "targetOrgWebsite": {
+       "url": "https://ottawacabinetpainting.com"
+      },
+      "article": {
+       "title": "How AI Ranks Home Service Companies in 2026",
+       "publishedUrl": "https://vaultio.co/blog/how-ai-ranks-home-service-companies-in-2026",
+       "publishedAt": "2026-07-01T11:23:17.885Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-01T00:00:00.000Z"
+       }
+      }
+     }
+    ],
+    "received": [
+     {
+      "id": 894782,
+      "sourceOrgWebsiteId": 62044,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/nap-consistency",
+      "isBacklinkPresent": false,
+      "articleId": 1039609,
+      "articleClusterId": 7030121,
+      "linkPower": 49,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": "An article on NAP consistency from cincinnatiwebdesigns.com links to your contractor listing guide, connecting local websites with accurate business details. The link comes from a site with a higher domain rating than yours: 49 versus 42.",
+      "createdAt": "2026-10-30T17:49:56.808Z",
+      "updatedAt": "2026-10-30T19:17:43.642Z",
+      "sourceOrgWebsite": {
+       "url": "https://cincinnatiwebdesigns.com"
+      },
+      "article": {
+       "title": "NAP Consistency: How to Check and Fix Your Listings",
+       "publishedUrl": null,
+       "publishedAt": null
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-11-01T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 893421,
+      "sourceOrgWebsiteId": 45844,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/appointment-scheduling-software-for-contractors-2026-guide",
+      "isBacklinkPresent": false,
+      "articleId": 1038524,
+      "articleClusterId": 5832689,
+      "linkPower": 23,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": "An article on e-signature work orders from firmanager.cloud connects with your scheduling guide through contractor workflows. This link signals your page’s relevance to contractors managing service operations.",
+      "createdAt": "2026-10-30T12:22:59.590Z",
+      "updatedAt": "2026-10-30T13:33:01.654Z",
+      "sourceOrgWebsite": {
+       "url": "https://firmanager.cloud"
+      },
+      "article": {
+       "title": "E-Signature Work Orders: Legal Basics and Setup",
+       "publishedUrl": null,
+       "publishedAt": null
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-11-01T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 892670,
+      "sourceOrgWebsiteId": 41618,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/appointment-scheduling-software-for-contractors-2026-guide",
+      "isBacklinkPresent": false,
+      "articleId": 1038084,
+      "articleClusterId": 6429767,
+      "linkPower": 26,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": "An article on skill-based scheduling from solvpro.com connects crew matching with your contractor appointment scheduling guide. The link gives your page a clear topic signal around better contractor scheduling.",
+      "createdAt": "2026-10-30T09:15:01.014Z",
+      "updatedAt": "2026-10-30T10:36:21.455Z",
+      "sourceOrgWebsite": {
+       "url": "https://solvpro.com"
+      },
+      "article": {
+       "title": "Skill-Based Scheduling for Field Crews: A Practical Guide",
+       "publishedUrl": null,
+       "publishedAt": null
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-11-01T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 892171,
+      "sourceOrgWebsiteId": 38135,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/forms-that-convert",
+      "isBacklinkPresent": false,
+      "articleId": 1037726,
+      "articleClusterId": 5697376,
+      "linkPower": 29,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": "An article on Gravity Forms vs. WPForms from tcosi.com links to your guide on forms that convert, connecting form tools with lead generation. This link gives your page a clear topic signal around effective website forms.",
+      "createdAt": "2026-10-30T07:35:23.447Z",
+      "updatedAt": "2026-10-30T09:03:07.128Z",
+      "sourceOrgWebsite": {
+       "url": "https://tcosi.com"
+      },
+      "article": {
+       "title": "Gravity Forms vs WPForms: Which Should You Pick?",
+       "publishedUrl": null,
+       "publishedAt": null
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-11-01T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 881567,
+      "sourceOrgWebsiteId": 47764,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/lead-routing-best-practices",
+      "isBacklinkPresent": true,
+      "articleId": 1028482,
+      "articleClusterId": 6567406,
+      "linkPower": 39,
+      "becameOnlineAt": "2026-10-30T04:01:30.734Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T04:01:30.734Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-28T08:13:44.055Z",
+      "updatedAt": "2026-10-30T04:01:30.887Z",
+      "sourceOrgWebsite": {
+       "url": "https://digitalfractal.com"
+      },
+      "article": {
+       "title": "Email Routing Automation: How AI Triage Works for Business",
+       "publishedUrl": "https://digitalfractal.com/email-routing-automation/",
+       "publishedAt": "2026-10-30T03:00:59.414Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-30T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 881463,
+      "sourceOrgWebsiteId": 34153,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/best-ai-for-plumbers-2026",
+      "isBacklinkPresent": false,
+      "articleId": 1028267,
+      "articleClusterId": 6253502,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-28T07:55:26.505Z",
+      "updatedAt": "2026-10-28T09:43:53.691Z",
+      "sourceOrgWebsite": {
+       "url": "https://ampleexpress.com"
+      },
+      "article": {
+       "title": "Plumbing Software Pricing in Houston: What to Expect in 2026",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-30T07:22:36.978Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-30T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 881437,
+      "sourceOrgWebsiteId": 40606,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/AIReceptionist",
+      "isBacklinkPresent": true,
+      "articleId": 1028464,
+      "articleClusterId": 6535182,
+      "linkPower": 59,
+      "becameOnlineAt": "2026-10-30T04:01:26.538Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T04:01:26.538Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-28T07:52:09.395Z",
+      "updatedAt": "2026-10-30T04:01:26.542Z",
+      "sourceOrgWebsite": {
+       "url": "https://monobot.ai"
+      },
+      "article": {
+       "title": "Callback Automation: How to Set It Up and Measure It",
+       "publishedUrl": "https://monobot.ai/library/blog/callback-automation/",
+       "publishedAt": "2026-10-30T03:00:45.998Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-30T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 880965,
+      "sourceOrgWebsiteId": 37054,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/sms-appointment-reminders",
+      "isBacklinkPresent": true,
+      "articleId": 1028024,
+      "articleClusterId": 6488857,
+      "linkPower": 27,
+      "becameOnlineAt": "2026-10-30T07:02:45.638Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T07:02:45.638Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-28T06:45:53.480Z",
+      "updatedAt": "2026-10-30T07:02:45.705Z",
+      "sourceOrgWebsite": {
+       "url": "https://sendsync.com"
+      },
+      "article": {
+       "title": "Email Notification Overload: How to Take Back Your Focus",
+       "publishedUrl": "https://sendsync.com/blog/notification-overload-email",
+       "publishedAt": "2026-10-30T04:23:02.279Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-30T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 872981,
+      "sourceOrgWebsiteId": 54805,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/lead-routing-best-practices",
+      "isBacklinkPresent": true,
+      "articleId": 1021303,
+      "articleClusterId": 6302813,
+      "linkPower": 43,
+      "becameOnlineAt": "2026-10-28T07:05:11.349Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-28T07:05:11.349Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-26T05:36:42.441Z",
+      "updatedAt": "2026-10-28T07:05:11.354Z",
+      "sourceOrgWebsite": {
+       "url": "https://droxy.ai"
+      },
+      "article": {
+       "title": "Support Triage Automation: A Practical Setup Guide",
+       "publishedUrl": "https://droxy.ai/blog/support-triage-automation",
+       "publishedAt": "2026-10-28T03:00:09.266Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-28T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 872928,
+      "sourceOrgWebsiteId": 20768,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/stop-form-spam",
+      "isBacklinkPresent": true,
+      "articleId": 1021206,
+      "articleClusterId": 6646108,
+      "linkPower": 30,
+      "becameOnlineAt": "2026-10-28T04:02:39.313Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-28T04:02:39.313Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-26T05:27:08.667Z",
+      "updatedAt": "2026-10-28T04:02:39.326Z",
+      "sourceOrgWebsite": {
+       "url": "https://insave.hosting"
+      },
+      "article": {
+       "title": "429 Too Many Requests: What It Means and How to Fix It",
+       "publishedUrl": "https://blog.insave.hosting/blog/429-too-many-requests",
+       "publishedAt": "2026-10-28T03:31:12.146Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-28T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 872688,
+      "sourceOrgWebsiteId": 40712,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/forms-that-convert",
+      "isBacklinkPresent": true,
+      "articleId": 1021068,
+      "articleClusterId": 6864694,
+      "linkPower": 27,
+      "becameOnlineAt": "2026-10-28T07:04:25.475Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-28T07:04:25.475Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-26T04:44:33.121Z",
+      "updatedAt": "2026-10-28T07:04:25.478Z",
+      "sourceOrgWebsite": {
+       "url": "https://kudoflix.com"
+      },
+      "article": {
+       "title": "Call to Action in Video: How to Write, Place and Add One",
+       "publishedUrl": "https://kudoflix.com/blog/2026/10/28/call-to-action-in-video/",
+       "publishedAt": "2026-10-28T04:34:43.362Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-28T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 834003,
+      "sourceOrgWebsiteId": 54730,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/contractor-sales-pipeline-management-2026-guide",
+      "isBacklinkPresent": true,
+      "articleId": 989522,
+      "articleClusterId": 6292610,
+      "linkPower": 15,
+      "becameOnlineAt": "2026-10-20T04:05:05.872Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-20T04:05:05.872Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-18T08:43:19.528Z",
+      "updatedAt": "2026-10-20T04:05:05.890Z",
+      "sourceOrgWebsite": {
+       "url": "https://arosbid.com"
+      },
+      "article": {
+       "title": "Multi-Project Bidding: How to Run Many Bids at Once",
+       "publishedUrl": "https://arosbid.com/blog/multi-project-bidding",
+       "publishedAt": "2026-10-20T03:00:38.554Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-20T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 832787,
+      "sourceOrgWebsiteId": 38668,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/reduce-contractor-booking-cancellations",
+      "isBacklinkPresent": true,
+      "articleId": 989237,
+      "articleClusterId": 6425628,
+      "linkPower": 20,
+      "becameOnlineAt": "2026-10-20T07:02:10.347Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-20T07:02:10.347Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-18T05:14:53.172Z",
+      "updatedAt": "2026-10-20T07:02:10.351Z",
+      "sourceOrgWebsite": {
+       "url": "https://ksign.co"
+      },
+      "article": {
+       "title": "Pool Service Contract Template: What to Include (Australia)",
+       "publishedUrl": "https://ksign.co/blog/pool-service-contract-template",
+       "publishedAt": "2026-10-20T02:31:07.894Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-20T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 793777,
+      "sourceOrgWebsiteId": 13162,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/ConstructionMarketing",
+      "isBacklinkPresent": true,
+      "articleId": 957904,
+      "articleClusterId": 5390492,
+      "linkPower": 34,
+      "becameOnlineAt": "2026-10-12T07:05:04.383Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T01:50:50.732Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-10T09:05:25.185Z",
+      "updatedAt": "2026-10-24T01:50:50.768Z",
+      "sourceOrgWebsite": {
+       "url": "https://rendimension.com"
+      },
+      "article": {
+       "title": "Real Estate Animation Voiceovers: Clips at 15 Seconds and FTC Rules",
+       "publishedUrl": "https://rendimension.com/blog/animation-voiceover-real-estate",
+       "publishedAt": "2026-10-12T00:01:36.741Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-12T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 793235,
+      "sourceOrgWebsiteId": 12790,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/email-automation-for-leads-a-contractors-2026-guide",
+      "isBacklinkPresent": true,
+      "articleId": 957397,
+      "articleClusterId": 5388699,
+      "linkPower": 33,
+      "becameOnlineAt": "2026-10-12T01:03:18.170Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-23T19:46:42.919Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-10T07:35:11.239Z",
+      "updatedAt": "2026-10-23T19:46:43.016Z",
+      "sourceOrgWebsite": {
+       "url": "https://www.noleggioqui.it"
+      },
+      "article": {
+       "title": "Email marketing per il noleggio: la shortlist che funziona davvero",
+       "publishedUrl": "https://www.noleggioqui.it/blog/email-marketing-noleggio/",
+       "publishedAt": "2026-10-12T00:01:34.704Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-12T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 793223,
+      "sourceOrgWebsiteId": 9865,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/ai-search-visibility",
+      "isBacklinkPresent": true,
+      "articleId": 957387,
+      "articleClusterId": 5425959,
+      "linkPower": 44,
+      "becameOnlineAt": "2026-10-12T01:03:18.041Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-23T19:46:41.769Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-10T07:34:46.902Z",
+      "updatedAt": "2026-10-23T19:46:41.790Z",
+      "sourceOrgWebsite": {
+       "url": "https://bigeyedeers.co.uk"
+      },
+      "article": {
+       "title": "Klevu Search Tuning: 5 Checks for Developers and Merchandisers",
+       "publishedUrl": "https://www.bigeyedeers.co.uk/klevu-search-tuning/",
+       "publishedAt": "2026-10-12T00:02:04.034Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-12T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 750246,
+      "sourceOrgWebsiteId": 27723,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/",
+      "isBacklinkPresent": true,
+      "articleId": 929547,
+      "articleClusterId": 5519777,
+      "linkPower": 30,
+      "becameOnlineAt": "2026-10-05T01:02:17.044Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-28T13:46:39.409Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-03T08:07:59.557Z",
+      "updatedAt": "2026-10-28T13:46:39.420Z",
+      "sourceOrgWebsite": {
+       "url": "https://equiptrack.us"
+      },
+      "article": {
+       "title": "Fix Quiet Zones First: Barcode Scanning Best Practices for Ops & Dev",
+       "publishedUrl": "https://blog.equiptrack.us/blog/barcode-scanning-best-practices",
+       "publishedAt": "2026-10-05T00:32:37.684Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-05T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 749673,
+      "sourceOrgWebsiteId": 7021,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/LogoDesign",
+      "isBacklinkPresent": true,
+      "articleId": 929249,
+      "articleClusterId": 835966,
+      "linkPower": 32,
+      "becameOnlineAt": "2026-10-05T07:05:58.991Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-28T22:06:56.823Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-03T07:04:07.251Z",
+      "updatedAt": "2026-10-28T22:06:56.890Z",
+      "sourceOrgWebsite": {
+       "url": "https://stampdesign4u.co.uk"
+      },
+      "article": {
+       "title": "Supplier Order Checklist: Stamp Sizes 37×13, 25×25, 68×47 With Proof",
+       "publishedUrl": "https://stampdesign4u.co.uk/blogs/news/how-to-select-stamp-sizes",
+       "publishedAt": "2026-10-05T00:01:46.834Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-05T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 740710,
+      "sourceOrgWebsiteId": 31479,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/hvac-after-hours-lead-capture-strategies-that-work",
+      "isBacklinkPresent": true,
+      "articleId": 923659,
+      "articleClusterId": 5589154,
+      "linkPower": 36,
+      "becameOnlineAt": "2026-10-04T07:07:01.113Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-27T13:03:00.804Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-02T02:14:04.182Z",
+      "updatedAt": "2026-10-27T13:03:00.811Z",
+      "sourceOrgWebsite": {
+       "url": "https://lahvaclc.com"
+      },
+      "article": {
+       "title": "25% LFL Safety Rule: A2L Refrigerants for Technicians & Managers",
+       "publishedUrl": "https://lahvaclc.com/blog/a2l-refrigerants-hvac",
+       "publishedAt": "2026-10-04T01:00:21.480Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-04T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 481968,
+      "sourceOrgWebsiteId": 17848,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/Blog/plumber-leads-agencies-5",
+      "isBacklinkPresent": true,
+      "articleId": 678050,
+      "articleClusterId": 1887973,
+      "linkPower": 17,
+      "becameOnlineAt": "2026-08-05T13:58:23.155Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T19:38:53.184Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-02T04:04:35.092Z",
+      "updatedAt": "2026-10-30T19:38:53.187Z",
+      "sourceOrgWebsite": {
+       "url": "https://ag-plumbing.com"
+      },
+      "article": {
+       "title": "MyBuilder.com Alternatives for Homeowners: Best Options",
+       "publishedUrl": "https://ag-plumbing.com/mybuildercom-alternatives/",
+       "publishedAt": "2026-08-05T02:01:17.184Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-05T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 365391,
+      "sourceOrgWebsiteId": 42225,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/RoofersMarketing",
+      "isBacklinkPresent": true,
+      "articleId": 560490,
+      "articleClusterId": 5016412,
+      "linkPower": 6,
+      "becameOnlineAt": "2026-07-07T22:53:18.563Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-25T01:55:09.760Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-07-04T09:37:12.244Z",
+      "updatedAt": "2026-10-25T01:55:09.762Z",
+      "sourceOrgWebsite": {
+       "url": "https://coastalroofingfla.com"
+      },
+      "article": {
+       "title": "Flat Roof Replacement Options Guide for Florida Homes",
+       "publishedUrl": "https://coastalroofingfla.com/flat-roof-replacement-options-guide-for-florida-homes/",
+       "publishedAt": "2026-07-07T09:28:18.261Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-07T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 355829,
+      "sourceOrgWebsiteId": 38682,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/InsulationMarketing",
+      "isBacklinkPresent": true,
+      "articleId": 545797,
+      "articleClusterId": 4660737,
+      "linkPower": 20,
+      "becameOnlineAt": "2026-07-04T22:38:17.068Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T19:20:53.617Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-06-30T10:08:32.218Z",
+      "updatedAt": "2026-10-24T19:20:54.253Z",
+      "sourceOrgWebsite": {
+       "url": "https://hometsair.com"
+      },
+      "article": {
+       "title": "Older Home HVAC Upgrade Options That Actually Work",
+       "publishedUrl": "https://hometsair.com/blog/older-home-hvac-upgrade-options-that-actually-work",
+       "publishedAt": "2026-07-03T10:34:43.623Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-03T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 355715,
+      "sourceOrgWebsiteId": 37920,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/PaintingMarketing",
+      "isBacklinkPresent": true,
+      "articleId": 545937,
+      "articleClusterId": 4576883,
+      "linkPower": 49,
+      "becameOnlineAt": "2026-07-04T22:37:48.102Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T19:20:19.025Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-06-30T09:40:36.038Z",
+      "updatedAt": "2026-10-24T19:20:19.029Z",
+      "sourceOrgWebsite": {
+       "url": "https://wallsneedlove.com"
+      },
+      "article": {
+       "title": "Specifying Custom Murals for Clients: A Practical Guide",
+       "publishedUrl": "https://wallsneedlove.com/blogs/news/specifying-custom-murals-for-clients-a-practical-guide",
+       "publishedAt": "2026-07-03T09:54:48.620Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-03T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 355274,
+      "sourceOrgWebsiteId": 5292,
+      "targetOrgWebsiteId": 41420,
+      "url": "https://vaultio.co/RoofersMarketing",
+      "isBacklinkPresent": true,
+      "articleId": 545354,
+      "articleClusterId": 4576322,
+      "linkPower": 33,
+      "becameOnlineAt": "2026-07-04T22:36:50.293Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T19:20:08.088Z",
+      "followType": "nofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-06-30T07:43:42.142Z",
+      "updatedAt": "2026-10-24T19:20:08.090Z",
+      "sourceOrgWebsite": {
+       "url": "https://chicagohomeinspector.com"
+      },
+      "article": {
+       "title": "Chicago Flat and Low-Slope Roofs: What Buyers Need to Know",
+       "publishedUrl": "https://chicagohomeinspector.com/blog/chicago-flat-and-low-slope-roofs-what-buyers-need-to-know",
+       "publishedAt": "2026-07-03T05:30:36.555Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-07-03T00:00:00.000Z"
+       }
+      }
+     }
+    ]
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793422629159,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/subscriptions/get-org-website-subscription?type=main",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/backlink-exchange",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "data": {
+     "id": "sub_1TmpE7LiGzfLlQttDwgNlrsX",
+     "object": "subscription",
+     "application": null,
+     "application_fee_percent": null,
+     "automatic_tax": {
+      "disabled_reason": null,
+      "enabled": false,
+      "liability": null
+     },
+     "billing_cycle_anchor": 1782543146,
+     "billing_cycle_anchor_config": null,
+     "billing_mode": {
+      "flexible": null,
+      "type": "classic"
+     },
+     "billing_thresholds": null,
+     "cancel_at": null,
+     "cancel_at_period_end": false,
+     "canceled_at": null,
+     "cancellation_details": {
+      "comment": null,
+      "feedback": null,
+      "feedback_option": null,
+      "reason": null
+     },
+     "collection_method": "charge_automatically",
+     "created": 1782539787,
+     "currency": "usd",
+     "current_period_end": 1795762346,
+     "current_period_start": 1793083946,
+     "customer": "cus_UTQeBR3aZ4JKPx",
+     "customer_account": null,
+     "days_until_due": null,
+     "default_payment_method": "pm_1TmpE4LiGzfLlQtt6zc5sU3x",
+     "default_source": null,
+     "default_tax_rates": [],
+     "description": "https://vaultio.co (English)",
+     "discount": null,
+     "discounts": [],
+     "ended_at": null,
+     "invoice_settings": {
+      "account_tax_ids": null,
+      "custom_fields": null,
+      "description": null,
+      "footer": null,
+      "issuer": {
+       "type": "self"
+      }
+     },
+     "items": {
+      "object": "list",
+      "data": [
+       {
+        "id": "si_UmO0cFfS8NFEA3",
+        "object": "subscription_item",
+        "billing_thresholds": null,
+        "created": 1782539788,
+        "current_period_end": 1795762346,
+        "current_period_start": 1793083946,
+        "current_trial": null,
+        "discounts": [],
+        "metadata": {},
+        "plan": {
+         "id": "price_1SwexZLiGzfLlQttzFmWxaHk",
+         "object": "plan",
+         "active": true,
+         "aggregate_usage": null,
+         "amount": 9900,
+         "amount_decimal": "9900",
+         "billing_scheme": "per_unit",
+         "created": 1770107265,
+         "currency": "usd",
+         "interval": "month",
+         "interval_count": 1,
+         "livemode": true,
+         "metadata": {},
+         "meter": null,
+         "nickname": null,
+         "product": "prod_SaCePenmmQNCmk",
+         "tiers_mode": null,
+         "transform_usage": null,
+         "trial_period_days": null,
+         "usage_type": "licensed"
+        },
+        "price": {
+         "id": "price_1SwexZLiGzfLlQttzFmWxaHk",
+         "object": "price",
+         "active": true,
+         "billing_scheme": "per_unit",
+         "created": 1770107265,
+         "currency": "usd",
+         "custom_unit_amount": null,
+         "livemode": true,
+         "lookup_key": null,
+         "metadata": {},
+         "nickname": null,
+         "product": "prod_SaCePenmmQNCmk",
+         "recurring": {
+          "aggregate_usage": null,
+          "interval": "month",
+          "interval_count": 1,
+          "meter": null,
+          "trial_period_days": null,
+          "usage_type": "licensed"
+         },
+         "tax_behavior": "unspecified",
+         "tiers_mode": null,
+         "transform_quantity": null,
+         "type": "recurring",
+         "unit_amount": 9900,
+         "unit_amount_decimal": "9900"
+        },
+        "quantity": 1,
+        "subscription": "sub_1TmpE7LiGzfLlQttDwgNlrsX",
+        "tax_rates": []
+       }
+      ],
+      "has_more": false,
+      "total_count": 1,
+      "url": "/v1/subscription_items?subscription=sub_1TmpE7LiGzfLlQttDwgNlrsX"
+     },
+     "latest_invoice": "in_1UV4FtLiGzfLlQttBT1lTBBd",
+     "livemode": true,
+     "managed_payments": {
+      "enabled": false
+     },
+     "metadata": {
+      "clientIp": "146.75.175.1",
+      "clientUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15",
+      "fbp": "fb.1.1782539053062.620131230",
+      "orgWebsiteId": "41420",
+      "orgWebsiteUrl": "https://vaultio.co",
+      "pendingPlanChangeFromPriceId": "price_1SwexZLiGzfLlQttzFmWxaHk",
+      "selectedLanguage": "en",
+      "subscriptionType": "main",
+      "userId": "30402"
+     },
+     "next_pending_invoice_item_invoice": null,
+     "on_behalf_of": null,
+     "pause_collection": null,
+     "payment_settings": {
+      "payment_method_options": {
+       "acss_debit": null,
+       "bancontact": null,
+       "billie": null,
+       "blik": null,
+       "card": {
+        "network": null,
+        "request_three_d_secure": "automatic"
+       },
+       "customer_balance": null,
+       "konbini": null,
+       "payto": null,
+       "pix": null,
+       "sepa_debit": null,
+       "upi": null,
+       "us_bank_account": null
+      },
+      "payment_method_types": [
+       "card"
+      ],
+      "save_default_payment_method": "off"
+     },
+     "pending_invoice_item_interval": null,
+     "pending_setup_intent": null,
+     "pending_update": null,
+     "plan": {
+      "id": "price_1SwexZLiGzfLlQttzFmWxaHk",
+      "object": "plan",
+      "active": true,
+      "aggregate_usage": null,
+      "amount": 9900,
+      "amount_decimal": "9900",
+      "billing_scheme": "per_unit",
+      "created": 1770107265,
+      "currency": "usd",
+      "interval": "month",
+      "interval_count": 1,
+      "livemode": true,
+      "metadata": {},
+      "meter": null,
+      "nickname": null,
+      "product": "prod_SaCePenmmQNCmk",
+      "tiers_mode": null,
+      "transform_usage": null,
+      "trial_period_days": null,
+      "usage_type": "licensed"
+     },
+     "quantity": 1,
+     "schedule": null,
+     "start_date": 1782539787,
+     "status": "active",
+     "test_clock": null,
+     "transfer_data": null,
+     "trial_end": 1782543145,
+     "trial_settings": {
+      "end_behavior": {
+       "billing_cycle_anchor": "now",
+       "missing_payment_method": "create_invoice"
+      }
+     },
+     "trial_start": 1782539787
+    },
+    "message": "Subscription found successfully",
+    "hasActiveSubscription": true
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793422629159,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/subscriptions/get-org-website-subscription?type=backlink_credits",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/backlink-exchange",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "data": null,
+    "message": "No subscription found",
+    "hasActiveSubscription": false
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793422629159,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/pages/articles-missing-in-sitemap",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/backlink-exchange",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "articlesMissingInSitemap": false
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793422629159,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/backlinks/exchange-pool",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/backlink-exchange",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "poolCount": 4320
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793422630137,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793422630133&cv=11&fst=1793422630133&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fcontent-plan%2Fimprovements&rcb=0&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422630141,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=43&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fcontent-plan&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=170222",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422630146,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=0&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&scrsrc=www.googletagmanager.com&rnd=2083431636.1793422461&navt=n&npa=0&ae=a&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&tft=1793422630146&tfd=170227&_gsid=ZBI9AbIQeQFc3LvpNrGvZIwAHJxHp20NjA&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793422630150,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793422461021&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=0&sr=1728x1117&ul=en-us&_s=44&tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034~123691370&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fcontent-plan%2Fimprovements&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=170232",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

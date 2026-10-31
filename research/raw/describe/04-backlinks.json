@@ -1,0 +1,128 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/backlink-exchange",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Backlinks exchange"
+ ],
+ "buttons": [
+  "How do credits work?",
+  "Add credits [icon:lucide-plus]",
+  "(Dismiss) [icon:lucide-x]",
+  "(The article where you provided a backlink) [icon:lucide-info]",
+  "(The website that received your backlink) [icon:lucide-info]",
+  "Date [icon:]",
+  "Flooring Website Design: What Turns Visitors Into Quote Requests [icon:lucide-external-link] -> https://vaultio.co/blog/flooring-website-design",
+  "dblscanner.com [icon:lucide-external-link] -> https://dblscanner.com",
+  "After-Hours Call Handling for Contractors: 2026 Setup Guide [icon:lucide-external-link] -> https://vaultio.co/blog/after-hours-call-handling",
+  "installer.com [icon:lucide-external-link] -> https://installer.com",
+  "krastor.com [icon:lucide-external-link] -> https://krastor.com",
+  "solution4guru.com [icon:lucide-external-link] -> https://solution4guru.com",
+  "Cleaning Service Marketing Ideas to Try Before Paying for Ads [icon:lucide-external-link] -> https://vaultio.co/blog/cleaning-service-marketing-ideas",
+  "bereavementcleanoutservices.com [icon:lucide-external-link] -> https://bereavementcleanoutservices.com",
+  "Show more (48 more) [icon:lucide-chevron-down]",
+  "(The article from the source website that contains your backlink) [icon:lucide-info]",
+  "(The website that linked to your content) [icon:lucide-info]",
+  "(The number of backlink credits consumed for this backlink) [icon:lucide-info]",
+  "cincinnatiwebdesigns.com [icon:lucide-external-link] -> https://cincinnatiwebdesigns.com",
+  "firmanager.cloud [icon:lucide-external-link] -> https://firmanager.cloud",
+  "solvpro.com [icon:lucide-external-link] -> https://solvpro.com",
+  "tcosi.com [icon:lucide-external-link] -> https://tcosi.com",
+  "https://sendsync.com/blog/notification-overload-email [icon:lucide-external-link] -> https://sendsync.com/blog/notification-overload-email",
+  "sendsync.com [icon:lucide-external-link] -> https://sendsync.com",
+  "Show more (19 more) [icon:lucide-chevron-down]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "checkbox",
+   "name": "",
+   "placeholder": "",
+   "label": "Exchange on",
+   "value": "on",
+   "checked": true
+  }
+ ],
+ "tables": [
+  {
+   "headers": [
+    "Source article",
+    "Destination website",
+    "Date"
+   ],
+   "rows": 5,
+   "sample": [
+    [
+     "Flooring Website Design: What Turns Visitors Into Quote Requests",
+     "dblscanner.com",
+     "Oct 28, 2026"
+    ],
+    [
+     "After-Hours Call Handling for Contractors: 2026 Setup Guide",
+     "installer.com",
+     "Oct 25, 2026"
+    ],
+    [
+     "After-Hours Call Handling for Contractors: 2026 Setup Guide",
+     "krastor.com",
+     "Oct 25, 2026"
+    ],
+    [
+     "After-Hours Call Handling for Contractors: 2026 Setup Guide",
+     "solution4guru.com",
+     "Oct 25, 2026"
+    ]
+   ]
+  },
+  {
+   "headers": [
+    "Source article",
+    "Customer website",
+    "Date",
+    "Credits used"
+   ],
+   "rows": 5,
+   "sample": [
+    [
+     "NAP Consistency: How to Check and Fix Your Listings",
+     "cincinnatiwebdesigns.com",
+     "Nov 1, 2026 Awaiting partner publication",
+     "—"
+    ],
+    [
+     "E-Signature Work Orders: Legal Basics and Setup",
+     "firmanager.cloud",
+     "Nov 1, 2026 Awaiting partner publication",
+     "—"
+    ],
+    [
+     "Skill-Based Scheduling for Field Crews: A Practical Guide",
+     "solvpro.com",
+     "Nov 1, 2026 Awaiting partner publication",
+     "—"
+    ],
+    [
+     "Gravity Forms vs WPForms: Which Should You Pick?",
+     "tcosi.com",
+     "Nov 1, 2026 Awaiting partner publication",
+     "—"
+    ]
+   ]
+  }
+ ],
+ "icons": [
+  "lucide-database",
+  "lucide-info",
+  "lucide-plus",
+  "lucide-circle-arrow-out-down-left",
+  "lucide-circle-arrow-out-up-right",
+  "lucide-trending-up",
+  "lucide-x",
+  "lucide-target",
+  "lucide-external-link",
+  "lucide-chevron-down",
+  "lucide-clock"
+ ],
+ "images": [],
+ "charts": 0
+}
