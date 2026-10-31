@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/*
+ * Vaultio design tokens. Values were measured on the reference dashboard
+ * (see the `research` branch, research/design-tokens.md).
+ * --brand-accent is overridden per white-label config at runtime.
+ */
+:root {
+  --brand-accent: #e94545;
+  --brand-secondary: #000000;
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-raleway), var(--font-jakarta), ui-sans-serif, sans-serif;
+  --font-inter: var(--font-inter-var), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-fira-code), ui-monospace, monospace;
+
+  --color-brand: var(--brand-accent);
+  --color-brand-secondary: var(--brand-secondary);
+}
+
+@theme {
+  --color-ink: #221f1f;
+  --color-ink-secondary: #6b7280;
+  --color-ink-subtle: #9ca3af;
+  --color-ink-strong: #101828;
+
+  --color-canvas: #f9fafb;
+  --color-header: #fffefe;
+  --color-line: #eeeeee;
+  --color-control: #e6e8ec;
+  --color-nav: #3a3d44;
+  --color-nav-active: #f3f4f5;
+  --color-section: #8a8f98;
+
+  --color-success: #06704f;
+  --color-success-bg: #eef8f1;
+  --color-success-border: #cdebd7;
+
+  --color-chart-direct: #f26b2a;
+  --color-chart-other: #3fb8a6;
+  --color-chart-organic: #3b82f6;
+  --color-chart-ai: #8b5cf6;
+  --color-chart-paid: #22a06b;
+
+  --text-page-title: 1.5rem;
+  --text-page-title--line-height: 2rem;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1rem;
+
+  --radius-card: 1.5rem;
+  --radius-control: 0.625rem;
+
+  --animate-fade-in: fade-in 150ms ease-out;
+  --animate-zoom-in: zoom-in 150ms ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes zoom-in {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-white font-sans text-black;
+  }
+  h1, h2, h3 {
+    @apply font-heading;
+  }
+  button:not(:disabled), [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@utility eyebrow {
+  @apply text-eyebrow font-semibold uppercase tracking-[0.12em] text-brand;
+}
+
+@utility card {
+  @apply rounded-card border border-line bg-white;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

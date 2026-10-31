@@ -1,0 +1,31 @@
+import { and, eq } from "drizzle-orm";
+import { db } from "@/db";
+import { integrations } from "@/db/schema";
+import type { Requirement } from "./schedule";
+
+/** Which providers and integrations are available to a site's agents. */
+export async function availableRequirements(siteId: number): Promise<Set<Requirement>> {
+  const available = new Set<Requirement>();
+  if (process.env.ANTHROPIC_API_KEY) available.add("llm");
+  if (process.env.DATAFORSEO_LOGIN && process.env.DATAFORSEO_PASSWORD) {
+    available.add("keywordData");
+    available.add("authorityData");
+  }
+  const connected = await db
+    .select({ type: integrations.type })
+    .from(integrations)
+    .where(and(eq(integrations.orgWebsiteId, siteId), eq(integrations.status, "connected")));
+  for (const row of connected) {
+    if (row.type === "ga4") available.add("ga4");
+    if (row.type === "gsc") available.add("gsc");
+  }
+  return available;
+}
+
+export const REQUIREMENT_LABELS: Record<Requirement, string> = {
+  ga4: "Google Analytics is not connected",
+  gsc: "Google Search Console is not connected",
+  llm: "AI writing provider is not configured (ANTHROPIC_API_KEY)",
+  keywordData: "Keyword data provider is not configured (DATAFORSEO_LOGIN / DATAFORSEO_PASSWORD)",
+  authorityData: "Domain authority provider is not configured (DATAFORSEO_LOGIN / DATAFORSEO_PASSWORD)",
+};

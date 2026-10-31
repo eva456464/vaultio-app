@@ -1,0 +1,108 @@
+# Vaultio platform architecture
+
+Vaultio is an AI SEO/GEO agent platform: agencies and businesses add a website, and
+background agents research topics, write and publish articles, earn backlinks, audit the
+site, and track visibility in Google and AI assistants. The dashboard shows what the agents
+did each day.
+
+The reference product was documented read-only from the owner's account; that research is on
+the `research` branch (`research/README.md` is the entry point: page specs, API map, data
+model, design tokens, screenshots and docs).
+
+## Stack
+
+| Layer | Choice |
+|---|---|
+| Web app | Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4, Radix primitives, lucide icons, Recharts |
+| i18n | next-intl, locale-prefixed routes (`/en`, `/fr`, `/nl`, `/de`, `/es`, `/pt`, `/it`); English catalog in `src/messages/en.json`, other locales fall back to it |
+| Auth | Better Auth (email + password, Google sign-in when `GOOGLE_CLIENT_ID/SECRET` are set), sessions in Postgres |
+| Database | Postgres via Drizzle ORM (`src/db/schema/*`, migrations in `drizzle/`) |
+| Background work | pg-boss queues on the same Postgres, run by `npm run worker` |
+| White label | `whitelabel_configs` row per agency; the request host picks brand name, logo, favicon and accent color |
+
+## Folders
+
+```
+src/app/[locale]/(auth)        sign-in, sign-up
+src/app/[locale]/(app)/dashboard   site mode (one client site selected via the org_website_id cookie)
+src/app/[locale]/(app)/clients     agency mode (all clients, invoices, agency settings)
+src/app/[locale]/(app)/onboarding  add a website / client
+src/components/shell           header, website selector, sidebar, mobile menu
+src/components/overview        Overview page cards
+src/server/context.ts          session, workspace, visible sites, selected site, brand
+src/server/queries/*           read models for pages
+src/server/actions/*           server actions (mutations)
+src/server/agents/*            the agent engine (see below)
+src/worker/index.ts            worker process entry point
+```
+
+## Agent engine
+
+Everything the agents do goes through one path, so work is never silently dropped:
+
+1. **Adding a client** (`addSite` action) creates the `org_websites` row and enqueues the
+   `onboarding` job.
+2. **Onboarding** (`orchestrator.runOnboarding`) runs each step in `ONBOARDING_STEPS` once:
+   analyze website → sitemap sync → site health audit → find competitors → keyword research →
+   AI prompts → first-month content plan → join backlink exchange, then computes milestones.
+3. **Scheduler** (`orchestrator.schedulerTick`, every 15 minutes) enqueues every agent due today
+   for every onboarded site, from `AGENT_SCHEDULE` in `schedule.ts`. It also re-enqueues
+   onboarding steps that were skipped or failed once their requirement becomes available,
+   so connecting an API key or a Google account catches the site up automatically.
+4. **Runner** (`runner.runAgentJob`) executes one job for one site and day at most once
+   (`agent_job_runs` has a unique key on site + job + day). If a requirement is missing it
+   records `skipped` with the reason (shown to the user during setup); errors are recorded as
+   `failed` and retried by pg-boss.
+5. **Activity log**: each successful job writes `agent_activities` rows. The Overview feed and
+   the "Planned actions" popover (built from the same `AGENT_SCHEDULE`) read from these.
+
+### Schedule (matches the reference product's "Planned actions")
+
+| Agent | Cadence | Needs |
+|---|---|---|
+| Sitemap sync | daily | — |
+| Traffic check / AI traffic report | daily | Google Analytics connected |
+| Google rankings check | every 3 days | Search Console connected |
+| AI visibility check | weekly (Mon) | LLM provider keys |
+| Site health audit | weekly (Tue) | — |
+| Competitor content-gap scan | weekly (Thu) | keyword data + LLM |
+| Domain rating check | monthly (1st) | authority data provider |
+| Topic research + cannibalization check | daily | LLM |
+| Article writing + publishing | on content-plan days | LLM, image source, publishing integration |
+| Milestones (achievements) | daily | — |
+
+### Agent status
+
+| Agent | Status |
+|---|---|
+| Website analysis (brand name, description, logo, platform, theme color) | built (HTML analysis; LLM-written profile pending) |
+| Sitemap sync | built |
+| Site health audit (≤20 pages, 15 page checks, robots/sitemap/llms.txt, AI-crawler blocking, scores) | built |
+| Milestones engine (backlinks, value, clicks, impressions, AI visitors/mentions, DR) | built |
+| Competitors, keyword research, AI prompts, content plan, topic research | needs `DATAFORSEO_LOGIN/PASSWORD` + `ANTHROPIC_API_KEY` |
+| Article writer + images + internal links + JSON-LD, publishing integrations | next phase |
+| AI visibility checks (ChatGPT, Claude, Gemini) | needs OpenAI / Anthropic / Google keys |
+| GA4 + Search Console sync | needs a Google Cloud OAuth app |
+| Backlink exchange matcher | next phase |
+| Reddit / Quora opportunity agents, Instagram & Facebook posting | later phase |
+
+## Accounts and keys needed in production
+
+| Purpose | Variables |
+|---|---|
+| Database | `DATABASE_URL` (Supabase, Neon, RDS...) |
+| Auth | `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, optional `GOOGLE_CLIENT_ID/SECRET` |
+| Article writing, topic research, AI prompts | `ANTHROPIC_API_KEY` |
+| Keyword volumes, SERPs, competitors, domain rating | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
+| AI visibility checks | `OPENAI_API_KEY`, `GOOGLE_GENERATIVE_AI_API_KEY` (plus Anthropic) |
+| GA4 + Search Console | Google Cloud OAuth client with Analytics and Search Console APIs |
+| Billing | Stripe keys + webhook secret |
+| Email (invites, reports, white-label sending domain) | Resend API key |
+| White-label custom domains | Vercel API token (domain verification) |
+
+## Deployment shape
+
+- Web: Vercel (or any Node host) running `next build && next start`.
+- Worker: a long-running Node process (`npm run worker`) on Railway, Render, Fly or a VM,
+  pointing at the same `DATABASE_URL`.
+- Database: managed Postgres.
