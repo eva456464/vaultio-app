@@ -12,6 +12,7 @@ import {
   whitelabelConfigs,
 } from "@/db/schema";
 import { auth } from "./auth";
+import { DEFAULT_BRAND_COLOR, DEFAULT_BRAND_NAME, safeColor } from "./brand";
 
 export const SELECTED_SITE_COOKIE = "org_website_id";
 
@@ -25,8 +26,8 @@ export type Brand = {
 };
 
 const DEFAULT_BRAND: Brand = {
-  name: process.env.DEFAULT_BRAND_NAME ?? "Vaultio",
-  accentColor: process.env.DEFAULT_BRAND_COLOR ?? "#E94545",
+  name: DEFAULT_BRAND_NAME,
+  accentColor: DEFAULT_BRAND_COLOR,
   secondaryColor: "#000000",
   logoUrl: "/brand/vaultio-mark.svg",
   faviconUrl: "/brand/vaultio-mark.svg",
@@ -45,8 +46,8 @@ export const getBrand = cache(async (): Promise<Brand> => {
   if (!config) return DEFAULT_BRAND;
   return {
     name: config.brandName,
-    accentColor: config.primaryColor,
-    secondaryColor: config.secondaryColor,
+    accentColor: safeColor(config.primaryColor, DEFAULT_BRAND_COLOR),
+    secondaryColor: safeColor(config.secondaryColor, DEFAULT_BRAND.secondaryColor),
     logoUrl: config.logoUrl ?? DEFAULT_BRAND.logoUrl,
     faviconUrl: config.faviconUrl ?? config.logoUrl ?? DEFAULT_BRAND.faviconUrl,
     organizationId: config.organizationId,

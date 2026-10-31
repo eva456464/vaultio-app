@@ -120,7 +120,8 @@
       "competitorsFound": "Found {count, plural, one {# competitor} other {# competitors}}",
       "keywordResearch": "Found {count, plural, one {# keyword} other {# keywords}}",
       "promptsGenerated": "Wrote {count, plural, one {# question} other {# questions}} customers ask AI",
-      "firstMonthPlanned": "Planned {count, plural, one {# article} other {# articles}} for your first month"
+      "firstMonthPlanned": "Planned {count, plural, one {# article} other {# articles}} for your first month",
+      "reportSent": "Emailed the {title} report"
     },
     "planned": {
       "sitemapSync": "Will sync your sitemap",
@@ -132,7 +133,8 @@
       "domainRatingCheck": "Will check your domain rating",
       "topicResearched": "Will research tomorrow's topic",
       "articleWritten": "Will write: {title}",
-      "competitorGapScan": "Will scan competitors for content gaps"
+      "competitorGapScan": "Will scan competitors for content gaps",
+      "monthlyReport": "Will email this month's client report"
     },
     "achievement": {
       "moreAchievements": "+{count} more achievements",
@@ -926,6 +928,167 @@
       "positive": "Positive",
       "neutral": "Neutral",
       "negative": "Negative"
+    }
+  },
+  "reporting": {
+    "title": "Client reporting",
+    "subtitle": "Build a branded report for this client from the data your agents already collect.",
+    "download": "Download PDF",
+    "downloadHint": "Opens the report ready to print. Choose Save as PDF.",
+    "period": "Period",
+    "periods": {
+      "previous_month": "Previous month",
+      "this_month": "This month so far"
+    },
+    "sections": "Sections",
+    "sectionsOn": "{on} of {total} on",
+    "noData": "No data yet",
+    "needsGsc": "Needs Google Search Console",
+    "kpis": "Search numbers",
+    "kpiNames": {
+      "clicks": "Clicks",
+      "impressions": "Impressions",
+      "position": "Average position"
+    },
+    "blocks": {
+      "achievements": [
+        "Achievements",
+        "Everything earned so far"
+      ],
+      "summary": [
+        "Summary line",
+        "One line on Google traffic"
+      ],
+      "kpis": [
+        "Search totals",
+        "The headline Google numbers"
+      ],
+      "clicksChart": [
+        "Search chart",
+        "Google visits day by day"
+      ],
+      "countries": [
+        "Countries",
+        "Where visitors came from"
+      ],
+      "pages": [
+        "Top pages",
+        "Pages with the most visits"
+      ],
+      "keywords": [
+        "Keywords",
+        "What people searched for"
+      ],
+      "backlinks": [
+        "Authority",
+        "Sites linking to this one"
+      ],
+      "articles": [
+        "Content published",
+        "Articles published this period"
+      ],
+      "siteHealth": [
+        "Site health",
+        "Problems found on the site"
+      ],
+      "community": [
+        "Reddit and Quora",
+        "Answers that mention you"
+      ],
+      "aiVisibility": [
+        "AI visibility",
+        "How often AI assistants mention you"
+      ]
+    },
+    "email": {
+      "title": "Monthly email",
+      "on": "Monthly email · On",
+      "off": "Monthly email · Off",
+      "toggle": "Email this report every month",
+      "recipient": "Send to",
+      "hint": "Sent on the 1st of each month with last month's numbers.",
+      "needsSetup": "Needs email sending to be configured (RESEND_API_KEY and REPORT_FROM_EMAIL)."
+    },
+    "save": "Save",
+    "saved": "Saved",
+    "preview": "Preview",
+    "history": "Sent reports",
+    "historyEmpty": "No reports sent yet.",
+    "open": "Open"
+  },
+  "report": {
+    "documentTitle": "{brand} report — {site} — {start} to {end}",
+    "monthly": "Monthly report",
+    "preparedBy": "Prepared by {brand}",
+    "empty": "There is no data for this period yet. Sections fill in as your agents work and as Google Search Console is connected.",
+    "tiles": {
+      "backlinkValue": "Backlink cost saved",
+      "impressions": "Google impressions",
+      "articles": "Articles published",
+      "aiVisibility": "AI visibility",
+      "authority": "Site authority",
+      "siteHealth": "Site health"
+    },
+    "achievements": {
+      "title": "Achievements so far",
+      "reached": "Reached {date}"
+    },
+    "summary": "Google sent <b>{clicks}</b> visits to {site} this period{direction, select, up { (up {change}% on the period before)} down { (down {change}% on the period before)} other {}}, from <b>{impressions}</b> appearances in search results.",
+    "search": {
+      "title": "Google search",
+      "clicks": "Total clicks",
+      "impressions": "Total impressions",
+      "position": "Average position",
+      "places": "{count, plural, one {# place} other {# places}}",
+      "chart": "Clicks per day",
+      "chartMax": "max {max} clicks/day",
+      "bar": "{date}: {clicks, plural, one {# click} other {# clicks}}"
+    },
+    "columns": {
+      "clicks": "Clicks",
+      "impressions": "Impressions",
+      "position": "Avg. position"
+    },
+    "countries": {
+      "title": "Where your visitors are",
+      "column": "Country"
+    },
+    "pages": {
+      "title": "Pages doing the work",
+      "column": "Page"
+    },
+    "keywords": {
+      "title": "Searches that found you",
+      "column": "Search"
+    },
+    "articles": {
+      "title": "Content published",
+      "words": "{count, plural, one {# word} other {# words}}"
+    },
+    "authority": {
+      "title": "Authority",
+      "domainRating": "Domain rating",
+      "linking": "Sites linking to you",
+      "new": "New this period",
+      "newSite": "New linking site"
+    },
+    "siteHealth": {
+      "title": "Site health",
+      "score": "Health score",
+      "pages": "Pages checked",
+      "issues": "Issues found",
+      "affected": "{count, plural, =0 {Whole site} one {# page} other {# pages}}"
+    },
+    "aiVisibility": {
+      "title": "AI search visibility",
+      "summary": "AI assistants ({assistants}) mentioned {brand} in <b>{mentions} of {answers}</b> answers to the questions your customers ask, checked {date}."
+    },
+    "email": {
+      "subject": "{site}: your {month} report",
+      "greeting": "Hi,",
+      "body": "Your {month} report for <b>{site}</b> is ready: articles published, Google and AI search visibility, authority and site health.",
+      "cta": "View the report",
+      "pdfHint": "To save it as a PDF, open the report and use your browser's Print › Save as PDF."
     }
   }
 }

@@ -6,7 +6,7 @@
 import { addDays, formatISO, getDate, getDay } from "date-fns";
 import { toZonedTime } from "date-fns-tz";
 
-export type Requirement = "ga4" | "gsc" | "llm" | "keywordData" | "authorityData";
+export type Requirement = "ga4" | "gsc" | "llm" | "keywordData" | "authorityData" | "email";
 
 export type Cadence =
   | { kind: "daily" }
@@ -33,6 +33,7 @@ export const AGENT_JOBS = [
   "topicResearch",
   "writeArticle",
   "milestones",
+  "monthlyReport",
 ] as const;
 export type AgentJob = (typeof AGENT_JOBS)[number];
 
@@ -50,6 +51,7 @@ export const AGENT_SCHEDULE: ScheduledAgent[] = [
   // Writes the article planned for the day, if any (shown via the content plan).
   { job: "writeArticle", cadence: { kind: "daily" }, requires: ["llm"] },
   { job: "milestones", cadence: { kind: "daily" }, requires: [] },
+  { job: "monthlyReport", cadence: { kind: "monthly", dayOfMonth: 1 }, requires: ["email"] },
 ];
 
 /** Calendar day (YYYY-MM-DD) in the site's time zone. */

@@ -9,6 +9,7 @@ import {
   KeyRound,
   Lightbulb,
   Link,
+  Mail,
   Link2,
   MessagesSquare,
   Network,
@@ -46,4 +47,6 @@ export const ACTIVITY_ICONS: Record<string, LucideIcon> = {
   keywordResearch: KeyRound,
   promptsGenerated: MessagesSquare,
   firstMonthPlanned: CalendarDays,
+  monthlyReport: Mail,
+  reportSent: Mail,
 };

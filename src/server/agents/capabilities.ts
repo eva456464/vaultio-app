@@ -7,6 +7,7 @@ import type { Requirement } from "./schedule";
 export async function availableRequirements(siteId: number): Promise<Set<Requirement>> {
   const available = new Set<Requirement>();
   if (process.env.ANTHROPIC_API_KEY) available.add("llm");
+  if (process.env.RESEND_API_KEY && process.env.REPORT_FROM_EMAIL) available.add("email");
   if (process.env.DATAFORSEO_LOGIN && process.env.DATAFORSEO_PASSWORD) {
     available.add("keywordData");
     available.add("authorityData");
@@ -28,4 +29,5 @@ export const REQUIREMENT_LABELS: Record<Requirement, string> = {
   llm: "AI writing provider is not configured (ANTHROPIC_API_KEY)",
   keywordData: "Keyword data provider is not configured (DATAFORSEO_LOGIN / DATAFORSEO_PASSWORD)",
   authorityData: "Domain authority provider is not configured (DATAFORSEO_LOGIN / DATAFORSEO_PASSWORD)",
+  email: "Email sending is not configured (RESEND_API_KEY / REPORT_FROM_EMAIL)",
 };

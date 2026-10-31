@@ -70,6 +70,7 @@ Everything the agents do goes through one path, so work is never silently droppe
 | Topic research + cannibalization check | daily | LLM |
 | Article writing + publishing | on content-plan days | LLM, image source, publishing integration |
 | Milestones (achievements) | daily | — |
+| Monthly client report email | monthly (1st) | email sending (Resend) + "Monthly email" on |
 
 ### Agent status
 
@@ -91,6 +92,7 @@ Everything the agents do goes through one path, so work is never silently droppe
 | Other platforms (Shopify, Webflow, Wix, Ghost, Framer, hosted blog...) | next phase |
 | Hero / body images | next phase |
 | AI visibility: weekly + at onboarding, asks each prompt to Claude (web search), ChatGPT and Gemini when keyed; mentions, brands with sentiment, cited sources; Overview / Prompts / Brands / Sources pages | built |
+| Client reports: Reporting page with section switches and live preview, print-to-PDF, monthly email with a stored snapshot behind a share link (`/api/reports/shared/<token>`) | built |
 | GA4 + Search Console sync | needs a Google Cloud OAuth app |
 | Backlink exchange matcher, Reddit / Quora agents, Instagram & Facebook posting | later phases |
 
@@ -102,6 +104,15 @@ Claude calls use `claude-opus-5-5` (override with `CLAUDE_MODEL`), structured ou
 streaming for long articles, Anthropic-hosted web search for research, prompt caching on the
 stable system prompts, and server-side refusal fallbacks (`fallbacks: "default"`).
 
+### Client reports
+
+`src/server/reports/data.ts` gathers one site's numbers for a period (Search Console, authority,
+articles, site health, AI visibility, milestones) and says which sections have data;
+`render.ts` turns them into a standalone A4 HTML page (text from the `report` namespace in
+`en.json`, colours from the white-label brand). The same renderer serves the live preview, the
+print view ("Download PDF" opens the browser's Save as PDF) and the monthly email snapshot.
+Sections without data are switched off rather than shown with invented numbers.
+
 ## Accounts and keys needed in production
 
 | Purpose | Variables |
@@ -110,10 +121,10 @@ stable system prompts, and server-side refusal fallbacks (`fallbacks: "default"`
 | Auth | `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, optional `GOOGLE_CLIENT_ID/SECRET` |
 | Article writing, topic research, AI prompts | `ANTHROPIC_API_KEY` |
 | Keyword volumes, SERPs, competitors, domain rating | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
-| AI visibility checks | `OPENAI_API_KEY`, `GOOGLE_GENERATIVE_AI_API_KEY` (plus Anthropic) |
+| AI visibility checks | `OPENAI_API_KEY`, `GEMINI_API_KEY` (plus Anthropic) |
 | GA4 + Search Console | Google Cloud OAuth client with Analytics and Search Console APIs |
 | Billing | Stripe keys + webhook secret |
-| Email (invites, reports, white-label sending domain) | Resend API key |
+| Email (monthly reports; later invites) | `RESEND_API_KEY`, `REPORT_FROM_EMAIL` (verified sender), `APP_URL` for links |
 | White-label custom domains | Vercel API token (domain verification) |
 
 ## Deployment shape

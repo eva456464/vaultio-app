@@ -45,6 +45,7 @@ export const ACTIVITY_TYPES = [
   "keywordResearch",
   "promptsGenerated",
   "firstMonthPlanned",
+  "reportSent",
 ] as const;
 export type ActivityType = (typeof ACTIVITY_TYPES)[number];
 
@@ -360,21 +361,8 @@ export const apiKeys = pgTable("api_keys", {
 
 // --------------------------------------------------------- Agency reporting
 
-export const REPORT_BLOCKS = [
-  "achievements",
-  "summary",
-  "kpis",
-  "clicksChart",
-  "countries",
-  "pages",
-  "keywords",
-  "articles",
-  "backlinks",
-  "siteHealth",
-  "community",
-  "aiVisibility",
-] as const;
-export type ReportBlock = (typeof REPORT_BLOCKS)[number];
+export { REPORT_BLOCKS, type ReportBlock } from "../../lib/report-blocks";
+import type { ReportBlock } from "../../lib/report-blocks";
 
 export const agencyReportingSettings = pgTable("agency_reporting_settings", {
   id: serial("id").primaryKey(),
@@ -396,6 +384,9 @@ export const agencyReports = pgTable("agency_reports", {
     .references(() => orgWebsites.id, { onDelete: "cascade" }),
   periodStart: date("period_start").notNull(),
   periodEnd: date("period_end").notNull(),
+  // Snapshot of the report as sent, viewable through the share token.
+  html: text("html"),
+  shareToken: text("share_token").unique(),
   pdfUrl: text("pdf_url"),
   sentTo: text("sent_to"),
   sentAt: timestamp("sent_at", { withTimezone: true }),
