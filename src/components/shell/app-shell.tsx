@@ -1,10 +1,13 @@
-import { desc } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { cookies } from "next/headers";
+import { getFormatter } from "next-intl/server";
 import type { ReactNode } from "react";
 import { db } from "@/db";
-import { productUpdates } from "@/db/schema";
+import { productUpdates, userSettings } from "@/db/schema";
+import { DELETION_GRACE_DAYS } from "@/server/account";
 import { Link } from "@/i18n/navigation";
 import type { AppContext, Brand } from "@/server/context";
+import { DeletionBanner } from "./deletion-banner";
 import { MobileNav } from "./mobile-nav";
 import { ProductUpdatesBell } from "./product-updates";
 import { SIDEBAR_COOKIE, Sidebar } from "./sidebar";
@@ -23,7 +26,12 @@ export async function AppShell({
   children: ReactNode;
 }) {
   const collapsed = (await cookies()).get(SIDEBAR_COOKIE)?.value === "1";
-  const updates = await db.select().from(productUpdates).orderBy(desc(productUpdates.launchedAt)).limit(20);
+  const [updates, [settings], format] = await Promise.all([
+    db.select().from(productUpdates).orderBy(desc(productUpdates.launchedAt)).limit(20),
+    db.select({ deletionRequestedAt: userSettings.deletionRequestedAt }).from(userSettings).where(eq(userSettings.userId, context.user.id)),
+    getFormatter(),
+  ]);
+  const deleteOn = settings?.deletionRequestedAt ? new Date(settings.deletionRequestedAt.getTime() + DELETION_GRACE_DAYS * 86_400_000) : null;
 
   const logo = (
     <Link href={mode === "agency" ? "/clients" : "/dashboard/overview"} className="grid size-10 shrink-0 place-items-center">
@@ -68,7 +76,10 @@ export async function AppShell({
       </header>
       <div className="flex flex-1">
         <Sidebar mode={mode} initialCollapsed={collapsed} />
-        <main className="min-w-0 flex-1 bg-canvas">{children}</main>
+        <main className="min-w-0 flex-1 bg-canvas">
+          {deleteOn && <DeletionBanner date={format.dateTime(deleteOn, { dateStyle: "long" })} />}
+          {children}
+        </main>
       </div>
     </div>
   );

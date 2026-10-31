@@ -6,3 +6,9 @@ export const SETTINGS_GROUPS = [
   { key: "integrations", sections: ["publishing", "analytics"] },
   { key: "socials", sections: ["reddit", "quora"] },
 ] as const;
+
+/** Agency settings (/clients/settings), shown in agency mode. */
+export const AGENCY_SETTINGS_GROUPS = [
+  { key: "account", sections: ["profile", "members"] },
+  { key: "whiteLabel", sections: ["branding", "hosting", "talk-with-team"] },
+] as const;

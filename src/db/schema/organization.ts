@@ -1,6 +1,7 @@
 // Workspaces (agencies or single businesses), their members, white-label config and sites.
 import {
   boolean,
+  customType,
   date,
   index,
   integer,
@@ -111,7 +112,31 @@ export const whitelabelConfigs = pgTable("whitelabel_configs", {
   emailDomainId: text("email_domain_id"),
   emailDomainStatus: text("email_domain_status"),
   emailDomainRecords: jsonb("email_domain_records").$type<WhitelabelEmailRecord[]>(),
+  // DNS records the hosting domain needs (CNAME, plus a TXT ownership record on some hosts).
+  domainRecords: jsonb("domain_records").$type<WhitelabelDnsRecord[]>(),
+  domainError: text("domain_error"),
+  domainCheckedAt: timestamp("domain_checked_at", { withTimezone: true }),
+  emailCheckedAt: timestamp("email_checked_at", { withTimezone: true }),
   ...timestamps,
+});
+
+export type WhitelabelDnsRecord = { type: string; name: string; value: string };
+
+const bytea = customType<{ data: Buffer; driverData: Buffer }>({ dataType: () => "bytea" });
+
+/** Agency logos and favicons, converted to PNG and served at /brand-assets/<id>.png. */
+export const brandAssets = pgTable("brand_assets", {
+  id: text("id").primaryKey(),
+  organizationId: integer("organization_id")
+    .notNull()
+    .references(() => organizations.id, { onDelete: "cascade" }),
+  kind: text("kind").$type<"logo" | "favicon">().notNull(),
+  mimeType: text("mime_type").notNull(),
+  width: integer("width"),
+  height: integer("height"),
+  sizeBytes: integer("size_bytes").notNull(),
+  data: bytea("data").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
 export type ServiceOffered = {

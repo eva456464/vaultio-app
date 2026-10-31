@@ -92,6 +92,13 @@ export function AuthForm({ mode, brandName, googleEnabled, invite }: { mode: Mod
           placeholder={t("password")}
           className={inputClass}
         />
+        {mode === "sign-in" && (
+          <p className="text-right text-sm">
+            <Link href="/forgot-password" className="text-ink-secondary hover:text-ink hover:underline">
+              {t("forgotPassword")}
+            </Link>
+          </p>
+        )}
         {error && <p className="text-sm text-red-600">{error}</p>}
         <Button type="submit" size="lg" className="w-full" disabled={pending}>
           {mode === "sign-in" ? t("signIn") : t("signUp")}

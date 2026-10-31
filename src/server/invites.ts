@@ -30,7 +30,7 @@ export const inviteLink = (origin: string, token: string, locale = "en") => `${o
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]!);
 
 /** Sends the invitation email (text from the `emails.invite` namespace). */
-export async function sendInviteEmail({ to, link, inviter, workspace, brand, accentColor }: { to: string; link: string; inviter: string; workspace: string; brand: string; accentColor: string }) {
+export async function sendInviteEmail({ to, link, inviter, workspace, brand, accentColor, from }: { to: string; link: string; inviter: string; workspace: string; brand: string; accentColor: string; from?: string }) {
   const t = createTranslator({ locale: "en", messages: en, namespace: "emails.invite" });
   const html = `<!doctype html><html><body style="margin:0;background:#f6f7f9;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#111827">
 <div style="max-width:520px;margin:0 auto;padding:40px 24px">
@@ -43,7 +43,7 @@ export async function sendInviteEmail({ to, link, inviter, workspace, brand, acc
   </div>
   <p style="font-size:12px;color:#9ca3af;margin:16px 0 0">${escapeHtml(t("ignore"))}</p>
 </div></body></html>`;
-  await sendEmail({ to, subject: t("subject", { workspace, brand }), html, from: process.env.EMAIL_FROM || undefined });
+  await sendEmail({ to, subject: t("subject", { workspace, brand }), html, from });
 }
 
 export type InvitationState =

@@ -2,6 +2,7 @@ import { and, eq, inArray } from "drizzle-orm";
 import type { PgBoss } from "pg-boss";
 import { db } from "@/db";
 import { agentJobRuns, orgWebsites } from "@/db/schema";
+import { purgeDeletedAccounts } from "../account";
 import { siteEntitlements } from "../billing/entitlements";
 import { availableRequirements } from "./capabilities";
 import { enqueueAgentJob, ONBOARDING_STEPS, QUEUES } from "./queue";
@@ -55,6 +56,13 @@ export async function runOnboarding(siteId: number, resume = false) {
  * Google account was connected). Safe to run as often as needed.
  */
 export async function schedulerTick(boss: PgBoss, now = new Date()) {
+  // Accounts whose 14-day deletion grace period has ended.
+  const purged = await purgeDeletedAccounts(now).catch((error) => {
+    console.error("[scheduler] account purge failed:", (error as Error).message);
+    return 0;
+  });
+  if (purged) console.log(`[scheduler] deleted ${purged} account(s)`);
+
   const sites = await db
     .select({ id: orgWebsites.id, timeZone: orgWebsites.timeZone, createdAt: orgWebsites.createdAt })
     .from(orgWebsites)

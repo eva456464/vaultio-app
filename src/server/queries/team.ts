@@ -4,6 +4,7 @@ import { db } from "@/db";
 import { memberWebsiteAccess, organizationInvitations, organizationMembers, orgWebsites, user } from "@/db/schema";
 import type { AppContext } from "../context";
 import { emailConfigured, inviteLink, requestOrigin } from "../invites";
+import { workspaceBrand } from "../whitelabel/brand";
 
 export async function getTeam(context: AppContext) {
   const organization = context.organization!;
@@ -32,7 +33,7 @@ export async function getTeam(context: AppContext) {
       .from(orgWebsites)
       .where(and(eq(orgWebsites.organizationId, organization.id), eq(orgWebsites.isHidden, false)))
       .orderBy(asc(orgWebsites.createdAt)),
-    requestOrigin(),
+    workspaceBrand(organization.id).then(async (own) => own?.origin ?? requestOrigin()),
   ]);
   const now = new Date();
   return {

@@ -5,6 +5,7 @@ import { nextCookies } from "better-auth/next-js";
 import { isNotNull } from "drizzle-orm";
 import { db } from "@/db";
 import * as schema from "@/db/schema";
+import { sendPasswordResetEmail } from "./password-reset";
 
 const googleConfigured = Boolean(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET);
 
@@ -23,6 +24,11 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     minPasswordLength: 8,
+    resetPasswordTokenExpiresIn: 60 * 60,
+    revokeSessionsOnPasswordReset: true,
+    sendResetPassword: async ({ user, token }, request) => {
+      await sendPasswordResetEmail({ user, token, request });
+    },
   },
   socialProviders: googleConfigured
     ? {

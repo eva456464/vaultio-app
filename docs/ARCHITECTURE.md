@@ -233,6 +233,37 @@ empty workspace; accepting an invitation removes it and joins the inviting one. 
 already runs a workspace with websites or other members can't join a second one (the app has one
 workspace per account).
 
+### White label and agency settings
+
+Agency settings live under `/clients/settings` (Profile, Members, Branding, Hosting, Talk with team);
+Settings → White label shows Branding and Hosting together for the selected workspace. A
+workspace's `whitelabel_configs` row holds its brand (name, logo, favicon, primary and accent
+colours) and domains. Logos and favicons are converted to PNG (so an uploaded SVG can't carry a
+script) and served from Postgres at `/brand-assets/<id>.png`.
+
+The brand is chosen per request from the Host header (`getBrand`): on an agency's hosting domain
+the sidebar, sign-in page, page title, favicon and accent colour are the agency's; everywhere else
+they are Vaultio's. Invitations and monthly report emails for an agency's workspace use its name,
+link to its domain once connected, and are sent from `notifications@<sending domain>` once Resend
+has verified it.
+
+Hosting domains (`src/server/whitelabel/domains.ts`): with `VERCEL_TOKEN` + `VERCEL_PROJECT_ID`
+the domain is added to the Vercel project and Vercel's recommended CNAME and ownership TXT record
+are shown until Vercel reports it verified and configured; otherwise the agency CNAMEs to
+`CUSTOM_DOMAIN_CNAME` and only DNS is checked. Sending domains are added to Resend and its
+DKIM/SPF/MX records are shown until verified. Pending domains are re-checked when the page opens
+and with "Check again". These calls follow the Vercel and Resend REST APIs as documented and were
+tested against a local mock (`scripts/dev-fixtures/mock-domains.py`), not the live services.
+
+Password resets ("Forgot password?") use Better Auth's reset tokens (one hour, single use, other
+sessions signed out); the email links to the domain the request came from when that is the
+platform's or a registered agency domain, and otherwise to `APP_URL`.
+
+Profile adds the dashboard language and account deletion: the account is deleted 14 days after
+the request (the scheduler purges it), together with any workspace the user ran alone, whose
+Stripe subscriptions are cancelled first. A workspace's only admin must hand over admin rights
+before deleting an account that other members depend on.
+
 ### Billing
 
 Stripe, per website, like the reference product: one `main` subscription (Grow or Scale, monthly
@@ -280,7 +311,9 @@ Sections without data are switched off rather than shown with invented numbers.
 | Billing | `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` (webhook endpoint `/api/stripe/webhook`), optional `BILLING_TRIAL_DAYS` |
 | Invitation and invoice emails | `RESEND_API_KEY`, `EMAIL_FROM` (or `REPORT_FROM_EMAIL`) |
 | Email (monthly reports; later invites) | `RESEND_API_KEY`, `REPORT_FROM_EMAIL` (verified sender), `APP_URL` for links |
-| White-label custom domains | Vercel API token (domain verification) |
+| White-label custom domains | `VERCEL_TOKEN`, `VERCEL_PROJECT_ID` (optional `VERCEL_TEAM_ID`), or `CUSTOM_DOMAIN_CNAME` for other hosts |
+| Agencies' email sending domains | `RESEND_API_KEY` (Resend Domains) |
+| Talk with team | `SUPPORT_BOOKING_URL`, `SUPPORT_EMAIL` |
 
 ## Deployment shape
 

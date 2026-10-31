@@ -10,7 +10,8 @@
     "search": "Search",
     "loading": "Loading...",
     "comingSoon": "This page is being rebuilt. It will be available soon.",
-    "backToDashboard": "Back to dashboard"
+    "backToDashboard": "Back to dashboard",
+    "backToClients": "Back to clients"
   },
   "nav": {
     "overview": "Overview",
@@ -345,7 +346,19 @@
     "signInLink": "Sign in",
     "forgotPassword": "Forgot password?",
     "invalidCredentials": "Incorrect email or password.",
-    "genericError": "Something went wrong. Please try again."
+    "genericError": "Something went wrong. Please try again.",
+    "forgotTitle": "Reset your password",
+    "forgotSubtitle": "Enter your email and we'll send you a link to choose a new password.",
+    "sendLink": "Send reset link",
+    "linkSent": "If an account uses {email}, a reset link is on its way. Check your inbox.",
+    "backToSignIn": "Back to sign in",
+    "resetTitle": "Choose a new password",
+    "resetSubtitle": "Use at least 8 characters.",
+    "newPassword": "New password",
+    "savePassword": "Save new password",
+    "resetDone": "Your password was changed. Sign in with the new one.",
+    "resetInvalid": "This reset link has expired or was already used. Ask for a new one.",
+    "emailUnavailable": "Password reset emails aren't set up yet. Ask your account manager to reset it for you."
   },
   "languages": {
     "en": "English",
@@ -788,7 +801,8 @@
       "business": "Business & brand",
       "articles": "Articles",
       "integrations": "Integrations",
-      "socials": "Socials"
+      "socials": "Socials",
+      "whiteLabel": "White label"
     },
     "sections": {
       "account": "Account",
@@ -807,7 +821,11 @@
       "publishing": "Publishing",
       "analytics": "Analytics",
       "reddit": "Reddit",
-      "quora": "Quora"
+      "quora": "Quora",
+      "profile": "Profile",
+      "members": "Members",
+      "hosting": "Hosting",
+      "talk-with-team": "Talk with team"
     },
     "publishing": {
       "title": "Publishing",
@@ -893,7 +911,17 @@
       "passwordChanged": "Password changed.",
       "passwordError": "Could not change the password. Check your current password.",
       "session": "Session",
-      "logout": "Log out"
+      "logout": "Log out",
+      "subtitle": "Your name, email, password and dashboard language.",
+      "language": "Dashboard language",
+      "languageHint": "The language of the dashboard. Pages without a translation yet are shown in English.",
+      "danger": "Danger zone",
+      "dangerHint": "Delete your account. You'll have 14 days to change your mind before deletion becomes permanent; a workspace you run alone is deleted with it, including its websites and subscriptions.",
+      "delete": "Delete account",
+      "deleteConfirm": "Delete your account? You'll be signed out, and the account is deleted for good after 14 days unless you sign in and cancel.",
+      "deleteScheduled": "Your account will be deleted on {date}. Sign in before then to cancel.",
+      "pendingDeletion": "Your account will be deleted on {date}.",
+      "cancelDeletion": "Keep my account"
     },
     "business": {
       "title": "Business details",
@@ -1468,6 +1496,70 @@
         }
       },
       "adminOnly": "Only workspace admins can change the subscription."
+    },
+    "whiteLabel": {
+      "pageSubtitle": "Your agency's white-label brand and the domains your clients sign in at and get emails from.",
+      "brandSubtitle": "What your clients see when they sign in.",
+      "hostingSubtitle": "Where your clients sign in and where their invites and password resets are sent from.",
+      "brandTitle": "Brand",
+      "agencyName": "Agency name",
+      "agencyNameHint": "Shown in the sidebar, in your clients' emails and on their reports. Your clients never see the platform's name.",
+      "logo": "Logo",
+      "logoHint": "Shown in the sidebar, on your clients' sign-in screen and on their reports. PNG, JPG, WebP or SVG, up to 2 MB.",
+      "uploadLogo": "Upload a logo",
+      "favicon": "Favicon",
+      "faviconHint": "The small icon in your clients' browser tab.",
+      "uploadFavicon": "Upload a favicon",
+      "remove": "Remove",
+      "primary": "Primary color",
+      "primaryHint": "Replaces the accent colour in your clients' dashboard (buttons, links, highlights).",
+      "accent": "Accent color",
+      "accentHint": "Used for secondary accents across your clients' dashboard, like badges and highlights.",
+      "invalidColor": "Use a hex colour like #E94545",
+      "uploading": "Uploading…",
+      "preview": "Preview",
+      "previewNote": "This is how the sidebar logo and buttons look to your clients.",
+      "hostingTitle": "Domains",
+      "hostingDomain": "Hosting domain",
+      "hostingDomainHint": "Where your clients sign in, for example app.youragency.com.",
+      "sendingDomain": "Email sending domain",
+      "sendingDomainHint": "Invites, password resets and reports are emailed from this domain, for example mail.youragency.com.",
+      "placeholderDomain": "app.youragency.com",
+      "placeholderSending": "mail.youragency.com",
+      "save": "Save domains",
+      "status": {
+        "verified": "Connected",
+        "pending": "Setup pending",
+        "failed": "Not connected",
+        "notSet": "Not set"
+      },
+      "showRecords": "Setup pending · show DNS records",
+      "hideRecords": "Hide DNS records",
+      "checkNow": "Check again",
+      "checking": "Checking…",
+      "recordsIntro": "Add these records at your domain's DNS provider. They usually work within minutes, sometimes up to 48 hours.",
+      "columns": {
+        "type": "Type",
+        "name": "Name",
+        "value": "Value",
+        "status": "Status"
+      },
+      "copy": "Copy",
+      "copied": "Copied",
+      "hostingManual": "Point the domain at the app with this record. Your hosting provider must also serve HTTPS for it.",
+      "emailNeedsResend": "Emails from your own domain need the email provider to be set up (RESEND_API_KEY). Until then they come from the platform's address.",
+      "signInHere": "Your clients sign in at {url}",
+      "lastChecked": "Checked {time}",
+      "previewButton": "Button",
+      "previewBadge": "Badge"
+    },
+    "talk": {
+      "subtitle": "Your account manager helps you set up, onboard clients and grow your agency.",
+      "cardTitle": "Book a call",
+      "cardBody": "Pick a time that suits you. Calls take about 15 minutes.",
+      "button": "Book a call",
+      "email": "Prefer email? Write to <link>{email}</link>.",
+      "notSet": "Calls aren't bookable yet. Contact your account manager directly."
     }
   },
   "aiVisibility": {
@@ -2072,6 +2164,13 @@
       "button": "Accept invitation",
       "expires": "This invitation expires in {days} days.",
       "ignore": "If you weren't expecting this invitation, you can ignore this email."
+    },
+    "reset": {
+      "subject": "Reset your {brand} password",
+      "title": "Reset your password",
+      "body": "Someone asked to reset the password of your {brand} account. If it was you, choose a new password below.",
+      "button": "Choose a new password",
+      "expires": "The link works for one hour. If you didn't ask for this, you can ignore this email."
     }
   },
   "invite": {

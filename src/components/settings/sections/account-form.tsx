@@ -1,13 +1,86 @@
 "use client";
 
-import { LogOut } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { LogOut, Trash2 } from "lucide-react";
+import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "@/i18n/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { locales } from "@/i18n/routing";
 import { authClient } from "@/lib/auth-client";
+import { requestAccountDeletion, setDashboardLanguage } from "@/server/actions/account";
 import { updateProfileName } from "@/server/actions/settings";
 import { Field, inputClass, SettingsCard, useSave } from "../form-kit";
+
+function LanguageCard() {
+  const t = useTranslations("settings.account");
+  const tLanguages = useTranslations("languages");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [pending, startTransition] = useTransition();
+  return (
+    <SettingsCard title={t("language")} hint={t("languageHint")}>
+      <select
+        aria-label={t("language")}
+        value={locale}
+        disabled={pending}
+        onChange={(event) => {
+          const next = event.target.value;
+          startTransition(async () => {
+            await setDashboardLanguage(next);
+            router.replace(pathname, { locale: next });
+          });
+        }}
+        className={inputClass + " mt-0 max-w-xs"}
+      >
+        {locales.map((code) => (
+          <option key={code} value={code}>
+            {tLanguages(code)}
+          </option>
+        ))}
+      </select>
+    </SettingsCard>
+  );
+}
+
+function DangerZone() {
+  const t = useTranslations("settings.account");
+  const format = useFormatter();
+  const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
+  const [pending, startTransition] = useTransition();
+  return (
+    <section className="card overflow-hidden border-[#F3B4A9]">
+      <div className="p-5 md:p-6">
+        <h2 className="font-sans text-[16px] font-semibold text-[#C4320A]">{t("danger")}</h2>
+        <p className="mt-1 text-sm text-ink-secondary">{t("dangerHint")}</p>
+        <Button
+          variant="outline"
+          className="mt-4 border-[#F3B4A9] text-[#C4320A] hover:bg-[#FDECEA]"
+          disabled={pending}
+          onClick={() => {
+            if (!window.confirm(t("deleteConfirm"))) return;
+            startTransition(async () => {
+              const result = await requestAccountDeletion();
+              if ("error" in result) {
+                setError(result.error);
+                return;
+              }
+              window.alert(t("deleteScheduled", { date: format.dateTime(new Date(result.deleteOn), { dateStyle: "long" }) }));
+              await authClient.signOut();
+              router.replace("/sign-in");
+              router.refresh();
+            });
+          }}
+        >
+          <Trash2 />
+          {t("delete")}
+        </Button>
+        {error && <p className="mt-2 text-sm text-[#9A3412]">{error}</p>}
+      </div>
+    </section>
+  );
+}
 
 export function AccountForm({ name: initialName, email }: { name: string; email: string }) {
   const t = useTranslations("settings.account");
@@ -69,6 +142,8 @@ export function AccountForm({ name: initialName, email }: { name: string; email:
           {t("logout")}
         </Button>
       </SettingsCard>
+      <LanguageCard />
+      <DangerZone />
     </div>
   );
 }

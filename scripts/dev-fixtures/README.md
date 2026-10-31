@@ -99,3 +99,17 @@ STRIPE_SECRET_KEY=sk_test_mock STRIPE_API_BASE=http://localhost:4600 npx tsx --t
 
 `POST /test/renew/<sub_id>` bills the next period; `POST /test/fail/<sub_id>` makes it past due.
 
+## Vercel and Resend domain mock (`mock-domains.py`)
+
+Stands in for Vercel's project-domain API and Resend's domain and email APIs, for testing agency
+domains and the emails sent from them.
+
+```bash
+python3 scripts/dev-fixtures/mock-domains.py 4700
+```
+
+Run the app with `VERCEL_TOKEN=test VERCEL_PROJECT_ID=prj_test VERCEL_API_BASE=http://localhost:4700
+RESEND_API_KEY=re_test RESEND_API_BASE=http://localhost:4700`. Domains stay "Setup pending" until
+`POST /test/dns/<domain>` (hosting) or `POST /test/email-dns/<domain>` (sending); sent emails are at
+`GET /test/emails`. To open the app on an agency domain locally, map it in `/etc/hosts`.
+

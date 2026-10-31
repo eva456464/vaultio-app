@@ -23,7 +23,7 @@ Ground rules that apply to everything below:
 |---|---|
 | Accounts | Sign up, sign in, sessions; each sign-up gets its own workspace |
 | Agencies and clients | Agency workspace with many client sites, website selector, site mode and agency mode |
-| White label | Brand name, logo, favicon and colour picked from the domain (`app.vaultio.co` → Vaultio) |
+| White label | Agencies set their name, logo, favicon and colours and connect their own hosting domain (Vercel or CNAME) and email sending domain (Resend); their clients see only the agency's brand on that domain, and invites and reports come from the agency |
 | App shell | Header, sidebar, mobile menu, product-updates bell (reads `product_updates`; no updates published yet) |
 | Languages | English text in `src/messages/en.json`; routes for fr/nl/de/es/pt/it fall back to English |
 | Background agents | Job queue, daily scheduler, onboarding that catches up when keys are added later, every run recorded |
@@ -34,7 +34,7 @@ Ground rules that apply to everything below:
 
 | Page | Route | Status |
 |---|---|---|
-| Sign in / Sign up | `/sign-in`, `/sign-up` | Built |
+| Sign in / Sign up / Forgot password | `/sign-in`, `/sign-up`, `/forgot-password`, `/reset-password` | Built (reset emails need Resend; on an agency domain they carry the agency's brand, domain and sender) |
 | Add a website (onboarding) | `/onboarding/website` | Built; onboarding progress shows on Overview |
 | Overview | `/dashboard/overview` | Built: daily agent activity, planned actions, agents waiting for keys, achievements, what we learned (brand profile), traffic sources card |
 | Blog content: calendar | `/dashboard/content-plan` | Built: change topic, instructions, delete, add keywords |
@@ -53,8 +53,9 @@ Ground rules that apply to everything below:
 | Settings: Team members | `/dashboard/settings/team-members` | Built: workspace name, members and invitations, invite dialog, role and website access changes, remove |
 | Settings: Billing | `/dashboard/settings/billing` | Built: plan picker with trial, active subscription (plan, next invoice, status, pause, cancel, manage in Stripe), Upgrade to Scale, add-ons, payment history, "Email me my invoices" |
 | Invitation | `/invite/[token]` | Built: create an account or sign in with the invited email, then join |
-| Settings: White label, Product catalog | `/dashboard/settings/*` | **Placeholder** |
-| Agency settings: Profile, Branding, Hosting, Members, Talk with team | `/clients/settings/*` | **Placeholder** |
+| Settings: White label ("Branding and domains") | `/dashboard/settings/white-label` | Built: brand (name, logo, favicon, colours, preview) and domains (hosting + email sending, DNS records, check again) |
+| Agency settings: Profile, Members, Branding, Hosting, Talk with team | `/clients/settings/*` | Built (Profile also on Settings → Account: dashboard language and account deletion after 14 days) |
+| Settings: Product catalog | `/dashboard/settings/product-catalog` | **Placeholder** |
 
 ### Agents
 
@@ -85,6 +86,10 @@ Ground rules that apply to everything below:
   reconnect ran end to end against a local mock of Google's APIs (`scripts/dev-fixtures/mock-google.py`).
 - Team: invite → sign up with the invited email → accept → limited website access → role and
   access changes → remove, in a browser.
+- White label: logo and favicon upload, colours, hosting and sending domains from "Setup pending" with
+  DNS records to "Connected", the agency's brand on its own domain, and an invite email sent from
+  the agency's domain with a link to it, against a local Vercel/Resend mock
+  (`scripts/dev-fixtures/mock-domains.py`); account deletion and the 14-day purge.
 - Billing: checkout with trial, webhooks, upgrade to Scale yearly, Reddit+ and backlink-credit
   add-ons (limits and credits applied), pause, cancel and keep, invoices and the agents' pause,
   against a local Stripe mock (`scripts/dev-fixtures/mock-stripe.py`).
@@ -115,23 +120,25 @@ These are written against the providers' documentation but have not run live yet
 - Stripe itself: real Checkout, the customer portal, proration on plan changes, webhook delivery
   and invoice PDFs (written against the Stripe SDK's types for API version 2026-10-28).
 - Invitation and invoice emails through Resend.
+- White label against the live Vercel and Resend APIs (domain add/verify/config, Resend domains):
+  written from their documented APIs, which couldn't be fetched from this workspace to double-check.
 
 The first live run on the Mac should be watched; fixes are expected to be small (field names,
 limits).
 
 ## Still to build, in recommended order
 
-1. **Agency settings and white label**: profile, branding (agency name, logo, favicon, colours),
-   hosting (custom domain, email sending domain), members (reusing Team members), talk with team,
-   and Settings → White label.
-2. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
-3. **Infographics**: one chart-style image per article in the Editorial or Classic style.
-4. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
-5. **Product catalog** settings.
-6. **More languages**: content in extra languages per website (the Scale plan's 3 languages and the
+1. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
+2. **Infographics**: one chart-style image per article in the Editorial or Classic style.
+3. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
+4. **Product catalog** settings.
+5. **More languages**: content in extra languages per website (the Scale plan's 3 languages and the
    language add-on), and translations of the app itself.
-7. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
+6. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
    `app.vaultio.co` at Vaultio instead of the Babylovegrowth white label.
+
+White-label items not built yet: a white-labelled WordPress plugin, and Google sign-in on agency
+domains (email and password only, as in the reference product).
 
 Billing items not built yet: the onboarding "choose a plan" step (a new website is set up for free,
 then the Overview asks for a plan), volume discounts for several websites, seat limits, the
@@ -166,6 +173,8 @@ Smaller follow-ups:
 | Reddit Data API app (`REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`) | Optional: votes, comment counts and dropping archived or locked threads on the Reddit page | Not started; commercial use needs Reddit's approval |
 | Stripe account (`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`) | Billing (built, waiting for this) | Not started. Then: run `scripts/stripe-setup.ts`; add the webhook endpoint `https://<app domain>/api/stripe/webhook`; turn on plan switching and cancellation in Stripe's customer portal settings |
 | Prices for Reddit+, Quora+ and backlink credits (and how many credits) | No reference price was seen, so these aren't on sale until set in `scripts/stripe-prices.json` | Waiting for a decision. Grow $99/mo ($59/mo yearly), Scale $399/mo ($199/mo yearly), +30 prompts $49/mo and +50 prompts $89/mo are copied from the reference |
+| Vercel project token (`VERCEL_TOKEN`, `VERCEL_PROJECT_ID`) if the app is hosted on Vercel | Agencies' own domains get HTTPS automatically | Waiting for the hosting decision |
+| Booking link and support email (`SUPPORT_BOOKING_URL`, `SUPPORT_EMAIL`) | Agency settings → Talk with team | Not set |
 | Which workspaces aren't billed | Vaultio's own workspace should be exempt: `update organizations set billing_exempt = true where id = …` | Waiting for the production database |
 | Hosting accounts (web, worker, Postgres) | Production launch | Later |
 | Leftover Blog Hosting setup for `blog.vaultio.co` in the live Babylovegrowth account | Created during research; decide whether to remove it | Waiting for a decision |
@@ -194,6 +203,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Reddit and Quora: keyword suggestions, thread search and scoring, reply drafts, Socials pages, Settings → Reddit / Quora, report section | `main` e2df1d6 |
 | Team members: invitations, roles, website access, invite acceptance | `main` 11232fb |
 | Billing with Stripe: plans, add-ons, checkout, portal, webhooks, plan limits, agents paused without a plan | `main` ba01389 |
+| Agency settings and white label: profile (language, account deletion), members, branding, hosting and sending domains, talk with team | `main` |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

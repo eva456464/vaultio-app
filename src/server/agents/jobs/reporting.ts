@@ -4,7 +4,7 @@ import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { agencyReports, organizations, whitelabelConfigs } from "@/db/schema";
 import { DEFAULT_BRAND_COLOR, DEFAULT_BRAND_NAME, safeColor } from "@/server/brand";
-import { sendEmail } from "@/server/email";
+import { senderFor, sendEmail } from "@/server/email";
 import { gatherReport } from "@/server/reports/data";
 import { renderReport, reportTranslator } from "@/server/reports/render";
 import { getReportSettings } from "@/server/reports/settings";
@@ -18,7 +18,7 @@ export async function monthlyReport({ site }: JobContext) {
   if (!settings.autoSend || !settings.recipientEmail) return { sent: false, reason: "Monthly email is off" };
 
   const [org] = await db
-    .select({ name: organizations.name, brandName: whitelabelConfigs.brandName, color: whitelabelConfigs.primaryColor, logo: whitelabelConfigs.logoUrl })
+    .select({ name: organizations.name, brandName: whitelabelConfigs.brandName, color: whitelabelConfigs.primaryColor, logo: whitelabelConfigs.logoUrl, domain: whitelabelConfigs.domain, domainVerified: whitelabelConfigs.domainVerified })
     .from(organizations)
     .leftJoin(whitelabelConfigs, eq(whitelabelConfigs.organizationId, organizations.id))
     .where(eq(organizations.id, site.organizationId));
@@ -36,12 +36,14 @@ export async function monthlyReport({ site }: JobContext) {
     .values({ orgWebsiteId: site.id, periodStart: data.period.start, periodEnd: data.period.end, html, shareToken })
     .returning();
 
-  const appUrl = (process.env.APP_URL ?? process.env.BETTER_AUTH_URL ?? "").replace(/\/$/, "");
+  // Agencies' clients get the link on the agency's own domain once it is connected.
+  const appUrl = org?.domain && org.domainVerified ? `https://${org.domain}` : (process.env.APP_URL ?? process.env.BETTER_AUTH_URL ?? "").replace(/\/$/, "");
   const link = `${appUrl}/api/reports/shared/${shareToken}`;
   const siteName = site.brandName ?? new URL(site.url).hostname;
   const month = new Date(`${data.period.start}T12:00:00Z`).toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
   const t = reportTranslator();
   await sendEmail({
+    from: await senderFor(site.organizationId),
     to: settings.recipientEmail,
     subject: t("report.email.subject", { site: siteName, month }),
     html: `<div style="font-family:Arial,sans-serif;font-size:15px;color:#15171c;line-height:1.6">

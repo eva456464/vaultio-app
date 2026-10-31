@@ -7,6 +7,8 @@ import { z } from "zod";
 import { db } from "@/db";
 import { memberWebsiteAccess, organizationInvitations, organizationMembers, organizations, orgWebsites, user } from "@/db/schema";
 import { getAppContext, getBrand, getSession, SELECTED_SITE_COOKIE } from "../context";
+import { senderFor } from "../email";
+import { workspaceBrand } from "../whitelabel/brand";
 import { acceptInvitation, emailConfigured, inviteExpiry, InviteError, inviteLink, newInviteToken, requestOrigin, sendInviteEmail } from "../invites";
 
 type Result = { ok: true } | { error: string };
@@ -39,11 +41,13 @@ async function ownSiteIds(organizationId: number, ids: number[]) {
 }
 
 async function deliver(context: Awaited<ReturnType<typeof requireAdmin>>, email: string, token: string): Promise<InviteResult> {
-  const link = inviteLink(await requestOrigin(), token);
+  // An agency's invites carry its own name and link to its own domain once that is connected.
+  const own = await workspaceBrand(context.organization!.id);
+  const link = inviteLink(own?.origin ?? (await requestOrigin()), token);
   if (!emailConfigured()) return { ok: true, link, emailed: false };
   try {
-    const brand = await getBrand();
-    await sendInviteEmail({ to: email, link, inviter: context.user.name || context.user.email, workspace: context.organization!.name, brand: brand.name, accentColor: brand.accentColor });
+    const brand = own ?? (await getBrand());
+    await sendInviteEmail({ to: email, link, inviter: context.user.name || context.user.email, workspace: context.organization!.name, brand: brand.name, accentColor: brand.accentColor, from: await senderFor(context.organization!.id) });
     return { ok: true, link, emailed: true };
   } catch (error) {
     console.error("[team] invite email failed:", (error as Error).message);
