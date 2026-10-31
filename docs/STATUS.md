@@ -213,7 +213,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Team members: invitations, roles, website access, invite acceptance | `main` 11232fb |
 | Billing with Stripe: plans, add-ons, checkout, portal, webhooks, plan limits, agents paused without a plan | `main` ba01389 |
 | Agency settings and white label: profile (language, account deletion), members, branding, hosting and sending domains, talk with team, password reset | `main` 2fb49a4 |
-| Publishing to Shopify, Webflow, Wix and Ghost, and the hosted blog on clients' subdomains | `main` |
+| Publishing to Shopify, Webflow, Wix and Ghost, and the hosted blog on clients' subdomains | `main` 830fc80 |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
