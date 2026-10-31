@@ -11,7 +11,8 @@ type Mode = "sign-in" | "sign-up";
 const inputClass =
   "h-11 w-full rounded-control border border-control bg-white px-3.5 text-sm text-ink outline-none placeholder:text-ink-subtle focus:border-ink/40";
 
-export function AuthForm({ mode, brandName, googleEnabled }: { mode: Mode; brandName: string; googleEnabled: boolean }) {
+/** Sign-in / sign-up form. With `invite`, the email is fixed and the user returns to the invitation afterwards. */
+export function AuthForm({ mode, brandName, googleEnabled, invite }: { mode: Mode; brandName: string; googleEnabled: boolean; invite?: { token: string; email: string } }) {
   const t = useTranslations("auth");
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
@@ -33,18 +34,22 @@ export function AuthForm({ mode, brandName, googleEnabled }: { mode: Mode; brand
       setError(mode === "sign-in" ? t("invalidCredentials") : (result.error.message ?? t("genericError")));
       return;
     }
-    router.replace("/");
+    router.replace(invite ? `/invite/${invite.token}` : "/");
     router.refresh();
   }
 
   return (
     <div>
-      <h1 className="text-page-title font-semibold tracking-[-0.025em] text-ink">
-        {mode === "sign-in" ? t("signInTitle") : t("signUpTitle")}
-      </h1>
-      <p className="mt-1 text-sm text-ink-secondary">
-        {mode === "sign-in" ? t("signInSubtitle", { brand: brandName }) : t("signUpSubtitle", { brand: brandName })}
-      </p>
+      {!invite && (
+        <>
+          <h1 className="text-page-title font-semibold tracking-[-0.025em] text-ink">
+            {mode === "sign-in" ? t("signInTitle") : t("signUpTitle")}
+          </h1>
+          <p className="mt-1 text-sm text-ink-secondary">
+            {mode === "sign-in" ? t("signInSubtitle", { brand: brandName }) : t("signUpSubtitle", { brand: brandName })}
+          </p>
+        </>
+      )}
 
       {googleEnabled && (
         <>
@@ -52,7 +57,7 @@ export function AuthForm({ mode, brandName, googleEnabled }: { mode: Mode; brand
             variant="outline"
             size="lg"
             className="mt-6 w-full"
-            onClick={() => authClient.signIn.social({ provider: "google", callbackURL: "/" })}
+            onClick={() => authClient.signIn.social({ provider: "google", callbackURL: invite ? `/invite/${invite.token}` : "/" })}
           >
             {t("continueWithGoogle")}
           </Button>
@@ -68,7 +73,16 @@ export function AuthForm({ mode, brandName, googleEnabled }: { mode: Mode; brand
         {mode === "sign-up" && (
           <input name="name" required autoComplete="name" placeholder={t("name")} className={inputClass} />
         )}
-        <input name="email" type="email" required autoComplete="email" placeholder={t("email")} className={inputClass} />
+        <input
+          name="email"
+          type="email"
+          required
+          autoComplete="email"
+          placeholder={t("email")}
+          defaultValue={invite?.email}
+          readOnly={Boolean(invite)}
+          className={inputClass + (invite ? " bg-canvas text-ink-secondary" : "")}
+        />
         <input
           name="password"
           type="password"
@@ -86,7 +100,10 @@ export function AuthForm({ mode, brandName, googleEnabled }: { mode: Mode; brand
 
       <p className="mt-6 text-center text-sm text-ink-secondary">
         {mode === "sign-in" ? t("noAccount") : t("haveAccount")}{" "}
-        <Link href={mode === "sign-in" ? "/sign-up" : "/sign-in"} className="font-medium text-ink hover:underline">
+        <Link
+          href={invite ? `/invite/${invite.token}?mode=${mode === "sign-in" ? "sign-up" : "sign-in"}` : mode === "sign-in" ? "/sign-up" : "/sign-in"}
+          className="font-medium text-ink hover:underline"
+        >
           {mode === "sign-in" ? t("signUpLink") : t("signInLink")}
         </Link>
       </p>
