@@ -4,7 +4,8 @@ AI agents that grow a website's traffic from Google and AI search: they analyze 
 plan and write articles, earn backlinks, audit technical health and track AI visibility.
 Agencies manage all their clients from one white-labeled dashboard.
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for how the app and the agent engine work.
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for how the app and the agent engine work, and
+[docs/STATUS.md](docs/STATUS.md) for what is built, what is left and what still needs setting up.
 
 ## Local development
 
