@@ -15,8 +15,7 @@ cp .env.example .env          # set DATABASE_URL and BETTER_AUTH_SECRET
 npm install
 npm run db:migrate            # create tables
 npm run db:seed               # dev account: demo@vaultio.co / vaultio-demo-2026
-npm run dev                   # web app on http://localhost:3000
-npm run worker                # agents (separate terminal)
+npm run dev:all               # web app on http://localhost:3000 + agents worker
 ```
 
 Add a client from **Manage clients → Add client**. Onboarding starts immediately and its
@@ -28,6 +27,7 @@ progress shows on the client's Overview page.
 |---|---|
 | `npm run dev` / `build` / `start` | Next.js |
 | `npm run worker` | Background agents (onboarding + scheduled jobs) |
+| `npm run dev:all` | Web app and worker together |
 | `npm run typecheck` / `lint` | Checks |
 | `npm run db:generate` | Create a migration after editing `src/db/schema` |
 | `npm run db:migrate` | Apply migrations |
