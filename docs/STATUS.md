@@ -287,7 +287,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Improvements for existing WordPress posts (block and classic editor), keeping their blocks and styling | `main` a638a11 |
 | Product catalog: Shopify, WooCommerce, feeds and files; catalog sync and product matching agents; products in articles | `main` 096b5b4 |
 | More languages: language sites (36 content languages), Scale's included languages and the language add-on, infographic fonts for more scripts, dashboard translation script | `main` 2281efb |
-| Publishing to BigCommerce and GoHighLevel; Framer plugin, Lovable prompt and Duda RSS feed | `main` (this commit) |
+| Publishing to BigCommerce and GoHighLevel; Framer plugin, Lovable prompt and Duda RSS feed | `main` d844cbc |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
