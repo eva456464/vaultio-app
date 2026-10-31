@@ -1,26 +1,30 @@
 "use client";
 
-import { ArrowRight, Check, ChevronDown, Plus, Search, Users } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Languages, Plus, Search, Users } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState, useTransition } from "react";
 import { LanguageFlag } from "@/components/ui/flag";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Link } from "@/i18n/navigation";
+import { languageName } from "@/lib/languages";
 import { cn, displayDomain } from "@/lib/utils";
 import { selectSite } from "@/server/actions/site";
 import type { SiteSummary } from "@/server/context";
+import { AddLanguageDialog } from "./add-language-dialog";
 
 export function WebsiteSelector({
   sites,
   currentSiteId,
   agencyMode,
   isAgency,
+  canEdit = true,
   className,
 }: {
   sites: SiteSummary[];
   currentSiteId: number | null;
   agencyMode: boolean;
   isAgency: boolean;
+  canEdit?: boolean;
   className?: string;
 }) {
   const t = useTranslations("websiteSelector");
@@ -30,10 +34,14 @@ export function WebsiteSelector({
   const [pending, startTransition] = useTransition();
   const current = sites.find((site) => site.id === currentSiteId) ?? null;
 
-  const filtered = useMemo(
-    () => sites.filter((site) => displayDomain(site.url).includes(query.trim().toLowerCase())),
-    [sites, query],
-  );
+  const [addingLanguage, setAddingLanguage] = useState(false);
+  // Each website first, followed by its other languages.
+  const filtered = useMemo(() => {
+    const text = query.trim().toLowerCase();
+    const matches = (site: SiteSummary) => displayDomain(site.url).includes(text) || languageName(site.selectedLanguage, locale).toLowerCase().includes(text);
+    const primaries = sites.filter((site) => !site.primaryOrgWebsiteId || !sites.some((other) => other.id === site.primaryOrgWebsiteId));
+    return primaries.flatMap((primary) => [primary, ...sites.filter((site) => site.primaryOrgWebsiteId === primary.id)]).filter(matches);
+  }, [sites, query, locale]);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -89,7 +97,14 @@ export function WebsiteSelector({
                   )}
                 >
                   <LanguageFlag language={site.selectedLanguage} />
-                  <span className="min-w-0 flex-1 truncate">{displayDomain(site.url)}</span>
+                  {site.primaryOrgWebsiteId ? (
+                    <span className="min-w-0 flex-1 truncate">
+                      <span className="text-ink-secondary">{displayDomain(site.url)} · </span>
+                      {languageName(site.selectedLanguage, locale)}
+                    </span>
+                  ) : (
+                    <span className="min-w-0 flex-1 truncate">{displayDomain(site.url)}</span>
+                  )}
                   {site.onboardingStatus !== "completed" && (
                     <span className="text-xs font-normal text-ink-subtle">{t("onboarding")}</span>
                   )}
@@ -101,6 +116,19 @@ export function WebsiteSelector({
           {filtered.length === 0 && <li className="px-2.5 py-3 text-sm text-ink-secondary">{t("noMatches")}</li>}
         </ul>
         <div className="mt-1 border-t border-line pt-1">
+          {!agencyMode && current && canEdit && (
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                setAddingLanguage(true);
+              }}
+              className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-sm font-medium text-ink hover:bg-nav-active"
+            >
+              <Languages className="size-4" />
+              <span className="min-w-0 flex-1 truncate">{t("addLanguageTo", { site: displayDomain(current.url) })}</span>
+            </button>
+          )}
           <Link
             href="/onboarding/website"
             onClick={() => setOpen(false)}
@@ -122,6 +150,7 @@ export function WebsiteSelector({
           )}
         </div>
       </PopoverContent>
+      <AddLanguageDialog open={addingLanguage} onOpenChange={setAddingLanguage} />
     </Popover>
   );
 }

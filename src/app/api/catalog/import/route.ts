@@ -3,7 +3,7 @@ import { db } from "@/db";
 import { products } from "@/db/schema";
 import { rerunAgentJob } from "@/server/agents/queue";
 import { siteDay } from "@/server/agents/schedule";
-import { saveProducts } from "@/server/catalog/catalog";
+import { catalogFamily, catalogOwnerId, saveProducts } from "@/server/catalog/catalog";
 import { CatalogFileError, parseCatalogFile } from "@/server/catalog/parse";
 import { getAppContext } from "@/server/context";
 import { storeImage } from "@/server/media";
@@ -28,7 +28,8 @@ async function copyImage(siteId: number, url: string) {
 export async function POST(request: Request) {
   const context = await getAppContext();
   if (!context?.site || context.member?.role !== "admin") return Response.json({ error: "Only workspace admins can change the product catalog" }, { status: 403 });
-  const site = context.site;
+  // Language sites share their primary website's catalog.
+  const site = { ...context.site, id: catalogOwnerId(context.site) };
   const form = await request.formData().catch(() => null);
   const file = form?.get("file");
   if (!(file instanceof File) || !file.size) return Response.json({ error: "Please select a file to import" }, { status: 400 });
@@ -59,6 +60,6 @@ export async function POST(request: Request) {
   }
 
   const saved = await saveProducts(site.id, "manual", parsed.products, { removeMissing: false });
-  await rerunAgentJob(site.id, "productMatching", siteDay(new Date(), site.timeZone)).catch(() => null);
+  for (const member of await catalogFamily(site.id)) await rerunAgentJob(member.id, "productMatching", siteDay(new Date(), member.timeZone)).catch(() => null);
   return Response.json({ count: parsed.products.length, ...saved, skipped: parsed.skipped, truncated: parsed.truncated });
 }

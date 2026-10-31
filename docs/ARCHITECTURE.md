@@ -163,8 +163,8 @@ Settings: Editorial (warm paper, serif title, a small topic illustration from th
 one is configured) or Classic (the cover image as a header band). Because Vaultio draws the text, the
 lettering is always correct, unlike text drawn by an image model. The image is stored as a 1600px-wide
 WebP in `media_assets` (kind `infographic`), placed at the end of the chosen section, and gets an alt
-text listing its data. Latin, Cyrillic, Greek and Vietnamese scripts are covered; Chinese, Japanese,
-Korean and Arabic need extra fonts before those languages are offered.
+text listing its data. Fonts for scripts beyond Latin, Cyrillic, Greek and Vietnamese are fetched per
+image (see Languages); right-to-left languages get no infographic yet.
 
 ### Article improvements
 
@@ -357,6 +357,39 @@ search frequency, and whether agents may run. Without an active or trialing, unp
 onboarding, milestones and the backlink check run; the Overview says the agents are paused.
 Without `STRIPE_SECRET_KEY` billing is off (nothing billed, base limits). Workspaces with
 `organizations.billing_exempt` (e.g. Vaultio's own) aren't billed and get Scale limits.
+
+### Languages
+
+A website written in several languages has one org website per language: the first is the primary
+(it holds the plan), each **language site** points to it (`org_websites.primary_org_website_id`).
+Languages are added from the website menu (`src/server/languages.ts`): a language site starts as a copy
+of the website's settings (business details, brand, writing, visuals, schedule, CTAs…) with its own
+language, an optional address of its own (e.g. `/es`) and its own market — the website's country
+(Spanish for US customers) or the language's main country — and gets its own onboarding: keywords,
+competitors, AI prompts, content plan and articles in that language. The brand-profile step only writes
+new seed topics for it (what customers in that market search for, in that language), keeping the
+copied business details. Everything else is per language site and can be changed on its own; the
+product catalog is shared (it belongs to the primary, `catalogOwnerId`).
+
+36 content languages are offered (`src/lib/languages.ts`), each with a default market (DataForSEO
+location); names come from `Intl.DisplayNames`, so they show in the dashboard's language. Billing: the
+Scale plan includes 3 languages per website (the oldest three); others need the language add-on
+(`vaultio_language_monthly`, bought on the language's Billing page; no trial). A language that isn't
+covered keeps its data but its agents pause, like a website without a plan. With billing off or for an
+exempt workspace, languages are free.
+
+Infographics: Latin, Cyrillic, Greek and Vietnamese use the bundled fonts; for Chinese, Japanese, Korean,
+Thai, Devanagari and a few other scripts the renderer fetches a font with just the characters of that
+image from Google Fonts (`src/server/infographics/fonts.ts`, cached in memory; `GOOGLE_FONTS_API` can
+point elsewhere). If the font can't be fetched, the infographic is skipped. Arabic and Hebrew get no
+infographic yet (satori doesn't lay out right-to-left text).
+
+Dashboard translations: `scripts/translate-messages.ts` translates `en.json` into the other interface
+languages with Claude, in batches, sending only new or changed text (it remembers what each translation
+was made from in `src/messages/translation-state.json`). Every translation must parse as ICU and keep the
+same placeholders, select options and tags as the English; a broken one is retried once with the error,
+then left in English (the app falls back to English for missing keys). `--check` validates the files
+without Claude.
 
 ### Product catalog
 

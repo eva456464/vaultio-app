@@ -1,6 +1,6 @@
 import { and, eq, inArray } from "drizzle-orm";
 import { db } from "@/db";
-import { integrations, products } from "@/db/schema";
+import { integrations, orgWebsites, products } from "@/db/schema";
 import { featurable } from "../catalog/catalog";
 import type { Requirement } from "./schedule";
 
@@ -27,7 +27,9 @@ export async function availableRequirements(siteId: number): Promise<Set<Require
     .where(and(eq(integrations.orgWebsiteId, siteId), inArray(integrations.type, ["shopify_catalog", "woocommerce", "product_feed"]), inArray(integrations.status, ["connected", "error"])))
     .limit(1);
   if (store) available.add("catalog");
-  const [product] = await db.select({ id: products.id }).from(products).where(featurable(siteId)).limit(1);
+  // Language sites feature their primary website's catalog.
+  const [site] = await db.select({ primaryId: orgWebsites.primaryOrgWebsiteId }).from(orgWebsites).where(eq(orgWebsites.id, siteId));
+  const [product] = await db.select({ id: products.id }).from(products).where(featurable(site?.primaryId ?? siteId)).limit(1);
   if (product) available.add("products");
   return available;
 }

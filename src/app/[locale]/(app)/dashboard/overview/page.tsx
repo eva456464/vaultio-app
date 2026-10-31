@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
+import { languageName } from "@/lib/languages";
+import { getLocale, getTranslations } from "next-intl/server";
 import { PageBody, PageHeader } from "@/components/shell/app-shell";
 import { AgentActivitiesCard } from "@/components/overview/agent-activities";
 import { AchievementCelebration, OrganicWins } from "@/components/overview/milestones";
@@ -28,7 +29,7 @@ export default async function OverviewPage({ searchParams }: PageProps<"/[locale
   const site = context.site!;
   const range: TrafficRange = TRAFFIC_RANGES.find((option) => option === query.range) ?? "90d";
 
-  const [day, planned, milestones, profile, traffic, brand, t, tLanguages, entitlements, tOverview] = await Promise.all([
+  const [day, planned, milestones, profile, traffic, brand, t, locale, entitlements, tOverview] = await Promise.all([
     getAgentDay(site, typeof query.date === "string" ? query.date : undefined),
     getPlannedActions(site),
     getMilestones(site.id),
@@ -36,7 +37,7 @@ export default async function OverviewPage({ searchParams }: PageProps<"/[locale
     getTrafficSources(site, range),
     getBrand(),
     getTranslations("greeting"),
-    getTranslations("languages"),
+    getLocale(),
     siteEntitlements(site.id),
     getTranslations("overview.unpaid"),
   ]);
@@ -50,10 +51,10 @@ export default async function OverviewPage({ searchParams }: PageProps<"/[locale
           <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#F5D9A8] bg-[#FDF3E2] p-4">
             <div>
               <p className="font-semibold text-[#8A6320]">{tOverview("title")}</p>
-              <p className="text-sm text-[#8A6320]">{tOverview("body")}</p>
+              <p className="text-sm text-[#8A6320]">{site.primaryOrgWebsiteId ? tOverview("languageBody") : tOverview("body")}</p>
             </div>
             <Link href="/dashboard/settings/billing" className="inline-flex h-10 items-center rounded-full bg-ink px-5 text-sm font-medium text-white hover:bg-ink/90">
-              {tOverview("action")}
+              {site.primaryOrgWebsiteId ? tOverview("languageAction") : tOverview("action")}
             </Link>
           </div>
         )}
@@ -64,7 +65,7 @@ export default async function OverviewPage({ searchParams }: PageProps<"/[locale
         <OrganicWins cards={milestones.cards} brand={brand.name} />
         <WhatWeLearned
           profile={{ ...profile, brandName: profile.brandName ?? displayDomain(site.url) }}
-          languageName={tLanguages(site.selectedLanguage as "en")}
+          languageName={languageName(site.selectedLanguage, locale)}
         />
         <TrafficSources range={range} {...traffic} />
       </PageBody>

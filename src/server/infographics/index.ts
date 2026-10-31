@@ -9,6 +9,8 @@ import { images } from "@/server/ai/images";
 import type { Site } from "../agents/jobs/types";
 import { DEFAULT_BRAND_COLOR, safeColor } from "../brand";
 import { loadMedia, mediaBaseUrl, mediaIdFromUrl, storeImage } from "../media";
+import { contentLanguage } from "@/lib/languages";
+import { hasRightToLeft } from "./fonts";
 import { renderInfographic, toDataUrl, type Art } from "./render";
 import { describeSpec, planInfographic, type InfographicSpec } from "./spec";
 
@@ -63,6 +65,8 @@ export function placeInfographic(markdown: string, heading: string, url: string,
 }
 
 export async function createInfographic(site: Site, input: { title: string; markdown: string; hero: ArticleMedia | null }) {
+  // Right-to-left scripts can't be laid out by the renderer yet: no infographic rather than a wrong one.
+  if (contentLanguage(site.selectedLanguage)?.rtl || hasRightToLeft(input.title)) return null;
   const spec = await planInfographic(site, { title: input.title, markdown: input.markdown });
   if (!spec) return null;
   const style = asInfographicStyle(site.infographicStyle);
@@ -72,7 +76,7 @@ export async function createInfographic(site: Site, input: { title: string; mark
     return {} as Art;
   });
   const brand = { color: safeColor(site.brandColor, DEFAULT_BRAND_COLOR), name: site.brandName ?? hostOf(site.url), logo: await logoDataUrl(site.logoUrl), domain: hostOf(site.url) };
-  const png = await renderInfographic(spec, style, brand, art);
+  const png = await renderInfographic(spec, style, brand, art, site.selectedLanguage);
   const stored = await storeImage({ siteId: site.id, kind: "infographic", bytes: png, prompt: JSON.stringify({ style, spec }), model: "vaultio-infographic" });
   const alt = describeSpec(spec);
   const media: ArticleMedia = { url: stored.url, type: "infographic", source: "vaultio", altText: alt, identifier: "infographic", scene: spec.heading };

@@ -1,8 +1,8 @@
-import { getFormatter, getLocale } from "next-intl/server";
+import { getFormatter, getLocale, getTranslations } from "next-intl/server";
 import { ProductCatalog, type CatalogView } from "@/components/settings/catalog/product-catalog";
 import { SettingsTitle } from "@/components/settings/settings-title";
 import { formatPrice } from "@/lib/catalog";
-import type { CatalogConfig } from "@/server/catalog/catalog";
+import { catalogOwnerId, type CatalogConfig } from "@/server/catalog/catalog";
 import { getAppContext } from "@/server/context";
 import { getCatalog } from "@/server/queries/catalog";
 
@@ -12,7 +12,7 @@ export default async function ProductCatalogPage({ searchParams }: PageProps<"/[
   const params = await searchParams;
   const one = (value: string | string[] | undefined) => (Array.isArray(value) ? value[0] : value) ?? "";
   const filters = { search: one(params.q), status: one(params.status), page: Number(one(params.page)) || 1 };
-  const [data, format, locale] = await Promise.all([getCatalog(site.id, filters), getFormatter(), getLocale()]);
+  const [data, format, locale, t] = await Promise.all([getCatalog(catalogOwnerId(site), filters), getFormatter(), getLocale(), getTranslations("settings.catalog")]);
   // Dates are formatted here, in the site's time zone, so the browser shows the same text.
   const when = (iso: string | undefined) => (iso ? format.dateTime(new Date(iso), { dateStyle: "medium", timeStyle: "short", timeZone: site.timeZone }) : null);
   const sync = (config: CatalogConfig) => ({ at: when(config.lastSyncAt), status: config.lastSyncStatus ?? null, error: config.lastSyncError ?? null, note: config.lastSyncNote ?? null });
@@ -36,6 +36,7 @@ export default async function ProductCatalogPage({ searchParams }: PageProps<"/[
   return (
     <>
       <SettingsTitle section="product-catalog" canEdit={canEdit} />
+      {site.primaryOrgWebsiteId && <p className="-mt-4 mb-6 rounded-xl bg-canvas p-3 text-sm text-ink-secondary">{t("shared")}</p>}
       <ProductCatalog view={view} canEdit={canEdit} />
     </>
   );

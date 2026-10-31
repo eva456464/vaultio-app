@@ -49,6 +49,7 @@ export async function AppShell({
     currentSiteId: context.site?.id ?? null,
     agencyMode: mode === "agency",
     isAgency: Boolean(context.organization?.isAgency),
+    canEdit: context.member?.role === "admin",
   };
 
   return (

@@ -63,6 +63,8 @@ export type SiteSummary = {
   url: string;
   brandName: string | null;
   selectedLanguage: string;
+  /** Set on language sites: the website's main-language site. */
+  primaryOrgWebsiteId: number | null;
   logoUrl: string | null;
   onboardingStatus: string;
   createdAt: Date;
@@ -129,6 +131,7 @@ async function loadAppContext(): Promise<AppContext | null> {
     url: row.url,
     brandName: row.brandName,
     selectedLanguage: row.selectedLanguage,
+    primaryOrgWebsiteId: row.primaryOrgWebsiteId,
     logoUrl: row.logoUrl,
     onboardingStatus: row.onboardingStatus,
     createdAt: row.createdAt,

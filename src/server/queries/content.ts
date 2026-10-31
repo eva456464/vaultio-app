@@ -5,6 +5,7 @@ import { db } from "@/db";
 import { articles, contentPlanItems, keywordClusters, products, seedKeywords } from "@/db/schema";
 import type { Site } from "../agents/jobs/types";
 import { siteDay } from "../agents/schedule";
+import { catalogOwnerId } from "../catalog/catalog";
 import { effectiveProductIds } from "../catalog/matching";
 
 const iso = (date: Date) => formatISO(date, { representation: "date" });
@@ -62,7 +63,7 @@ export async function getContentCalendar(site: Site, month: string | undefined) 
 
   const wanted = [...new Set(rows.flatMap((row) => (row.article?.id ? [] : effectiveProductIds(row.plan))))];
   const catalog = new Map(
-    (wanted.length ? await db.select({ id: products.id, name: products.name, imageUrl: products.imageUrl, url: products.url }).from(products).where(and(eq(products.orgWebsiteId, site.id), inArray(products.id, wanted))) : []).map((product) => [product.id, product]),
+    (wanted.length ? await db.select({ id: products.id, name: products.name, imageUrl: products.imageUrl, url: products.url }).from(products).where(and(eq(products.orgWebsiteId, catalogOwnerId(site)), inArray(products.id, wanted))) : []).map((product) => [product.id, product]),
   );
   const items: CalendarItem[] = rows.map((row) => ({
     id: row.plan.id,

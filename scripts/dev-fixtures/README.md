@@ -172,3 +172,17 @@ Files to import are in `catalog/` (`products.csv`, `products.xml`, `products.xls
 ```bash
 npx tsx --tsconfig tsconfig.json scripts/test-catalog.ts <siteId>
 ```
+
+## Languages
+
+With the Stripe mock running (and no prices needed), check language sites and plan coverage:
+
+```bash
+STRIPE_SECRET_KEY=sk_test_mock STRIPE_API_BASE=http://localhost:4600 npx tsx --tsconfig tsconfig.json scripts/test-languages.ts <primarySiteId>
+```
+
+The dashboard translation script can be tried without Claude:
+
+```bash
+npx tsx --tsconfig tsconfig.json scripts/translate-messages.ts fr --pseudo --out /tmp/messages
+```

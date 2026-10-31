@@ -4,10 +4,10 @@ import { and, eq, inArray } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { z } from "zod/v4";
 import { db } from "@/db";
-import { contentPlanItems, integrations, products } from "@/db/schema";
+import { contentPlanItems, integrations, orgWebsites, products } from "@/db/schema";
 import { rerunAgentJob } from "../agents/queue";
 import { siteDay } from "../agents/schedule";
-import { CATALOG_TYPES, catalogConnections, saveProducts, setSyncState, type CatalogConfig, type CatalogType, type FeedFormat } from "../catalog/catalog";
+import { CATALOG_TYPES, catalogConnections, catalogFamily, catalogOwnerId, saveProducts, setSyncState, type CatalogConfig, type CatalogType, type FeedFormat } from "../catalog/catalog";
 import { MAX_PRODUCTS_PER_ARTICLE } from "../catalog/matching";
 import { parseFeed, parsePrice } from "../catalog/parse";
 import { downloadFeed, inspectShopifyCatalog, inspectWooCommerce, normalizeStoreUrl, type WooCredentials } from "../catalog/stores";
@@ -16,10 +16,13 @@ import { searchFeaturable } from "../queries/catalog";
 import { decryptJson, encryptJson } from "../crypto";
 import { normalizeShop, type ShopifyCredentials } from "../publishing/platforms/shopify";
 
+/** The website whose catalog is being changed: language sites share their primary website's. */
 async function requireAdminSite() {
   const context = await getAppContext();
   if (!context?.site || context.member?.role !== "admin") throw new Error("Only workspace admins can change the product catalog");
-  return context.site;
+  if (!context.site.primaryOrgWebsiteId) return context.site;
+  const [owner] = await db.select().from(orgWebsites).where(eq(orgWebsites.id, context.site.primaryOrgWebsiteId));
+  return owner ?? context.site;
 }
 
 const refresh = () => {
@@ -27,9 +30,11 @@ const refresh = () => {
   revalidatePath("/[locale]/dashboard/content-plan", "page");
 };
 
-/** Products changed: the matching agent proposes products for upcoming articles again. */
+/** Products changed: the matching agent proposes products for upcoming articles again, in every language. */
 async function rematch(site: { id: number; timeZone: string }) {
-  await rerunAgentJob(site.id, "productMatching", siteDay(new Date(), site.timeZone)).catch(() => null);
+  for (const member of await catalogFamily(site.id)) {
+    await rerunAgentJob(member.id, "productMatching", siteDay(new Date(), member.timeZone)).catch(() => null);
+  }
 }
 
 async function startSync(site: { id: number; timeZone: string }) {
@@ -238,7 +243,7 @@ export async function setTopicProducts(planItemId: number, productIds: number[] 
     const usable = await db
       .select({ id: products.id })
       .from(products)
-      .where(and(eq(products.orgWebsiteId, site.id), inArray(products.id, productIds), eq(products.includeInArticles, true)));
+      .where(and(eq(products.orgWebsiteId, catalogOwnerId(site)), inArray(products.id, productIds), eq(products.includeInArticles, true)));
     if (usable.length !== new Set(productIds).size) return { error: "Some of these products can't be featured (they need a product URL and Include in articles on)" };
   }
   const [item] = await db.select({ articleId: contentPlanItems.articleId }).from(contentPlanItems).where(and(eq(contentPlanItems.id, planItemId), eq(contentPlanItems.orgWebsiteId, site.id)));
@@ -258,5 +263,5 @@ export async function setTopicProducts(planItemId: number, productIds: number[] 
 export async function searchCatalogProducts(query: string, ids: number[] = []) {
   const context = await getAppContext();
   if (!context?.site) return [];
-  return searchFeaturable(context.site.id, query.slice(0, 100), ids.slice(0, MAX_PRODUCTS_PER_ARTICLE * 2));
+  return searchFeaturable(catalogOwnerId(context.site), query.slice(0, 100), ids.slice(0, MAX_PRODUCTS_PER_ARTICLE * 2));
 }

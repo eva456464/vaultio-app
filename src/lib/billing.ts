@@ -44,7 +44,13 @@ export const ADDONS: Record<AddonId, Addon> = {
   backlink_credits: { id: "backlink_credits", type: "backlink_credits", lookupKey: "vaultio_backlink_credits_monthly" },
 };
 
-export const ALL_LOOKUP_KEYS = [...Object.values(PLAN_LOOKUP_KEYS).flatMap((keys) => Object.values(keys)), ...Object.values(ADDONS).map((addon) => addon.lookupKey)];
+/**
+ * An extra content language for a website, bought on the language site itself (Scale includes
+ * `extraLanguages` of them per website). Not in the add-on list of a primary website.
+ */
+export const LANGUAGE_ADDON = { type: "language_addition", lookupKey: "vaultio_language_monthly" } as const;
+
+export const ALL_LOOKUP_KEYS = [...Object.values(PLAN_LOOKUP_KEYS).flatMap((keys) => Object.values(keys)), ...Object.values(ADDONS).map((addon) => addon.lookupKey), LANGUAGE_ADDON.lookupKey];
 
 export function planOfLookupKey(key: string | null | undefined): { plan: Plan; interval: Interval } | null {
   for (const plan of PLANS) for (const interval of INTERVALS) if (PLAN_LOOKUP_KEYS[plan][interval] === key) return { plan, interval };

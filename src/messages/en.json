@@ -61,7 +61,8 @@
     "addLanguage": "Add language",
     "searchPlaceholder": "Search websites",
     "noMatches": "No websites match your search.",
-    "onboarding": "Onboarding..."
+    "onboarding": "Onboarding...",
+    "addLanguageTo": "Add a language to {site}"
   },
   "greeting": {
     "morning": "Good morning, {name}",
@@ -234,7 +235,9 @@
     "unpaid": {
       "title": "Your agents are paused for this website",
       "body": "Choose a plan to start them again.",
-      "action": "Choose a plan"
+      "action": "Choose a plan",
+      "languageBody": "This language isn't covered by your website's plan. Add it as a paid language or upgrade to Scale.",
+      "languageAction": "Open billing"
     }
   },
   "milestones": {
@@ -384,7 +387,8 @@
     "submitting": "Starting...",
     "invalidUrl": "Enter a valid website address, like example.com.",
     "notAllowed": "Only workspace admins can add websites.",
-    "back": "Back"
+    "back": "Back",
+    "languageHint": "The language articles are written in. You can add more languages later from the website menu."
   },
   "content": {
     "title": "Blog content",
@@ -1629,7 +1633,21 @@
           "uncollectible": "Uncollectible"
         }
       },
-      "adminOnly": "Only workspace admins can change the subscription."
+      "adminOnly": "Only workspace admins can change the subscription.",
+      "language": {
+        "title": "{language} for {website}",
+        "intro": "This language has its own keywords, content plan and articles. It's paid for through {website}'s plan.",
+        "free": "Billing isn't set up, so this language runs for free.",
+        "exempt": "This workspace isn't billed: this language is included.",
+        "included": "Included with {website}'s Scale plan.",
+        "addon": "Paid with the language add-on.",
+        "notCovered": "{website}'s plan doesn't include this language, so its agents are paused. Add it as a paid language, or upgrade {website} to Scale (3 languages included).",
+        "noPlan": "{website} has no active plan, so this language's agents are paused. Choose a plan for {website} first.",
+        "buy": "Add this language for {price} a month",
+        "manage": "Manage in Stripe",
+        "upgrade": "Upgrade {website} to Scale",
+        "choosePlan": "Choose a plan for {website}"
+      }
     },
     "whiteLabel": {
       "pageSubtitle": "Your agency's white-label brand and the domains your clients sign in at and get emails from.",
@@ -1959,7 +1977,8 @@
         "google_shopping": "Google feed",
         "facebook": "Facebook feed",
         "manual": "Manual"
-      }
+      },
+      "shared": "Every language of this website shares one product catalog: changes here apply to all of them."
     }
   },
   "aiVisibility": {
@@ -2606,5 +2625,37 @@
     "related": "Keep reading",
     "rights": "© {year} {name}",
     "rssTitle": "{name} blog"
+  },
+  "languagesDialog": {
+    "title": "Add languages",
+    "subtitle": "Each language gets its own keyword research, content plan and articles, written for that language's searchers. It starts with this website's settings.",
+    "website": "Website",
+    "languages": "Languages",
+    "search": "Search languages",
+    "noLanguages": "No more languages to add",
+    "market": {
+      "title": "Target market",
+      "site": "Your website's market",
+      "siteHint": "Search data for {country}, in each new language",
+      "siteHintNoCountry": "The country your website serves, in each new language",
+      "language": "Each language's own country",
+      "languageHint": "e.g. Spain for Spanish, Japan for Japanese"
+    },
+    "url": "Address of the {language} version (optional)",
+    "urlHint": "Where the articles in this language are published, if it differs from the main website, e.g. https://example.com/es",
+    "pricing": {
+      "free": "Each new language is set up right away and starts its onboarding.",
+      "plan": "{left} of {total} languages included with your Scale plan are left for this website.",
+      "addon": "Each extra language is {price} a month, paid on the language's Billing page after it's added.",
+      "extra": "{count, plural, one {# language goes} other {# languages go}} beyond your plan and {count, plural, one {needs} other {need}} the language add-on ({price} a month each)."
+    },
+    "blocked": {
+      "noPlan": "Choose a plan for this website before adding languages.",
+      "needsScale": "Extra languages are included in the Scale plan (3 per website). Upgrade this website to add languages.",
+      "action": "Open billing"
+    },
+    "cancel": "Cancel",
+    "add": "{count, plural, =0 {Add languages} one {Add # language} other {Add # languages}}",
+    "selected": "Selected: {languages}"
   }
 }

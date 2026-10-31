@@ -44,7 +44,7 @@ function InvoiceEmailToggle({ initial }: { initial: boolean }) {
 }
 
 /** Confirms a Stripe Checkout return (?checkout=cs_…) once, then cleans the URL. */
-function CheckoutReturn({ sessionId }: { sessionId: string | null }) {
+export function CheckoutReturn({ sessionId }: { sessionId: string | null }) {
   const t = useTranslations("settings.billing");
   const router = useRouter();
   const [state, setState] = useState<"confirming" | "done" | "error" | null>(sessionId ? "confirming" : null);

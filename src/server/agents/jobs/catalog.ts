@@ -3,7 +3,7 @@
  * WooCommerce) and product feed up to date; productMatching proposes products for upcoming
  * articles whenever the catalog or the plan changed.
  */
-import { syncCatalog } from "@/server/catalog/catalog";
+import { catalogFamily, syncCatalog } from "@/server/catalog/catalog";
 import { matchTopics, staleTopics } from "@/server/catalog/matching";
 import { logActivity } from "../activity";
 import { rerunAgentJob } from "../queue";
@@ -20,14 +20,15 @@ export async function catalogSync({ site, runDate }: JobContext) {
   // New or changed products are matched to upcoming articles right away (as its own job, so it
   // follows the plan's rules: catalog sync runs without a plan, matching uses Claude).
   const changed = synced.some((result) => result.added || result.updated || result.removed);
-  if (changed) await rerunAgentJob(site.id, "productMatching", runDate);
+  // Language sites feature the same catalog, so they're matched again too.
+  if (changed) for (const member of await catalogFamily(site.id)) await rerunAgentJob(member.id, "productMatching", runDate);
   const failed = results.filter((result) => result.error);
   if (failed.length && !synced.length) throw new Error(failed.map((result) => `${PLATFORM[result.source]}: ${result.error}`).join("; "));
   return { results, matchingQueued: changed };
 }
 
 export async function productMatching({ site, runDate }: JobContext) {
-  const topics = await staleTopics(site.id, runDate);
+  const topics = await staleTopics(site, runDate);
   if (!topics.length) return { matched: 0, topics: 0 };
   const matched = await matchTopics(site, topics);
   if (matched) await logActivity(site.id, "productsMatched", { day: runDate, count: matched });

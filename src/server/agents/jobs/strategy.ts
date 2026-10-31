@@ -17,7 +17,8 @@ import {
 } from "@/db/schema";
 import { siteEntitlements } from "@/server/billing/entitlements";
 import { ai } from "@/server/ai/claude";
-import { COUNTRY_NAMES, DEFAULT_LOCATION, seoData, type KeywordIdea, type Market } from "@/server/seo/dataforseo";
+import { LOCATION_OF_COUNTRY } from "@/lib/languages";
+import { DEFAULT_LOCATION, locationName, seoData, type KeywordIdea, type Market } from "@/server/seo/dataforseo";
 import { logActivity } from "../activity";
 import { fetchText, parsePage } from "../web";
 import type { JobContext, Site } from "./types";
@@ -109,9 +110,37 @@ const ProfileSchema = z.object({
   primaryCountryCode: z.string(),
 });
 
-const COUNTRY_TO_LOCATION: Record<string, number> = { US: 2840, GB: 2826, CA: 2124, AU: 2036, FR: 2250, DE: 2276, ES: 2724, IT: 2380, NL: 2528, PT: 2620 };
+
+const SeedTopicsSchema = z.object({ seedTopics: z.array(z.string()) });
+
+/**
+ * A language site starts with its website's business details (copied, and editable on their own);
+ * only the seed topics are new: what customers in its market search for, in its language.
+ */
+async function languageSeedTopics(site: Site) {
+  const market = await siteMarket(site);
+  const result = await ai.generateObject({
+    schema: SeedTopicsSchema,
+    effort: "low",
+    system:
+      "You list 10 to 20 search phrases potential customers type into Google before they would buy from this business, written as people in the given market " +
+      "search in the given language (not translated word for word), without the brand name.",
+    prompt: [
+      `Business: ${site.brandName ?? site.url} (${site.url})`,
+      `What they do: ${site.positioning ?? site.description ?? ""}`,
+      site.servicesOffered.length ? `Offers: ${site.servicesOffered.map((offer) => offer.name).join(", ")}` : "",
+      site.targetAudience.length ? `Audience: ${site.targetAudience.join(", ")}` : "",
+      `Market: ${locationName(market.locationCode) ?? market.locationCode}`,
+      `Language: ${site.selectedLanguage}`,
+    ].join("\n"),
+  });
+  const seedTopics = result.seedTopics.map((topic) => topic.trim()).filter(Boolean).slice(0, 20);
+  await db.update(orgWebsites).set({ seedTopics, updatedAt: new Date() }).where(eq(orgWebsites.id, site.id));
+  return { seedTopics: seedTopics.length, languageSite: true };
+}
 
 export async function buildBrandProfile({ site }: JobContext) {
+  if (site.primaryOrgWebsiteId) return languageSeedTopics(site);
   const siteText = await collectSiteText(site);
   const profile = await ai.generateObject({
     schema: ProfileSchema,
@@ -153,7 +182,7 @@ export async function buildBrandProfile({ site }: JobContext) {
     })
     .where(eq(orgWebsites.id, site.id));
 
-  const locationCode = COUNTRY_TO_LOCATION[profile.primaryCountryCode.toUpperCase()];
+  const locationCode = LOCATION_OF_COUNTRY[profile.primaryCountryCode.toUpperCase()];
   const hasCountry = await db
     .select({ id: targetLocations.id })
     .from(targetLocations)
@@ -162,7 +191,7 @@ export async function buildBrandProfile({ site }: JobContext) {
     await db.insert(targetLocations).values({
       orgWebsiteId: site.id,
       locationCode,
-      name: COUNTRY_NAMES[locationCode] ?? profile.primaryCountryCode,
+      name: locationName(locationCode) ?? profile.primaryCountryCode,
       countryCode: profile.primaryCountryCode.toUpperCase(),
       kind: "country",
     });
@@ -266,7 +295,7 @@ async function insertClusters(site: Site, market: Market, groups: Map<string, Ke
       totalSearchVolume: total,
       averageIntent: head.intent,
       creationSource: source,
-      locationName: COUNTRY_NAMES[market.locationCode] ?? null,
+      locationName: locationName(market.locationCode),
       // Favour informational topics with real demand that a young site can win.
       score: (total / ((head.difficulty ?? 30) + 10)) * (head.intent === "informational" ? 1.5 : 1),
     });

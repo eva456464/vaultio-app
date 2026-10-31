@@ -1,3 +1,4 @@
+import { catalogOwnerId } from "@/server/catalog/catalog";
 import { getAppContext } from "@/server/context";
 import { storeImage } from "@/server/media";
 
@@ -12,7 +13,7 @@ export async function POST(request: Request) {
   if (!(file instanceof File) || !TYPES.includes(file.type)) return Response.json({ error: "Only PNG, JPG, JPEG, or WEBP images are allowed" }, { status: 400 });
   if (file.size > 10 * 1024 * 1024) return Response.json({ error: "The image is larger than 10 MB" }, { status: 413 });
   try {
-    const stored = await storeImage({ siteId: context.site.id, kind: "product", bytes: Buffer.from(await file.arrayBuffer()) });
+    const stored = await storeImage({ siteId: catalogOwnerId(context.site), kind: "product", bytes: Buffer.from(await file.arrayBuffer()) });
     return Response.json({ url: stored.url });
   } catch {
     return Response.json({ error: "Failed to upload image" }, { status: 400 });

@@ -1,5 +1,6 @@
 "use client";
 
+import { languageName } from "@/lib/languages";
 import { ArrowRight, Globe, Percent, Plus, Search } from "lucide-react";
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
@@ -30,7 +31,6 @@ const STATUS_STYLE: Record<string, string> = {
 
 export function ClientsTable({ sites, canAdd }: { sites: SiteSummary[]; canAdd: boolean }) {
   const t = useTranslations("clients");
-  const tLang = useTranslations("languages");
   const format = useFormatter();
   const locale = useLocale();
   const [query, setQuery] = useState("");
@@ -86,7 +86,7 @@ export function ClientsTable({ sites, canAdd }: { sites: SiteSummary[]; canAdd: 
                   <td className="px-6 py-4">
                     <span className="flex items-center gap-2 text-[15px] text-ink">
                       <LanguageFlag language={site.selectedLanguage} />
-                      {tLang(site.selectedLanguage as "en")}
+                      {languageName(site.selectedLanguage, locale)}
                     </span>
                   </td>
                   <td className="px-6 py-4">

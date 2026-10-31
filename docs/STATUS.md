@@ -25,7 +25,7 @@ Ground rules that apply to everything below:
 | Agencies and clients | Agency workspace with many client sites, website selector, site mode and agency mode |
 | White label | Agencies set their name, logo, favicon and colours and connect their own hosting domain (Vercel or CNAME) and email sending domain (Resend); their clients see only the agency's brand on that domain, and invites and reports come from the agency |
 | App shell | Header, sidebar, mobile menu, product-updates bell (reads `product_updates`; no updates published yet) |
-| Languages | English text in `src/messages/en.json`; routes for fr/nl/de/es/pt/it fall back to English |
+| Languages | Articles in 36 languages, several per website: each extra language is a "language site" (own keywords, content plan, articles and market, started from the website's settings, shared product catalog), added from the website menu; the Scale plan includes 3, more with the language add-on. Dashboard text in `src/messages/en.json`; fr/nl/de/es/pt/it show English until `scripts/translate-messages.ts` is run (needs the Claude key) |
 | Background agents | Job queue, daily scheduler, onboarding that catches up when keys are added later, every run recorded |
 | Team | Members with Admin / Member roles and per-website access, email invitations (or a copyable link), invite acceptance page |
 | Billing | Stripe per website: Grow / Scale plans (monthly or yearly, free trial), add-ons (AI prompts, Reddit+, Quora+, backlink credits), checkout, customer portal, plan change, pause, cancel, invoices, webhooks; plan limits applied to prompts, social keywords and credits; agents pause without an active plan |
@@ -106,6 +106,14 @@ Ground rules that apply to everything below:
   an article written with a stand-in answer got its infographic with the site's logo and colour at
   the end of the right section; made-up numbers and bars that don't match their labels are rejected;
   the Visuals switch saves on and off.
+- Languages: adding Spanish and Japanese from the website menu in a browser (the new language opens,
+  the menu lists it under its website, its Billing and Product catalog pages), the dialog and the
+  language's Billing page with no plan, Grow and Scale (Stripe mock); `scripts/test-languages.ts`:
+  copies of the website's settings with their own language and market, seed topics written in the new
+  language without touching the business details, the shared catalog, Scale covering the 3 oldest
+  languages and the add-on covering a 4th. Infographics drawn in Japanese, Thai and Hindi with fonts
+  fetched from Google Fonts. The translation script ran on all 2,015 strings with a stand-in
+  translator, and its check caught a renamed placeholder, a lost plural and an unclosed tag.
 - Product catalog, against a local store and feed mock (`scripts/dev-fixtures/mock-store.py`) in a
   browser: Shopify connect (wrong and right credentials) and sync through the worker, WooCommerce
   errors (wrong key, key without Read access, a store URL that redirects) and sync, one store platform
@@ -156,6 +164,9 @@ These are written against the providers' documentation but have not run live yet
   written from their documented APIs, which couldn't be fetched from this workspace to double-check.
 - Infographic specs from real Claude (how often it finds a section worth charting and passes the
   number checks), and the Editorial illustration from a real image provider.
+- Languages with real providers: seed topics and articles from real Claude in each language,
+  DataForSEO's language codes for Chinese (zh-CN / zh-TW) and Norwegian ("no"), and the dashboard
+  translations with real Claude (to be read by a native speaker before launch).
 - The product catalog against real stores: Shopify's GraphQL products query (field names from
   Shopify's documentation, which couldn't be fetched from this workspace to double-check, API version
   set by `SHOPIFY_API_VERSION`), WooCommerce's REST API on a real store, and real Google Merchant Center
@@ -171,12 +182,9 @@ limits).
 
 ## Still to build, in recommended order
 
-1. **More languages**: content in extra languages per website (the Scale plan's 3 languages and the
-   language add-on), and translations of the app itself. Infographics will need Chinese, Japanese,
-   Korean and Arabic fonts for those languages.
-2. **Remaining publishing platforms**: Framer (needs a Vaultio Framer plugin published on Framer's
+1. **Remaining publishing platforms**: Framer (needs a Vaultio Framer plugin published on Framer's
    marketplace), Lovable, GoHighLevel, Duda, BigCommerce.
-3. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
+2. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
    `app.vaultio.co` at Vaultio instead of the Babylovegrowth white label.
 
 White-label items not built yet: a white-labelled WordPress plugin, and Google sign-in on agency
@@ -184,7 +192,9 @@ domains (email and password only, as in the reference product).
 
 Billing items not built yet: the onboarding "choose a plan" step (a new website is set up for free,
 then the Overview asks for a plan), volume discounts for several websites, seat limits, the
-cancellation retention offers, and the language and Instagram/Facebook add-ons. The Scale plan is
+cancellation retention offers, the Instagram/Facebook add-on, and the reference product's extra
+language flows (languages paused after a downgrade from Scale with a "keep this language" offer, free
+language slots locked during a trial, the "next growth market" suggestions). The Scale plan is
 only advertised with what Vaultio delivers today (50 tracked questions, priority support), not the
 reference product's 120 articles in 4 languages.
 
@@ -217,6 +227,8 @@ Smaller follow-ups:
 | Vaultio logo files | Replace the placeholder "V" mark | Received (dragon mark, `research/assets/vaultio_favicon.png` on the `research` branch); not yet used in the app |
 | Reddit Data API app (`REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`) | Optional: votes, comment counts and dropping archived or locked threads on the Reddit page | Not started; commercial use needs Reddit's approval |
 | Stripe account (`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`) | Billing (built, waiting for this) | Not started. Then: run `scripts/stripe-setup.ts`; add the webhook endpoint `https://<app domain>/api/stripe/webhook`; turn on plan switching and cancellation in Stripe's customer portal settings |
+| Price of the language add-on (`vaultio_language_monthly`) | Websites on Grow can add languages only once it has a price; Scale's 3 included languages work without it | Waiting for a decision (no reference price was seen) |
+| Dashboard translations | Run `npx tsx --tsconfig tsconfig.json scripts/translate-messages.ts` once the Claude key is in `.env`, check the result, commit `src/messages/*.json` | Waiting for the Claude key |
 | Prices for Reddit+, Quora+ and backlink credits (and how many credits) | No reference price was seen, so these aren't on sale until set in `scripts/stripe-prices.json` | Waiting for a decision. Grow $99/mo ($59/mo yearly), Scale $399/mo ($199/mo yearly), +30 prompts $49/mo and +50 prompts $89/mo are copied from the reference |
 | Vercel project token (`VERCEL_TOKEN`, `VERCEL_PROJECT_ID`) if the app is hosted on Vercel | Agencies' own domains get HTTPS automatically | Waiting for the hosting decision |
 | Booking link and support email (`SUPPORT_BOOKING_URL`, `SUPPORT_EMAIL`) | Agency settings → Talk with team | Not set |
@@ -253,6 +265,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Infographics: one per article, Editorial or Classic, numbers checked against the article | `main` 6e2e5ab |
 | Improvements for existing WordPress posts (block and classic editor), keeping their blocks and styling | `main` a638a11 |
 | Product catalog: Shopify, WooCommerce, feeds and files; catalog sync and product matching agents; products in articles | `main` 096b5b4 |
+| More languages: language sites (36 content languages), Scale's included languages and the language add-on, infographic fonts for more scripts, dashboard translation script | `main` (this commit) |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

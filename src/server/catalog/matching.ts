@@ -11,7 +11,7 @@ import { db } from "@/db";
 import { contentPlanItems, keywordClusters, products, seedKeywords } from "@/db/schema";
 import { ai } from "@/server/ai/claude";
 import type { Site } from "../agents/jobs/types";
-import { featurable } from "./catalog";
+import { catalogOwnerId, featurable } from "./catalog";
 
 export const MAX_PRODUCTS_PER_ARTICLE = 3;
 const ALL_PRODUCTS_UP_TO = 80;
@@ -92,7 +92,7 @@ export async function matchTopics(site: Site, topics: Topic[]) {
   const catalog: Candidate[] = await db
     .select({ id: products.id, name: products.name, description: products.description, brand: products.brand, category: products.category, price: products.price, currency: products.currency })
     .from(products)
-    .where(featurable(site.id));
+    .where(featurable(catalogOwnerId(site)));
   const chosen = new Map<number, number[]>();
   if (catalog.length) {
     const weight = wordWeights(catalog, topics.map((topic) => topic.text));
@@ -142,10 +142,11 @@ export async function upcomingTopics(siteId: number, fromDay: string, ids?: numb
  * Topics whose proposals are out of date: never matched, matched before the catalog last changed,
  * or proposing a product that can no longer be featured.
  */
-export async function staleTopics(siteId: number, fromDay: string) {
-  const topics = await upcomingTopics(siteId, fromDay);
-  const [latest] = await db.select({ at: max(products.updatedAt) }).from(products).where(featurable(siteId));
-  const usable = new Set((await db.select({ id: products.id }).from(products).where(featurable(siteId))).map((row) => row.id));
+export async function staleTopics(site: { id: number; primaryOrgWebsiteId: number | null }, fromDay: string) {
+  const topics = await upcomingTopics(site.id, fromDay);
+  const owner = catalogOwnerId(site);
+  const [latest] = await db.select({ at: max(products.updatedAt) }).from(products).where(featurable(owner));
+  const usable = new Set((await db.select({ id: products.id }).from(products).where(featurable(owner))).map((row) => row.id));
   return topics.filter(({ plan }) => !plan.productsMatchedAt || (latest?.at && plan.productsMatchedAt < latest.at) || plan.proposedProductIds.some((id) => !usable.has(id)));
 }
 

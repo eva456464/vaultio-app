@@ -2,7 +2,7 @@
 import { and, desc, eq, inArray, isNull } from "drizzle-orm";
 import { db } from "@/db";
 import { organizations, orgWebsites, subscriptions } from "@/db/schema";
-import { addonOfLookupKey, LIVE_STATUSES, PLAN_LIMITS, planOfLookupKey, UNBILLED_LIMITS, type AddonId, type Plan } from "@/lib/billing";
+import { addonOfLookupKey, LANGUAGE_ADDON, LIVE_STATUSES, PLAN_LIMITS, planOfLookupKey, UNBILLED_LIMITS, type AddonId, type Plan } from "@/lib/billing";
 import { billingEnabled } from "./stripe";
 
 export type Entitlements = {
@@ -17,6 +17,8 @@ export type Entitlements = {
   dailySocial: { reddit: boolean; quora: boolean };
   addons: AddonId[];
   creditSubscriber: boolean;
+  /** Language sites: how this language is paid for. */
+  language?: { primaryId: number; coverage: "included" | "addon" | "none" };
 };
 
 const base = (mode: "off" | "exempt", plan: Plan | null): Entitlements => {
@@ -46,11 +48,12 @@ export async function creditSubscriberSiteIds() {
 export async function siteEntitlements(siteId: number): Promise<Entitlements> {
   if (!billingEnabled()) return base("off", null);
   const [site] = await db
-    .select({ exempt: organizations.billingExempt })
+    .select({ exempt: organizations.billingExempt, primaryId: orgWebsites.primaryOrgWebsiteId })
     .from(orgWebsites)
     .innerJoin(organizations, eq(organizations.id, orgWebsites.organizationId))
     .where(eq(orgWebsites.id, siteId));
   if (site?.exempt) return base("exempt", "scale");
+  if (site?.primaryId) return languageEntitlements(siteId, site.primaryId);
 
   const rows = await db.select().from(subscriptions).where(eq(subscriptions.orgWebsiteId, siteId)).orderBy(desc(subscriptions.createdAt));
   const live = (row: (typeof rows)[number]) => LIVE_STATUSES.has(row.status) && !row.pausedAt;
@@ -68,5 +71,39 @@ export async function siteEntitlements(siteId: number): Promise<Entitlements> {
     dailySocial: { reddit: extra("reddit") > 0, quora: extra("quora") > 0 },
     addons: addons.map((addon) => addon.id),
     creditSubscriber: addons.some((addon) => addon.id === "backlink_credits"),
+  };
+}
+
+/**
+ * A language site runs on its website's plan: Scale covers the first `extraLanguages` languages
+ * (oldest first), others need their own language add-on. Limits follow the website's plan.
+ */
+async function languageEntitlements(siteId: number, primaryId: number): Promise<Entitlements> {
+  const primary = await siteEntitlements(primaryId);
+  const family = await db
+    .select({ id: orgWebsites.id })
+    .from(orgWebsites)
+    .where(eq(orgWebsites.primaryOrgWebsiteId, primaryId))
+    .orderBy(orgWebsites.createdAt, orgWebsites.id);
+  const rank = family.findIndex((row) => row.id === siteId);
+  const included = primary.active && primary.plan !== null && rank >= 0 && rank < PLAN_LIMITS[primary.plan].extraLanguages;
+  const [own] = await db
+    .select({ status: subscriptions.status, pausedAt: subscriptions.pausedAt })
+    .from(subscriptions)
+    .where(and(eq(subscriptions.orgWebsiteId, siteId), eq(subscriptions.type, LANGUAGE_ADDON.type)))
+    .orderBy(desc(subscriptions.createdAt))
+    .limit(1);
+  const addon = Boolean(own && LIVE_STATUSES.has(own.status) && !own.pausedAt);
+  const limits = PLAN_LIMITS[primary.plan ?? "grow"];
+  return {
+    mode: "billed",
+    active: primary.active && (included || addon),
+    plan: primary.plan,
+    prompts: limits.prompts,
+    socialKeywords: { reddit: limits.socialKeywords, quora: limits.socialKeywords },
+    dailySocial: { reddit: false, quora: false },
+    addons: [],
+    creditSubscriber: false,
+    language: { primaryId, coverage: included ? "included" : addon ? "addon" : "none" },
   };
 }

@@ -9,7 +9,7 @@ import { contentPlanItems, products, type ArticleBlock, type FeaturedProduct } f
 import { formatPrice } from "@/lib/catalog";
 import { ai } from "@/server/ai/claude";
 import type { Site } from "../agents/jobs/types";
-import { featurable } from "./catalog";
+import { catalogOwnerId, featurable } from "./catalog";
 import { effectiveProductIds, matchTopics, staleTopics } from "./matching";
 
 type Product = typeof products.$inferSelect;
@@ -19,7 +19,7 @@ type Plan = typeof contentPlanItems.$inferSelect;
 export async function productsForArticle(site: Site, plan: Plan, runDate: string): Promise<Product[]> {
   let current = plan;
   if (!plan.productsCustomized) {
-    const stale = (await staleTopics(site.id, runDate)).find((topic) => topic.id === plan.id);
+    const stale = (await staleTopics(site, runDate)).find((topic) => topic.id === plan.id);
     if (stale) {
       await matchTopics(site, [stale]);
       [current] = await db.select().from(contentPlanItems).where(eq(contentPlanItems.id, plan.id));
@@ -27,7 +27,7 @@ export async function productsForArticle(site: Site, plan: Plan, runDate: string
   }
   const ids = effectiveProductIds(current ?? plan);
   if (!ids.length) return [];
-  const rows = await db.select().from(products).where(and(featurable(site.id), inArray(products.id, ids)));
+  const rows = await db.select().from(products).where(and(featurable(catalogOwnerId(site)), inArray(products.id, ids)));
   return ids.flatMap((id) => rows.filter((row) => row.id === id));
 }
 

@@ -14,6 +14,7 @@
     { "name": "AI visibility: 50 more prompts", "prices": [{ "lookupKey": "vaultio_prompts_50_monthly", "amount": 8900, "interval": "month" }] },
     { "name": "Reddit+", "prices": [{ "lookupKey": "vaultio_reddit_plus_monthly", "amount": null, "interval": "month" }] },
     { "name": "Quora+", "prices": [{ "lookupKey": "vaultio_quora_plus_monthly", "amount": null, "interval": "month" }] },
-    { "name": "Backlink credits", "prices": [{ "lookupKey": "vaultio_backlink_credits_monthly", "amount": null, "interval": "month", "credits": null }] }
+    { "name": "Backlink credits", "prices": [{ "lookupKey": "vaultio_backlink_credits_monthly", "amount": null, "interval": "month", "credits": null }] },
+    { "name": "Extra content language", "prices": [{ "lookupKey": "vaultio_language_monthly", "amount": null, "interval": "month" }] }
   ]
 }

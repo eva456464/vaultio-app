@@ -6,13 +6,14 @@ import { z } from "zod";
 import { db } from "@/db";
 import { orgWebsites } from "@/db/schema";
 import { locales } from "@/i18n/routing";
+import { CONTENT_LANGUAGE_CODES } from "@/lib/languages";
 import { enqueueOnboarding } from "../agents/queue";
 import { normalizeSiteUrl } from "../agents/web";
 import { getAppContext, SELECTED_SITE_COOKIE } from "../context";
 
 const schema = z.object({
   url: z.string().min(3),
-  language: z.enum(locales),
+  language: z.enum(CONTENT_LANGUAGE_CODES),
   timeZone: z.string().optional(),
 });
 

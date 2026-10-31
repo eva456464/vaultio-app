@@ -6,7 +6,7 @@ import { getLocale } from "next-intl/server";
 import type Stripe from "stripe";
 import { db } from "@/db";
 import { organizations, subscriptions, userSettings } from "@/db/schema";
-import { ADDON_IDS, ADDONS, INTERVALS, LIVE_STATUSES, PLAN_LOOKUP_KEYS, PLANS, type AddonId, type Interval, type Plan } from "@/lib/billing";
+import { ADDON_IDS, ADDONS, INTERVALS, LANGUAGE_ADDON, LIVE_STATUSES, PLAN_LOOKUP_KEYS, PLANS, type AddonId, type Interval, type Plan } from "@/lib/billing";
 import { rerunAgentJob } from "../agents/queue";
 import { siteDay } from "../agents/schedule";
 import { billingEnabled, priceCatalog, stripe } from "../billing/stripe";
@@ -117,6 +117,39 @@ export async function startCheckout(choice: { plan: Plan; interval: Interval } |
 }
 
 /** Called when Stripe sends the admin back from Checkout, so the page is right even before the webhook arrives. */
+/**
+ * Checkout for the language add-on of the selected language site (when its website's plan doesn't
+ * include it). The website's plan must be active; there's no trial on languages.
+ */
+export async function startLanguageCheckout(): Promise<Redirect> {
+  const context = await requireBillingAdmin();
+  const site = context.site;
+  if (!site.primaryOrgWebsiteId) return { error: "This is the website's main language." };
+  try {
+    const price = (await priceCatalog()).get(LANGUAGE_ADDON.lookupKey);
+    if (!price) return { error: "This option isn't available yet." };
+    if (!(await liveSubscription(site.primaryOrgWebsiteId, "main"))) return { error: "Choose a plan for this website's main language first." };
+    if (await liveSubscription(site.id, LANGUAGE_ADDON.type)) return { error: "This language is already paid for." };
+    const metadata = { organizationId: String(context.organization.id), orgWebsiteId: String(site.id), orgWebsiteUrl: site.url, subscriptionType: LANGUAGE_ADDON.type, language: site.selectedLanguage };
+    const base = `${await requestOrigin()}/${await getLocale()}/dashboard/settings/billing`;
+    const session = await stripe().checkout.sessions.create({
+      mode: "subscription",
+      customer: await customerOf(context),
+      client_reference_id: String(site.id),
+      line_items: [{ price: price.id, quantity: 1 }],
+      allow_promotion_codes: true,
+      metadata,
+      subscription_data: { metadata },
+      success_url: `${base}?checkout={CHECKOUT_SESSION_ID}`,
+      cancel_url: base,
+    });
+    if (!session.url) return { error: "Stripe didn't return a checkout page." };
+    return { ok: true, url: session.url };
+  } catch (error) {
+    return describe(error);
+  }
+}
+
 export async function confirmCheckout(sessionId: string): Promise<Result> {
   const context = await requireBillingAdmin();
   try {

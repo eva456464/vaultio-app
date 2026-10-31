@@ -11,6 +11,7 @@ import { join } from "node:path";
 import satori from "satori";
 import sharp from "sharp";
 import type { InfographicStyle } from "@/lib/visuals";
+import { EXTRA_FAMILIES, fontsForText } from "./fonts";
 import type { InfographicSpec } from "./spec";
 
 const WIDTH = 1200;
@@ -67,7 +68,8 @@ function loadFonts() {
   return list;
 }
 
-const SANS = SUBSETS.map((subset) => `Sans-${subset}`).join(", ");
+// Fonts for other scripts (Chinese, Japanese, Thai…) are added per image under the extra names.
+const SANS = [...SUBSETS.map((subset) => `Sans-${subset}`), ...EXTRA_FAMILIES].join(", ");
 const SERIF = `${SUBSETS.map((subset) => `Serif-${subset}`).join(", ")}, ${SANS}`;
 
 export type Brand = {
@@ -623,11 +625,20 @@ function Classic({
 }
 
 /** Renders the infographic to a PNG (1600px wide for sharp text on high-density screens). */
+/** Every string an infographic shows (to fetch fonts for the scripts in it). */
+function textOf(value: unknown): string {
+  if (typeof value === "string") return value;
+  if (Array.isArray(value)) return value.map(textOf).join(" ");
+  if (value && typeof value === "object") return Object.values(value).map(textOf).join(" ");
+  return "";
+}
+
 export async function renderInfographic(
   spec: InfographicSpec,
   style: InfographicStyle,
   brand: Brand,
   art: Art = {},
+  language = "en",
 ) {
   const element =
     style === "classic" ? (
@@ -635,7 +646,8 @@ export async function renderInfographic(
     ) : (
       <Editorial spec={spec} brand={brand} art={art} />
     );
-  const svg = await satori(element, { width: WIDTH, fonts: loadFonts() });
+  const extra = await fontsForText(`${textOf(spec)} ${brand.name} ${brand.domain}`, language);
+  const svg = await satori(element, { width: WIDTH, fonts: [...loadFonts(), ...extra] });
   return sharp(Buffer.from(svg), { density: 96 })
     .resize({ width: 1600 })
     .png()

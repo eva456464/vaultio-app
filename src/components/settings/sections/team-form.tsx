@@ -1,7 +1,8 @@
 "use client";
 
+import { languageName } from "@/lib/languages";
 import { Check, Copy, Crown, EllipsisVertical, Link2, Mail, Plus, Shield, Trash2, User, X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
@@ -33,7 +34,7 @@ function Avatar({ name, muted }: { name: string; muted?: boolean }) {
 const host = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
 function SiteChecklist({ sites, selected, onChange, disabled }: { sites: Site[]; selected: number[]; onChange: (ids: number[]) => void; disabled?: boolean }) {
-  const tLang = useTranslations("languages");
+  const locale = useLocale();
   return (
     <ul className="divide-y divide-line overflow-hidden rounded-xl border border-line">
       {sites.map((site) => {
@@ -49,7 +50,7 @@ function SiteChecklist({ sites, selected, onChange, disabled }: { sites: Site[];
                 className="size-4 accent-[#111827]"
               />
               <span className="font-medium">{host(site.url)}</span>
-              <span className="text-xs text-ink-subtle">{tLang.has(site.language as "en") ? tLang(site.language as "en") : site.language}</span>
+              <span className="text-xs text-ink-subtle">{languageName(site.language, locale)}</span>
             </label>
           </li>
         );

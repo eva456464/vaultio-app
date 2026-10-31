@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useActionState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
-import { locales } from "@/i18n/routing";
+import { CONTENT_LANGUAGES, contentLanguage, languageName } from "@/lib/languages";
 import { addSite, type AddSiteState } from "@/server/actions/clients";
 
 const fieldClass =
@@ -13,8 +13,8 @@ const fieldClass =
 
 export function AddWebsiteForm({ isAgency, hasSites }: { isAgency: boolean; hasSites: boolean }) {
   const t = useTranslations("onboarding");
-  const tLang = useTranslations("languages");
   const locale = useLocale();
+  const languages = CONTENT_LANGUAGES.map((language) => ({ code: language.code, name: languageName(language.code, locale) })).sort((a, b) => a.name.localeCompare(b.name, locale));
   const [state, action, pending] = useActionState<AddSiteState, FormData>(addSite, null);
 
   return (
@@ -37,13 +37,14 @@ export function AddWebsiteForm({ isAgency, hasSites }: { isAgency: boolean; hasS
       </label>
       <label className="mt-4 block text-sm font-medium text-ink">
         {t("language")}
-        <select name="language" defaultValue={locale} className={`${fieldClass} mt-1.5`}>
-          {locales.map((code) => (
-            <option key={code} value={code}>
-              {tLang(code)}
+        <select name="language" defaultValue={contentLanguage(locale) ? locale : "en"} className={`${fieldClass} mt-1.5`}>
+          {languages.map((language) => (
+            <option key={language.code} value={language.code}>
+              {language.name}
             </option>
           ))}
         </select>
+        <span className="mt-1 block text-xs font-normal text-ink-subtle">{t("languageHint")}</span>
       </label>
 
       {state?.error && (

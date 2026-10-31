@@ -2,9 +2,9 @@
  * The product catalog: saving products from every source, the store and feed connections
  * (integrations "shopify_catalog", "woocommerce" and "product_feed") and syncing them.
  */
-import { and, eq, inArray, isNotNull, notInArray, sql } from "drizzle-orm";
+import { and, eq, inArray, isNotNull, notInArray, or, sql } from "drizzle-orm";
 import { db } from "@/db";
-import { integrations, products, type ProductSource } from "@/db/schema";
+import { integrations, orgWebsites, products, type ProductSource } from "@/db/schema";
 import { decryptJson } from "../crypto";
 import type { ShopifyCredentials } from "../publishing/platforms/shopify";
 import { parseFeed, type ProductInput } from "./parse";
@@ -124,6 +124,17 @@ export async function syncCatalog(siteId: number) {
     }
   }
   return results;
+}
+
+/** The website whose catalog a site uses: language sites share their primary website's catalog. */
+export const catalogOwnerId = (site: { id: number; primaryOrgWebsiteId: number | null }) => site.primaryOrgWebsiteId ?? site.id;
+
+/** The catalog owner and its language sites (all of them feature its products). */
+export async function catalogFamily(ownerId: number) {
+  return db
+    .select({ id: orgWebsites.id, timeZone: orgWebsites.timeZone })
+    .from(orgWebsites)
+    .where(or(eq(orgWebsites.id, ownerId), eq(orgWebsites.primaryOrgWebsiteId, ownerId)));
 }
 
 /** Products articles may feature: included, with a URL, and live in the store. */

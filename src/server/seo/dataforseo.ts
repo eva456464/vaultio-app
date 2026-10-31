@@ -3,31 +3,23 @@
  * Swappable through `setSeoDataProvider` for tests.
  */
 
+import { CONTENT_LANGUAGES, LOCATION_OF_COUNTRY } from "@/lib/languages";
+
 const API = "https://api.dataforseo.com/v3";
 
 /** Default Google location per content language (DataForSEO location codes). */
-export const DEFAULT_LOCATION: Record<string, number> = {
-  en: 2840, // United States
-  fr: 2250, // France
-  de: 2276, // Germany
-  es: 2724, // Spain
-  it: 2380, // Italy
-  nl: 2528, // Netherlands
-  pt: 2620, // Portugal
-};
+export const DEFAULT_LOCATION: Record<string, number> = Object.fromEntries(CONTENT_LANGUAGES.map((language) => [language.code, language.location]));
 
-export const COUNTRY_NAMES: Record<number, string> = {
-  2840: "United States",
-  2250: "France",
-  2276: "Germany",
-  2724: "Spain",
-  2380: "Italy",
-  2528: "Netherlands",
-  2620: "Portugal",
-  2826: "United Kingdom",
-  2124: "Canada",
-  2036: "Australia",
-};
+/** English name of a DataForSEO country location (null for other location codes). */
+export function locationName(code: number) {
+  const country = Object.entries(LOCATION_OF_COUNTRY).find(([, location]) => location === code)?.[0];
+  if (!country) return null;
+  try {
+    return new Intl.DisplayNames(["en"], { type: "region" }).of(country) ?? null;
+  } catch {
+    return null;
+  }
+}
 
 export type Market = { locationCode: number; languageCode: string };
 
