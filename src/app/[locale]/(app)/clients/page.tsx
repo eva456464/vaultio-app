@@ -1,7 +1,8 @@
 import { getTranslations } from "next-intl/server";
 import { ClientsTable } from "@/components/clients/clients-table";
 import { PageBody, PageHeader } from "@/components/shell/app-shell";
-import { Button } from "@/components/ui/button";
+import { PortalButton } from "@/components/settings/billing/portal-button";
+import { billingEnabled } from "@/server/billing/stripe";
 import { getAppContext } from "@/server/context";
 
 export default async function ClientsPage() {
@@ -15,9 +16,10 @@ export default async function ClientsPage() {
         title={t("welcomeBack", { name: firstName })}
         subtitle={t("subtitle")}
         actions={
-          <Button variant="outline" size="lg" disabled title="Billing is connected in a later phase">
-            {t("manageSubscriptions")}
-          </Button>
+          // Stripe's portal lists every client site's subscription, payment methods and invoices.
+          billingEnabled() && context.member?.role === "admin" && context.organization?.stripeCustomerId && !context.organization.billingExempt ? (
+            <PortalButton label={t("manageSubscriptions")} />
+          ) : undefined
         }
       />
       <PageBody>

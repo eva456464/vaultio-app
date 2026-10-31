@@ -9,7 +9,7 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 import { Tooltip as InfoTip } from "@/components/ui/tooltip";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
-import { ASSISTANT_NAMES, PROMPT_ALLOWANCE, PROMPT_INTENTS, scoreTier } from "@/lib/visibility";
+import { ASSISTANT_NAMES, PROMPT_INTENTS, scoreTier } from "@/lib/visibility";
 import { addPrompt, deletePrompt, setPromptActive } from "@/server/actions/visibility";
 import type { BrandRow, getVisibility, SourceRow } from "@/server/queries/visibility";
 
@@ -201,7 +201,7 @@ export function VisibilityOverview({ data }: { data: Data }) {
   );
 }
 
-export function PromptsView({ data, brand }: { data: Data; brand: string }) {
+export function PromptsView({ data, brand, allowance, canUpgrade = false }: { data: Data; brand: string; allowance: number; canUpgrade?: boolean }) {
   const t = useTranslations("aiVisibility");
   return (
     <section className="card p-5 md:p-6">
@@ -210,7 +210,7 @@ export function PromptsView({ data, brand }: { data: Data; brand: string }) {
           <h2 className="text-[22px] font-semibold tracking-[-0.44px] text-ink">{t("prompts.title")}</h2>
           <p className="mt-1 text-[15px] text-ink-secondary">{t("prompts.subtitle")}</p>
         </div>
-        <ManagePromptsDialog prompts={data.byPrompt.map((row) => row.prompt)} />
+        <ManagePromptsDialog prompts={data.byPrompt.map((row) => row.prompt)} allowance={allowance} canUpgrade={canUpgrade} />
       </div>
       {data.byPrompt.length === 0 ? (
         <p className="py-10 text-center text-sm text-ink-secondary">{t("prompts.empty")}</p>
@@ -248,7 +248,7 @@ export function PromptsView({ data, brand }: { data: Data; brand: string }) {
   );
 }
 
-function ManagePromptsDialog({ prompts }: { prompts: Data["byPrompt"][number]["prompt"][] }) {
+function ManagePromptsDialog({ prompts, allowance, canUpgrade }: { prompts: Data["byPrompt"][number]["prompt"][]; allowance: number; canUpgrade: boolean }) {
   const t = useTranslations("aiVisibility");
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
@@ -256,7 +256,7 @@ function ManagePromptsDialog({ prompts }: { prompts: Data["byPrompt"][number]["p
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
   const active = prompts.filter((prompt) => prompt.isActive).length;
-  const limitError = t("manage.limitError", { max: PROMPT_ALLOWANCE });
+  const limitError = t("manage.limitError", { max: allowance });
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -268,9 +268,17 @@ function ManagePromptsDialog({ prompts }: { prompts: Data["byPrompt"][number]["p
         <DialogTitle>{t("manage.title")}</DialogTitle>
         <DialogDescription>{t("manage.subtitle")}</DialogDescription>
         <p className="mt-4 text-sm text-ink-secondary">
-          {t("manage.active", { count: active, max: PROMPT_ALLOWANCE })}
-          {active >= PROMPT_ALLOWANCE && <span className="ml-2 rounded bg-[#FDF3E2] px-1.5 py-0.5 text-xs font-medium text-[#8A6320]">{t("manage.limit")}</span>}
+          {t("manage.active", { count: active, max: allowance })}
+          {active >= allowance && <span className="ml-2 rounded bg-[#FDF3E2] px-1.5 py-0.5 text-xs font-medium text-[#8A6320]">{t("manage.limit")}</span>}
         </p>
+        {canUpgrade && active >= allowance && (
+          <p className="mt-2 text-sm text-ink-secondary">
+            {t("manage.upgrade")}{" "}
+            <Link href="/dashboard/settings/billing" className="font-medium text-brand hover:underline">
+              {t("manage.upgradeAction")}
+            </Link>
+          </p>
+        )}
         <form
           className="mt-3 flex flex-wrap gap-2"
           onSubmit={(event) => {

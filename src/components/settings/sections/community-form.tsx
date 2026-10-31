@@ -22,6 +22,7 @@ export type CommunitySettingsData = {
   replyInstructions: string;
   llmAvailable: boolean;
   nextSearch: string | null;
+  upgradeAvailable: boolean;
 };
 
 function KeywordsCard({ data, canEdit }: { data: CommunitySettingsData; canEdit: boolean }) {
@@ -130,6 +131,14 @@ function KeywordsCard({ data, canEdit }: { data: CommunitySettingsData; canEdit:
             </Button>
           </form>
           {full && <p className="mt-2 text-xs text-ink-subtle">{t("limitReached", { max: data.maxKeywords })}</p>}
+          {data.upgradeAvailable && (
+            <p className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-brand/20 bg-brand/[0.04] p-3 text-sm text-ink">
+              {t(`upgrade.${data.platform}`)}
+              <Link href="/dashboard/settings/billing" className="font-medium text-brand hover:underline">
+                {t("upgrade.action")}
+              </Link>
+            </p>
+          )}
           {error && <p className="mt-2 text-sm text-[#9A3412]">{error}</p>}
         </div>
       )}

@@ -125,7 +125,8 @@
       "articleImprovementPlanned": "Agent planned a refresh: {title}",
       "articleImproved": "Agent refreshed: {title}",
       "redditOpportunitiesFound": "Agent found {count, plural, one {# Reddit thread} other {# Reddit threads}} worth replying to",
-      "quoraOpportunitiesFound": "Agent found {count, plural, one {# Quora question} other {# Quora questions}} worth answering"
+      "quoraOpportunitiesFound": "Agent found {count, plural, one {# Quora question} other {# Quora questions}} worth answering",
+      "backlinkCreditsAdded": "Added {count} backlink credits from your subscription"
     },
     "planned": {
       "sitemapSync": "Will sync your sitemap",
@@ -224,6 +225,11 @@
       },
       "waitingTitle": "{count, plural, one {# agent is waiting} other {# agents are waiting}}",
       "waitingSubtitle": "They start automatically as soon as the missing setup below is in place."
+    },
+    "unpaid": {
+      "title": "Your agents are paused for this website",
+      "body": "Choose a plan to start them again.",
+      "action": "Choose a plan"
     }
   },
   "milestones": {
@@ -1225,7 +1231,12 @@
         "reddit": "View Reddit threads",
         "quora": "View Quora questions"
       },
-      "needsLlm": "Keyword suggestions, searches and replies need the AI writing provider (ANTHROPIC_API_KEY)."
+      "needsLlm": "Keyword suggestions, searches and replies need the AI writing provider (ANTHROPIC_API_KEY).",
+      "upgrade": {
+        "reddit": "Need more keywords? Reddit+ adds 35 keywords and searches every day.",
+        "quora": "Need more keywords? Quora+ adds 35 keywords and searches every day.",
+        "action": "See add-ons"
+      }
     },
     "team": {
       "subtitle": "Name your workspace and manage who has access to it.",
@@ -1291,6 +1302,172 @@
       "noEmail": "Email sending isn't set up: after inviting someone, copy their invite link and send it yourself.",
       "renew": "Renew invitation link",
       "renewed": "The invitation link works for another 7 days. Copy it and send it again."
+    },
+    "billing": {
+      "subtitle": "Your plan, add-ons, payment details and invoices.",
+      "invoiceEmails": "Email me my invoices",
+      "off": {
+        "title": "Billing isn't set up",
+        "body": "Payments are switched off, so nothing is billed and every agent runs. Add the Stripe keys (STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET) and run scripts/stripe-setup.ts to start billing."
+      },
+      "exempt": {
+        "title": "This workspace isn't billed",
+        "body": "All features are included for every website in this workspace."
+      },
+      "unavailable": "Stripe couldn't be reached, so plans and invoices can't be shown right now. Please try again in a minute.",
+      "confirming": "Confirming your payment…",
+      "confirmed": "Thanks! Your subscription is active.",
+      "choose": {
+        "title": "Choose a plan for {site}",
+        "subtitle": "Your agents start working for this website as soon as the plan is active.",
+        "monthly": "Monthly",
+        "yearly": "Yearly",
+        "save": "save {percent}%",
+        "perMonth": "/month",
+        "billedYearly": "{amount} billed yearly",
+        "billedMonthly": "Billed monthly · cancel anytime",
+        "trial": "Start {days}-day free trial",
+        "choose": "Choose {plan}",
+        "trialNote": "Free for {days} days, then billed. Cancel anytime before the trial ends and you won't be charged.",
+        "notOnSale": "Not available yet",
+        "popular": "Most popular"
+      },
+      "plans": {
+        "grow": {
+          "name": "Grow",
+          "tagline": "Everything you need to grow from Google and AI search.",
+          "features": [
+            "Up to 30 articles a month, researched, written and published",
+            "See if AI recommends you for 10 buyer questions on ChatGPT, Claude and Gemini",
+            "Backlinks from the exchange on autopilot",
+            "Reddit and Quora agents, site audit, Google Analytics and Search Console",
+            "Monthly client reports"
+          ]
+        },
+        "scale": {
+          "name": "Scale",
+          "tagline": "For brands that want more AI visibility.",
+          "features": [
+            "Everything in Grow",
+            "See if AI recommends you for 50 buyer questions",
+            "Priority support"
+          ]
+        }
+      },
+      "active": {
+        "title": "Active subscription",
+        "subtitle": "Subscription details and billing information",
+        "manage": "Manage payment details and invoices",
+        "plan": "Current plan",
+        "planValue": "{plan} · {interval, select, year {Yearly} other {Monthly}}",
+        "next": "Next invoice",
+        "nextValue": "{amount} on {date}",
+        "trialEnds": "Trial ends {date}",
+        "endsOn": "Ends on {date}",
+        "pausedValue": "Billing paused",
+        "status": "Status",
+        "pause": "Pause billing",
+        "resume": "Resume billing",
+        "cancel": "Cancel subscription",
+        "cancelConfirm": "Cancel the subscription? It stays active until the end of the paid period, then your agents stop for this website.",
+        "keep": "Keep subscription",
+        "pauseConfirm": "Pause billing? No invoices are charged while paused, and your agents stop for this website until you resume.",
+        "pausedNote": "Billing is paused and your agents are stopped for this website. Resume billing to restart them.",
+        "pastDue": "Your last payment didn't go through. Update your payment method to keep your agents running.",
+        "updatePayment": "Update payment method",
+        "scaleTeaser": "Ready to scale? Track 50 buyer questions in AI assistants, with priority support.",
+        "seeScale": "See what Scale offers"
+      },
+      "statuses": {
+        "active": "Active",
+        "trialing": "Free trial",
+        "past_due": "Payment failed",
+        "canceled": "Canceled",
+        "paused": "Paused",
+        "incomplete": "Incomplete",
+        "unpaid": "Unpaid",
+        "canceling": "Cancels at period end"
+      },
+      "upgrade": {
+        "badge": "Most popular",
+        "title": "Upgrade to Scale",
+        "subtitle": "Everything Grow ships with, plus more AI visibility.",
+        "payYearly": "Pay yearly",
+        "save": "save {percent}%",
+        "billed": "{interval, select, year {Billed yearly} other {Billed monthly}} · cancel anytime",
+        "advantage": "The Scale advantage",
+        "everything": "Everything in Grow included.",
+        "continue": "Continue to upgrade",
+        "prorated": "You're charged the difference for the rest of this billing period today.",
+        "cancel": "Cancel",
+        "done": "You're on Scale now."
+      },
+      "addons": {
+        "title": "Add-ons",
+        "subtitle": "Extra capacity for this website, billed monthly with your plan.",
+        "perMonth": "{amount}/month",
+        "add": "Add",
+        "switchTo": "Switch to this",
+        "activeBadge": "Active",
+        "cancel": "Cancel",
+        "keep": "Keep",
+        "endsOn": "Ends {date}",
+        "needsPlan": "Choose a plan first to add extras.",
+        "items": {
+          "prompts_30": {
+            "name": "30 more AI prompts",
+            "body": "Track 30 more buyer questions in ChatGPT, Claude and Gemini."
+          },
+          "prompts_50": {
+            "name": "50 more AI prompts",
+            "body": "Track 50 more buyer questions in ChatGPT, Claude and Gemini."
+          },
+          "reddit_plus": {
+            "name": "Reddit+",
+            "body": "Monitor 35 more Reddit keywords and find new threads every day."
+          },
+          "quora_plus": {
+            "name": "Quora+",
+            "body": "Monitor 35 more Quora keywords and find new questions every day."
+          },
+          "backlink_credits": {
+            "name": "Backlink credits",
+            "body": "{credits, plural, =0 {Extra exchange credits every month} other {# exchange credits every month}}; links only come from sites rated DR 20 or more."
+          }
+        }
+      },
+      "history": {
+        "title": "Payment history",
+        "subtitle": "View and download your invoices",
+        "columns": {
+          "invoice": "Invoice",
+          "date": "Billing date",
+          "item": "For",
+          "amount": "Amount",
+          "status": "Status",
+          "pdf": "Invoice PDF"
+        },
+        "download": "Download",
+        "empty": "No invoices yet.",
+        "types": {
+          "main": "Plan",
+          "llm_visibility_prompts": "AI prompts",
+          "reddit": "Reddit+",
+          "reddit_autopilot": "Reddit autopilot",
+          "quora": "Quora+",
+          "backlink_credits": "Backlink credits",
+          "meta_autopilot": "Social posts",
+          "language_addition": "Language"
+        },
+        "statuses": {
+          "draft": "Draft",
+          "open": "Open",
+          "paid": "Paid",
+          "void": "Void",
+          "uncollectible": "Uncollectible"
+        }
+      },
+      "adminOnly": "Only workspace admins can change the subscription."
     }
   },
   "aiVisibility": {
@@ -1368,7 +1545,9 @@
       "placeholder": "e.g. Who is the best roofer in Santa Barbara?",
       "limitError": "You can track up to {max} active prompts. Turn one off first.",
       "delete": "Delete prompt",
-      "activeLabel": "Active"
+      "activeLabel": "Active",
+      "upgrade": "Track more questions with an AI prompts add-on.",
+      "upgradeAction": "See add-ons"
     },
     "byPrompt": {
       "brands": "Brands by prompt",

@@ -1,0 +1,19 @@
+{
+  "_comment": "Amounts in cents (USD). Run `npx tsx --tsconfig tsconfig.json scripts/stripe-setup.ts` to create the products and prices in Stripe. Options with a null amount are skipped and not offered in the app until a price exists. Plan and AI-prompt prices match the reference product; set the others before launch.",
+  "currency": "usd",
+  "products": [
+    { "name": "Grow plan", "prices": [
+      { "lookupKey": "vaultio_grow_monthly", "amount": 9900, "interval": "month" },
+      { "lookupKey": "vaultio_grow_yearly", "amount": 70800, "interval": "year" }
+    ] },
+    { "name": "Scale plan", "prices": [
+      { "lookupKey": "vaultio_scale_monthly", "amount": 39900, "interval": "month" },
+      { "lookupKey": "vaultio_scale_yearly", "amount": 238800, "interval": "year" }
+    ] },
+    { "name": "AI visibility: 30 more prompts", "prices": [{ "lookupKey": "vaultio_prompts_30_monthly", "amount": 4900, "interval": "month" }] },
+    { "name": "AI visibility: 50 more prompts", "prices": [{ "lookupKey": "vaultio_prompts_50_monthly", "amount": 8900, "interval": "month" }] },
+    { "name": "Reddit+", "prices": [{ "lookupKey": "vaultio_reddit_plus_monthly", "amount": null, "interval": "month" }] },
+    { "name": "Quora+", "prices": [{ "lookupKey": "vaultio_quora_plus_monthly", "amount": null, "interval": "month" }] },
+    { "name": "Backlink credits", "prices": [{ "lookupKey": "vaultio_backlink_credits_monthly", "amount": null, "interval": "month", "credits": null }] }
+  ]
+}

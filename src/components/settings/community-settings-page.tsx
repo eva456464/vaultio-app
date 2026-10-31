@@ -32,6 +32,7 @@ export async function CommunitySettingsPage({ platform }: { platform: CommunityP
           replyInstructions: data.replyInstructions,
           llmAvailable: data.llmAvailable,
           nextSearch,
+          upgradeAvailable: data.upgradeAvailable && canEdit,
         }}
       />
     </>

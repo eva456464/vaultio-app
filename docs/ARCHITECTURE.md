@@ -222,6 +222,40 @@ Reddit autopilot (posting from a connected account) is left out on purpose: auto
 promotional comments break Reddit's spam rules and get accounts banned, and Quora has no posting
 API. Replied threads feed the client report's "Reddit and Quora" section.
 
+### Team members and invitations
+
+A workspace (`organizations`) has members with a role: admins see every website and manage
+settings, members only see the websites they were given (`member_website_access`). Invitations
+(`organization_invitations`) carry the role and websites, last 7 days, and link to
+`/<locale>/invite/<token>` on the domain the admin used (so agency domains work); they are emailed
+through Resend when it's configured, otherwise the admin copies the link. Signing up creates an
+empty workspace; accepting an invitation removes it and joins the inviting one. An account that
+already runs a workspace with websites or other members can't join a second one (the app has one
+workspace per account).
+
+### Billing
+
+Stripe, per website, like the reference product: one `main` subscription (Grow or Scale, monthly
+or yearly) and optional add-on subscriptions (`src/lib/billing.ts`): 30 or 50 more AI prompts,
+Reddit+, Quora+ (35 more keywords, searched daily) and backlink credits (monthly credits from the
+price's `credits` metadata; subscribers only receive links from DR 20+ sites). Prices are found
+by lookup key, so amounts are managed in Stripe (`scripts/stripe-setup.ts` creates them from
+`scripts/stripe-prices.json`).
+
+Checkout opens Stripe Checkout (with a free trial on a website's first plan); plan changes swap
+the subscription's price (upgrades are invoiced at once, downgrades credited); pause uses
+`pause_collection`; cancel is at period end; the gear button and "Manage all subscriptions" open
+Stripe's customer portal. `/api/stripe/webhook` (signature-checked) mirrors subscriptions and
+invoices into `subscriptions` / `invoices`; the success page also syncs right away. A paid
+backlink-credit invoice adds its credits once; admins who keep "Email me my invoices" on get the
+invoice link by email.
+
+`siteEntitlements(siteId)` turns this into limits: prompts tracked, Reddit/Quora keywords and
+search frequency, and whether agents may run. Without an active or trialing, unpaused plan only
+onboarding, milestones and the backlink check run; the Overview says the agents are paused.
+Without `STRIPE_SECRET_KEY` billing is off (nothing billed, base limits). Workspaces with
+`organizations.billing_exempt` (e.g. Vaultio's own) aren't billed and get Scale limits.
+
 ### Client reports
 
 `src/server/reports/data.ts` gathers one site's numbers for a period (Search Console, authority,
@@ -243,7 +277,8 @@ Sections without data are switched off rather than shown with invented numbers.
 | AI visibility checks | `OPENAI_API_KEY`, `GEMINI_API_KEY` (plus Anthropic) |
 | Reddit thread details (optional) | `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`, `REDDIT_USERNAME` (Reddit Data API app; commercial use needs Reddit's approval) |
 | GA4 + Search Console | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`: a Google Cloud OAuth client with the Analytics Data, Analytics Admin and Search Console APIs |
-| Billing | Stripe keys + webhook secret |
+| Billing | `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` (webhook endpoint `/api/stripe/webhook`), optional `BILLING_TRIAL_DAYS` |
+| Invitation and invoice emails | `RESEND_API_KEY`, `EMAIL_FROM` (or `REPORT_FROM_EMAIL`) |
 | Email (monthly reports; later invites) | `RESEND_API_KEY`, `REPORT_FROM_EMAIL` (verified sender), `APP_URL` for links |
 | White-label custom domains | Vercel API token (domain verification) |
 

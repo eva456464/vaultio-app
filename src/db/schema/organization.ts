@@ -28,6 +28,8 @@ export const organizations = pgTable("organizations", {
   isAgency: boolean("is_agency").notNull().default(false),
   acquisitionChannel: text("acquisition_channel"),
   stripeCustomerId: text("stripe_customer_id"),
+  // Not billed (e.g. the platform owner's own workspace): agents run on Scale limits without a subscription.
+  billingExempt: boolean("billing_exempt").notNull().default(false),
   ...timestamps,
 });
 

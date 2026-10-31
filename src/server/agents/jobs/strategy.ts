@@ -15,7 +15,7 @@ import {
   websiteMetricsHistory,
   type ArticleType,
 } from "@/db/schema";
-import { PROMPT_ALLOWANCE } from "@/lib/visibility";
+import { siteEntitlements } from "@/server/billing/entitlements";
 import { ai } from "@/server/ai/claude";
 import { COUNTRY_NAMES, DEFAULT_LOCATION, seoData, type KeywordIdea, type Market } from "@/server/seo/dataforseo";
 import { logActivity } from "../activity";
@@ -309,7 +309,7 @@ const PromptsSchema = z.object({
 
 export async function generatePrompts({ site }: JobContext) {
   const existing = await db.select({ id: llmPrompts.id }).from(llmPrompts).where(eq(llmPrompts.orgWebsiteId, site.id));
-  const needed = PROMPT_ALLOWANCE - existing.length;
+  const needed = (await siteEntitlements(site.id)).prompts - existing.length;
   if (needed <= 0) return { created: 0 };
   const result = await ai.generateObject({
     schema: PromptsSchema,

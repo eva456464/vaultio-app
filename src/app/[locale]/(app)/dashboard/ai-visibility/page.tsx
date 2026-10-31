@@ -4,6 +4,7 @@ import { PageBody, PageHeader } from "@/components/shell/app-shell";
 import { BrandsView, PromptsView, SourcesView, VisibilityOverview } from "@/components/visibility/visibility-views";
 import { Link } from "@/i18n/navigation";
 import { cn, displayDomain } from "@/lib/utils";
+import { siteEntitlements } from "@/server/billing/entitlements";
 import { getAppContext } from "@/server/context";
 import { getVisibility } from "@/server/queries/visibility";
 
@@ -13,7 +14,7 @@ export default async function AiVisibilityPage({ searchParams }: PageProps<"/[lo
   const { tab: requested } = await searchParams;
   const tab = TABS.find((option) => option === requested) ?? "overview";
   const site = (await getAppContext())!.site!;
-  const [data, t] = await Promise.all([getVisibility(site.id), getTranslations("aiVisibility")]);
+  const [data, t, entitlements] = await Promise.all([getVisibility(site.id), getTranslations("aiVisibility"), siteEntitlements(site.id)]);
   const brand = site.brandName ?? displayDomain(site.url);
 
   return (
@@ -37,7 +38,7 @@ export default async function AiVisibilityPage({ searchParams }: PageProps<"/[lo
       </div>
       <PageBody>
         {tab === "prompts" ? (
-          <PromptsView data={data} brand={brand} />
+          <PromptsView data={data} brand={brand} allowance={entitlements.prompts} canUpgrade={entitlements.mode === "billed" && entitlements.active} />
         ) : !data.hasData ? (
           <section className="card flex flex-col items-center px-6 py-16 text-center">
             <span className="grid size-14 place-items-center rounded-2xl bg-canvas text-ink-subtle">

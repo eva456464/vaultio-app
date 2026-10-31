@@ -1,5 +1,3 @@
-/** Prompts tracked per site on the base plan. */
-export const PROMPT_ALLOWANCE = 10;
 
 export const ASSISTANT_NAMES: Record<string, string> = { anthropic: "Claude", openai: "ChatGPT", google: "Gemini" };
 

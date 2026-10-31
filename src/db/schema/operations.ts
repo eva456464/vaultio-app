@@ -51,6 +51,7 @@ export const ACTIVITY_TYPES = [
   "articleImproved",
   "redditOpportunitiesFound",
   "quoraOpportunitiesFound",
+  "backlinkCreditsAdded",
 ] as const;
 export type ActivityType = (typeof ACTIVITY_TYPES)[number];
 
@@ -309,6 +310,10 @@ export const subscriptions = pgTable(
     status: text("status").$type<SubscriptionStatus>().notNull(),
     stripeSubscriptionId: text("stripe_subscription_id").unique(),
     stripePriceId: text("stripe_price_id"),
+    // The price's lookup key in Stripe; says which plan or add-on this is (see src/lib/billing.ts).
+    priceLookupKey: text("price_lookup_key"),
+    // Billing paused from the Subscription page (Stripe pause_collection); agents stop meanwhile.
+    pausedAt: timestamp("paused_at", { withTimezone: true }),
     quantity: integer("quantity").notNull().default(1),
     unitAmount: integer("unit_amount"),
     currency: text("currency").notNull().default("usd"),
@@ -333,6 +338,7 @@ export const invoices = pgTable("invoices", {
   currency: text("currency").notNull().default("usd"),
   status: text("status").$type<"draft" | "open" | "paid" | "void" | "uncollectible">().notNull(),
   invoicePdfUrl: text("invoice_pdf_url"),
+  hostedInvoiceUrl: text("hosted_invoice_url"),
   issuedAt: timestamp("issued_at", { withTimezone: true }).notNull(),
   ...timestamps,
 });

@@ -2,6 +2,7 @@ import { and, eq, inArray } from "drizzle-orm";
 import type { PgBoss } from "pg-boss";
 import { db } from "@/db";
 import { agentJobRuns, orgWebsites } from "@/db/schema";
+import { siteEntitlements } from "../billing/entitlements";
 import { availableRequirements } from "./capabilities";
 import { enqueueAgentJob, ONBOARDING_STEPS, QUEUES } from "./queue";
 import { JOB_REGISTRY, runAgentJob } from "./runner";
@@ -24,7 +25,7 @@ export async function runOnboarding(siteId: number, resume = false) {
     const completed = new Set(done.map((row) => row.job));
     for (const step of ONBOARDING_STEPS) {
       if (completed.has(step)) continue;
-      await runAgentJob(siteId, step, today).catch((error) =>
+      await runAgentJob(siteId, step, today, { onboarding: true }).catch((error) =>
         console.error(`[onboarding] site ${siteId} step ${step} failed:`, (error as Error).message),
       );
     }
@@ -34,7 +35,7 @@ export async function runOnboarding(siteId: number, resume = false) {
   await db.update(orgWebsites).set({ onboardingStatus: "in_progress", updatedAt: new Date() }).where(eq(orgWebsites.id, siteId));
   for (const step of ONBOARDING_STEPS) {
     try {
-      await runAgentJob(siteId, step, today);
+      await runAgentJob(siteId, step, today, { onboarding: true });
     } catch (error) {
       // One failing step must not block the others; the scheduler retries it later.
       console.error(`[onboarding] site ${siteId} step ${step} failed:`, (error as Error).message);
@@ -65,9 +66,12 @@ export async function schedulerTick(boss: PgBoss, now = new Date()) {
     const anchor = siteDay(site.createdAt, site.timeZone);
     const available = await availableRequirements(site.id);
     const ready = (requires: string[]) => requires.every((requirement) => available.has(requirement as never));
+    // Without an active subscription only the free jobs are queued (the runner enforces this too).
+    const paid = (await siteEntitlements(site.id)).active;
 
     for (const agent of AGENT_SCHEDULE) {
       if (!isDueOn(agent.cadence, today, anchor) || !ready(agent.requires)) continue;
+      if (!paid && agent.job !== "milestones" && agent.job !== "backlinkCheck") continue;
       if (!JOB_REGISTRY[agent.job].handler) continue;
       if (await enqueueAgentJob(boss, { siteId: site.id, job: agent.job, runDate: today })) enqueued++;
     }

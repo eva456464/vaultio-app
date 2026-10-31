@@ -3,8 +3,9 @@ import { addDays, formatISO } from "date-fns";
 import { and, asc, count, desc, eq, isNotNull, isNull } from "drizzle-orm";
 import { db } from "@/db";
 import { agentJobRuns, communityKeywords, communityOpportunities, communityPosts, communitySettings, type CommunityPlatform } from "@/db/schema";
-import { COMMUNITY_JOBS, DEFAULT_MAX_KEYWORDS, OPPORTUNITIES_PER_PAGE, SEARCH_EVERY_DAYS } from "@/lib/community";
+import { COMMUNITY_JOBS, OPPORTUNITIES_PER_PAGE, SEARCH_EVERY_DAYS } from "@/lib/community";
 import { availableRequirements } from "../agents/capabilities";
+import { siteEntitlements } from "../billing/entitlements";
 import { siteDay } from "../agents/schedule";
 import type { Site } from "../agents/jobs/types";
 
@@ -28,7 +29,7 @@ function nextSearchOf(keywords: { lastCheckedAt: Date | null }[], timeZone: stri
 }
 
 export async function getCommunitySettings(site: Site, platform: CommunityPlatform) {
-  const [[settings], keywords, available] = await Promise.all([
+  const [[settings], keywords, available, entitlements] = await Promise.all([
     db.select().from(communitySettings).where(and(eq(communitySettings.orgWebsiteId, site.id), eq(communitySettings.platform, platform))),
     db
       .select()
@@ -36,11 +37,14 @@ export async function getCommunitySettings(site: Site, platform: CommunityPlatfo
       .where(and(eq(communityKeywords.orgWebsiteId, site.id), eq(communityKeywords.platform, platform)))
       .orderBy(asc(communityKeywords.createdAt), asc(communityKeywords.id)),
     availableRequirements(site.id),
+    siteEntitlements(site.id),
   ]);
   const active = keywords.filter((keyword) => keyword.isActive);
   return {
     platform,
-    maxKeywords: settings?.maxKeywords ?? DEFAULT_MAX_KEYWORDS,
+    maxKeywords: entitlements.socialKeywords[platform],
+    /** Offer Reddit+ / Quora+ when billing is on and the site doesn't have it yet. */
+    upgradeAvailable: entitlements.mode === "billed" && entitlements.active && !entitlements.dailySocial[platform],
     active: active.map((keyword) => ({ id: keyword.id, keyword: keyword.keyword })),
     suggestions: keywords.filter((keyword) => !keyword.isActive).map((keyword) => ({ id: keyword.id, keyword: keyword.keyword })),
     subreddits: settings?.subreddits ?? [],

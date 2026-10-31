@@ -79,3 +79,23 @@ results:
 ```bash
 npx tsx --tsconfig tsconfig.json scripts/test-socials.ts <siteId> --google
 ```
+
+## Stripe mock (`mock-stripe.py`)
+
+Stands in for Stripe: prices with lookup keys, customers, a local Checkout page ("Pay"),
+subscriptions (price change, pause, cancel at period end), invoices, the customer portal, and
+signed webhooks to the app.
+
+```bash
+STRIPE_WEBHOOK_SECRET=whsec_test APP_WEBHOOK_URL=http://localhost:3000/api/stripe/webhook python3 scripts/dev-fixtures/mock-stripe.py 4600
+```
+
+Run the app with `STRIPE_SECRET_KEY=sk_test_mock STRIPE_API_BASE=http://localhost:4600
+STRIPE_WEBHOOK_SECRET=whsec_test`, then create the prices in the mock:
+
+```bash
+STRIPE_SECRET_KEY=sk_test_mock STRIPE_API_BASE=http://localhost:4600 npx tsx --tsconfig tsconfig.json scripts/stripe-setup.ts
+```
+
+`POST /test/renew/<sub_id>` bills the next period; `POST /test/fail/<sub_id>` makes it past due.
+

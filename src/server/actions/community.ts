@@ -9,7 +9,7 @@ import { COMMUNITY_JOBS, normalizeKeyword, normalizeSubreddit } from "@/lib/comm
 import { availableRequirements } from "../agents/capabilities";
 import { rerunAgentJob } from "../agents/queue";
 import { siteDay } from "../agents/schedule";
-import { draftReply, ensureCommunitySettings } from "../community/agent";
+import { draftReply, ensureCommunitySettings, keywordLimit } from "../community/agent";
 import { getAppContext } from "../context";
 
 type Result = { ok: true } | { error: string };
@@ -48,8 +48,9 @@ export async function addCommunityKeyword(platform: CommunityPlatform, input: st
   const parsedPlatform = platformSchema.parse(platform);
   const parsed = keywordSchema.safeParse(input);
   if (!parsed.success) return { error: parsed.error.issues[0]!.message };
-  const settings = await ensureCommunitySettings(site.id, parsedPlatform);
-  if ((await activeCount(site.id, parsedPlatform)) >= settings.maxKeywords) return { error: `You can monitor up to ${settings.maxKeywords} keywords` };
+  await ensureCommunitySettings(site.id, parsedPlatform);
+  const limit = await keywordLimit(site.id, parsedPlatform);
+  if ((await activeCount(site.id, parsedPlatform)) >= limit) return { error: `You can monitor up to ${limit} keywords` };
   const keyword = normalizeKeyword(parsed.data);
   await db
     .insert(communityKeywords)
@@ -66,8 +67,8 @@ export async function setCommunityKeywordActive(id: number, active: boolean): Pr
   const [keyword] = await db.select().from(communityKeywords).where(and(eq(communityKeywords.id, id), eq(communityKeywords.orgWebsiteId, site.id)));
   if (!keyword) return { error: "Keyword not found" };
   if (active && !keyword.isActive) {
-    const settings = await ensureCommunitySettings(site.id, keyword.platform);
-    if ((await activeCount(site.id, keyword.platform)) >= settings.maxKeywords) return { error: `You can monitor up to ${settings.maxKeywords} keywords` };
+    const limit = await keywordLimit(site.id, keyword.platform);
+    if ((await activeCount(site.id, keyword.platform)) >= limit) return { error: `You can monitor up to ${limit} keywords` };
   }
   await db.update(communityKeywords).set({ isActive: active, updatedAt: new Date() }).where(eq(communityKeywords.id, id));
   if (active && !keyword.lastCheckedAt) await searchSoon(site.id, site.timeZone, keyword.platform);

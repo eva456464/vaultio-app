@@ -25,6 +25,7 @@ import { logActivity } from "../agents/activity";
 import { availableRequirements } from "../agents/capabilities";
 import { siteMarket } from "../agents/jobs/strategy";
 import type { JobContext, Site } from "../agents/jobs/types";
+import { siteEntitlements } from "../billing/entitlements";
 import { redditApiConfigured, redditDetails } from "./reddit";
 
 const PLATFORM_NAME: Record<CommunityPlatform, string> = { reddit: "Reddit", quora: "Quora" };
@@ -127,6 +128,11 @@ export async function suggestKeywords(site: Site, platform: CommunityPlatform) {
   return [...new Set(phrases)];
 }
 
+/** Keywords monitored on a platform under the site's plan (5, or 40 with Reddit+ / Quora+). */
+export async function keywordLimit(siteId: number, platform: CommunityPlatform) {
+  return (await siteEntitlements(siteId)).socialKeywords[platform];
+}
+
 async function prepareKeywords(site: Site, platform: CommunityPlatform, settings: Settings) {
   if (settings.keywordsSuggestedAt) return;
   const phrases = await suggestKeywords(site, platform);
@@ -134,7 +140,7 @@ async function prepareKeywords(site: Site, platform: CommunityPlatform, settings
     .select({ active: sql<number>`count(*)::int` })
     .from(communityKeywords)
     .where(and(eq(communityKeywords.orgWebsiteId, site.id), eq(communityKeywords.platform, platform), eq(communityKeywords.isActive, true)))) as [{ active: number }];
-  let room = Math.max(0, settings.maxKeywords - active);
+  let room = Math.max(0, (await keywordLimit(site.id, platform)) - active);
   const rows = phrases.map((keyword) => {
     const isActive = room > 0 && !keyword.endsWith(" alternatives");
     if (isActive) room--;
@@ -286,13 +292,20 @@ async function communitySearch(platform: CommunityPlatform, { site }: JobContext
   const settings = await ensureCommunitySettings(site.id, platform);
   await prepareKeywords(site, platform, settings);
 
-  const dueBefore = new Date(Date.now() - (SEARCH_EVERY_DAYS * 86_400_000 - 6 * 3_600_000));
+  // Reddit+ / Quora+ search every day; otherwise each keyword once a week. Keywords beyond the
+  // plan's limit (e.g. after an add-on ends) wait until some are switched off.
+  const entitlements = await siteEntitlements(site.id);
+  const everyDays = entitlements.dailySocial[platform] ? 1 : SEARCH_EVERY_DAYS;
+  const dueBefore = new Date(Date.now() - (everyDays * 86_400_000 - 6 * 3_600_000));
   const keywords = (
     await db
       .select()
       .from(communityKeywords)
       .where(and(eq(communityKeywords.orgWebsiteId, site.id), eq(communityKeywords.platform, platform), eq(communityKeywords.isActive, true)))
-  ).filter((keyword) => !keyword.lastCheckedAt || keyword.lastCheckedAt < dueBefore);
+      .orderBy(communityKeywords.createdAt, communityKeywords.id)
+  )
+    .slice(0, entitlements.socialKeywords[platform])
+    .filter((keyword) => !keyword.lastCheckedAt || keyword.lastCheckedAt < dueBefore);
   if (!keywords.length) return { searched: 0, found: 0 };
 
   const useGoogle = (await availableRequirements(site.id)).has("keywordData");

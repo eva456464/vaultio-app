@@ -1,0 +1,215 @@
+"use server";
+
+import { and, desc, eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
+import { getLocale } from "next-intl/server";
+import type Stripe from "stripe";
+import { db } from "@/db";
+import { organizations, subscriptions, userSettings } from "@/db/schema";
+import { ADDON_IDS, ADDONS, INTERVALS, LIVE_STATUSES, PLAN_LOOKUP_KEYS, PLANS, type AddonId, type Interval, type Plan } from "@/lib/billing";
+import { rerunAgentJob } from "../agents/queue";
+import { siteDay } from "../agents/schedule";
+import { billingEnabled, priceCatalog, stripe } from "../billing/stripe";
+import { processInvoice, syncSubscription } from "../billing/sync";
+import { getAppContext } from "../context";
+import { requestOrigin } from "../invites";
+
+type Result = { ok: true } | { error: string };
+type Redirect = { ok: true; url: string } | { ok: true; changed: true } | { error: string };
+
+const refresh = () => revalidatePath("/[locale]", "layout");
+const TRIAL_DAYS = () => Number(process.env.BILLING_TRIAL_DAYS ?? 3);
+
+async function requireBillingAdmin() {
+  const context = await getAppContext();
+  if (!context?.organization || !context.site) throw new Error("No website selected");
+  if (context.member?.role !== "admin") throw new Error("Only workspace admins can manage billing");
+  if (!billingEnabled()) throw new Error("Billing is not configured");
+  if (context.organization.billingExempt) throw new Error("This workspace isn't billed");
+  return { ...context, organization: context.organization, site: context.site };
+}
+
+async function customerOf(context: Awaited<ReturnType<typeof requireBillingAdmin>>) {
+  if (context.organization.stripeCustomerId) return context.organization.stripeCustomerId;
+  const customer = await stripe().customers.create({
+    email: context.user.email,
+    name: context.organization.name,
+    metadata: { organizationId: String(context.organization.id) },
+  });
+  await db.update(organizations).set({ stripeCustomerId: customer.id, updatedAt: new Date() }).where(eq(organizations.id, context.organization.id));
+  return customer.id;
+}
+
+async function liveSubscription(siteId: number, type: string) {
+  const rows = await db.select().from(subscriptions).where(and(eq(subscriptions.orgWebsiteId, siteId), eq(subscriptions.type, type as "main"))).orderBy(desc(subscriptions.createdAt));
+  return rows.find((row) => LIVE_STATUSES.has(row.status) || row.status === "past_due" || row.status === "paused") ?? null;
+}
+
+const describe = (error: unknown) => {
+  const message = (error as Stripe.errors.StripeError)?.message ?? String(error);
+  console.error("[billing]", message);
+  return { error: "Stripe couldn't complete this. Please try again or contact support." };
+};
+
+/** Replaces the price of a live subscription (plan change, or another option of the same add-on). */
+async function swapPrice(stripeSubscriptionId: string, priceId: string, upgrade: boolean, metadata: Record<string, string>) {
+  const current = await stripe().subscriptions.retrieve(stripeSubscriptionId);
+  const item = current.items.data[0];
+  if (!item) throw new Error("Subscription has no items");
+  const updated = await stripe().subscriptions.update(stripeSubscriptionId, {
+    items: [{ id: item.id, price: priceId }],
+    // Upgrades are charged right away (and only applied once paid); downgrades are credited on the next invoice.
+    proration_behavior: upgrade ? "always_invoice" : "create_prorations",
+    ...(upgrade ? { payment_behavior: "pending_if_incomplete" as const } : {}),
+    metadata: { ...current.metadata, ...metadata },
+  });
+  await syncSubscription(updated);
+}
+
+/**
+ * Starts Stripe Checkout for a plan (with a free trial the first time) or an add-on. Choosing
+ * another option of an add-on the site already has changes that subscription instead.
+ */
+export async function startCheckout(choice: { plan: Plan; interval: Interval } | { addon: AddonId }): Promise<Redirect> {
+  const context = await requireBillingAdmin();
+  const site = context.site;
+  const isPlan = "plan" in choice;
+  if (isPlan && (!PLANS.includes(choice.plan) || !INTERVALS.includes(choice.interval))) return { error: "Unknown plan" };
+  if (!isPlan && !ADDON_IDS.includes(choice.addon)) return { error: "Unknown add-on" };
+  const lookupKey = isPlan ? PLAN_LOOKUP_KEYS[choice.plan][choice.interval] : ADDONS[choice.addon].lookupKey;
+  const type = isPlan ? "main" : ADDONS[choice.addon].type;
+  try {
+    const price = (await priceCatalog()).get(lookupKey);
+    if (!price) return { error: "This option isn't available yet." };
+    const main = await liveSubscription(site.id, "main");
+    if (isPlan && main) return { error: "This website already has a plan. Change it from the subscription card." };
+    if (!isPlan && !main) return { error: "Choose a plan for this website first." };
+
+    if (!isPlan) {
+      const existing = await liveSubscription(site.id, type);
+      if (existing?.priceLookupKey === lookupKey) return { error: "This add-on is already active." };
+      if (existing?.stripeSubscriptionId) {
+        await swapPrice(existing.stripeSubscriptionId, price.id, price.amount >= (existing.unitAmount ?? 0), { addonId: choice.addon });
+        refresh();
+        return { ok: true, changed: true };
+      }
+    }
+
+    const hadPlan = isPlan && (await db.select({ id: subscriptions.id }).from(subscriptions).where(and(eq(subscriptions.orgWebsiteId, site.id), eq(subscriptions.type, "main"))).limit(1)).length > 0;
+    const metadata = { organizationId: String(context.organization.id), orgWebsiteId: String(site.id), orgWebsiteUrl: site.url, subscriptionType: type, ...(isPlan ? { plan: choice.plan } : { addonId: choice.addon }) };
+    const base = `${await requestOrigin()}/${await getLocale()}/dashboard/settings/billing`;
+    const session = await stripe().checkout.sessions.create({
+      mode: "subscription",
+      customer: await customerOf(context),
+      client_reference_id: String(site.id),
+      line_items: [{ price: price.id, quantity: 1 }],
+      allow_promotion_codes: true,
+      metadata,
+      subscription_data: { metadata, ...(isPlan && !hadPlan && TRIAL_DAYS() > 0 ? { trial_period_days: TRIAL_DAYS() } : {}) },
+      success_url: `${base}?checkout={CHECKOUT_SESSION_ID}`,
+      cancel_url: base,
+    });
+    if (!session.url) return { error: "Stripe didn't return a checkout page." };
+    return { ok: true, url: session.url };
+  } catch (error) {
+    return describe(error);
+  }
+}
+
+/** Called when Stripe sends the admin back from Checkout, so the page is right even before the webhook arrives. */
+export async function confirmCheckout(sessionId: string): Promise<Result> {
+  const context = await requireBillingAdmin();
+  try {
+    const session = await stripe().checkout.sessions.retrieve(sessionId, { expand: ["subscription.latest_invoice"] });
+    if (session.metadata?.organizationId !== String(context.organization.id)) return { error: "This checkout belongs to another workspace." };
+    const subscription = typeof session.subscription === "object" ? session.subscription : null;
+    if (subscription) {
+      const row = await syncSubscription(subscription);
+      if (typeof subscription.latest_invoice === "object" && subscription.latest_invoice) await processInvoice(subscription.latest_invoice);
+      // More tracked prompts: write the extra questions now.
+      if (row?.type === "llm_visibility_prompts" && row.orgWebsiteId) await rerunAgentJob(row.orgWebsiteId, "generatePrompts", siteDay(new Date(), context.site.timeZone)).catch(() => undefined);
+    }
+    refresh();
+    return { ok: true };
+  } catch (error) {
+    return describe(error);
+  }
+}
+
+/** Opens Stripe's customer portal (payment methods, invoices, cancellations) for the workspace. */
+export async function openBillingPortal(): Promise<Redirect> {
+  const context = await requireBillingAdmin();
+  try {
+    const session = await stripe().billingPortal.sessions.create({
+      customer: await customerOf(context),
+      return_url: `${await requestOrigin()}/${await getLocale()}/dashboard/settings/billing`,
+    });
+    return { ok: true, url: session.url };
+  } catch (error) {
+    return describe(error);
+  }
+}
+
+/** Moves the website to another plan or billing interval. */
+export async function changePlan(plan: Plan, interval: Interval): Promise<Result> {
+  const context = await requireBillingAdmin();
+  if (!PLANS.includes(plan) || !INTERVALS.includes(interval)) return { error: "Unknown plan" };
+  const main = await liveSubscription(context.site.id, "main");
+  if (!main?.stripeSubscriptionId) return { error: "This website has no plan yet." };
+  try {
+    const catalog = await priceCatalog();
+    const price = catalog.get(PLAN_LOOKUP_KEYS[plan][interval]);
+    if (!price) return { error: "This option isn't available yet." };
+    if (price.id === main.stripePriceId) return { error: "This is already the current plan." };
+    const yearly = (amount: number, every: Interval | null) => (every === "year" ? amount : amount * 12);
+    const upgrade = yearly(price.amount, price.interval) >= yearly(main.unitAmount ?? 0, main.interval);
+    await swapPrice(main.stripeSubscriptionId, price.id, upgrade, { plan });
+    refresh();
+    return { ok: true };
+  } catch (error) {
+    return describe(error);
+  }
+}
+
+async function ownSubscription(context: Awaited<ReturnType<typeof requireBillingAdmin>>, id: number) {
+  const [row] = await db.select().from(subscriptions).where(and(eq(subscriptions.id, id), eq(subscriptions.organizationId, context.organization.id)));
+  if (!row?.stripeSubscriptionId) throw new Error("Subscription not found");
+  return row as typeof row & { stripeSubscriptionId: string };
+}
+
+/** Pauses (or resumes) billing; agents stop while it is paused. */
+export async function setBillingPaused(id: number, paused: boolean): Promise<Result> {
+  const context = await requireBillingAdmin();
+  const row = await ownSubscription(context, id);
+  try {
+    await syncSubscription(await stripe().subscriptions.update(row.stripeSubscriptionId, { pause_collection: paused ? { behavior: "void" } : "" }));
+    refresh();
+    return { ok: true };
+  } catch (error) {
+    return describe(error);
+  }
+}
+
+/** Cancels at the end of the paid period (or undoes that). */
+export async function setCancelAtPeriodEnd(id: number, cancel: boolean): Promise<Result> {
+  const context = await requireBillingAdmin();
+  const row = await ownSubscription(context, id);
+  try {
+    await syncSubscription(await stripe().subscriptions.update(row.stripeSubscriptionId, { cancel_at_period_end: cancel }));
+    refresh();
+    return { ok: true };
+  } catch (error) {
+    return describe(error);
+  }
+}
+
+/** "Email me my invoices" for the signed-in user. */
+export async function setInvoiceEmails(enabled: boolean): Promise<Result> {
+  const context = await getAppContext();
+  if (!context) return { error: "Sign in first" };
+  await db
+    .insert(userSettings)
+    .values({ userId: context.user.id, isInvoiceEmailEnabled: enabled })
+    .onConflictDoUpdate({ target: userSettings.userId, set: { isInvoiceEmailEnabled: enabled, updatedAt: new Date() } });
+  return { ok: true };
+}

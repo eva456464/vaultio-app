@@ -27,6 +27,8 @@ Ground rules that apply to everything below:
 | App shell | Header, sidebar, mobile menu, product-updates bell (reads `product_updates`; no updates published yet) |
 | Languages | English text in `src/messages/en.json`; routes for fr/nl/de/es/pt/it fall back to English |
 | Background agents | Job queue, daily scheduler, onboarding that catches up when keys are added later, every run recorded |
+| Team | Members with Admin / Member roles and per-website access, email invitations (or a copyable link), invite acceptance page |
+| Billing | Stripe per website: Grow / Scale plans (monthly or yearly, free trial), add-ons (AI prompts, Reddit+, Quora+, backlink credits), checkout, customer portal, plan change, pause, cancel, invoices, webhooks; plan limits applied to prompts, social keywords and credits; agents pause without an active plan |
 
 ### Pages
 
@@ -44,11 +46,14 @@ Ground rules that apply to everything below:
 | Settings: Account, Business, Branding, Competitors, Saved pages, Writing, Visuals, Schedule, Improvements, Publishing, Analytics | `/dashboard/settings/*` | Built (Visuals: the infographic style is saved but infographics aren't generated yet) |
 | Site traffic: All traffic, AI search traffic, Google traffic | `/dashboard/analytics/ga4`, `/ai-traffic`, `/google-traffic` | Built: KPIs, channel / AI-model / Google charts, breakdowns, countries, top pages and searches with search, "brand articles only" and paging; connect state until Google is connected |
 | Clients (agency) | `/clients` | Built |
-| Invoices (agency) | `/clients/invoices` | Built; empty until billing exists |
+| Invoices (agency) | `/clients/invoices` | Built: invoices across all client websites (from Stripe); "Manage all subscriptions" on Clients opens Stripe's portal |
 | Backlinks | `/dashboard/backlink-exchange` | Built: exchange switch, how credits work, credits / received (value) / given / domain rating cards, exchange pool chart, given and received tables with live, awaiting, nofollow and removed states |
 | Socials: Reddit, Quora | `/dashboard/socials?tab=reddit` / `?tab=quora` | Built: To reply / Replied, suggested replies, Copy & open, Draft a reply, edit, redraft, mark replied, not relevant, why it's relevant, paging, empty states |
 | Settings: Reddit, Quora | `/dashboard/settings/reddit`, `/quora` | Built: monitored keywords (5 per platform) with suggestions, custom keywords, subreddits (Reddit), reply style |
-| Settings: Team members, Billing, White label, Product catalog | `/dashboard/settings/*` | **Placeholder** |
+| Settings: Team members | `/dashboard/settings/team-members` | Built: workspace name, members and invitations, invite dialog, role and website access changes, remove |
+| Settings: Billing | `/dashboard/settings/billing` | Built: plan picker with trial, active subscription (plan, next invoice, status, pause, cancel, manage in Stripe), Upgrade to Scale, add-ons, payment history, "Email me my invoices" |
+| Invitation | `/invite/[token]` | Built: create an account or sign in with the invited email, then join |
+| Settings: White label, Product catalog | `/dashboard/settings/*` | **Placeholder** |
 | Agency settings: Profile, Branding, Hosting, Members, Talk with team | `/clients/settings/*` | **Placeholder** |
 
 ### Agents
@@ -78,6 +83,11 @@ Ground rules that apply to everything below:
 - The monthly report agent ran for real with only the email request intercepted.
 - Google: the connect → consent → property → sync → pages flow, token refresh, re-syncs, disconnect and
   reconnect ran end to end against a local mock of Google's APIs (`scripts/dev-fixtures/mock-google.py`).
+- Team: invite → sign up with the invited email → accept → limited website access → role and
+  access changes → remove, in a browser.
+- Billing: checkout with trial, webhooks, upgrade to Scale yearly, Reddit+ and backlink-credit
+  add-ons (limits and credits applied), pause, cancel and keep, invoices and the agents' pause,
+  against a local Stripe mock (`scripts/dev-fixtures/mock-stripe.py`).
 - Reddit and Quora: both search paths (Google results and web search) ran with stand-in answers
   (`scripts/test-socials.ts`), plus the Reddit Data API mock; the pages were driven in a browser
   (copy & open, mark replied, edit, not relevant, keywords, subreddits, reply style).
@@ -102,21 +112,32 @@ These are written against the providers' documentation but have not run live yet
   reddit.com / quora.com, relevance scores and reply drafts with real Claude, and the Reddit
   Data API (tested against a local mock, `scripts/dev-fixtures/mock-reddit.py`).
 
+- Stripe itself: real Checkout, the customer portal, proration on plan changes, webhook delivery
+  and invoice PDFs (written against the Stripe SDK's types for API version 2026-10-28).
+- Invitation and invoice emails through Resend.
+
 The first live run on the Mac should be watched; fixes are expected to be small (field names,
 limits).
 
 ## Still to build, in recommended order
 
-1. **Team and billing**: Team members (invites), Billing with Stripe (including backlink credit
-   top-ups and the Reddit+ / Quora+ add-ons that raise the keyword limit), invoices, White label settings.
-2. **Agency settings**: profile, branding, custom domain hosting, members, talk with team.
-3. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
-4. **Infographics**: one chart-style image per article in the Editorial or Classic style.
-5. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
-6. **Product catalog** settings.
-7. **Translations** for the other languages.
-8. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
+1. **Agency settings and white label**: profile, branding (agency name, logo, favicon, colours),
+   hosting (custom domain, email sending domain), members (reusing Team members), talk with team,
+   and Settings → White label.
+2. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
+3. **Infographics**: one chart-style image per article in the Editorial or Classic style.
+4. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
+5. **Product catalog** settings.
+6. **More languages**: content in extra languages per website (the Scale plan's 3 languages and the
+   language add-on), and translations of the app itself.
+7. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
    `app.vaultio.co` at Vaultio instead of the Babylovegrowth white label.
+
+Billing items not built yet: the onboarding "choose a plan" step (a new website is set up for free,
+then the Overview asks for a plan), volume discounts for several websites, seat limits, the
+cancellation retention offers, and the language and Instagram/Facebook add-ons. The Scale plan is
+only advertised with what Vaultio delivers today (50 tracked questions, priority support), not the
+reference product's 120 articles in 4 languages.
 
 Left out on purpose:
 
@@ -143,7 +164,9 @@ Smaller follow-ups:
 | OpenAI or Gemini key | Article images (and ChatGPT / Gemini in AI visibility) | Not started; without one, articles have no images |
 | Vaultio logo files | Replace the placeholder "V" mark | Received (dragon mark, `research/assets/vaultio_favicon.png` on the `research` branch); not yet used in the app |
 | Reddit Data API app (`REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`) | Optional: votes, comment counts and dropping archived or locked threads on the Reddit page | Not started; commercial use needs Reddit's approval |
-| Stripe account | Billing | Later |
+| Stripe account (`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`) | Billing (built, waiting for this) | Not started. Then: run `scripts/stripe-setup.ts`; add the webhook endpoint `https://<app domain>/api/stripe/webhook`; turn on plan switching and cancellation in Stripe's customer portal settings |
+| Prices for Reddit+, Quora+ and backlink credits (and how many credits) | No reference price was seen, so these aren't on sale until set in `scripts/stripe-prices.json` | Waiting for a decision. Grow $99/mo ($59/mo yearly), Scale $399/mo ($199/mo yearly), +30 prompts $49/mo and +50 prompts $89/mo are copied from the reference |
+| Which workspaces aren't billed | Vaultio's own workspace should be exempt: `update organizations set billing_exempt = true where id = …` | Waiting for the production database |
 | Hosting accounts (web, worker, Postgres) | Production launch | Later |
 | Leftover Blog Hosting setup for `blog.vaultio.co` in the live Babylovegrowth account | Created during research; decide whether to remove it | Waiting for a decision |
 
@@ -169,6 +192,8 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Article improvements: scan, improve agent, review page, Settings → Improvements | `main` 8b61cfc |
 | Backlink exchange: joining, placement, daily live check, credits, Backlinks page | `main` 31d5e54 |
 | Reddit and Quora: keyword suggestions, thread search and scoring, reply drafts, Socials pages, Settings → Reddit / Quora, report section | `main` e2df1d6 |
+| Team members: invitations, roles, website access, invite acceptance | `main` 11232fb |
+| Billing with Stripe: plans, add-ons, checkout, portal, webhooks, plan limits, agents paused without a plan | `main` |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
@@ -182,6 +207,10 @@ to be run on the Mac (or after reconnecting Remote Control). After pulling new c
 
 ```bash
 git pull
+```
+
+```bash
+npm install
 ```
 
 ```bash

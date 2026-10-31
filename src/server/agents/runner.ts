@@ -1,6 +1,7 @@
 import { and, eq } from "drizzle-orm";
 import { db } from "@/db";
 import { agentJobRuns, orgWebsites } from "@/db/schema";
+import { siteEntitlements } from "../billing/entitlements";
 import { availableRequirements, REQUIREMENT_LABELS } from "./capabilities";
 import { analyzeWebsite, siteHealthAudit, sitemapSync } from "./jobs/site-analysis";
 import { computeMilestones } from "./jobs/milestones";
@@ -62,8 +63,16 @@ export const JOB_REGISTRY: Record<AgentJobName, Registration> = {
 
 export type RunOutcome = { status: "completed" | "skipped" | "already_done"; detail?: string; result?: unknown };
 
-/** Runs one job for one site and day, at most once (safe to call repeatedly). */
-export async function runAgentJob(siteId: number, job: AgentJobName, runDate: string): Promise<RunOutcome> {
+/** Jobs that keep running without a subscription: they cost nothing and keep the exchange fair for partners. */
+const FREE_JOBS = new Set<AgentJobName>(["milestones", "backlinkCheck"]);
+export const NO_SUBSCRIPTION = "No active subscription for this website";
+
+/**
+ * Runs one job for one site and day, at most once (safe to call repeatedly). Onboarding steps run
+ * before a plan is chosen (so the strategy can be shown); everything else needs an active
+ * subscription when billing is on.
+ */
+export async function runAgentJob(siteId: number, job: AgentJobName, runDate: string, options: { onboarding?: boolean } = {}): Promise<RunOutcome> {
   await db
     .insert(agentJobRuns)
     .values({ orgWebsiteId: siteId, job, runDate, status: "queued" })
@@ -78,11 +87,14 @@ export async function runAgentJob(siteId: number, job: AgentJobName, runDate: st
   const registration = JOB_REGISTRY[job];
   const available = await availableRequirements(siteId);
   const missing = registration.requires.filter((requirement) => !available.has(requirement));
+  const unpaid = !options.onboarding && !FREE_JOBS.has(job) && !(await siteEntitlements(siteId)).active;
   const skipReason = missing.length
     ? missing.map((requirement) => REQUIREMENT_LABELS[requirement]).join("; ")
-    : registration.handler
-      ? null
-      : "This agent is not available yet";
+    : !registration.handler
+      ? "This agent is not available yet"
+      : unpaid
+        ? NO_SUBSCRIPTION
+        : null;
   if (skipReason) {
     await db.update(agentJobRuns).set({ status: "skipped", detail: skipReason, finishedAt: new Date(), updatedAt: new Date() }).where(where);
     return { status: "skipped", detail: skipReason };

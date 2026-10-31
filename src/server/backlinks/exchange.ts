@@ -18,6 +18,8 @@ import { ai } from "@/server/ai/claude";
 import { logActivity } from "../agents/activity";
 import type { JobContext, Site } from "../agents/jobs/types";
 import { fetchText } from "../agents/web";
+import { CREDIT_SUBSCRIBER_MIN_RATING } from "@/lib/billing";
+import { creditSubscriberSiteIds } from "../billing/entitlements";
 
 export const STARTING_CREDITS = 100;
 export const MAX_EARN_PER_LINK = 25;
@@ -79,9 +81,12 @@ export async function partnerPages(site: Site): Promise<TargetPage[]> {
     .from(backlinks)
     .where(and(or(eq(backlinks.sourceOrgWebsiteId, site.id), eq(backlinks.targetOrgWebsiteId, site.id)), gte(backlinks.createdAt, since(RECIPROCAL_DAYS))));
 
+  const subscribers = await creditSubscriberSiteIds();
   const eligible: { site: typeof partners[number]; balance: number; received: number }[] = [];
   for (const partner of partners) {
     if (giverRating < matchFloor(partner)) continue;
+    // Backlink credit subscribers only receive links from sites rated 20 or more.
+    if (subscribers.has(partner.id) && giverRating < CREDIT_SUBSCRIBER_MIN_RATING) continue;
     // No repeats to the same site within 30 days, and no links back to a site that linked here within 90.
     if (recent.some((r) => r.source === site.id && r.target === partner.id && r.createdAt >= since(REPEAT_DAYS))) continue;
     if (recent.some((r) => r.source === partner.id && r.target === site.id)) continue;
