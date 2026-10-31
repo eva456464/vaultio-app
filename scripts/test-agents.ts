@@ -57,7 +57,7 @@ const standInAi: AiProvider = {
     throw new Error(`Stand-in has no answer for: ${system.slice(0, 60)}`);
   },
   async generateText(request) {
-    const internal = request.prompt.match(/- (http:\/\/localhost:4100\/[^\s(]+)/)?.[1] ?? "http://localhost:4100/services/roof-repair";
+    const internal = request.prompt.match(/Internal pages you may link to:\n- (\S+)/)?.[1] ?? "/";
     return [
       "Most roofs last 20 to 30 years, but the material matters most [(InterNACHI)](https://www.nachi.org/life-expectancy.htm).",
       "", "**TL;DR:**", "- Asphalt shingles: 20–30 years", "- Metal: 40–70 years", "- Tile: 50+ years",

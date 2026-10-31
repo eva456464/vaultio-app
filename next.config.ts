@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [{ protocol: "https", hostname: "**" }],
   },
   serverExternalPackages: ["postgres"],
+  devIndicators: false,
 };
 
 export default withNextIntl(nextConfig);

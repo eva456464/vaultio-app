@@ -208,7 +208,9 @@
         "joinBacklinkExchange": "Join the backlink exchange",
         "milestones": "Check your achievements",
         "buildBrandProfile": "Write your brand profile"
-      }
+      },
+      "waitingTitle": "{count, plural, one {# agent is waiting} other {# agents are waiting}}",
+      "waitingSubtitle": "They start automatically as soon as the missing setup below is in place."
     }
   },
   "milestones": {

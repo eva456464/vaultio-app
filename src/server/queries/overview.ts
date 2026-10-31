@@ -20,6 +20,8 @@ import {
 } from "@/db/schema";
 import type { TrafficRange } from "@/lib/traffic";
 import { availableRequirements } from "../agents/capabilities";
+import { ONBOARDING_STEPS } from "../agents/queue";
+import { JOB_REGISTRY } from "../agents/runner";
 import { plannedActions, siteDay, type AgentJob } from "../agents/schedule";
 import type { Site } from "../agents/jobs/types";
 
@@ -61,6 +63,8 @@ export type AgentDay = {
   featured: FeaturedArticle | null;
   setupInProgress: boolean;
   setupSteps: { job: string; status: string; detail: string | null }[];
+  /** Onboarding agents that could not run yet (missing keys or integrations, or errors). */
+  waiting: { job: string; status: string; detail: string | null }[];
 };
 
 export async function getAgentDay(site: Site, requestedDay: string | undefined): Promise<AgentDay> {
@@ -102,16 +106,37 @@ export async function getAgentDay(site: Site, requestedDay: string | undefined):
   }));
 
   const featured = await getFeaturedArticle(site.id, day, items);
-  const setupSteps =
-    site.onboardingStatus === "completed"
-      ? []
-      : await db
-          .select({ job: agentJobRuns.job, status: agentJobRuns.status, detail: agentJobRuns.detail })
-          .from(agentJobRuns)
-          .where(eq(agentJobRuns.orgWebsiteId, site.id))
-          .orderBy(asc(agentJobRuns.createdAt));
+  const runs = await db
+    .select({ job: agentJobRuns.job, status: agentJobRuns.status, detail: agentJobRuns.detail })
+    .from(agentJobRuns)
+    .where(and(eq(agentJobRuns.orgWebsiteId, site.id), inArray(agentJobRuns.job, [...ONBOARDING_STEPS])))
+    .orderBy(asc(agentJobRuns.createdAt));
+  // Latest run per onboarding step, in pipeline order.
+  const latest = new Map(runs.map((run) => [run.job, run]));
+  const setupSteps = ONBOARDING_STEPS.flatMap((step) => {
+    const run = latest.get(step);
+    return run ? [{ job: step, status: run.status, detail: run.detail }] : [];
+  });
+  const completedSteps = new Set(runs.filter((run) => run.status === "completed").map((run) => run.job));
+  // Agents that exist but could not run yet; features still being built are left out.
+  const waiting = setupSteps.filter(
+    (step) =>
+      !completedSteps.has(step.job) &&
+      (step.status === "skipped" || step.status === "failed") &&
+      Boolean(JOB_REGISTRY[step.job].handler),
+  );
 
-  return { day, today, firstDay, lastDay, items, featured, setupInProgress: site.onboardingStatus !== "completed", setupSteps };
+  return {
+    day,
+    today,
+    firstDay,
+    lastDay,
+    items,
+    featured,
+    setupInProgress: site.onboardingStatus !== "completed",
+    setupSteps: site.onboardingStatus === "completed" ? [] : setupSteps,
+    waiting,
+  };
 }
 
 async function getFeaturedArticle(siteId: number, day: string, items: ActivityItem[]): Promise<FeaturedArticle | null> {

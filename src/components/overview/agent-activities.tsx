@@ -185,12 +185,12 @@ function FeaturedArticleBlock({ article }: { article: FeaturedArticle | null }) 
         <p className="text-[17px] font-medium text-ink">{heading}</p>
       </div>
       <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-center">
-        <div className="aspect-[16/9] w-full shrink-0 overflow-hidden rounded-xl bg-canvas sm:w-[232px]">
-          {article.imageUrl && (
-            // eslint-disable-next-line @next/next/no-img-element
+        {article.imageUrl && (
+          <div className="aspect-[16/9] w-full shrink-0 overflow-hidden rounded-xl bg-canvas sm:w-[232px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={article.imageUrl} alt="" className="size-full object-cover" />
-          )}
-        </div>
+          </div>
+        )}
         <div className="min-w-0">
           <p className="font-heading text-lg font-semibold leading-snug text-ink">{article.title}</p>
           {article.keyword && (
@@ -262,6 +262,34 @@ function SetupProgress({ steps }: { steps: AgentDay["setupSteps"] }) {
   );
 }
 
+function WaitingAgents({ steps }: { steps: AgentDay["waiting"] }) {
+  const t = useTranslations("overview.setup");
+  return (
+    <div className="rounded-2xl border border-[#F5DFA5] bg-[#FFFBEB] p-5">
+      <div className="flex items-center gap-3">
+        <span className="grid size-10 place-items-center rounded-xl bg-white">
+          <TriangleAlert className="size-[18px] text-amber-500" />
+        </span>
+        <div>
+          <p className="text-[15px] font-semibold text-ink">{t("waitingTitle", { count: steps.length })}</p>
+          <p className="text-sm text-ink-secondary">{t("waitingSubtitle")}</p>
+        </div>
+      </div>
+      <ul className="mt-4 space-y-2">
+        {steps.map((step) => (
+          <li key={step.job} className="flex items-start gap-2.5 text-sm">
+            <CircleDashed className="mt-0.5 size-4 shrink-0 text-amber-500" />
+            <span>
+              <span className="text-ink">{t(`steps.${step.job}` as "steps.analyzeWebsite")}</span>
+              {step.detail && <span className="block text-xs text-ink-secondary">{step.detail}</span>}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function AgentActivitiesCard({ data, planned }: { data: AgentDay; planned: PlannedDay[] }) {
   const t = useTranslations("overview");
   const format = useFormatter();
@@ -307,6 +335,7 @@ export function AgentActivitiesCard({ data, planned }: { data: AgentDay; planned
 
       <div className="mt-6 space-y-3">
         {data.setupInProgress && isToday && <SetupProgress steps={data.setupSteps} />}
+        {!data.setupInProgress && isToday && data.waiting.length > 0 && <WaitingAgents steps={data.waiting} />}
         {(!data.setupInProgress || data.featured) && <FeaturedArticleBlock article={data.featured} />}
 
         {rows.length > 0 && (
