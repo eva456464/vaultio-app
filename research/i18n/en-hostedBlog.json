@@ -1,0 +1,18 @@
+{
+ "blogLabel": "Blog",
+ "heading": "Discover our latest articles and blogs",
+ "noArticles": "No articles published yet.",
+ "previous": "Previous",
+ "next": "Next",
+ "pageOf": "Page {page} of {totalPages}",
+ "backToBlog": "← Back to blog",
+ "onThisPage": "On this page",
+ "visitWebsite": "Visit Website",
+ "allRightsReserved": "© {year} {brandName}. All rights reserved.",
+ "allRightsReservedNoBrand": "© {year} All rights reserved.",
+ "articleNotFound": "Article not found",
+ "logoAlt": "Logo",
+ "home": "Home",
+ "metaTitle": "{brandName} Blog",
+ "metaDescription": "Latest articles from {brandName}"
+}

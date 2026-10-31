@@ -1,0 +1,39 @@
+{
+ "metaTitle": "Restart your plan",
+ "title": "Restart your plan for {site}",
+ "subtitle": "Choose a plan to start growing again.",
+ "ctaGrow": "Restart with Grow",
+ "ctaScale": "Restart with Scale",
+ "ctaNote": "You'll confirm the payment on Stripe.",
+ "checkoutError": "Something went wrong. Please refresh the page and try again.",
+ "freeMonth": {
+  "title": "Get your first month free for {site}",
+  "subtitle": "Choose a plan. You'll add a card on Stripe, but you pay nothing today.",
+  "ctaNote": "First month free, then the price above each month. Cancel any time."
+ },
+ "invalid": {
+  "title": "This link doesn't work",
+  "description": "It may be broken or incomplete. Sign in to manage your plan.",
+  "action": "Sign in"
+ },
+ "loadError": {
+  "title": "We couldn't load your offer",
+  "description": "Your link is fine, but something went wrong. Please try again in a moment.",
+  "action": "Try again"
+ },
+ "alreadyActive": {
+  "title": "Your plan is already active",
+  "description": "There's nothing else to do. Your site is already growing again.",
+  "action": "Go to dashboard"
+ },
+ "onHold": {
+  "title": "Your plan is on hold",
+  "description": "There's a payment problem or the plan is paused. Open your billing page to fix it.",
+  "action": "Go to billing"
+ },
+ "freeMonthUsed": {
+  "title": "You've already used your free month",
+  "description": "You can still restart your plan from your billing page.",
+  "action": "Go to billing"
+ }
+}

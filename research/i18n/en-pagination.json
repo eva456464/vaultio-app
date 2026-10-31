@@ -1,0 +1,5 @@
+{
+ "previous": "Previous",
+ "next": "Next",
+ "showing": "Showing {from, number}–{to, number} of {total, number} items"
+}

@@ -1,0 +1,469 @@
+{
+ "guest": {
+  "expired": {
+   "title": "Your session has expired",
+   "description": "Guest sessions are kept for 7 days. Start again and we'll have you set up in a few minutes.",
+   "restart": "Start over"
+  }
+ },
+ "agency": {
+  "title": "What's your agency website?",
+  "subtitle": "We use it to prefill your brand name, app domain and logo. We never track or write content for it.",
+  "label": "Agency website",
+  "placeholder": "youragency.com",
+  "continue": "Continue"
+ },
+ "agencyBrand": {
+  "title": "How should your clients' dashboard look?",
+  "editTitle": "Branding and domains",
+  "normalBrandTitle": "Brand your client reports",
+  "normalBrandSubtitle": "Your agency name, logo and colors appear on your clients' reports. Your dashboard uses BabyLoveGrowth branding.",
+  "normalBrandNameTip": "Shown on your clients' reports.",
+  "subtitle": "Clients see this branding when they sign in. You can change it anytime.",
+  "domainTitle": "Where do you want to host Babylovegrowth?",
+  "domainSubtitle": "This is where your clients will login to see their branded dashboard. We suggest a subdomain like app.youragency.com.",
+  "sendingTitle": "What's your email sending domain?",
+  "sendingSubtitle": "Clients you invite will get a invitation email from this address. You will add DNS record later.",
+  "purposeTitle": "How do you want to use BabyLoveGrowth?",
+  "purposeSubtitle": "The only difference is whether your clients can log in to their own dashboard.",
+  "whitelabelTitle": "White label BabyLoveGrowth",
+  "whitelabelDescription": "Your clients log in to their own dashboard on your domain, with your logo and colors. They never see BabyLoveGrowth.",
+  "normalTitle": "Normal BabyLoveGrowth",
+  "normalDescription": "You run every client's site from your own account. Clients don't get a login, so there's no domain or DNS setup.",
+  "brandName": "Agency name",
+  "brandNamePlaceholder": "Your agency",
+  "logo": "Logo",
+  "logoUpload": "Upload a logo",
+  "logoUploading": "Uploading...",
+  "logoDrop": "Drop your logo or browse",
+  "logoFormat": "SVG or PNG · wide format",
+  "logoTip": "Shown in the sidebar, on your clients' sign-in screen and on their reports.",
+  "logoError": "Could not upload that logo. Try a PNG, JPG, WEBP or SVG.",
+  "favicon": "Favicon",
+  "faviconTip": "The small icon in your clients' browser tab.",
+  "faviconUpload": "Upload a favicon",
+  "faviconDrop": "Drop or browse",
+  "faviconFormat": "Square · 512px",
+  "faviconError": "Could not upload that favicon. Try a PNG, JPG, WEBP or SVG.",
+  "brandNameTip": "Shown in the sidebar, in your clients' emails and on their reports. Your clients only ever see your brand.",
+  "appDomain": "Hosting domain",
+  "appDomainPlaceholder": "app.youragency.com",
+  "sendingDomain": "Email sending domain",
+  "dashboardAt": "I want my dashboard at:",
+  "sendInvitesFrom": "I want to send invitation emails from:",
+  "sendingDomainHint": "Invites and password resets are emailed to your clients from this domain. The suggested one works.",
+  "sendingDomainPlaceholder": "mail.youragency.com",
+  "primaryColor": "Primary color",
+  "secondaryColor": "Accent color",
+  "primaryColorTip": "Replaces our orange accents in your clients' dashboard. Buttons and text keep their dark color.",
+  "secondaryColorTip": "Used for secondary accents across your clients' dashboard, like badges and highlights.",
+  "colorsDetecting": "Picking up your brand colors from your site...",
+  "submit": "Save and continue",
+  "continue": "Continue",
+  "save": "Save changes",
+  "error": "Could not save your agency setup. Check the domains and try again.",
+  "loading": "Loading your brand...",
+  "loadError": "We couldn't load your saved branding.",
+  "retry": "Try again",
+  "back": "Back"
+ },
+ "agencyDns": {
+  "title": "Connect your domain (optional)",
+  "subtitle": "Skip this if you want. You can still onboard unlimited clients and send each one branded reports. Connecting a domain only adds client logins to a dashboard on your own domain.",
+  "nameTip": "Enter only the Name shown (for example app), without your domain after it.",
+  "typeTip": "Select this record type in your DNS provider.",
+  "valueTip": "Paste the full value into the DNS record's value field without changing it.",
+  "priorityTip": "Enter {value} in your DNS provider's priority field for this MX record.",
+  "appDomainLabel": "App domain",
+  "appDomainHint": "Your clients will login on this URL. To connect it, copy the record below into your DNS settings.",
+  "sendingDomainLabel": "Email sending",
+  "sendingDomainHint": "These records let us send your clients' invites and password resets from {address}, with your agency's name as the sender.",
+  "live": "Live",
+  "pending": "Waiting on DNS",
+  "failed": "We could not finish setting up this domain. Click Check again in a few minutes, or contact support.",
+  "tableType": "Type",
+  "tableName": "Name",
+  "tableValue": "Value",
+  "tableStatus": "Status",
+  "priority": "Priority {value}",
+  "copy": "Copy",
+  "copied": "Copied",
+  "contactSupport": "Contact support",
+  "recheck": "Check again",
+  "rechecking": "Checking...",
+  "preparingEmailRecords": "Preparing your email DNS records...",
+  "emailRecordsNotReady": "Email DNS records aren't ready yet. Click Check again to retry.",
+  "setupFailed": "Setup failed",
+  "supportMessage": "Hi, I need help connecting my agency DNS.\n\nApp domain: {appDomain}\nApp domain status: {appStatus}\nEmail sending domain: {emailDomain}\nEmail domain status: {emailStatus}\n\nCould you help me finish the setup?",
+  "supportLoadErrorMessage": "Hi, I need help with my agency DNS setup. The setup details could not be loaded.",
+  "propagationNote": "DNS changes usually take a few minutes, but some can take up to 48 hours.",
+  "continue": "Start onboarding clients",
+  "skip": "Skip for now",
+  "notConnectedYet": "Your domain is not connected yet. You can continue now, and it will show your brand as soon as the DNS records resolve.",
+  "loading": "Loading your records..."
+ },
+ "agencyTeam": {
+  "title": "Invite your team",
+  "subtitle": "Add the people who will manage clients with you. Each one gets an email invite to join your agency.",
+  "label": "Teammate's email",
+  "placeholder": "name@youragency.com",
+  "invite": "Send invite",
+  "invited": "Invite sent to {email}",
+  "error": "We couldn't send that invite. Please try again.",
+  "skip": "Skip for now",
+  "continue": "Continue"
+ },
+ "agencyCall": {
+  "title": "Book a call with your account manager",
+  "subtitle": "Get a quick walkthrough of your client dashboard and ask anything about your setup. It's free and takes 15 minutes.",
+  "bookCall": "Book a call",
+  "continue": "Go to my dashboard"
+ },
+ "whitelabelPreview": {
+  "heading": "This is what your clients will see",
+  "subheading": "Your domain, your brand name and your colors.",
+  "normalHeading": "This is your BabyLoveGrowth dashboard",
+  "normalSubheading": "Manage all your clients' sites from your own account. Your clients don't get a login.",
+  "normalAddress": "babylovegrowth.ai",
+  "addressBarPlaceholder": "app.youragency.com",
+  "brandNamePlaceholder": "Your agency",
+  "clientSite": "client.com",
+  "navGroupAnalytics": "Analytics",
+  "nav": {
+   "overview": "Overview",
+   "content": "Blog content",
+   "backlinks": "Backlinks",
+   "health": "Site health",
+   "socials": "Socials",
+   "reporting": "Reporting",
+   "visibility": "AI visibility",
+   "traffic": "Site traffic",
+   "settings": "Settings",
+   "specialist": "SEO specialist"
+  },
+  "welcome": "Welcome",
+  "welcomeSub": "Your growth agents are working in the background to improve your visibility across Google and AI search.",
+  "running": "Everything is running",
+  "todaysArticle": "Today's article",
+  "articleTitle": "Worried About Hair Loss? Run a Quick AI Scan Before Harsh Treatments",
+  "articleUrl": "https://myhair.ai/blog/reasons-to-avoid-harsh-treatments",
+  "searchVolume": "Search volume",
+  "difficulty": "Difficulty",
+  "articleType": "Article type",
+  "listicle": "Listicle",
+  "article": {
+   "whyTopic": "Why this topic?",
+   "whyStructure": "Why this structure?",
+   "characteristics": "Article characteristics"
+  },
+  "websiteAuthority": "Website authority",
+  "backlinks": "Backlinks",
+  "backlinksReceived": "Backlinks received",
+  "domainRating": "Domain rating",
+  "achievements": "Achievements",
+  "achievementsTitle": "We've built $157.2K of value for you",
+  "metric": {
+   "adSpend": "Ad spend saved",
+   "backlinkCost": "Backlink cost saved",
+   "impressions": "Impressions",
+   "visitorsArticles": "Visitors from articles",
+   "visitorsAi": "Visitors from AI",
+   "authority": "Your site's authority"
+  },
+  "connected": "Connected",
+  "notConnected": "Not connected",
+  "email": {
+   "greeting": "Hey there!",
+   "body": "Click here to login and join the organization:",
+   "button": "Accept Invitation",
+   "link": "Or open this link:"
+  }
+ },
+ "businessPreview": {
+  "heading": "We turn your input into a content strategy",
+  "subheading": "Your business and target audience help us discover the topics your potential customers are searching for.",
+  "businessLabel": "Your business",
+  "audienceLabel": "Your target audience",
+  "aiNote": "Our AI analyzes your input",
+  "topicsLabel": "Relevant topics we find <highlight>(not final)</highlight>",
+  "articlesLabel": "High-quality articles for your business",
+  "note": "More visibility. More traffic. More customers."
+ },
+ "brandPreview": {
+  "heading": "Your brand color in action",
+  "subheading": "We'll use your color to create beautiful, on-brand articles with matching images, charts and visuals.",
+  "guideLabel": "Guide",
+  "guideTitle": "The Complete Guide to Sustainable Growth in 2026",
+  "guideBody": "Discover proven strategies, practical tips and actionable steps to grow your business effectively and sustainably.",
+  "statValue": "+120%",
+  "statLabel": "Organic traffic",
+  "tipsLabel": "Tips",
+  "tipsTitle": "10 Ways to Improve Your SEO",
+  "caseStudyLabel": "Case study",
+  "caseStudyTitle": "How This Brand Grew 3x in 6 Months",
+  "features": {
+   "images": {
+    "title": "Branded images",
+    "subtitle": "Styled with your color"
+   },
+   "charts": {
+    "title": "Custom charts",
+    "subtitle": "Matching your brand"
+   },
+   "visuals": {
+    "title": "Consistent visuals",
+    "subtitle": "Across all articles"
+   }
+  }
+ },
+ "gscPreview": {
+  "title": "Search Console",
+  "searchPerformance": "Search performance",
+  "topKeywords": "Top keywords",
+  "indexingInsights": "Indexing insights",
+  "note": "We turn your search data into better content"
+ },
+ "sitePreview": {
+  "addressBarPlaceholder": "your website",
+  "caption": "That's <highlight>{domain}</highlight>"
+ },
+ "selectWebsite": {
+  "failed": "Something went wrong. Please try again.",
+  "general": {
+   "save": "Saving...",
+   "loading": "Loading...",
+   "continue": "Continue",
+   "start": "Start analysis"
+  },
+  "error": {
+   "description": "Something went wrong while loading this step. Please try again — you can complete these details later in settings.",
+   "retry": "Try again"
+  },
+  "step1": {
+   "begin": "Let's begin",
+   "title": "What's your website?",
+   "description": "Enter your site and we'll build an SEO & AI search strategy around your business and market.",
+   "error": "Please enter a valid website URL (e.g., example.com)",
+   "failed": "Failed to create website. Please try again.",
+   "blockedDomain": "Please enter your business website URL. Social media profiles, Google My Business, and other non-website URLs are not allowed.",
+   "builderDomain": "Please connect your real domain — site-builder URLs (.webflow.io, .lovable.app, etc.) aren't supported.",
+   "unresolvableDomain": "We couldn't find that domain. Please check the spelling and try again.",
+   "browserCheck": "We couldn't verify your browser. Please try again.",
+   "step": "Step 1 of 5",
+   "completed": "Onboarding already completed for this website.",
+   "placeholder": "Insert your website (example.com)"
+  },
+  "platformBadge": {
+   "detectedTitle": "{platform} detected",
+   "wordpress": "Our plugin connects your blog in about 3 clicks.",
+   "shopify": "A guided setup gets articles publishing to your store in ~3 minutes.",
+   "wix": "Paste one API key and your blog publishes itself.",
+   "webflow": "Link your CMS collection in a few guided steps.",
+   "squarespace": "We'll host your blog on your own domain — zero rebuild.",
+   "framer": "Our Framer plugin syncs articles straight to your site.",
+   "ghost": "Paste two keys and publishing runs on autopilot.",
+   "bigcommerce": "A short guided setup connects your store's blog.",
+   "gohighlevel": "Connect your blog in one quick flow.",
+   "duda": "Drop in a single widget and articles appear on your site.",
+   "snapps": "One API key connects your blog.",
+   "nextjs": "Ship a ready-made blog with our package, or plug into the API.",
+   "noDeveloperNeeded": "No developer needed"
+  },
+  "step2": {
+   "failed": "Failed to update language. Please try again.",
+   "step": "Step 2",
+   "stepNo": "Step 2 of 5",
+   "title": "Target market & language",
+   "description": "Choose the market you want to rank in and the language your content is written in.",
+   "potential": "Potential audience",
+   "targetMarketLabel": "Target market",
+   "targetMarketTooltip": "The country or region you want your content to rank in. Choose Global to target everyone.",
+   "contentLanguageLabel": "Primary language",
+   "contentLanguageTooltip": "The language your articles will be written in.",
+   "searchLanguages": "Search languages…",
+   "noResults": "No results",
+   "detecting": "Detecting your market and language",
+   "detectingHint": "Analyzing your website — this only takes a few seconds.",
+   "languageUnavailableTitle": "Content isn't available for {country} yet",
+   "languageUnavailableDescription": "We don't support this country's language yet. Pick a different target country, or choose Global to write in any language."
+  },
+  "step3": {
+   "failed": "Failed to update business information",
+   "target": "At least 2 target audiences are required",
+   "audiencesEnough": "Great, that's enough to build your content strategy",
+   "exists": "This target audience already exists",
+   "missing": "Organization website ID is missing",
+   "step": "Step 3",
+   "stepNo": "Step 3 of 5",
+   "title": "Describe Your Business",
+   "description": "Select the language of your articles based on your target audience.",
+   "generatingTitle": "We are analyzing your business",
+   "generatingHint": "It will take approx 15 seconds.",
+   "unreachableTitle": "We couldn't reach {url}",
+   "unreachableHint": "The website URL seems incorrect. Double check it for typos and try again.",
+   "unreachableRestart": "Restart onboarding"
+  },
+  "step5": {
+   "begin": "Let's begin",
+   "title": "Let us know your brand",
+   "brandColorOptional": "Brand Color",
+   "tooltop1": "Choose your brand color for article styling.",
+   "tooltop2": "Insert an article link for brand voice, or we'll pick the best one for you.",
+   "failed": "We couldn't save your brand details. Please try again.",
+   "failedColor": "Failed to save brand color. Please try again.",
+   "stepNo": "Step 5 of 5",
+   "step": "Step 5",
+   "placeholder": "Example Article URL (optional)",
+   "optional": "Optional",
+   "brandSecondaryColorOptional": "Secondary Color",
+   "tooltipSecondaryColor": "Secondary brand color used for accents and highlights.",
+   "brandDescriptionLabel": "Brand Description",
+   "tooltipBrandDescription": "AI-generated description of your brand feel and aesthetic. Edit to refine how images are styled.",
+   "coverImage": "Article cover image",
+   "coverImageDescription": "Select a style of your article cover images.",
+   "realisticWithTitle": "Realistic with title",
+   "realisticWithoutTitle": "Realistic",
+   "realisticWithoutTitleDescription": "A lifelike photo of what the article is about, without a title."
+  },
+  "step6": {
+   "failed": "Failed to update organization",
+   "continueToLastStep": "Continue to last step",
+   "submit": "Submit",
+   "specify": "Please specify",
+   "creatorName": "Who on LinkedIn? (optional)",
+   "goBack": "Go back",
+   "friendEmail": "Input an email from your friend (optional)",
+   "friend": "Friend",
+   "other": "Other"
+  },
+  "step7": {
+   "failed": "Failed to open billing portal",
+   "checkoutFail": "Failed to start checkout process",
+   "outrank": "Outrank {domain} and others",
+   "language": "Please select a language and website",
+   "something": "Something went wrong during checkout",
+   "value": "Best value",
+   "plan": "Grow Plan",
+   "month": "month",
+   "reactivate": "Reactivate Subscription",
+   "startTrial": "Start Your 3-Day Free Trial",
+   "cancel": "Cancel anytime.",
+   "questions": "No questions asked.",
+   "all": "Everything You Need to Succeed:"
+  }
+ },
+ "selectPlan": {
+  "languageDropdown": {
+   "selectPlaceholder": "Select a language",
+   "targeting": "Targeting {population} people"
+  },
+  "trialBadge": "{days}-day free trial",
+  "title": "Start free. See your strategy live.",
+  "strategyFor": "Built for <highlight>{domain}</highlight> from your business & market.",
+  "guaranteeLine": "90-day money-back guarantee if traffic doesn't grow",
+  "ctaLabel": "Start my {days}-day free trial",
+  "noChargeToday": "No charge today. Cancel anytime in 2 clicks.",
+  "seeScalePrompt": "Need more volume or a dedicated specialist?",
+  "seeScaleCta": "See the Scale plan",
+  "proof": {
+   "eyebrow": "First on Google. First in ChatGPT.",
+   "heading": "Be visible in Google and AI search",
+   "subheading": "Get your brand mentioned in ChatGPT, Google AI Overviews and other AI tools, and turn that visibility into real organic traffic.",
+   "goal": "End result",
+   "recommendedFirst": "Recommended first",
+   "result": "With BabyLoveGrowth, {brand} grew organic traffic by {percent}% in {months} months and is now ChatGPT's first recommendation.",
+   "gscSource": "Data from Google Search Console",
+   "organicTraffic": "Organic traffic",
+   "period": "{start} to {end}"
+  },
+  "testimonials": [
+   {
+    "name": "Natasha Fisker",
+    "title": "Founder, Checked Out",
+    "testimonial": "I tried several SEO tools before BabyLoveGrowth. Shopify, keywords, and content were set up in 20 minutes. Great value, built for founders."
+   },
+   {
+    "name": "Matt Tatem",
+    "title": "Founder, Tatem Web Design",
+    "testimonial": "Organic traffic increased from 120 visits per month to over 12,000 within 12 months — consistent upward growth across authority, visibility, and traffic."
+   },
+   {
+    "name": "Andraz Selan",
+    "title": "Founder, Mestric",
+    "testimonial": "Using BabyLoveGrowth, we achieved strong, measurable organic growth quickly. The steady upward trend keeps improving our visibility and inbound demand."
+   },
+   {
+    "name": "Emily Tse",
+    "title": "Founder, PopCornAA",
+    "testimonial": "After our rebrand, we wanted a fresh approach to SEO and AI-driven search visibility, and that's exactly what BabyLoveGrowth delivered."
+   },
+   {
+    "name": "Golan Manor",
+    "title": "VP of Global Sales, TMRG",
+    "testimonial": "We're very happy with BLG — strong articles, useful tools, and real results. In three months, DR grew from 12 to 32 and organic traffic doubled."
+   },
+   {
+    "name": "Pieter Nijssen",
+    "title": "Founder, Tulip Films",
+    "testimonial": "I started with very low authority, but within months I was outperforming competitors and seeing steady ranking improvements."
+   }
+  ]
+ },
+ "selectCompetitors": {
+  "stepLabel": "Step 4",
+  "optional": "Optional",
+  "stepIndicator": "Step 4 of 5",
+  "heading": "Select your competitors",
+  "subheading": "We've already selected a few competitors for you — add or remove any.",
+  "headingFound": "We found your main competitors",
+  "headingSearching": "We are searching for your competitors",
+  "subheadingSearching": "We are looking for relevant competitors in your niche",
+  "subheadingFound": "These websites compete with you for relevant search traffic",
+  "useThese": "Use these competitors",
+  "keepPicks": "Not sure? Keep our picks, you can change them anytime in <highlight>settings.</highlight>",
+  "orbit": {
+   "headline": "Your competitors are already ranking for keywords you're <highlight>not targeting</highlight>",
+   "you": "You"
+  },
+  "loadingTitle": "We are finding your competitors",
+  "loadingHint": "We check who ranks in your market and verify each result. You can continue, and we'll add our picks for you.",
+  "infoBox": {
+   "intro": "Adding competitors helps us:",
+   "benefit1Bold": "Find trending topics",
+   "benefit1Text": " and content gaps to stay ahead.",
+   "benefit2Bold": "Identify industry keywords",
+   "benefit2Text": " to understand your domain.",
+   "footer": "You can always add competitors later in settings."
+  },
+  "invalidDomain": "Please enter a valid domain (e.g., competitor.com)",
+  "alreadyAdded": "This competitor has already been added",
+  "max": "Maximum {max} competitors allowed",
+  "failed": "Failed to update website URL. Please try again.",
+  "continue": "Continue",
+  "skip": "Skip for now",
+  "error": {
+   "description": "Something went wrong while loading this step. Please try again, or skip it for now — you can add competitors later in settings.",
+   "retry": "Try again",
+   "suggestionsFailed": "We couldn't load competitor suggestions. You can still add competitors manually or skip this step."
+  }
+ },
+ "acquisitionSurvey": {
+  "stepLabel": "Survey",
+  "heading": "How did you hear about BabyLoveGrowth?",
+  "subheading": "Your answer will help us fine-tune our marketing strategies and make your experience even better."
+ },
+ "connectGsc": {
+  "heading": "Connect Google Search Console",
+  "subheading": "Connecting helps us understand what kind of unique content to create. We get view-only access, and it's completely optional.",
+  "skip": "Skip for now",
+  "continue": "Continue",
+  "continueWithoutConnecting": "Continue without connecting",
+  "noSites": {
+   "title": "You're all set to continue",
+   "description": "This Google account has no sites in Search Console yet. That's completely fine. Search Console is optional, and you can connect it anytime later in Settings.",
+   "connectedAs": "Connected as {email}",
+   "wrongAccount": "Wrong Google account?",
+   "switchAccount": "Switch account"
+  }
+ }
+}

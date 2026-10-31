@@ -1,0 +1,91 @@
+{
+ "metadata": {
+  "title": "The BLG DR Challenge: +10 DR in 60 days or your money back",
+  "description": "Enter your domain to check if you qualify for the BabyLoveGrowth DR challenge. We pull your live Domain Rating and grow it, or you get your money back."
+ },
+ "hero": {
+  "title": "+10 DR in 60 days<br/><highlight>or get your money back.</highlight>",
+  "description": "Enter your domain to check if you qualify for the BabyLoveGrowth DR challenge. We check your current Domain Rating live and send eligible sites straight to our signup.",
+  "checklist": {
+   "item1": "Start with DR under 35",
+   "item2": "Let Babylovegrowth auto-post for you",
+   "item3": "Keep Backlinks generation ON"
+  }
+ },
+ "countdown": {
+  "label": "Challenge closing soon",
+  "hrs": "Hrs",
+  "min": "Min",
+  "sec": "Sec"
+ },
+ "checker": {
+  "title": "Check your domain",
+  "subtitle": "Sites under DR 30 qualify for the challenge.",
+  "emailPlaceholder": "you@company.com",
+  "domainPlaceholder": "yourdomain.com",
+  "submit": "Check eligibility",
+  "submitting": "Checking your DR",
+  "poweredBy": "powered by babylovegrowth.ai",
+  "startChallenge": "Start the challenge",
+  "checkAnother": "Check another domain",
+  "invalidEmail": "Please enter a valid email.",
+  "invalidDomain": "Please enter your website.",
+  "genericError": "Something went wrong. Please try again.",
+  "retryTitle": "We couldn't check that domain",
+  "retryDescription": "We couldn't pull your Domain Rating right now. Please try again.",
+  "retry": "Try again",
+  "eligibleTier": "Your DR is {dr}, so you qualify for the +10 DR challenge.",
+  "eligiblePlus5Tier": "Your DR is {dr}, so you qualify for the +5 DR challenge."
+ },
+ "howItWorks": {
+  "eyebrow": "How it works",
+  "title": "Three steps. <highlight>Sixty days.</highlight> One guarantee.",
+  "steps": {
+   "step1": {
+    "label": "Step / 01",
+    "title": "Verify your starting DR",
+    "description": "Drop your domain above. We pull a live Domain Rating from Ahrefs and lock it in as your day-zero baseline."
+   },
+   "step2": {
+    "label": "Step / 02",
+    "title": "We run the engine",
+    "description": "Babylovegrowth auto-publishes SEO articles and pushes verified backlinks from our network every day for sixty days. You touch nothing."
+   },
+   "step3": {
+    "label": "Step / 03",
+    "title": "Hit the target, <highlight>or refund</highlight>",
+    "description": "On day 60 we run the verification report. Goal met, you keep growing. Goal missed, we refund the full subscription."
+   }
+  }
+ },
+ "livePool": {
+  "badge": "Live pool",
+  "title": "5000+ companies are <highlight>already inside</highlight>",
+  "stats": {
+   "inChallengeValue": "5000+",
+   "inChallengeLabel": "In challenge",
+   "avgGainValue": "+12.4",
+   "avgGainLabel": "Avg DR gain",
+   "joinedTodayValue": "38",
+   "joinedTodayLabel": "Joined today"
+  },
+  "drBadge": "DR {value}",
+  "testimonial": {
+   "quote": "Within a few months it had grown far beyond my competitors,<br/><highlight>DR 4 to DR 39.</highlight>",
+   "name": "Pieter Nijssen",
+   "role": "Tulip Films, BLG success story",
+   "verified": "Verified success story"
+  }
+ },
+ "verifiedResults": {
+  "eyebrow": "Verified results",
+  "title": "DR lines that actually <highlight>moved up.</highlight>"
+ },
+ "cta": {
+  "title": "Ready to put your DR<br/><highlight>on the line?</highlight>",
+  "description": "Grow Domain Rating on autopilot or get your money back. No risk.",
+  "freeCheck": "Eligibility check is free",
+  "domainPlaceholder": "yourdomain.com",
+  "submit": "Check eligibility now"
+ }
+}

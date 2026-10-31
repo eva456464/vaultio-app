@@ -1,0 +1,418 @@
+{
+ "metaTitle": "White-Label SEO for Agencies - BabyLoveGrowth",
+ "metaDescription": "Resell automated SEO content, backlinks and AI visibility under your own brand. BabyLoveGrowth gives agencies a client dashboard on their own domain.",
+ "hero": {
+  "heading": "Deliver GEO for<br/>every client<br/><highlight>under your own brand</highlight>",
+  "bookCallBtn": "Book a call",
+  "watchDemo": "Watch product demo",
+  "clientsLabel": "Client sites already delivered through BLG",
+  "facts": [
+   {
+    "label": "What do clients see?",
+    "text": "<strong>Your domain and your logo</strong> — BabyLoveGrowth never appears"
+   },
+   {
+    "label": "What runs per client?",
+    "text": "<strong>30 articles, backlinks</strong>, technical audit, AI visibility, Instagram & Facebook posting and Reddit & Quora agents"
+   },
+   {
+    "label": "What do you add to scale?",
+    "text": "<strong>One more client site</strong> — not one more hire"
+   }
+  ]
+ },
+ "effect": {
+  "eyebrow": "Agency results",
+  "title": "Adding a client <highlight>used to mean adding a writer</highlight>",
+  "intro": "Mighty Crulz delivered SEO the usual way — writers, editors and link builders billed per client — and margins sat around 25-30%. <strong>After moving delivery onto BabyLoveGrowth, the same team onboarded 47 clients in six months without a single new hire.</strong>",
+  "stats": [
+   {
+    "value": "$$23K",
+    "description": "Monthly recurring revenue built by reselling BLG-powered SEO retainers.",
+    "source": "Mighty Crulz agency case study"
+   },
+   {
+    "value": "47",
+    "description": "Clients onboarded in six months, with no extra writers or editors.",
+    "source": "Mighty Crulz agency case study"
+   },
+   {
+    "value": "400%+",
+    "description": "Markup on SEO delivery costs after automating delivery.",
+    "source": "Mighty Crulz agency case study"
+   }
+  ]
+ },
+ "whyBlg": {
+  "eyebrow": "Why agencies run on BLG",
+  "title": "Delivering one retainer <highlight>normally takes a whole team</highlight>",
+  "columns": {
+   "others": [
+    "In-house team",
+    "Freelancers and tools"
+   ],
+   "us": "BabyLoveGrowth"
+  },
+  "rows": [
+   {
+    "label": "Content strategy",
+    "others": [
+     "An SEO strategist on retainer",
+     "A brief written from scratch every time"
+    ],
+    "us": "Keyword research and a 30-day plan per client site"
+   },
+   {
+    "label": "30 articles a month",
+    "others": [
+     "Writers and editors on payroll",
+     "Paid per article, quality varies"
+    ],
+    "us": "Written, illustrated and published automatically"
+   },
+   {
+    "label": "Backlinks",
+    "others": [
+     "An outreach hire sending cold emails",
+     "Bought placements, one at a time"
+    ],
+    "us": "Earned from 5,000+ vetted sites in the Backlink Exchange"
+   },
+   {
+    "label": "Technical SEO",
+    "others": [
+     "A developer audit per client",
+     "A separate crawler subscription"
+    ],
+    "us": "Issues blocking Google and ChatGPT flagged continuously"
+   },
+   {
+    "label": "Publishing",
+    "others": [
+     "Roughly 30 minutes of uploading per article",
+     "You need CMS access for every client"
+    ],
+    "us": "One click to WordPress, Shopify, Webflow, Wix and 8 more"
+   },
+   {
+    "label": "Client reporting",
+    "others": [
+     "Screenshots pasted into slide decks",
+     "One more analytics seat per client"
+    ],
+    "us": "A live dashboard with Search Console data per client"
+   },
+   {
+    "label": "Adding a client",
+    "others": [
+     "Hire before you can sell",
+     "Rebuild the workflow from scratch"
+    ],
+    "us": "Add a site and keep the same margin"
+   }
+  ]
+ },
+ "setup": {
+  "eyebrow": "Whitelabel setup",
+  "title": "From a DNS record to <highlight>your first client login</highlight>",
+  "steps": [
+   {
+    "number": "1",
+    "title": "We brand it",
+    "description": "Point a domain you own at us and send your logo and colours. We configure the whole environment, sign-in screens included.",
+    "chips": [
+     "Your domain",
+     "Your logo and colours",
+     "Set up in minutes"
+    ]
+   },
+   {
+    "number": "2",
+    "title": "You onboard clients",
+    "description": "Add each client site from one dashboard. Brand voice, audience, competitors and CMS are set once per site, then run on their own.",
+    "chips": [
+     "Brand voice per site",
+     "CMS connected once",
+     "Bulk discounts"
+    ]
+   },
+   {
+    "number": "3",
+    "title": "Your clients log in",
+    "description": "They review the content plan, published articles, backlinks, technical audit and Search Console data. Your brand, start to finish.",
+    "chips": [
+     "Content plan",
+     "Backlinks",
+     "GSC analytics"
+    ]
+   }
+  ]
+ },
+ "customerResults": {
+  "title": "Agencies and founders <highlight>already running on BLG</highlight>"
+ },
+ "plans": {
+  "eyebrow": "Two ways to work with us",
+  "title": "Give clients a dashboard, <highlight>or just give them results</highlight>",
+  "description": "Both options run the same delivery engine. The difference is what your clients can log in to.",
+  "growPlan": {
+   "badge": "Direct onboarding",
+   "title": "Grow plan",
+   "description": "You keep the client relationship and the reporting. BLG runs delivery in the background and content lands on their site — no dashboard access needed.",
+   "priceSuffix": "/site/month",
+   "note": "Bulk discounts available · cancel anytime",
+   "features": [
+    "30 branded AEO/SEO articles",
+    "10 AI prompts tracked — ChatGPT, Claude & Gemini",
+    "$$800+/mo in backlinks from 5,000+ partner sites",
+    "Auto-publish to WordPress, Shopify and 8 more",
+    "Site audit so your website is AI and Google-optimised",
+    "Reddit & Quora agents find the threads AI reads and suggest comments that mention your brand",
+    "Weekly Instagram & Facebook posts from your articles",
+    "Branded PDF reporting",
+    "Your clients receive published content, not logins"
+   ],
+   "cta": "Start free trial",
+   "secondaryCta": "See the full comparison ↓"
+  },
+  "whitelabelPlan": {
+   "badge": "Whitelabel",
+   "popular": "Most popular",
+   "title": "Whitelabel plan",
+   "description": "Everything in Grow, plus a dashboard on your own domain. Clients log in to your brand to follow their content plan, backlinks, audit and analytics.",
+   "priceSuffix": "/site/month",
+   "note": "Free setup · Bulk discounts available",
+   "features": [
+    "Everything in the Grow plan",
+    "Branded dashboard hosted on your own domain",
+    "Clients can login to your branded dashboard",
+    "Dedicated account manager"
+   ],
+   "cta": "Start onboarding",
+   "secondaryCta": "Book a demo"
+  }
+ },
+ "comparison": {
+  "eyebrow": "Plan comparison",
+  "title": "The delivery is identical. <highlight>The visibility is not.</highlight>",
+  "growPlan": {
+   "title": "Grow plan",
+   "tag": "<highlight>{price}</highlight>/site/month"
+  },
+  "whitelabelPlan": {
+   "title": "Whitelabel plan",
+   "tag": "<highlight>{perWebsitePrice}</highlight>/site/month · Free setup"
+  },
+  "features": [
+   {
+    "title": "30 articles per month automatically generated and published",
+    "grow": true,
+    "whitelabel": true
+   },
+   {
+    "title": "10 AI prompts tracked — ChatGPT, Claude & Gemini",
+    "grow": true,
+    "whitelabel": true
+   },
+   {
+    "title": "High-DR backlinks built automatically via the Backlink Exchange",
+    "grow": true,
+    "whitelabel": true
+   },
+   {
+    "title": "Content backed by real-time research and expert insights",
+    "grow": true,
+    "whitelabel": true
+   },
+   {
+    "title": "Internal and external linking, plus JSON-LD schema markup",
+    "grow": true,
+    "whitelabel": true
+   },
+   {
+    "title": "Integrates with WordPress, Webflow, Shopify, Wix and the API",
+    "grow": true,
+    "whitelabel": true
+   },
+   {
+    "title": "Automated keyword research and SERP-based clustering",
+    "grow": true,
+    "whitelabel": true
+   },
+   {
+    "title": "Infographics and YouTube videos integrated into articles",
+    "grow": true,
+    "whitelabel": true
+   },
+   {
+    "title": "Technical audit of what blocks Google and ChatGPT",
+    "grow": true,
+    "whitelabel": true
+   },
+   {
+    "title": "Weekly Instagram & Facebook posts from your articles",
+    "grow": true,
+    "whitelabel": true
+   },
+   {
+    "title": "Reddit & Quora agents find the threads AI reads and suggest comments that mention your brand",
+    "grow": true,
+    "whitelabel": true
+   },
+   {
+    "title": "Articles available in 50+ languages",
+    "grow": true,
+    "whitelabel": true
+   },
+   {
+    "title": "Your branding — logo, name and domain",
+    "grow": false,
+    "whitelabel": true
+   },
+   {
+    "title": "Client dashboards and reports under your brand",
+    "grow": false,
+    "whitelabel": true
+   },
+   {
+    "title": "Set your own pricing and resell BLG services",
+    "grow": false,
+    "whitelabel": true
+   },
+   {
+    "title": "Dedicated onboarding and priority support",
+    "grow": false,
+    "whitelabel": true
+   }
+  ]
+ },
+ "examples": {
+  "eyebrow": "Real client articles",
+  "title": "The articles that <highlight>land on their blog</highlight>"
+ },
+ "platformFeatures": {
+  "eyebrow": "Per client site",
+  "title": "What lands on <highlight>every client's website</highlight>",
+  "features": [
+   {
+    "title": "A month of content planned per client",
+    "description": "Keyword research, SERP-based clustering and a 30-day calendar, built from what already ranks in that client's niche."
+   },
+   {
+    "title": "Published into the client's own CMS",
+    "description": "WordPress, Shopify, Webflow, Wix, Ghost, Framer, GoHighLevel and more — or any stack at all, through the webhook API."
+   },
+   {
+    "title": "Backlinks without a single cold email",
+    "description": "Every client site joins the Backlink Exchange and earns contextual links from 5,000+ vetted partner sites."
+   },
+   {
+    "title": "Proof that AI recommends them",
+    "description": "See how often each client is named by ChatGPT, Perplexity and Gemini, and what to publish to close the gap."
+   },
+   {
+    "title": "30 articles a month in each client's voice",
+    "description": "Written to match the client's voice and highlight their business, so they rank and get cited without sounding like generic AI content."
+   },
+   {
+    "title": "A technical audit for every client site",
+    "description": "Slow pages, meta tags, missing JSON-LD schemas and more, flagged so nothing blocks Google or AI."
+   },
+   {
+    "title": "Reddit & Quora agents for every client",
+    "description": "They find the Reddit and Quora threads AI reads and suggest comments that mention the client's brand."
+   },
+   {
+    "title": "Instagram & Facebook posts for every client",
+    "description": "Each client's latest articles become Instagram & Facebook posts, giving AI search engines more places to discover the brand."
+   }
+  ]
+ },
+ "faqSection": {
+  "title": "Agency FAQs",
+  "contactLine": "Still weighing it up? {email} or {call} with the founders.",
+  "emailLabel": "Send us an email",
+  "callLabel": "book a 15-min call"
+ },
+ "faqs": [
+  {
+   "question": "What exactly is the whitelabel solution?",
+   "answer": "You resell our platform under your own brand. Your clients see your logo, your domain and your colours across the whole dashboard, with nothing indicating that BabyLoveGrowth powers it behind the scenes."
+  },
+  {
+   "question": "What are my two options for working with you?",
+   "answer": "Whitelabel — the platform runs on your domain with your branding. Setup is free, and you pay {perWebsitePrice} per website with bulk discounts. Your clients log in to your branded dashboard.\n\nDirect onboarding (Grow plan) — you onboard clients through our platform at {perWebsitePrice} per website with bulk discounts. You handle the CMS integrations and the content appears on your clients' sites without them needing dashboard access."
+  },
+  {
+   "question": "What does the whitelabel plan cost?",
+   "answer": "Setup is free. You pay {perWebsitePrice} per website per month, the same as our standard pricing, with bulk discounts as you add websites. There are no other fees."
+  },
+  {
+   "question": "How long does setup take, and what do you need from me?",
+   "answer": "You set it up yourself in a few minutes. We need a domain or subdomain you own — for example app.yourbrand.com or platform.youragency.com — the ability to change its DNS settings, and your logo and brand colours. We show you the DNS records to add, and your domain connects as soon as they resolve, usually within minutes but up to 48 hours with some providers."
+  },
+  {
+   "question": "What branding do my clients see?",
+   "answer": "Your custom domain, your logo throughout the dashboard, and your brand colours and styling — from the sign-in screen to every page inside. Our branding is removed completely, so clients never see that another platform powers the solution."
+  },
+  {
+   "question": "What can my clients see and do in the dashboard?",
+   "answer": "You onboard clients exactly as you would normally; the difference is that the credentials you share open a dashboard on your domain. There they review their content plan and published articles, the backlinks given and received, the technical audit and their Search Console analytics."
+  },
+  {
+   "question": "Two of my clients are in the same niche. Will they get the same articles?",
+   "answer": "No. Keyword research, clustering and brand voice are set per client site, so each plan is built from that client's own niche, audience and competitors — even where the topics overlap."
+  },
+  {
+   "question": "Can each client have their own tone, audience and language?",
+   "answer": "Yes, and that is the default. Tone of voice, target audience, competitors, content language and CMS credentials are configured per client site, and you switch between clients from one dashboard."
+  },
+  {
+   "question": "Which option should I choose?",
+   "answer": "Choose whitelabel if client dashboard access under your brand matters to how you sell, or if owning a branded platform is part of your business model. Choose direct onboarding if you would rather manage everything yourself and your clients simply want results on their website."
+  },
+  {
+   "question": "What happens if a client leaves?",
+   "answer": "Cancel that client site at any time; the rest of your roster keeps running untouched. You only pay for active client websites."
+  },
+  {
+   "question": "Do you support my clients directly?",
+   "answer": "No — the platform is whitelabeled under your brand, so you keep the client relationship. We provide partner support to help you resolve anything technical."
+  },
+  {
+   "question": "Can I move from direct onboarding to whitelabel later?",
+   "answer": "Yes. You can upgrade at any time, and setup is free."
+  }
+ ],
+ "cta": {
+  "title": "<highlight>Your clients never need to know</highlight><br/>who runs their SEO",
+  "description": "Walk through the setup with a founder and see the dashboard your clients would log in to.",
+  "buttonText": "Book a 15-min call"
+ },
+ "bookCall": {
+  "title": "Book a call",
+  "subtitle": "Tell us a bit about your business first.",
+  "optional": "Optional",
+  "questions": {
+   "siteCount": {
+    "label": "What is the estimated number of sites you're managing?",
+    "options": {
+     "one": "1",
+     "upToTen": "1-10",
+     "upToHundred": "10-100",
+     "overHundred": "100+"
+    }
+   },
+   "whitelabelInterest": {
+    "label": "Are you interested in using white-label for your current stack of clients or to gain new ones?",
+    "options": {
+     "yes": "Yes",
+     "no": "No"
+    }
+   },
+   "features": {
+    "label": "Any specific features you're most interested in (backlinks/Reddit opportunities, Instagram posting, content calendar…)?"
+   }
+  }
+ }
+}

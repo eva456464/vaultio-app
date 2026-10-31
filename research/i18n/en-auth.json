@@ -1,0 +1,255 @@
+{
+ "resetPassword": {
+  "title": "Reset Password",
+  "submitButton": "Reset Password",
+  "backToSignIn": "Back to Sign In",
+  "error": "Failed to reset password",
+  "email": {
+   "label": "Email",
+   "placeholder": "username@example.com",
+   "required": "Email is required",
+   "invalid": "Please enter a valid email"
+  }
+ },
+ "changePassword": {
+  "title": "Change Password",
+  "submitButton": "Change Password",
+  "backToSignIn": "Back to Sign In",
+  "invalidTokens": "Invalid tokens, redirecting to sign in",
+  "successToast": "Password changed successfully",
+  "errorToast": "Failed to change password",
+  "password": {
+   "label": "New Password",
+   "placeholder": "Enter your new password",
+   "required": "Password is required",
+   "minLength": "Password must be at least 6 characters"
+  },
+  "confirmPassword": {
+   "label": "Confirm Password",
+   "placeholder": "Confirm your new password",
+   "required": "Confirm password is required",
+   "mustMatch": "Passwords must match"
+  },
+  "success": {
+   "title": "Success!",
+   "message": "Your password has been successfully changed.",
+   "backToSignIn": "Back to Sign In"
+  }
+ },
+ "signIn": {
+  "title": "Sign in",
+  "continueWithGoogle": "Continue with Google",
+  "email": "Email",
+  "emailPlaceholder": "username@example.com",
+  "password": "Password",
+  "passwordPlaceholder": "Password",
+  "forgotPassword": "Forgot password?",
+  "signInButton": "Sign In",
+  "emailRequired": "Email is required",
+  "emailInvalid": "Please enter a valid email",
+  "passwordRequired": "Password is required"
+ },
+ "callback": {
+  "signingIn": "Signing in",
+  "creatingAccount": "Creating your account",
+  "creatingLines": [
+   "Verifying your email",
+   "Setting up your workspace",
+   "Opening your dashboard"
+  ],
+  "creatingGuestLines": [
+   "Verifying your email",
+   "Saving your strategy and competitors",
+   "Taking you to the last step"
+  ]
+ },
+ "magicLink": {
+  "entry": {
+   "signInTitle": "Log in",
+   "signInDescription": "Continue with Google or enter your email",
+   "or": "or",
+   "emailPlaceholder": "you@company.com",
+   "continue": "Continue with email",
+   "termsPrefix": "By continuing you agree to the",
+   "terms": "Terms",
+   "and": "and",
+   "privacy": "Privacy Policy"
+  },
+  "password": {
+   "title": "Welcome back",
+   "loggingInWith": "Logging in with <highlight>{email}</highlight>",
+   "change": "Change",
+   "emailMeLink": "Email me a login link",
+   "orPassword": "or use your password",
+   "placeholder": "Password",
+   "forgot": "Forgot password?",
+   "logIn": "Log in with password",
+   "required": "Enter your password.",
+   "incorrect": "Incorrect password. Try again or use a login link."
+  },
+  "inbox": {
+   "title": "Check your inbox",
+   "logInDescription": "Click the link in the email to log in.",
+   "signUpDescription": "Click the link in the email to create your account.",
+   "sentTo": "We sent a login link to",
+   "open": "Open {provider}",
+   "notReceived": "Didn’t get it?",
+   "resend": "Resend",
+   "resendIn": "Resend in {seconds}s",
+   "changeEmail": "Change",
+   "linkNotWorking": "Link not working?",
+   "useCode": "Use code",
+   "enterCode": "Enter a code instead",
+   "resentNotice": "New email sent. Earlier links and codes no longer work, so use the newest one."
+  },
+  "forgot": {
+   "title": "We sent you a login link",
+   "description": "Click the link in the email to log in. You can set a new password in Settings.",
+   "back": "Back to password"
+  },
+  "code": {
+   "title": "Enter the code from the email",
+   "description": "Find the 6-digit code under the login button in the email we sent to <highlight>{email}</highlight>.",
+   "digit": "Digit {index}",
+   "checking": "Checking code…",
+   "expiresIn": "The code expires in {time}.",
+   "attemptsLeft": "Incorrect code. {count, plural, one {# attempt left} other {# attempts left}}.",
+   "resend": "Resend email",
+   "resendIn": "Resend email in {seconds}s",
+   "back": "Back",
+   "logIn": "Log in",
+   "expiredTitle": "This code has expired",
+   "expiredDescription": "Codes last {minutes} minutes. We'll send you a fresh link and code.",
+   "tooManyTitle": "That code didn't work",
+   "tooManyDescription": "The code was entered incorrectly three times. We'll send you a fresh link and code."
+  },
+  "expired": {
+   "title": "This link has expired",
+   "description": "Login links work once and last {minutes} minutes. We'll send you a fresh one.",
+   "sendNew": "Send a new link",
+   "differentEmail": "Use a different email",
+   "noEmail": "This link has expired. Enter your email and we'll send a new one."
+  },
+  "verify": {
+   "password": "Logging you in…",
+   "code": "Checking your code…",
+   "moment": "This only takes a moment.",
+   "loggedIn": "You're logged in",
+   "welcomeBack": "Welcome back to BabyLoveGrowth.",
+   "created": "Account created",
+   "welcome": "Welcome to BabyLoveGrowth.",
+   "goToDashboard": "Go to dashboard",
+   "continue": "Continue",
+   "redirecting": {
+    "dashboard": "Redirecting to your dashboard…",
+    "onboarding": "Taking you to onboarding…"
+   }
+  },
+  "guest": {
+   "title": "Save your setup for <highlight>{domain}</highlight>",
+   "description": "Your strategy, competitors and brand settings are ready. Add your email and we'll send a link to save them.",
+   "continueWithGoogle": "Continue with Google",
+   "orEmail": "or enter your email",
+   "continue": "Save and continue",
+   "noPassword": "No password needed.",
+   "inboxDescription": "Click the link in the email to save your setup and continue to the last step.",
+   "existsTitle": "You already have an account",
+   "existsDescription": "Log in to add the <highlight>{domain}</highlight> setup to it.",
+   "logInAndSave": "Log in and save",
+   "confirmAndContinue": "Confirm and continue",
+   "saved": "Setup saved",
+   "savedDescription": "Your <highlight>{domain}</highlight> setup is saved to your account.",
+   "continueToPlan": "Continue to step 07",
+   "redirectingToPlan": "Taking you to step 07…",
+   "claimFailed": "We couldn't restore your onboarding answers. Please continue below.",
+   "alreadyOnboarded": "Onboarding for this website is already completed in your account. You can manage it from your dashboard.",
+   "accountHasWebsites": "This account already has a website. Add new websites from your dashboard.",
+   "accountExistsTitle": "You already have an account",
+   "accountExistsDescription": "This email already has a BabyLoveGrowth account. Sign in to manage your websites and add <highlight>{domain}</highlight> from your dashboard, or use a different email.",
+   "signInToAccount": "Sign in to my account",
+   "useDifferentEmail": "Use a different email"
+  },
+  "errors": {
+   "emailRequired": "Email is required",
+   "emailInvalid": "Enter a valid email address.",
+   "generic": "Something went wrong, please try again.",
+   "partnerAccount": "This account is managed by a partner agency. Please sign in on your partner's sign-in page.",
+   "accountAmbiguous": "More than one account uses this email. Please contact support so we can help you sign in.",
+   "browserCheck": "We couldn't verify your browser. Please try again."
+  }
+ },
+ "signUp": {
+  "title": "Sign up",
+  "freeTrial": "3-Day Free Trial",
+  "joinOrg": "Join {orgName}",
+  "invitedMessage": "You've been invited to join this organization. Set your password to get started.",
+  "alreadyHaveAccount": "Already have an account?",
+  "signIn": "Sign in",
+  "signUpWithGoogle": "Sign Up with Google",
+  "signUpWithEmail": "Sign Up with Email",
+  "name": "Name",
+  "namePlaceholder": "John",
+  "email": "Email",
+  "emailPlaceholder": "username@example.com",
+  "password": "Password",
+  "passwordPlaceholder": "Password",
+  "termsAndConditions": "With signup you accept",
+  "termsOfUse": "T&C",
+  "and": "and",
+  "privacyPolicy": "Privacy Policy",
+  "signUpButton": "Sign Up",
+  "nameRequired": "Name is required",
+  "nameMinLength": "Name must be at least 2 characters",
+  "emailRequired": "Email is required",
+  "emailInvalid": "Please enter a valid email",
+  "passwordRequired": "Password is required",
+  "passwordMinLength": "Password must be at least 6 characters",
+  "signUpFailed": "Sign up failed: No response data received",
+  "accountCreatedSuccess": "Account created successfully! Please sign in to continue.",
+  "somethingWentWrong": "Something went wrong, please try again",
+  "testemonials": {
+   "trusted": {
+    "text": "Trusted by",
+    "value": "{websiteCount} Businesses"
+   },
+   "traction": {
+    "text": "Avg time to traction",
+    "value": "Within {timeToResult}"
+   },
+   "growth": {
+    "text": "Organic Growth",
+    "value": "{trafficIncrease}+"
+   }
+  }
+ },
+ "emailSent": {
+  "title": "Check your email!",
+  "verification": "If you don't receive an email within a few minutes, please check your spam folder.",
+  "resetPassword": "Please check your inbox and follow the instructions to reset your password.",
+  "signUp": "Please check your inbox and follow the instructions to verify your account.",
+  "goToSignIn": "Go to Sign In"
+ },
+ "googleButton": {
+  "error": "Something went wrong, please try again"
+ },
+ "alreadySignedIn": {
+  "title": "You're already signed in",
+  "signedInAs": "Signed in as <name>{name}</name>",
+  "continueToDashboard": "Continue to dashboard",
+  "finishOnboarding": "Finish onboarding",
+  "samePage": {
+   "signIn": "Sign in with another account",
+   "signUp": "Sign up with another account"
+  },
+  "crossPage": {
+   "signIn": {
+    "prompt": "Already have a different account?",
+    "action": "Sign in with another account"
+   },
+   "signUp": {
+    "prompt": "Want to create a new account?",
+    "action": "Sign up with another account"
+   }
+  }
+ }
+}

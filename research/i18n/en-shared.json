@@ -1,0 +1,1945 @@
+{
+ "locationSelector": {
+  "citiesSheetTitle": "Choose cities",
+  "global": "Global (all countries)",
+  "loadingCities": "Loading cities…",
+  "wholeCountryOnly": "Whole country only",
+  "allCities": "All cities",
+  "doneSelected": "Done · {count} selected",
+  "useAllCities": "Use all cities"
+ },
+ "claudeSkills": {
+  "faqTitle": "Frequently asked <highlight>questions</highlight>",
+  "promptCard": {
+   "copyPrompt": "Copy prompt",
+   "copy": "Copy",
+   "copied": "Copied",
+   "cadence": "Suggested cadence: {cadence}",
+   "openPage": "Open the {title} prompt page",
+   "openPageInNewTab": "Open the {title} prompt page in a new tab"
+  }
+ },
+ "howItWorks": {
+  "label": "How it works",
+  "stepLabel": "Step {step}",
+  "steps": [
+   {
+    "title": "Business Analysis",
+    "description": "We will analyse your business, target audience, niche and competitors to uncover opportunities to easily win visibility on AI search and Google.",
+    "badges": [
+     "Keyword Discovery",
+     "User Prompts"
+    ]
+   },
+   {
+    "title": "Growth Strategy",
+    "description": "Quality daily articles, automatic backlinks, technical website audit and an Reddit AI agent that increases your visibility..",
+    "badges": [
+     "Branded Articles",
+     "Backlinks",
+     "AI Search Audit"
+    ]
+   },
+   {
+    "title": "Runs on auto-pilot",
+    "description": "Set it once, and let it work for you while you focus on what actually matters: running your business, serving customers, and growing revenue.",
+    "badges": [
+     "Off hands growth",
+     "Guaranteed Results"
+    ]
+   }
+  ]
+ },
+ "testimonials": {
+  "label": "Testimonials",
+  "items": [
+   {
+    "content": "The only legit organic growth tool I could find that does everything automatically. Their daily articles are LLM optimized, backlinks naturally inserted within the articles, internal links point to pillar pages, JSON-LD schemas are generated automatically and topics are prioritized based on our current rankings. Highly recommend!"
+   },
+   {
+    "content": "We have started to rank on ChatGPT and Perplexity with our brand which is now bringing almost 20% of our traffic! Also all organic metrics are going up!"
+   },
+   {
+    "content": "We have increased our domain rating (DR) from 30 to 38 in less than 60 days! I am pretty sure this is just a start!"
+   },
+   {
+    "content": "Their backlink exchange program is invaluable and incredibly well-made! Each month we get approximately 7 high-quality backlinks and 30 optimized articles, including listicles that are essential for LLM rankings. We are ranking for 700 more keywords than before!"
+   },
+   {
+    "content": "These guys go above and beyond to understand you and your needs as a company or business. I would suggest using BabyLoveGrowth as they are looking to the future and moving with it. Thank you very much for your assistance Dylon. You guys are truely 1 of a kind and a must have for any kind of business."
+   },
+   {
+    "content": "I found babylovegrowth.ai on reddit and immediately knew it was for my agency. It has taken the guesswork out of blog writing and put a lot of valuable time back in our pockets. We highly recommend trying it out and suggest it to all of our agency clients"
+   },
+   {
+    "content": "Tested a bunch of tools and this one is the best by far! Articles have hyper realistic images, great structure, infographics, relevant internal links and and relevant citations. Support is great as well. "
+   },
+   {
+    "content": "We have managed to onboard 15 more SEO clients in the last 2 months. The whole process is automated and we could not be sincerely happier with the results!"
+   },
+   {
+    "content": "I've been using Baby Love Growth for over 3 months and I'm genuinely happy with the service. Their link exchange and article publishing are fantastic — consistent, well-organised, and delivered as promised. Communication has been smooth, and the work has supported my SEO efforts nicely. I'd recommend them to anyone looking for reliable link building and content publishing support."
+   },
+   {
+    "content": "Gotta say. I am impressed."
+   },
+   {
+    "content": "Traffic from AI answers was unexpected but very welcome. GEO is clearly working."
+   },
+   {
+    "content": "We're seeing steady DR growth without doing any outreach ourselves."
+   },
+   {
+    "content": "I have been using Babylovegrowth.ai for a few weeks now and have already seen growth. The articles and backlinks I am getting are of great quality, and I have seen a positive impact in my search console results."
+   },
+   {
+    "content": "We started seeing movement within the first month, which surprised us."
+   },
+   {
+    "content": "We spent years paying agencies for SEO. Lots of calls, lots of reports, very little impact. We switched to @BabyLoveGrowth and the experience is amazing. Everything runs on autopilot, content, publishing, and backlinks included. Organic traffic is finally compounding, and we did not have to hire or manage anyone. This feels like how SEO should work in 2026."
+   },
+   {
+    "content": "We replaced manual content planning completely. Huge time saver for our team."
+   },
+   {
+    "content": "As a founder, I try to remove as much operational friction as possible. SEO was one of the last things still very manual for us at Rekla.Ai. BabyLoveGrowth | SEO for AI search changed that. We turned it on, let it run, and focused on the product while organic visibility kept improving in the background. It's very simple to setup, and works for all languages / markets. Honestly one of the easiest growth decisions we made this year. Check it out!"
+   },
+   {
+    "content": "Good stuff, just setup account with them will see how we get on."
+   },
+   {
+    "content": "I am so surprised that I was able to connected babylovegrowth to my platform via api which is purely code and not using wp or other popular CMS."
+   },
+   {
+    "content": "More and more companies are investing in visibility on Google and inside AI tools like ChatGPT. We did not want Oxfordmagictours to be late to that shift. We started using @BabyLoveGrowth to build that visibility early. After a few weeks, the first results were already there, and it keeps improving. Search compounds over time. You should check this platform out!"
+   },
+   {
+    "content": "Honestly, BabyLoveGrowth.ai is a total lifesaver. I was skeptical about AI SEO at first, but seeing my brand actually cited in ChatGPT and Gemini answers was the real wow moment. Its super easy to set up and handles all the heavy lifting with content and backlinks. If you are tired of old-school SEO and want to actually be found where people are searching today, this is it."
+   },
+   {
+    "content": "We started using BabyLoveGrowth a couple months ago, mostly out of curiosity. It is impressively hands off. Content is created, published, and optimized automatically, and we can actually see organic traffic growing week after week."
+   },
+   {
+    "content": "The setup process was surprisingly quick and easy, just enter your info and everything generates. Already received a few top backlinks after a couple of weeks."
+   },
+   {
+    "content": "Easy to use article generation with great quality that drives organic traffic!"
+   },
+   {
+    "content": "One of the best AI websites to rank your site. Highly recommended, my site went from 800 to 3000 traffic in 2 months."
+   },
+   {
+    "content": "BabyLoveGrowth is an awesome platform for building your site authority for your blog/news site. You don't have to do too much at a reasonable price. Your links will stay even after you leave. They are adding more everyday too!"
+   },
+   {
+    "content": "Amazing service. I have an ecom brand and have 0 knowledge in SEO, but now my brand name comes first on Google and chat. Thanks!"
+   },
+   {
+    "content": "I have tried other AI SEO content and SEO softwares and this is the best one I have seen so far. This is really good for increasing website traffic and I highly recommend it, I will be using this moving forward."
+   },
+   {
+    "content": "I am using this tool for Supersocial, and it's going really well."
+   },
+   {
+    "content": "As a solo founder, I simply don't have the hours to spend on manual backlink outreach and keyword research every day. I've been using BabyLoveGrowth.ai for a few months now, and the automation is a game-changer. The AI-generated articles actually sound like my brand voice, and seeing my site cited in ChatGPT and Gemini answers was a massive wow moment. It's the first tool I've found that treats Generative Engine Optimization (GEO) as seriously as traditional SEO. Highly recommend if you want organic growth on autopilot."
+   },
+   {
+    "content": "Easy to use and setup. Really helps get the word out about your small business."
+   },
+   {
+    "content": "Excellent service and self explaining website. I got some results right after a few days. If you have a problem or some specific questions, there is a live chat at your service."
+   },
+   {
+    "content": "The blogs it writes are incredible!"
+   },
+   {
+    "content": "Amazing company! Not much work, easy to setup. 10/10 recommend."
+   },
+   {
+    "content": "Awesome software for promoting your website and business."
+   },
+   {
+    "content": "Great product and gets some great results."
+   },
+   {
+    "content": "Excellent SEO and backlinking service for any business website. Highly recommend."
+   },
+   {
+    "content": "I really like the content strategy that they came up with for my website."
+   },
+   {
+    "content": "Great app and excellent support."
+   },
+   {
+    "content": "I cannot recommend BabyLoveGrowth enough for any small business owner looking to scale. Building and managing a business involves wearing so many different hats, but this platform has completely streamlined my growth strategy. It is intuitive and powerful, and it has given me the exact edge I needed to reach more clients and optimize my operations efficiently. If you are a solo entrepreneur or small-business owner looking to take your venture to the next level, BabyLoveGrowth is worth every penny!"
+   },
+   {
+    "content": "It is like having an entire marketing department :)"
+   },
+   {
+    "content": "Makes my life 10x easier, lots of cool features and insights. Probably the best tool for auto SEO for startups!"
+   }
+  ],
+  "backlinks": [
+   {
+    "content": "The backlink Exchange is a gem. We no longer spend hours on manual outreach or pay $200+ for a single backlink. Everything runs on autopilot and our DR jumped by 9 points in just 3 months."
+   },
+   {
+    "content": "Getting daily articles with automatic backlink inclusion has saved us sooo much time! Our organic traffic is up 40% and we finally stopped worrying about link building. Team is also great!!"
+   },
+   {
+    "content": "We used to pay agencies a fortune for backlinks. With BLG exchange, we get quality links (within articles!). No more cold emails and paying thousands of dollars."
+   },
+   {
+    "content": "I love that everything happens automatically. The backlinks are relevant, the articles are fresh, and our site's authority keeps growing. It's the easiest SEO win we've ever had."
+   },
+   {
+    "content": "Cant believe this even exists. BLG guys are amazing! ROI is insane. 99$ for 30 articles and quality backlinks, its crazy."
+   },
+   {
+    "content": "I am a big fan of BLG exchange. Team is great, articles are top notch and the backlinks are just a cherry on top. 10/10"
+   },
+   {
+    "content": "Exchange is a great way to get backlinks. Its the only platform out there that actually delivers really high quality articles and backlinks. A++"
+   }
+  ],
+  "fallbackQuote": "BLG makes organic growth feel effortless."
+ },
+ "featureSection": {
+  "label": "Platform features",
+  "viewSuccess": "View Success",
+  "defaultCta": "Start Ranking on Google and ChatGPT",
+  "getStarted": "Get Started"
+ },
+ "featureGrid": {
+  "heading": "And So Much More"
+ },
+ "pseoDynamic": {
+  "notFound": {
+   "metaTitle": "Feature Not Found",
+   "metaDescription": "The requested feature page could not be found."
+  },
+  "hero": {
+   "buttonText": "Start Free Trial"
+  },
+  "howItWorks": {
+   "title": "Grow Traffic In <highlight>3 Steps</highlight>"
+  },
+  "featuresSection": {
+   "title": "Powerful Features",
+   "subtitlePrefix": "Everything you need for"
+  },
+  "useCasesTitle": "Use Cases",
+  "testimonials": {
+   "description": "Join our exclusive network of {websiteCount} vetted businesses",
+   "title": "Loved by <highlight>Entrepreneurs</highlight>"
+  },
+  "cta": {
+   "buttonText": "Start Free Trial",
+   "features": [
+    "Guaranteed results",
+    "Free 3-day trial",
+    "Cancel anytime"
+   ],
+   "title": "{subtitle}<br/><highlight>Today</highlight>"
+  },
+  "industry": {
+   "hero": {
+    "buttonText": "Start Writing Free"
+   },
+   "howItWorks": {
+    "title": "Grow Traffic In <highlight>in 3 Steps</highlight>"
+   },
+   "features": {
+    "title": "<highlight>Growth Strategy</highlight> Explained"
+   },
+   "testimonials": {
+    "description": "Proven results for {websiteCount} businesses",
+    "title": "{prefix} <highlight>Success</highlight>",
+    "titleFallbackPrefix": "Customer"
+   },
+   "cta": {
+    "tagline": "Ready to Dominate with AI Blog Writer",
+    "title": "AI Blog Writer,<br/><highlight>More Visibility!</highlight>",
+    "buttonText": "Start AI Blog Writer",
+    "features": [
+     "Set up in minutes",
+     "Cancel anytime",
+     "AI-powered optimization"
+    ]
+   }
+  },
+  "seoAgencyCity": {
+   "metadata": {
+    "title": "Best AI/LLM SEO Agency in {city} for SaaS and Tech in 2025",
+    "description": "{city} AI/LLM SEO agenct specializing in organic traffic growth, backlinks and technical SEO audits."
+   },
+   "hero": {
+    "heading": "The best automated SEO Agency in <highlight>{city}</highlight>",
+    "description": "Our AI/LLM SEO agency makes sure that you show up where {city} customers search for solutions. Our system gets your brand visible across ChatGPT, Google, Claude, Perplexity and other platforms.",
+    "buttonText": "Start Free Trial in {city}"
+   },
+   "howItWorks": {
+    "title": "Grow Traffic In {city} <highlight>3 Steps</highlight>"
+   },
+   "features": {
+    "title": "<highlight>{city} Growth Strategy</highlight> Explained"
+   },
+   "whyTeamsChooseUs": {
+    "heading": "Why {city} teams choose us",
+    "description": "Daily article creation and publishing, contextual backlinks, internal linking, schemas, and technical checks. Our system adapts to local SERPs and entities, benchmarks competitors, and keeps key pages indexed and ranking across Google and AI answer engines.",
+    "items": [
+     "Daily AI articles published to your CMS",
+     "Site health checks and monitoring",
+     "Backlink acquisition and tracking",
+     "Automated internal linking for rich results"
+    ]
+   },
+   "testimonials": {
+    "description": "Trusted by teams expanding in {city}",
+    "title": "Loved by <highlight>Entrepreneurs</highlight>"
+   },
+   "cta": {
+    "tagline": "Get more customers in {city}",
+    "title": "SEO Agency in {city},<br/><highlight>Faster Growth!</highlight>",
+    "buttonText": "Start in {city}",
+    "features": [
+     "Increase website traffic {city}",
+     "Rank higher on Google in {city}",
+     "Improve online visibility {city}"
+    ]
+   },
+   "keywordPatterns": [
+    "Get more customers in {city}",
+    "Increase website traffic {city}",
+    "Rank higher on Google in {city}",
+    "Get found on Google {city}",
+    "Improve online visibility {city}",
+    "Best SEO agency in {city}",
+    "Top SEO company {city}",
+    "Best SEO services {city}",
+    "#1 SEO agency {city}",
+    "Leading SEO company in {city}",
+    "SEO agency in {city}",
+    "SEO services {city}",
+    "SEO company {city}",
+    "{city} SEO agency",
+    "{city} SEO services",
+    "SEO consultant {city}",
+    "SEO expert in {city}"
+   ],
+   "imageAlt": "{city} SEO Agency"
+  },
+  "seoOptimization": {
+   "metadata": {
+    "titleTemplate": "{platform} SEO Autopilot: Content, Backlinks & Audit",
+    "notFoundTitle": "Platform SEO Not Found",
+    "notFoundDescription": "The requested platform SEO page could not be found."
+   },
+   "hero": {
+    "badge": "{platform} SEO Autopilot: Content, Backlinks & Audit",
+    "brandIconAlt": "BabyLoveGrowth Icon",
+    "description": "Generate SEO-optimized articles for {platform} with the best AI SEO blog writer.",
+    "buttonText": "Start 3-day Trial",
+    "heading": "Automate {platform} SEO.<br/><highlight>Grow Organic Traffic.</highlight>"
+   },
+   "howItWorks": {
+    "heading": "How The {platform} AI SEO Works",
+    "description": "Our AI plugs into your {platform} Website to write daily content that brings you clients.",
+    "buttonText": "Start 3-day Trial",
+    "steps": [
+     {
+      "title": "Integration",
+      "text": "It natively connects to your platform. No coding required."
+     },
+     {
+      "title": "Customization",
+      "text": "You can customize what type of content, how many articles, and how often you want to publish."
+     },
+     {
+      "title": "Auto Blog",
+      "text": "Our AI will generate and publish articles to your website on auto-pilot."
+     }
+    ]
+   },
+   "features": {
+    "heading": "{platform} SEO Automation Features",
+    "description": "Our platform automates the most time-consuming {platform} SEO tasks, so you can focus on growing your business.",
+    "items": [
+     {
+      "title": "Setup in 5 minutes",
+      "description": "Our AI has been specifically designed for owners who don't have time to write articles. Minimum overhead, maximum results."
+     },
+     {
+      "title": "Automated",
+      "description": "The platform can craft articles every single day and it works tirelessly to get you more clients. It won't stop bringing you traffic unless you tell it to."
+     },
+     {
+      "title": "Premium Copy-Writing",
+      "description": "More affordable and efficient than a traditional copy-writer. We bring you the best of AI right to your website, in a simple way that you can understand."
+     },
+     {
+      "title": "Backlink Building",
+      "description": "Want to share your account with your team or assistants? Enable limited-access accounts to manage the platform for you."
+     },
+     {
+      "title": "Technical SEO Monitoring",
+      "description": "Monitor and fix technical SEO issues like broken links, duplicate content, and page speed problems."
+     },
+     {
+      "title": "Schema Markup Automation",
+      "description": "Automatically implement structured data to help search engines understand your content better."
+     }
+    ]
+   },
+   "otherPlatforms": {
+    "heading": "Using another blog platform?",
+    "description": "Check out our other native integrations for connecting Arvow to your website.",
+    "learnMore": "Learn more →"
+   },
+   "cta": {
+    "tagline": "Grow now!",
+    "title": "Smart SEO,<br/><highlight>Faster Growth!</highlight>",
+    "buttonText": "Rank on Google and ChatGPT",
+    "features": [
+     "Set up in minutes",
+     "Cancel anytime",
+     "AI-powered optimization"
+    ]
+   }
+  },
+  "pages": {
+   "seo-automation": {
+    "name": "SEO Automation",
+    "displayName": "SEO Automation Platform",
+    "h1Orange": "Complete",
+    "h1Gray": "SEO Automation",
+    "shortDescription": "Automate your entire SEO workflow from keyword research to content publishing.",
+    "longDescription": "Our SEO automation platform handles everything from keyword discovery and content creation to technical optimization and link building. Save hundreds of hours while growing organic traffic consistently.",
+    "heroSubtitle": "Automate keyword research, content creation, technical SEO, and link building on autopilot.",
+    "metadata": {
+     "title": "SEO Automation Platform | Automate Your Entire SEO Workflow",
+     "description": "Complete SEO automation platform that handles keyword research, content creation, technical optimization, and link building. Save time and grow organic traffic on autopilot.",
+     "keywords": [
+      "seo automation",
+      "automated seo",
+      "seo automation platform",
+      "seo automation tools",
+      "automate seo workflow",
+      "automated seo tools",
+      "seo automation software",
+      "automated search engine optimization",
+      "seo process automation",
+      "automated seo services"
+     ]
+    },
+    "features": [
+     {
+      "title": "Automated Workflows",
+      "description": "Set up once and let AI handle your entire SEO process automatically."
+     },
+     {
+      "title": "Smart Scheduling",
+      "description": "Intelligent publishing schedules that optimize for search engine crawling."
+     },
+     {
+      "title": "Performance Tracking",
+      "description": "Monitor rankings, traffic, and conversions in real-time dashboards."
+     },
+     {
+      "title": "Custom Rules",
+      "description": "Configure automation rules that match your SEO strategy perfectly."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "E-commerce Stores",
+      "description": "Automate product and category page optimization at scale."
+     },
+     {
+      "title": "Content Publishers",
+      "description": "Streamline content production and technical SEO maintenance."
+     },
+     {
+      "title": "Marketing Agencies",
+      "description": "Manage multiple client sites with centralized automation."
+     }
+    ],
+    "cta": {
+     "title": "Ready to Automate Your SEO?",
+     "subtitle": "Start growing organic traffic on autopilot"
+    }
+   },
+   "keyword-research-tool": {
+    "name": "Keyword Research Tool",
+    "displayName": "AI-Powered Keyword Research Tool",
+    "h1Orange": "Discover High-Value Keywords",
+    "h1Gray": "Instantly",
+    "shortDescription": "Find profitable keywords with search volume, difficulty, and intent analysis.",
+    "longDescription": "Our AI-powered keyword research tool analyzes millions of search queries to find opportunities your competitors miss. Get keyword difficulty, search volume, trends, and content suggestions in seconds.",
+    "heroSubtitle": "Discover keywords that drive traffic and conversions with AI-powered research.",
+    "metadata": {
+     "title": "Keyword Research Tool | Find Profitable Keywords with AI",
+     "description": "AI-powered keyword research tool with search volume, difficulty analysis, and content suggestions. Find keywords your competitors miss and grow organic traffic.",
+     "keywords": [
+      "keyword research tool",
+      "keyword research",
+      "keyword tool",
+      "keyword finder",
+      "keyword analysis",
+      "seo keyword research",
+      "keyword research software",
+      "keyword difficulty checker",
+      "search volume tool",
+      "keyword opportunity finder"
+     ]
+    },
+    "features": [
+     {
+      "title": "Keyword Discovery",
+      "description": "Find thousands of relevant keywords from seed terms and competitor analysis."
+     },
+     {
+      "title": "Search Volume & Trends",
+      "description": "Get accurate monthly search volumes and trending keyword insights."
+     },
+     {
+      "title": "Intent Classification",
+      "description": "Understand user intent (informational, commercial, transactional) automatically."
+     },
+     {
+      "title": "Difficulty Scoring",
+      "description": "Know exactly how hard it is to rank with our proprietary difficulty score."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Content Strategy",
+      "description": "Build data-driven content calendars based on keyword opportunities."
+     },
+     {
+      "title": "Competitive Analysis",
+      "description": "Discover which keywords drive traffic to competitor sites."
+     },
+     {
+      "title": "SEO Campaigns",
+      "description": "Prioritize keywords by ROI potential and ranking difficulty."
+     }
+    ],
+    "cta": {
+     "title": "Start Finding Better Keywords",
+     "subtitle": "Discover opportunities your competitors are missing"
+    }
+   },
+   "keyword-clustering": {
+    "name": "Keyword Clustering",
+    "displayName": "Keyword Clustering Tool",
+    "h1Orange": "Group Keywords",
+    "h1Gray": "Intelligently",
+    "shortDescription": "Automatically cluster keywords into topic groups for better content strategy.",
+    "longDescription": "Our keyword clustering tool uses AI to group related keywords based on search intent and SERP similarity. Create comprehensive content that targets multiple keywords with a single optimized page.",
+    "heroSubtitle": "Group thousands of keywords into topic clusters in seconds with AI.",
+    "metadata": {
+     "title": "Keyword Clustering Tool | Group Keywords by Search Intent",
+     "description": "AI-powered keyword clustering tool that groups keywords by search intent and SERP similarity. Build better content strategies and rank for more keywords per page.",
+     "keywords": [
+      "keyword clustering",
+      "keyword grouping",
+      "keyword clustering tool",
+      "semantic keyword grouping",
+      "keyword clustering software",
+      "topic clustering",
+      "keyword clustering analysis",
+      "serp similarity clustering",
+      "keyword intent grouping",
+      "content clustering tool"
+     ]
+    },
+    "features": [
+     {
+      "title": "Automatic Clustering",
+      "description": "AI analyzes SERP overlap to group keywords that should target the same page."
+     },
+     {
+      "title": "Intent-Based Groups",
+      "description": "Cluster by user intent to create content that matches search behavior."
+     },
+     {
+      "title": "Content Briefs",
+      "description": "Generate comprehensive briefs that cover all keywords in a cluster."
+     },
+     {
+      "title": "Topic Mapping",
+      "description": "Visualize keyword relationships and content structure opportunities."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Content Planning",
+      "description": "Plan comprehensive articles that rank for multiple related keywords."
+     },
+     {
+      "title": "Site Architecture",
+      "description": "Design optimal URL structure based on keyword clusters."
+     },
+     {
+      "title": "Keyword Cannibalization",
+      "description": "Identify and fix pages competing for the same keywords."
+     }
+    ],
+    "cta": {
+     "title": "Start Clustering Keywords",
+     "subtitle": "Build smarter content strategies with AI-powered clustering"
+    }
+   },
+   "content-marketing-automation": {
+    "name": "Content Marketing Automation",
+    "displayName": "Content Marketing Automation Platform",
+    "h1Orange": "Automate Your",
+    "h1Gray": "Content Marketing",
+    "shortDescription": "End-to-end content marketing automation from ideation to distribution.",
+    "longDescription": "Automate your entire content marketing workflow with AI. From topic research and content creation to SEO optimization and multi-channel distribution. Scale your content output without scaling your team.",
+    "heroSubtitle": "Create, optimize, and distribute content at scale with complete automation.",
+    "metadata": {
+     "title": "Content Marketing Automation | Scale Content Production with AI",
+     "description": "Complete content marketing automation platform. Automate ideation, creation, SEO optimization, and distribution. Scale content without scaling your team.",
+     "keywords": [
+      "content marketing automation",
+      "automated content marketing",
+      "content automation platform",
+      "automated content creation",
+      "content marketing tools",
+      "content automation software",
+      "automated content publishing",
+      "content marketing workflow",
+      "content production automation",
+      "ai content marketing"
+     ]
+    },
+    "features": [
+     {
+      "title": "Topic Research",
+      "description": "AI identifies trending topics and content gaps in your niche."
+     },
+     {
+      "title": "Content Generation",
+      "description": "Generate high-quality, SEO-optimized content automatically."
+     },
+     {
+      "title": "Smart Scheduling",
+      "description": "Publish at optimal times across all your content channels."
+     },
+     {
+      "title": "Multi-Channel Distribution",
+      "description": "Automatically distribute content to your blog, social media, and email."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "B2B Companies",
+      "description": "Maintain consistent thought leadership without a large content team."
+     },
+     {
+      "title": "E-commerce Brands",
+      "description": "Create product guides, comparisons, and buying guides at scale."
+     },
+     {
+      "title": "Publishers",
+      "description": "Increase publishing frequency while maintaining quality standards."
+     }
+    ],
+    "cta": {
+     "title": "Automate Your Content Marketing",
+     "subtitle": "Scale content production without hiring more writers"
+    }
+   },
+   "multilingual-seo-content": {
+    "name": "Multilingual SEO Content",
+    "displayName": "Multilingual SEO Content Platform",
+    "h1Orange": "Every Language",
+    "h1Gray": "Rank in",
+    "shortDescription": "Create SEO-optimized content in 50+ languages automatically.",
+    "longDescription": "Expand your global reach with multilingual SEO content that ranks. Our AI creates culturally relevant, SEO-optimized content in 50+ languages with proper hreflang tags and local search optimization.",
+    "heroSubtitle": "Reach global audiences with SEO-optimized content in their native languages.",
+    "metadata": {
+     "title": "Multilingual SEO Content | Rank Globally in 50+ Languages",
+     "description": "Create SEO-optimized content in 50+ languages automatically. Expand global reach with culturally relevant content, proper hreflang tags, and local search optimization.",
+     "keywords": [
+      "multilingual seo",
+      "multilingual content",
+      "international seo",
+      "multilingual seo content",
+      "multilingual content creation",
+      "global seo strategy",
+      "hreflang seo",
+      "multilingual website seo",
+      "international content marketing",
+      "multi-language seo"
+     ]
+    },
+    "features": [
+     {
+      "title": "50+ Languages",
+      "description": "Create content in all major languages with native-level quality."
+     },
+     {
+      "title": "Hreflang Automation",
+      "description": "Automatic hreflang tags and international SEO technical setup."
+     },
+     {
+      "title": "Cultural Localization",
+      "description": "Content adapted for local culture, not just translated."
+     },
+     {
+      "title": "Local Keyword Research",
+      "description": "Find keywords that perform in each target country and language."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Global E-commerce",
+      "description": "Rank for products in every market you serve."
+     },
+     {
+      "title": "SaaS Companies",
+      "description": "Expand to new markets without hiring local content teams."
+     },
+     {
+      "title": "Travel & Hospitality",
+      "description": "Reach travelers in their native languages for better conversions."
+     }
+    ],
+    "cta": {
+     "title": "Go Global with Multilingual SEO",
+     "subtitle": "Expand your reach to international markets"
+    }
+   },
+   "seo-audit-software": {
+    "name": "SEO Audit Software",
+    "displayName": "Comprehensive SEO Audit Software",
+    "h1Orange": "Complete",
+    "h1Gray": "SEO Audits",
+    "shortDescription": "Comprehensive technical SEO audits that find and fix ranking issues.",
+    "longDescription": "Our SEO audit software crawls your site like Google does, identifying technical issues, content gaps, and optimization opportunities. Get actionable recommendations ranked by impact.",
+    "heroSubtitle": "Find and fix SEO issues that are holding back your rankings.",
+    "metadata": {
+     "title": "SEO Audit Software | Comprehensive Technical SEO Analysis",
+     "description": "Professional SEO audit software that identifies technical issues, content gaps, and optimization opportunities. Get actionable recommendations to improve rankings.",
+     "keywords": [
+      "seo audit software",
+      "seo audit tool",
+      "technical seo audit",
+      "website seo audit",
+      "seo audit platform",
+      "automated seo audit",
+      "seo site audit",
+      "seo audit checker",
+      "seo audit report",
+      "comprehensive seo audit"
+     ]
+    },
+    "features": [
+     {
+      "title": "Deep Crawling",
+      "description": "Crawl your entire site to find technical SEO issues."
+     },
+     {
+      "title": "Issue Detection",
+      "description": "Identify 200+ types of technical and content SEO problems."
+     },
+     {
+      "title": "Impact Scoring",
+      "description": "Recommendations prioritized by potential ranking impact."
+     },
+     {
+      "title": "Fix Validation",
+      "description": "Re-crawl to verify that issues have been properly resolved."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Website Migrations",
+      "description": "Ensure no SEO issues are introduced during site redesigns."
+     },
+     {
+      "title": "Regular Monitoring",
+      "description": "Catch and fix issues before they impact rankings."
+     },
+     {
+      "title": "Client Reporting",
+      "description": "Generate white-label audit reports for clients."
+     }
+    ],
+    "cta": {
+     "title": "Audit Your Website",
+     "subtitle": "Find SEO issues holding back your rankings"
+    }
+   },
+   "technical-seo-tools": {
+    "name": "Technical SEO Tools",
+    "displayName": "Complete Technical SEO Toolkit",
+    "h1Orange": "Professional",
+    "h1Gray": "Technical SEO Tools",
+    "shortDescription": "All the technical SEO tools you need in one comprehensive platform.",
+    "longDescription": "Complete technical SEO toolkit including site audits, schema markup, page speed optimization, mobile testing, and more. Everything you need to maintain technical excellence.",
+    "heroSubtitle": "Master technical SEO with professional-grade tools and automation.",
+    "metadata": {
+     "title": "Technical SEO Tools | Complete Technical SEO Toolkit",
+     "description": "Professional technical SEO tools for audits, schema markup, page speed, mobile optimization, and more. Everything you need for technical SEO excellence.",
+     "keywords": [
+      "technical seo tools",
+      "technical seo",
+      "technical seo software",
+      "technical seo platform",
+      "seo technical tools",
+      "technical seo checker",
+      "technical seo audit tools",
+      "technical optimization tools",
+      "technical seo toolkit",
+      "advanced seo tools"
+     ]
+    },
+    "features": [
+     {
+      "title": "Schema Generator",
+      "description": "Create and validate JSON-LD schema markup automatically."
+     },
+     {
+      "title": "Speed Optimization",
+      "description": "Analyze and improve Core Web Vitals and page speed."
+     },
+     {
+      "title": "Mobile Testing",
+      "description": "Ensure perfect mobile-friendliness and responsiveness."
+     },
+     {
+      "title": "Internal Linking",
+      "description": "Optimize internal link structure automatically."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Enterprise Sites",
+      "description": "Maintain technical excellence across large, complex websites."
+     },
+     {
+      "title": "Technical SEO Agencies",
+      "description": "Deliver comprehensive technical SEO services to clients."
+     },
+     {
+      "title": "Developer Teams",
+      "description": "Integrate SEO best practices into development workflows."
+     }
+    ],
+    "cta": {
+     "title": "Access Technical SEO Tools",
+     "subtitle": "Everything you need for technical SEO excellence"
+    }
+   },
+   "content-strategy-platform": {
+    "name": "Content Strategy Platform",
+    "displayName": "AI-Powered Content Strategy Platform",
+    "h1Orange": "Build Winning",
+    "h1Gray": "Content Strategies",
+    "shortDescription": "Data-driven content strategy platform that plans, creates, and measures content performance.",
+    "longDescription": "Our content strategy platform combines keyword research, competitive analysis, and performance data to build content strategies that drive results. Plan, execute, and measure your content marketing with confidence.",
+    "heroSubtitle": "Plan and execute data-driven content strategies that grow organic traffic.",
+    "metadata": {
+     "title": "Content Strategy Platform | Plan Data-Driven Content with AI",
+     "description": "AI-powered content strategy platform that combines research, planning, execution, and analytics. Build content strategies that drive traffic and conversions.",
+     "keywords": [
+      "content strategy platform",
+      "content strategy tool",
+      "content planning platform",
+      "content strategy software",
+      "content marketing platform",
+      "content planning tool",
+      "content calendar software",
+      "content strategy framework",
+      "content planning software",
+      "content management platform"
+     ]
+    },
+    "features": [
+     {
+      "title": "Strategy Builder",
+      "description": "AI-powered recommendations for content topics and formats."
+     },
+     {
+      "title": "Content Calendar",
+      "description": "Visual planning with team collaboration and workflow management."
+     },
+     {
+      "title": "Performance Analytics",
+      "description": "Track content ROI with traffic, engagement, and conversion metrics."
+     },
+     {
+      "title": "Team Collaboration",
+      "description": "Assign tasks, review content, and manage editorial workflows."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Content Teams",
+      "description": "Coordinate content production across writers, editors, and marketers."
+     },
+     {
+      "title": "Marketing Agencies",
+      "description": "Manage content strategies for multiple clients in one platform."
+     },
+     {
+      "title": "Enterprise Marketing",
+      "description": "Align content across departments and geographies."
+     }
+    ],
+    "cta": {
+     "title": "Build Your Content Strategy",
+     "subtitle": "Plan content that drives measurable business results"
+    }
+   },
+   "seo-link-building": {
+    "name": "SEO Link Building",
+    "displayName": "SEO Link Building Platform",
+    "h1Orange": "Build",
+    "h1Gray": "Quality Backlinks",
+    "shortDescription": "Automated link building that grows domain authority and rankings.",
+    "longDescription": "Our SEO link building platform finds opportunities, automates outreach, and helps you build high-quality backlinks at scale. Grow your domain authority and improve rankings with sustainable link acquisition.",
+    "heroSubtitle": "Build high-quality backlinks that improve rankings and domain authority.",
+    "metadata": {
+     "title": "SEO Link Building Platform | Build Quality Backlinks at Scale",
+     "description": "Automated SEO link building platform that finds opportunities, manages linking, and automatically builds high-quality backlinks. Grow domain authority and improve rankings.",
+     "keywords": [
+      "seo link building",
+      "link building",
+      "backlink building",
+      "link building service",
+      "seo link building services",
+      "link building strategy",
+      "link building tools",
+      "link building software",
+      "backlink acquisition",
+      "link building platform"
+     ]
+    },
+    "features": [
+     {
+      "title": "Opportunity Finder",
+      "description": "Discover high-quality link opportunities in your niche."
+     },
+     {
+      "title": "Auto-Linking",
+      "description": "AI automatically links your articles to other quality sites in your niche."
+     },
+     {
+      "title": "Backlink Tracking",
+      "description": "Monitor all your backlinks and measure their impact on rankings."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "New Websites",
+      "description": "Build domain authority quickly with quality link acquisition."
+     },
+     {
+      "title": "Competitive Niches",
+      "description": "Outrank competitors with superior backlink profiles."
+     },
+     {
+      "title": "Link Recovery",
+      "description": "Recover from lost backlinks and maintain link equity."
+     }
+    ],
+    "cta": {
+     "title": "Start Building Backlinks",
+     "subtitle": "Grow domain authority with quality link acquisition"
+    }
+   },
+   "ai-content-marketing": {
+    "name": "AI Content Marketing",
+    "displayName": "AI Content Marketing Platform",
+    "h1Orange": "Marketing Powered by",
+    "h1Gray": "Artificial Intelligence",
+    "shortDescription": "Complete AI content marketing platform that creates, optimizes, and distributes content.",
+    "longDescription": "Leverage cutting-edge AI to transform your content marketing. From strategy and creation to optimization and distribution, our AI handles the heavy lifting while you focus on growth.",
+    "heroSubtitle": "Scale content marketing with AI that thinks like your best marketer.",
+    "metadata": {
+     "title": "AI Content Marketing Platform | Scale Marketing with Artificial Intelligence",
+     "description": "Complete AI content marketing platform. Automate strategy, creation, SEO optimization, and distribution. Scale content marketing without scaling headcount.",
+     "keywords": [
+      "ai content marketing",
+      "ai marketing platform",
+      "artificial intelligence marketing",
+      "ai content creation",
+      "ai marketing automation",
+      "ai content tools",
+      "ai marketing software",
+      "ai content platform",
+      "ai marketing solutions",
+      "ai-powered marketing"
+     ]
+    },
+    "features": [
+     {
+      "title": "AI Strategy",
+      "description": "AI analyzes your market to recommend winning content strategies."
+     },
+     {
+      "title": "Content Generation",
+      "description": "Create blog posts, social media, emails, and more with AI."
+     },
+     {
+      "title": "SEO Optimization",
+      "description": "AI optimizes every piece of content for search engines."
+     },
+     {
+      "title": "Continuous Learning",
+      "description": "AI learns from performance data to improve over time."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Scaling Startups",
+      "description": "Compete with larger companies without a large marketing team."
+     },
+     {
+      "title": "Content Agencies",
+      "description": "Increase output and margins with AI-assisted production."
+     },
+     {
+      "title": "Enterprise Marketing",
+      "description": "Maintain brand consistency at scale across all channels."
+     }
+    ],
+    "cta": {
+     "title": "Transform Marketing with AI",
+     "subtitle": "Scale content marketing without scaling headcount"
+    }
+   },
+   "organic-traffic-tool": {
+    "name": "Organic Traffic Tool",
+    "displayName": "Organic Traffic Growth Tool",
+    "h1Orange": "Grow",
+    "h1Gray": "Organic Traffic",
+    "shortDescription": "All-in-one tool to analyze, optimize, and grow organic search traffic.",
+    "longDescription": "Comprehensive organic traffic tool that combines analytics, optimization recommendations, and automated improvements. Track performance, identify opportunities, and implement changes that drive traffic growth.",
+    "heroSubtitle": "Analyze, optimize, and grow organic traffic with data-driven insights.",
+    "metadata": {
+     "title": "Organic Traffic Tool | Grow Search Traffic with Data-Driven Insights",
+     "description": "All-in-one organic traffic tool for analysis, optimization, and growth. Track performance, find opportunities, and implement changes that drive traffic.",
+     "keywords": [
+      "organic traffic tool",
+      "organic traffic growth",
+      "increase organic traffic",
+      "organic traffic analyzer",
+      "grow organic traffic",
+      "organic traffic software",
+      "organic search traffic",
+      "traffic growth tool",
+      "organic traffic platform",
+      "seo traffic tool"
+     ]
+    },
+    "features": [
+     {
+      "title": "Traffic Analysis",
+      "description": "Deep insights into traffic sources, pages, and user behavior."
+     },
+     {
+      "title": "Opportunity Detection",
+      "description": "AI identifies pages and keywords with growth potential."
+     },
+     {
+      "title": "Auto-Optimization",
+      "description": "Automatically implement improvements to underperforming pages."
+     },
+     {
+      "title": "Performance Tracking",
+      "description": "Monitor traffic trends and measure impact of optimizations."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Traffic Recovery",
+      "description": "Identify and fix issues causing traffic drops."
+     },
+     {
+      "title": "Growth Acceleration",
+      "description": "Find and capitalize on quick-win opportunities."
+     },
+     {
+      "title": "Competitive Analysis",
+      "description": "See how your traffic compares to competitors."
+     }
+    ],
+    "cta": {
+     "title": "Scale Now",
+     "subtitle": "Grow Organic Traffic"
+    }
+   },
+   "backlink-building-software": {
+    "name": "Backlink Building Software",
+    "displayName": "Automated Backlink Building Software",
+    "h1Orange": "Build Backlinks",
+    "h1Gray": "Automatically",
+    "shortDescription": "Automated backlink building software that finds and secures quality links.",
+    "longDescription": "Professional backlink building software that discovers link opportunities, automatically links your articles to other quality sites in your niche, and tracks your backlink profile growth. Build authority with sustainable, white-hat link acquisition.",
+    "heroSubtitle": "Automate the entire backlink building process from discovery to acquisition.",
+    "metadata": {
+     "title": "Backlink Building Software | Automate Link Acquisition at Scale",
+     "description": "Automated backlink building software for opportunity discovery, automatically links your articles to other quality sites in your niche, and tracks your backlink profile growth. Build authority with quality link acquisition.",
+     "keywords": [
+      "backlink building software",
+      "backlink building tool",
+      "automated backlink building",
+      "backlink software",
+      "link building automation",
+      "backlink building platform",
+      "backlink acquisition tool",
+      "backlink outreach software",
+      "link building program",
+      "backlink management software"
+     ]
+    },
+    "features": [
+     {
+      "title": "Automatic Backlink Exchange",
+      "description": "Exchange backlinks automatically through daily articles with other quality sites."
+     },
+     {
+      "title": "Automated Article Distribution",
+      "description": "Your articles are shared daily with partner sites for seamless backlink exchange."
+     },
+     {
+      "title": "Quality & Relevance Assurance",
+      "description": "AI ensures exchanged backlinks are relevant and from reputable sources."
+     },
+     {
+      "title": "Exchange Profile Tracking",
+      "description": "Monitor all exchanged backlinks and track your profile’s growth automatically."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "SEO Agencies",
+      "description": "Scale link building services across multiple clients."
+     },
+     {
+      "title": "Competitive Markets",
+      "description": "Build the backlink profile needed to compete in tough niches."
+     },
+     {
+      "title": "New Domains",
+      "description": "Establish authority quickly for new websites."
+     }
+    ],
+    "cta": {
+     "title": "Build authority",
+     "subtitle": "Automate Backlink Building"
+    }
+   },
+   "seo-article-generator": {
+    "name": "SEO Article Generator",
+    "displayName": "AI SEO Article Generator",
+    "h1Orange": "Generate",
+    "h1Gray": "SEO Articles",
+    "shortDescription": "AI-powered SEO article generator that creates ranking-optimized content.",
+    "longDescription": "Our SEO article generator uses advanced AI to create comprehensive, well-researched articles optimized for search engines. Generate articles that rank with proper structure, keywords, and readability.",
+    "heroSubtitle": "Create SEO-optimized articles that rank with AI-powered generation.",
+    "metadata": {
+     "title": "SEO Article Generator | Create Ranking-Optimized Content with AI",
+     "description": "AI-powered SEO article generator creates comprehensive, optimized content that ranks. Generate well-researched articles with proper structure and keywords.",
+     "keywords": [
+      "seo article generator",
+      "seo content generator",
+      "ai article generator",
+      "seo article writer",
+      "automated article writing",
+      "seo article creator",
+      "ai seo writer",
+      "article generation tool",
+      "seo blog generator",
+      "automated seo writing"
+     ]
+    },
+    "features": [
+     {
+      "title": "Smart Generation",
+      "description": "AI creates comprehensive articles based on target keywords."
+     },
+     {
+      "title": "Proper Structure",
+      "description": "Articles include proper heading hierarchy and formatting."
+     },
+     {
+      "title": "SEO Optimization",
+      "description": "Automatic keyword placement, meta tags, and technical SEO."
+     },
+     {
+      "title": "Research Integration",
+      "description": "AI includes relevant statistics, facts, and citations."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Content Scaling",
+      "description": "Produce more articles without hiring additional writers."
+     },
+     {
+      "title": "Topic Coverage",
+      "description": "Quickly create content for entire keyword clusters."
+     },
+     {
+      "title": "Content Updates",
+      "description": "Refresh old content with current information and better optimization."
+     }
+    ],
+    "cta": {
+     "title": "Quality Content",
+     "subtitle": "Generate SEO Articles"
+    }
+   },
+   "automated-publishing": {
+    "name": "Automated Publishing",
+    "displayName": "Automated Content Publishing Platform",
+    "h1Orange": "Publish Content",
+    "h1Gray": "Automatically",
+    "shortDescription": "Automated publishing system that schedules and publishes content across all platforms.",
+    "longDescription": "Set up automated publishing workflows that handle content distribution across your website, blog, social media, and email. Schedule in advance or publish immediately with proper optimization for each channel.",
+    "heroSubtitle": "Schedule and publish content automatically across all your channels.",
+    "metadata": {
+     "title": "Automated Publishing Platform | Schedule Content Across All Channels",
+     "description": "Automated content publishing platform for websites, blogs, social media, and email. Schedule, optimize, and publish content automatically.",
+     "keywords": [
+      "automated publishing",
+      "content publishing automation",
+      "automated content publishing",
+      "publishing automation tool",
+      "auto publishing software",
+      "scheduled publishing",
+      "content distribution automation",
+      "automated blog publishing",
+      "multi-channel publishing",
+      "publishing workflow automation"
+     ]
+    },
+    "features": [
+     {
+      "title": "Smart Scheduling",
+      "description": "AI determines optimal publishing times for maximum engagement."
+     },
+     {
+      "title": "Multi-Platform",
+      "description": "Publish to blog, social media, email, and more simultaneously."
+     },
+     {
+      "title": "Workflow Automation",
+      "description": "Automated approval processes and quality checks before publishing."
+     },
+     {
+      "title": "Custom Rules",
+      "description": "Configure publishing rules based on content type and channel."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Content Teams",
+      "description": "Streamline publishing workflows across multiple team members."
+     },
+     {
+      "title": "Multi-Brand Management",
+      "description": "Manage publishing schedules for multiple brands or clients."
+     },
+     {
+      "title": "Global Publishing",
+      "description": "Coordinate publishing across different time zones and regions."
+     }
+    ],
+    "cta": {
+     "title": "Schedule Content",
+     "subtitle": "Automate Your Publishing"
+    }
+   },
+   "content-publishing-platform": {
+    "name": "Content Publishing Platform",
+    "displayName": "All-in-One Content Publishing Platform",
+    "h1Orange": "Complete",
+    "h1Gray": "Publishing Platform",
+    "shortDescription": "Enterprise content publishing platform for creating, managing, and distributing content.",
+    "longDescription": "Comprehensive content publishing platform that handles the entire content lifecycle from creation and editing to approval workflows and multi-channel distribution. Built for teams that take content seriously.",
+    "heroSubtitle": "Manage your entire content operation from creation to distribution.",
+    "metadata": {
+     "title": "Content Publishing Platform | Enterprise Content Management & Distribution",
+     "description": "Enterprise content publishing platform for creation, management, and distribution. Handle the entire content lifecycle with advanced workflows and collaboration.",
+     "keywords": [
+      "content publishing platform",
+      "publishing platform",
+      "content management platform",
+      "enterprise publishing",
+      "content publishing system",
+      "digital publishing platform",
+      "content publishing software",
+      "editorial platform",
+      "content operations platform",
+      "publishing management system"
+     ]
+    },
+    "features": [
+     {
+      "title": "Collaborative Editor",
+      "description": "Real-time collaboration with version control and commenting."
+     },
+     {
+      "title": "Approval Workflows",
+      "description": "Customizable review and approval processes for quality control."
+     },
+     {
+      "title": "Multi-Site Publishing",
+      "description": "Publish to multiple websites and platforms from one interface."
+     },
+     {
+      "title": "Analytics Integration",
+      "description": "Track performance of published content across all channels."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Media Companies",
+      "description": "Manage high-volume publishing with editorial oversight."
+     },
+     {
+      "title": "Enterprise Marketing",
+      "description": "Coordinate content across brands and departments."
+     },
+     {
+      "title": "Publishing Agencies",
+      "description": "Manage content production for multiple clients."
+     }
+    ],
+    "cta": {
+     "title": "Manage content operations",
+     "subtitle": "Centralize Your Publishing"
+    }
+   },
+   "keyword-discovery": {
+    "name": "Keyword Discovery",
+    "displayName": "AI Keyword Discovery Platform",
+    "h1Orange": "Discover",
+    "h1Gray": "Hidden Keywords",
+    "shortDescription": "AI-powered keyword discovery that finds opportunities competitors miss.",
+    "longDescription": "Our keyword discovery platform uses AI to uncover hidden keyword opportunities that traditional tools miss. Find long-tail keywords, question-based queries, and emerging trends before your competitors.",
+    "heroSubtitle": "Uncover keyword opportunities your competitors haven't found yet.",
+    "metadata": {
+     "title": "Keyword Discovery Platform | Find Hidden Keyword Opportunities with AI",
+     "description": "AI-powered keyword discovery platform finds opportunities competitors miss. Discover long-tail keywords, questions, and emerging trends for your content strategy.",
+     "keywords": [
+      "keyword discovery",
+      "keyword discovery tool",
+      "keyword finder",
+      "keyword opportunity finder",
+      "keyword exploration",
+      "keyword mining",
+      "keyword discovery platform",
+      "hidden keyword finder",
+      "keyword gap analysis",
+      "keyword opportunity tool"
+     ]
+    },
+    "features": [
+     {
+      "title": "AI Discovery",
+      "description": "Machine learning finds keywords traditional tools miss."
+     },
+     {
+      "title": "Question Keywords",
+      "description": "Discover question-based queries for FAQ and guide content."
+     },
+     {
+      "title": "Emerging Trends",
+      "description": "Identify keywords gaining traction before they become competitive."
+     },
+     {
+      "title": "Topic Clustering",
+      "description": "Automatically group discoveries into actionable content clusters."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Blue Ocean Strategy",
+      "description": "Find untapped keyword opportunities in your niche."
+     },
+     {
+      "title": "Content Ideation",
+      "description": "Discover topics your audience is searching for."
+     },
+     {
+      "title": "Competitive Advantage",
+      "description": "Target keywords before competitors discover them."
+     }
+    ],
+    "cta": {
+     "title": "Find opportunities",
+     "subtitle": "Start Discovering Keywords"
+    }
+   },
+   "json-ld-schema": {
+    "name": "JSON-LD Schema",
+    "displayName": "JSON-LD Schema Generator",
+    "h1Orange": "Generate",
+    "h1Gray": "Schema Markup",
+    "shortDescription": "Automatic JSON-LD schema markup generation for better search visibility.",
+    "longDescription": "Our JSON-LD schema generator automatically creates and implements structured data markup for all your pages. Improve search visibility with rich snippets, knowledge panels, and enhanced SERP features.",
+    "heroSubtitle": "Implement perfect schema markup automatically for better search results.",
+    "metadata": {
+     "title": "JSON-LD Schema Generator | Automatic Structured Data Implementation",
+     "description": "Automatic JSON-LD schema generator for structured data markup. Improve search visibility with rich snippets, knowledge panels, and enhanced results.",
+     "keywords": [
+      "json-ld schema",
+      "schema markup generator",
+      "json-ld generator",
+      "structured data tool",
+      "schema markup tool",
+      "json-ld markup",
+      "schema generator",
+      "structured data generator",
+      "schema.org markup",
+      "rich snippets tool"
+     ]
+    },
+    "features": [
+     {
+      "title": "Auto-Generation",
+      "description": "Automatically generate appropriate schema for each page type."
+     },
+     {
+      "title": "Validation",
+      "description": "Built-in validation ensures schema is error-free."
+     },
+     {
+      "title": "Multiple Types",
+      "description": "Supports all major schema types: Article, Product, FAQ, and more."
+     },
+     {
+      "title": "Instant Implementation",
+      "description": "Deploy schema markup with one click, no coding required."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "E-commerce",
+      "description": "Implement Product schema for rich product results."
+     },
+     {
+      "title": "Publishers",
+      "description": "Add Article schema for news and blog content."
+     },
+     {
+      "title": "Local Businesses",
+      "description": "Implement LocalBusiness schema for better local visibility."
+     }
+    ],
+    "cta": {
+     "title": "Improve search visibility",
+     "subtitle": "Generate Schema Markup"
+    }
+   },
+   "automated-seo-audits": {
+    "name": "Automated SEO Audits",
+    "displayName": "Automated SEO Audit Platform",
+    "h1Orange": "Continuous",
+    "h1Gray": "SEO Audits",
+    "shortDescription": "Automated SEO audits that run continuously and alert you to issues.",
+    "longDescription": "Set up automated SEO audits that continuously monitor your site for technical issues, content problems, and optimization opportunities. Get alerts when issues are detected and automatic fixes when possible.",
+    "heroSubtitle": "Never miss an SEO issue with continuous automated auditing.",
+    "metadata": {
+     "title": "Automated SEO Audits | Continuous Site Monitoring & Issue Detection",
+     "description": "Automated SEO audit platform with continuous monitoring, instant alerts, and automatic fixes. Catch and resolve issues before they impact rankings.",
+     "keywords": [
+      "automated seo audits",
+      "automated seo audit tool",
+      "continuous seo monitoring",
+      "seo audit automation",
+      "automated site audit",
+      "seo monitoring tool",
+      "automated technical seo",
+      "seo audit scheduler",
+      "continuous seo auditing",
+      "automated seo testing"
+     ]
+    },
+    "features": [
+     {
+      "title": "Continuous Monitoring",
+      "description": "Audits run automatically on your chosen schedule."
+     },
+     {
+      "title": "Instant Alerts",
+      "description": "Get notified immediately when critical issues are detected."
+     },
+     {
+      "title": "Auto-Fix",
+      "description": "Automatically resolve common issues without manual intervention."
+     },
+     {
+      "title": "Trend Analysis",
+      "description": "Track how your site health improves over time."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "Large Websites",
+      "description": "Monitor thousands of pages for technical issues."
+     },
+     {
+      "title": "Active Development",
+      "description": "Catch SEO issues introduced by new deployments."
+     },
+     {
+      "title": "Client Reporting",
+      "description": "Provide clients with automated monthly audit reports."
+     }
+    ],
+    "cta": {
+     "title": "Catch issues",
+     "subtitle": "Automate SEO Audits"
+    }
+   },
+   "domain-authority-boost": {
+    "name": "Domain Authority Boost",
+    "displayName": "Domain Authority Growth Platform",
+    "h1Orange": "Increase",
+    "h1Gray": "Domain Authority",
+    "shortDescription": "Comprehensive platform to build and boost domain authority systematically.",
+    "longDescription": "Our domain authority boost platform combines quality link building, content excellence, and technical optimization to systematically improve your domain authority. Track DA growth and see how it impacts rankings.",
+    "heroSubtitle": "Build domain authority systematically with proven strategies.",
+    "metadata": {
+     "title": "Domain Authority Boost | Increase DA with Proven Strategies",
+     "description": "Domain authority growth platform combines link building, content, and technical SEO to boost DA. Track progress and see how authority improvements impact rankings.",
+     "keywords": [
+      "domain authority boost",
+      "increase domain authority",
+      "domain authority growth",
+      "boost domain rating",
+      "improve domain authority",
+      "domain authority tool",
+      "da improvement",
+      "domain authority building",
+      "increase da score",
+      "domain authority platform"
+     ]
+    },
+    "features": [
+     {
+      "title": "DA Tracking",
+      "description": "Monitor domain authority changes and understand contributing factors."
+     },
+     {
+      "title": "Strategic Link Building",
+      "description": "Build backlinks from high-authority sites in your niche."
+     },
+     {
+      "title": "Content Excellence",
+      "description": "Create authoritative content that earns natural backlinks."
+     },
+     {
+      "title": "Profile Cleanup",
+      "description": "Disavow toxic links that harm domain authority."
+     }
+    ],
+    "useCases": [
+     {
+      "title": "New Domains",
+      "description": "Establish authority quickly for new websites."
+     },
+     {
+      "title": "Competitive Markets",
+      "description": "Match competitor DA to compete for rankings."
+     },
+     {
+      "title": "Authority Recovery",
+      "description": "Recover from DA drops caused by algorithm updates."
+     }
+    ],
+    "cta": {
+     "title": "Build authority",
+     "subtitle": "Boost Domain Authority"
+    }
+   }
+  }
+ },
+ "features": {
+  "landingPage": [
+   {
+    "title": "Daily SEO Articles",
+    "description": "Get <strong class=\"font-medium text-neutral-900\">daily branded articles</strong> in <strong class=\"font-medium text-neutral-900\">your tone and voice</strong>. With optimal structure, internal links, citations, infographics, YouTube videos and more."
+   },
+   {
+    "title": "30-Day Content Plan",
+    "description": "We plan a <strong class=\"font-medium text-neutral-900\">full month of content</strong> with different article types. Our system checks which <strong class=\"font-medium text-neutral-900\">formats LLMs cite most</strong> and uses them to <strong class=\"font-medium text-neutral-900\">maximize your chances of being referenced</strong>.",
+    "cta": "Rank on Google and ChatGPT"
+   },
+   {
+    "title": "Automated Publishing",
+    "description": "Connect your CMS once and <strong class=\"font-medium text-neutral-900\">publish automatically</strong> to WordPress, Webflow, Wix, Shopify, Framer, Ghost, Snapps, or any platform via API.",
+    "cta": "Rank on Google and ChatGPT"
+   },
+   {
+    "title": "Quality Backlinks",
+    "description": "Backlinks are votes of confidence for Google and ChatGPT. We build backlinks by <strong class=\"font-medium text-neutral-900\">linking your blogs naturally</strong> within the blogs of <strong class=\"font-medium text-neutral-900\">other clients in the network</strong>.",
+    "cta": "Become part Backlink Exchange"
+   },
+   {
+    "title": "LLM Visibility Tracking",
+    "description": "Track how often your website appears in AI responses from ChatGPT, Perplexity, and know what to do to improve your visibility. See your visibility score and monitor prompts in real-time.",
+    "cta": "Track your LLM visibility"
+   },
+   {
+    "title": "Technical GEO Audit",
+    "description": "We analyze your website and scan it for <strong class=\"font-medium text-neutral-900\">technical issues</strong> that might be blocking Google and ChatGPT from properly reading and ranking your site.",
+    "cta": "Rank on Google and ChatGPT"
+   },
+   {
+    "title": "Reddit AI Agent",
+    "description": "We identify the <strong class=\"font-medium text-neutral-900\">right conversations</strong> on Reddit where you should be participating. This builds your <strong class=\"font-medium text-neutral-900\">brand's visibility</strong> in the places LLMs look for content to cite.",
+    "cta": "Rank on Google and ChatGPT"
+   },
+   {
+    "title": "Reverse-Engineered for Visibility",
+    "description": "We first study <strong class=\"font-medium text-neutral-900\">what ranks on Google</strong>, gets <strong class=\"font-medium text-neutral-900\">traction on Reddit</strong>, and is <strong class=\"font-medium text-neutral-900\">cited by LLMs</strong>. Every article, explainer, and action you take is then built by working backwards from that.",
+    "cta": "Rank on Google and ChatGPT"
+   }
+  ],
+  "llmRanking": [
+   {
+    "title": "LLM-Optimized Content Creation",
+    "description": "BabyLoveGrowth analyzes how LLMs process and prioritize information, then structures your content to maximize relevance and visibility in AI search results"
+   },
+   {
+    "title": "Tailored Content Plan",
+    "description": "Get a personalized 30-day content plan, which is tailored to your niche and optimized for LLMs"
+   },
+   {
+    "title": "Track the impact of Babylovegrowth.ai",
+    "description": "Get detailed performance of each country you're ranking in, and observe the progress of your organic traffic days after days."
+   },
+   {
+    "title": "Publish with just one click",
+    "description": "Publish articles directly to your favorite platforms including WordPress, Webflow, Wix, Framer, Ghost, Snapps, Shopify, API and Wix with just one click."
+   }
+  ],
+  "llmRankingList": [
+   {
+    "title": "LLM-optimized content",
+    "description": "Articles with structured data, JSON-LD, quantitative data, "
+   },
+   {
+    "title": "Generate unlimited keywords",
+    "description": "Create endless combinations of keywords until you discover the ideal match for your content."
+   },
+   {
+    "title": "Semantic SEO (NLP)",
+    "description": "Each article is enriched with keywords that match the semantic vector space of top search results."
+   },
+   {
+    "title": "Publish with 1 click",
+    "description": "Directly from our platform, you can publish your article to WordPress, Webflow, Wix, Shopify, Framer, Ghost, Snapps, API and other integrations."
+   },
+   {
+    "title": "People Also Ask data",
+    "description": "Our articles incorporate People Also Ask data, ensuring you address the most common question users have, thereby satisfying their search intent."
+   },
+   {
+    "title": "Search Console integration",
+    "description": "By integrating Google Search Console, we can get a detailed insight of how your page performs which helps us tailor the content."
+   },
+   {
+    "title": "Multi-user access",
+    "description": "Invite multiple editors to your organization and collaborate seamlessly to generate impactful content together."
+   },
+   {
+    "title": "Edit article with AI",
+    "description": "Easily edit your article to meet your exact expectations, ensuring every word aligns with your vision for standout content."
+   },
+   {
+    "title": "20+ Languages",
+    "description": "We natively support 20+ languages, including English, Spanish, French, German, Italian, and others."
+   }
+  ]
+ },
+ "howItWorksLlmRanking": {
+  "steps": [
+   {
+    "title": "In-depth Business Analysis",
+    "description": "We analyze your business, customers and competition to find out what kind of SEO strategy will provide the best results"
+   },
+   {
+    "title": "Get 30-Day Content Plan",
+    "description": "We prepare a tailored 30-day content plan and find your backlink exchange partners within our community."
+   },
+   {
+    "title": "Start Ranking on ChatGPT",
+    "description": "Each day we generate a LLM-optimized article for your business. Articles get published automatically on your website."
+   }
+  ]
+ },
+ "howItWorksBacklinks": {
+  "steps": [
+   {
+    "title": "Submit Your Website",
+    "description": "Join the network by signing up for a free account. We will analyze your website, traffic, DR and audience.",
+    "badges": [
+     "Free Sign Up",
+     "Website Analysis"
+    ]
+   },
+   {
+    "title": "Smart Matchmaking",
+    "description": "We automatically match you with vetted, topic-relevant websites for link swaps.",
+    "badges": [
+     "Automated Matching",
+     "Topic Relevance"
+    ]
+   },
+   {
+    "title": "Grow Organically",
+    "description": "Get daily articles and quality backlinks and watch your organic traffic and topical authority grow.",
+    "badges": [
+     "Daily Articles",
+     "Quality Backlinks"
+    ]
+   }
+  ]
+ },
+ "ctaFeatures": {
+  "default": [
+   "Set up in minutes",
+   "Cancel anytime",
+   "AI-powered optimization"
+  ],
+  "chatgpt": [
+   "Set up in minutes",
+   "Cancel anytime",
+   "ChatGPT optimization"
+  ],
+  "agency": [
+   "Set up in minutes",
+   "Cancel anytime",
+   "AI-Powered SEO"
+  ],
+  "backlinkExchange": [
+   "Set up in minutes",
+   "Cancel anytime",
+   "Automated link exchange"
+  ],
+  "aiSearch": [
+   "Set up in minutes",
+   "Cancel anytime",
+   "Optimization for AI Search"
+  ],
+  "answerEngine": [
+   "Set up in minutes",
+   "Cancel anytime",
+   "AEO content optimization"
+  ],
+  "generativeEngine": [
+   "Set up in minutes",
+   "Cancel anytime",
+   "GEO content optimization"
+  ],
+  "autoblog": [
+   "Set up in minutes",
+   "Cancel anytime",
+   "AI-powered optimization"
+  ]
+ },
+ "ctas": {
+  "default": {
+   "tagline": "Grow now!",
+   "title": "AI SEO Agent,<br/><highlight>Faster Growth!</highlight>",
+   "buttonText": "Start using AI SEO Agent",
+   "features": [
+    "Set up in minutes",
+    "Cancel anytime",
+    "AI-powered optimization"
+   ]
+  },
+  "landingPage": {
+   "tagline": "Grow now!",
+   "title": "AI SEO Agent,<br/><highlight>Faster Growth!</highlight>",
+   "buttonText": "Start using AI SEO Agent",
+   "features": [
+    "Set up in minutes",
+    "Cancel anytime",
+    "AI-powered optimization"
+   ]
+  },
+  "rankOnChatgpt": {
+   "tagline": "Ready to Rank on ChatGPT",
+   "title": "Rank on ChatGPT,<br/><highlight>More Visibility!</highlight>",
+   "buttonText": "Start Ranking on ChatGPT",
+   "features": [
+    "Set up in minutes",
+    "Cancel anytime",
+    "ChatGPT optimization"
+   ]
+  },
+  "rankOnLlms": {
+   "tagline": "Rank on LLMs",
+   "title": "Rank on LLMs,<br/><highlight>More Visibility!</highlight>",
+   "buttonText": "Start Ranking on LLMs",
+   "features": [
+    "Set up in minutes",
+    "Cancel anytime",
+    "LLM optimization"
+   ]
+  },
+  "aiSearchOptimization": {
+   "tagline": "Ready to Dominate with AI Search Engine Optimization",
+   "title": "AI Search Optimization,<br/><highlight>More Visibility!</highlight>",
+   "buttonText": "Start AI Search Journey",
+   "features": [
+    "Set up in minutes",
+    "Cancel anytime",
+    "Optimization for AI Search"
+   ]
+  },
+  "answerEngineOptimization": {
+   "tagline": "Ready to Dominate Answer Engines?",
+   "title": "Answer Engine Optimization,<br/><highlight>More Visibility!</highlight>",
+   "buttonText": "Start AEO Journey",
+   "features": [
+    "Set up in minutes",
+    "Cancel anytime",
+    "AEO content optimization"
+   ]
+  },
+  "generativeEngineOptimization": {
+   "tagline": "Ready to Dominate Generative Engines?",
+   "title": "Generative Engine Optimization,<br/><highlight>More Visibility!</highlight>",
+   "buttonText": "Start GEO Journey",
+   "features": [
+    "Set up in minutes",
+    "Cancel anytime",
+    "GEO content optimization"
+   ]
+  },
+  "autoblog": {
+   "tagline": "Grow now!",
+   "title": "AI SEO Agent,<br/><highlight>Faster Growth!</highlight>",
+   "buttonText": "Start using AI SEO Agent",
+   "features": [
+    "Set up in minutes",
+    "Cancel anytime",
+    "AI-powered optimization"
+   ]
+  },
+  "autoLinking": {
+   "tagline": "Automate Internal Linking",
+   "title": "Auto Linking Tool,<br/><highlight>Better SEO!</highlight>",
+   "buttonText": "Start Auto Linking",
+   "features": [
+    "Set up in minutes",
+    "Cancel anytime",
+    "AI-powered linking"
+   ]
+  },
+  "seoAgencies": {
+   "tagline": "Scale your agency",
+   "title": "AI SEO for Agencies,<br/><highlight>Faster Growth!</highlight>",
+   "buttonText": "Start Scaling",
+   "features": [
+    "Set up in minutes",
+    "Cancel anytime",
+    "AI-Powered SEO"
+   ]
+  },
+  "aiBlogWriter": {
+   "tagline": "Write AI Blogs in Minutes",
+   "title": "AI Blog Writer,<br/><highlight>Faster Content!</highlight>",
+   "buttonText": "Start Writing",
+   "features": [
+    "Set up in minutes",
+    "Cancel anytime",
+    "AI-powered writing"
+   ]
+  },
+  "aiSeoAgent": {
+   "tagline": "Grow now!",
+   "title": "AI SEO Agent,<br/><highlight>Faster Growth!</highlight>",
+   "buttonText": "Start using AI SEO Agent",
+   "features": [
+    "Set up in minutes",
+    "Cancel anytime",
+    "AI-powered optimization"
+   ]
+  }
+ },
+ "impactMetrics": {
+  "label": "Real Results",
+  "title": "Measurable impact on your business",
+  "visibility": "Increase in visibility",
+  "firstPage": "Users see first-page AI mentions",
+  "conversion": "Higher conversion rates from AI traffic",
+  "cta": "Discover Our Success"
+ },
+ "productResults": {
+  "testimonials": [
+   {
+    "quote": "With BabyLoveGrowth, our Domain Rank jumped from 23 → 38 in 2 months, and our high-quality backlinks increased 100% in 3 months, all running smoothly on autopilot.",
+    "name": "Dr. Reinhard Neudorfer"
+   },
+   {
+    "quote": "These guys go above and beyond to understand you and your needs as a company or business. I would suggest using BabyLoveGrowth as they are looking to the future and moving with it.",
+    "name": "Stefan Coetzer"
+   },
+   {
+    "quote": "One of the best AI websites to rank your site. Highly recommended, my site went from 800 to 3000 traffic in 2 months.",
+    "name": "Muhammad Imran"
+   },
+   {
+    "quote": "The setup process was surprisingly quick and easy, just enter your info and everything generates. Already received a few top backlinks after a couple of weeks.",
+    "name": "Mrs Nicole Isherwood"
+   },
+   {
+    "quote": "I am so surprised that I was able to connected babylovegrowth to my platform via api which is purely code and not using wp or other popular CMS.",
+    "name": "Sam J."
+   },
+   {
+    "quote": "Excellent service and self explaining website. I got some results right after a few days. If you have a problem or some specific questions, there is a live chat at your service.",
+    "name": "Werner"
+   }
+  ]
+ },
+ "productHero": {
+  "publishingDailyFor": "Publishing daily for",
+  "watchDemo": "Watch the 2-minute demo"
+ },
+ "heroSection": {
+  "watchDemo": "Watch a 1-minute demo",
+  "clickToWatch": "Click to watch how it works",
+  "trustedBy": "Trusted by {backlinkCommunityCount} smart businesses",
+  "startRanking": "Start ranking in ChatGPT and any other AI search engine",
+  "seeMentions": "See mentions and citations in realtime, track what matters and improve your rankings",
+  "startTrial": "Start 3-day trial",
+  "closeDemo": "Close the demo"
+ },
+ "scarcity": {
+  "spotsLeft": "Only {spotsLeft} spots left in {month}",
+  "limitReason": "We limit monthly admissions to maintain backlink quality and network balance.",
+  "heroSpotsLeft": "Only {spotsLeft} spots left in our exclusive network this month",
+  "limitedSpots": "Limited Monthly Spots Available",
+  "inlineSpotsLeft": "Only {spotsLeft} spots remaining in our backlink exchange network."
+ },
+ "breadcrumbs": {
+  "home": "Home",
+  "blog": "Blog",
+  "freeTools": "Free Tools",
+  "successStories": "Success Stories"
+ },
+ "industryLanding": {
+  "ariaLabels": {
+   "customerLogos": "Customer logos",
+   "prevQuery": "Previous query",
+   "nextQuery": "Next query"
+  }
+ }
+}
