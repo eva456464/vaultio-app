@@ -14,6 +14,7 @@ import {
   planFirstMonth,
   topicResearch,
 } from "./jobs/strategy";
+import { aiVisibilityCheck } from "./jobs/visibility";
 import { writeArticle } from "./jobs/writer";
 import type { JobHandler } from "./jobs/types";
 import type { AgentJobName } from "./queue";
@@ -44,7 +45,7 @@ export const JOB_REGISTRY: Record<AgentJobName, Registration> = {
   analyticsSync: { requires: ["ga4"] },
   aiTrafficReport: { requires: ["ga4"] },
   rankingsCheck: { requires: ["gsc"] },
-  aiVisibilityCheck: { requires: ["llm"] },
+  aiVisibilityCheck: { requires: ["llm"], handler: aiVisibilityCheck },
   joinBacklinkExchange: { requires: [] },
 };
 

@@ -1,7 +1,5 @@
 /** Article writer: researches today's planned topic and writes a cited, brand-voiced article. */
 import { and, eq, isNull, ne, sql } from "drizzle-orm";
-import { marked } from "marked";
-import sanitizeHtml from "sanitize-html";
 import { z } from "zod/v4";
 import { db } from "@/db";
 import {
@@ -14,6 +12,7 @@ import {
   type QualityCheck,
 } from "@/db/schema";
 import { ai, type ResearchSource } from "@/server/ai/claude";
+import { renderArticleHtml } from "@/server/markdown";
 import { publishArticle } from "@/server/publishing/publish";
 import { logActivity } from "../activity";
 import type { JobContext, Site } from "./types";
@@ -85,14 +84,6 @@ const slugify = (text: string) =>
 
 function linksIn(markdown: string) {
   return [...markdown.matchAll(/\[[^\]]+\]\((https?:\/\/[^)\s]+)\)/g)].map((match) => match[1]!);
-}
-
-export function renderArticleHtml(markdown: string) {
-  const html = marked.parse(markdown, { async: false, gfm: true }) as string;
-  return sanitizeHtml(html, {
-    allowedTags: [...sanitizeHtml.defaults.allowedTags, "img", "h1", "h2", "h3", "h4", "table", "thead", "tbody", "tr", "th", "td"],
-    allowedAttributes: { a: ["href", "title", "rel", "target"], img: ["src", "alt", "title"], "*": ["id"] },
-  });
 }
 
 function qualityChecks(input: { markdown: string; title: string; metaDescription: string; internal: number; external: number; keyword: string; semantic: string[] }): QualityCheck[] {

@@ -15,6 +15,7 @@ import {
   websiteMetricsHistory,
   type ArticleType,
 } from "@/db/schema";
+import { PROMPT_ALLOWANCE } from "@/lib/visibility";
 import { ai } from "@/server/ai/claude";
 import { COUNTRY_NAMES, DEFAULT_LOCATION, seoData, type KeywordIdea, type Market } from "@/server/seo/dataforseo";
 import { logActivity } from "../activity";
@@ -305,7 +306,6 @@ const PromptsSchema = z.object({
   prompts: z.array(z.object({ prompt: z.string(), intent: z.enum(["awareness", "research", "comparison", "learning", "buying", "other"]) })),
 });
 
-export const PROMPT_ALLOWANCE = 10;
 
 export async function generatePrompts({ site }: JobContext) {
   const existing = await db.select({ id: llmPrompts.id }).from(llmPrompts).where(eq(llmPrompts.orgWebsiteId, site.id));

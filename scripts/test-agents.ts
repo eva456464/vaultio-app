@@ -11,7 +11,8 @@ import "dotenv/config";
 import { addDays, formatISO } from "date-fns";
 import { and, eq, gte } from "drizzle-orm";
 import { db } from "@/db";
-import { agentJobRuns, articles, competitors, contentPlanItems, keywordClusters, llmPrompts, orgWebsites } from "@/db/schema";
+import { agentJobRuns, articles, competitors, contentPlanItems, keywordClusters, llmAnswers, llmPrompts, orgWebsites } from "@/db/schema";
+import { setAssistantProvider, type AssistantProvider } from "@/server/ai/assistants";
 import { setAiProvider, type AiProvider } from "@/server/ai/claude";
 import { runOnboarding } from "@/server/agents/orchestrator";
 import { runAgentJob } from "@/server/agents/runner";
@@ -51,6 +52,16 @@ const standInAi: AiProvider = {
       const count = Number(request.prompt.match(/Pick (\d+) topics/)?.[1] ?? 10);
       return { topics: ids.slice(0, count).map(([clusterId, keyword]) => ({ clusterId, title: `${keyword[0]!.toUpperCase()}${keyword.slice(1)}: a homeowner's guide`, articleType: "guide_explainer", whyThisTopic: ["Homeowners search this before hiring a roofer.", "It matches the roof repair service.", "Low difficulty for a local site."] })) } as never;
     }
+    if (system.includes("list every company")) {
+      const blocks = request.prompt.split(/--- Answer (\d+) ---/).slice(1);
+      const answers = [];
+      for (let i = 0; i < blocks.length; i += 2) {
+        const text = blocks[i + 1] ?? "";
+        const brands = ["Sunny Roofing", "Coastal Roofing", "Goleta Roofers"].filter((name) => text.includes(name));
+        answers.push({ index: Number(blocks[i]), brands: brands.map((name) => ({ name, url: null, sentiment: name === "Sunny Roofing" ? 78 : 60 })) });
+      }
+      return { answers } as never;
+    }
     if (system.includes("SEO metadata")) {
       return { title: "How Long Does a Roof Last? Lifespan by Material", slug: "how-long-does-a-roof-last", metaDescription: "Asphalt shingles last 20 to 30 years, tile and metal much longer. See lifespans by material and the signs a roof needs replacing.", faq: [{ question: "How long does a shingle roof last?", answer: "Usually 20 to 30 years." }], whyThisStructure: ["Answer first", "Material table", "FAQ"], characteristics: ["Cites sources", "Local angle", "Checklist"], semanticKeywords: ["asphalt shingles", "roof lifespan", "metal roof"] } as never;
     }
@@ -67,6 +78,9 @@ const standInAi: AiProvider = {
       "", "## Repair or replace?", "", "If more than 30% of the roof is damaged, replacement is usually cheaper over time [(NRCA)](https://www.nrca.net/).",
       "", "## FAQ", "", "### How long does a shingle roof last?", "", "Usually 20 to 30 years.",
     ].join("\n");
+  },
+  async answer(question) {
+    return { ...(await standInAi.research({ system: "", prompt: question })), model: "stand-in" };
   },
   async research() {
     return {
@@ -101,11 +115,26 @@ const standInSeo: SeoDataProvider = {
   },
 };
 
+const standInAssistants: AssistantProvider = {
+  available: () => ["anthropic", "openai", "google"],
+  async ask(id, question) {
+    const n = question.length % 3;
+    const answers = {
+      anthropic: `For roof repair in Santa Barbara, many homeowners choose Sunny Roofing for its free inspections, or Coastal Roofing for larger jobs. See https://www.nrca.net/ for contractor tips.`,
+      openai: `Well-reviewed options include Coastal Roofing and Goleta Roofers. Check reviews on https://www.yelp.com/search?find_desc=roofing before you hire.`,
+      google: n === 0 ? `Sunny Roofing and Goleta Roofers are both local options with good reviews.` : `Goleta Roofers is a popular local choice.`,
+    } as const;
+    const sources = { anthropic: [{ url: "https://www.nrca.net/", title: "NRCA" }], openai: [{ url: "https://www.yelp.com/search?find_desc=roofing", title: "Yelp" }], google: [{ url: "https://goletaroofers.example/", title: "Goleta Roofers" }] } as const;
+    return { provider: id, model: "stand-in", answer: answers[id], sources: [...sources[id]] };
+  },
+};
+
 async function main() {
   const siteId = Number(process.argv[2]);
   if (!siteId) throw new Error("Usage: tsx scripts/test-agents.ts <siteId>");
   setAiProvider(standInAi);
   setSeoDataProvider(standInSeo);
+  setAssistantProvider(standInAssistants);
 
   const [site] = await db.select().from(orgWebsites).where(eq(orgWebsites.id, siteId));
   if (!site) throw new Error("Site not found");
@@ -125,6 +154,7 @@ async function main() {
   console.log("competitors:", (await db.select({ url: competitors.url }).from(competitors).where(eq(competitors.orgWebsiteId, siteId))).map((c) => c.url));
   console.log("clusters:", (await db.select().from(keywordClusters).where(eq(keywordClusters.orgWebsiteId, siteId))).length);
   console.log("prompts:", (await db.select().from(llmPrompts).where(eq(llmPrompts.orgWebsiteId, siteId))).length);
+  console.log("ai answers:", (await db.select().from(llmAnswers).where(eq(llmAnswers.orgWebsiteId, siteId))).length);
   const plan = await db.select({ day: contentPlanItems.scheduledFor, title: contentPlanItems.plannedTitle, status: contentPlanItems.generationStatus }).from(contentPlanItems).where(and(eq(contentPlanItems.orgWebsiteId, siteId), gte(contentPlanItems.scheduledFor, today)));
   console.log(`plan: ${plan.length} items`, plan.slice(0, 3));
   const [article] = await db.select().from(articles).where(eq(articles.orgWebsiteId, siteId));

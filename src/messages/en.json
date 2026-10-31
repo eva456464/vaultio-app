@@ -207,7 +207,8 @@
         "planFirstMonth": "Plan your first month of articles",
         "joinBacklinkExchange": "Join the backlink exchange",
         "milestones": "Check your achievements",
-        "buildBrandProfile": "Write your brand profile"
+        "buildBrandProfile": "Write your brand profile",
+        "aiVisibilityCheck": "Check if AI recommends you"
       },
       "waitingTitle": "{count, plural, one {# agent is waiting} other {# agents are waiting}}",
       "waitingSubtitle": "They start automatically as soon as the missing setup below is in place."
@@ -699,5 +700,106 @@
       "lastError": "Last error: {error}"
     },
     "comingSoon": "This settings section is being rebuilt."
+  },
+  "aiVisibility": {
+    "title": "AI visibility",
+    "subtitle": "See how ChatGPT, Claude and Gemini mention and recommend your brand.",
+    "tabs": {
+      "overview": "Overview",
+      "prompts": "Prompts",
+      "brands-mentioned": "Brands mentioned",
+      "sources": "Sources"
+    },
+    "explanation": "Across {prompts, plural, one {# prompt} other {# prompts}} and {models, plural, one {# AI assistant} other {# AI assistants}}, your brand appeared in {mentions} of {answers} answers, a {score}% visibility score.",
+    "explanationBrand": "Most mentioned brand: {brand} ({count, plural, one {# mention} other {# mentions}}).",
+    "explanationSource": "Top source: {source} ({count, plural, one {# time} other {# times}}).",
+    "score": "Visibility score",
+    "scoreInfo": "The share of AI answers to your tracked prompts that mention your brand.",
+    "scoreFor": "for {count, plural, one {# prompt} other {# prompts}}",
+    "tiers": {
+      "start": "Starting point",
+      "emerging": "Emerging",
+      "growing": "Growing",
+      "strong": "Strong"
+    },
+    "tierText": {
+      "start": "AI assistants don't mention your brand for these questions yet, which is a normal place to start. Your agents publish content for these exact questions and earn backlinks so your brand starts appearing.",
+      "emerging": "Your brand appears in some answers. Keep publishing content for these questions to show up more often.",
+      "growing": "AI assistants mention you regularly. Content and backlinks for the remaining questions push you further.",
+      "strong": "Your brand is mentioned in most answers to your tracked questions."
+    },
+    "mentions": "Brand mentions",
+    "mentionsInfo": "How many AI answers mention your brand.",
+    "answersCount": "{mentions} / {answers} answers",
+    "overTime": "Visibility over time",
+    "topSources": "Top AI sources",
+    "topSourcesHint": "Websites AI assistants cite when answering your prompts",
+    "source": "Source",
+    "citationShare": "Citation share",
+    "brands": "Brands mentioned",
+    "brandsHint": "Brands AI assistants recommend for your prompts",
+    "brand": "Brand",
+    "mentionedIn": "Mentioned in",
+    "visibility": "Visibility",
+    "sentiment": "Sentiment",
+    "you": "You",
+    "ofAnswers": "{count} / {total}",
+    "noData": {
+      "title": "Your first AI visibility check is on its way",
+      "body": "Your agents ask AI assistants your tracked questions during onboarding and every Monday after that."
+    },
+    "prompts": {
+      "title": "Tracked prompts",
+      "subtitle": "The questions your customers ask AI, and whether the answers mention you.",
+      "manage": "Manage prompts",
+      "prompt": "Prompt",
+      "intent": "Intent",
+      "mentioned": "{brand} mentioned in",
+      "notMentioned": "Not mentioned",
+      "notChecked": "Not checked yet",
+      "empty": "No prompts yet. Your agents write them during onboarding."
+    },
+    "intents": {
+      "awareness": "Awareness",
+      "research": "Research",
+      "comparison": "Comparison",
+      "learning": "Learning",
+      "buying": "Buying intent",
+      "other": "Other"
+    },
+    "manage": {
+      "title": "Manage prompts",
+      "subtitle": "Choose which questions to track. Each one is asked to every connected AI assistant.",
+      "active": "{count} of {max} active",
+      "limit": "Limit reached",
+      "add": "Add prompt",
+      "placeholder": "e.g. Who is the best roofer in Santa Barbara?",
+      "limitError": "You can track up to {max} active prompts. Turn one off first.",
+      "delete": "Delete prompt",
+      "activeLabel": "Active"
+    },
+    "byPrompt": {
+      "brands": "Brands by prompt",
+      "sources": "Sources by prompt",
+      "brandsCount": "{count, plural, one {# brand} other {# brands}}",
+      "sourcesCount": "{count, plural, one {# source} other {# sources}}"
+    },
+    "detail": {
+      "back": "Go back",
+      "prompt": "Prompt",
+      "mentionedIn": "{brand} mentioned in",
+      "sources": "Sources",
+      "brands": "Brands mentioned",
+      "intent": "Intent",
+      "sourcesCited": "Sources cited",
+      "answeredBy": "Answer from {assistant}",
+      "checked": "Checked {date}",
+      "noAnswers": "This prompt hasn't been checked yet."
+    },
+    "sentimentLabel": {
+      "positive": "Positive",
+      "neutral": "Neutral",
+      "negative": "Negative"
+    }
   }
 }

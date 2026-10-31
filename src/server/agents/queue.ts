@@ -19,6 +19,7 @@ export const ONBOARDING_STEPS = [
   "findCompetitors",
   "keywordResearch",
   "generatePrompts",
+  "aiVisibilityCheck",
   "planFirstMonth",
   "joinBacklinkExchange",
 ] as const;

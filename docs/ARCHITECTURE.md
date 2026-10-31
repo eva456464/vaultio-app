@@ -90,7 +90,7 @@ Everything the agents do goes through one path, so work is never silently droppe
 | Publishing: content API (`/api/integrations/v1/articles`, `X-API-Key`), signed webhook, WordPress (application password); auto-publish after writing and "Publish now" | built |
 | Other platforms (Shopify, Webflow, Wix, Ghost, Framer, hosted blog...) | next phase |
 | Hero / body images | next phase |
-| AI visibility checks (ChatGPT, Claude, Gemini) | next phase |
+| AI visibility: weekly + at onboarding, asks each prompt to Claude (web search), ChatGPT and Gemini when keyed; mentions, brands with sentiment, cited sources; Overview / Prompts / Brands / Sources pages | built |
 | GA4 + Search Console sync | needs a Google Cloud OAuth app |
 | Backlink exchange matcher, Reddit / Quora agents, Instagram & Facebook posting | later phases |
 

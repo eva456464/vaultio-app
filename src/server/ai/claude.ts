@@ -122,13 +122,28 @@ async function research(request: TextRequest & { maxSearches?: number }): Promis
   return { notes: textOf(message), sources: [...sources.values()] };
 }
 
+/**
+ * Answers a question the way the Claude assistant would for a member of the
+ * public (with live web search), for AI visibility tracking.
+ */
+async function answer(question: string): Promise<ResearchResult & { model: string }> {
+  const result = await research({
+    system: "You are a helpful assistant. Answer the user's question directly and helpfully. When they ask for providers, products or services, recommend specific ones by name.",
+    prompt: question,
+    effort: "low",
+    maxSearches: 3,
+  });
+  return { ...result, model: CLAUDE_MODEL };
+}
+
 export type AiProvider = {
   generateObject: typeof generateObject;
   generateText: typeof generateText;
   research: typeof research;
+  answer: typeof answer;
 };
 
-export const ai: AiProvider = { generateObject, generateText, research };
+export const ai: AiProvider = { generateObject, generateText, research, answer };
 
 /** Replaces the provider (tests only). */
 export function setAiProvider(provider: AiProvider) {
