@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 export const inputClass =
   "mt-1.5 h-11 w-full rounded-control border border-control bg-white px-3.5 text-sm text-ink outline-none placeholder:text-ink-subtle focus:border-ink/40 disabled:bg-canvas";
 
-export function SettingsCard({ title, hint, children, footer }: { title: string; hint?: string; children: ReactNode; footer?: ReactNode }) {
+export function SettingsCard({ title, hint, children, footer }: { title: ReactNode; hint?: string; children: ReactNode; footer?: ReactNode }) {
   return (
     <section className="card overflow-hidden">
       <div className="p-5 md:p-6">

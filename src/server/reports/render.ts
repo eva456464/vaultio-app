@@ -177,6 +177,22 @@ export function renderReport({ data, blocks, kpiMetrics, brand, print }: Options
     );
   }
 
+  if (has("community") && data.community.replies.length) {
+    const community = data.community;
+    const replies = community.replies
+      .map((reply) => {
+        const where = reply.platform === "reddit" && reply.subreddit ? `r/${reply.subreddit}` : t(`report.community.${reply.platform}`);
+        return `<li><strong><a href="${esc(reply.url)}">${esc(reply.title)}</a></strong><span>${esc(`${where} · ${day(reply.date)}`)}</span></li>`;
+      })
+      .join("");
+    sections.push(
+      section(
+        t("report.community.title"),
+        `<div class="kpis">${kpi(t("report.community.redditReplies"), num(community.reddit))}${kpi(t("report.community.quoraAnswers"), num(community.quora))}${kpi(t("report.community.found"), num(community.found))}</div><ul class="list">${replies}</ul>`,
+      ),
+    );
+  }
+
   if (has("aiVisibility") && data.aiVisibility) {
     const ai = data.aiVisibility;
     sections.push(

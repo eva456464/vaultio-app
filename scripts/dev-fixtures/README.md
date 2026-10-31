@@ -62,3 +62,20 @@ Article improvements (needs Search Console data, e.g. from the Google mock, and 
 ```bash
 npx tsx --tsconfig tsconfig.json scripts/test-improvements.ts <siteId> [--publish]
 ```
+
+## Reddit mock (`mock-reddit.py`)
+
+Stands in for the Reddit Data API (application-only sign-in and `/api/info`) with fake thread
+details; thread `rf0004` is archived so the agent should drop it.
+
+```bash
+python3 scripts/dev-fixtures/mock-reddit.py 4500
+```
+
+Use it with `REDDIT_CLIENT_ID=test REDDIT_CLIENT_SECRET=test REDDIT_AUTH_URL=http://localhost:4500
+REDDIT_API_URL=http://localhost:4500`, then run the Socials agents with stand-in AI and Google
+results:
+
+```bash
+npx tsx --tsconfig tsconfig.json scripts/test-socials.ts <siteId> --google
+```

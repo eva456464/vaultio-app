@@ -82,7 +82,7 @@ export type ResearchSource = { url: string; title: string };
 export type ResearchResult = { notes: string; sources: ResearchSource[] };
 
 /** Researches a topic on the live web (Anthropic-hosted web search) and returns cited notes. */
-async function research(request: TextRequest & { maxSearches?: number }): Promise<ResearchResult> {
+async function research(request: TextRequest & { maxSearches?: number; allowedDomains?: string[] }): Promise<ResearchResult> {
   const messages: Anthropic.Beta.BetaMessageParam[] = [{ role: "user", content: request.prompt }];
   let message: Anthropic.Beta.BetaMessage | null = null;
   // Server-side search can pause long turns; resend to let the server continue.
@@ -94,7 +94,14 @@ async function research(request: TextRequest & { maxSearches?: number }): Promis
       fallbacks: "default",
       system: [{ type: "text", text: request.system, cache_control: { type: "ephemeral" } }],
       messages,
-      tools: [{ type: "web_search_20260209", name: "web_search", max_uses: request.maxSearches ?? 6 }],
+      tools: [
+        {
+          type: "web_search_20260209",
+          name: "web_search",
+          max_uses: request.maxSearches ?? 6,
+          ...(request.allowedDomains?.length ? { allowed_domains: request.allowedDomains } : {}),
+        },
+      ],
       output_config: { effort: request.effort ?? "medium" },
     });
     message = await stream.finalMessage();

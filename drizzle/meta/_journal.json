@@ -50,6 +50,13 @@
       "when": 1793474061868,
       "tag": "0006_improvements",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1793476114784,
+      "tag": "0007_socials",
+      "breakpoints": true
     }
   ]
 }

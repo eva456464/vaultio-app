@@ -12,6 +12,8 @@ Ground rules that apply to everything below:
 - White label: pages the Vaultio white label hides in the reference product (SEO specialist,
   Product updates page, Instagram & Facebook, Google Business, Refer and earn) are left out on
   purpose.
+- Nothing is posted to Reddit or Quora automatically: the agents find threads and draft replies,
+  and a person posts them (see "Left out on purpose" below).
 
 ## Done
 
@@ -44,8 +46,9 @@ Ground rules that apply to everything below:
 | Clients (agency) | `/clients` | Built |
 | Invoices (agency) | `/clients/invoices` | Built; empty until billing exists |
 | Backlinks | `/dashboard/backlink-exchange` | Built: exchange switch, how credits work, credits / received (value) / given / domain rating cards, exchange pool chart, given and received tables with live, awaiting, nofollow and removed states |
-| Socials (Reddit, Quora) | `/dashboard/socials` | **Placeholder** |
-| Settings: Team members, Billing, White label, Product catalog, Reddit, Quora | `/dashboard/settings/*` | **Placeholder** |
+| Socials: Reddit, Quora | `/dashboard/socials?tab=reddit` / `?tab=quora` | Built: To reply / Replied, suggested replies, Copy & open, Draft a reply, edit, redraft, mark replied, not relevant, why it's relevant, paging, empty states |
+| Settings: Reddit, Quora | `/dashboard/settings/reddit`, `/quora` | Built: monitored keywords (5 per platform) with suggestions, custom keywords, subreddits (Reddit), reply style |
+| Settings: Team members, Billing, White label, Product catalog | `/dashboard/settings/*` | **Placeholder** |
 | Agency settings: Profile, Branding, Hosting, Members, Talk with team | `/clients/settings/*` | **Placeholder** |
 
 ### Agents
@@ -62,7 +65,8 @@ Ground rules that apply to everything below:
 | Google Analytics sync, AI traffic report, Google rankings check (Search Console) | Built |
 | Article improvements (scan + improve) | Built for articles Vaultio wrote; existing WordPress posts later |
 | Backlink exchange: placement in new articles, daily live check, credits | Built |
-| Reddit / Quora, infographics | Not built |
+| Reddit and Quora: keyword suggestions, weekly thread search (Google via DataForSEO, or Claude web search), relevance scoring, reply drafts | Built (Claude; DataForSEO and the Reddit Data API optional) |
+| Infographics | Not built |
 
 ### How it was checked
 
@@ -74,6 +78,9 @@ Ground rules that apply to everything below:
 - The monthly report agent ran for real with only the email request intercepted.
 - Google: the connect → consent → property → sync → pages flow, token refresh, re-syncs, disconnect and
   reconnect ran end to end against a local mock of Google's APIs (`scripts/dev-fixtures/mock-google.py`).
+- Reddit and Quora: both search paths (Google results and web search) ran with stand-in answers
+  (`scripts/test-socials.ts`), plus the Reddit Data API mock; the pages were driven in a browser
+  (copy & open, mark replied, edit, not relevant, keywords, subreddits, reply style).
 
 ## Not yet tested with real keys
 
@@ -91,23 +98,34 @@ These are written against the providers' documentation but have not run live yet
 - Uploading images to a real WordPress media library.
 - Improvement rewrites with real Claude, and the live Search Console page-query lookup.
 - Backlink placement with real Claude, and live-link checks against real client sites.
+- Reddit and Quora: `site:` searches through DataForSEO, Claude's web search limited to
+  reddit.com / quora.com, relevance scores and reply drafts with real Claude, and the Reddit
+  Data API (tested against a local mock, `scripts/dev-fixtures/mock-reddit.py`).
 
 The first live run on the Mac should be watched; fixes are expected to be small (field names,
 limits).
 
 ## Still to build, in recommended order
 
-1. **Socials**: Reddit and Quora agents, Socials page, their settings (also fills the report's
-   community section).
-2. **Team and billing**: Team members (invites), Billing with Stripe (including backlink credit top-ups), invoices, White label settings.
-3. **Agency settings**: profile, branding, custom domain hosting, members, talk with team.
-4. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
-5. **Infographics**: one chart-style image per article in the Editorial or Classic style.
-6. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
-7. **Product catalog** settings.
-8. **Translations** for the other languages.
-9. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
-    `app.vaultio.co` at Vaultio instead of the Babylovegrowth white label.
+1. **Team and billing**: Team members (invites), Billing with Stripe (including backlink credit
+   top-ups and the Reddit+ / Quora+ add-ons that raise the keyword limit), invoices, White label settings.
+2. **Agency settings**: profile, branding, custom domain hosting, members, talk with team.
+3. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
+4. **Infographics**: one chart-style image per article in the Editorial or Classic style.
+5. **Improvements for existing WordPress posts** (not written by Vaultio), keeping their block markup.
+6. **Product catalog** settings.
+7. **Translations** for the other languages.
+8. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
+   `app.vaultio.co` at Vaultio instead of the Babylovegrowth white label.
+
+Left out on purpose:
+
+- **Reddit autopilot** (the reference product can post replies from a connected Reddit account on a
+  daily limit). Automated promotional comments break Reddit's rules on spam and self-promotion and
+  get accounts and domains banned; Quora has no posting API at all. Replies are drafted, a person
+  posts them. Drafts also say openly when the writer works with the business, instead of posing as
+  a customer as the reference product's examples do.
+- The Reddit+ / Quora+ upsell cards: they need billing first.
 
 Smaller follow-ups:
 
@@ -124,6 +142,7 @@ Smaller follow-ups:
 | Resend account + verified sender (`RESEND_API_KEY`, `REPORT_FROM_EMAIL`) | Monthly report emails | Not started |
 | OpenAI or Gemini key | Article images (and ChatGPT / Gemini in AI visibility) | Not started; without one, articles have no images |
 | Vaultio logo files | Replace the placeholder "V" mark | Received (dragon mark, `research/assets/vaultio_favicon.png` on the `research` branch); not yet used in the app |
+| Reddit Data API app (`REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`) | Optional: votes, comment counts and dropping archived or locked threads on the Reddit page | Not started; commercial use needs Reddit's approval |
 | Stripe account | Billing | Later |
 | Hosting accounts (web, worker, Postgres) | Production launch | Later |
 | Leftover Blog Hosting setup for `blog.vaultio.co` in the live Babylovegrowth account | Created during research; decide whether to remove it | Waiting for a decision |
@@ -148,7 +167,8 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Google Analytics + Search Console: connection, sync agents, Site traffic pages, Settings → Analytics | `main` c614000 |
 | Article images, Settings → Visuals, CTA cards, promo paragraph, YouTube video, WordPress media upload and post updates | `main` 92ce96e |
 | Article improvements: scan, improve agent, review page, Settings → Improvements | `main` 8b61cfc |
-| Backlink exchange: joining, placement, daily live check, credits, Backlinks page | `main` |
+| Backlink exchange: joining, placement, daily live check, credits, Backlinks page | `main` 31d5e54 |
+| Reddit and Quora: keyword suggestions, thread search and scoring, reply drafts, Socials pages, Settings → Reddit / Quora, report section | `main` |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

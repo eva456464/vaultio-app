@@ -123,7 +123,9 @@
       "firstMonthPlanned": "Planned {count, plural, one {# article} other {# articles}} for your first month",
       "reportSent": "Emailed the {title} report",
       "articleImprovementPlanned": "Agent planned a refresh: {title}",
-      "articleImproved": "Agent refreshed: {title}"
+      "articleImproved": "Agent refreshed: {title}",
+      "redditOpportunitiesFound": "Agent found {count, plural, one {# Reddit thread} other {# Reddit threads}} worth replying to",
+      "quoraOpportunitiesFound": "Agent found {count, plural, one {# Quora question} other {# Quora questions}} worth answering"
     },
     "planned": {
       "sitemapSync": "Will sync your sitemap",
@@ -133,12 +135,14 @@
       "aiVisibilityCheck": "Will check if AI recommends you",
       "siteHealthAudit": "Will scan your site for issues",
       "domainRatingCheck": "Will check your domain rating",
-      "topicResearched": "Will research tomorrow's topic",
+      "topicResearch": "Will research tomorrow's topic",
       "articleWritten": "Will write: {title}",
       "competitorGapScan": "Will scan competitors for content gaps",
       "monthlyReport": "Will email this month's client report",
       "improveArticle": "Will prepare a refresh: {title}",
-      "backlinkCheck": "Will check your exchange backlinks are live"
+      "backlinkCheck": "Will check your exchange backlinks are live",
+      "redditSearch": "Will look for Reddit threads to reply to",
+      "quoraSearch": "Will look for Quora questions to answer"
     },
     "achievement": {
       "moreAchievements": "+{count} more achievements",
@@ -214,7 +218,9 @@
         "joinBacklinkExchange": "Join the backlink exchange",
         "milestones": "Check your achievements",
         "buildBrandProfile": "Write your brand profile",
-        "aiVisibilityCheck": "Check if AI recommends you"
+        "aiVisibilityCheck": "Check if AI recommends you",
+        "redditSearch": "Find Reddit threads to reply to",
+        "quoraSearch": "Find Quora questions to answer"
       },
       "waitingTitle": "{count, plural, one {# agent is waiting} other {# agents are waiting}}",
       "waitingSubtitle": "They start automatically as soon as the missing setup below is in place."
@@ -1179,6 +1185,47 @@
       "autoPublishHint": "Publish improvements on their day without review. Flagged improvements always wait for you.",
       "needsGsc": "Improvements need Google Search Console. Connect it in Analytics.",
       "connect": "Connect Search Console"
+    },
+    "community": {
+      "reddit": {
+        "subtitle": "Keywords and subreddits we monitor, and how replies are written.",
+        "keywordsTitle": "Reddit monitored keywords"
+      },
+      "quora": {
+        "subtitle": "Keywords we monitor on Quora, and how replies are written.",
+        "keywordsTitle": "Quora monitored keywords"
+      },
+      "keywordsHint": "New opportunities will be found based on these keywords. Each keyword is searched once a week.",
+      "selected": "{count}/{max} selected",
+      "stopMonitoring": "Stop monitoring {keyword}",
+      "deleteSuggestion": "Delete {keyword}",
+      "addSuggestion": "Monitor {keyword}",
+      "addMore": "Add more",
+      "addPlaceholder": "Add custom keyword",
+      "add": "Add",
+      "limitReached": "You're monitoring the maximum of {max} keywords. Stop monitoring one to add another.",
+      "noSuggestions": "Suggestions appear after the agent's first search.",
+      "noKeywords": "No keywords monitored yet.",
+      "nextSearch": "Next search: {when}",
+      "nextSoon": "in the next few minutes",
+      "subredditsTitle": "Subreddits to monitor",
+      "optional": "Optional",
+      "subredditsHint": "By default, we monitor all subreddits unless you choose some here.",
+      "subredditPlaceholder": "Add a subreddit, e.g. r/homeimprovement",
+      "removeSubreddit": "Remove r/{name}",
+      "invalidSubreddit": "Use a subreddit name like r/homeimprovement",
+      "repliesTitle": "Customize your replies",
+      "repliesHint": {
+        "reddit": "Tell us how you'd like every Reddit reply to be written.",
+        "quora": "Tell us how you'd like every Quora answer to be written."
+      },
+      "repliesPlaceholder": "For example: keep it short and friendly, share one practical tip, avoid jargon.",
+      "honesty": "Replies always answer the question first and, when they mention {brand}, say openly that you work with it. They never pose as an unaffiliated customer.",
+      "view": {
+        "reddit": "View Reddit threads",
+        "quora": "View Quora questions"
+      },
+      "needsLlm": "Keyword suggestions, searches and replies need the AI writing provider (ANTHROPIC_API_KEY)."
     }
   },
   "aiVisibility": {
@@ -1345,7 +1392,7 @@
       ],
       "community": [
         "Reddit and Quora",
-        "Answers that mention you"
+        "Threads you replied to"
       ],
       "aiVisibility": [
         "AI visibility",
@@ -1441,6 +1488,14 @@
       "body": "Your {month} report for <b>{site}</b> is ready: articles published, Google and AI search visibility, authority and site health.",
       "cta": "View the report",
       "pdfHint": "To save it as a PDF, open the report and use your browser's Print › Save as PDF."
+    },
+    "community": {
+      "title": "Reddit and Quora",
+      "redditReplies": "Reddit replies",
+      "quoraAnswers": "Quora answers",
+      "found": "New threads found",
+      "reddit": "Reddit",
+      "quora": "Quora"
     }
   },
   "traffic": {
@@ -1703,6 +1758,66 @@
       ],
       "placementTitle": "Where are backlinks placed?",
       "placement": "Links are added inside new articles published by sites in the network, only where the linked page genuinely helps the reader. They are normal (dofollow) links in the text, and they count once we've seen them live on the page."
+    }
+  },
+  "socials": {
+    "reddit": {
+      "title": "Reddit",
+      "subtitle": "Reply to the Reddit threads ChatGPT, Gemini and Claude learn from, so they know {brand}.",
+      "item": "Reddit thread",
+      "empty": "No Reddit threads to reply to yet.",
+      "emptyReplied": "Threads you mark as replied appear here.",
+      "community": "r/{name}"
+    },
+    "quora": {
+      "title": "Quora",
+      "subtitle": "Answer the Quora questions ChatGPT, Gemini and Claude learn from, so they cite {brand}.",
+      "item": "Quora question",
+      "empty": "No Quora questions to answer yet.",
+      "emptyReplied": "Questions you mark as answered appear here.",
+      "community": "Quora"
+    },
+    "manageKeywords": "Manage keywords",
+    "tabs": {
+      "open": "To reply",
+      "replied": "Replied"
+    },
+    "suggestedReply": "Suggested reply",
+    "copyOpen": "Copy & open",
+    "copied": "Copied. Paste it in the thread.",
+    "draft": "Draft a reply",
+    "drafting": "Drafting…",
+    "redraft": "Redraft",
+    "edit": "Edit reply",
+    "save": "Save",
+    "cancel": "Cancel",
+    "moreActions": "More actions",
+    "markReplied": "Mark as replied",
+    "moveBack": "Move back to To reply",
+    "notRelevant": "Not relevant",
+    "foundFor": "Found for <q>{keyword}</q>",
+    "whyRelevant": "Why it's relevant",
+    "upvotes": "{count, plural, one {# upvote} other {# upvotes}}",
+    "comments": "{count, plural, one {# comment} other {# comments}}",
+    "repliedOn": "Replied {date}",
+    "showing": "Showing {from}–{to} of {total}",
+    "previous": "Previous page",
+    "next": "Next page",
+    "reviewNote": "Read the thread first and edit the reply so it's accurate. Replies are posted by you, never automatically.",
+    "noKeywords": {
+      "title": "Choose keywords to monitor",
+      "body": "The agent searches {platform} for threads about your keywords once a week and drafts replies you can post.",
+      "action": "Add keywords"
+    },
+    "waiting": {
+      "title": "The agent is looking for threads",
+      "body": "New threads for your keywords appear here after the search. Next search: {when}."
+    },
+    "needsLlm": "Finding threads and drafting replies needs the AI writing provider (ANTHROPIC_API_KEY).",
+    "lastRunFailed": "The last search didn't finish: {detail}",
+    "nextSearch": {
+      "soon": "in the next few minutes",
+      "day": "{date}"
     }
   }
 }

@@ -18,6 +18,7 @@ import { monthlyReport } from "./jobs/reporting";
 import { aiTrafficReport, analyticsSync, rankingsCheck } from "./jobs/traffic";
 import { improveArticle, improvementScan } from "./jobs/improvements";
 import { backlinkCheck, joinBacklinkExchange } from "../backlinks/exchange";
+import { quoraSearch, redditSearch } from "../community/agent";
 import { aiVisibilityCheck } from "./jobs/visibility";
 import { writeArticle } from "./jobs/writer";
 import type { JobHandler } from "./jobs/types";
@@ -49,6 +50,8 @@ export const JOB_REGISTRY: Record<AgentJobName, Registration> = {
   improvementScan: { requires: ["gsc"], handler: improvementScan },
   improveArticle: { requires: ["gsc", "llm"], handler: improveArticle },
   backlinkCheck: { requires: [], handler: backlinkCheck },
+  redditSearch: { requires: ["llm"], handler: redditSearch },
+  quoraSearch: { requires: ["llm"], handler: quoraSearch },
 
   analyticsSync: { requires: ["ga4"], handler: analyticsSync },
   aiTrafficReport: { requires: ["ga4"], handler: aiTrafficReport },

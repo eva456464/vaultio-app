@@ -12,6 +12,7 @@ import {
   Mail,
   RefreshCw,
   Link2,
+  MessageCircleQuestion,
   MessagesSquare,
   Network,
   ScanSearch,
@@ -54,4 +55,8 @@ export const ACTIVITY_ICONS: Record<string, LucideIcon> = {
   articleImprovementPlanned: RefreshCw,
   articleImproved: RefreshCw,
   backlinkCheck: Link2,
+  redditSearch: MessagesSquare,
+  redditOpportunitiesFound: MessagesSquare,
+  quoraSearch: MessageCircleQuestion,
+  quoraOpportunitiesFound: MessageCircleQuestion,
 };

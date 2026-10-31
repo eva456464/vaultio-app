@@ -39,7 +39,7 @@ export type KeywordIdea = {
   intent: string | null;
 };
 export type CompetitorDomain = { domain: string; intersections: number; organicTraffic: number | null };
-export type SerpResult = { url: string; domain: string; title: string; position: number };
+export type SerpResult = { url: string; domain: string; title: string; position: number; description?: string };
 export type RankedKeyword = { keyword: string; position: number; url: string; searchVolume: number };
 
 type Task = { status_code: number; status_message: string; result: unknown[] | null };
@@ -110,6 +110,7 @@ async function serp(keyword: string, market: Market, depth = 10): Promise<SerpRe
       domain: String(item.domain ?? "").replace(/^www\./, ""),
       title: String(item.title ?? ""),
       position: num(item.rank_absolute) ?? 0,
+      description: typeof item.description === "string" ? item.description : undefined,
     }));
 }
 

@@ -1,10 +1,12 @@
 /** Gathers everything a client report shows for one site and period. */
 import { addDays, endOfMonth, formatISO, startOfMonth, subMonths } from "date-fns";
-import { and, asc, desc, eq, gte, isNotNull, lte, sql } from "drizzle-orm";
+import { and, asc, desc, eq, gte, isNotNull, isNull, lt, lte, sql } from "drizzle-orm";
 import { db } from "@/db";
 import {
   articles,
   backlinks,
+  communityOpportunities,
+  communityPosts,
   geoAuditIssues,
   geoAudits,
   gscDailyMetrics,
@@ -129,6 +131,18 @@ export async function gatherReport(site: Site, period: ReportPeriod) {
   const latestRun = answers[0]?.checkedAt.getTime();
   const lastCheck = answers.filter((answer) => answer.checkedAt.getTime() === latestRun);
 
+  // Reddit and Quora: threads the team replied to in the period, and new threads found
+  const replied = await db
+    .select({ platform: communityOpportunities.platform, title: communityPosts.title, url: communityPosts.url, subreddit: communityPosts.subreddit, repliedAt: communityOpportunities.markedAsRepliedAt })
+    .from(communityOpportunities)
+    .innerJoin(communityPosts, eq(communityPosts.id, communityOpportunities.postId))
+    .where(and(eq(communityOpportunities.orgWebsiteId, site.id), gte(communityOpportunities.markedAsRepliedAt, startAt), lt(communityOpportunities.markedAsRepliedAt, endAt)))
+    .orderBy(desc(communityOpportunities.markedAsRepliedAt));
+  const [foundThreads] = await db
+    .select({ value: sql<number>`count(*)::int` })
+    .from(communityOpportunities)
+    .where(and(eq(communityOpportunities.orgWebsiteId, site.id), isNull(communityOpportunities.discardedAt), gte(communityOpportunities.createdAt, startAt), lt(communityOpportunities.createdAt, endAt)));
+
   // Achievements so far
   const reached = await db
     .select({ category: milestones.category, threshold: milestones.threshold, value: milestones.value, achievedAt: milestones.achievedAt })
@@ -168,6 +182,12 @@ export async function gatherReport(site: Site, period: ReportPeriod) {
           top: topIssues,
         }
       : null,
+    community: {
+      reddit: replied.filter((row) => row.platform === "reddit").length,
+      quora: replied.filter((row) => row.platform === "quora").length,
+      found: foundThreads?.value ?? 0,
+      replies: replied.slice(0, 8).map((row) => ({ platform: row.platform, title: row.title, url: row.url, subreddit: row.subreddit, date: row.repliedAt!.toISOString() })),
+    },
     aiVisibility: lastCheck.length
       ? {
           answers: lastCheck.length,
@@ -190,7 +210,7 @@ export async function gatherReport(site: Site, period: ReportPeriod) {
     backlinks: links.length > 0 || data.authority.domainRating !== null,
     articles: published.length > 0,
     siteHealth: Boolean(audit),
-    community: false,
+    community: replied.length > 0,
     aiVisibility: lastCheck.length > 0,
   };
   return { data, availability };

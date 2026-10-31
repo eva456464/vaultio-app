@@ -25,6 +25,7 @@ import { ONBOARDING_STEPS } from "../agents/queue";
 import { JOB_REGISTRY } from "../agents/runner";
 import { plannedActions, siteDay, type AgentJob } from "../agents/schedule";
 import type { Site } from "../agents/jobs/types";
+import { communitySearchDays } from "./community";
 
 const isoDay = (date: Date) => formatISO(date, { representation: "date" });
 const shiftDay = (day: string, days: number) => isoDay(addDays(new Date(`${day}T12:00:00Z`), days));
@@ -216,6 +217,9 @@ export async function getPlannedActions(site: Site, days = 14): Promise<PlannedD
     articleDays,
     improvementDays,
   });
+  // Reddit and Quora searches happen on the days monitored keywords are due.
+  if (available.has("llm")) actions.push(...(await communitySearchDays(site, today, days)));
+  actions.sort((a, b) => a.day.localeCompare(b.day));
   const byDay = new Map<string, PlannedDay>();
   for (const action of actions) {
     const entry = byDay.get(action.day) ?? { day: action.day, actions: [] };

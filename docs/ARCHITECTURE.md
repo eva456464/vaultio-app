@@ -192,10 +192,40 @@ Buying credits needs billing and isn't built.
 Exchanging links is a link scheme in Google's spam policies when done for ranking; keeping links
 few, contextual and relevant (as here) reduces but doesn't remove that risk.
 
+### Reddit and Quora
+
+`redditSearch` and `quoraSearch` (`src/server/community/agent.ts`) run daily, but each monitored
+keyword is searched only once a week, and soon after it is added (adding a keyword re-queues
+today's run). On a platform's first run Claude suggests ~15 search phrases from the brand profile
+and the AI-visibility questions; the first five are monitored (the limit is per platform, in
+`community_settings.max_keywords`) and the rest are offered under "Add more". Reddit also gets
+"<competitor> alternatives" suggestions, never switched on automatically.
+
+Threads are found the way AI assistants find them: through Google. With DataForSEO the agent runs
+`<keyword> site:reddit.com` (or the chosen subreddits joined with `OR`) and `site:quora.com`;
+without it, Claude's web search restricted to those domains. Links are reduced to the thread
+(comment permalinks and Quora answer links point back to their thread or question; profiles,
+spaces and topics are dropped). If `REDDIT_CLIENT_ID/SECRET` are set, the Reddit Data API adds
+votes, comments, post text and age, and archived, locked, removed or adult threads are dropped.
+
+Claude rates every new thread's relevance to the business (0–100, with a one-line reason) and
+threads under 60 are not shown. The opportunity score is relevance (60%) plus reach (votes and
+comments, or the Google position) and freshness (20% each, when known). Replies are drafted for
+the best three of each run; the rest have "Draft a reply". Reply rules: answer the question first,
+mention the brand at most once and then say openly that the writer works with it, never pose as
+an unaffiliated customer or invent experiences, no links. The business's own style instructions
+apply on top.
+
+Nothing is posted automatically. A person copies the reply, posts it in the thread ("Copy &
+open"), and marks it replied; "Not relevant" hides a thread for good. The reference product's
+Reddit autopilot (posting from a connected account) is left out on purpose: automated
+promotional comments break Reddit's spam rules and get accounts banned, and Quora has no posting
+API. Replied threads feed the client report's "Reddit and Quora" section.
+
 ### Client reports
 
 `src/server/reports/data.ts` gathers one site's numbers for a period (Search Console, authority,
-articles, site health, AI visibility, milestones) and says which sections have data;
+articles, site health, Reddit and Quora replies, AI visibility, milestones) and says which sections have data;
 `render.ts` turns them into a standalone A4 HTML page (text from the `report` namespace in
 `en.json`, colours from the white-label brand). The same renderer serves the live preview, the
 print view ("Download PDF" opens the browser's Save as PDF) and the monthly email snapshot.
@@ -211,6 +241,7 @@ Sections without data are switched off rather than shown with invented numbers.
 | Article images | `OPENAI_API_KEY` or `GEMINI_API_KEY` (optional `IMAGE_PROVIDER`, `OPENAI_IMAGE_MODEL`, `GEMINI_IMAGE_MODEL`), plus `APP_URL` reachable by client sites |
 | Keyword volumes, SERPs, competitors, domain rating | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
 | AI visibility checks | `OPENAI_API_KEY`, `GEMINI_API_KEY` (plus Anthropic) |
+| Reddit thread details (optional) | `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`, `REDDIT_USERNAME` (Reddit Data API app; commercial use needs Reddit's approval) |
 | GA4 + Search Console | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`: a Google Cloud OAuth client with the Analytics Data, Analytics Admin and Search Console APIs |
 | Billing | Stripe keys + webhook secret |
 | Email (monthly reports; later invites) | `RESEND_API_KEY`, `REPORT_FROM_EMAIL` (verified sender), `APP_URL` for links |

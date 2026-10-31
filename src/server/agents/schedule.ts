@@ -37,6 +37,8 @@ export const AGENT_JOBS = [
   "improvementScan",
   "improveArticle",
   "backlinkCheck",
+  "redditSearch",
+  "quoraSearch",
 ] as const;
 export type AgentJob = (typeof AGENT_JOBS)[number];
 
@@ -60,6 +62,9 @@ export const AGENT_SCHEDULE: ScheduledAgent[] = [
   { job: "improveArticle", cadence: { kind: "daily" }, requires: ["gsc", "llm"] },
   // Checks that the exchange links in this site's published articles are live.
   { job: "backlinkCheck", cadence: { kind: "daily" }, requires: [] },
+  // Daily, but each monitored keyword is searched only once a week (and soon after it is added).
+  { job: "redditSearch", cadence: { kind: "daily" }, requires: ["llm"] },
+  { job: "quoraSearch", cadence: { kind: "daily" }, requires: ["llm"] },
 ];
 
 /** Calendar day (YYYY-MM-DD) in the site's time zone. */
@@ -118,7 +123,7 @@ export function plannedActions({
     const refresh = improvementDays.get(day);
     if (refresh) actions.push({ day, job: "improveArticle", title: refresh });
     for (const agent of AGENT_SCHEDULE) {
-      if (["milestones", "writeArticle", "improvementScan", "improveArticle"].includes(agent.job)) continue;
+      if (["milestones", "writeArticle", "improvementScan", "improveArticle", "redditSearch", "quoraSearch"].includes(agent.job)) continue;
       if (!agent.requires.every((req) => available.has(req))) continue;
       if (isDueOn(agent.cadence, day, anchorDay)) actions.push({ day, job: agent.job });
     }

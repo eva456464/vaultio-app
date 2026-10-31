@@ -25,6 +25,8 @@ export const ONBOARDING_STEPS = [
   "aiVisibilityCheck",
   "planFirstMonth",
   "joinBacklinkExchange",
+  "redditSearch",
+  "quoraSearch",
 ] as const;
 export type OnboardingStep = (typeof ONBOARDING_STEPS)[number];
 

@@ -172,7 +172,9 @@ export const llmAnswers = pgTable(
 
 // ------------------------------------------------------- Reddit / Quora agents
 
-export type CommunityPlatform = "reddit" | "quora";
+export const COMMUNITY_PLATFORMS = ["reddit", "quora"] as const;
+export type CommunityPlatform = (typeof COMMUNITY_PLATFORMS)[number];
+export type CommunitySource = "google" | "web";
 
 export const communitySettings = pgTable(
   "community_settings",
@@ -188,24 +190,31 @@ export const communitySettings = pgTable(
     dailyScheduleCap: integer("daily_schedule_cap").notNull().default(3),
     nextRunAt: timestamp("next_run_at", { withTimezone: true }),
     subreddits: jsonb("subreddits").$type<string[]>().notNull().default([]),
+    // When keyword suggestions were last prepared from the business profile (once per platform).
+    keywordsSuggestedAt: timestamp("keywords_suggested_at", { withTimezone: true }),
     ...timestamps,
   },
   (t) => [uniqueIndex("community_settings_site_platform_idx").on(t.orgWebsiteId, t.platform)],
 );
 
-export const communityKeywords = pgTable("community_keywords", {
-  id: serial("id").primaryKey(),
-  orgWebsiteId: integer("org_website_id")
-    .notNull()
-    .references(() => orgWebsites.id, { onDelete: "cascade" }),
-  platform: text("platform").$type<CommunityPlatform>().notNull(),
-  keyword: text("keyword").notNull(),
-  isActive: boolean("is_active").notNull().default(true),
-  searchVolume: integer("search_volume"),
-  cpc: real("cpc"),
-  lastCheckedAt: timestamp("last_checked_at", { withTimezone: true }),
-  ...timestamps,
-});
+/** Search phrases monitored per platform. Inactive rows are suggestions shown under "Add more". */
+export const communityKeywords = pgTable(
+  "community_keywords",
+  {
+    id: serial("id").primaryKey(),
+    orgWebsiteId: integer("org_website_id")
+      .notNull()
+      .references(() => orgWebsites.id, { onDelete: "cascade" }),
+    platform: text("platform").$type<CommunityPlatform>().notNull(),
+    keyword: text("keyword").notNull(),
+    isActive: boolean("is_active").notNull().default(true),
+    searchVolume: integer("search_volume"),
+    cpc: real("cpc"),
+    lastCheckedAt: timestamp("last_checked_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex("community_keywords_site_platform_keyword_idx").on(t.orgWebsiteId, t.platform, t.keyword)],
+);
 
 export const communityPosts = pgTable(
   "community_posts",
@@ -245,12 +254,17 @@ export const communityOpportunities = pgTable(
     engagementScore: real("engagement_score"),
     recencyScore: real("recency_score"),
     reasoning: text("reasoning"),
+    // Where the thread was found: Google results ("google") or Claude web search ("web").
+    source: text("source").$type<CommunitySource>(),
     suggestedComment: text("suggested_comment"),
     markedAsRepliedAt: timestamp("marked_as_replied_at", { withTimezone: true }),
     discardedAt: timestamp("discarded_at", { withTimezone: true }),
     ...timestamps,
   },
-  (t) => [index("community_opps_site_idx").on(t.orgWebsiteId, t.platform)],
+  (t) => [
+    index("community_opps_site_idx").on(t.orgWebsiteId, t.platform),
+    uniqueIndex("community_opps_site_post_idx").on(t.orgWebsiteId, t.postId),
+  ],
 );
 
 // --------------------------------------------------------- Instagram & Facebook

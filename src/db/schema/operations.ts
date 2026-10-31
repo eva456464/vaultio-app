@@ -49,6 +49,8 @@ export const ACTIVITY_TYPES = [
   "reportSent",
   "articleImprovementPlanned",
   "articleImproved",
+  "redditOpportunitiesFound",
+  "quoraOpportunitiesFound",
 ] as const;
 export type ActivityType = (typeof ACTIVITY_TYPES)[number];
 
