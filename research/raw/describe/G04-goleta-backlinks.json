@@ -1,0 +1,133 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/backlink-exchange",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Backlinks exchange"
+ ],
+ "buttons": [
+  "Update Blog Path URL -> /dashboard/settings/business",
+  "How do credits work?",
+  "Add credits [icon:lucide-plus]",
+  "Add credits to resume now [icon:lucide-plus]",
+  "(Dismiss) [icon:lucide-x]",
+  "(The article where you provided a backlink) [icon:lucide-info]",
+  "(The website that received your backlink) [icon:lucide-info]",
+  "Date [icon:]",
+  "How Often to Clean Windows: A Santa Barbara Coastal Guide -> /dashboard/articles/1033535",
+  "jaghomesnow.com [icon:lucide-external-link] -> https://jaghomesnow.com",
+  "Gutters and Your Foundation: How Clogged Gutters Cause Damage -> /dashboard/articles/1027595",
+  "am-exteriors.com [icon:lucide-external-link] -> https://am-exteriors.com",
+  "a-to-zconstruction.com [icon:lucide-external-link] -> https://a-to-zconstruction.com",
+  "Clogged Gutters: The Dangers and What to Do About Them -> /dashboard/articles/1024835",
+  "2ndstreetpropertymanagement.com [icon:lucide-external-link] -> https://2ndstreetpropertymanagement.com",
+  "expressionsremodeling.com [icon:lucide-external-link] -> https://expressionsremodeling.com",
+  "Show more (52 more) [icon:lucide-chevron-down]",
+  "(The article from the source website that contains your backlink) [icon:lucide-info]",
+  "(The website that linked to your content) [icon:lucide-info]",
+  "(The number of backlink credits consumed for this backlink) [icon:lucide-info]",
+  "https://blog.tristatebrushandgravel.com/blog/driveway-washout-repair [icon:lucide-external-link] -> https://blog.tristatebrushandgravel.com/blog/driveway-washout-repair",
+  "tristatebrushandgravel.com [icon:lucide-external-link] -> https://tristatebrushandgravel.com",
+  "https://pave-n-turf.com/blog/hospital-courtyard-turf/ [icon:lucide-external-link] -> https://pave-n-turf.com/blog/hospital-courtyard-turf/",
+  "pave-n-turf.com [icon:lucide-external-link] -> https://pave-n-turf.com",
+  "https://coastalroofingfla.com/metal-roof-coastal-corrosion/ [icon:lucide-external-link] -> https://coastalroofingfla.com/metal-roof-coastal-corrosion/",
+  "coastalroofingfla.com [icon:lucide-external-link] -> https://coastalroofingfla.com",
+  "https://capitalpropressurewashing.com/blog/concrete-sealing-benefits [icon:lucide-external-link] -> https://capitalpropressurewashing.com/blog/concrete-sealing-benefits",
+  "capitalpropressurewashing.com [icon:lucide-external-link] -> https://capitalpropressurewashing.com",
+  "https://capitalpropressurewashing.com/blog/rust-stains-siding [icon:lucide-external-link] -> https://capitalpropressurewashing.com/blog/rust-stains-siding",
+  "Show more (17 more) [icon:lucide-chevron-down]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "checkbox",
+   "name": "",
+   "placeholder": "",
+   "label": "Exchange on",
+   "value": "on",
+   "checked": true
+  }
+ ],
+ "tables": [
+  {
+   "headers": [
+    "Source article",
+    "Destination website",
+    "Date"
+   ],
+   "rows": 5,
+   "sample": [
+    [
+     "How Often to Clean Windows: A Santa Barbara Coastal Guide",
+     "jaghomesnow.com",
+     "Oct 31, 2026 Not online yet"
+    ],
+    [
+     "Gutters and Your Foundation: How Clogged Gutters Cause Damage",
+     "am-exteriors.com",
+     "Oct 30, 2026 Not online yet"
+    ],
+    [
+     "Gutters and Your Foundation: How Clogged Gutters Cause Damage",
+     "a-to-zconstruction.com",
+     "Oct 30, 2026 Not online yet"
+    ],
+    [
+     "Clogged Gutters: The Dangers and What to Do About Them",
+     "2ndstreetpropertymanagement.com",
+     "Oct 29, 2026 Not online yet"
+    ]
+   ]
+  },
+  {
+   "headers": [
+    "Source article",
+    "Customer website",
+    "Date",
+    "Credits used"
+   ],
+   "rows": 5,
+   "sample": [
+    [
+     "https://blog.tristatebrushandgravel.com/blog/driveway-washout-repair",
+     "tristatebrushandgravel.com",
+     "Oct 8, 2026",
+     "-13"
+    ],
+    [
+     "https://pave-n-turf.com/blog/hospital-courtyard-turf/",
+     "pave-n-turf.com",
+     "Oct 7, 2026",
+     "-24"
+    ],
+    [
+     "https://coastalroofingfla.com/metal-roof-coastal-corrosion/",
+     "coastalroofingfla.com",
+     "Oct 7, 2026",
+     "-21"
+    ],
+    [
+     "https://capitalpropressurewashing.com/blog/concrete-sealing-benefits",
+     "capitalpropressurewashing.com",
+     "Oct 5, 2026",
+     "-8"
+    ]
+   ]
+  }
+ ],
+ "icons": [
+  "lucide-info",
+  "lucide-database",
+  "lucide-plus",
+  "lucide-circle-arrow-out-down-left",
+  "lucide-circle-arrow-out-up-right",
+  "lucide-trending-up",
+  "lucide-x",
+  "lucide-target",
+  "lucide-external-link",
+  "lucide-clock",
+  "lucide-chevron-down"
+ ],
+ "images": [],
+ "charts": 0
+}

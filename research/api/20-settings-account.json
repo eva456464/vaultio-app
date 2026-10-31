@@ -987,6 +987,20 @@
    "status": 200,
    "resBody": "[omitted third-party/analytics body]",
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/auth/sign-in-methods",
+   "status": 200,
+   "resBody": {
+    "data": {
+     "hasPassword": true
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

@@ -1,0 +1,172 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/analytics/google-traffic",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Google traffic",
+  "H3: Clicks by country",
+  "H2: Google traffic over time"
+ ],
+ "buttons": [
+  "All time [icon:lucide-calendar-days]",
+  "Clicks from Google 379 +68 People who visited your site from their search result [icon:lucide-info]",
+  "Total impressions 45,912 +11,428 How often your site was listed when someone sea [icon:lucide-info]",
+  "Average ranking 24.5 Lower number means higher on the page [icon:lucide-info]",
+  "Clicks",
+  "Impressions",
+  "Avg. ranking",
+  "Vaultio articles only",
+  "Page",
+  "Clicks [icon:lucide-chevron-down]",
+  "(Number of times someone clicked through to this page from Google search results [icon:lucide-info]",
+  "(Number of times this page appeared in Google search results.) [icon:lucide-info]",
+  "Click Share",
+  "(Percentage of your site's total Google clicks that this page earned.) [icon:lucide-info]",
+  "CTR",
+  "(Clicks divided by impressions — how often people click this page when they see  [icon:lucide-info]",
+  "Avg Position",
+  "(Average position of this page in Google search results. Lower is better.) [icon:lucide-info]",
+  "Homepage [icon:lucide-external-link] -> https://goletapressurewashing.com/",
+  "/blog/algae-on-stucco-removal [icon:lucide-external-link] -> https://goletapressurewashing.com/blog/algae-on-stucco-removal",
+  "/blog/driveway-mold-removal [icon:lucide-external-link] -> https://goletapressurewashing.com/blog/driveway-mold-removal",
+  "/blog/roof-lichen-removal [icon:lucide-external-link] -> https://goletapressurewashing.com/blog/roof-lichen-removal",
+  "/blog/pressure-wash-tile-roof-safe [icon:lucide-external-link] -> https://goletapressurewashing.com/blog/pressure-wash-tile-roof-safe",
+  "/blog/soft-washing-chemicals [icon:lucide-external-link] -> https://goletapressurewashing.com/blog/soft-washing-chemicals",
+  "/blog/efflorescence-on-pavers [icon:lucide-external-link] -> https://goletapressurewashing.com/blog/efflorescence-on-pavers",
+  "/blog/stucco-house-washing [icon:lucide-external-link] -> https://goletapressurewashing.com/blog/stucco-house-washing",
+  "/services/gutter-cleaning [icon:lucide-external-link] -> https://goletapressurewashing.com/services/gutter-cleaning",
+  "/services/roof-cleaning/ [icon:lucide-external-link] -> https://goletapressurewashing.com/services/roof-cleaning/",
+  "Previous [icon:lucide-chevron-left] [disabled]",
+  "Next [icon:lucide-chevron-right]",
+  "Vaultio keywords only",
+  "Keywords [icon:lucide-chevron-down]",
+  "(Searches that brought visitors to articles Vaultio wrote, as reported by Google [icon:lucide-info]",
+  "Organic Clicks [icon:lucide-chevron-down]",
+  "Organic Impressions [icon:lucide-chevron-down]",
+  "Avg Position [icon:lucide-chevron-down]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Period",
+   "value": "All time",
+   "checked": "closed"
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "Search pages...",
+   "label": "Search pages",
+   "value": "",
+   "checked": null
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "Search keywords...",
+   "label": "Search keywords",
+   "value": "",
+   "checked": null
+  }
+ ],
+ "tables": [
+  {
+   "headers": [
+    "Page",
+    "Clicks",
+    "Impressions",
+    "Click Share",
+    "CTR",
+    "Avg Position"
+   ],
+   "rows": 10,
+   "sample": [
+    [
+     "Homepage",
+     "257",
+     "13,613",
+     "66.6%",
+     "1.9%",
+     "15.0"
+    ],
+    [
+     "/blog/algae-on-stucco-removal Vaultio article",
+     "13",
+     "632",
+     "3.4%",
+     "2.1%",
+     "7.1"
+    ],
+    [
+     "/blog/driveway-mold-removal Vaultio article",
+     "9",
+     "659",
+     "2.3%",
+     "1.4%",
+     "7.0"
+    ],
+    [
+     "/blog/roof-lichen-removal Vaultio article",
+     "8",
+     "837",
+     "2.1%",
+     "1%",
+     "10.1"
+    ]
+   ]
+  },
+  {
+   "headers": [
+    "Keywords",
+    "Organic Clicks",
+    "Organic Impressions",
+    "Avg Position"
+   ],
+   "rows": 10,
+   "sample": [
+    [
+     "goleta pressure washing",
+     "70",
+     "401",
+     "1.6"
+    ],
+    [
+     "goleta home services",
+     "12",
+     "34",
+     "6.7"
+    ],
+    [
+     "pressure washing santa barbara",
+     "5",
+     "757",
+     "12.2"
+    ],
+    [
+     "gutter cleaning santa barbara",
+     "4",
+     "761",
+     "22.0"
+    ]
+   ]
+  }
+ ],
+ "icons": [
+  "lucide-calendar-days",
+  "lucide-info",
+  "lucide-search",
+  "lucide-chevron-down",
+  "lucide-external-link",
+  "lucide-chevron-left",
+  "lucide-chevron-right"
+ ],
+ "images": [
+  " | https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/whitelabel/vaultio/vaultio_favicon.png"
+ ],
+ "charts": 2
+}

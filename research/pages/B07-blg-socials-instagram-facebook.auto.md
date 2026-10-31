@@ -1,0 +1,201 @@
+# B07-blg-socials-instagram-facebook — raw capture dossier (auto-generated)
+- **URL:** `https://www.babylovegrowth.ai/en/dashboard/socials?tab=meta`
+- **Title:** BabyLoveGrowth - Get Google and ChatGPT Traffic on Autopilot
+- **Screenshots:** `screenshots/B07-blg-socials-instagram-facebook-1.png`, `screenshots/B07-blg-socials-instagram-facebook-2.png`, `screenshots/B07-blg-socials-instagram-facebook-3.png`
+
+## Visible text (main content, top → bottom)
+
+```text
+Instagram & Facebook
+
+
+Connected · posts daily at 12:30 PM
+
+Turn your articles into Instagram and Facebook carousels, so people and AI tools find Vaultio.
+Why post?
+Posting settings
+
+Posted today
+
+
+Posted yesterday
+
+
+Posted yesterday
+
+
+Posted on Oct 28
+
+
+Posted on Oct 27
+
+
+Posted on Oct 26
+
+
+Posted on Oct 25
+
+
+Posted on Oct 23
+
+
+Posted on Oct 22
+
+
+Posted on Oct 21
+
+
+Posted on Oct 20
+
+
+Posted on Oct 19
+
+
+Posted on Oct 18
+
+
+Posted on Oct 17
+
+
+Posted on Oct 16
+```
+
+## Headings
+
+- H1: Instagram & Facebook
+
+## Buttons / links (text [lucide icon] -> href)
+
+- () [icon:lucide-instagram] -> /en/dashboard/settings/billing
+- Connected · posts daily at 12:30 PM -> /en/dashboard/settings/meta
+- (Post to Facebook and Instagram)
+- Why post? [icon:lucide-info]
+- Posting settings [icon:lucide-settings2] -> /en/dashboard/settings/meta
+- Posted today [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122184368162704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/DfJCY4Slxkn/
+- (Previous image) [icon:lucide-chevron-left]
+- (Next image) [icon:lucide-chevron-right]
+- Posted yesterday [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122184298574704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/DfGzVx4l9bQ/
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122184265532704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/DfFzMkRF5Na/
+- Posted on Oct 28 [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122184112670704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/DfBMt2XF_FZ/
+- Posted on Oct 27 [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122184102074704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/DfA55CTF8Ml/
+- Posted on Oct 26 [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122183941250704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/De8M6cdDWpH/
+- Posted on Oct 25 [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122183857832704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/De6JfBcFwGL/
+- Posted on Oct 23 [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122183673944704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/De0S0XmF4dn/
+- Posted on Oct 22 [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122183588660704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/DeyUrvcl542/
+- Posted on Oct 21 [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122183511530704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/DevruOSjVCl/
+- Posted on Oct 20 [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122183469218704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/DeuUqMAjYGx/
+- Posted on Oct 19 [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122183390948704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/Derr8qllzkN/
+- Posted on Oct 18 [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122183312420704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/Dep1MYCF4M4/
+- Posted on Oct 17 [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122183233994704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/DenLbisF_lB/
+- Posted on Oct 16 [icon:lucide-facebook]
+- () [icon:lucide-facebook] -> https://www.facebook.com/122183136914704157/posts/122183136908704157
+- () [icon:lucide-instagram] -> https://www.instagram.com/p/DekubRfl6n2/
+
+## Lucide icons used
+
+- lucide-instagram
+- lucide-facebook
+- lucide-info
+- lucide-settings2
+- lucide-chevron-left
+- lucide-chevron-right
+
+## Form controls
+
+| tag | type | label | placeholder | value / state |
+|---|---|---|---|---|
+| BUTTON | button | Post to Facebook and Instagram |  |  true |
+
+## Images
+
+-  | https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/830418422_122181699140704157_2360996740032572651_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=103&ccb=1-7&_nc_sid
+-  | https://scontent-iad6-1.xx.fbcdn.net/v/t51.82787-15/759508801_18081214562280487_7226387566232492158_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7d201b&_nc_ohc=5GQBI9KDKzs
+- Three things stealing your ad dollars | https://media.babylovegrowth.ai/blog-images/organization-29411/1793405897102_vaultio.co-carousel-slide-1.jpeg
+- Distance Can't Stop You | https://media.babylovegrowth.ai/blog-images/organization-29411/1793319487775_vaultio.co-carousel-slide-1.jpeg
+- Missed Calls = Lost Jobs | https://media.babylovegrowth.ai/blog-images/organization-29411/1793233314155_vaultio.co-carousel-slide-1.jpeg
+- Booked jobs, not rankings | https://media.babylovegrowth.ai/blog-images/organization-29411/1793146794397_vaultio.co-carousel-slide-1.jpeg
+- Phone First wins more jobs | https://media.babylovegrowth.ai/blog-images/organization-29411/1793061309045_vaultio.co-carousel-slide-1.jpeg
+- Stop Tracking Calls, Track Booked Jobs | https://media.babylovegrowth.ai/blog-images/organization-29411/1792976897202_vaultio.co-carousel-slide-1.jpeg
+- Missed calls cost you jobs | https://media.babylovegrowth.ai/blog-images/organization-29411/1792890380038_vaultio.co-carousel-slide-1.jpeg
+- License is your trust signal | https://media.babylovegrowth.ai/blog-images/organization-29411/1792714737467_vaultio.co-carousel-slide-1.jpeg
+- Customers call the Map Pack first | https://media.babylovegrowth.ai/blog-images/organization-29411/1792628392510_vaultio.co-carousel-slide-1.jpeg
+- Clicks don't book jobs | https://media.babylovegrowth.ai/blog-images/organization-29411/1792543491898_vaultio.co-carousel-slide-1.jpeg
+- Answer within 60 seconds | https://media.babylovegrowth.ai/blog-images/organization-29411/1792477124536_vaultio.co-carousel-slide-1.jpeg
+- Unverified? You're invisible on Google | https://media.babylovegrowth.ai/blog-images/organization-29411/1792390772114_vaultio.co-carousel-slide-1.jpeg
+- You’re losing jobs on Google Maps | https://media.babylovegrowth.ai/blog-images/organization-29411/1792282773822_vaultio.co-carousel-slide-1.jpeg
+- Book jobs without paying for ads | https://media.babylovegrowth.ai/blog-images/organization-29411/1792197074480_vaultio.co-carousel-slide-1.jpeg
+- Leads in 90 Days | https://media.babylovegrowth.ai/blog-images/organization-29411/1791826949478_vaultio.co-carousel-slide-1.jpeg
+
+## API calls (`api/B07-blg-socials-instagram-facebook.json`)
+
+### `GET /api/meta-posting/posts` → 200
+Response shape:
+```json
+{
+ "message": "string: OK",
+ "data": [
+  {
+   "id": "int",
+   "articleId": "int",
+   "articleTitle": "string: Facebook Ads for Contractors: A Playbook for Booked Jobs",
+   "postType": "string: educational",
+   "caption": "string: Stop wasting Facebook ad money: three fixes that book jobs. ",
+   "hashtags": [
+    "string: facebookads"
+   ],
+   "slides": [
+    {
+     "body": "string",
+     "role": "string: hook",
+     "citation": "null",
+     "headline": "string: Three things stealing your ad dollars",
+     "imageUrl": "string: https://media.babylovegrowth.ai/blog-images/organization-294",
+     "position": "int"
+    }
+   ],
+   "status": "string: published",
+   "scheduledFor": "null",
+   "scheduleMissedAt": "null",
+   "publications": [
+    {
+     "destination": "string: facebook",
+     "status": "string: published",
+     "metaRemotePostId": "string: 552310284624223_122184368162704157",
+     "permalinkUrl": "string: https://www.facebook.com/122183136914704157/posts/1221843681",
+     "publishedAt": "string: 2026-10-31T02:01:42.601Z",
+     "lastErrorMessage": "null"
+    }
+   ],
+   "createdAt": "string: 2026-10-31T00:17:37.955Z",
+   "updatedAt": "string: 2026-10-31T02:02:08.561Z"
+  }
+ ]
+}
+```

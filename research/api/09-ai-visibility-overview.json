@@ -277,6 +277,423 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned",
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "Google",
+     "count": 14,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 60.71,
+      "positive": 3,
+      "neutral": 11,
+      "negative": 0,
+      "classifiedMentions": 14
+     }
+    },
+    {
+     "brandName": "Google Search Console",
+     "count": 3,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 3,
+      "negative": 0,
+      "classifiedMentions": 3
+     }
+    },
+    {
+     "brandName": "Google Business Profile",
+     "count": 3,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 66.67,
+      "positive": 1,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 3
+     }
+    },
+    {
+     "brandName": "Yelp",
+     "count": 3,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 3,
+      "negative": 0,
+      "classifiedMentions": 3
+     }
+    },
+    {
+     "brandName": "Clutch",
+     "count": 3,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 3,
+      "negative": 0,
+      "classifiedMentions": 3
+     }
+    },
+    {
+     "brandName": "Scorpion",
+     "count": 3,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 66.67,
+      "positive": 1,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 3
+     }
+    },
+    {
+     "brandName": "Google Maps",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "BBB",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Facebook",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "ChatGPT",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Xofu",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 75,
+      "positive": 1,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "BrightLocal",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 2,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Hook Agency",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "HomeAdvisor",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Thumbtack",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources",
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "backlinko.com",
+     "count": 3,
+     "urls": [
+      {
+       "url": "https://backlinko.com/hub/seo/best-practices",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://backlinko.com/rank-high-on-google",
+       "sourceType": "blog"
+      },
+      {
+       "url": "https://backlinko.com/google-seo-guide",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "sianamarketing.com",
+     "count": 3,
+     "urls": [
+      {
+       "url": "https://www.sianamarketing.com/resources/top-local-seo-agencies-for-contractors",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://www.sianamarketing.com/resources/best-seo-agencies-for-contractors",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://www.sianamarketing.com/resources/best-local-seo-agencies-for-general-contractors",
+       "sourceType": "resource_page"
+      }
+     ]
+    },
+    {
+     "domain": "semrush.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://www.semrush.com/blog/google-seo/",
+       "sourceType": "blog"
+      },
+      {
+       "url": "https://semrush.com/news/395783-monitor-chatgpt-search-in-position-tracking-tool",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "clutch.co",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://clutch.co/seo-firms/local",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://clutch.co/profile/scorpion",
+       "sourceType": "other"
+      }
+     ]
+    },
+    {
+     "domain": "pipelineon.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://pipelineon.com/blog/local-seo-tools/",
+       "sourceType": "blog"
+      },
+      {
+       "url": "https://pipelineon.com/blog/local-seo-for-home-service-businesses/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "g2.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://www.g2.com/products/scorpion/reviews?qs=pros-and-cons",
+       "sourceType": "product_page"
+      },
+      {
+       "url": "https://www.g2.com/products/scorpion/reviews",
+       "sourceType": "product_page"
+      }
+     ]
+    },
+    {
+     "domain": "hookagency.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://hookagency.com/blog/local-seo-for-home-service-businesses/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "1seo.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://1seo.com/blog/seo-for-home-service-businesses-how-to-rank-locally-in-2025/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "leadadvisors.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://leadadvisors.com/blog/seo-for-contractors/",
+       "sourceType": "blog"
+      }
+     ]
+    },
+    {
+     "domain": "socialcali.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://www.socialcali.com/locations/thousand-oaks/plumber-seo-services/",
+       "sourceType": "location_page"
+      },
+      {
+       "url": "https://www.socialcali.com/locations/camarillo/plumber-seo-services/",
+       "sourceType": "location_page"
+      }
+     ]
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/overall-insights",
+   "status": 200,
+   "resBody": {
+    "visibilityScore": 0,
+    "totalMentions": 0,
+    "totalAnswers": 20,
+    "totalPrompts": 10,
+    "topSource": {
+     "domain": "sianamarketing.com",
+     "count": 3,
+     "urls": [
+      {
+       "url": "https://www.sianamarketing.com/resources/top-local-seo-agencies-for-contractors",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://www.sianamarketing.com/resources/best-seo-agencies-for-contractors",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://www.sianamarketing.com/resources/best-local-seo-agencies-for-general-contractors",
+       "sourceType": "resource_page"
+      }
+     ]
+    },
+    "topMentionedBrand": {
+     "brandName": "Google",
+     "count": 14,
+     "brandUrl": ""
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/history",
+   "status": 200,
+   "resBody": [
+    {
+     "date": "2026-08-23",
+     "visibilityScore": 0,
+     "totalMentions": 0,
+     "totalAnswers": 20
+    },
+    {
+     "date": "2026-09-06",
+     "visibilityScore": 4.55,
+     "totalMentions": 1,
+     "totalAnswers": 22
+    },
+    {
+     "date": "2026-09-20",
+     "visibilityScore": 5,
+     "totalMentions": 1,
+     "totalAnswers": 20
+    },
+    {
+     "date": "2026-10-05",
+     "visibilityScore": 5,
+     "totalMentions": 1,
+     "totalAnswers": 20
+    },
+    {
+     "date": "2026-10-20",
+     "visibilityScore": 0,
+     "totalMentions": 0,
+     "totalAnswers": 20
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

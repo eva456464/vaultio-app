@@ -1,0 +1,5090 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/backlink-exchange",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793425171402,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/backlink-exchange?_rsc=8wk50",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22content-plan%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/content-plan"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/content-plan",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793425171711,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425171793,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/backlinks",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/backlink-exchange",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "creditBalance": -31,
+    "given": [
+     {
+      "id": 886854,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 49763,
+      "url": "https://jaghomesnow.com/spring-exterior-home-maintenance-bucks-county-pa",
+      "isBacklinkPresent": false,
+      "articleId": 1033535,
+      "articleClusterId": 6419934,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-29T05:34:39.109Z",
+      "updatedAt": "2026-10-29T07:08:12.365Z",
+      "targetOrgWebsite": {
+       "url": "https://jaghomesnow.com"
+      },
+      "article": {
+       "title": "How Often to Clean Windows: A Santa Barbara Coastal Guide",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-31T02:00:46.833Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-31T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 880575,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 51617,
+      "url": "https://blog.am-exteriors.com/blog/downspout-placement-guidelines",
+      "isBacklinkPresent": false,
+      "articleId": 1027595,
+      "articleClusterId": 6419932,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-28T05:35:08.115Z",
+      "updatedAt": "2026-10-28T07:07:48.346Z",
+      "targetOrgWebsite": {
+       "url": "https://am-exteriors.com"
+      },
+      "article": {
+       "title": "Gutters and Your Foundation: How Clogged Gutters Cause Damage",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-30T02:00:44.585Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-30T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 880577,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 44180,
+      "url": "https://blog.a-to-zconstruction.com/blog/standing-water-yard",
+      "isBacklinkPresent": false,
+      "articleId": 1027595,
+      "articleClusterId": 6419932,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-28T05:35:08.115Z",
+      "updatedAt": "2026-10-28T07:07:48.600Z",
+      "targetOrgWebsite": {
+       "url": "https://a-to-zconstruction.com"
+      },
+      "article": {
+       "title": "Gutters and Your Foundation: How Clogged Gutters Cause Damage",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-30T02:00:44.585Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-30T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 876984,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 33001,
+      "url": "https://2ndstreetpropertymanagement.com/post/how-to-handle-rental-property-repairs-like-a-pro",
+      "isBacklinkPresent": false,
+      "articleId": 1024835,
+      "articleClusterId": 6419929,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-27T06:06:58.881Z",
+      "updatedAt": "2026-10-27T10:14:17.576Z",
+      "targetOrgWebsite": {
+       "url": "https://2ndstreetpropertymanagement.com"
+      },
+      "article": {
+       "title": "Clogged Gutters: The Dangers and What to Do About Them",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-29T02:30:21.356Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-29T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 876983,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 38681,
+      "url": "https://expressionsremodeling.com/basement-moisture-control",
+      "isBacklinkPresent": false,
+      "articleId": 1024835,
+      "articleClusterId": 6419929,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-27T06:06:58.881Z",
+      "updatedAt": "2026-10-27T10:14:17.557Z",
+      "targetOrgWebsite": {
+       "url": "https://expressionsremodeling.com"
+      },
+      "article": {
+       "title": "Clogged Gutters: The Dangers and What to Do About Them",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-29T02:30:21.356Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-29T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 876981,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 25738,
+      "url": "https://blog.shingleroofrenewal.com/blog/roof-leak-detection-tips",
+      "isBacklinkPresent": false,
+      "articleId": 1024835,
+      "articleClusterId": 6419929,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-27T06:06:58.880Z",
+      "updatedAt": "2026-10-27T10:14:17.547Z",
+      "targetOrgWebsite": {
+       "url": "https://shingleroofrenewal.com"
+      },
+      "article": {
+       "title": "Clogged Gutters: The Dangers and What to Do About Them",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-29T02:30:21.356Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-29T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 872549,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 48244,
+      "url": "https://pave-n-turf.com/blog/paver-walkway-drainage",
+      "isBacklinkPresent": false,
+      "articleId": 1020811,
+      "articleClusterId": 6419930,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-26T04:15:55.971Z",
+      "updatedAt": "2026-10-26T05:36:06.936Z",
+      "targetOrgWebsite": {
+       "url": "https://pave-n-turf.com"
+      },
+      "article": {
+       "title": "Gutter Overflow Causes: 9 Reasons and How to Find Yours",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-28T02:00:54.549Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-28T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 872547,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 49763,
+      "url": "https://jaghomesnow.com/drip-edge-vs-gutter-apron",
+      "isBacklinkPresent": false,
+      "articleId": 1020811,
+      "articleClusterId": 6419930,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-26T04:15:55.970Z",
+      "updatedAt": "2026-10-26T05:36:06.923Z",
+      "targetOrgWebsite": {
+       "url": "https://jaghomesnow.com"
+      },
+      "article": {
+       "title": "Gutter Overflow Causes: 9 Reasons and How to Find Yours",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-28T02:00:54.549Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-28T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 866907,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 46319,
+      "url": "https://rescreenrescue.com/pressure-wash-pool-cage-in-st-petersburg-clearwater-tampa-bradenton",
+      "isBacklinkPresent": false,
+      "articleId": 1016190,
+      "articleClusterId": 6419933,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-25T03:43:11.211Z",
+      "updatedAt": "2026-10-25T05:08:16.892Z",
+      "targetOrgWebsite": {
+       "url": "https://rescreenrescue.com"
+      },
+      "article": {
+       "title": "Soft Washing Benefits for Santa Barbara Coastal Homes",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-27T02:01:33.268Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-27T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 861787,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 48887,
+      "url": "https://blog.mypropertycommandcenter.com/blog/gutter-cleaning-schedule",
+      "isBacklinkPresent": false,
+      "articleId": 1012760,
+      "articleClusterId": 6419928,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-24T03:47:31.234Z",
+      "updatedAt": "2026-10-24T09:13:01.375Z",
+      "targetOrgWebsite": {
+       "url": "https://mypropertycommandcenter.com"
+      },
+      "article": {
+       "title": "Paver Cleaning Methods: What Works and What Ruins Pavers",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-26T02:30:47.829Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-26T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 857276,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 52704,
+      "url": "https://ivanslandscaping.com/ice-melt-damage-concrete",
+      "isBacklinkPresent": false,
+      "articleId": 1008612,
+      "articleClusterId": 6419927,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-23T03:32:45.452Z",
+      "updatedAt": "2026-10-23T07:02:08.588Z",
+      "targetOrgWebsite": {
+       "url": "https://ivanslandscaping.com"
+      },
+      "article": {
+       "title": "Algae on Concrete: How to Remove It and Keep It Away",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-25T02:01:17.245Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-25T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 852837,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 31402,
+      "url": "https://uni-cm.com/blogs/adu-solar-requirements-california",
+      "isBacklinkPresent": false,
+      "articleId": 1004801,
+      "articleClusterId": 6419926,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-22T03:35:10.123Z",
+      "updatedAt": "2026-10-22T05:45:03.825Z",
+      "targetOrgWebsite": {
+       "url": "https://uni-cm.com"
+      },
+      "article": {
+       "title": "Does Rain Clean Solar Panels? What Santa Barbara Owners Should Know",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-24T02:00:37.651Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-24T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 847839,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 38511,
+      "url": "https://divinelandscapingllc.com/pergola-materials",
+      "isBacklinkPresent": false,
+      "articleId": 1000548,
+      "articleClusterId": 6419925,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-21T03:13:46.699Z",
+      "updatedAt": "2026-10-21T04:42:22.435Z",
+      "targetOrgWebsite": {
+       "url": "https://divinelandscapingllc.com"
+      },
+      "article": {
+       "title": "Pergola Cleaning: Remove Mildew and Algae Without Damage",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-23T02:31:02.516Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-23T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 842906,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 52667,
+      "url": "https://purehomescleaning.com/do-cleaners-clean-walls",
+      "isBacklinkPresent": false,
+      "articleId": 996392,
+      "articleClusterId": 6419924,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-20T03:15:51.658Z",
+      "updatedAt": "2026-10-20T05:22:50.151Z",
+      "targetOrgWebsite": {
+       "url": "https://purehomescleaning.com"
+      },
+      "article": {
+       "title": "How to Remove Cobwebs From Your Home's Exterior",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-22T02:01:21.096Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-22T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 837351,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 29769,
+      "url": "https://vectorclaimsolutions.com/shingle-creasing-wind-damage",
+      "isBacklinkPresent": false,
+      "articleId": 992677,
+      "articleClusterId": 6419920,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-19T04:09:06.891Z",
+      "updatedAt": "2026-10-19T08:20:40.673Z",
+      "targetOrgWebsite": {
+       "url": "https://vectorclaimsolutions.com"
+      },
+      "article": {
+       "title": "Non-Damaging Roof Cleaning: How to Protect Your Shingles",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-21T02:30:40.207Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-21T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 832123,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 61597,
+      "url": "https://skeyahomeimprovements.com/blog/vinyl-vs-fiberglass-windows",
+      "isBacklinkPresent": false,
+      "articleId": 988204,
+      "articleClusterId": 6419921,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-18T03:17:44.708Z",
+      "updatedAt": "2026-10-18T05:11:58.410Z",
+      "targetOrgWebsite": {
+       "url": "https://skeyahomeimprovements.com"
+      },
+      "article": {
+       "title": "How to Remove Paint From Window Glass Without Scratching It",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-20T02:30:58.565Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-20T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 832121,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 43180,
+      "url": "https://blog.trupaintingllcfl.com/blog/soft-wash-vs-pressure-wash",
+      "isBacklinkPresent": false,
+      "articleId": 988204,
+      "articleClusterId": 6419921,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-18T03:17:44.707Z",
+      "updatedAt": "2026-10-18T05:11:58.564Z",
+      "targetOrgWebsite": {
+       "url": "https://trupaintingllcfl.com"
+      },
+      "article": {
+       "title": "How to Remove Paint From Window Glass Without Scratching It",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-20T02:30:58.565Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-20T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 826412,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 56293,
+      "url": "https://capitalflow.ca/blog/distilled-water-for-window-cleaning",
+      "isBacklinkPresent": false,
+      "articleId": 984059,
+      "articleClusterId": 6419918,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-17T03:19:08.760Z",
+      "updatedAt": "2026-10-17T04:42:14.717Z",
+      "targetOrgWebsite": {
+       "url": "https://capitalflow.ca"
+      },
+      "article": {
+       "title": "Coastal Window Cleaning in Santa Barbara County: What Works",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-19T02:31:26.000Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-19T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 821143,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 61446,
+      "url": "https://stalwart-roofing.com/can-you-pressure-wash-a-roof",
+      "isBacklinkPresent": false,
+      "articleId": 979991,
+      "articleClusterId": 6419917,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-16T04:19:43.884Z",
+      "updatedAt": "2026-10-16T05:39:45.560Z",
+      "targetOrgWebsite": {
+       "url": "https://stalwart-roofing.com"
+      },
+      "article": {
+       "title": "Leaf Stains on Concrete: Safe Homeowner Fixes or a Soft Wash Pro",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-18T02:31:32.532Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-18T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 816927,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 38511,
+      "url": "https://divinelandscapingllc.com/retaining-wall-drainage",
+      "isBacklinkPresent": false,
+      "articleId": 976082,
+      "articleClusterId": 6419915,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-15T03:52:15.250Z",
+      "updatedAt": "2026-10-15T05:10:40.734Z",
+      "targetOrgWebsite": {
+       "url": "https://divinelandscapingllc.com"
+      },
+      "article": {
+       "title": "Brick Efflorescence Removal for Homeowners: Brush First or Call a Pro",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-17T02:31:25.344Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-17T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 812430,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 37565,
+      "url": "https://abcbins.com/residential-pressure-washing-services",
+      "isBacklinkPresent": false,
+      "articleId": 972069,
+      "articleClusterId": 6419914,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-14T04:22:37.275Z",
+      "updatedAt": "2026-10-14T05:33:45.903Z",
+      "targetOrgWebsite": {
+       "url": "https://abcbins.com"
+      },
+      "article": {
+       "title": "Pure Water Window Cleaning for Homeowners: 4 Gear Layers or a Pro",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-16T03:02:26.421Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-16T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 807632,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 31801,
+      "url": "https://roofingandexteriorpros.com/how-to-clean-clogged-gutters-safely",
+      "isBacklinkPresent": false,
+      "articleId": 968069,
+      "articleClusterId": 6419912,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-13T03:21:41.110Z",
+      "updatedAt": "2026-10-13T04:36:15.334Z",
+      "targetOrgWebsite": {
+       "url": "https://roofingandexteriorpros.com"
+      },
+      "article": {
+       "title": "Roof Valley Cleaning: Clear It Yearly, Skip the Pressure Washer",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-15T03:31:09.139Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-15T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 802452,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 51627,
+      "url": "https://systemwideservices.com/handyman/painting",
+      "isBacklinkPresent": false,
+      "articleId": 963995,
+      "articleClusterId": 6419916,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-12T03:48:57.774Z",
+      "updatedAt": "2026-10-12T05:03:31.455Z",
+      "targetOrgWebsite": {
+       "url": "https://systemwideservices.com"
+      },
+      "article": {
+       "title": "Gutter Tiger Stripes: Homeowners and Pros, Skip High Pressure",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-14T04:00:27.322Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-14T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 797074,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 53738,
+      "url": "https://phenomenalautocare.com/",
+      "isBacklinkPresent": false,
+      "articleId": 960065,
+      "articleClusterId": 6419919,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-11T03:20:22.153Z",
+      "updatedAt": "2026-10-11T04:35:20.857Z",
+      "targetOrgWebsite": {
+       "url": "https://phenomenalautocare.com"
+      },
+      "article": {
+       "title": "Tire Marks: Scrub Bare Concrete, Call a Pro for Coated Driveways",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-13T03:02:30.337Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-13T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 797075,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 59209,
+      "url": "https://magnumhomeservices.com/services/concrete",
+      "isBacklinkPresent": false,
+      "articleId": 960065,
+      "articleClusterId": 6419919,
+      "linkPower": 19,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-11T03:20:22.153Z",
+      "updatedAt": "2026-10-11T04:35:20.901Z",
+      "targetOrgWebsite": {
+       "url": "https://magnumhomeservices.com"
+      },
+      "article": {
+       "title": "Tire Marks: Scrub Bare Concrete, Call a Pro for Coated Driveways",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-13T03:02:30.337Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-13T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 791307,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 10303,
+      "url": "https://royalcleaningnewmexico.com/health-and-safety-in-cleaning-the-homeowners-guide",
+      "isBacklinkPresent": false,
+      "articleId": 955998,
+      "articleClusterId": 6419923,
+      "linkPower": 17,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-10T03:22:42.691Z",
+      "updatedAt": "2026-10-10T04:36:02.370Z",
+      "targetOrgWebsite": {
+       "url": "https://royalcleaningnewmexico.com"
+      },
+      "article": {
+       "title": "Pressure vs Power Washing for Homeowners: 1,500 PSI or Go Soft",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-12T04:01:28.037Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-12T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 779566,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 43180,
+      "url": "https://blog.trupaintingllcfl.com/blog/soft-wash-vs-pressure-wash",
+      "isBacklinkPresent": false,
+      "articleId": 948329,
+      "articleClusterId": 6419913,
+      "linkPower": 17,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-08T03:51:34.357Z",
+      "updatedAt": "2026-10-08T05:05:16.598Z",
+      "targetOrgWebsite": {
+       "url": "https://trupaintingllcfl.com"
+      },
+      "article": {
+       "title": "Homeowners Can Rinse Fabric Awnings Monthly, but High Ones Need a Pro",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-10T17:40:20.878Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-10T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 766995,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 38511,
+      "url": "https://divinelandscapingllc.com/what-do-hardscape-services-consist-of-2",
+      "isBacklinkPresent": false,
+      "articleId": 940141,
+      "articleClusterId": 6419910,
+      "linkPower": 17,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-06T03:52:18.665Z",
+      "updatedAt": "2026-10-06T05:35:05.456Z",
+      "targetOrgWebsite": {
+       "url": "https://divinelandscapingllc.com"
+      },
+      "article": {
+       "title": "Homeowners: Remove Sidewalk Gum in 2–5 Minutes, Protect Drains",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-08T04:01:39.297Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-08T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 761989,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 39418,
+      "url": "https://eandrcleaningsolutions.com/paint-overspray-on-windows",
+      "isBacklinkPresent": false,
+      "articleId": 936801,
+      "articleClusterId": 6419909,
+      "linkPower": 17,
+      "becameOnlineAt": null,
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": null,
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-05T05:50:44.109Z",
+      "updatedAt": "2026-10-05T07:04:20.247Z",
+      "targetOrgWebsite": {
+       "url": "https://eandrcleaningsolutions.com"
+      },
+      "article": {
+       "title": "$12–$20/pane: Safe Post Construction Window Cleaning for Owners & PMs",
+       "publishedUrl": null,
+       "publishedAt": "2026-10-15T05:06:56.760Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-07T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 754664,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 39418,
+      "url": "https://eandrcleaningsolutions.com/roof-moss-removal",
+      "isBacklinkPresent": true,
+      "articleId": 932113,
+      "articleClusterId": 6419908,
+      "linkPower": 17,
+      "becameOnlineAt": "2026-10-06T07:05:24.426Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-29T22:36:21.353Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-04T03:20:44.783Z",
+      "updatedAt": "2026-10-29T22:36:21.358Z",
+      "targetOrgWebsite": {
+       "url": "https://eandrcleaningsolutions.com"
+      },
+      "article": {
+       "title": "Homeowners: Preserve Cedar Shake Roofs for 30+ Years with Soft Wash",
+       "publishedUrl": "https://goletapressurewashing.com/blog/cedar-shake-roof-cleaning",
+       "publishedAt": "2026-10-06T04:01:42.939Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-06T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 734528,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 43100,
+      "url": "https://blog.mrpoolscreen.com/blog/soft-wash-vs-pressure-wash",
+      "isBacklinkPresent": true,
+      "articleId": 920158,
+      "articleClusterId": 5957159,
+      "linkPower": 17,
+      "becameOnlineAt": "2026-10-03T07:05:57.197Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T10:21:11.987Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-01T04:29:00.548Z",
+      "updatedAt": "2026-10-26T10:21:11.990Z",
+      "targetOrgWebsite": {
+       "url": "https://mrpoolscreen.com"
+      },
+      "article": {
+       "title": "Homeowners: 7 Questions to Pick a Pressure Washing Company That Uses Soft Wash",
+       "publishedUrl": "https://goletapressurewashing.com/blog/choose-pressure-washing-company",
+       "publishedAt": "2026-10-03T02:30:30.608Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-03T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 734527,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 34498,
+      "url": "https://neatandtidypros.com/what-is-pressure-washing",
+      "isBacklinkPresent": true,
+      "articleId": 920158,
+      "articleClusterId": 5957159,
+      "linkPower": 17,
+      "becameOnlineAt": "2026-10-03T07:05:56.990Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T10:21:11.826Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-10-01T04:29:00.548Z",
+      "updatedAt": "2026-10-26T10:21:11.828Z",
+      "targetOrgWebsite": {
+       "url": "https://neatandtidypros.com"
+      },
+      "article": {
+       "title": "Homeowners: 7 Questions to Pick a Pressure Washing Company That Uses Soft Wash",
+       "publishedUrl": "https://goletapressurewashing.com/blog/choose-pressure-washing-company",
+       "publishedAt": "2026-10-03T02:30:30.608Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-03T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 721860,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 10435,
+      "url": "https://wendellbarcoplastering.com/why-paint-peels-off-walls-and-how-to-fix-it-effectively",
+      "isBacklinkPresent": false,
+      "articleId": 911777,
+      "articleClusterId": 5957151,
+      "linkPower": 17,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-24T23:12:15.782Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T23:12:15.782Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-29T07:55:01.478Z",
+      "updatedAt": "2026-10-24T23:12:15.784Z",
+      "targetOrgWebsite": {
+       "url": "https://wendellbarcoplastering.com"
+      },
+      "article": {
+       "title": "Test First: Clean Painted Stucco With a 6 by 6 Test Patch and Soft Wash",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/clean-painted-stucco",
+       "publishedAt": "2026-10-01T02:31:22.778Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-01T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 716612,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 14696,
+      "url": "https://deckkingdom.co.uk/how-to-clean-composite-decking-2",
+      "isBacklinkPresent": false,
+      "articleId": 904315,
+      "articleClusterId": 5957120,
+      "linkPower": 17,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-23T19:53:01.200Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-23T19:53:01.200Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-27T07:12:41.132Z",
+      "updatedAt": "2026-10-23T19:53:01.204Z",
+      "targetOrgWebsite": {
+       "url": "https://deckkingdom.co.uk"
+      },
+      "article": {
+       "title": "Homeowners: Fix Moisture First. Mildew vs Mold on Your House",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/mildew-vs-mold-outside-house",
+       "publishedAt": "2026-09-29T03:02:14.932Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-29T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 710669,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 43180,
+      "url": "https://blog.trupaintingllcfl.com/blog/soft-wash-vs-pressure-wash",
+      "isBacklinkPresent": false,
+      "articleId": 895971,
+      "articleClusterId": 5957133,
+      "linkPower": 17,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-23T10:09:32.495Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-23T10:09:32.495Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-25T05:49:32.092Z",
+      "updatedAt": "2026-10-23T10:09:32.498Z",
+      "targetOrgWebsite": {
+       "url": "https://trupaintingllcfl.com"
+      },
+      "article": {
+       "title": "Homeowners: Safely Clean Storm Windows and Avoid $150–$400 Bills",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/window-cleaning-after-windstorm",
+       "publishedAt": "2026-09-27T02:30:51.552Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-27T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 695028,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 21884,
+      "url": "https://blog.timber-line.nl/blog/groene-aanslag-op-hout",
+      "isBacklinkPresent": false,
+      "articleId": 872971,
+      "articleClusterId": 5957125,
+      "linkPower": 17,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-22T01:32:48.816Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-22T01:32:48.816Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-19T03:17:03.187Z",
+      "updatedAt": "2026-10-22T01:32:48.827Z",
+      "targetOrgWebsite": {
+       "url": "https://timber-line.nl"
+      },
+      "article": {
+       "title": "Homeowners: Use the Triple R to Protect Plants During Soft Wash",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/protect-plants-during-soft-wash",
+       "publishedAt": "2026-09-21T03:30:52.108Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-21T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 688893,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 50968,
+      "url": "https://actionfenceanddeck.com/pressure-washing-cost",
+      "isBacklinkPresent": false,
+      "articleId": 865117,
+      "articleClusterId": 5957134,
+      "linkPower": 17,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-21T19:06:21.218Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-21T19:06:21.218Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-17T03:54:38.016Z",
+      "updatedAt": "2026-10-21T19:06:21.221Z",
+      "targetOrgWebsite": {
+       "url": "https://actionfenceanddeck.com"
+      },
+      "article": {
+       "title": "Vacuum Before You Wet: Coastal Homeowners' Pollen Control for Windows",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/pollen-on-windows-allergies",
+       "publishedAt": "2026-09-19T03:30:19.023Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-19T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 678206,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 26587,
+      "url": "https://broswindowcleaningoc.com/bird-droppings-on-solar-panels",
+      "isBacklinkPresent": false,
+      "articleId": 853600,
+      "articleClusterId": 5957114,
+      "linkPower": 12,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-20T19:21:29.639Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-20T19:21:29.639Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-14T03:18:17.453Z",
+      "updatedAt": "2026-10-20T19:21:29.690Z",
+      "targetOrgWebsite": {
+       "url": "https://broswindowcleaningoc.com"
+      },
+      "article": {
+       "title": "Recover Up to 33% From Bird Droppings on Solar Panels for Homeowners",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/bird-droppings-solar-panels",
+       "publishedAt": "2026-09-16T04:00:22.449Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-16T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 674355,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 55520,
+      "url": "https://preferic.com/seo-services-for-roofers-in-miami",
+      "isBacklinkPresent": false,
+      "articleId": 849308,
+      "articleClusterId": 5957111,
+      "linkPower": 12,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-20T07:33:48.530Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-20T07:33:48.530Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-13T03:17:17.379Z",
+      "updatedAt": "2026-10-20T07:33:48.545Z",
+      "targetOrgWebsite": {
+       "url": "https://preferic.com"
+      },
+      "article": {
+       "title": "Protect Roof Warranty: Soft Wash Not Pressure Washing for Homeowners",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/pressure-washing-roof-damage",
+       "publishedAt": "2026-09-15T03:30:30.384Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-15T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 655593,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 21991,
+      "url": "https://blog.maddladder.com/blog/what-is-essential-maintenance-coverage-for-homeowners",
+      "isBacklinkPresent": false,
+      "articleId": 831328,
+      "articleClusterId": 5957107,
+      "linkPower": 12,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-19T07:26:34.851Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-19T07:26:34.851Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-09T03:19:02.636Z",
+      "updatedAt": "2026-10-19T07:26:34.854Z",
+      "targetOrgWebsite": {
+       "url": "https://maddladder.com"
+      },
+      "article": {
+       "title": "7% Efficiency Loss? Safe Solar Panel Cleaning for Homeowners",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/safe-solar-panel-cleaning",
+       "publishedAt": "2026-09-11T04:30:24.174Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-11T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 651437,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 37590,
+      "url": "https://ohanapropertyexperts.com/yard-waste-removal",
+      "isBacklinkPresent": false,
+      "articleId": 829456,
+      "articleClusterId": 5957105,
+      "linkPower": 12,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-18T23:04:33.524Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-18T23:04:33.524Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-08T04:16:30.171Z",
+      "updatedAt": "2026-10-18T23:04:33.526Z",
+      "targetOrgWebsite": {
+       "url": "https://ohanapropertyexperts.com"
+      },
+      "article": {
+       "title": "Save Your Concrete: Remove Patio Mildew with 10–15 Minute Dwell",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/patio-mildew-removal",
+       "publishedAt": "2026-09-10T04:30:26.492Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-10T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 645491,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 25204,
+      "url": "https://asphaltworkx.ca/oil-stains-on-asphalt",
+      "isBacklinkPresent": true,
+      "articleId": 823240,
+      "articleClusterId": 5957584,
+      "linkPower": 12,
+      "becameOnlineAt": "2026-09-09T12:02:01.234Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-31T04:18:53.432Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-07T00:12:30.064Z",
+      "updatedAt": "2026-10-31T04:18:53.436Z",
+      "targetOrgWebsite": {
+       "url": "https://asphaltworkx.ca"
+      },
+      "article": {
+       "title": "Stop Pressure Damage: Soft Wash Santa Barbara Driveways and Parking",
+       "publishedUrl": "https://goletapressurewashing.com/blog/parking-lot-power-washing-santa-barbara",
+       "publishedAt": "2026-09-09T04:30:49.344Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-09T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 640444,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 41918,
+      "url": "https://precision-concretecoating.com/can-you-pressure-wash-a-garage-floor-coating",
+      "isBacklinkPresent": true,
+      "articleId": 818983,
+      "articleClusterId": 5957167,
+      "linkPower": 12,
+      "becameOnlineAt": "2026-09-08T07:04:14.338Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T19:12:26.412Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-06T00:14:25.918Z",
+      "updatedAt": "2026-10-30T19:12:26.419Z",
+      "targetOrgWebsite": {
+       "url": "https://precision-concretecoating.com"
+      },
+      "article": {
+       "title": "Homeowners: ARMA Says Keep Pressure Wash Under 500 PSI to Protect Granules",
+       "publishedUrl": "https://goletapressurewashing.com/blog/pressure-washing-shingle-granules",
+       "publishedAt": "2026-09-08T04:27:51.093Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-08T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 640445,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 52061,
+      "url": "https://crownbrothersroofing.com/services/shingles",
+      "isBacklinkPresent": true,
+      "articleId": 818983,
+      "articleClusterId": 5957167,
+      "linkPower": 12,
+      "becameOnlineAt": "2026-09-08T07:04:16.310Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T19:12:27.112Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-06T00:14:25.918Z",
+      "updatedAt": "2026-10-30T19:12:27.115Z",
+      "targetOrgWebsite": {
+       "url": "https://crownbrothersroofing.com"
+      },
+      "article": {
+       "title": "Homeowners: ARMA Says Keep Pressure Wash Under 500 PSI to Protect Granules",
+       "publishedUrl": "https://goletapressurewashing.com/blog/pressure-washing-shingle-granules",
+       "publishedAt": "2026-09-08T04:27:51.093Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-08T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 635465,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 43427,
+      "url": "https://alldaypowerwashing.com/blog/low-pressure-house-washing-a-safe-guide-for-homeowners",
+      "isBacklinkPresent": false,
+      "articleId": 814328,
+      "articleClusterId": 5957583,
+      "linkPower": 12,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-30T10:15:52.580Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T10:15:52.580Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-05T00:13:51.457Z",
+      "updatedAt": "2026-10-30T10:15:52.583Z",
+      "targetOrgWebsite": {
+       "url": "https://alldaypowerwashing.com"
+      },
+      "article": {
+       "title": "Why Commercial Power Washing Harms Coastal Roofs: Use Soft Wash Instead",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/commercial-power-washing",
+       "publishedAt": "2026-09-07T04:30:36.516Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-07T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 630111,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 25213,
+      "url": "https://apachexclean.com/drone-cleaning-without-scaffolding-or-heavy-lifts",
+      "isBacklinkPresent": false,
+      "articleId": 810635,
+      "articleClusterId": 5957585,
+      "linkPower": 12,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-29T22:45:06.313Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-29T22:45:06.313Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-04T00:16:40.214Z",
+      "updatedAt": "2026-10-29T22:45:06.316Z",
+      "targetOrgWebsite": {
+       "url": "https://apachexclean.com"
+      },
+      "article": {
+       "title": "5 Soft Wash Questions to Ask Before Building Washing in Santa Barbara",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/building-washing-santa-barbara",
+       "publishedAt": "2026-09-06T04:31:12.145Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-06T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 626062,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 38510,
+      "url": "https://jsignorexteriors.com/what-is-preventive-roof-maintenance",
+      "isBacklinkPresent": false,
+      "articleId": 808805,
+      "articleClusterId": 5957146,
+      "linkPower": 12,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-29T16:22:36.294Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-29T16:22:36.294Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-03T00:14:17.344Z",
+      "updatedAt": "2026-10-29T16:22:36.297Z",
+      "targetOrgWebsite": {
+       "url": "https://jsignorexteriors.com"
+      },
+      "article": {
+       "title": "Up to 45.6% Loss: Homeowners' Solar Panel Output After Cleaning",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/solar-panel-output-after-cleaning",
+       "publishedAt": "2026-09-05T04:30:17.956Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-05T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 622257,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 50567,
+      "url": "https://blog.heritagemasonryandbrick.com/blog/masonry-cleaning-brick",
+      "isBacklinkPresent": true,
+      "articleId": 802179,
+      "articleClusterId": 5957093,
+      "linkPower": 12,
+      "becameOnlineAt": "2026-09-04T07:02:05.638Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-29T04:20:43.869Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-02T00:17:29.645Z",
+      "updatedAt": "2026-10-29T04:20:43.875Z",
+      "targetOrgWebsite": {
+       "url": "https://heritagemasonryandbrick.com"
+      },
+      "article": {
+       "title": "Under 400 PSI: Soft Wash Steps to Protect Brick and Mortar",
+       "publishedUrl": "https://goletapressurewashing.com/blog/power-washing-brick-safety",
+       "publishedAt": "2026-09-04T04:25:11.904Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-04T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 620758,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 53386,
+      "url": "https://jhroof.co.uk/end-of-summer-roofing-tips",
+      "isBacklinkPresent": false,
+      "articleId": 799919,
+      "articleClusterId": 5957127,
+      "linkPower": 12,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-28T19:59:15.339Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-28T19:59:15.339Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-09-01T11:14:02.461Z",
+      "updatedAt": "2026-10-28T19:59:15.351Z",
+      "targetOrgWebsite": {
+       "url": "https://jhroof.co.uk"
+      },
+      "article": {
+       "title": "3 Exposure Tiers for Coastal Roofs: When to Clean and When to Book",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/coastal-roof-cleaning-season",
+       "publishedAt": "2026-09-03T04:30:39.262Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-03T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 616281,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 48244,
+      "url": "https://pave-n-turf.com/blog/paver-patio-maintenance",
+      "isBacklinkPresent": false,
+      "articleId": 796057,
+      "articleClusterId": 5957096,
+      "linkPower": 12,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-28T13:15:16.781Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-28T13:15:16.781Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-31T13:48:31.997Z",
+      "updatedAt": "2026-10-28T13:15:16.785Z",
+      "targetOrgWebsite": {
+       "url": "https://pave-n-turf.com"
+      },
+      "article": {
+       "title": "Homeowners: $0.15–$2.00 per sq ft for Paver Cleaning in 2026",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/paver-cleaning-cost",
+       "publishedAt": "2026-09-02T04:31:20.045Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-02T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 607741,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 42540,
+      "url": "https://housegoodbye.com/mold",
+      "isBacklinkPresent": false,
+      "articleId": 787088,
+      "articleClusterId": 5957094,
+      "linkPower": 12,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-27T10:29:41.462Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-27T10:29:41.462Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-29T14:39:38.428Z",
+      "updatedAt": "2026-10-27T10:29:41.464Z",
+      "targetOrgWebsite": {
+       "url": "https://housegoodbye.com"
+      },
+      "article": {
+       "title": "Santa Barbara Homeowners: Soft Wash With Oxygen Bleach for Siding Mold",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/siding-mold-removal",
+       "publishedAt": "2026-08-31T05:00:48.501Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-31T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 602062,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 39418,
+      "url": "https://www.eandrcleaningsolutions.com/what-is-walkway-pressure-washing-process",
+      "isBacklinkPresent": false,
+      "articleId": 782902,
+      "articleClusterId": 5957129,
+      "linkPower": 12,
+      "becameOnlineAt": "2026-08-30T13:22:59.334Z",
+      "removedAt": "2026-10-27T07:58:15.593Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-27T07:58:15.593Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-28T11:05:24.765Z",
+      "updatedAt": "2026-10-27T07:58:15.596Z",
+      "targetOrgWebsite": {
+       "url": "https://eandrcleaningsolutions.com"
+      },
+      "article": {
+       "title": "Homeowners, Test One Hidden Spot to Prevent Patio Pressure Washing Damage",
+       "publishedUrl": "https://goletapressurewashing.com/blog/patio-pressure-washing-damage",
+       "publishedAt": "2026-08-30T04:14:17.489Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-30T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 596521,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 52800,
+      "url": "https://freshexteriors.co.uk/",
+      "isBacklinkPresent": false,
+      "articleId": 779811,
+      "articleClusterId": 5957092,
+      "linkPower": 3,
+      "becameOnlineAt": "2026-10-15T01:26:32.623Z",
+      "removedAt": "2026-10-27T01:22:29.033Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-27T01:22:29.033Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-27T10:36:41.240Z",
+      "updatedAt": "2026-10-27T01:22:29.035Z",
+      "targetOrgWebsite": {
+       "url": "https://freshexteriors.co.uk"
+      },
+      "article": {
+       "title": "Whiten Gutters Fast for Coastal Homes Without a Pressure Washer",
+       "publishedUrl": "https://goletapressurewashing.com/blog/gutter-whitening",
+       "publishedAt": "2026-08-29T04:08:53.329Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-29T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 589895,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 52542,
+      "url": "https://sweepandscrub.com.au/common-mistakes-to-avoid-when-pressure-washing",
+      "isBacklinkPresent": false,
+      "articleId": 774279,
+      "articleClusterId": 5957090,
+      "linkPower": 3,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-26T16:06:11.773Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T16:06:11.773Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-25T11:36:59.455Z",
+      "updatedAt": "2026-10-26T16:06:11.778Z",
+      "targetOrgWebsite": {
+       "url": "https://sweepandscrub.com.au"
+      },
+      "article": {
+       "title": "Curb Appeal House Washing: What to Clean First and Why",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/curb-appeal-house-washing",
+       "publishedAt": "2026-08-28T04:31:25.576Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-28T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 581660,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 51529,
+      "url": "https://crowleyexteriors.com/",
+      "isBacklinkPresent": false,
+      "articleId": 765864,
+      "articleClusterId": 5957124,
+      "linkPower": 3,
+      "becameOnlineAt": "2026-08-26T07:13:25.683Z",
+      "removedAt": "2026-10-25T22:06:26.928Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-25T22:06:26.928Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-23T12:36:53.567Z",
+      "updatedAt": "2026-10-25T22:06:26.931Z",
+      "targetOrgWebsite": {
+       "url": "https://crowleyexteriors.com"
+      },
+      "article": {
+       "title": "Does Roof Cleaning Void Your Warranty? Here's the Truth",
+       "publishedUrl": "https://goletapressurewashing.com/blog/roof-warranty-and-cleaning",
+       "publishedAt": "2026-08-26T04:12:26.638Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-26T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 559259,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 45044,
+      "url": "https://fixmovehaul.com/outdoor-cleaning-swfl",
+      "isBacklinkPresent": false,
+      "articleId": 744469,
+      "articleClusterId": 5957085,
+      "linkPower": 1,
+      "becameOnlineAt": null,
+      "removedAt": "2026-10-24T13:08:23.893Z",
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T13:08:23.893Z",
+      "followType": null,
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-18T16:47:46.068Z",
+      "updatedAt": "2026-10-24T13:08:23.895Z",
+      "targetOrgWebsite": {
+       "url": "https://fixmovehaul.com"
+      },
+      "article": {
+       "title": "Coastal Home Cleaning: The Soft-Wash Guide That Actually Works",
+       "publishedUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof/coastal-home-cleaning",
+       "publishedAt": "2026-08-21T06:00:27.095Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-21T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 497720,
+      "sourceOrgWebsiteId": 51141,
+      "targetOrgWebsiteId": 32527,
+      "url": "https://blog.grimescene.services/blog/how-eco-cleaning-protects-home-finishes",
+      "isBacklinkPresent": true,
+      "articleId": 689534,
+      "articleClusterId": 5957074,
+      "linkPower": 1,
+      "becameOnlineAt": "2026-08-08T21:15:00.360Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-19T04:24:58.714Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "createdAt": "2026-08-05T21:41:51.404Z",
+      "updatedAt": "2026-10-19T04:24:58.719Z",
+      "targetOrgWebsite": {
+       "url": "https://grimescene.services"
+      },
+      "article": {
+       "title": "How to Remove Hard Water Stains on Windows",
+       "publishedUrl": "https://goletapressurewashing.com/blog/hard-water-stains-on-windows",
+       "publishedAt": "2026-08-08T16:14:38.836Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-08T00:00:00.000Z"
+       }
+      }
+     }
+    ],
+    "received": [
+     {
+      "id": 770630,
+      "sourceOrgWebsiteId": 57862,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/services/driveway-concrete-cleaning",
+      "isBacklinkPresent": true,
+      "articleId": 942389,
+      "articleClusterId": 6664597,
+      "linkPower": 12,
+      "becameOnlineAt": "2026-10-08T07:06:28.911Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-19T10:22:37.630Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-06T12:22:00.792Z",
+      "updatedAt": "2026-10-19T10:22:37.632Z",
+      "sourceOrgWebsite": {
+       "url": "https://tristatebrushandgravel.com"
+      },
+      "article": {
+       "title": "Stop Repeating Driveway Washouts: When Homeowners Should DIY or Hire",
+       "publishedUrl": "https://blog.tristatebrushandgravel.com/blog/driveway-washout-repair",
+       "publishedAt": "2026-10-08T05:00:42.778Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-08T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 763402,
+      "sourceOrgWebsiteId": 48244,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/goleta-hardscape-pre-summer-checklist",
+      "isBacklinkPresent": true,
+      "articleId": 937652,
+      "articleClusterId": 5881453,
+      "linkPower": 23,
+      "becameOnlineAt": "2026-10-07T02:45:34.402Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T16:58:05.486Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-05T08:44:01.192Z",
+      "updatedAt": "2026-10-30T16:58:05.489Z",
+      "sourceOrgWebsite": {
+       "url": "https://pave-n-turf.com"
+      },
+      "article": {
+       "title": "Pave‑N‑Turf's 3 Turf Rules: ICRA, Drainage, ADA for Hospital Courtyards",
+       "publishedUrl": "https://pave-n-turf.com/blog/hospital-courtyard-turf/",
+       "publishedAt": "2026-10-07T02:31:50.063Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-07T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 763096,
+      "sourceOrgWebsiteId": 42225,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/roof-cleaning-central-coast-marine-layer",
+      "isBacklinkPresent": true,
+      "articleId": 937689,
+      "articleClusterId": 5756525,
+      "linkPower": 20,
+      "becameOnlineAt": "2026-10-07T02:44:25.828Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T16:57:17.199Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-05T08:11:10.853Z",
+      "updatedAt": "2026-10-30T16:57:17.202Z",
+      "sourceOrgWebsite": {
+       "url": "https://coastalroofingfla.com"
+      },
+      "article": {
+       "title": "Coastal Homeowners: Fasteners & Finishes That Stop Metal Roof Corrosion",
+       "publishedUrl": "https://coastalroofingfla.com/metal-roof-coastal-corrosion/",
+       "publishedAt": "2026-10-07T02:00:56.230Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-07T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 751551,
+      "sourceOrgWebsiteId": 50613,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/services/driveway-concrete-cleaning",
+      "isBacklinkPresent": true,
+      "articleId": 930310,
+      "articleClusterId": 6204561,
+      "linkPower": 7,
+      "becameOnlineAt": "2026-10-05T07:07:50.079Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-28T22:09:35.375Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-03T10:34:27.527Z",
+      "updatedAt": "2026-10-28T22:09:35.378Z",
+      "sourceOrgWebsite": {
+       "url": "https://capitalpropressurewashing.com"
+      },
+      "article": {
+       "title": "Save Repair Costs: Concrete Sealing for Capital Region Homes",
+       "publishedUrl": "https://capitalpropressurewashing.com/blog/concrete-sealing-benefits",
+       "publishedAt": "2026-10-05T03:02:10.329Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-05T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 745190,
+      "sourceOrgWebsiteId": 50613,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/soft-washing-siding",
+      "isBacklinkPresent": true,
+      "articleId": 926708,
+      "articleClusterId": 6204562,
+      "linkPower": 7,
+      "becameOnlineAt": "2026-10-04T07:23:01.712Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-27T16:04:18.300Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-02T13:06:21.014Z",
+      "updatedAt": "2026-10-27T16:04:18.307Z",
+      "sourceOrgWebsite": {
+       "url": "https://capitalpropressurewashing.com"
+      },
+      "article": {
+       "title": "Remove Rust Stains on Siding Without Harsh Acids (For Homeowners)",
+       "publishedUrl": "https://capitalpropressurewashing.com/blog/rust-stains-siding",
+       "publishedAt": "2026-10-04T03:02:09.817Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-04T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 733884,
+      "sourceOrgWebsiteId": 25738,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/pressure-washing-shingle-granules",
+      "isBacklinkPresent": true,
+      "articleId": 919898,
+      "articleClusterId": 5503334,
+      "linkPower": 15,
+      "becameOnlineAt": "2026-10-03T01:00:45.048Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T01:49:30.712Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-10-01T03:18:49.990Z",
+      "updatedAt": "2026-10-26T01:49:30.714Z",
+      "sourceOrgWebsite": {
+       "url": "https://shingleroofrenewal.com"
+      },
+      "article": {
+       "title": "Save $15,000–$30,000, Homeowners: Tell If Granule Loss Is Hail",
+       "publishedUrl": "https://blog.shingleroofrenewal.com/blog/granule-loss-vs-hail",
+       "publishedAt": "2026-10-03T00:30:52.979Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-10-03T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 656919,
+      "sourceOrgWebsiteId": 51138,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/roof-house-wash-before-selling-montecito",
+      "isBacklinkPresent": true,
+      "articleId": 834052,
+      "articleClusterId": 5956975,
+      "linkPower": 8,
+      "becameOnlineAt": "2026-09-11T12:10:05.685Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-19T07:30:48.292Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-09-09T08:44:00.749Z",
+      "updatedAt": "2026-10-19T07:30:48.296Z",
+      "sourceOrgWebsite": {
+       "url": "https://aashomebuyers.com"
+      },
+      "article": {
+       "title": "230 Days to Auction? California Foreclosure Timeline & Options",
+       "publishedUrl": "https://aashomebuyers.com/foreclosure-timeline-california/",
+       "publishedAt": "2026-09-11T04:30:58.621Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-11T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 656563,
+      "sourceOrgWebsiteId": 27278,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/services/gutter-cleaning",
+      "isBacklinkPresent": true,
+      "articleId": 837226,
+      "articleClusterId": 5515900,
+      "linkPower": 13,
+      "becameOnlineAt": "2026-10-09T08:49:10.674Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T07:24:26.041Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-09-09T07:07:09.427Z",
+      "updatedAt": "2026-10-30T07:24:26.044Z",
+      "sourceOrgWebsite": {
+       "url": "https://trenchlessmaine.com"
+      },
+      "article": {
+       "title": "Basement Sewer Backup: Same Day Drain Clearance, Trenchless Repair",
+       "publishedUrl": "https://trenchlessmaine.com/basement-sewer-backup-fix/",
+       "publishedAt": "2026-09-11T01:01:04.029Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-11T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 636756,
+      "sourceOrgWebsiteId": 41633,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/services/solar-panel-cleaning",
+      "isBacklinkPresent": true,
+      "articleId": 815178,
+      "articleClusterId": 5748355,
+      "linkPower": 7,
+      "becameOnlineAt": "2026-09-07T07:07:27.993Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-30T10:22:38.125Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-09-05T04:16:21.949Z",
+      "updatedAt": "2026-10-30T10:22:38.128Z",
+      "sourceOrgWebsite": {
+       "url": "https://gridwiseliving.com"
+      },
+      "article": {
+       "title": "Owner vs Third Party: Who Keeps the 2026 Solar Credit in the U.S.",
+       "publishedUrl": "https://gridwiseliving.com/blogs/news/solar-tax-credit",
+       "publishedAt": "2026-09-07T03:01:26.751Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-07T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 624414,
+      "sourceOrgWebsiteId": 51093,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/goleta-hardscape-pre-summer-checklist",
+      "isBacklinkPresent": true,
+      "articleId": 803957,
+      "articleClusterId": 5953131,
+      "linkPower": 10,
+      "becameOnlineAt": "2026-09-30T01:00:21.097Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T07:15:21.631Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-09-02T08:48:50.507Z",
+      "updatedAt": "2026-10-24T07:15:21.640Z",
+      "sourceOrgWebsite": {
+       "url": "https://fernandeznsons.com"
+      },
+      "article": {
+       "title": "36 in Code, 48 in Built: Walkway Width Standards Contractors Use",
+       "publishedUrl": "https://fernandeznsons.com/walkway-width-standards/",
+       "publishedAt": "2026-09-29T22:26:53.238Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-09-04T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 608362,
+      "sourceOrgWebsiteId": 50613,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/best-time-clean-windows-santa-barbara",
+      "isBacklinkPresent": true,
+      "articleId": 787766,
+      "articleClusterId": 6204522,
+      "linkPower": 7,
+      "becameOnlineAt": "2026-08-31T21:13:04.713Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-27T16:40:02.456Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-29T17:04:43.000Z",
+      "updatedAt": "2026-10-27T16:40:02.473Z",
+      "sourceOrgWebsite": {
+       "url": "https://capitalpropressurewashing.com"
+      },
+      "article": {
+       "title": "20 Minute Exterior Window Cleaning for Homeowners, Stay Off Ladders",
+       "publishedUrl": "https://capitalpropressurewashing.com/blog/exterior-window-cleaning",
+       "publishedAt": "2026-08-31T05:01:10.700Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-31T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 593024,
+      "sourceOrgWebsiteId": 43427,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/services/driveway-concrete-cleaning",
+      "isBacklinkPresent": true,
+      "articleId": 776737,
+      "articleClusterId": 5786689,
+      "linkPower": 11,
+      "becameOnlineAt": "2026-08-29T07:14:35.592Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-26T22:35:39.162Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-27T03:17:52.931Z",
+      "updatedAt": "2026-10-26T22:35:39.165Z",
+      "sourceOrgWebsite": {
+       "url": "https://alldaypowerwashing.com"
+      },
+      "article": {
+       "title": "Denver Homeowners: Don't Pressure Wash New Concrete Under 28 Days",
+       "publishedUrl": "https://alldaypowerwashing.com/blog/pressure-washing-damage-concrete",
+       "publishedAt": "2026-08-29T03:30:30.503Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-29T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 581662,
+      "sourceOrgWebsiteId": 51138,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/services/solar-panel-cleaning",
+      "isBacklinkPresent": true,
+      "articleId": 766216,
+      "articleClusterId": 5956902,
+      "linkPower": 4,
+      "becameOnlineAt": "2026-08-26T07:13:26.211Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-25T22:06:25.019Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-23T12:37:30.025Z",
+      "updatedAt": "2026-10-25T22:06:25.033Z",
+      "sourceOrgWebsite": {
+       "url": "https://aashomebuyers.com"
+      },
+      "article": {
+       "title": "Selling a House With Solar Panels: What to Know First",
+       "publishedUrl": "https://aashomebuyers.com/sell-house-with-solar-panels/",
+       "publishedAt": "2026-08-26T04:31:34.342Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-26T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 580151,
+      "sourceOrgWebsiteId": 34498,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/window-cleaning-cost-calculator",
+      "isBacklinkPresent": true,
+      "articleId": 763910,
+      "articleClusterId": 5629557,
+      "linkPower": 8,
+      "becameOnlineAt": "2026-08-26T07:07:10.013Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-25T19:58:50.434Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-23T05:53:30.217Z",
+      "updatedAt": "2026-10-25T19:58:50.437Z",
+      "sourceOrgWebsite": {
+       "url": "https://neatandtidypros.com"
+      },
+      "article": {
+       "title": "House Cleaning Cost in 2026: What Homeowners Can Expect",
+       "publishedUrl": "https://neatandtidypros.com/house-cleaning-cost/",
+       "publishedAt": "2026-08-26T02:30:35.100Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-26T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 563713,
+      "sourceOrgWebsiteId": 49125,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/services/driveway-concrete-cleaning",
+      "isBacklinkPresent": true,
+      "articleId": 748635,
+      "articleClusterId": 5552506,
+      "linkPower": 1,
+      "becameOnlineAt": "2026-08-22T07:12:35.648Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T19:53:12.289Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-19T13:50:37.421Z",
+      "updatedAt": "2026-10-24T19:53:12.292Z",
+      "sourceOrgWebsite": {
+       "url": "https://turftails.co.uk"
+      },
+      "article": {
+       "title": "How to get rid of dog urine smell on a concrete driveway",
+       "publishedUrl": "https://turftails.co.uk/blogs/news/dog-urine-smell-driveway",
+       "publishedAt": "2026-08-22T04:30:18.460Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-22T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 563672,
+      "sourceOrgWebsiteId": 25204,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/oil-stains-driveway-santa-barbara",
+      "isBacklinkPresent": true,
+      "articleId": 748815,
+      "articleClusterId": 5445877,
+      "linkPower": 12,
+      "becameOnlineAt": "2026-08-22T07:12:26.140Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-24T19:53:00.463Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-19T13:44:55.074Z",
+      "updatedAt": "2026-10-24T19:53:00.466Z",
+      "sourceOrgWebsite": {
+       "url": "https://asphaltworkx.ca"
+      },
+      "article": {
+       "title": "Brampton Asphalt Maintenance: Hire a Pro, Protect Your Lot",
+       "publishedUrl": "https://www.asphaltworkx.ca/brampton-td-asphalt-maintenance/",
+       "publishedAt": "2026-08-22T02:30:27.272Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-22T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 550939,
+      "sourceOrgWebsiteId": 52704,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/goleta-hardscape-pre-summer-checklist",
+      "isBacklinkPresent": true,
+      "articleId": 736112,
+      "articleClusterId": 6086467,
+      "linkPower": 1,
+      "becameOnlineAt": "2026-08-19T07:05:01.644Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-23T07:37:30.665Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-16T13:46:20.849Z",
+      "updatedAt": "2026-10-23T07:37:30.667Z",
+      "sourceOrgWebsite": {
+       "url": "https://ivanslandscaping.com"
+      },
+      "article": {
+       "title": "What a Landscaping Estimate Example Actually Looks Like",
+       "publishedUrl": "https://ivanslandscaping.com/landscaping-estimate-example/",
+       "publishedAt": "2026-08-19T06:00:23.238Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-19T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 532882,
+      "sourceOrgWebsiteId": 3369,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/services/pressure-washing",
+      "isBacklinkPresent": true,
+      "articleId": 721912,
+      "articleClusterId": 1181609,
+      "linkPower": 30,
+      "becameOnlineAt": "2026-08-17T12:10:24.451Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-22T14:14:34.494Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-13T01:07:51.464Z",
+      "updatedAt": "2026-10-22T14:14:34.499Z",
+      "sourceOrgWebsite": {
+       "url": "https://whitediamondpressurewashing.com"
+      },
+      "article": {
+       "title": "Why Property Value Matters: What Homeowners Should Check Now",
+       "publishedUrl": "https://whitediamondpressurewashing.com/importance-of-property-value/",
+       "publishedAt": "2026-08-16T00:02:23.722Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-16T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 528649,
+      "sourceOrgWebsiteId": 42225,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/moss-north-facing-roof-slope",
+      "isBacklinkPresent": true,
+      "articleId": 717522,
+      "articleClusterId": 5016332,
+      "linkPower": 10,
+      "becameOnlineAt": "2026-08-15T07:01:38.229Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-22T07:18:09.407Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-12T01:56:38.362Z",
+      "updatedAt": "2026-10-22T07:18:09.410Z",
+      "sourceOrgWebsite": {
+       "url": "https://coastalroofingfla.com"
+      },
+      "article": {
+       "title": "What Causes Roof Deterioration: A Homeowner's Guide",
+       "publishedUrl": "https://coastalroofingfla.com/what-causes-roof-deterioration/",
+       "publishedAt": "2026-08-15T02:30:33.208Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-15T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 515934,
+      "sourceOrgWebsiteId": 22398,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/pressure-washing-vs-soft-washing-driveway",
+      "isBacklinkPresent": true,
+      "articleId": 710868,
+      "articleClusterId": 2507729,
+      "linkPower": 21,
+      "becameOnlineAt": "2026-09-17T15:41:48.437Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-21T04:22:14.115Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-10T03:43:19.195Z",
+      "updatedAt": "2026-10-21T04:22:14.118Z",
+      "sourceOrgWebsite": {
+       "url": "https://www.sherrypropertycare.ie/"
+      },
+      "article": {
+       "title": "Outdoor deep cleaning services for Dublin properties",
+       "publishedUrl": "https://blog.sherrypropertycare.ie/blog/explain-deep-cleaning-services",
+       "publishedAt": "2026-08-13T00:30:52.437Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-13T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 509927,
+      "sourceOrgWebsiteId": 50968,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/pool-deck-cleaning-montecito",
+      "isBacklinkPresent": true,
+      "articleId": 700371,
+      "articleClusterId": 5943161,
+      "linkPower": 2,
+      "becameOnlineAt": "2026-08-10T07:04:02.758Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-19T13:09:21.326Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-09T01:45:26.547Z",
+      "updatedAt": "2026-10-19T13:09:21.328Z",
+      "sourceOrgWebsite": {
+       "url": "https://actionfenceanddeck.com"
+      },
+      "article": {
+       "title": "Slippery Concrete Patio: Quick Fixes and When to Hire a Pro",
+       "publishedUrl": "https://actionfenceanddeck.com/slippery-concrete-patio/",
+       "publishedAt": "2026-08-09T15:04:28.131Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-08T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "id": 509657,
+      "sourceOrgWebsiteId": 50929,
+      "targetOrgWebsiteId": 51141,
+      "url": "https://goletapressurewashing.com/blog/wash-or-repaint-stucco-house",
+      "isBacklinkPresent": true,
+      "articleId": 700253,
+      "articleClusterId": 5941239,
+      "linkPower": 1,
+      "becameOnlineAt": "2026-09-10T23:30:53.080Z",
+      "removedAt": null,
+      "blgRemovedAt": null,
+      "lastCrawledAt": "2026-10-19T05:26:13.229Z",
+      "followType": "dofollow",
+      "nofollowEmailSentAt": null,
+      "backlinkExplanation": null,
+      "createdAt": "2026-08-09T01:15:08.952Z",
+      "updatedAt": "2026-10-19T05:26:13.233Z",
+      "sourceOrgWebsite": {
+       "url": "https://ttpdllc.com"
+      },
+      "article": {
+       "title": "House Repaint Frequency: What Homeowners Need to Know",
+       "publishedUrl": "https://ttpdllc.com/blog/house-repaint-frequency",
+       "publishedAt": "2026-08-09T01:41:20.365Z"
+      },
+      "keywordCluster": {
+       "contentPlan": {
+        "scheduledFor": "2026-08-06T00:00:00.000Z"
+       }
+      }
+     }
+    ]
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425171794,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/pages/articles-missing-in-sitemap",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/backlink-exchange",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "articlesMissingInSitemap": true
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425171996,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/dashboard/settings/business?_rsc=13f7w",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/backlink-exchange"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793425172167,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/overview/achievements",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/backlink-exchange",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "summary": {
+     "articlesIndexedWithClicks": 19,
+     "googleClicksFromBlg": 60,
+     "googleImpressionsFromBlg": 10658,
+     "liveBacklinks": 22,
+     "backlinksValue": 2950,
+     "domainRating": 19,
+     "trafficValue": 169.58,
+     "aiTraffic": 6
+    },
+    "timeseries": [
+     {
+      "date": "2025-10-31",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-01",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-02",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-03",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-04",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-05",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-06",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-07",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-08",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-09",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-10",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-11",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-12",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-13",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-14",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-15",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-16",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-17",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-18",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-19",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-20",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-21",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-22",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-23",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-24",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-25",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-26",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-27",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-28",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-29",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-11-30",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-01",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-02",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-03",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-04",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-05",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-06",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-07",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-08",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-09",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-10",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-11",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-12",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-13",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-14",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-15",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-16",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-17",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-18",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-19",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-20",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-21",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-22",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-23",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-24",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-25",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-26",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-27",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-28",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-29",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-30",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2025-12-31",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-01",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-02",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-03",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-04",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-05",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-06",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-07",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-08",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-09",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-10",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-11",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-12",
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-13",
+      "clicks": 0,
+      "impressions": 6,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-14",
+      "clicks": 0,
+      "impressions": 8,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-15",
+      "clicks": 0,
+      "impressions": 9,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-16",
+      "clicks": 0,
+      "impressions": 9,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-17",
+      "clicks": 0,
+      "impressions": 17,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-18",
+      "clicks": 0,
+      "impressions": 16,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-19",
+      "clicks": 1,
+      "impressions": 17,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-20",
+      "clicks": 0,
+      "impressions": 17,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-21",
+      "clicks": 0,
+      "impressions": 16,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-22",
+      "clicks": 1,
+      "impressions": 23,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-23",
+      "clicks": 1,
+      "impressions": 20,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-24",
+      "clicks": 1,
+      "impressions": 28,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-25",
+      "clicks": 0,
+      "impressions": 29,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-26",
+      "clicks": 1,
+      "impressions": 57,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-27",
+      "clicks": 2,
+      "impressions": 49,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-28",
+      "clicks": 1,
+      "impressions": 29,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-29",
+      "clicks": 0,
+      "impressions": 26,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-30",
+      "clicks": 0,
+      "impressions": 30,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-01-31",
+      "clicks": 0,
+      "impressions": 20,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-01",
+      "clicks": 0,
+      "impressions": 52,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-02",
+      "clicks": 0,
+      "impressions": 44,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-03",
+      "clicks": 0,
+      "impressions": 53,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-04",
+      "clicks": 0,
+      "impressions": 38,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-05",
+      "clicks": 0,
+      "impressions": 116,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-06",
+      "clicks": 0,
+      "impressions": 23,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-07",
+      "clicks": 1,
+      "impressions": 23,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-08",
+      "clicks": 0,
+      "impressions": 18,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-09",
+      "clicks": 0,
+      "impressions": 27,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-10",
+      "clicks": 2,
+      "impressions": 98,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-11",
+      "clicks": 1,
+      "impressions": 23,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-12",
+      "clicks": 2,
+      "impressions": 25,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-13",
+      "clicks": 0,
+      "impressions": 21,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-14",
+      "clicks": 0,
+      "impressions": 20,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-15",
+      "clicks": 0,
+      "impressions": 20,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-16",
+      "clicks": 1,
+      "impressions": 143,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-17",
+      "clicks": 0,
+      "impressions": 47,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-18",
+      "clicks": 0,
+      "impressions": 27,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-19",
+      "clicks": 1,
+      "impressions": 290,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-20",
+      "clicks": 2,
+      "impressions": 35,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-21",
+      "clicks": 1,
+      "impressions": 42,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-22",
+      "clicks": 0,
+      "impressions": 33,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-23",
+      "clicks": 2,
+      "impressions": 52,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-24",
+      "clicks": 1,
+      "impressions": 49,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-25",
+      "clicks": 0,
+      "impressions": 83,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-26",
+      "clicks": 1,
+      "impressions": 619,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-27",
+      "clicks": 2,
+      "impressions": 41,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-02-28",
+      "clicks": 0,
+      "impressions": 120,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-01",
+      "clicks": 1,
+      "impressions": 113,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-02",
+      "clicks": 2,
+      "impressions": 53,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-03",
+      "clicks": 1,
+      "impressions": 64,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-04",
+      "clicks": 2,
+      "impressions": 67,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-05",
+      "clicks": 4,
+      "impressions": 61,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-06",
+      "clicks": 0,
+      "impressions": 73,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-07",
+      "clicks": 2,
+      "impressions": 62,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-08",
+      "clicks": 1,
+      "impressions": 50,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-09",
+      "clicks": 1,
+      "impressions": 93,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-10",
+      "clicks": 1,
+      "impressions": 220,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-11",
+      "clicks": 2,
+      "impressions": 77,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-12",
+      "clicks": 1,
+      "impressions": 88,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-13",
+      "clicks": 0,
+      "impressions": 59,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-14",
+      "clicks": 1,
+      "impressions": 72,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-15",
+      "clicks": 0,
+      "impressions": 40,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-16",
+      "clicks": 3,
+      "impressions": 77,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-17",
+      "clicks": 2,
+      "impressions": 69,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-18",
+      "clicks": 3,
+      "impressions": 42,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-19",
+      "clicks": 1,
+      "impressions": 60,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-20",
+      "clicks": 1,
+      "impressions": 76,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-21",
+      "clicks": 0,
+      "impressions": 73,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-22",
+      "clicks": 2,
+      "impressions": 57,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-23",
+      "clicks": 1,
+      "impressions": 72,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-24",
+      "clicks": 4,
+      "impressions": 73,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-25",
+      "clicks": 1,
+      "impressions": 70,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-26",
+      "clicks": 2,
+      "impressions": 120,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-27",
+      "clicks": 1,
+      "impressions": 542,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-28",
+      "clicks": 0,
+      "impressions": 53,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-29",
+      "clicks": 1,
+      "impressions": 82,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-30",
+      "clicks": 1,
+      "impressions": 65,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-03-31",
+      "clicks": 0,
+      "impressions": 76,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-01",
+      "clicks": 1,
+      "impressions": 92,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-02",
+      "clicks": 0,
+      "impressions": 90,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-03",
+      "clicks": 1,
+      "impressions": 80,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-04",
+      "clicks": 0,
+      "impressions": 88,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-05",
+      "clicks": 0,
+      "impressions": 78,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-06",
+      "clicks": 4,
+      "impressions": 72,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-07",
+      "clicks": 0,
+      "impressions": 70,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-08",
+      "clicks": 0,
+      "impressions": 57,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-09",
+      "clicks": 0,
+      "impressions": 300,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-10",
+      "clicks": 1,
+      "impressions": 317,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-11",
+      "clicks": 0,
+      "impressions": 47,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-12",
+      "clicks": 1,
+      "impressions": 79,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-13",
+      "clicks": 2,
+      "impressions": 105,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-14",
+      "clicks": 1,
+      "impressions": 82,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-15",
+      "clicks": 2,
+      "impressions": 183,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-16",
+      "clicks": 1,
+      "impressions": 52,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-17",
+      "clicks": 1,
+      "impressions": 76,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-18",
+      "clicks": 0,
+      "impressions": 63,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-19",
+      "clicks": 1,
+      "impressions": 119,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-20",
+      "clicks": 3,
+      "impressions": 126,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-21",
+      "clicks": 3,
+      "impressions": 100,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-22",
+      "clicks": 0,
+      "impressions": 90,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-23",
+      "clicks": 0,
+      "impressions": 33,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-24",
+      "clicks": 0,
+      "impressions": 48,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-25",
+      "clicks": 1,
+      "impressions": 36,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-26",
+      "clicks": 1,
+      "impressions": 84,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-27",
+      "clicks": 1,
+      "impressions": 79,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-28",
+      "clicks": 0,
+      "impressions": 73,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-29",
+      "clicks": 0,
+      "impressions": 49,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-04-30",
+      "clicks": 3,
+      "impressions": 33,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-01",
+      "clicks": 0,
+      "impressions": 49,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-02",
+      "clicks": 1,
+      "impressions": 85,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-03",
+      "clicks": 0,
+      "impressions": 72,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-04",
+      "clicks": 0,
+      "impressions": 73,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-05",
+      "clicks": 1,
+      "impressions": 51,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-06",
+      "clicks": 2,
+      "impressions": 35,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-07",
+      "clicks": 0,
+      "impressions": 31,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-08",
+      "clicks": 1,
+      "impressions": 49,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-09",
+      "clicks": 0,
+      "impressions": 129,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-10",
+      "clicks": 0,
+      "impressions": 265,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-11",
+      "clicks": 1,
+      "impressions": 47,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-12",
+      "clicks": 1,
+      "impressions": 83,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-13",
+      "clicks": 3,
+      "impressions": 55,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-14",
+      "clicks": 0,
+      "impressions": 52,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-15",
+      "clicks": 0,
+      "impressions": 56,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-16",
+      "clicks": 0,
+      "impressions": 96,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-17",
+      "clicks": 2,
+      "impressions": 126,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-18",
+      "clicks": 2,
+      "impressions": 65,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-19",
+      "clicks": 0,
+      "impressions": 57,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-20",
+      "clicks": 1,
+      "impressions": 60,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-21",
+      "clicks": 0,
+      "impressions": 46,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-22",
+      "clicks": 2,
+      "impressions": 301,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-23",
+      "clicks": 0,
+      "impressions": 63,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-24",
+      "clicks": 0,
+      "impressions": 92,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-25",
+      "clicks": 2,
+      "impressions": 67,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-26",
+      "clicks": 3,
+      "impressions": 112,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-27",
+      "clicks": 1,
+      "impressions": 70,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-28",
+      "clicks": 0,
+      "impressions": 121,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-29",
+      "clicks": 0,
+      "impressions": 155,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-30",
+      "clicks": 0,
+      "impressions": 136,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-05-31",
+      "clicks": 2,
+      "impressions": 194,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-01",
+      "clicks": 0,
+      "impressions": 123,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-02",
+      "clicks": 1,
+      "impressions": 190,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-03",
+      "clicks": 1,
+      "impressions": 98,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-04",
+      "clicks": 0,
+      "impressions": 386,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-05",
+      "clicks": 0,
+      "impressions": 100,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-06",
+      "clicks": 1,
+      "impressions": 74,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-07",
+      "clicks": 1,
+      "impressions": 152,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-08",
+      "clicks": 0,
+      "impressions": 123,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-09",
+      "clicks": 2,
+      "impressions": 119,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-10",
+      "clicks": 2,
+      "impressions": 362,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-11",
+      "clicks": 0,
+      "impressions": 162,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-12",
+      "clicks": 3,
+      "impressions": 143,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-13",
+      "clicks": 2,
+      "impressions": 157,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-14",
+      "clicks": 3,
+      "impressions": 221,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-15",
+      "clicks": 0,
+      "impressions": 131,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-16",
+      "clicks": 0,
+      "impressions": 126,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-17",
+      "clicks": 1,
+      "impressions": 160,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-18",
+      "clicks": 2,
+      "impressions": 194,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-19",
+      "clicks": 1,
+      "impressions": 118,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-20",
+      "clicks": 0,
+      "impressions": 98,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-21",
+      "clicks": 2,
+      "impressions": 148,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-22",
+      "clicks": 0,
+      "impressions": 163,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-23",
+      "clicks": 0,
+      "impressions": 143,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-24",
+      "clicks": 3,
+      "impressions": 128,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-25",
+      "clicks": 1,
+      "impressions": 128,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-26",
+      "clicks": 0,
+      "impressions": 123,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-27",
+      "clicks": 2,
+      "impressions": 183,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-28",
+      "clicks": 0,
+      "impressions": 145,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-29",
+      "clicks": 0,
+      "impressions": 144,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-06-30",
+      "clicks": 1,
+      "impressions": 153,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-01",
+      "clicks": 0,
+      "impressions": 125,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-02",
+      "clicks": 2,
+      "impressions": 160,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-03",
+      "clicks": 0,
+      "impressions": 86,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-04",
+      "clicks": 0,
+      "impressions": 69,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-05",
+      "clicks": 0,
+      "impressions": 106,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-06",
+      "clicks": 1,
+      "impressions": 64,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-07",
+      "clicks": 3,
+      "impressions": 99,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-08",
+      "clicks": 0,
+      "impressions": 66,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-09",
+      "clicks": 0,
+      "impressions": 63,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-10",
+      "clicks": 1,
+      "impressions": 74,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-11",
+      "clicks": 0,
+      "impressions": 120,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-12",
+      "clicks": 0,
+      "impressions": 102,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-13",
+      "clicks": 1,
+      "impressions": 70,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-14",
+      "clicks": 3,
+      "impressions": 110,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-15",
+      "clicks": 1,
+      "impressions": 78,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-16",
+      "clicks": 1,
+      "impressions": 68,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-17",
+      "clicks": 4,
+      "impressions": 67,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-18",
+      "clicks": 4,
+      "impressions": 86,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-19",
+      "clicks": 0,
+      "impressions": 106,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-20",
+      "clicks": 2,
+      "impressions": 97,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-21",
+      "clicks": 4,
+      "impressions": 126,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-22",
+      "clicks": 2,
+      "impressions": 174,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-23",
+      "clicks": 2,
+      "impressions": 100,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-24",
+      "clicks": 1,
+      "impressions": 109,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-25",
+      "clicks": 0,
+      "impressions": 166,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-26",
+      "clicks": 4,
+      "impressions": 102,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-27",
+      "clicks": 1,
+      "impressions": 132,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-28",
+      "clicks": 2,
+      "impressions": 226,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-29",
+      "clicks": 4,
+      "impressions": 147,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-30",
+      "clicks": 1,
+      "impressions": 185,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-07-31",
+      "clicks": 2,
+      "impressions": 117,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-08-01",
+      "clicks": 2,
+      "impressions": 152,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-08-02",
+      "clicks": 0,
+      "impressions": 157,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-08-03",
+      "clicks": 1,
+      "impressions": 186,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-08-04",
+      "clicks": 3,
+      "impressions": 225,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-08-05",
+      "clicks": 2,
+      "impressions": 244,
+      "backlinksReceived": 0,
+      "backlinksValue": 0,
+      "domainRating": 1
+     },
+     {
+      "date": "2026-08-06",
+      "clicks": 1,
+      "impressions": 207,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-08-07",
+      "clicks": 0,
+      "impressions": 140,
+      "backlinksReceived": 0,
+      "backlinksValue": 0,
+      "domainRating": 1
+     },
+     {
+      "date": "2026-08-08",
+      "clicks": 0,
+      "impressions": 132,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-08-09",
+      "clicks": 1,
+      "impressions": 639,
+      "backlinksReceived": 0,
+      "backlinksValue": 0
+     },
+     {
+      "date": "2026-08-10",
+      "clicks": 2,
+      "impressions": 207,
+      "backlinksReceived": 1,
+      "backlinksValue": 75
+     },
+     {
+      "date": "2026-08-11",
+      "clicks": 1,
+      "impressions": 175,
+      "backlinksReceived": 1,
+      "backlinksValue": 75
+     },
+     {
+      "date": "2026-08-12",
+      "clicks": 3,
+      "impressions": 189,
+      "backlinksReceived": 1,
+      "backlinksValue": 75
+     },
+     {
+      "date": "2026-08-13",
+      "clicks": 1,
+      "impressions": 248,
+      "backlinksReceived": 1,
+      "backlinksValue": 75
+     },
+     {
+      "date": "2026-08-14",
+      "clicks": 1,
+      "impressions": 205,
+      "backlinksReceived": 1,
+      "backlinksValue": 75
+     },
+     {
+      "date": "2026-08-15",
+      "clicks": 1,
+      "impressions": 223,
+      "backlinksReceived": 2,
+      "backlinksValue": 225
+     },
+     {
+      "date": "2026-08-16",
+      "clicks": 2,
+      "impressions": 859,
+      "backlinksReceived": 2,
+      "backlinksValue": 225
+     },
+     {
+      "date": "2026-08-17",
+      "clicks": 4,
+      "impressions": 193,
+      "backlinksReceived": 3,
+      "backlinksValue": 475
+     },
+     {
+      "date": "2026-08-18",
+      "clicks": 1,
+      "impressions": 209,
+      "backlinksReceived": 3,
+      "backlinksValue": 475
+     },
+     {
+      "date": "2026-08-19",
+      "clicks": 1,
+      "impressions": 148,
+      "backlinksReceived": 4,
+      "backlinksValue": 550
+     },
+     {
+      "date": "2026-08-20",
+      "clicks": 0,
+      "impressions": 138,
+      "backlinksReceived": 4,
+      "backlinksValue": 550
+     },
+     {
+      "date": "2026-08-21",
+      "clicks": 1,
+      "impressions": 129,
+      "backlinksReceived": 4,
+      "backlinksValue": 550
+     },
+     {
+      "date": "2026-08-22",
+      "clicks": 1,
+      "impressions": 128,
+      "backlinksReceived": 6,
+      "backlinksValue": 775
+     },
+     {
+      "date": "2026-08-23",
+      "clicks": 2,
+      "impressions": 189,
+      "backlinksReceived": 6,
+      "backlinksValue": 775
+     },
+     {
+      "date": "2026-08-24",
+      "clicks": 2,
+      "impressions": 195,
+      "backlinksReceived": 6,
+      "backlinksValue": 775
+     },
+     {
+      "date": "2026-08-25",
+      "clicks": 1,
+      "impressions": 161,
+      "backlinksReceived": 6,
+      "backlinksValue": 775
+     },
+     {
+      "date": "2026-08-26",
+      "clicks": 1,
+      "impressions": 539,
+      "backlinksReceived": 8,
+      "backlinksValue": 975
+     },
+     {
+      "date": "2026-08-27",
+      "clicks": 3,
+      "impressions": 166,
+      "backlinksReceived": 8,
+      "backlinksValue": 975
+     },
+     {
+      "date": "2026-08-28",
+      "clicks": 2,
+      "impressions": 131,
+      "aiTraffic": 1,
+      "backlinksReceived": 8,
+      "backlinksValue": 975
+     },
+     {
+      "date": "2026-08-29",
+      "clicks": 4,
+      "impressions": 247,
+      "backlinksReceived": 9,
+      "backlinksValue": 1125
+     },
+     {
+      "date": "2026-08-30",
+      "clicks": 2,
+      "impressions": 393,
+      "backlinksReceived": 9,
+      "backlinksValue": 1125
+     },
+     {
+      "date": "2026-08-31",
+      "clicks": 4,
+      "impressions": 366,
+      "backlinksReceived": 10,
+      "backlinksValue": 1250
+     },
+     {
+      "date": "2026-09-01",
+      "clicks": 5,
+      "impressions": 398,
+      "backlinksReceived": 10,
+      "backlinksValue": 1250
+     },
+     {
+      "date": "2026-09-02",
+      "clicks": 4,
+      "impressions": 360,
+      "aiTraffic": 1,
+      "backlinksReceived": 10,
+      "backlinksValue": 1250
+     },
+     {
+      "date": "2026-09-03",
+      "clicks": 2,
+      "impressions": 265,
+      "backlinksReceived": 10,
+      "backlinksValue": 1250
+     },
+     {
+      "date": "2026-09-04",
+      "clicks": 0,
+      "impressions": 284,
+      "backlinksReceived": 10,
+      "backlinksValue": 1250
+     },
+     {
+      "date": "2026-09-05",
+      "clicks": 1,
+      "impressions": 196,
+      "backlinksReceived": 10,
+      "backlinksValue": 1250
+     },
+     {
+      "date": "2026-09-06",
+      "clicks": 2,
+      "impressions": 251,
+      "backlinksReceived": 10,
+      "backlinksValue": 1250
+     },
+     {
+      "date": "2026-09-07",
+      "clicks": 5,
+      "impressions": 280,
+      "backlinksReceived": 11,
+      "backlinksValue": 1375,
+      "domainRating": 12
+     },
+     {
+      "date": "2026-09-08",
+      "clicks": 1,
+      "impressions": 218,
+      "backlinksReceived": 11,
+      "backlinksValue": 1375
+     },
+     {
+      "date": "2026-09-09",
+      "clicks": 2,
+      "impressions": 196,
+      "backlinksReceived": 11,
+      "backlinksValue": 1375
+     },
+     {
+      "date": "2026-09-10",
+      "clicks": 2,
+      "impressions": 175,
+      "backlinksReceived": 12,
+      "backlinksValue": 1450
+     },
+     {
+      "date": "2026-09-11",
+      "clicks": 3,
+      "impressions": 204,
+      "backlinksReceived": 13,
+      "backlinksValue": 1575
+     },
+     {
+      "date": "2026-09-12",
+      "clicks": 2,
+      "impressions": 176,
+      "backlinksReceived": 13,
+      "backlinksValue": 1575
+     },
+     {
+      "date": "2026-09-13",
+      "clicks": 4,
+      "impressions": 839,
+      "backlinksReceived": 13,
+      "backlinksValue": 1575
+     },
+     {
+      "date": "2026-09-14",
+      "clicks": 0,
+      "impressions": 262,
+      "backlinksReceived": 13,
+      "backlinksValue": 1575
+     },
+     {
+      "date": "2026-09-15",
+      "clicks": 1,
+      "impressions": 315,
+      "aiTraffic": 1,
+      "backlinksReceived": 13,
+      "backlinksValue": 1575
+     },
+     {
+      "date": "2026-09-16",
+      "clicks": 5,
+      "impressions": 193,
+      "backlinksReceived": 13,
+      "backlinksValue": 1575
+     },
+     {
+      "date": "2026-09-17",
+      "clicks": 3,
+      "impressions": 147,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-18",
+      "clicks": 0,
+      "impressions": 172,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-19",
+      "clicks": 2,
+      "impressions": 148,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-20",
+      "clicks": 0,
+      "impressions": 225,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-21",
+      "clicks": 1,
+      "impressions": 215,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-22",
+      "clicks": 1,
+      "impressions": 175,
+      "aiTraffic": 1,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-23",
+      "clicks": 1,
+      "impressions": 170,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-24",
+      "clicks": 1,
+      "impressions": 153,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-25",
+      "clicks": 1,
+      "impressions": 246,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-26",
+      "clicks": 5,
+      "impressions": 564,
+      "aiTraffic": 1,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-27",
+      "clicks": 5,
+      "impressions": 956,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-28",
+      "clicks": 8,
+      "impressions": 701,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-29",
+      "clicks": 4,
+      "impressions": 729,
+      "backlinksReceived": 14,
+      "backlinksValue": 1750
+     },
+     {
+      "date": "2026-09-30",
+      "clicks": 9,
+      "impressions": 635,
+      "backlinksReceived": 15,
+      "backlinksValue": 1900
+     },
+     {
+      "date": "2026-10-01",
+      "clicks": 2,
+      "impressions": 537,
+      "backlinksReceived": 15,
+      "backlinksValue": 1900
+     },
+     {
+      "date": "2026-10-02",
+      "clicks": 5,
+      "impressions": 511,
+      "backlinksReceived": 15,
+      "backlinksValue": 1900
+     },
+     {
+      "date": "2026-10-03",
+      "clicks": 1,
+      "impressions": 459,
+      "backlinksReceived": 16,
+      "backlinksValue": 2050
+     },
+     {
+      "date": "2026-10-04",
+      "clicks": 2,
+      "impressions": 321,
+      "backlinksReceived": 17,
+      "backlinksValue": 2175
+     },
+     {
+      "date": "2026-10-05",
+      "clicks": 3,
+      "impressions": 251,
+      "backlinksReceived": 18,
+      "backlinksValue": 2300
+     },
+     {
+      "date": "2026-10-06",
+      "clicks": 2,
+      "impressions": 220,
+      "backlinksReceived": 18,
+      "backlinksValue": 2300
+     },
+     {
+      "date": "2026-10-07",
+      "clicks": 2,
+      "impressions": 233,
+      "backlinksReceived": 20,
+      "backlinksValue": 2650
+     },
+     {
+      "date": "2026-10-08",
+      "clicks": 2,
+      "impressions": 191,
+      "backlinksReceived": 21,
+      "backlinksValue": 2800
+     },
+     {
+      "date": "2026-10-09",
+      "clicks": 0,
+      "impressions": 198,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950,
+      "domainRating": 17
+     },
+     {
+      "date": "2026-10-10",
+      "clicks": 1,
+      "impressions": 201,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950,
+      "domainRating": 19
+     },
+     {
+      "date": "2026-10-11",
+      "clicks": 1,
+      "impressions": 435,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-12",
+      "clicks": 0,
+      "impressions": 560,
+      "aiTraffic": 1,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-13",
+      "clicks": 5,
+      "impressions": 554,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-14",
+      "clicks": 1,
+      "impressions": 445,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-15",
+      "clicks": 3,
+      "impressions": 386,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-16",
+      "clicks": 3,
+      "impressions": 390,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-17",
+      "clicks": 2,
+      "impressions": 315,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-18",
+      "clicks": 2,
+      "impressions": 338,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-19",
+      "clicks": 6,
+      "impressions": 419,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-20",
+      "clicks": 1,
+      "impressions": 344,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-21",
+      "clicks": 1,
+      "impressions": 341,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-22",
+      "clicks": 1,
+      "impressions": 336,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-23",
+      "clicks": 2,
+      "impressions": 315,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-24",
+      "clicks": 3,
+      "impressions": 288,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-25",
+      "clicks": 1,
+      "impressions": 403,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950,
+      "domainRating": 19
+     },
+     {
+      "date": "2026-10-26",
+      "clicks": 2,
+      "impressions": 357,
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-27",
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-28",
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-29",
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-30",
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     },
+     {
+      "date": "2026-10-31",
+      "backlinksReceived": 22,
+      "backlinksValue": 2950
+     }
+    ]
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425172167,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/backlinks/exchange-pool",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/backlink-exchange",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "poolCount": 4320
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425172387,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/settings/business?_rsc=161s9",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/backlink-exchange",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793425172721,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793425172715&cv=11&fst=1793425172715&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fcontent-plan&rcb=10&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425172725,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45be6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793425134046&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=10&sr=1728x1117&ul=en-us&_s=12&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Foverview&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=39274",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425172728,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=10&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Foverview&scrsrc=www.googletagmanager.com&rnd=1946196919.1793425134&navt=r&npa=0&ae=a&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&tft=1793425172728&tfd=39278&_gsid=d4lFfr-9cGz151BH0s0F9C5fQdX0k-9UMQ&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425172732,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793425134046&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=10&sr=1728x1117&ul=en-us&_s=13&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fcontent-plan&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=39281",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

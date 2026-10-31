@@ -1317,6 +1317,117 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/agency-reporting/availability?period=previous_month",
+   "status": 200,
+   "resBody": {
+    "range": {
+     "from": "2026-09-01",
+     "to": "2026-09-30"
+    },
+    "clamped": false,
+    "dataThrough": "2026-10-28",
+    "blocks": {
+     "achievements": {
+      "available": true,
+      "count": 6
+     },
+     "summary": {
+      "available": true,
+      "count": 30
+     },
+     "kpis": {
+      "available": true,
+      "count": 30
+     },
+     "clicksChart": {
+      "available": true,
+      "count": 30
+     },
+     "countries": {
+      "available": true,
+      "count": 6
+     },
+     "pages": {
+      "available": true,
+      "count": 56
+     },
+     "keywords": {
+      "available": true,
+      "count": 19
+     },
+     "articles": {
+      "available": true,
+      "count": 30
+     },
+     "backlinks": {
+      "available": true,
+      "count": 19
+     },
+     "siteHealth": {
+      "available": true,
+      "count": 5
+     },
+     "community": {
+      "available": true,
+      "count": 1
+     },
+     "aiVisibility": {
+      "available": true,
+      "count": 135
+     }
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/agency-reporting/settings",
+   "status": 200,
+   "resBody": {
+    "autoSend": true,
+    "blockToggles": {
+     "kpis": true,
+     "pages": true,
+     "summary": false,
+     "articles": true,
+     "keywords": true,
+     "backlinks": true,
+     "community": true,
+     "countries": true,
+     "siteHealth": true,
+     "clicksChart": true,
+     "achievements": true,
+     "aiVisibility": true
+    },
+    "kpiMetrics": [
+     "clicks",
+     "impressions",
+     "position"
+    ],
+    "recipientEmail": "knightsdamian@gmail.com"
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/agency-reporting/preview",
+   "status": 404,
+   "resBody": {
+    "message": "Resource not found. Does this endpoint with method exist?"
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

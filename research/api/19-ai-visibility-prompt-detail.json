@@ -1,0 +1,699 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/ai-visibility/533740",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793425400450,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/ai-visibility/533740?_rsc=clh09",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22geo-audit%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/geo-audit"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/geo-audit",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793425401033,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/ai-visibility/533740",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425401107,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/organization/get-org-website",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility/533740",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "Organization website fetched successfully",
+    "data": {
+     "id": 41420,
+     "url": "https://vaultio.co",
+     "creationSource": "web_app",
+     "brandName": "Vaultio",
+     "selectedLanguage": "en",
+     "description": "Vaultio puts contractors at the top of Google SEO and AI search engines — and keeps them there. While competitors fight for scraps, your business becomes the first name customers see on Google, ChatGPT, and AI-powered search the moment they're ready to buy.\n\nWe don't just get you found — we turn visibility into booked jobs. Vaultio combines #1 search rankings with lightning-fast lead response, engaging every new inquiry within seconds so you capture the customers others lose. The result: a steady, predictable flow of 10–15 extra jobs every month, more market share, and a brand that dominates your local area.\n\nNo guesswork. No wasted ad spend. Just measurable growth, backed by a 30-day money-back guarantee. If you're a home service contractor ready to own your market and leave competitors behind, Vaultio is how you get there.\nRank #1. Capture every lead. Dominate your market.",
+     "targetAudience": [
+      "home service contractors seeking to increase lead capture",
+      "plumbers losing jobs to competitors",
+      "electricians needing improved online visibility",
+      "HVAC providers wanting quick lead response",
+      "contractors aiming to boost monthly job bookings",
+      "contractors looking to rank higher on google",
+      "home services companies that want to rank on chatgpt",
+      "seo for contractors",
+      "seo for local business",
+      "seo for plumbing",
+      "seo for hvac",
+      "seo for window cleaning",
+      "seo for painters",
+      "marketing for plumbers",
+      "marketing for roofers",
+      "marketing for hvac",
+      "marketing for construction",
+      "marketing for power washing",
+      "power washing marketing",
+      "seo for construction",
+      "ai seo for contractors"
+     ],
+     "mainServices": [],
+     "onboardingStatus": "completed",
+     "lastCompletedOnboardingStep": null,
+     "includeYoutube": false,
+     "youtubeChannel": null,
+     "includeCTAImage": true,
+     "ctaSettings": {
+      "map": {
+       "lat": 34.2733475,
+       "lng": -119.542275,
+       "address": "1870 Laurelwood CT",
+       "enabled": false,
+       "mapsUrl": "https://maps.app.goo.gl/yjq7noC9anrrHXJt8",
+       "imageKey": "34.27335,-119.54228,#e94545",
+       "imageUrl": "https://media.babylovegrowth.ai/blog-images/cta-maps/org-website-41420/0196d39305f7.jpg",
+       "placeName": "Vaultio"
+      },
+      "links": {
+       "items": [
+        {
+         "url": "https://vaultio.co",
+         "label": "Start Today"
+        }
+       ],
+       "enabled": true
+      },
+      "contact": {
+       "email": null,
+       "phone": null,
+       "enabled": false,
+       "whatsapp": null
+      }
+     },
+     "includeCitation": true,
+     "includeSourcesSection": true,
+     "includeJsonLd": false,
+     "includeFaqJsonLd": false,
+     "includeInternalLinks": true,
+     "includeToc": true,
+     "includeTldr": true,
+     "summaryStyle": "tldr",
+     "includeRecommendedReads": true,
+     "includePerspective": true,
+     "mentionCompetitorsIfRelevant": false,
+     "englishType": "american",
+     "screenshotUrl": "https://media.babylovegrowth.ai/blog-images/organization-29411/1791865105817_vaultio.jpg",
+     "screenshotLinkUrl": null,
+     "sitemapUrl": "https://vaultio.co/sitemap.xml",
+     "promoWebsiteUrl": "https://vaultio.co",
+     "exampleArticleUrl": "https://vaultio.co",
+     "brandVoice": {
+      "pacing_and_flow": "The pacing is rapid and dynamic, maintaining reader engagement through frequent breaks, bullet points, and concise statements. Information is delivered in quick bursts, propelling the reader forward toward conversion without unnecessary detail.",
+      "tone_and_emotion": "The tone is urgent, confident, and persuasive, designed to evoke a sense of necessity and opportunity. It creates an emotional appeal that highlights the fear of losing business to competitors and the excitement of gaining a competitive edge and financial success.",
+      "figurative_language": "Figurative language is minimal; however, the copy uses vivid, concrete imagery related to business outcomes (e.g., 'competitors are stealing your customers,' 'own your city') to create mental pictures of loss and dominance. Metaphorical expressions like 'the unfair advantage' convey exclusivity and superiority.",
+      "perspective_and_voice": "The perspective is second person ('you'), speaking directly to the reader to personalize the message. The voice is authoritative yet conversational, blending expert guidance with motivational encouragement to take immediate action.",
+      "word_choice_and_vocabulary": "Vocabulary is straightforward, action-oriented, and business-focused, emphasizing results and benefits (e.g., 'fastest,' 'unfair advantage,' 'guaranteed,' 'dominate,' 'capture,' 'booked'). Jargon is minimal but relevant to home services and marketing technology, using terms like 'AI,' 'Google Guarantee,' and 'leads.'",
+      "sentence_structure_and_complexity": "Sentences are short, direct, and impactful, often fragments or phrases rather than full sentences to maximize emphasis and readability. The structure favors clarity and quick comprehension, with simple constructions that deliver strong calls to action.",
+      "formatting_and_structural_elements": "The formatting relies heavily on capitalization for emphasis, numbered lists to communicate processes clearly, bullet points for easy scanning, and short paragraphs or even single lines for impact. Bold claims and statistics punctuate the text. Calls to action appear frequently and prominently.",
+      "level_of_formality_and_personalization": "Formality is moderate; professional yet approachable, avoiding overly technical or academic language. Personalization is high through direct address and references to the reader's specific industry and pain points, aiming to establish rapport and trust quickly."
+     },
+     "articleInstructions": "Never use AI buzzwords.\nWrite genuine, useful, EEAT-focused content.\nWrite for contractors looking to grow their company.",
+     "articleDisclaimer": null,
+     "researchUrls": [],
+     "imageInstructions": "Make images bold and attention-grabbing, like a scroll-stopping ad.\nMake images relatable and compelling to the viewer.",
+     "instructionNotes": {
+      "images": {
+       "revisions": [
+        {
+         "at": "2026-10-24T03:22:25.231Z",
+         "added": [
+          "Make images bold and attention-grabbing, like a scroll-stopping ad.",
+          "Make images relatable and compelling to the viewer."
+         ],
+         "source": "edit",
+         "removed": [],
+         "summary": "",
+         "settings": []
+        }
+       ],
+       "unsupported": []
+      },
+      "writing": {
+       "revisions": [
+        {
+         "at": "2026-10-24T03:21:22.632Z",
+         "added": [
+          "Never use AI buzzwords.",
+          "Write genuine, useful, EEAT-focused content.",
+          "Write for contractors looking to grow their company."
+         ],
+         "source": "edit",
+         "removed": [],
+         "summary": "Split your typed line into separate rules and dropped the no-dashes part since articles already avoid dashes. Being recommended by ChatGPT or ranking top 3 on Google is a goal we aim for through good content, not something an instruction can guarantee, so it wasn't stored as a rule.",
+         "settings": []
+        }
+       ],
+       "unsupported": []
+      },
+      "reviewedAt": "2026-10-24T03:21:22.632Z"
+     },
+     "createdAt": "2026-06-27T05:46:34.193Z",
+     "onboardingCompletedAt": "2026-06-27T06:19:27.248Z",
+     "reonboardedAt": "2026-07-28T06:14:14.326Z",
+     "brandColor": "#E94545",
+     "brandSecondaryColor": "#000000",
+     "brandDescription": "Vaultio embodies a bold, aggressive aesthetic with a dark, commanding presence—a fierce dragon logo rendered in stark white against pure black creates an edgy, powerful visual identity. The vibrant red accent (#E94545) slices through the darkness with intensity, evoking confidence and urgency, while the minimal, sharp design language conveys a modern, no-nonsense approach to AI-powered business solutions for home service contractors.",
+     "updatedAt": "2026-10-30T06:20:05.987Z",
+     "autoPublish": true,
+     "citationRegion": "worldwide",
+     "backlinksEnabled": true,
+     "backlinksExchangeEligible": true,
+     "isHidden": false,
+     "domainRating": 42,
+     "minBacklinkGiverDomainRating": null,
+     "industry": "marketing",
+     "articleScheduleWeekdays": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "improvementsEnabled": true,
+     "improvementWeekdays": [
+      1,
+      3
+     ],
+     "improvementsAutoPublish": false,
+     "apiKey": "[REDACTED]",
+     "apiKeySource": null,
+     "bodyImageStyle": "realistic",
+     "infographicStyle": "editorial",
+     "heroImageStyle": "realistic_with_title",
+     "logoUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/user-uploads/org-website-41420/logo-1783405856651.png",
+     "useWwwInLinks": false,
+     "useTrailingSlashInLinks": false,
+     "articleLengthTarget": 2000,
+     "gscCredentials": {
+      "scope": "https://www.googleapis.com/auth/webmasters.readonly openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
+      "userName": "Damian Knights",
+      "tokenType": "[REDACTED]",
+      "userEmail": "knightsdamian@gmail.com",
+      "expiryDate": 1782710060106,
+      "accessToken": "[REDACTED]",
+      "userPicture": "https://lh3.googleusercontent.com/a/ACg8ocKn1zclXsApjm0EbyUcCsZIukPP-GeD9DEIcS9N2X-LArLf9rOh=s96-c",
+      "refreshToken": "[REDACTED]",
+      "googleClientId": "84262618151-ktho25995ohjll4cu0u5a8kg11an36gk.apps.googleusercontent.com"
+     },
+     "selectedGscProperty": "sc-domain:vaultio.co",
+     "gscDailyBackfilledFrom": "2025-10-21T00:00:00.000Z",
+     "ga4Credentials": {
+      "scope": "https://www.googleapis.com/auth/analytics.readonly https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid",
+      "userName": "Damian Knights",
+      "tokenType": "[REDACTED]",
+      "userEmail": "knightsdamian@gmail.com",
+      "expiryDate": 1793344803608,
+      "accessToken": "[REDACTED]",
+      "userPicture": "https://lh3.googleusercontent.com/a/ACg8ocKn1zclXsApjm0EbyUcCsZIukPP-GeD9DEIcS9N2X-LArLf9rOh=s96-c",
+      "refreshToken": "[REDACTED]",
+      "googleClientId": "84262618151-ktho25995ohjll4cu0u5a8kg11an36gk.apps.googleusercontent.com"
+     },
+     "selectedGa4Property": "properties/534109473",
+     "ga4InitialSyncCompleted": true,
+     "nextjsBlogConnected": true,
+     "blogPath": null,
+     "authorName": "Damian",
+     "detectedPlatform": "nextjs",
+     "organizationId": 29411,
+     "targetLocations": [
+      {
+       "locationCode": 2840,
+       "subLocations": [
+        21137,
+        9057173,
+        1014332,
+        21135,
+        21136,
+        21138,
+        21142,
+        21144,
+        21146,
+        21162,
+        21149,
+        9059413,
+        200635,
+        21176,
+        21175
+       ]
+      }
+     ],
+     "localeSuggestion": {
+      "status": "ready",
+      "languageCode": "en",
+      "locationCode": 2840
+     },
+     "nextLanguageUpsell": "es",
+     "organization": {
+      "id": 29411,
+      "name": "Vaultio Organization",
+      "creatorId": 30402,
+      "gscCredentials": null,
+      "acquisitionChannel": "facebook",
+      "createdAt": "2026-05-07T15:10:56.356Z",
+      "updatedAt": "2026-08-05T02:16:56.138Z"
+     }
+    }
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425401108,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/prompts/533740",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "41420"
+   },
+   "page": "/en/dashboard/ai-visibility/533740",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "id": 533740,
+    "orgWebsiteId": 41420,
+    "prompt": "what do users say about local SEO services for contractors",
+    "intent": "mofu",
+    "isActive": true,
+    "lastCheckedAt": "2026-10-20T03:55:49.253Z",
+    "createdAt": "2026-08-23T03:29:33.377Z",
+    "updatedAt": "2026-10-20T03:55:49.253Z",
+    "answers": [
+     {
+      "id": 1129305,
+      "promptId": 533740,
+      "answer": "I couldn't find much genuine user feedback. Most of what I found is agency-written \"best of\" roundups, and their ratings come from small review samples. My second search failed, so I have no forum or Reddit discussions to draw on.\n\n**What the ratings show**\n- Hook Agency has a 4.9 rating from 179 Google reviews, though that figure appears in a roundup that compares agencies, so treat it as a vendor-friendly summary.\n- HigherVisibility has a 4.6/5.0 from 16 Clutch reviews as of 09/2026. That sample is small.\n- Some agencies have almost no public feedback. One roundup notes that No public Clutch rating; profile currently has no reviews for one firm, and another says a provider has a Limited public aggregate rating.\n\n**Recurring themes in the reviews and comparisons**\n- **Trade specialization matters to contractors.** Writers consistently favor agencies with construction or home-services track records over generalists. One guide advises prioritizing agencies with documented construction trade client work over generalists with no public trade experience.\n- **Contractors want more than rankings.** The features cited as most valuable are Google Business Profile management, service-area pages, citation consistency, and review collection. One roundup describes a firm that focuses on citation consistency, proximity-based ranking factors, and local review collection.\n- **Bundled platforms appeal to some.** Scorpion is recommended for contractors who want local SEO bundled with review management and call tracking under one login.\n- **Cost and commitment are common drawbacks.** One roundup notes that Hook's performance-driven model requires steady, ongoing ad and SEO budget commitments, and lists iLocal at $1,000+/month. Another says traditional agency models come with longer-term contracts.\n- **DIY tools have limits.** BrightLocal is described as a workhorse local SEO toolkit many agencies use for audits, rank tracking, and citations. Moz Local is described as not the tool for a sprawling franchise operation, which implies it suits smaller businesses.\n\n**Caveats**\n- Many of these rankings are written by the agencies themselves or by competitors, so they may favor the author's clients.\n- Reviews are sparse for many firms, so a single high rating doesn't say much.\n- Pricing is often unpublished, so you'll need to request quotes.\n\nIf you want real customer experiences, check Google and Clutch reviews directly, and search Reddit communities for contractors or home-service marketing, which I couldn't access in this search. Asking a few local contractors who they use can also be useful.",
+      "orgWebsiteMentioned": false,
+      "llmProvider": "anthropic",
+      "llmModel": "claude-haiku-5-5",
+      "createdAt": "2026-10-20T03:55:49.216Z",
+      "updatedAt": "2026-10-20T03:55:49.216Z"
+     },
+     {
+      "id": 1129304,
+      "promptId": 533740,
+      "answer": "Here are some insights from users about local SEO services for contractors, based on recent reviews and rankings:\n\n### 1. **Overall Satisfaction with Services**\nUsers generally express high levels of satisfaction with local SEO services, highlighting improvements in search visibility and customer acquisition. Many reviews note that effective local SEO strategies have led to increased website traffic and client inquiries.\n\n### 2. **Key Features Valued by Users**\n- **Google Business Profile Optimization**: Agencies that specialize in managing and optimizing Google Business Profiles often receive praise for their role in boosting local search visibility.\n- **Local Keyword Targeting**: Many contractors benefit from targeted keyword strategies that help attract local customers actively searching for specific services in their vicinity.\n- **Content Marketing**: Services that include content creation tailored to local audiences are reported to drive meaningful engagement and client conversion.\n\n### 3. **Agency Rankings and Selection**\nSeveral articles and platforms, such as Clutch and Goodfirms, rank local SEO agencies based on client reviews, service offerings, and performance metrics. Agencies like **WebFX**, **Pearl Lemon**, and **Funnel Boost Media** consistently receive high ratings for their transparent pricing and effective strategies.\n\n### 4. **Cost and ROI**\nMany users highlight the return on investment (ROI) from local SEO services, mentioning that while the initial costs may seem high (often starting around $500 monthly), the long-term benefits, including higher local search rankings and increased client leads, justify the expense.\n\n### 5. **Testimonials and Reviews**\n- **Positive Engagement with Agencies**: Contractors mention strong communication, timely project execution, and professionalism as significant factors contributing to their satisfaction with the services provided.\n- **Case Studies of Success**: Several businesses reported transformative results, with one user stating their business went from \"slow to crazy busy\" after implementing effective SEO strategies that significantly improved online visibility.\n\nFor more detailed experiences and insights, you can explore full reviews and rankings on platforms like [Clutch](https://clutch.co/seo-firms/local) and [Goodfirms](https://www.goodfirms.co/seo-agencies/local).",
+      "orgWebsiteMentioned": false,
+      "llmProvider": "openai",
+      "llmModel": "gpt-4o-mini",
+      "createdAt": "2026-10-20T03:55:42.557Z",
+      "updatedAt": "2026-10-20T03:55:42.557Z"
+     }
+    ],
+    "tierLabel": "Comparison",
+    "topSources": [
+     {
+      "domain": "sianamarketing.com",
+      "count": 3,
+      "urls": [
+       {
+        "url": "https://www.sianamarketing.com/resources/top-local-seo-agencies-for-contractors",
+        "sourceType": "resource_page"
+       },
+       {
+        "url": "https://www.sianamarketing.com/resources/best-seo-agencies-for-contractors",
+        "sourceType": "resource_page"
+       },
+       {
+        "url": "https://www.sianamarketing.com/resources/best-local-seo-agencies-for-general-contractors",
+        "sourceType": "resource_page"
+       }
+      ]
+     },
+     {
+      "domain": "clutch.co",
+      "count": 1,
+      "urls": [
+       {
+        "url": "https://clutch.co/seo-firms/local",
+        "sourceType": "category_page"
+       }
+      ]
+     },
+     {
+      "domain": "goodfirms.co",
+      "count": 1,
+      "urls": [
+       {
+        "url": "https://www.goodfirms.co/seo-agencies/local",
+        "sourceType": "category_page"
+       }
+      ]
+     },
+     {
+      "domain": "getlocalpresence.com",
+      "count": 1,
+      "urls": [
+       {
+        "url": "https://getlocalpresence.com/blog/best-local-seo-companies-for-general-contractors/",
+        "sourceType": "blog"
+       }
+      ]
+     },
+     {
+      "domain": "helloroketto.com",
+      "count": 1,
+      "urls": [
+       {
+        "url": "https://www.helloroketto.com/articles/seo-for-contractors",
+        "sourceType": "blog"
+       }
+      ]
+     },
+     {
+      "domain": "contractorplus.app",
+      "count": 1,
+      "urls": [
+       {
+        "url": "https://contractorplus.app/blog/9-best-local-seo-tools-services-for-contractors-in-2026",
+        "sourceType": "blog"
+       }
+      ]
+     },
+     {
+      "domain": "pipelineon.com",
+      "count": 1,
+      "urls": [
+       {
+        "url": "https://pipelineon.com/blog/local-seo-tools/",
+        "sourceType": "blog"
+       }
+      ]
+     }
+    ],
+    "topBrands": [
+     {
+      "brandName": "Clutch",
+      "count": 2,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 50,
+       "positive": 0,
+       "neutral": 2,
+       "negative": 0,
+       "classifiedMentions": 2
+      }
+     },
+     {
+      "brandName": "Google Business Profile",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 100,
+       "positive": 1,
+       "neutral": 0,
+       "negative": 0,
+       "classifiedMentions": 1
+      }
+     },
+     {
+      "brandName": "Goodfirms",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 50,
+       "positive": 0,
+       "neutral": 1,
+       "negative": 0,
+       "classifiedMentions": 1
+      }
+     },
+     {
+      "brandName": "WebFX",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 100,
+       "positive": 1,
+       "neutral": 0,
+       "negative": 0,
+       "classifiedMentions": 1
+      }
+     },
+     {
+      "brandName": "Pearl Lemon",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 100,
+       "positive": 1,
+       "neutral": 0,
+       "negative": 0,
+       "classifiedMentions": 1
+      }
+     },
+     {
+      "brandName": "Funnel Boost Media",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 100,
+       "positive": 1,
+       "neutral": 0,
+       "negative": 0,
+       "classifiedMentions": 1
+      }
+     },
+     {
+      "brandName": "Hook Agency",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 50,
+       "positive": 0,
+       "neutral": 1,
+       "negative": 0,
+       "classifiedMentions": 1
+      }
+     },
+     {
+      "brandName": "Google",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 50,
+       "positive": 0,
+       "neutral": 1,
+       "negative": 0,
+       "classifiedMentions": 1
+      }
+     },
+     {
+      "brandName": "HigherVisibility",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 50,
+       "positive": 0,
+       "neutral": 1,
+       "negative": 0,
+       "classifiedMentions": 1
+      }
+     },
+     {
+      "brandName": "Scorpion",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 100,
+       "positive": 1,
+       "neutral": 0,
+       "negative": 0,
+       "classifiedMentions": 1
+      }
+     },
+     {
+      "brandName": "iLocal",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 0,
+       "positive": 0,
+       "neutral": 0,
+       "negative": 1,
+       "classifiedMentions": 1
+      }
+     },
+     {
+      "brandName": "BrightLocal",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 100,
+       "positive": 1,
+       "neutral": 0,
+       "negative": 0,
+       "classifiedMentions": 1
+      }
+     },
+     {
+      "brandName": "Moz Local",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 50,
+       "positive": 0,
+       "neutral": 1,
+       "negative": 0,
+       "classifiedMentions": 1
+      }
+     },
+     {
+      "brandName": "Reddit",
+      "count": 1,
+      "brandUrl": "",
+      "sentiment": {
+       "score": 50,
+       "positive": 0,
+       "neutral": 1,
+       "negative": 0,
+       "classifiedMentions": 1
+      }
+     }
+    ]
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425401124,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/dashboard/ai-visibility?tab=prompts&_rsc=d8e8s",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/ai-visibility/533740"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility/533740",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793425401695,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/ai-visibility?tab=prompts&_rsc=da0m1",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%7D%2Cnull%2C%22metadata-only%22%5D",
+    "next-url": "/en/dashboard/ai-visibility/533740",
+    "next-router-prefetch": "1"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility/533740",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793425401695,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/dashboard/ai-visibility?_rsc=d8e8s",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-prefetch": "1",
+    "next-router-segment-prefetch": "/_tree",
+    "next-url": "/en/dashboard/ai-visibility/533740"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility/533740",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793425402050,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793425328102&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=14&sr=1728x1117&ul=en-us&_s=14&tag_exp=115616985~115938466~115938468~117776795~118897920~118897930~119793972~120213116~120385423~120469145~120469153~121246026~121246034~123620776~123636747~123691370~123814946&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility%2F533740&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=75096",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility/533740",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425402060,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793425402051&cv=11&fst=1793425402051&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938466~115938468~117776795~118897920~118897930~119793972~120213116~120385423~120469145~120469153~121246026~121246034~123620776~123636747~123691370~123814946&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility%2F533740&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fgeo-audit&rcb=14&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility/533740",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425402068,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=14&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility%2F533740&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Foverview&scrsrc=www.googletagmanager.com&rnd=48101157.1793425328&navt=r&npa=0&ae=a&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938466~115938468~117776795~118897920~118897930~119793972~120213116~120385423~120469145~120469153~121246026~121246034~123620776~123636747~123691370~123814946&tft=1793425402067&tfd=75114&_gsid=d4lFfr-9cGz151BH0s0F9C5fQdX0k-9UMQ&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility/533740",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425402068,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://ad.doubleclick.net/ccm/s/collect?_gsid=d4lFfr-9cGz151BH0s0F9C5fQdX0k-9UMQ&auid=1516021665.1792961308&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xecxf1&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility/533740",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425402075,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45je6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793425328102&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=14&sr=1728x1117&ul=en-us&_s=15&tag_exp=115616985~115938466~115938468~117776795~118897920~118897930~119793972~120213116~120385423~120469145~120469153~121246026~121246034~123620776~123636747~123691370~123814946&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility%2F533740&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fgeo-audit&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=75122",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility/533740",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

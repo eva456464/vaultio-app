@@ -1,0 +1,78 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/settings/billing",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Subscription",
+  "H2: Active Subscription",
+  "H2: Payment History"
+ ],
+ "buttons": [
+  "(Manage Subscription) [icon:lucide-settings]",
+  "Pause billing [icon:lucide-circle-pause]",
+  "Cancel subscription",
+  "See what Scale offers [icon:lucide-chevron-right]",
+  "Download"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "INPUT",
+   "type": "checkbox",
+   "name": "",
+   "placeholder": "",
+   "label": "Email me my invoices",
+   "value": "on",
+   "checked": null
+  }
+ ],
+ "tables": [
+  {
+   "headers": [
+    "Invoice ID",
+    "Billing Date",
+    "Amount",
+    "Status",
+    "Invoice PDF"
+   ],
+   "rows": 4,
+   "sample": [
+    [
+     "in_1UN1DOLiGzfLlQttMKNILNzA",
+     "Oct 4, 2026",
+     "$99.00",
+     "Paid",
+     "Download"
+    ],
+    [
+     "in_1UC8vlLiGzfLlQttDNZY5oZx",
+     "Sep 4, 2026",
+     "$99.00",
+     "Paid",
+     "Download"
+    ],
+    [
+     "in_1U0u8rLiGzfLlQtt4NxRgqFp",
+     "Aug 4, 2026",
+     "$99.00",
+     "Paid",
+     "Download"
+    ],
+    [
+     "in_1U0sjXLiGzfLlQttH79LXaZM",
+     "Aug 4, 2026",
+     "$0.00",
+     "Paid",
+     "Download"
+    ]
+   ]
+  }
+ ],
+ "icons": [
+  "lucide-check",
+  "lucide-settings",
+  "lucide-circle-pause",
+  "lucide-chevron-right"
+ ],
+ "images": [],
+ "charts": 0
+}

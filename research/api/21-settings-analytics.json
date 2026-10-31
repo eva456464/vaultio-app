@@ -144,6 +144,55 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/account-info",
+   "status": 200,
+   "resBody": {
+    "message": "GA4 account info fetched successfully",
+    "data": {
+     "email": "knightsdamian@gmail.com",
+     "name": "Damian Knights",
+     "picture": "https://lh3.googleusercontent.com/a/ACg8ocKn1zclXsApjm0EbyUcCsZIukPP-GeD9DEIcS9N2X-LArLf9rOh=s96-c"
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/gsc/account-info",
+   "status": 200,
+   "resBody": {
+    "message": "GSC account info fetched successfully",
+    "data": {
+     "email": "knightsdamian@gmail.com",
+     "name": "Damian Knights",
+     "picture": "https://lh3.googleusercontent.com/a/ACg8ocKn1zclXsApjm0EbyUcCsZIukPP-GeD9DEIcS9N2X-LArLf9rOh=s96-c"
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/gsc/generate-gsc-consent-url?redirectPath=%2Fdashboard%2Fsettings%2Fanalytics",
+   "status": 200,
+   "resBody": {
+    "message": "URL generated successfully",
+    "data": {
+     "authUrl": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fwebmasters.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&prompt=consent&state=eyJyZXR1cm5PcmlnaW4iOiJodHRwczovL2FwcC52YXVsdGlvLmNvIiwicmV0dXJuUGF0aCI6Ii9kYXNoYm9hcmQvc2V0dGluZ3MvYW5hbHl0aWNzIn0&response_type=code&client_id=15985225912-eoi611locb5hcoico2rit098iv76sd9r.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fanalytics-connector.com%2Fapi%2Fgoogle-oauth-bridge"
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

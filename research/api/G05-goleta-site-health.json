@@ -1,0 +1,283 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/geo-audit",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793425181197,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/geo-audit?_rsc=6ehxo",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22backlink-exchange%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/backlink-exchange"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/backlink-exchange",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793425181462,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/geo-audit",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425181539,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/geo-audit/data?orgWebsiteId=51141",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/geo-audit",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "averageGeoScore": 98,
+    "averagePageSpeed": 100,
+    "llmOptimizationScore": 99,
+    "technicalSeoScore": 99,
+    "overallScore": 99,
+    "robotsTxt": {
+     "status": "ok"
+    },
+    "sitemap": {
+     "status": "ok"
+    },
+    "llmTxt": {
+     "status": "ok"
+    },
+    "pages": [
+     {
+      "url": "https://goletapressurewashing.com",
+      "geoScore": 85,
+      "issueCount": 4,
+      "issues": [
+       {
+        "id": 11785411,
+        "geoAuditId": 127220,
+        "issueType": "meta_title_length",
+        "description": "Meta title length is not optimal (should be 45-60 characters)",
+        "pageId": 7678338,
+        "severity": "MEDIUM",
+        "action": {
+         "fix": "Goleta Pressure Washing & Roof Cleaning | Santa Barbara CA",
+         "before": "Goleta Pressure Washing | Roof Cleaning & Pressure Washing Santa Barbara",
+         "message": "Adjust the meta title length to be between 45-60 characters for better search engine visibility"
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T15:30:24.137Z",
+        "page": {
+         "id": 7678338,
+         "url": "https://goletapressurewashing.com"
+        }
+       },
+       {
+        "id": 11785412,
+        "geoAuditId": 127220,
+        "issueType": "image_large",
+        "description": "Image is too large (Image: https://goletapressurewashing.com/_next/image?url=%2Fimages%2Fsvc-solar.jpg&w=1920&q=75&dpl=dpl_12rXqsNYVk9K76NKWBGLBftXR19M)",
+        "pageId": 7678338,
+        "severity": "LOW",
+        "action": {
+         "fix": "https://goletapressurewashing.com/_next/image?url=%2Fimages%2Fsvc-solar.jpg&w=1920&q=75&dpl=dpl_12rXqsNYVk9K76NKWBGLBftXR19M",
+         "before": null,
+         "message": "Resize the image to be less than 100KB",
+         "occurrences": 1
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T15:30:24.137Z",
+        "page": {
+         "id": 7678338,
+         "url": "https://goletapressurewashing.com"
+        }
+       },
+       {
+        "id": 11785413,
+        "geoAuditId": 127220,
+        "issueType": "image_large",
+        "description": "Image is too large (Image: https://goletapressurewashing.com/_next/image?url=%2Fimages%2Fg-view.jpg&w=1920&q=75&dpl=dpl_12rXqsNYVk9K76NKWBGLBftXR19M)",
+        "pageId": 7678338,
+        "severity": "LOW",
+        "action": {
+         "fix": "https://goletapressurewashing.com/_next/image?url=%2Fimages%2Fg-view.jpg&w=1920&q=75&dpl=dpl_12rXqsNYVk9K76NKWBGLBftXR19M",
+         "before": null,
+         "message": "Resize the image to be less than 100KB",
+         "occurrences": 1
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T15:30:24.137Z",
+        "page": {
+         "id": 7678338,
+         "url": "https://goletapressurewashing.com"
+        }
+       },
+       {
+        "id": 11785414,
+        "geoAuditId": 127220,
+        "issueType": "image_large",
+        "description": "Image is too large (Image: https://goletapressurewashing.com/_next/image?url=%2Fimages%2Faction-deck.jpg&w=1920&q=75&dpl=dpl_12rXqsNYVk9K76NKWBGLBftXR19M, 8 occurrences on this page)",
+        "pageId": 7678338,
+        "severity": "LOW",
+        "action": {
+         "fix": "https://goletapressurewashing.com/_next/image?url=%2Fimages%2Faction-deck.jpg&w=1920&q=75&dpl=dpl_12rXqsNYVk9K76NKWBGLBftXR19M",
+         "before": null,
+         "message": "Resize the image to be less than 100KB",
+         "occurrences": 8
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T15:30:24.137Z",
+        "page": {
+         "id": 7678338,
+         "url": "https://goletapressurewashing.com"
+        }
+       }
+      ]
+     },
+     {
+      "url": "https://goletapressurewashing.com/terms",
+      "geoScore": 90,
+      "issueCount": 1,
+      "issues": [
+       {
+        "id": 11785514,
+        "geoAuditId": 127220,
+        "issueType": "meta_description_irrelevant",
+        "description": "Meta description is not relevant to the page content",
+        "pageId": 7678372,
+        "severity": "MEDIUM",
+        "action": {
+         "fix": "Read Goleta Pressure Washing’s Terms of Service for exterior cleaning, quotes, scheduling, cancellations, and using our website and services.",
+         "before": "The terms that apply when you use the Goleta Pressure Washing website and services, including our SMS/text messaging program terms, opt-out, and message rates.",
+         "message": "Update the meta description to accurately reflect the page content and include relevant keywords"
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T15:31:34.745Z",
+        "page": {
+         "id": 7678372,
+         "url": "https://goletapressurewashing.com/terms"
+        }
+       }
+      ]
+     },
+     {
+      "url": "https://goletapressurewashing.com/services/roof-cleaning",
+      "geoScore": 90,
+      "issueCount": 1,
+      "issues": [
+       {
+        "id": 11785563,
+        "geoAuditId": 127220,
+        "issueType": "meta_description_irrelevant",
+        "description": "Meta description is not relevant to the page content",
+        "pageId": 7678375,
+        "severity": "MEDIUM",
+        "action": {
+         "fix": "Remove roof moss, algae, and black streaks with ARMA-compliant soft washing in Goleta, Santa Barbara, Montecito, and Summerland. Get a fast quote.",
+         "before": "Professional roof cleaning in Goleta, Santa Barbara, Montecito & Summerland, CA ($350–$900). CSLB #1148367, 5.0★ (63 reviews), open 24/7: (805) 705-8914.",
+         "message": "Update the meta description to accurately reflect the page content and include relevant keywords"
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T15:32:02.301Z",
+        "page": {
+         "id": 7678375,
+         "url": "https://goletapressurewashing.com/services/roof-cleaning"
+        }
+       }
+      ]
+     },
+     {
+      "url": "https://goletapressurewashing.com/services/pressure-washing",
+      "geoScore": 90,
+      "issueCount": 1,
+      "issues": [
+       {
+        "id": 11785586,
+        "geoAuditId": 127220,
+        "issueType": "meta_description_irrelevant",
+        "description": "Meta description is not relevant to the page content",
+        "pageId": 7678377,
+        "severity": "MEDIUM",
+        "action": {
+         "fix": "Get professional pressure washing in Goleta, Santa Barbara, Montecito & Summerland. Hot-water cleaning for concrete and more—request a fast quote today.",
+         "before": "Professional pressure washing in Goleta, Santa Barbara, Montecito & Summerland, CA ($150–$450). CSLB #1148367, 5.0★ (63 reviews), open 24/7: (805) 705-8914.",
+         "message": "Update the meta description to accurately reflect the page content and include relevant keywords"
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T15:32:05.995Z",
+        "page": {
+         "id": 7678377,
+         "url": "https://goletapressurewashing.com/services/pressure-washing"
+        }
+       }
+      ]
+     }
+    ],
+    "auditDate": "2026-10-27T15:30:01.562Z",
+    "nextScheduledAuditAt": "2026-11-03T15:32:06.056Z",
+    "pagesAudited": 20,
+    "inProgress": false
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425182462,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793425182458&cv=11&fst=1793425182458&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fgeo-audit&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&rcb=10&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/geo-audit",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425182464,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45be6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793425134046&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=10&sr=1728x1117&ul=en-us&_s=15&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fgeo-audit&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fcontent-plan&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=49014",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/geo-audit",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425182466,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=10&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fgeo-audit&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Foverview&scrsrc=www.googletagmanager.com&rnd=1946196919.1793425134&navt=r&npa=0&ae=a&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&tft=1793425182466&tfd=49016&_gsid=d4lFfr-9cGz151BH0s0F9C5fQdX0k-9UMQ&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/geo-audit",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425182469,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793425134046&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=10&sr=1728x1117&ul=en-us&_s=16&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fgeo-audit&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fbacklink-exchange&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=49019",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/geo-audit",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

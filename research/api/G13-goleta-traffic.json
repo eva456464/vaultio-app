@@ -1,0 +1,999 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/analytics/ga4",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793425220855,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/analytics/ga4?_rsc=1ufvy",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22ai-visibility%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Ctrue%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/ai-visibility"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793425221231,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/analytics/ga4",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425221304,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/status",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/analytics/ga4",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "GA4 integration status",
+    "data": {
+     "connected": true,
+     "selectedGa4Property": "properties/548796786",
+     "ga4InitialSyncCompleted": true
+    }
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425221305,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/overall-overview?range=all",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/analytics/ga4",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "Overall overview fetched successfully",
+    "data": {
+     "totalActiveUsers": 645,
+     "totalSessions": "[REDACTED]",
+     "aiActiveUsers": 7,
+     "topChannelGroup": "Direct"
+    }
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425221305,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/channel-timeseries?range=all",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/analytics/ga4",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "Channel timeseries fetched successfully",
+    "data": [
+     {
+      "date": "2026-08-05",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-06",
+      "Direct": 1,
+      "Paid": 1,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-07",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-08",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-09",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-10",
+      "Direct": 0,
+      "Paid": 1,
+      "Organic search": 3,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-11",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-12",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-13",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-14",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-15",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-16",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-17",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-18",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-19",
+      "Direct": 1,
+      "Paid": 2,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-20",
+      "Direct": 0,
+      "Paid": 2,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-21",
+      "Direct": 0,
+      "Paid": 1,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-22",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-23",
+      "Direct": 8,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 5,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-24",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-25",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-26",
+      "Direct": 6,
+      "Paid": 1,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-27",
+      "Direct": 0,
+      "Paid": 2,
+      "Organic search": 4,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-28",
+      "Direct": 1,
+      "Paid": 1,
+      "Organic search": 1,
+      "Other": 5,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-08-29",
+      "Direct": 3,
+      "Paid": 1,
+      "Organic search": 3,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-30",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-31",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 5,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-01",
+      "Direct": 12,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 7,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-02",
+      "Direct": 3,
+      "Paid": 1,
+      "Organic search": 5,
+      "Other": 5,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-03",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-04",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-05",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-06",
+      "Direct": 1,
+      "Paid": 2,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-07",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 5,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-08",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-09",
+      "Direct": 8,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-10",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-11",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-12",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-13",
+      "Direct": 1,
+      "Paid": 2,
+      "Organic search": 5,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-14",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-15",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-16",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-17",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-18",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-19",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-20",
+      "Direct": 0,
+      "Paid": 1,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-21",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-22",
+      "Direct": 4,
+      "Paid": 1,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-23",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-24",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-25",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-26",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-27",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 7,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-28",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 5,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-29",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-30",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 9,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-01",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-02",
+      "Direct": 21,
+      "Paid": 0,
+      "Organic search": 5,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-03",
+      "Direct": 13,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-04",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-05",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-06",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-07",
+      "Direct": 0,
+      "Paid": 1,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-08",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-09",
+      "Direct": 0,
+      "Paid": 1,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-10",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-11",
+      "Direct": 4,
+      "Paid": 2,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-12",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 3,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-10-13",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 6,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-14",
+      "Direct": 11,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-15",
+      "Direct": 17,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-16",
+      "Direct": 13,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-17",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-18",
+      "Direct": 6,
+      "Paid": 1,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-19",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 5,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-20",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-21",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-22",
+      "Direct": 6,
+      "Paid": 1,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-23",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-24",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-25",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-26",
+      "Direct": 5,
+      "Paid": 1,
+      "Organic search": 3,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-27",
+      "Direct": 10,
+      "Paid": 0,
+      "Organic search": 6,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-28",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-29",
+      "Direct": 12,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-30",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     }
+    ]
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425221305,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/channel-breakdown?range=all",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/analytics/ga4",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "Channel breakdown fetched successfully",
+    "data": [
+     {
+      "channelGroup": "Direct",
+      "activeUsers": 293,
+      "percentage": 45.4
+     },
+     {
+      "channelGroup": "Organic search",
+      "activeUsers": 197,
+      "percentage": 30.5
+     },
+     {
+      "channelGroup": "Other",
+      "activeUsers": 123,
+      "percentage": 19.1
+     },
+     {
+      "channelGroup": "Paid",
+      "activeUsers": 26,
+      "percentage": 4
+     },
+     {
+      "channelGroup": "LLM referrers",
+      "activeUsers": 6,
+      "percentage": 0.9
+     }
+    ],
+    "total": 645
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425221305,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/traffic-pages?range=all&page=1&limit=10",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/analytics/ga4",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "Traffic pages fetched successfully",
+    "data": [
+     {
+      "page": "/",
+      "activeUsers": 404,
+      "percentage": 58,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/about",
+      "activeUsers": 17,
+      "percentage": 2.4,
+      "topSource": "Not set",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/contact",
+      "activeUsers": 16,
+      "percentage": 2.3,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/blog/window-screen-cleaning",
+      "activeUsers": 15,
+      "percentage": 2.2,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": true
+     },
+     {
+      "page": "/services/solar-panel-cleaning",
+      "activeUsers": 12,
+      "percentage": 1.7,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/blog/algae-on-stucco-removal",
+      "activeUsers": 11,
+      "percentage": 1.6,
+      "topSource": "Google",
+      "topSourceIsAi": false,
+      "isBlgArticle": true
+     },
+     {
+      "page": "/services/gutter-cleaning",
+      "activeUsers": 11,
+      "percentage": 1.6,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/blog/efflorescence-on-pavers",
+      "activeUsers": 11,
+      "percentage": 1.6,
+      "topSource": "Google",
+      "topSourceIsAi": false,
+      "isBlgArticle": true
+     },
+     {
+      "page": "/services/roof-cleaning",
+      "activeUsers": 11,
+      "percentage": 1.6,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/blog/driveway-mold-removal",
+      "activeUsers": 10,
+      "percentage": 1.4,
+      "topSource": "Google",
+      "topSourceIsAi": false,
+      "isBlgArticle": true
+     }
+    ],
+    "pagination": {
+     "page": 1,
+     "limit": 10,
+     "total": 83,
+     "totalPages": 9
+    },
+    "hasBlgArticles": true,
+    "totalActiveUsers": 697
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425222226,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793425222221&cv=11&fst=1793425222221&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fanalytics%2Fga4&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility&rcb=10&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/analytics/ga4",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425222229,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45be6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793425134046&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=10&sr=1728x1117&ul=en-us&_s=27&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fanalytics%2Fga4&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Freporting&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=88777",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/analytics/ga4",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425222231,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=10&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fanalytics%2Fga4&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Foverview&scrsrc=www.googletagmanager.com&rnd=1946196919.1793425134&navt=r&npa=0&ae=a&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&tft=1793425222231&tfd=88779&_gsid=d4lFfr-9cGz151BH0s0F9C5fQdX0k-9UMQ&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/analytics/ga4",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425222234,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793425134046&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=10&sr=1728x1117&ul=en-us&_s=28&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fanalytics%2Fga4&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=88782",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/analytics/ga4",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

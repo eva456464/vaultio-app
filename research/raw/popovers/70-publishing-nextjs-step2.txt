@@ -1,0 +1,16 @@
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 2 of 6
+
+Install the package
+Add the official BabyLoveGrowth read client to your Next.js App Router project.
+This is a developer integration. You install an npm package and copy a starter blog folder into your Next.js (App Router) project.
+INSTALL COMMAND
+npm install babylovegrowth-next-js-blog
+
+Back
+Continue
+View detailed instructions
+

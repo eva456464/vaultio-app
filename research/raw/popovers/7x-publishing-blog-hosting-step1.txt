@@ -1,0 +1,19 @@
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 4
+
+How blog hosting works
+Add one DNS record and your blogs will be live on blog.vaultio.co.
+https://blog.vaultio.co
+Add DNS record
+Articles auto-publish
+Full SEO and AEO benefits
+Same as hosting directly on your site.
+You add just 1 DNS record.
+Every article is auto-published to your blog subdomain.
+You will get full SEO and AEO benefits. Same as hosting directly on your site.
+Get started
+View detailed instructions
+

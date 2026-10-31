@@ -1,0 +1,22 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/overview",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793425151543,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/overview?_rsc=1j7f9",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22overview%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/overview"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/overview",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  }
+ ]
+}

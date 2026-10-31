@@ -77,6 +77,107 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/competitor",
+   "status": 200,
+   "resBody": [
+    {
+     "id": 175027,
+     "url": "https://contractorindependence.com",
+     "orgWebsiteId": 41420,
+     "organicTraffic": null,
+     "lastAnalyzedDate": null,
+     "createdAt": "2026-06-27T05:54:52.449Z",
+     "updatedAt": "2026-06-27T05:54:52.449Z"
+    },
+    {
+     "id": 175028,
+     "url": "https://surmarketing.io",
+     "orgWebsiteId": 41420,
+     "organicTraffic": null,
+     "lastAnalyzedDate": null,
+     "createdAt": "2026-06-27T05:54:52.449Z",
+     "updatedAt": "2026-06-27T05:54:52.449Z"
+    },
+    {
+     "id": 175029,
+     "url": "https://stonesystems.io",
+     "orgWebsiteId": 41420,
+     "organicTraffic": null,
+     "lastAnalyzedDate": null,
+     "createdAt": "2026-06-27T05:54:52.449Z",
+     "updatedAt": "2026-06-27T05:54:52.449Z"
+    },
+    {
+     "id": 175030,
+     "url": "https://rynoss.com",
+     "orgWebsiteId": 41420,
+     "organicTraffic": null,
+     "lastAnalyzedDate": null,
+     "createdAt": "2026-06-27T05:54:52.449Z",
+     "updatedAt": "2026-06-27T05:54:52.449Z"
+    },
+    {
+     "id": 175031,
+     "url": "https://805seo.com",
+     "orgWebsiteId": 41420,
+     "organicTraffic": null,
+     "lastAnalyzedDate": null,
+     "createdAt": "2026-06-27T05:54:52.449Z",
+     "updatedAt": "2026-06-27T05:54:52.449Z"
+    },
+    {
+     "id": 175032,
+     "url": "https://payperlead.com",
+     "orgWebsiteId": 41420,
+     "organicTraffic": null,
+     "lastAnalyzedDate": null,
+     "createdAt": "2026-06-27T05:54:52.449Z",
+     "updatedAt": "2026-06-27T05:54:52.449Z"
+    },
+    {
+     "id": 175033,
+     "url": "https://scorpion.co",
+     "orgWebsiteId": 41420,
+     "organicTraffic": null,
+     "lastAnalyzedDate": null,
+     "createdAt": "2026-06-27T05:54:52.449Z",
+     "updatedAt": "2026-06-27T05:54:52.449Z"
+    },
+    {
+     "id": 175034,
+     "url": "https://npdigital.com",
+     "orgWebsiteId": 41420,
+     "organicTraffic": null,
+     "lastAnalyzedDate": null,
+     "createdAt": "2026-06-27T05:54:52.449Z",
+     "updatedAt": "2026-06-27T05:54:52.449Z"
+    },
+    {
+     "id": 175035,
+     "url": "https://thefinalcode.com",
+     "orgWebsiteId": 41420,
+     "organicTraffic": null,
+     "lastAnalyzedDate": null,
+     "createdAt": "2026-06-27T05:54:52.449Z",
+     "updatedAt": "2026-06-27T05:54:52.449Z"
+    },
+    {
+     "id": 175036,
+     "url": "https://venturadigitalmarketingagency.com",
+     "orgWebsiteId": 41420,
+     "organicTraffic": null,
+     "lastAnalyzedDate": null,
+     "createdAt": "2026-06-27T05:54:52.449Z",
+     "updatedAt": "2026-06-27T05:54:52.449Z"
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

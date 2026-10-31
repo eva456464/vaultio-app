@@ -1,0 +1,7 @@
+{
+ "u": "/en/dashboard/geo-audit",
+ "cap": [
+  "GET https://api.babylovegrowth.ai/api/organization/get-org-websites 200"
+ ],
+ "pop": []
+}

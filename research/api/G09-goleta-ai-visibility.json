@@ -1,0 +1,563 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/ai-visibility",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793425211164,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/ai-visibility?_rsc=1brxv",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22reporting%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/reporting"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/reporting",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793425211430,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/ai-visibility",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425211489,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/top-sources",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/ai-visibility",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "domain": "yelp.com",
+     "count": 7,
+     "urls": [
+      {
+       "url": "https://www.yelp.com/search?find_desc=exterior+cleaning&find_loc=santa+barbara,+ca",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.yelp.com/search?find_desc=exterior+house+cleaning&find_loc=santa+barbara%2c+ca+93103",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.yelp.com/search?find_desc=exterior+cleaning+services&find_loc=santa+barbara,+ca",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.yelp.com/search?find_desc=roof+cleaning&find_loc=portland%2c+or",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.yelp.com/search?find_desc=roof+cleaning&find_loc=palm+beach+gardens%2c+fl",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.yelp.com/search?find_desc=exterior+cleaning&find_loc=houston%2c+tx",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.yelp.com/search?find_desc=soft+wash&find_loc=santa+barbara,+ca",
+       "sourceType": "category_page"
+      }
+     ]
+    },
+    {
+     "domain": "santabarbarasoftwash.com",
+     "count": 6,
+     "urls": [
+      {
+       "url": "https://santabarbarasoftwash.com/",
+       "sourceType": "landing_page"
+      },
+      {
+       "url": "https://santabarbarasoftwash.com/services/window-cleaning/",
+       "sourceType": "product_page"
+      },
+      {
+       "url": "https://santabarbarasoftwash.com/reviews/",
+       "sourceType": "other"
+      }
+     ]
+    },
+    {
+     "domain": "thumbtack.com",
+     "count": 3,
+     "urls": [
+      {
+       "url": "https://www.thumbtack.com/k/solar-panel-cleaning/near-me",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.thumbtack.com/k/professional-cleaning-services/near-me",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.thumbtack.com/ca/santa-barbara/window-cleaners",
+       "sourceType": "location_page"
+      }
+     ]
+    },
+    {
+     "domain": "angi.com",
+     "count": 3,
+     "urls": [
+      {
+       "url": "https://www.angi.com/articles/soft-wash-better-regular-pressure-washing.htm",
+       "sourceType": "blog"
+      },
+      {
+       "url": "https://www.angi.com/nearme/roof-cleaning/",
+       "sourceType": "location_page"
+      }
+     ]
+    },
+    {
+     "domain": "alohawindowbros.com",
+     "count": 3,
+     "urls": [
+      {
+       "url": "https://alohawindowbros.com/",
+       "sourceType": "landing_page"
+      },
+      {
+       "url": "https://alohawindowbros.com/santa-barbara/",
+       "sourceType": "location_page"
+      }
+     ]
+    },
+    {
+     "domain": "airtasker.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://www.airtasker.com/us/services/solar-panel-cleaning/",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.airtasker.com/us/services/driveway-cleaning/",
+       "sourceType": "category_page"
+      }
+     ]
+    },
+    {
+     "domain": "en.wikipedia.org",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://en.wikipedia.org/wiki/soft_washing",
+       "sourceType": "wikipedia"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Soft_washing",
+       "sourceType": "wikipedia"
+      }
+     ]
+    },
+    {
+     "domain": "timetoshinesb.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://www.timetoshinesb.com/",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "mastercleanusa.net",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://mastercleanusa.net/",
+       "sourceType": "landing_page"
+      },
+      {
+       "url": "https://mastercleanusa.net/exterior-cleaning/",
+       "sourceType": "landing_page"
+      }
+     ]
+    },
+    {
+     "domain": "purepressureca.com",
+     "count": 2,
+     "urls": [
+      {
+       "url": "https://purepressureca.com/",
+       "sourceType": "landing_page"
+      }
+     ]
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793425211489,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/ai-visibility",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "Santa Barbara Soft Wash",
+     "count": 5,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 90,
+      "positive": 4,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 5
+     }
+    },
+    {
+     "brandName": "Google",
+     "count": 3,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 3,
+      "negative": 0,
+      "classifiedMentions": 3
+     }
+    },
+    {
+     "brandName": "Time To Shine",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 75,
+      "positive": 1,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Master Clean USA",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 75,
+      "positive": 1,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Pure Pressure",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 75,
+      "positive": 1,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Clean Roof USA",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 2,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Roof Cleaning Pros",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 2,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Fish Window Cleaning",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 2,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Aloha Window Bros",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 75,
+      "positive": 1,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Home Depot",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Casa Clara",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Lavare",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Squeegee Crew",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Bright 'N Shiny Window Cleaning & Pressure Washing",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "SoftWash Systems",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793425211489,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/overall-insights",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/ai-visibility",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "visibilityScore": 0,
+    "totalMentions": 0,
+    "totalAnswers": 20,
+    "totalPrompts": 10,
+    "topSource": {
+     "domain": "yelp.com",
+     "count": 7,
+     "urls": [
+      {
+       "url": "https://www.yelp.com/search?find_desc=soft+wash&find_loc=santa+barbara,+ca",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.yelp.com/search?find_desc=exterior+cleaning&find_loc=houston%2c+tx",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.yelp.com/search?find_desc=roof+cleaning&find_loc=portland%2c+or",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.yelp.com/search?find_desc=roof+cleaning&find_loc=palm+beach+gardens%2c+fl",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.yelp.com/search?find_desc=exterior+cleaning&find_loc=santa+barbara,+ca",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.yelp.com/search?find_desc=exterior+house+cleaning&find_loc=santa+barbara%2c+ca+93103",
+       "sourceType": "category_page"
+      },
+      {
+       "url": "https://www.yelp.com/search?find_desc=exterior+cleaning+services&find_loc=santa+barbara,+ca",
+       "sourceType": "category_page"
+      }
+     ]
+    },
+    "topMentionedBrand": {
+     "brandName": "Santa Barbara Soft Wash",
+     "count": 5,
+     "brandUrl": ""
+    }
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425211490,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/history",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/ai-visibility",
+   "reqBody": null,
+   "status": 200,
+   "resBody": [
+    {
+     "date": "2026-08-22",
+     "visibilityScore": 0,
+     "totalMentions": 0,
+     "totalAnswers": 20
+    },
+    {
+     "date": "2026-09-07",
+     "visibilityScore": 0,
+     "totalMentions": 0,
+     "totalAnswers": 22
+    },
+    {
+     "date": "2026-09-22",
+     "visibilityScore": 5,
+     "totalMentions": 1,
+     "totalAnswers": 20
+    },
+    {
+     "date": "2026-10-07",
+     "visibilityScore": 0,
+     "totalMentions": 0,
+     "totalAnswers": 20
+    },
+    {
+     "date": "2026-10-21",
+     "visibilityScore": 0,
+     "totalMentions": 0,
+     "totalAnswers": 20
+    }
+   ],
+   "thirdParty": false
+  },
+  {
+   "t": 1793425212433,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793425212427&cv=11&fst=1793425212427&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Freporting&rcb=10&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425212436,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45be6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793425134046&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=10&sr=1728x1117&ul=en-us&_s=24&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsocials%3Ftab%3Dreddit&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=78984",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425212438,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=10&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Foverview&scrsrc=www.googletagmanager.com&rnd=1946196919.1793425134&navt=r&npa=0&ae=a&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&tft=1793425212438&tfd=78986&_gsid=d4lFfr-9cGz151BH0s0F9C5fQdX0k-9UMQ&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425212441,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793425134046&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=10&sr=1728x1117&ul=en-us&_s=25&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fai-visibility&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Freporting&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=78989",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/ai-visibility",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

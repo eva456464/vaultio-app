@@ -671,6 +671,326 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/pages?limit=50",
+   "status": 200,
+   "resBody": {
+    "message": "Pages fetched successfully",
+    "data": [
+     {
+      "id": 10586511,
+      "url": "https://vaultio.co/blog/cleaning-service-marketing-ideas",
+      "metaTitle": "Cleaning Service Marketing Ideas to Try Before Paying for Ads | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10586510,
+      "url": "https://vaultio.co/blog/review-gating-policy",
+      "metaTitle": "Avoid FTC Penalties: Review Gating Policy in 5 Steps for Marketers | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10586509,
+      "url": "https://vaultio.co/blog/flooring-website-design",
+      "metaTitle": "Flooring Website Design: What Turns Visitors Into Quote Requests | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10586508,
+      "url": "https://vaultio.co/blog/how-to-get-more-contractor-leads-florida",
+      "metaTitle": "How to Get More Contractor Leads in Florida | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10586507,
+      "url": "https://vaultio.co/blog/electrician-google-business-profile",
+      "metaTitle": "Electrician Google Business Profile: Set Up, Optimize, Win Calls | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10586506,
+      "url": "https://vaultio.co/Blog/flooring-website-design",
+      "metaTitle": "Flooring Website Design: What Turns Visitors Into Quote Requests | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10586505,
+      "url": "https://vaultio.co/Blog/how-to-get-more-contractor-leads-florida",
+      "metaTitle": "How to Get More Contractor Leads in Florida | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10485291,
+      "url": "https://vaultio.co/Blog/call-tracking-metrics",
+      "metaTitle": "Call Tracking Metrics for Contractors: What to Track | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10485290,
+      "url": "https://vaultio.co/blog/tree-service-seo",
+      "metaTitle": "Tree Service SEO: How to Get Found and Booked | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10485289,
+      "url": "https://vaultio.co/blog/after-hours-call-handling",
+      "metaTitle": "After-Hours Call Handling for Contractors: 2026 Setup Guide | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10485288,
+      "url": "https://vaultio.co/Blog/after-hours-call-handling",
+      "metaTitle": "After-Hours Call Handling for Contractors: 2026 Setup Guide | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10485287,
+      "url": "https://vaultio.co/Blog/tree-service-seo",
+      "metaTitle": "Tree Service SEO: How to Get Found and Booked | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10387504,
+      "url": "https://vaultio.co/pressure-washing-marketing",
+      "metaTitle": "Pressure Washing Marketing & SEO: $449/mo | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10387503,
+      "url": "https://vaultio.co/garage-door-marketing",
+      "metaTitle": "Garage Door Marketing Agency: $449/mo, No Contract | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10387502,
+      "url": "https://vaultio.co/solar-marketing",
+      "metaTitle": "Solar Marketing Agency for Installers: $449/mo | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10387501,
+      "url": "https://vaultio.co/Blog/garage-door-repair-seo",
+      "metaTitle": "Garage Door Repair SEO: How to Win the Calls | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10387500,
+      "url": "https://vaultio.co/Blog/seo-for-contractors-florida",
+      "metaTitle": "SEO for Contractors in Florida: How to Win Local Jobs | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10387499,
+      "url": "https://vaultio.co/home-services-marketing",
+      "metaTitle": "Home Services Marketing Agency: $449/mo Flat | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10283514,
+      "url": "https://vaultio.co/Blog/contractor-ppc-strategy",
+      "metaTitle": "Contractor PPC Strategy: How to Turn Ad Spend Into Booked Jobs | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10283513,
+      "url": "https://vaultio.co/Blog/plumbing-lead-generation-ideas",
+      "metaTitle": "Plumbing Lead Generation Ideas That Fill Your Schedule | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196177,
+      "url": "https://vaultio.co/pest-control-marketing",
+      "metaTitle": "Pest Control Marketing Agency: $449/mo Flat Rate | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196176,
+      "url": "https://vaultio.co/hvac-marketing",
+      "metaTitle": "HVAC Marketing Company: SEO, PPC & Web, $449/mo | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196175,
+      "url": "https://vaultio.co/roofing-marketing",
+      "metaTitle": "Roofing Marketing Agency for Roofers: $449/mo | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196174,
+      "url": "https://vaultio.co/landscaping-seo",
+      "metaTitle": "Landscaping SEO for Landscapers & Lawn Care | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196173,
+      "url": "https://vaultio.co/plumbing-marketing",
+      "metaTitle": "Plumbing Marketing Agency for Plumbers: $449/mo | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196172,
+      "url": "https://vaultio.co/restoration-marketing",
+      "metaTitle": "Restoration Company Marketing & SEO: $449/mo | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196171,
+      "url": "https://vaultio.co/ryno-strategic-solutions-reviews",
+      "metaTitle": "RYNO Strategic Solutions Reviews & Cost (2026) | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196170,
+      "url": "https://vaultio.co/electrician-marketing",
+      "metaTitle": "Electrician Marketing & SEO: $449/mo, No Contract | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196169,
+      "url": "https://vaultio.co/hibu-reviews",
+      "metaTitle": "Hibu Reviews, Cost & Cancellation Policy (2026) | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196168,
+      "url": "https://vaultio.co/7-figure-local-reviews",
+      "metaTitle": "7 Figure Local Reviews & Pricing (2026 Breakdown) | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196167,
+      "url": "https://vaultio.co/angi-leads-reviews",
+      "metaTitle": "Angi Leads Reviews for Contractors: Cost & Refunds | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196166,
+      "url": "https://vaultio.co/stone-systems-reviews",
+      "metaTitle": "Stone Systems Reviews & Pricing (2026 Breakdown) | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196165,
+      "url": "https://vaultio.co/Blog/electrician-google-business-profile",
+      "metaTitle": "",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196164,
+      "url": "https://vaultio.co/scorpion-marketing-reviews",
+      "metaTitle": "Scorpion Marketing Reviews, Pricing & Complaints | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196163,
+      "url": "https://vaultio.co/Blog/rank-in-google-maps",
+      "metaTitle": "How to Rank in Google Maps: A Contractor's Playbook | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10196162,
+      "url": "https://vaultio.co/Blog/cleaning-service-marketing-ideas",
+      "metaTitle": "",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 10097336,
+      "url": "https://vaultio.co/Blog/google-business-profile-qa",
+      "metaTitle": "Google Q&A: Contractors’ Weekly Check to Keep Ask Accurate | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9888103,
+      "url": "https://vaultio.co/Blog/contractor-website-examples",
+      "metaTitle": "6 Contractor Website Examples to Copy, From Phone Bars to Portfolios | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9888102,
+      "url": "https://vaultio.co/Blog/pressure-washing-marketing-ideas",
+      "metaTitle": "Pressure Washing Marketing Ideas: Leads for Contractors in 90 Days | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9888101,
+      "url": "https://vaultio.co/Blog/google-guaranteed-for-contractors",
+      "metaTitle": "Google Guaranteed for Contractors: Which Staff Must Pass Checks? | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9739534,
+      "url": "https://vaultio.co/Blog/landscaping-marketing-ideas",
+      "metaTitle": "Landscaping Marketing Ideas: Google, Yard Signs, and Off Season Leads | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9739533,
+      "url": "https://vaultio.co/Blog/sms-appointment-reminders",
+      "metaTitle": "4 SMS Appointment Reminder Texts Contractors Can Test | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9739532,
+      "url": "https://vaultio.co/Blog/plumber-ads-budget",
+      "metaTitle": "Plumber Ad Budgets in 2026: $1,500 Buys About 16 Leads, Not Jobs | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9527532,
+      "url": "https://vaultio.co/city/san-francisco/ai-lead-scoring",
+      "metaTitle": "San Francisco AI Lead Scoring | AI Lead Scoring Company San Francisco, CA | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9527531,
+      "url": "https://vaultio.co/city/tampa/meta-ads",
+      "metaTitle": "Tampa Meta Ads | Meta Ads Company Tampa, FL | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9527530,
+      "url": "https://vaultio.co/city/seattle/web-design",
+      "metaTitle": "Seattle Web Design | Web Design Company Seattle, WA | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9527529,
+      "url": "https://vaultio.co/city/seattle/video-photography",
+      "metaTitle": "Seattle Video & Photography | Video & Photography Company Seattle, WA | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9527528,
+      "url": "https://vaultio.co/city/tampa/ai-chatbot",
+      "metaTitle": "Tampa AI Chatbot | AI Chatbot Company Tampa, FL | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9527527,
+      "url": "https://vaultio.co/city/seattle/local-service-ads",
+      "metaTitle": "Seattle Local Service Ads | Local Service Ads Company Seattle, WA | Vaultio",
+      "lastModifiedAt": null
+     },
+     {
+      "id": 9527526,
+      "url": "https://vaultio.co/city/san-diego/web-design",
+      "metaTitle": "San Diego Web Design | Web Design Company San Diego, CA | Vaultio",
+      "lastModifiedAt": null
+     }
+    ],
+    "pageInfo": {
+     "nextCursor": "9527526",
+     "hasMore": true,
+     "totalCount": 817,
+     "pageSize": 50
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

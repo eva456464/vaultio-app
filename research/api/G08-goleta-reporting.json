@@ -1,0 +1,1193 @@
+{
+ "page": "https://app.vaultio.co/en/dashboard/reporting",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "calls": [
+  {
+   "t": 1793425202370,
+   "kind": "fetch",
+   "method": "GET",
+   "url": "https://app.vaultio.co/en/dashboard/reporting?_rsc=109o9",
+   "reqHeaders": {
+    "rsc": "1",
+    "next-router-state-tree": "%5B%22%22%2C%7B%22children%22%3A%5B%5B%22locale%22%2C%22en%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22dashboard%22%2C%7B%22children%22%3A%5B%22socials%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Ctrue%5D",
+    "next-url": "/en/dashboard/socials"
+   },
+   "reqBody": null,
+   "page": "/en/dashboard/socials?tab=reddit",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "thirdParty": true
+  },
+  {
+   "t": 1793425202761,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://fh-118116076e9a4c2a96a99fbb70bea2a0.ecs.us-west-2.on.aws/events?cee=no",
+   "reqHeaders": {},
+   "reqBody": "[omitted]",
+   "page": "/en/dashboard/reporting",
+   "status": 200,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425202798,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/agency-reporting/availability?period=previous_month",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/reporting",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "range": {
+     "from": "2026-09-01",
+     "to": "2026-09-30"
+    },
+    "clamped": false,
+    "dataThrough": "2026-10-26",
+    "blocks": {
+     "achievements": {
+      "available": true,
+      "count": 6
+     },
+     "summary": {
+      "available": true,
+      "count": 30
+     },
+     "kpis": {
+      "available": true,
+      "count": 30
+     },
+     "clicksChart": {
+      "available": true,
+      "count": 30
+     },
+     "countries": {
+      "available": true,
+      "count": 8
+     },
+     "pages": {
+      "available": true,
+      "count": 64
+     },
+     "keywords": {
+      "available": true,
+      "count": 43
+     },
+     "articles": {
+      "available": true,
+      "count": 30
+     },
+     "backlinks": {
+      "available": true,
+      "count": 22
+     },
+     "siteHealth": {
+      "available": true,
+      "count": 3
+     },
+     "community": {
+      "available": true,
+      "count": 1
+     },
+     "aiVisibility": {
+      "available": true,
+      "count": 72
+     }
+    }
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425202798,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/agency-reporting/settings",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/reporting",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "autoSend": false,
+    "blockToggles": {
+     "kpis": true,
+     "pages": true,
+     "summary": true,
+     "articles": true,
+     "keywords": true,
+     "backlinks": true,
+     "community": true,
+     "countries": true,
+     "siteHealth": true,
+     "clicksChart": true,
+     "achievements": true,
+     "aiVisibility": true
+    },
+    "kpiMetrics": [
+     "clicks",
+     "impressions",
+     "position"
+    ],
+    "recipientEmail": "knightsdamian@gmail.com"
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425202798,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/organization",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/reporting",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "Organization fetched successfully",
+    "data": {
+     "id": 29411,
+     "name": "Vaultio Organization",
+     "creatorId": 30402,
+     "gscCredentials": null,
+     "acquisitionChannel": "facebook",
+     "createdAt": "2026-05-07T15:10:56.356Z",
+     "updatedAt": "2026-08-05T02:16:56.138Z",
+     "members": [
+      {
+       "id": 47255,
+       "email": "zepohd@gmail.com",
+       "name": "Vaultio Marketing VA",
+       "isActive": true,
+       "role": "member",
+       "stripeCustomerId": null,
+       "newsSubscribed": true,
+       "isInvoiceEmailEnabled": false,
+       "platformLanguage": "en",
+       "referralCode": "YP556K96",
+       "linkedinPostCompleted": false,
+       "linkedinExperiencePostCompleted": false,
+       "isG2ReviewCompleted": false,
+       "hasWatchedWelcomeVideo": false,
+       "hasSeenArticleHints": true,
+       "watchedVideos": [],
+       "completedSetupItems": [],
+       "lastSeenProductUpdateAt": "2026-10-09",
+       "resendAbandonedStartedAt": null,
+       "resendChurnedStartedAt": null,
+       "resendOnboardingStartedAt": null,
+       "resendActiveUserStartedAt": null,
+       "deletionRequestedAt": null,
+       "lastLoginAt": "2026-10-22T20:18:29.965Z",
+       "createdAt": "2026-07-18T17:36:13.801Z",
+       "updatedAt": "2026-10-22T20:18:29.965Z",
+       "supabaseId": "3a3f6160-6b46-4287-990b-1859a271c5c4",
+       "organizationId": 29411,
+       "websiteAccess": [
+        {
+         "id": 10555,
+         "userId": 47255,
+         "orgWebsiteId": 51141,
+         "createdAt": "2026-08-05T02:12:37.809Z",
+         "updatedAt": "2026-08-05T02:12:37.809Z",
+         "orgWebsite": {
+          "id": 51141,
+          "url": "https://goletapressurewashing.com"
+         }
+        }
+       ]
+      },
+      {
+       "id": 51571,
+       "email": "yungrichdj@icloud.com",
+       "name": "damian",
+       "isActive": true,
+       "role": "member",
+       "stripeCustomerId": null,
+       "newsSubscribed": true,
+       "isInvoiceEmailEnabled": false,
+       "platformLanguage": "en",
+       "referralCode": "CPRI7PEQ",
+       "linkedinPostCompleted": false,
+       "linkedinExperiencePostCompleted": false,
+       "isG2ReviewCompleted": false,
+       "hasWatchedWelcomeVideo": false,
+       "hasSeenArticleHints": false,
+       "watchedVideos": [],
+       "completedSetupItems": [],
+       "lastSeenProductUpdateAt": null,
+       "resendAbandonedStartedAt": null,
+       "resendChurnedStartedAt": null,
+       "resendOnboardingStartedAt": null,
+       "resendActiveUserStartedAt": null,
+       "deletionRequestedAt": null,
+       "lastLoginAt": null,
+       "createdAt": "2026-08-10T04:20:09.287Z",
+       "updatedAt": "2026-08-10T04:20:09.287Z",
+       "supabaseId": "13490fbc-701d-4c73-b839-02dc88f9a885",
+       "organizationId": 29411,
+       "websiteAccess": []
+      },
+      {
+       "id": 51572,
+       "email": "gkahn810@gmail.com",
+       "name": "gkahn810",
+       "isActive": false,
+       "role": "member",
+       "stripeCustomerId": null,
+       "newsSubscribed": true,
+       "isInvoiceEmailEnabled": false,
+       "platformLanguage": "en",
+       "referralCode": null,
+       "linkedinPostCompleted": false,
+       "linkedinExperiencePostCompleted": false,
+       "isG2ReviewCompleted": false,
+       "hasWatchedWelcomeVideo": false,
+       "hasSeenArticleHints": false,
+       "watchedVideos": [],
+       "completedSetupItems": [],
+       "lastSeenProductUpdateAt": null,
+       "resendAbandonedStartedAt": null,
+       "resendChurnedStartedAt": null,
+       "resendOnboardingStartedAt": null,
+       "resendActiveUserStartedAt": null,
+       "deletionRequestedAt": null,
+       "lastLoginAt": null,
+       "createdAt": "2026-08-10T04:20:45.130Z",
+       "updatedAt": "2026-08-10T04:20:45.130Z",
+       "supabaseId": null,
+       "organizationId": 29411,
+       "websiteAccess": [
+        {
+         "id": 10595,
+         "userId": 51572,
+         "orgWebsiteId": 51141,
+         "createdAt": "2026-08-10T04:20:45.149Z",
+         "updatedAt": "2026-08-10T04:20:45.149Z",
+         "orgWebsite": {
+          "id": 51141,
+          "url": "https://goletapressurewashing.com"
+         }
+        }
+       ]
+      },
+      {
+       "id": 30402,
+       "email": "knightsdamian@gmail.com",
+       "name": "Damian Knights",
+       "isActive": true,
+       "role": "admin",
+       "stripeCustomerId": "cus_UTQeBR3aZ4JKPx",
+       "newsSubscribed": true,
+       "isInvoiceEmailEnabled": false,
+       "platformLanguage": "en",
+       "referralCode": "T3YLMLLQ",
+       "linkedinPostCompleted": false,
+       "linkedinExperiencePostCompleted": false,
+       "isG2ReviewCompleted": false,
+       "hasWatchedWelcomeVideo": true,
+       "hasSeenArticleHints": true,
+       "watchedVideos": [],
+       "completedSetupItems": [],
+       "lastSeenProductUpdateAt": "2026-10-23",
+       "resendAbandonedStartedAt": "2026-06-24T05:54:03.908Z",
+       "resendChurnedStartedAt": null,
+       "resendOnboardingStartedAt": null,
+       "resendActiveUserStartedAt": "2026-09-26T01:01:34.116Z",
+       "deletionRequestedAt": null,
+       "lastLoginAt": "2026-10-31T02:01:48.536Z",
+       "createdAt": "2026-05-07T15:10:56.359Z",
+       "updatedAt": "2026-10-31T02:01:48.536Z",
+       "supabaseId": "cf01a7df-95e5-44bf-bf55-a261c2e300ea",
+       "organizationId": 29411,
+       "websiteAccess": []
+      }
+     ],
+     "websites": [
+      {
+       "id": 41420,
+       "url": "https://vaultio.co",
+       "creationSource": "web_app",
+       "brandName": "Vaultio",
+       "selectedLanguage": "en",
+       "description": "Vaultio puts contractors at the top of Google SEO and AI search engines — and keeps them there. While competitors fight for scraps, your business becomes the first name customers see on Google, ChatGPT, and AI-powered search the moment they're ready to buy.\n\nWe don't just get you found — we turn visibility into booked jobs. Vaultio combines #1 search rankings with lightning-fast lead response, engaging every new inquiry within seconds so you capture the customers others lose. The result: a steady, predictable flow of 10–15 extra jobs every month, more market share, and a brand that dominates your local area.\n\nNo guesswork. No wasted ad spend. Just measurable growth, backed by a 30-day money-back guarantee. If you're a home service contractor ready to own your market and leave competitors behind, Vaultio is how you get there.\nRank #1. Capture every lead. Dominate your market.",
+       "targetAudience": [
+        "home service contractors seeking to increase lead capture",
+        "plumbers losing jobs to competitors",
+        "electricians needing improved online visibility",
+        "HVAC providers wanting quick lead response",
+        "contractors aiming to boost monthly job bookings",
+        "contractors looking to rank higher on google",
+        "home services companies that want to rank on chatgpt",
+        "seo for contractors",
+        "seo for local business",
+        "seo for plumbing",
+        "seo for hvac",
+        "seo for window cleaning",
+        "seo for painters",
+        "marketing for plumbers",
+        "marketing for roofers",
+        "marketing for hvac",
+        "marketing for construction",
+        "marketing for power washing",
+        "power washing marketing",
+        "seo for construction",
+        "ai seo for contractors"
+       ],
+       "mainServices": [],
+       "onboardingStatus": "completed",
+       "lastCompletedOnboardingStep": null,
+       "includeYoutube": false,
+       "youtubeChannel": null,
+       "includeCTAImage": true,
+       "ctaSettings": {
+        "map": {
+         "lat": 34.2733475,
+         "lng": -119.542275,
+         "address": "1870 Laurelwood CT",
+         "enabled": false,
+         "mapsUrl": "https://maps.app.goo.gl/yjq7noC9anrrHXJt8",
+         "imageKey": "34.27335,-119.54228,#e94545",
+         "imageUrl": "https://media.babylovegrowth.ai/blog-images/cta-maps/org-website-41420/0196d39305f7.jpg",
+         "placeName": "Vaultio"
+        },
+        "links": {
+         "items": [
+          {
+           "url": "https://vaultio.co",
+           "label": "Start Today"
+          }
+         ],
+         "enabled": true
+        },
+        "contact": {
+         "email": null,
+         "phone": null,
+         "enabled": false,
+         "whatsapp": null
+        }
+       },
+       "includeCitation": true,
+       "includeSourcesSection": true,
+       "includeJsonLd": false,
+       "includeFaqJsonLd": false,
+       "includeInternalLinks": true,
+       "includeToc": true,
+       "includeTldr": true,
+       "summaryStyle": "tldr",
+       "includeRecommendedReads": true,
+       "includePerspective": true,
+       "mentionCompetitorsIfRelevant": false,
+       "englishType": "american",
+       "screenshotUrl": "https://media.babylovegrowth.ai/blog-images/organization-29411/1791865105817_vaultio.jpg",
+       "screenshotLinkUrl": null,
+       "sitemapUrl": "https://vaultio.co/sitemap.xml",
+       "promoWebsiteUrl": "https://vaultio.co",
+       "exampleArticleUrl": "https://vaultio.co",
+       "brandVoice": {
+        "pacing_and_flow": "The pacing is rapid and dynamic, maintaining reader engagement through frequent breaks, bullet points, and concise statements. Information is delivered in quick bursts, propelling the reader forward toward conversion without unnecessary detail.",
+        "tone_and_emotion": "The tone is urgent, confident, and persuasive, designed to evoke a sense of necessity and opportunity. It creates an emotional appeal that highlights the fear of losing business to competitors and the excitement of gaining a competitive edge and financial success.",
+        "figurative_language": "Figurative language is minimal; however, the copy uses vivid, concrete imagery related to business outcomes (e.g., 'competitors are stealing your customers,' 'own your city') to create mental pictures of loss and dominance. Metaphorical expressions like 'the unfair advantage' convey exclusivity and superiority.",
+        "perspective_and_voice": "The perspective is second person ('you'), speaking directly to the reader to personalize the message. The voice is authoritative yet conversational, blending expert guidance with motivational encouragement to take immediate action.",
+        "word_choice_and_vocabulary": "Vocabulary is straightforward, action-oriented, and business-focused, emphasizing results and benefits (e.g., 'fastest,' 'unfair advantage,' 'guaranteed,' 'dominate,' 'capture,' 'booked'). Jargon is minimal but relevant to home services and marketing technology, using terms like 'AI,' 'Google Guarantee,' and 'leads.'",
+        "sentence_structure_and_complexity": "Sentences are short, direct, and impactful, often fragments or phrases rather than full sentences to maximize emphasis and readability. The structure favors clarity and quick comprehension, with simple constructions that deliver strong calls to action.",
+        "formatting_and_structural_elements": "The formatting relies heavily on capitalization for emphasis, numbered lists to communicate processes clearly, bullet points for easy scanning, and short paragraphs or even single lines for impact. Bold claims and statistics punctuate the text. Calls to action appear frequently and prominently.",
+        "level_of_formality_and_personalization": "Formality is moderate; professional yet approachable, avoiding overly technical or academic language. Personalization is high through direct address and references to the reader's specific industry and pain points, aiming to establish rapport and trust quickly."
+       },
+       "articleInstructions": "Never use AI buzzwords.\nWrite genuine, useful, EEAT-focused content.\nWrite for contractors looking to grow their company.",
+       "articleDisclaimer": null,
+       "researchUrls": [],
+       "imageInstructions": "Make images bold and attention-grabbing, like a scroll-stopping ad.\nMake images relatable and compelling to the viewer.",
+       "instructionNotes": {
+        "images": {
+         "revisions": [
+          {
+           "at": "2026-10-24T03:22:25.231Z",
+           "added": [
+            "Make images bold and attention-grabbing, like a scroll-stopping ad.",
+            "Make images relatable and compelling to the viewer."
+           ],
+           "source": "edit",
+           "removed": [],
+           "summary": "",
+           "settings": []
+          }
+         ],
+         "unsupported": []
+        },
+        "writing": {
+         "revisions": [
+          {
+           "at": "2026-10-24T03:21:22.632Z",
+           "added": [
+            "Never use AI buzzwords.",
+            "Write genuine, useful, EEAT-focused content.",
+            "Write for contractors looking to grow their company."
+           ],
+           "source": "edit",
+           "removed": [],
+           "summary": "Split your typed line into separate rules and dropped the no-dashes part since articles already avoid dashes. Being recommended by ChatGPT or ranking top 3 on Google is a goal we aim for through good content, not something an instruction can guarantee, so it wasn't stored as a rule.",
+           "settings": []
+          }
+         ],
+         "unsupported": []
+        },
+        "reviewedAt": "2026-10-24T03:21:22.632Z"
+       },
+       "createdAt": "2026-06-27T05:46:34.193Z",
+       "onboardingCompletedAt": "2026-06-27T06:19:27.248Z",
+       "reonboardedAt": "2026-07-28T06:14:14.326Z",
+       "brandColor": "#E94545",
+       "brandSecondaryColor": "#000000",
+       "brandDescription": "Vaultio embodies a bold, aggressive aesthetic with a dark, commanding presence—a fierce dragon logo rendered in stark white against pure black creates an edgy, powerful visual identity. The vibrant red accent (#E94545) slices through the darkness with intensity, evoking confidence and urgency, while the minimal, sharp design language conveys a modern, no-nonsense approach to AI-powered business solutions for home service contractors.",
+       "updatedAt": "2026-10-30T06:20:05.987Z",
+       "autoPublish": true,
+       "citationRegion": "worldwide",
+       "backlinksEnabled": true,
+       "backlinksExchangeEligible": true,
+       "isHidden": false,
+       "domainRating": 42,
+       "minBacklinkGiverDomainRating": null,
+       "industry": "marketing",
+       "articleScheduleWeekdays": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+       ],
+       "improvementsEnabled": true,
+       "improvementWeekdays": [
+        1,
+        3
+       ],
+       "improvementsAutoPublish": false,
+       "apiKey": "[REDACTED]",
+       "apiKeySource": null,
+       "bodyImageStyle": "realistic",
+       "infographicStyle": "editorial",
+       "heroImageStyle": "realistic_with_title",
+       "logoUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/user-uploads/org-website-41420/logo-1783405856651.png",
+       "useWwwInLinks": false,
+       "useTrailingSlashInLinks": false,
+       "articleLengthTarget": 2000,
+       "gscCredentials": {
+        "scope": "https://www.googleapis.com/auth/webmasters.readonly openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
+        "userName": "Damian Knights",
+        "tokenType": "[REDACTED]",
+        "userEmail": "knightsdamian@gmail.com",
+        "expiryDate": 1782710060106,
+        "accessToken": "[REDACTED]",
+        "userPicture": "https://lh3.googleusercontent.com/a/ACg8ocKn1zclXsApjm0EbyUcCsZIukPP-GeD9DEIcS9N2X-LArLf9rOh=s96-c",
+        "refreshToken": "[REDACTED]",
+        "googleClientId": "84262618151-ktho25995ohjll4cu0u5a8kg11an36gk.apps.googleusercontent.com"
+       },
+       "selectedGscProperty": "sc-domain:vaultio.co",
+       "gscDailyBackfilledFrom": "2025-10-21T00:00:00.000Z",
+       "ga4Credentials": {
+        "scope": "https://www.googleapis.com/auth/analytics.readonly https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid",
+        "userName": "Damian Knights",
+        "tokenType": "[REDACTED]",
+        "userEmail": "knightsdamian@gmail.com",
+        "expiryDate": 1793344803608,
+        "accessToken": "[REDACTED]",
+        "userPicture": "https://lh3.googleusercontent.com/a/ACg8ocKn1zclXsApjm0EbyUcCsZIukPP-GeD9DEIcS9N2X-LArLf9rOh=s96-c",
+        "refreshToken": "[REDACTED]",
+        "googleClientId": "84262618151-ktho25995ohjll4cu0u5a8kg11an36gk.apps.googleusercontent.com"
+       },
+       "selectedGa4Property": "properties/534109473",
+       "ga4InitialSyncCompleted": true,
+       "nextjsBlogConnected": true,
+       "blogPath": null,
+       "authorName": "Damian",
+       "detectedPlatform": "nextjs",
+       "organizationId": 29411,
+       "targetLocations": [
+        {
+         "locationCode": 2840,
+         "subLocations": [
+          21137,
+          9057173,
+          1014332,
+          21135,
+          21136,
+          21138,
+          21142,
+          21144,
+          21146,
+          21162,
+          21149,
+          9059413,
+          200635,
+          21176,
+          21175
+         ]
+        }
+       ],
+       "localeSuggestion": {
+        "status": "ready",
+        "languageCode": "en",
+        "locationCode": 2840
+       },
+       "nextLanguageUpsell": "es"
+      },
+      {
+       "id": 51141,
+       "url": "https://goletapressurewashing.com",
+       "creationSource": "web_app",
+       "brandName": "Goleta Pressure Washing",
+       "selectedLanguage": "en",
+       "description": "Goleta Pressure Washing specializes in safe and effective exterior cleaning services for homes in Santa Barbara County, including roof cleaning, house washing, and window cleaning. Their unique soft-washing technique uses low pressure combined with specialized solutions to eliminate algae, moss, and dirt without damaging delicate surfaces. This method is crucial for the region's coastal homes, as traditional high-pressure washing can strip shingles and cause harm. With a focus on customer satisfaction and a commitment to reliable service, Goleta Pressure Washing stands out in the industry. Homeowners benefit from a clean exterior that enhances curb appeal while extending the life of their surfaces. The company boasts a 100% satisfaction guarantee, further showcasing their dedication to excellence.",
+       "targetAudience": [
+        "homeowners needing dependable exterior cleaning services",
+        "individuals seeking to maintain home value and appearance",
+        "property managers responsible for multiple residential properties",
+        "busy professionals lacking time for DIY cleaning",
+        "environmentally conscious homeowners wanting safe cleaning solutions"
+       ],
+       "mainServices": [],
+       "onboardingStatus": "completed",
+       "lastCompletedOnboardingStep": null,
+       "includeYoutube": true,
+       "youtubeChannel": null,
+       "includeCTAImage": true,
+       "ctaSettings": {
+        "links": {
+         "items": [
+          {
+           "url": "https://goletapressurewashing.com",
+           "label": "Visit"
+          }
+         ],
+         "enabled": true
+        }
+       },
+       "includeCitation": true,
+       "includeSourcesSection": true,
+       "includeJsonLd": true,
+       "includeFaqJsonLd": true,
+       "includeInternalLinks": true,
+       "includeToc": true,
+       "includeTldr": true,
+       "summaryStyle": "tldr",
+       "includeRecommendedReads": true,
+       "includePerspective": true,
+       "mentionCompetitorsIfRelevant": true,
+       "englishType": "american",
+       "screenshotUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-29411/1785890564695_goletapressurewashing.jpg",
+       "screenshotLinkUrl": null,
+       "sitemapUrl": "https://goletapressurewashing.com/sitemap.xml",
+       "promoWebsiteUrl": "https://goletapressurewashing.com",
+       "exampleArticleUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof",
+       "brandVoice": {
+        "pacing_and_flow": "The flow is smooth and methodical, guiding the reader step-by-step through understanding the problem, why common solutions fail, and the correct approach. Information is layered logically, with transitions that connect causes, effects, and recommendations without abrupt shifts.",
+        "tone_and_emotion": "The tone is professional, informative, and reassuring, with an underlying sense of expertise and reliability. It conveys care and confidence, aiming to educate the reader while reassuring them that the problem is common and solvable. The emotion is calm and helpful, avoiding alarm but emphasizing the importance of proper treatment.",
+        "figurative_language": "Figurative language is minimal but effective, used primarily through metaphors such as describing the algae as a \"living colony\" and the marine layer as a \"blanket of coastal fog.\" These images help visualize the problem without being overly poetic, keeping the focus educational and practical.",
+        "perspective_and_voice": "The voice is authoritative yet conversational, coming from the owner-operator, Grant, which adds a personal and trustworthy element. The perspective is that of an expert sharing insider knowledge directly with homeowners, fostering a sense of trust and approachability.",
+        "word_choice_and_vocabulary": "The vocabulary is precise and industry-specific yet accessible to the layperson. Technical terms like 'Gloeocapsa magma', 'sodium hypochlorite', and 'asphalt shingles' are clearly explained. The word choice balances scientific accuracy with everyday language to ensure understanding and retain engagement.",
+        "sentence_structure_and_complexity": "Sentences vary between simple and moderately complex, often using compound structures to explain cause and effect or to describe processes clearly. Explanations are broken down into digestible parts without overwhelming the reader, maintaining clarity while providing technical details where necessary.",
+        "formatting_and_structural_elements": "The article uses clear subheadings to organize content logically, facilitating easy scanning and reference. Lists and bullet points appear where instructions or processes are described (e.g., the three-step process). Contact details and calls to action are prominently displayed, emphasizing accessibility and engagement.",
+        "level_of_formality_and_personalization": "The formality level is moderate—professional but not overly formal—striking a balance that is both credible and relatable. Personalization occurs through direct address to the reader, inclusion of local context (Santa Barbara area), and the presence of a named owner-operator, making the content feel tailored and customer-centric."
+       },
+       "articleInstructions": null,
+       "articleDisclaimer": null,
+       "researchUrls": [],
+       "imageInstructions": null,
+       "instructionNotes": {},
+       "createdAt": "2026-08-05T00:30:15.488Z",
+       "onboardingCompletedAt": "2026-08-05T00:47:51.408Z",
+       "reonboardedAt": null,
+       "brandColor": "#0B3050",
+       "brandSecondaryColor": "#0E5FA6",
+       "brandDescription": "Goleta Pressure Washing presents a professional and trustworthy aesthetic with a clean, modern sensibility that conveys reliability and expertise. The deep navy and vibrant blue color palette creates a confident, authoritative feel that instills trust while maintaining accessibility, supported by crisp typography and minimal design elements that emphasize clarity and precision in service delivery.",
+       "updatedAt": "2026-10-30T11:00:05.814Z",
+       "autoPublish": true,
+       "citationRegion": "United States",
+       "backlinksEnabled": true,
+       "backlinksExchangeEligible": true,
+       "isHidden": false,
+       "domainRating": 19,
+       "minBacklinkGiverDomainRating": null,
+       "industry": "home_services",
+       "articleScheduleWeekdays": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+       ],
+       "improvementsEnabled": true,
+       "improvementWeekdays": [
+        1,
+        3
+       ],
+       "improvementsAutoPublish": false,
+       "apiKey": "[REDACTED]",
+       "apiKeySource": "[REDACTED]",
+       "bodyImageStyle": "realistic",
+       "infographicStyle": "classic",
+       "heroImageStyle": "realistic",
+       "logoUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/user-uploads/org-website-51141/logo-1785994773976.png",
+       "useWwwInLinks": false,
+       "useTrailingSlashInLinks": false,
+       "articleLengthTarget": 2000,
+       "gscCredentials": {
+        "scope": "https://www.googleapis.com/auth/webmasters.readonly openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
+        "userName": "Damian Knights",
+        "tokenType": "[REDACTED]",
+        "userEmail": "knightsdamian@gmail.com",
+        "expiryDate": 1785950745540,
+        "accessToken": "[REDACTED]",
+        "userPicture": "https://lh3.googleusercontent.com/a/ACg8ocKn1zclXsApjm0EbyUcCsZIukPP-GeD9DEIcS9N2X-LArLf9rOh=s96-c",
+        "refreshToken": "[REDACTED]",
+        "googleClientId": "84262618151-ktho25995ohjll4cu0u5a8kg11an36gk.apps.googleusercontent.com"
+       },
+       "selectedGscProperty": "https://goletapressurewashing.com/",
+       "gscDailyBackfilledFrom": "2026-09-15T00:00:00.000Z",
+       "ga4Credentials": {
+        "scope": "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid https://www.googleapis.com/auth/analytics.readonly",
+        "userName": "Damian Knights",
+        "tokenType": "[REDACTED]",
+        "userEmail": "knightsdamian@gmail.com",
+        "expiryDate": 1793361602579,
+        "accessToken": "[REDACTED]",
+        "userPicture": "https://lh3.googleusercontent.com/a/ACg8ocKn1zclXsApjm0EbyUcCsZIukPP-GeD9DEIcS9N2X-LArLf9rOh=s96-c",
+        "refreshToken": "[REDACTED]",
+        "googleClientId": "84262618151-ktho25995ohjll4cu0u5a8kg11an36gk.apps.googleusercontent.com"
+       },
+       "selectedGa4Property": "properties/548796786",
+       "ga4InitialSyncCompleted": true,
+       "nextjsBlogConnected": true,
+       "blogPath": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof",
+       "authorName": "Grant K.",
+       "detectedPlatform": "nextjs",
+       "organizationId": 29411,
+       "targetLocations": [
+        {
+         "locationCode": 2840,
+         "subLocations": [
+          1014248,
+          1013822,
+          9196014,
+          9052467,
+          9195067,
+          21137,
+          9057159
+         ]
+        }
+       ],
+       "localeSuggestion": null,
+       "nextLanguageUpsell": "es"
+      },
+      {
+       "id": 30923,
+       "url": "https://vaultio.co",
+       "creationSource": "web_app",
+       "brandName": "Vaultio",
+       "selectedLanguage": "en",
+       "description": "Vaultio.co is a digital marketing and lead generation platform specifically tailored for home service contractors such as plumbers, electricians, HVAC companies, roofers, and similar trades. The website offers a comprehensive system that combines website development, Google Ads, AI-powered lead response automation, and strategic online presence management to help these businesses dominate their local markets. Its primary focus is on providing rapid, high-response lead capture, ensuring that contractors can respond instantly to urgent customer inquiries, book more jobs, and increase revenue—often revealing proven ROI and success stories. Vaultio emphasizes quick setup (within 72 hours), a 30-day money-back guarantee, and continuous 24/7 lead handling through AI, positioning itself as an unfair advantage over competitors. The platform integrates with common tools used by home service businesses and aims to generate consistent, scalable leads while outpacing competitors on Google and other online channels. Overall, the offering centers on automation, local market domination, and maximizing revenue for service contractors through innovative digital solutions.",
+       "targetAudience": [
+        "home service contractors",
+        "plumbing businesses",
+        "hvac companies",
+        "electricians",
+        "roofing contractors"
+       ],
+       "mainServices": [],
+       "onboardingStatus": "not_started",
+       "lastCompletedOnboardingStep": null,
+       "includeYoutube": false,
+       "youtubeChannel": null,
+       "includeCTAImage": true,
+       "ctaSettings": {
+        "links": {
+         "items": [
+          {
+           "url": "https://vaultio.co",
+           "label": "Visit"
+          }
+         ],
+         "enabled": true
+        }
+       },
+       "includeCitation": true,
+       "includeSourcesSection": true,
+       "includeJsonLd": false,
+       "includeFaqJsonLd": false,
+       "includeInternalLinks": true,
+       "includeToc": true,
+       "includeTldr": true,
+       "summaryStyle": "tldr",
+       "includeRecommendedReads": true,
+       "includePerspective": true,
+       "mentionCompetitorsIfRelevant": false,
+       "englishType": "american",
+       "screenshotUrl": null,
+       "screenshotLinkUrl": null,
+       "sitemapUrl": "https://vaultio.co/sitemap.xml",
+       "promoWebsiteUrl": "https://vaultio.co",
+       "exampleArticleUrl": null,
+       "brandVoice": {},
+       "articleInstructions": null,
+       "articleDisclaimer": null,
+       "researchUrls": [],
+       "imageInstructions": null,
+       "instructionNotes": {},
+       "createdAt": "2026-05-11T17:29:21.106Z",
+       "onboardingCompletedAt": null,
+       "reonboardedAt": null,
+       "brandColor": "#E94545",
+       "brandSecondaryColor": "#000000",
+       "brandDescription": "Vaultio embodies a bold, aggressive aesthetic with a dark and edgy personality, using striking red accents against deep black to convey power and intensity. The fierce dragon mascot and sharp typography create a commanding, modern feel that appeals to ambitious home service contractors seeking a competitive edge.",
+       "updatedAt": "2026-08-06T08:05:52.802Z",
+       "autoPublish": true,
+       "citationRegion": "worldwide",
+       "backlinksEnabled": true,
+       "backlinksExchangeEligible": true,
+       "isHidden": false,
+       "domainRating": null,
+       "minBacklinkGiverDomainRating": null,
+       "industry": "home_services",
+       "articleScheduleWeekdays": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+       ],
+       "improvementsEnabled": false,
+       "improvementWeekdays": [],
+       "improvementsAutoPublish": false,
+       "apiKey": "[REDACTED]",
+       "apiKeySource": null,
+       "bodyImageStyle": "realistic",
+       "infographicStyle": "classic",
+       "heroImageStyle": "realistic",
+       "logoUrl": null,
+       "useWwwInLinks": false,
+       "useTrailingSlashInLinks": false,
+       "articleLengthTarget": 2000,
+       "gscCredentials": null,
+       "selectedGscProperty": null,
+       "gscDailyBackfilledFrom": null,
+       "ga4Credentials": null,
+       "selectedGa4Property": null,
+       "ga4InitialSyncCompleted": false,
+       "nextjsBlogConnected": true,
+       "blogPath": null,
+       "authorName": "Damian",
+       "detectedPlatform": null,
+       "organizationId": 29411,
+       "targetLocations": [],
+       "localeSuggestion": null,
+       "nextLanguageUpsell": "es"
+      },
+      {
+       "id": 30098,
+       "url": "https://vaultio.co",
+       "creationSource": "web_app",
+       "brandName": "Vaultio",
+       "selectedLanguage": "en",
+       "description": "Vaultio.co is an AI-powered digital marketing and automation company helping home service businesses dominate their local market through high-converting websites, Google rankings, paid ads, and automated lead systems. Unlike traditional agencies that rely on outdated strategies, Vaultio uses AI and automation to help contractors generate more booked jobs, respond faster, and outperform competitors. If you don’t see measurable movement in 7 days, you don’t pay.",
+       "targetAudience": [
+        "home service contractors",
+        "electricians",
+        "plumbers",
+        "hvac technicians",
+        "roofers"
+       ],
+       "mainServices": [],
+       "onboardingStatus": "not_started",
+       "lastCompletedOnboardingStep": null,
+       "includeYoutube": false,
+       "youtubeChannel": null,
+       "includeCTAImage": true,
+       "ctaSettings": {
+        "links": {
+         "items": [
+          {
+           "url": "https://vaultio.co",
+           "label": "Visit"
+          }
+         ],
+         "enabled": true
+        }
+       },
+       "includeCitation": true,
+       "includeSourcesSection": true,
+       "includeJsonLd": false,
+       "includeFaqJsonLd": false,
+       "includeInternalLinks": true,
+       "includeToc": true,
+       "includeTldr": true,
+       "summaryStyle": "tldr",
+       "includeRecommendedReads": true,
+       "includePerspective": true,
+       "mentionCompetitorsIfRelevant": false,
+       "englishType": "american",
+       "screenshotUrl": null,
+       "screenshotLinkUrl": null,
+       "sitemapUrl": "https://vaultio.co/sitemap.xml",
+       "promoWebsiteUrl": "https://vaultio.co",
+       "exampleArticleUrl": "https://vaultio.co/city/los-angeles",
+       "brandVoice": {
+        "pacing_and_flow": "Information flows logically from problem identification to solution explanation, process overview, service details, proof points, and FAQ. The pacing is brisk but measured, maintaining reader engagement by mixing data, benefits, and story elements like testimonials.",
+        "tone_and_emotion": "The tone is professional, confident, and results-oriented with an underlying supportive and encouraging emotion. It conveys trustworthiness and expertise while motivating contractors to take action and improve their business outcomes.",
+        "figurative_language": "Minimal use of figurative language; primarily literal and direct. Occasionally uses metaphors related to strategy and growth (e.g., 'competitive moat') to illustrate key ideas effectively without overcomplicating the message.",
+        "perspective_and_voice": "Written from a second-person perspective addressing contractors directly, creating a conversational and personalized feel. The voice is authoritative yet approachable, positioning the brand as a knowledgeable partner invested in the client's success.",
+        "word_choice_and_vocabulary": "Uses industry-specific terminology (e.g., SEO, CPL, Meta Ads, Local Service Ads) alongside accessible language to ensure comprehension by contractors. Vocabulary emphasizes results, efficiency, and trust (e.g., 'qualified leads,' 'optimization,' 'guarantee,' 'performance').",
+        "sentence_structure_and_complexity": "Sentences are mostly straightforward and concise, with a mix of informative compound sentences to explain processes and benefits clearly. The structure balances clarity with enough complexity to establish authority without overwhelming the reader.",
+        "formatting_and_structural_elements": "Highly structured with clear section headings, bullet points, numbered lists, and callouts to organize content. Calls to action and key stats are highlighted for emphasis. Testimonials and FAQs are incorporated to build credibility and address concerns.",
+        "level_of_formality_and_personalization": "Moderately formal with professional language appropriate for business-to-business marketing. Personalization is achieved by directly addressing contractors’ pain points and providing concrete examples, guarantees, and contact options to foster trust and a sense of partnership."
+       },
+       "articleInstructions": null,
+       "articleDisclaimer": null,
+       "researchUrls": [],
+       "imageInstructions": null,
+       "instructionNotes": {},
+       "createdAt": "2026-05-07T15:11:02.994Z",
+       "onboardingCompletedAt": null,
+       "reonboardedAt": null,
+       "brandColor": "#E94545",
+       "brandSecondaryColor": "#000000",
+       "brandDescription": "Vaultio embodies a bold, aggressive aesthetic with a fierce dragon mascot and stark black-and-red color palette that conveys power and intensity. The design projects a modern, no-nonsense professionalism aimed at home service contractors, combining sharp typography and minimalist styling to create a commanding, energetic presence that commands attention and inspires confidence.",
+       "updatedAt": "2026-08-06T08:05:52.802Z",
+       "autoPublish": true,
+       "citationRegion": "worldwide",
+       "backlinksEnabled": true,
+       "backlinksExchangeEligible": true,
+       "isHidden": false,
+       "domainRating": null,
+       "minBacklinkGiverDomainRating": null,
+       "industry": "home_services",
+       "articleScheduleWeekdays": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+       ],
+       "improvementsEnabled": false,
+       "improvementWeekdays": [],
+       "improvementsAutoPublish": false,
+       "apiKey": "[REDACTED]",
+       "apiKeySource": null,
+       "bodyImageStyle": "realistic",
+       "infographicStyle": "classic",
+       "heroImageStyle": "realistic",
+       "logoUrl": null,
+       "useWwwInLinks": false,
+       "useTrailingSlashInLinks": false,
+       "articleLengthTarget": 2000,
+       "gscCredentials": null,
+       "selectedGscProperty": null,
+       "gscDailyBackfilledFrom": null,
+       "ga4Credentials": null,
+       "selectedGa4Property": null,
+       "ga4InitialSyncCompleted": false,
+       "nextjsBlogConnected": true,
+       "blogPath": null,
+       "authorName": "Damian",
+       "detectedPlatform": null,
+       "organizationId": 29411,
+       "targetLocations": [],
+       "localeSuggestion": null,
+       "nextLanguageUpsell": "es"
+      }
+     ],
+     "whitelabelConfig": {
+      "domain": "app.vaultio.co",
+      "brandName": "Vaultio",
+      "primaryColor": "#E94545",
+      "secondaryColor": "#000000",
+      "logo": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/whitelabel/vaultio/vaultio_favicon.png",
+      "favicon": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/whitelabel/vaultio/vaultio_favicon.png"
+     }
+    }
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425202798,
+   "kind": "xhr",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/organization/get-org-website",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/reporting",
+   "reqBody": null,
+   "status": 200,
+   "resBody": {
+    "message": "Organization website fetched successfully",
+    "data": {
+     "id": 51141,
+     "url": "https://goletapressurewashing.com",
+     "creationSource": "web_app",
+     "brandName": "Goleta Pressure Washing",
+     "selectedLanguage": "en",
+     "description": "Goleta Pressure Washing specializes in safe and effective exterior cleaning services for homes in Santa Barbara County, including roof cleaning, house washing, and window cleaning. Their unique soft-washing technique uses low pressure combined with specialized solutions to eliminate algae, moss, and dirt without damaging delicate surfaces. This method is crucial for the region's coastal homes, as traditional high-pressure washing can strip shingles and cause harm. With a focus on customer satisfaction and a commitment to reliable service, Goleta Pressure Washing stands out in the industry. Homeowners benefit from a clean exterior that enhances curb appeal while extending the life of their surfaces. The company boasts a 100% satisfaction guarantee, further showcasing their dedication to excellence.",
+     "targetAudience": [
+      "homeowners needing dependable exterior cleaning services",
+      "individuals seeking to maintain home value and appearance",
+      "property managers responsible for multiple residential properties",
+      "busy professionals lacking time for DIY cleaning",
+      "environmentally conscious homeowners wanting safe cleaning solutions"
+     ],
+     "mainServices": [],
+     "onboardingStatus": "completed",
+     "lastCompletedOnboardingStep": null,
+     "includeYoutube": true,
+     "youtubeChannel": null,
+     "includeCTAImage": true,
+     "ctaSettings": {
+      "links": {
+       "items": [
+        {
+         "url": "https://goletapressurewashing.com",
+         "label": "Visit"
+        }
+       ],
+       "enabled": true
+      }
+     },
+     "includeCitation": true,
+     "includeSourcesSection": true,
+     "includeJsonLd": true,
+     "includeFaqJsonLd": true,
+     "includeInternalLinks": true,
+     "includeToc": true,
+     "includeTldr": true,
+     "summaryStyle": "tldr",
+     "includeRecommendedReads": true,
+     "includePerspective": true,
+     "mentionCompetitorsIfRelevant": true,
+     "englishType": "american",
+     "screenshotUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-29411/1785890564695_goletapressurewashing.jpg",
+     "screenshotLinkUrl": null,
+     "sitemapUrl": "https://goletapressurewashing.com/sitemap.xml",
+     "promoWebsiteUrl": "https://goletapressurewashing.com",
+     "exampleArticleUrl": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof",
+     "brandVoice": {
+      "pacing_and_flow": "The flow is smooth and methodical, guiding the reader step-by-step through understanding the problem, why common solutions fail, and the correct approach. Information is layered logically, with transitions that connect causes, effects, and recommendations without abrupt shifts.",
+      "tone_and_emotion": "The tone is professional, informative, and reassuring, with an underlying sense of expertise and reliability. It conveys care and confidence, aiming to educate the reader while reassuring them that the problem is common and solvable. The emotion is calm and helpful, avoiding alarm but emphasizing the importance of proper treatment.",
+      "figurative_language": "Figurative language is minimal but effective, used primarily through metaphors such as describing the algae as a \"living colony\" and the marine layer as a \"blanket of coastal fog.\" These images help visualize the problem without being overly poetic, keeping the focus educational and practical.",
+      "perspective_and_voice": "The voice is authoritative yet conversational, coming from the owner-operator, Grant, which adds a personal and trustworthy element. The perspective is that of an expert sharing insider knowledge directly with homeowners, fostering a sense of trust and approachability.",
+      "word_choice_and_vocabulary": "The vocabulary is precise and industry-specific yet accessible to the layperson. Technical terms like 'Gloeocapsa magma', 'sodium hypochlorite', and 'asphalt shingles' are clearly explained. The word choice balances scientific accuracy with everyday language to ensure understanding and retain engagement.",
+      "sentence_structure_and_complexity": "Sentences vary between simple and moderately complex, often using compound structures to explain cause and effect or to describe processes clearly. Explanations are broken down into digestible parts without overwhelming the reader, maintaining clarity while providing technical details where necessary.",
+      "formatting_and_structural_elements": "The article uses clear subheadings to organize content logically, facilitating easy scanning and reference. Lists and bullet points appear where instructions or processes are described (e.g., the three-step process). Contact details and calls to action are prominently displayed, emphasizing accessibility and engagement.",
+      "level_of_formality_and_personalization": "The formality level is moderate—professional but not overly formal—striking a balance that is both credible and relatable. Personalization occurs through direct address to the reader, inclusion of local context (Santa Barbara area), and the presence of a named owner-operator, making the content feel tailored and customer-centric."
+     },
+     "articleInstructions": null,
+     "articleDisclaimer": null,
+     "researchUrls": [],
+     "imageInstructions": null,
+     "instructionNotes": {},
+     "createdAt": "2026-08-05T00:30:15.488Z",
+     "onboardingCompletedAt": "2026-08-05T00:47:51.408Z",
+     "reonboardedAt": null,
+     "brandColor": "#0B3050",
+     "brandSecondaryColor": "#0E5FA6",
+     "brandDescription": "Goleta Pressure Washing presents a professional and trustworthy aesthetic with a clean, modern sensibility that conveys reliability and expertise. The deep navy and vibrant blue color palette creates a confident, authoritative feel that instills trust while maintaining accessibility, supported by crisp typography and minimal design elements that emphasize clarity and precision in service delivery.",
+     "updatedAt": "2026-10-30T11:00:05.814Z",
+     "autoPublish": true,
+     "citationRegion": "United States",
+     "backlinksEnabled": true,
+     "backlinksExchangeEligible": true,
+     "isHidden": false,
+     "domainRating": 19,
+     "minBacklinkGiverDomainRating": null,
+     "industry": "home_services",
+     "articleScheduleWeekdays": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "improvementsEnabled": true,
+     "improvementWeekdays": [
+      1,
+      3
+     ],
+     "improvementsAutoPublish": false,
+     "apiKey": "[REDACTED]",
+     "apiKeySource": "[REDACTED]",
+     "bodyImageStyle": "realistic",
+     "infographicStyle": "classic",
+     "heroImageStyle": "realistic",
+     "logoUrl": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/user-uploads/org-website-51141/logo-1785994773976.png",
+     "useWwwInLinks": false,
+     "useTrailingSlashInLinks": false,
+     "articleLengthTarget": 2000,
+     "gscCredentials": {
+      "scope": "https://www.googleapis.com/auth/webmasters.readonly openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
+      "userName": "Damian Knights",
+      "tokenType": "[REDACTED]",
+      "userEmail": "knightsdamian@gmail.com",
+      "expiryDate": 1785950745540,
+      "accessToken": "[REDACTED]",
+      "userPicture": "https://lh3.googleusercontent.com/a/ACg8ocKn1zclXsApjm0EbyUcCsZIukPP-GeD9DEIcS9N2X-LArLf9rOh=s96-c",
+      "refreshToken": "[REDACTED]",
+      "googleClientId": "84262618151-ktho25995ohjll4cu0u5a8kg11an36gk.apps.googleusercontent.com"
+     },
+     "selectedGscProperty": "https://goletapressurewashing.com/",
+     "gscDailyBackfilledFrom": "2026-09-15T00:00:00.000Z",
+     "ga4Credentials": {
+      "scope": "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid https://www.googleapis.com/auth/analytics.readonly",
+      "userName": "Damian Knights",
+      "tokenType": "[REDACTED]",
+      "userEmail": "knightsdamian@gmail.com",
+      "expiryDate": 1793361602579,
+      "accessToken": "[REDACTED]",
+      "userPicture": "https://lh3.googleusercontent.com/a/ACg8ocKn1zclXsApjm0EbyUcCsZIukPP-GeD9DEIcS9N2X-LArLf9rOh=s96-c",
+      "refreshToken": "[REDACTED]",
+      "googleClientId": "84262618151-ktho25995ohjll4cu0u5a8kg11an36gk.apps.googleusercontent.com"
+     },
+     "selectedGa4Property": "properties/548796786",
+     "ga4InitialSyncCompleted": true,
+     "nextjsBlogConnected": true,
+     "blogPath": "https://goletapressurewashing.com/blog/black-streaks-santa-barbara-roof",
+     "authorName": "Grant K.",
+     "detectedPlatform": "nextjs",
+     "organizationId": 29411,
+     "targetLocations": [
+      {
+       "locationCode": 2840,
+       "subLocations": [
+        1014248,
+        1013822,
+        9196014,
+        9052467,
+        9195067,
+        21137,
+        9057159
+       ]
+      }
+     ],
+     "localeSuggestion": null,
+     "nextLanguageUpsell": "es",
+     "organization": {
+      "id": 29411,
+      "name": "Vaultio Organization",
+      "creatorId": 30402,
+      "gscCredentials": null,
+      "acquisitionChannel": "facebook",
+      "createdAt": "2026-05-07T15:10:56.356Z",
+      "updatedAt": "2026-08-05T02:16:56.138Z"
+     }
+    }
+   },
+   "thirdParty": false
+  },
+  {
+   "t": 1793425203437,
+   "kind": "xhr",
+   "method": "POST",
+   "url": "https://api.babylovegrowth.ai/api/agency-reporting/preview",
+   "reqHeaders": {
+    "Accept": "application/json, text/plain, */*",
+    "Content-Type": "application/json",
+    "Authorization": "[REDACTED]",
+    "x-org-website-id": "51141"
+   },
+   "page": "/en/dashboard/reporting",
+   "reqBody": {
+    "period": "previous_month",
+    "blocks": {
+     "kpis": true,
+     "pages": true,
+     "summary": true,
+     "articles": true,
+     "keywords": true,
+     "backlinks": true,
+     "community": true,
+     "countries": true,
+     "siteHealth": true,
+     "clicksChart": true,
+     "achievements": true,
+     "aiVisibility": true
+    },
+    "kpiMetrics": [
+     "clicks",
+     "impressions",
+     "position"
+    ]
+   },
+   "status": 200,
+   "resBody": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<title>Vaultio — https://goletapressurewashing.com</title>\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap\" />\n<style>\n  :root {\n    --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;\n    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;\n\n    --accent: #E94545;\n    --accent-text: #d63f3f;\n\n    /* Body text, then the two steps down it fades through: labels, then asides. */\n    --ink: #15171c;\n    --muted: #656c7a;\n    --faint: #99a0ad;\n    --line: #e4e6eb;\n    --wash: #f3f4f7;\n\n    /* A figure that rose, one that fell, and the middle severity, each with its badge tint. */\n    --good: #1d6b4a;\n    --good-wash: #eef4f0;\n    --bad: #9a5340;\n    --bad-wash: #fbeae6;\n    --warn: #8a6320;\n    --warn-wash: #fdf3e2;\n  }\n\n  @page { size: A4; margin: 13mm; }\n  * { box-sizing: border-box; }\n  /* On screen there is no @page, so the dashboard preview would render edge to edge\n     and look nothing like the PDF it is previewing. */\n  @media screen { body { padding: 13mm; } }\n  body {\n    margin: 0;\n    font-family: var(--font-sans);\n    font-size: 12.5px; line-height: 1.5;\n    color: var(--ink); background: #fff;\n    -webkit-print-color-adjust: exact;\n    print-color-adjust: exact;\n  }\n  .page { max-width: 780px; margin: 0 auto; }\n  h2 {\n    margin: 0; font-family: var(--font-sans);\n    font-size: 21px; font-weight: 700; letter-spacing: -.02em;\n  }\n  /* Stands in wherever a table, a list or a whole section has nothing to show. */\n  .empty { margin: 0; font-size: 11.5px; color: var(--faint); font-style: italic; }\n\n  .head { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }\n  .logo { max-height: 42px; max-width: 210px; }\n  .wordmark {\n    margin: 0; font-size: 19px; font-weight: 700;\n    letter-spacing: -.02em; color: var(--accent-text);\n  }\n  .head-meta { text-align: right; }\n  .site { margin: 0; font-size: 14px; font-weight: 600; }\n  .range {\n    margin: 2px 0 0; font-family: var(--font-sans);\n    font-size: 11px; color: var(--muted);\n  }\n  .rule { height: 3px; background: var(--accent); margin-top: 13px; }\n\n  .summary { padding: 26px 0 22px; }\n  .eyebrow {\n    margin: 0 0 8px; font-family: var(--font-sans);\n    font-size: 10px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted);\n  }\n  .headline {\n    margin: 0; font-family: var(--font-sans);\n    font-size: 50px; font-weight: 700; line-height: 1; letter-spacing: -.03em;\n    font-variant-numeric: tabular-nums;\n  }\n  /* Section-level, so it does not compete with the hero figure. */\n  .sub { margin: 11px 0 0; max-width: 56ch; font-size: 13px; color: var(--muted); }\n  .sub strong { color: var(--ink); font-weight: 600; }\n  .note { margin: 3px 0 0; max-width: 56ch; font-size: 11.5px; color: var(--faint); }\n\n  .stats {\n    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;\n    background: var(--line); border: 1px solid var(--line); margin-top: 22px;\n  }\n  /* A section that is only tiles has no hero text to sit clear of. */\n  .summary > .stats:first-child { margin-top: 0; }\n  /* Fewer than four metrics must still fill the row rather than leave a gap: the grid\n     draws its own dividing lines, so an odd tile out shows the gap as a grey panel. */\n  .stats.of-1 { grid-template-columns: 1fr; }\n  .stats.of-2 { grid-template-columns: repeat(2, 1fr); }\n  .stats.of-3 { grid-template-columns: repeat(3, 1fr); }\n  /* Five or six wrap onto three columns: six across an A4 column is 118px a tile. */\n  .stats.of-5, .stats.of-6 { grid-template-columns: repeat(3, 1fr); }\n  .stat { background: #fff; padding: 12px 14px 13px; }\n  .stat-label {\n    margin: 0; font-family: var(--font-sans);\n    font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);\n  }\n  .stat-value {\n    margin: 5px 0 0; font-size: 22px; font-weight: 600; letter-spacing: -.02em;\n    font-variant-numeric: tabular-nums;\n  }\n  .stat-sub { margin: 4px 0 0; font-size: 10.5px; line-height: 1.35; color: var(--faint); }\n  .stat-sub strong { color: var(--muted); font-weight: 600; }\n  .delta { font-family: var(--font-sans); font-size: 10.5px; color: var(--faint); }\n  /* Inherits the arrow's colour by default, which would paint the qualifier green on a\n     rise; it is context, not news. */\n  .delta-vs { color: var(--faint); font-weight: 400; }\n  .up { color: var(--good); }\n  .down { color: var(--bad); }\n\n  .block { padding-top: 26px; break-inside: avoid; page-break-inside: avoid; }\n  /* The rule belongs to whatever follows the hero, so a report that is only the hero\n     does not end on a divider with nothing under it. */\n  .summary + .block, .block + .block { border-top: 1px solid var(--line); margin-top: 26px; }\n  .block-head {\n    display: flex; align-items: baseline; justify-content: space-between;\n    gap: 14px; margin-bottom: 14px;\n  }\n  .channel {\n    font-family: var(--font-sans);\n    font-size: 9.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--accent-text);\n  }\n  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }\n  /* Names both chart lines and the axis each one is read off. */\n  .legend {\n    display: flex; align-items: center; gap: 6px; flex: none;\n    font-family: var(--font-sans);\n    font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted);\n  }\n  .legend .key { width: 9px; height: 3px; }\n  .legend .key + .key { margin-left: 8px; }\n  /* Under a section rather than beside its heading, where there is room for two dates. */\n  .legend-foot { margin-top: 13px; }\n  .legend-foot .key { height: 9px; }\n\n  .countries { margin: 0; padding: 0; list-style: none; }\n  .country-row {\n    display: grid; grid-template-columns: 118px 1fr 58px 56px;\n    align-items: center; gap: 11px; padding: 5px 0;\n  }\n  /* Without a comparison there is no delta column, and the totals would otherwise stop\n     short of the edge every other section lines up with. */\n  .countries.no-delta .country-row { grid-template-columns: 118px 1fr 58px; }\n  .country-label { font-size: 12px; overflow-wrap: anywhere; }\n  /* The leftovers are a total, not a market, so they are stated rather than drawn. */\n  .country-row.is-other { border-top: 1px solid var(--line); margin-top: 4px; padding-top: 9px; }\n  .country-row.is-other .country-label,\n  .country-row.is-other .country-value { color: var(--faint); }\n  .country-bars { display: flex; flex-direction: column; gap: 3px; }\n  .country-bar { height: 9px; }\n  .country-value {\n    text-align: right; font-size: 12.5px; font-weight: 600;\n    font-variant-numeric: tabular-nums;\n  }\n  .country-delta {\n    text-align: right; font-variant-numeric: tabular-nums;\n    font-family: var(--font-sans); font-size: 10.5px;\n  }\n\n  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }\n  th, td { text-align: right; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 12.5px; }\n  th {\n    font-family: var(--font-sans);\n    font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase;\n    color: var(--muted); font-weight: 400; border-bottom-color: var(--ink);\n  }\n  th:first-child, td:first-child { text-align: left; }\n  tbody tr:last-child td { border-bottom: 0; }\n  /* Paths are long and arbitrary, so they wrap rather than widen the numeric columns. */\n  .page-path { overflow-wrap: anywhere; padding-right: 14px; }\n  /* Keywords and prompts are strings someone typed into a search box, so they keep the\n     typewriter face. Everything else moved off it — a report set in mono reads as output. */\n  .keyword, .article-keyword, .prompt-text { font-family: var(--font-mono); }\n  .keyword { overflow-wrap: anywhere; padding-right: 14px; }\n  /* Under the keyword rather than in its own column: most rows have no volume to show. */\n  .keyword-volume {\n    display: block; margin-top: 2px; font-family: var(--font-sans);\n    font-size: 10px; color: var(--faint);\n  }\n  /* Source stays on one line so the subreddit reads as part of it, not as a wrap. */\n  .thread-source {\n    white-space: nowrap; padding-right: 16px; font-family: var(--font-sans);\n    font-size: 11px; color: var(--muted);\n  }\n  .thread-title { text-align: left; overflow-wrap: anywhere; padding-right: 16px; }\n  th.thread-head { text-align: left; }\n  .article-title { overflow-wrap: anywhere; padding-right: 14px; font-weight: 500; }\n  .article-keyword {\n    display: block; margin-top: 2px; font-weight: 400;\n    font-size: 10px; color: var(--faint);\n  }\n  .link-domain { overflow-wrap: anywhere; padding-right: 14px; }\n  .prev { color: var(--faint); }\n\n  /* The rating curve is its own panel, not the full-width chart the search section uses.\n     It carries both classes, so it has to be stated before the one it narrows. */\n  .trend-chart { margin-bottom: 6px; }\n  .trend-value {\n    font-family: var(--font-sans);\n    font-size: 15px; font-weight: 700; fill: var(--ink);\n  }\n  /* Sets the label above the link-quality panel clear of the chart over it. */\n  .authority-gap { margin-top: 22px; }\n  .chart { width: 100%; height: auto; display: block; margin-bottom: 14px; }\n  .stats + .chart { margin-top: 18px; }\n  .chart .grid { stroke: var(--line); stroke-width: 1; }\n  .chart .axis { font-family: var(--font-sans); font-size: 10px; fill: var(--faint); }\n\n  .ai-cols { margin-top: 20px; align-items: start; }\n  /* Brand names run far longer than \"DR 30+\", so this row needs its own label column. */\n  .ai-cols .bar-row { grid-template-columns: 104px 1fr 40px; }\n  .ai-cols .bar-label { overflow-wrap: anywhere; }\n  .bar-row.is-you .bar-label { font-weight: 600; color: var(--ink); }\n  .prompts { margin: 0; padding: 0; list-style: none; }\n  .prompt-row {\n    display: grid; grid-template-columns: 1fr 52px; align-items: center; gap: 10px;\n    padding: 7px 0; border-top: 1px solid var(--line);\n  }\n  .prompt-row:first-child { border-top: 0; }\n  .prompt-text { font-size: 10.5px; line-height: 1.4; overflow-wrap: anywhere; }\n  .prompt-score {\n    text-align: center; padding: 2px 0; border-radius: 3px; background: var(--good-wash);\n    font-size: 10.5px; font-weight: 600; color: var(--good);\n  }\n  /* A question nobody named the brand for is not a score, it is a gap. */\n  .prompt-score.none { background: var(--wash); color: var(--faint); }\n\n  .issues { margin: 0; padding: 0; list-style: none; }\n  .issue-row {\n    display: grid; grid-template-columns: 62px 1fr 48px; align-items: center; gap: 12px;\n    padding: 8px 0; border-top: 1px solid var(--line);\n  }\n  .issue-row:first-child { border-top: 0; }\n  /* Fixed issues carry no badge, so the row loses its first column rather than an indent. */\n  .issue-row.no-severity { grid-template-columns: 1fr 48px; }\n  .severity {\n    text-align: center; padding: 2px 0; border-radius: 3px; font-family: var(--font-sans);\n    font-size: 9px; letter-spacing: .08em; text-transform: uppercase;\n  }\n  .severity.high { background: var(--bad-wash); color: var(--bad); }\n  .severity.medium { background: var(--warn-wash); color: var(--warn); }\n  .severity.low { background: var(--wash); color: var(--muted); }\n  .issue-label { font-size: 12.5px; overflow-wrap: anywhere; }\n  .issue-count {\n    text-align: right; font-size: 12.5px; font-weight: 600;\n    font-variant-numeric: tabular-nums;\n  }\n\n  .bars { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }\n  .bar-row { display: grid; grid-template-columns: 74px 1fr 46px; align-items: center; gap: 10px; }\n  .bar-label { font-family: var(--font-sans); font-size: 10px; color: var(--muted); }\n  .bar-track { height: 7px; background: var(--wash); position: relative; overflow: hidden; }\n  .bar-fill { position: absolute; top: 0; bottom: 0; left: 0; background: var(--accent-text); }\n  .bar-value {\n    font-family: var(--font-sans);\n    font-size: 10.5px; text-align: right; color: var(--muted); font-variant-numeric: tabular-nums;\n  }\n\n  .foot {\n    margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--line);\n    font-size: 10.5px; color: var(--faint);\n  }\n  .foot p { margin: 0 0 3px; }</style>\n</head>\n<body>\n<main class=\"page\">\n<header class=\"head\">\n  <img class=\"logo\" src=\"https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/whitelabel/vaultio/vaultio_favicon.png\" alt=\"Vaultio\" />\n  <div class=\"head-meta\">\n    <p class=\"site\">https://goletapressurewashing.com</p>\n    <p class=\"range\">Sep 1, 2026 – Sep 30, 2026</p>\n  </div>\n</header>\n<div class=\"rule\"></div>\n\n<section class=\"summary\">\n  <div class=\"stats of-6\"><div class=\"stat\">\n      <p class=\"stat-label\">Ad spend saved</p>\n      <p class=\"stat-value\">$169.6</p>\n      <p class=\"stat-sub\">What this traffic would cost in Google Ads.</p>\n    </div><div class=\"stat\">\n      <p class=\"stat-label\">Backlink cost saved</p>\n      <p class=\"stat-value\">$3K</p>\n      <p class=\"stat-sub\">For getting <strong>22</strong> backlinks</p>\n    </div><div class=\"stat\">\n      <p class=\"stat-label\">Impressions</p>\n      <p class=\"stat-value\">10.7K</p>\n      <p class=\"stat-sub\">How often your articles showed up in Google.</p>\n    </div><div class=\"stat\">\n      <p class=\"stat-label\">Visitors from articles</p>\n      <p class=\"stat-value\">60</p>\n      <p class=\"stat-sub\">Across <strong>19</strong> articles</p>\n    </div><div class=\"stat\">\n      <p class=\"stat-label\">Visitors from AI</p>\n      <p class=\"stat-value\">6</p>\n      <p class=\"stat-sub\">ChatGPT, Gemini, Claude...</p>\n    </div><div class=\"stat\">\n      <p class=\"stat-label\">Your site's authority</p>\n      <p class=\"stat-value\">19</p>\n      <p class=\"stat-sub\">Domain rating</p>\n    </div></div>\n</section>\n\n<section class=\"summary\">\n  <p class=\"eyebrow\">Search visitors this period</p>\n  <p class=\"headline\">80</p>\n  <p class=\"sub\">Up 66.7% on the previous period (48).</p>\n</section>\n\n<section class=\"block\">\n  <div class=\"block-head\">\n    <h2>Google search</h2>\n    <span class=\"legend\">\n      <span class=\"key\" style=\"background:#d63f3f\"></span>Clicks (left)\n      <span class=\"key\" style=\"background:#8e97a8\"></span>Impressions (right)\n    </span>\n  </div>\n  <div class=\"stats of-3\"><div class=\"stat\">\n      <p class=\"stat-label\">Total clicks</p>\n      <p class=\"stat-value\">80</p>\n      <span class=\"delta up\">&#9650; 66.7% <span class=\"delta-vs\">vs last period</span></span>\n    </div><div class=\"stat\">\n      <p class=\"stat-label\">Total impressions</p>\n      <p class=\"stat-value\">9,848</p>\n      <span class=\"delta up\">&#9650; 33.7% <span class=\"delta-vs\">vs last period</span></span>\n    </div><div class=\"stat\">\n      <p class=\"stat-label\">Average position</p>\n      <p class=\"stat-value\">24.8</p>\n      <span class=\"delta up\">&#9650; 11.4 places gained <span class=\"delta-vs\">vs last period</span></span>\n    </div></div>\n  <svg class=\"chart\" viewBox=\"0 0 720 200\" role=\"img\" aria-label=\"Organic clicks and impressions over the period\">\n  <line x1=\"46\" y1=\"162\" x2=\"670\" y2=\"162\" class=\"grid\" />\n  <text x=\"38\" y=\"166\" class=\"axis\" text-anchor=\"end\">0</text>\n  <text x=\"678\" y=\"166\" class=\"axis\" text-anchor=\"start\">0</text>\n  <line x1=\"46\" y1=\"87\" x2=\"670\" y2=\"87\" class=\"grid\" />\n  <text x=\"38\" y=\"91\" class=\"axis\" text-anchor=\"end\">5</text>\n  <text x=\"678\" y=\"91\" class=\"axis\" text-anchor=\"start\">500</text>\n  <line x1=\"46\" y1=\"12\" x2=\"670\" y2=\"12\" class=\"grid\" />\n  <text x=\"38\" y=\"16\" class=\"axis\" text-anchor=\"end\">10</text>\n  <text x=\"678\" y=\"16\" class=\"axis\" text-anchor=\"start\">1K</text>\n  <polygon points=\"46,162 46,87 67.5,102 89,132 110.6,162 132.1,147 153.6,132 175.1,87 196.6,147 218.1,132 239.7,132 261.2,117 282.7,132 304.2,102 325.7,162 347.2,147 368.8,87 390.3,117 411.8,162 433.3,132 454.8,162 476.3,147 497.9,147 519.4,147 540.9,147 562.4,147 583.9,87 605.4,87 627,42 648.5,102 670,27 670,162\" fill=\"#E94545\" fill-opacity=\"0.16\" />\n  <polyline points=\"46,102.3 67.5,108 89,122.3 110.6,119.4 132.1,132.6 153.6,124.4 175.1,120 196.6,129.3 218.1,132.6 239.7,135.8 261.2,131.4 282.7,135.6 304.2,36.2 325.7,122.7 347.2,114.8 368.8,133.1 390.3,140 411.8,136.2 433.3,139.8 454.8,128.3 476.3,129.8 497.9,135.8 519.4,136.5 540.9,139.1 562.4,125.1 583.9,77.4 605.4,18.6 627,56.9 648.5,52.7 670,66.8\" fill=\"none\" stroke=\"#8e97a8\" stroke-width=\"1.5\"\n    stroke-linejoin=\"round\" stroke-linecap=\"round\" />\n  <polyline points=\"46,87 67.5,102 89,132 110.6,162 132.1,147 153.6,132 175.1,87 196.6,147 218.1,132 239.7,132 261.2,117 282.7,132 304.2,102 325.7,162 347.2,147 368.8,87 390.3,117 411.8,162 433.3,132 454.8,162 476.3,147 497.9,147 519.4,147 540.9,147 562.4,147 583.9,87 605.4,87 627,42 648.5,102 670,27\" fill=\"none\" stroke=\"#d63f3f\" stroke-width=\"2\"\n    stroke-linejoin=\"round\" stroke-linecap=\"round\" />\n  <circle cx=\"670\" cy=\"27\" r=\"3.5\" fill=\"#d63f3f\" />\n  <text x=\"46\" y=\"182\" class=\"axis\" text-anchor=\"start\">Sep 1</text>\n  <text x=\"347.2\" y=\"182\" class=\"axis\" text-anchor=\"middle\">Sep 15</text>\n  <text x=\"670\" y=\"182\" class=\"axis\" text-anchor=\"end\">Sep 30</text>\n</svg>\n</section>\n\n<section class=\"block\">\n  <div class=\"block-head\">\n    <h2>Where your visitors are</h2>\n    <span class=\"channel\">Organic clicks</span>\n  </div>\n  <ul class=\"countries\">\n      <li class=\"country-row\">\n        <span class=\"country-label\">United States</span>\n        <span class=\"country-bars\"><span class=\"country-bar\" style=\"width:62.9%;background:#c9ccd3\"></span><span class=\"country-bar\" style=\"width:100.0%;background:#d63f3f\"></span></span>\n        <span class=\"country-value\">70</span>\n        <span class=\"country-delta\"><span class=\"up\">+26</span></span>\n      </li>\n      <li class=\"country-row\">\n        <span class=\"country-label\">Canada</span>\n        <span class=\"country-bars\"><span class=\"country-bar\" style=\"width:0.6%;background:#c9ccd3\"></span><span class=\"country-bar\" style=\"width:2.9%;background:#d63f3f\"></span></span>\n        <span class=\"country-value\">2</span>\n        <span class=\"country-delta\"><span class=\"up\">+2</span></span>\n      </li>\n      <li class=\"country-row\">\n        <span class=\"country-label\">Estonia</span>\n        <span class=\"country-bars\"><span class=\"country-bar\" style=\"width:0.6%;background:#c9ccd3\"></span><span class=\"country-bar\" style=\"width:2.9%;background:#d63f3f\"></span></span>\n        <span class=\"country-value\">2</span>\n        <span class=\"country-delta\"><span class=\"up\">+2</span></span>\n      </li>\n      <li class=\"country-row\">\n        <span class=\"country-label\">United Kingdom</span>\n        <span class=\"country-bars\"><span class=\"country-bar\" style=\"width:0.6%;background:#c9ccd3\"></span><span class=\"country-bar\" style=\"width:2.9%;background:#d63f3f\"></span></span>\n        <span class=\"country-value\">2</span>\n        <span class=\"country-delta\"><span class=\"up\">+2</span></span>\n      </li>\n      <li class=\"country-row\">\n        <span class=\"country-label\">Mexico</span>\n        <span class=\"country-bars\"><span class=\"country-bar\" style=\"width:0.6%;background:#c9ccd3\"></span><span class=\"country-bar\" style=\"width:1.4%;background:#d63f3f\"></span></span>\n        <span class=\"country-value\">1</span>\n        <span class=\"country-delta\"><span class=\"up\">+1</span></span>\n      </li>\n      <li class=\"country-row\">\n        <span class=\"country-label\">Switzerland</span>\n        <span class=\"country-bars\"><span class=\"country-bar\" style=\"width:0.6%;background:#c9ccd3\"></span><span class=\"country-bar\" style=\"width:1.4%;background:#d63f3f\"></span></span>\n        <span class=\"country-value\">1</span>\n        <span class=\"country-delta\"><span class=\"up\">+1</span></span>\n      </li>\n      <li class=\"country-row is-other\">\n        <span class=\"country-label\">Other (2 countries)</span>\n        <span class=\"country-bars\"></span>\n        <span class=\"country-value\">2</span>\n        <span class=\"country-delta\"><span class=\"down\">&minus;2</span></span>\n      </li></ul>\n  <div class=\"legend legend-foot\">\n    <span class=\"key\" style=\"background:#c9ccd3\"></span>Aug 2, 2026 – Aug 31, 2026\n    <span class=\"key\" style=\"background:#d63f3f\"></span>Sep 1, 2026 – Sep 30, 2026\n  </div>\n</section>\n\n<section class=\"block\">\n  <div class=\"block-head\">\n    <h2>Pages doing the work</h2>\n    <span class=\"channel\">Last 12 months &middot; as of Oct 28, 2026</span>\n  </div>\n  <table>\n    <thead>\n      <tr>\n        <th>Page</th>\n        <th>Clicks</th>\n        <th>Impressions</th>\n        <th>Avg position</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td class=\"page-path\">/ (home)</td>\n        <td>257</td>\n        <td>13,613</td>\n        <td>15.0</td>\n      </tr>\n      <tr>\n        <td class=\"page-path\">/blog/algae-on-stucco-removal</td>\n        <td>13</td>\n        <td>632</td>\n        <td>7.1</td>\n      </tr>\n      <tr>\n        <td class=\"page-path\">/blog/driveway-mold-removal</td>\n        <td>9</td>\n        <td>659</td>\n        <td>7.0</td>\n      </tr>\n      <tr>\n        <td class=\"page-path\">/blog/roof-lichen-removal</td>\n        <td>8</td>\n        <td>837</td>\n        <td>10.1</td>\n      </tr>\n      <tr>\n        <td class=\"page-path\">/blog/pressure-wash-tile-roof-safe</td>\n        <td>6</td>\n        <td>466</td>\n        <td>7.3</td>\n      </tr>\n      <tr>\n        <td class=\"page-path\">/blog/soft-washing-chemicals</td>\n        <td>6</td>\n        <td>702</td>\n        <td>8.6</td>\n      </tr>\n      <tr>\n        <td class=\"page-path\">/blog/efflorescence-on-pavers</td>\n        <td>4</td>\n        <td>680</td>\n        <td>7.7</td>\n      </tr>\n      <tr>\n        <td class=\"page-path\">/blog/stucco-house-washing</td>\n        <td>3</td>\n        <td>266</td>\n        <td>9.5</td>\n      </tr></tbody>\n  </table>\n  <p class=\"note\">Top 8 of 64 pages earning clicks.</p>\n</section>\n\n<section class=\"block\">\n  <div class=\"block-head\">\n    <h2>Keywords bringing visitors</h2>\n    <span class=\"channel\">Last 12 months &middot; as of Oct 28, 2026</span>\n  </div>\n  <table>\n    <thead>\n      <tr>\n        <th>Keyword</th>\n        <th>Clicks</th>\n        <th>Impressions</th>\n        <th>Avg position</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td class=\"keyword\">goleta pressure washing</td>\n        <td>70</td>\n        <td>401</td>\n        <td>1.6</td>\n      </tr>\n      <tr>\n        <td class=\"keyword\">goleta home services</td>\n        <td>12</td>\n        <td>34</td>\n        <td>6.7</td>\n      </tr>\n      <tr>\n        <td class=\"keyword\">pressure washing santa barbara</td>\n        <td>5</td>\n        <td>757</td>\n        <td>12.2</td>\n      </tr>\n      <tr>\n        <td class=\"keyword\">gutter cleaning santa barbara<span class=\"keyword-volume\">30/mo searches</span></td>\n        <td>4</td>\n        <td>761</td>\n        <td>22.0</td>\n      </tr>\n      <tr>\n        <td class=\"keyword\">home power washing services near me</td>\n        <td>3</td>\n        <td>6</td>\n        <td>1.0</td>\n      </tr>\n      <tr>\n        <td class=\"keyword\">power wash house</td>\n        <td>2</td>\n        <td>3</td>\n        <td>1.0</td>\n      </tr>\n      <tr>\n        <td class=\"keyword\">power washing</td>\n        <td>2</td>\n        <td>216</td>\n        <td>6.4</td>\n      </tr>\n      <tr>\n        <td class=\"keyword\">handyman goleta</td>\n        <td>2</td>\n        <td>42</td>\n        <td>10.1</td>\n      </tr></tbody>\n  </table>\n  <p class=\"note\">Top 8 of 43 keywords earning clicks.</p>\n</section>\n\n<section class=\"block\">\n  <div class=\"block-head\">\n    <h2>Content that landed</h2>\n    <span class=\"channel\">30 articles published this period</span>\n  </div>\n  <table>\n    <thead>\n      <tr>\n        <th>Article &amp; top keyword</th>\n        <th>Published</th>\n        <th>Visitors</th><th>Avg position</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td class=\"article-title\">Kill Stucco Algae in 10–15 Minutes: Soft Wash for Goleta Homeowners<span class=\"article-keyword\">algae on stucco removal</span></td>\n        <td class=\"prev\">Sep 13, 2026</td>\n        <td>13</td><td>7.1</td>\n      </tr>\n      <tr>\n        <td class=\"article-title\">Avoid 65–80% Regrowth: Driveway Mold Removal for Homeowners<span class=\"article-keyword\">driveway mold removal</span></td>\n        <td class=\"prev\">Sep 12, 2026</td>\n        <td>9</td><td>7.0</td>\n      </tr>\n      <tr>\n        <td class=\"article-title\">Homeowners: $0.15–$2.00 per sq ft for Paver Cleaning in 2026<span class=\"article-keyword\">paver cleaning cost</span></td>\n        <td class=\"prev\">Sep 2, 2026</td>\n        <td>2</td><td>6.0</td>\n      </tr>\n      <tr>\n        <td class=\"article-title\">Under 400 PSI: Soft Wash Steps to Protect Brick and Mortar<span class=\"article-keyword\">power washing brick safety</span></td>\n        <td class=\"prev\">Sep 4, 2026</td>\n        <td>2</td><td>6.0</td>\n      </tr>\n      <tr>\n        <td class=\"article-title\">Up to 45.6% Loss: Homeowners&#39; Solar Panel Output After Cleaning<span class=\"article-keyword\">solar panel output after cleaning</span></td>\n        <td class=\"prev\">Sep 5, 2026</td>\n        <td>1</td><td>7.9</td>\n      </tr></tbody>\n  </table>\n  \n</section>\n\n<section class=\"block\">\n  <div class=\"block-head\">\n    <h2>Authority</h2>\n    <span class=\"channel\">Since Aug 2026</span>\n  </div>\n  <div class=\"cols\">\n    <div>\n      <p class=\"eyebrow\">Domain rating</p>\n      <svg class=\"chart trend-chart\" viewBox=\"0 0 340 130\" role=\"img\"\n  aria-label=\"From DR 1 to DR 12\">\n  <polygon points=\"4,96 4,95.3 114.7,95.3 225.3,95.3 336,87.6 336,96\" fill=\"#E94545\" fill-opacity=\"0.14\" />\n  <polyline points=\"4,95.3 114.7,95.3 225.3,95.3 336,87.6\" fill=\"none\" stroke=\"#d63f3f\" stroke-width=\"2\"\n    stroke-linejoin=\"round\" stroke-linecap=\"round\" />\n  <circle cx=\"336\" cy=\"87.6\" r=\"3.5\" fill=\"#d63f3f\" />\n  <text x=\"4\" y=\"86.3\" class=\"trend-value\">DR 1</text>\n  <text x=\"336\" y=\"75.6\" class=\"trend-value\" text-anchor=\"end\">DR 12</text>\n  <text x=\"4\" y=\"118\" class=\"axis\" text-anchor=\"start\">Aug 2026</text>\n  <text x=\"114.7\" y=\"118\" class=\"axis\" text-anchor=\"middle\">Aug 2026</text>\n  <text x=\"336\" y=\"118\" class=\"axis\" text-anchor=\"end\">Sep 2026</text>\n</svg>\n      <p class=\"note\">Up 11 points since Aug 2026, from 22 links across 18 referring domains.</p>\n      <p class=\"eyebrow authority-gap\">Link quality</p>\n      <ul class=\"bars\"><li class=\"bar-row\">\n      <span class=\"bar-label\">DR 30+</span>\n      <span class=\"bar-track\"><span class=\"bar-fill\" style=\"width:5%\"></span></span>\n      <span class=\"bar-value\">5%</span>\n    </li><li class=\"bar-row\">\n      <span class=\"bar-label\">DR 20-29</span>\n      <span class=\"bar-track\"><span class=\"bar-fill\" style=\"width:55%\"></span></span>\n      <span class=\"bar-value\">55%</span>\n    </li><li class=\"bar-row\">\n      <span class=\"bar-label\">DR 10-19</span>\n      <span class=\"bar-track\"><span class=\"bar-fill\" style=\"width:36%\"></span></span>\n      <span class=\"bar-value\">36%</span>\n    </li><li class=\"bar-row\">\n      <span class=\"bar-label\">DR 0-9</span>\n      <span class=\"bar-track\"><span class=\"bar-fill\" style=\"width:5%\"></span></span>\n      <span class=\"bar-value\">5%</span>\n    </li></ul>\n    </div>\n    <div>\n      <p class=\"eyebrow\">Strongest links earned</p>\n      <table><tbody>\n      <tr>\n        <td class=\"link-domain\">whitediamondpressurewashing.com</td>\n        <td>DR 31</td>\n      </tr>\n      <tr>\n        <td class=\"link-domain\">coastalroofingfla.com</td>\n        <td>DR 28</td>\n      </tr>\n      <tr>\n        <td class=\"link-domain\">shingleroofrenewal.com</td>\n        <td>DR 26</td>\n      </tr>\n      <tr>\n        <td class=\"link-domain\">asphaltworkx.ca</td>\n        <td>DR 26</td>\n      </tr>\n      <tr>\n        <td class=\"link-domain\">sherrypropertycare.ie</td>\n        <td>DR 25</td>\n      </tr>\n      <tr>\n        <td class=\"link-domain\">fernandeznsons.com</td>\n        <td>DR 24</td>\n      </tr>\n      <tr>\n        <td class=\"link-domain\">pave-n-turf.com</td>\n        <td>DR 24</td>\n      </tr>\n      <tr>\n        <td class=\"link-domain\">alldaypowerwashing.com</td>\n        <td>DR 24</td>\n      </tr></tbody></table>\n    </div>\n  </div>\n</section>\n\n<section class=\"block\">\n  <div class=\"block-head\">\n    <h2>Site health</h2>\n    <span class=\"channel\">Audited Sep 27, 2026</span>\n  </div>\n  <div class=\"cols\"><div>\n      <p class=\"eyebrow\">Fixed &mdash; 0 this period</p>\n      <p class=\"empty\">We have not logged any fixes in this period.</p>\n    </div><div>\n      <p class=\"eyebrow\">Still open &mdash; 3 across 20 pages</p>\n      <ul class=\"issues\"><li class=\"issue-row\">\n      <span class=\"severity low\">Low</span>\n      <span class=\"issue-label\">Image is too large</span>\n      <span class=\"issue-count\">3</span>\n    </li></ul>\n    </div></div>\n</section>\n\n<section class=\"block\">\n  <div class=\"block-head\">\n    <h2>Where people mentioned you</h2>\n    <span class=\"channel\">1 new &middot; 13 total</span>\n  </div>\n  <table>\n    <thead>\n      <tr>\n        <th>Source</th>\n        <th class=\"thread-head\">Thread</th>\n        <th>Date</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td class=\"thread-source\">Reddit &middot; r/pressurewashing</td>\n        <td class=\"thread-title\">How to wash a roof 101</td>\n        <td class=\"prev\">Sep 5, 2026</td>\n      </tr></tbody>\n  </table>\n  \n</section>\n\n<section class=\"block\">\n  <div class=\"block-head\">\n    <h2>AI search visibility</h2>\n    <span class=\"channel\">Run of Sep 22, 2026</span>\n  </div>\n  <p class=\"sub\">We ask 10 questions across 2 assistants and count how often you are named. This run: <strong>1 of 20 answers (5%)</strong>, against 0% in Aug 2026.</p>\n  <div class=\"cols ai-cols\">\n    <div>\n      <p class=\"eyebrow\">Share of answers naming you</p>\n      <svg class=\"chart trend-chart\" viewBox=\"0 0 340 130\" role=\"img\"\n  aria-label=\"From 0% to 2%\">\n  <polygon points=\"4,96 4,96 336,94.6 336,96\" fill=\"#E94545\" fill-opacity=\"0.14\" />\n  <polyline points=\"4,96 336,94.6\" fill=\"none\" stroke=\"#d63f3f\" stroke-width=\"2\"\n    stroke-linejoin=\"round\" stroke-linecap=\"round\" />\n  <circle cx=\"336\" cy=\"94.6\" r=\"3.5\" fill=\"#d63f3f\" />\n  <text x=\"4\" y=\"87\" class=\"trend-value\">0%</text>\n  <text x=\"336\" y=\"82.6\" class=\"trend-value\" text-anchor=\"end\">2%</text>\n  <text x=\"4\" y=\"118\" class=\"axis\" text-anchor=\"start\">Aug 2026</text>\n  <text x=\"336\" y=\"118\" class=\"axis\" text-anchor=\"end\">Sep 2026</text>\n</svg>\n    </div>\n    <div>\n      <p class=\"eyebrow\">By assistant</p>\n      <ul class=\"bars\"><li class=\"bar-row\">\n      <span class=\"bar-label\">Claude</span>\n      <span class=\"bar-track\"><span class=\"bar-fill\" style=\"width:10%\"></span></span>\n      <span class=\"bar-value\" title=\"10 answers\">10%</span>\n    </li><li class=\"bar-row\">\n      <span class=\"bar-label\">ChatGPT</span>\n      <span class=\"bar-track\"><span class=\"bar-fill\" style=\"width:0%\"></span></span>\n      <span class=\"bar-value\" title=\"10 answers\">0%</span>\n    </li></ul>\n    </div>\n  </div>\n  <div class=\"cols ai-cols\">\n    <div>\n      <p class=\"eyebrow\">Share of voice against the market</p>\n      <ul class=\"bars\"><li class=\"bar-row\">\n      <span class=\"bar-label\">Almighty Windows</span>\n      <span class=\"bar-track\"><span class=\"bar-fill\" style=\"width:15%\"></span></span>\n      <span class=\"bar-value\">15%</span>\n    </li><li class=\"bar-row\">\n      <span class=\"bar-label\">Santabarbarasoftwash</span>\n      <span class=\"bar-track\"><span class=\"bar-fill\" style=\"width:10%\"></span></span>\n      <span class=\"bar-value\">10%</span>\n    </li><li class=\"bar-row\">\n      <span class=\"bar-label\">BlueBird Window Cleaning</span>\n      <span class=\"bar-track\"><span class=\"bar-fill\" style=\"width:10%\"></span></span>\n      <span class=\"bar-value\">10%</span>\n    </li><li class=\"bar-row\">\n      <span class=\"bar-label\">Time to Shine</span>\n      <span class=\"bar-track\"><span class=\"bar-fill\" style=\"width:10%\"></span></span>\n      <span class=\"bar-value\">10%</span>\n    </li><li class=\"bar-row\">\n      <span class=\"bar-label\">Clean Roof USA</span>\n      <span class=\"bar-track\"><span class=\"bar-fill\" style=\"width:10%\"></span></span>\n      <span class=\"bar-value\">10%</span>\n    </li><li class=\"bar-row is-you\">\n      <span class=\"bar-label\">Goleta Pressure Washing</span>\n      <span class=\"bar-track\"><span class=\"bar-fill\" style=\"width:5%\"></span></span>\n      <span class=\"bar-value\">5%</span>\n    </li></ul>\n    </div>\n    <div>\n      <p class=\"eyebrow\">Prompt by prompt</p>\n      <ul class=\"prompts\"><li class=\"prompt-row\">\n      <span class=\"prompt-text\">is Santabarbarasoftwash worth it for roof moss removal</span>\n      <span class=\"prompt-score\">1 of 2</span>\n    </li><li class=\"prompt-row\">\n      <span class=\"prompt-text\">cheapest driveway cleaning 2026</span>\n      <span class=\"prompt-score none\">0 of 2</span>\n    </li><li class=\"prompt-row\">\n      <span class=\"prompt-text\">what do users say about solar panel cleaning</span>\n      <span class=\"prompt-score none\">0 of 2</span>\n    </li><li class=\"prompt-row\">\n      <span class=\"prompt-text\">what is soft washing</span>\n      <span class=\"prompt-score none\">0 of 2</span>\n    </li><li class=\"prompt-row\">\n      <span class=\"prompt-text\">best exterior cleaning services Santa Barbara 2026</span>\n      <span class=\"prompt-score none\">0 of 2</span>\n    </li><li class=\"prompt-row\">\n      <span class=\"prompt-text\">top 10 roof cleaning companies 2026</span>\n      <span class=\"prompt-score none\">0 of 2</span>\n    </li></ul>\n    </div>\n  </div>\n</section>\n<footer class=\"foot\"><p>These are estimates: ad spend saved prices search visits at what the same clicks would cost in Google Ads, and backlink cost saved uses a domain-rating tier scale.</p><p>Search Console data through Oct 26, 2026.</p></footer>\n</main>\n</body>\n</html>",
+   "thirdParty": false
+  },
+  {
+   "t": 1793425203780,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/rmkt/collect/16911376865/?random=1793425203776&cv=11&fst=1793425203776&fmt=8&bg=ffffff&guid=ON&async=1&en=page_view&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&u_w=1728&u_h=1117&url=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Freporting&ref=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsocials%3Ftab%3Dreddit&rcb=10&frm=0&tiba=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&ae=a&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1516021665.1792961308&data=event%3Dpage_view&ept=68&gcp=5",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/reporting",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425203782,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45be6as1v9207972463z89206116257za20gzb9206116257zd9206116257xf1&_p=1793425134046&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=10&sr=1728x1117&ul=en-us&_s=21&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&sid=1793419913&sct=3&seg=1&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Freporting&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fgeo-audit&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=gtm.historyChange-v2&tfd=70331",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/reporting",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425203784,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://www.google.com/ccm/collect?rcb=10&frm=0&apvc=0&auid=1516021665.1792961308&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&tid=AW-16911376865&en=page_view&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Freporting&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Foverview&scrsrc=www.googletagmanager.com&rnd=1946196919.1793425134&navt=r&npa=0&ae=a&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xecxf1&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&tft=1793425203784&tfd=70333&_gsid=d4lFfr-9cGz151BH0s0F9C5fQdX0k-9UMQ&tids=AW-16911376865&fmt=8",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/reporting",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  },
+  {
+   "t": 1793425203787,
+   "kind": "fetch",
+   "method": "POST",
+   "url": "https://analytics.google.com/g/collect?v=2&tid=G-WHR3NL5TTJ&gtm=45be6as1v9207972463za20gzb9206116257zd9206116257xf1&_p=1793425134046&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAACQC&ae=a&cid=1738520612.1792193750&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=10&sr=1728x1117&ul=en-us&_s=22&tag_exp=115616986~115938466~115938469~117776795~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034~123691370~123814183&dl=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Freporting&dr=https%3A%2F%2Fapp.vaultio.co%2Fen%2Fdashboard%2Fsocials%3Ftab%3Dreddit&sid=1793419913&sct=3&seg=1&dt=Vaultio%20-%20Get%20Google%20and%20ChatGPT%20Traffic%20on%20Autopilot&en=page_view&tfd=70336",
+   "reqHeaders": {},
+   "reqBody": null,
+   "page": "/en/dashboard/reporting",
+   "status": 0,
+   "resBody": null,
+   "thirdParty": true
+  }
+ ]
+}

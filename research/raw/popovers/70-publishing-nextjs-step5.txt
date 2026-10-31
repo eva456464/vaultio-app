@@ -1,0 +1,19 @@
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 5 of 6
+
+Scaffold the blog & run
+Add the blog to your app, then start your site:
+SCAFFOLD COMMAND
+npx babylovegrowth-next-js-blog init
+
+1
+Run npm run dev and open /blog to see your articles.
+2
+Prefer manual setup? Copy the starter app/blog folder into your project instead.
+Back
+Done
+View detailed instructions
+

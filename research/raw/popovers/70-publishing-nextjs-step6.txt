@@ -1,0 +1,18 @@
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 6 of 6
+
+Next.js Blog connected!
+Your API key is ready. Use it in your Next.js project to render your blog.
+vaultio.co/blog
+Connected
+Remember: Keep your API key server-side only. Your site uses daily ISR caching, so new articles can take up to a day to appear unless you redeploy.
+Something not working?
+Chat with support
+Delete
+Back
+Save
+View detailed instructions
+

@@ -1,0 +1,48 @@
+Site health
+Identifies issues that can block Google and ChatGPT from reading and ranking your site
+Choose pages
+What we check
+Share
+Health score
+Overall score
+
+99
+Good
+Page Speed
+100
+/100
+LLM Optimization
+99
+/100
+Technical SEO
+99
+/100
+Crawler files
+
+sitemap.xml
+robots.txt
+llms.txt
+Issues detected
+3 issue types on 4 pages
+
+How to fix the whole site
+
+Next check in 3d 9h
+By issue
+By page
+
+Medium
+Irrelevant meta description
+Technical SEO
+3 pages
+
+Medium
+Meta title length issue
+Technical SEO
+1 page
+
+Low
+Large image
+Technical SEO
+1 page
+

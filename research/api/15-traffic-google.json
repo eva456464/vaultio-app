@@ -3165,6 +3165,2796 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/gsc/metrics/timeseries?&period=all",
+   "status": 200,
+   "resBody": {
+    "total": {
+     "clicks": 248,
+     "impressions": 37956,
+     "avgPosition": 23.5
+    },
+    "first": {
+     "clicks": 1,
+     "impressions": 53,
+     "position": 40.4
+    },
+    "last": {
+     "clicks": 2,
+     "impressions": 203,
+     "position": 17.9
+    },
+    "timeseries": [
+     {
+      "id": 9445410,
+      "date": "2026-04-20T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 3,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445411,
+      "date": "2026-04-21T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 2,
+      "ctr": 1,
+      "position": 2,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445412,
+      "date": "2026-04-22T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 39,
+      "ctr": 0.08,
+      "position": 8.67,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445413,
+      "date": "2026-04-23T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 34,
+      "ctr": 0.06,
+      "position": 46.82,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445414,
+      "date": "2026-04-24T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 47,
+      "ctr": 0.06,
+      "position": 57.74,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445415,
+      "date": "2026-04-25T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 39,
+      "ctr": 0.03,
+      "position": 48.28,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445416,
+      "date": "2026-04-26T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 99,
+      "ctr": 0,
+      "position": 64.1,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445417,
+      "date": "2026-04-27T00:00:00.000Z",
+      "clicks": 6,
+      "impressions": 94,
+      "ctr": 0.06,
+      "position": 48.02,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445418,
+      "date": "2026-04-28T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 38,
+      "ctr": 0.03,
+      "position": 41.16,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445419,
+      "date": "2026-04-29T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 58,
+      "ctr": 0.03,
+      "position": 34.05,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445420,
+      "date": "2026-04-30T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 32,
+      "ctr": 0.03,
+      "position": 31.84,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445421,
+      "date": "2026-05-01T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 82,
+      "ctr": 0.02,
+      "position": 16.56,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445422,
+      "date": "2026-05-02T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 37,
+      "ctr": 0,
+      "position": 43.27,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445423,
+      "date": "2026-05-03T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 119,
+      "ctr": 0,
+      "position": 50.04,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445424,
+      "date": "2026-05-04T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 75,
+      "ctr": 0.03,
+      "position": 33.72,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445425,
+      "date": "2026-05-05T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 52,
+      "ctr": 0,
+      "position": 37.12,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445426,
+      "date": "2026-05-06T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 49,
+      "ctr": 0,
+      "position": 49.27,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445427,
+      "date": "2026-05-07T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 78,
+      "ctr": 0.01,
+      "position": 42.65,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445428,
+      "date": "2026-05-08T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 54,
+      "ctr": 0,
+      "position": 50.93,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445429,
+      "date": "2026-05-09T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 38,
+      "ctr": 0,
+      "position": 57.55,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445430,
+      "date": "2026-05-10T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 66,
+      "ctr": 0.02,
+      "position": 45.71,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445431,
+      "date": "2026-05-11T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 75,
+      "ctr": 0.01,
+      "position": 45.09,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445432,
+      "date": "2026-05-12T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 72,
+      "ctr": 0.03,
+      "position": 28.08,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445433,
+      "date": "2026-05-13T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 45,
+      "ctr": 0.02,
+      "position": 49.56,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445434,
+      "date": "2026-05-14T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 47,
+      "ctr": 0.04,
+      "position": 48.91,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445435,
+      "date": "2026-05-15T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 42,
+      "ctr": 0,
+      "position": 51.9,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445436,
+      "date": "2026-05-16T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 26,
+      "ctr": 0,
+      "position": 40.73,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445437,
+      "date": "2026-05-17T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 75,
+      "ctr": 0,
+      "position": 58.76,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445438,
+      "date": "2026-05-18T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 58,
+      "ctr": 0,
+      "position": 35.48,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445439,
+      "date": "2026-05-19T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 30,
+      "ctr": 0.07,
+      "position": 41.07,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445440,
+      "date": "2026-05-20T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 38,
+      "ctr": 0,
+      "position": 46.79,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445441,
+      "date": "2026-05-21T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 244,
+      "ctr": 0,
+      "position": 16.21,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445442,
+      "date": "2026-05-22T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 53,
+      "ctr": 0,
+      "position": 13.15,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445443,
+      "date": "2026-05-23T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 33,
+      "ctr": 0,
+      "position": 37.3,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445444,
+      "date": "2026-05-24T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 138,
+      "ctr": 0,
+      "position": 27.72,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445445,
+      "date": "2026-05-25T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 169,
+      "ctr": 0.01,
+      "position": 25.96,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445446,
+      "date": "2026-05-26T00:00:00.000Z",
+      "clicks": 4,
+      "impressions": 149,
+      "ctr": 0.03,
+      "position": 23.47,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445447,
+      "date": "2026-05-27T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 89,
+      "ctr": 0.01,
+      "position": 46.53,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445448,
+      "date": "2026-05-28T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 110,
+      "ctr": 0.02,
+      "position": 50.15,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445449,
+      "date": "2026-05-29T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 77,
+      "ctr": 0,
+      "position": 43.14,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445450,
+      "date": "2026-05-30T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 56,
+      "ctr": 0.02,
+      "position": 28.41,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445451,
+      "date": "2026-05-31T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 203,
+      "ctr": 0.01,
+      "position": 24.21,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445452,
+      "date": "2026-06-01T00:00:00.000Z",
+      "clicks": 4,
+      "impressions": 270,
+      "ctr": 0.01,
+      "position": 25.24,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445453,
+      "date": "2026-06-02T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 167,
+      "ctr": 0.01,
+      "position": 28.92,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445454,
+      "date": "2026-06-03T00:00:00.000Z",
+      "clicks": 5,
+      "impressions": 69,
+      "ctr": 0.07,
+      "position": 25.78,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445455,
+      "date": "2026-06-04T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 76,
+      "ctr": 0.04,
+      "position": 30.33,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445456,
+      "date": "2026-06-05T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 116,
+      "ctr": 0.03,
+      "position": 14.41,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445457,
+      "date": "2026-06-06T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 52,
+      "ctr": 0,
+      "position": 34.9,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445458,
+      "date": "2026-06-07T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 181,
+      "ctr": 0,
+      "position": 21.61,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445459,
+      "date": "2026-06-08T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 134,
+      "ctr": 0.01,
+      "position": 25.12,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445460,
+      "date": "2026-06-09T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 184,
+      "ctr": 0.01,
+      "position": 13.34,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445461,
+      "date": "2026-06-10T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 112,
+      "ctr": 0.03,
+      "position": 17.31,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445462,
+      "date": "2026-06-11T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 47,
+      "ctr": 0,
+      "position": 22.94,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445463,
+      "date": "2026-06-12T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 66,
+      "ctr": 0.02,
+      "position": 32.76,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445464,
+      "date": "2026-06-13T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 67,
+      "ctr": 0,
+      "position": 26.13,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445465,
+      "date": "2026-06-14T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 214,
+      "ctr": 0,
+      "position": 18.14,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445466,
+      "date": "2026-06-15T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 238,
+      "ctr": 0.01,
+      "position": 14.22,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445467,
+      "date": "2026-06-16T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 276,
+      "ctr": 0,
+      "position": 8.97,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445468,
+      "date": "2026-06-17T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 108,
+      "ctr": 0.03,
+      "position": 10.89,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445469,
+      "date": "2026-06-18T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 103,
+      "ctr": 0,
+      "position": 16.48,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445470,
+      "date": "2026-06-19T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 152,
+      "ctr": 0.01,
+      "position": 14.76,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445471,
+      "date": "2026-06-20T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 111,
+      "ctr": 0,
+      "position": 18.21,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445472,
+      "date": "2026-06-21T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 249,
+      "ctr": 0,
+      "position": 15.59,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445473,
+      "date": "2026-06-22T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 222,
+      "ctr": 0,
+      "position": 16.44,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445474,
+      "date": "2026-06-23T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 368,
+      "ctr": 0,
+      "position": 6.48,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445475,
+      "date": "2026-06-24T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 126,
+      "ctr": 0,
+      "position": 17.87,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445476,
+      "date": "2026-06-25T00:00:00.000Z",
+      "clicks": 4,
+      "impressions": 236,
+      "ctr": 0.02,
+      "position": 11.61,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445477,
+      "date": "2026-06-26T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 179,
+      "ctr": 0.01,
+      "position": 17.02,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9445478,
+      "date": "2026-06-27T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 151,
+      "ctr": 0.01,
+      "position": 14.28,
+      "createdAt": "2026-06-29T04:15:03.777Z",
+      "updatedAt": "2026-06-29T04:15:03.777Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9484543,
+      "date": "2026-06-28T00:00:00.000Z",
+      "clicks": 6,
+      "impressions": 293,
+      "ctr": 0.02,
+      "position": 20.08,
+      "createdAt": "2026-07-02T04:30:02.397Z",
+      "updatedAt": "2026-07-02T04:30:02.397Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9484544,
+      "date": "2026-06-29T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 259,
+      "ctr": 0,
+      "position": 17.76,
+      "createdAt": "2026-07-02T04:30:02.397Z",
+      "updatedAt": "2026-07-02T04:30:02.397Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9528822,
+      "date": "2026-06-30T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 321,
+      "ctr": 0,
+      "position": 19.98,
+      "createdAt": "2026-07-05T04:40:03.611Z",
+      "updatedAt": "2026-07-05T04:40:03.611Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9528823,
+      "date": "2026-07-01T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 311,
+      "ctr": 0,
+      "position": 16.97,
+      "createdAt": "2026-07-05T04:40:03.611Z",
+      "updatedAt": "2026-07-05T04:40:03.611Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9528824,
+      "date": "2026-07-02T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 206,
+      "ctr": 0.01,
+      "position": 25.01,
+      "createdAt": "2026-07-05T04:40:03.611Z",
+      "updatedAt": "2026-07-05T04:40:03.611Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9528825,
+      "date": "2026-07-03T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 222,
+      "ctr": 0,
+      "position": 19.16,
+      "createdAt": "2026-07-05T04:40:03.611Z",
+      "updatedAt": "2026-07-05T04:40:03.611Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9595079,
+      "date": "2026-07-04T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 214,
+      "ctr": 0,
+      "position": 22.29,
+      "createdAt": "2026-07-08T05:00:03.063Z",
+      "updatedAt": "2026-07-08T05:00:03.063Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9595080,
+      "date": "2026-07-05T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 335,
+      "ctr": 0,
+      "position": 17.01,
+      "createdAt": "2026-07-08T05:00:03.063Z",
+      "updatedAt": "2026-07-08T05:00:03.063Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9662538,
+      "date": "2026-07-06T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 278,
+      "ctr": 0,
+      "position": 16.99,
+      "createdAt": "2026-07-11T05:10:03.656Z",
+      "updatedAt": "2026-07-11T05:10:03.656Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9662539,
+      "date": "2026-07-07T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 392,
+      "ctr": 0,
+      "position": 16.58,
+      "createdAt": "2026-07-11T05:10:03.656Z",
+      "updatedAt": "2026-07-11T05:10:03.656Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9662540,
+      "date": "2026-07-08T00:00:00.000Z",
+      "clicks": 6,
+      "impressions": 266,
+      "ctr": 0.02,
+      "position": 27.16,
+      "createdAt": "2026-07-11T05:10:03.656Z",
+      "updatedAt": "2026-07-11T05:10:03.656Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9722024,
+      "date": "2026-07-09T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 227,
+      "ctr": 0,
+      "position": 28.71,
+      "createdAt": "2026-07-14T05:20:01.373Z",
+      "updatedAt": "2026-07-14T05:20:01.373Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9722025,
+      "date": "2026-07-10T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 290,
+      "ctr": 0.01,
+      "position": 24.02,
+      "createdAt": "2026-07-14T05:20:01.373Z",
+      "updatedAt": "2026-07-14T05:20:01.373Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9722026,
+      "date": "2026-07-11T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 239,
+      "ctr": 0,
+      "position": 17.33,
+      "createdAt": "2026-07-14T05:20:01.373Z",
+      "updatedAt": "2026-07-14T05:20:01.373Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9722027,
+      "date": "2026-07-12T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 327,
+      "ctr": 0,
+      "position": 17.7,
+      "createdAt": "2026-07-14T05:20:01.373Z",
+      "updatedAt": "2026-07-14T05:20:01.373Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9784115,
+      "date": "2026-07-13T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 282,
+      "ctr": 0,
+      "position": 17.41,
+      "createdAt": "2026-07-17T05:30:06.388Z",
+      "updatedAt": "2026-07-17T05:30:06.388Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9784116,
+      "date": "2026-07-14T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 341,
+      "ctr": 0,
+      "position": 15.12,
+      "createdAt": "2026-07-17T05:30:06.388Z",
+      "updatedAt": "2026-07-17T05:30:06.388Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9834948,
+      "date": "2026-07-15T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 270,
+      "ctr": 0,
+      "position": 23.53,
+      "createdAt": "2026-07-20T05:40:02.019Z",
+      "updatedAt": "2026-07-20T05:40:02.019Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9834949,
+      "date": "2026-07-16T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 331,
+      "ctr": 0,
+      "position": 13.75,
+      "createdAt": "2026-07-20T05:40:02.019Z",
+      "updatedAt": "2026-07-20T05:40:02.019Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9834950,
+      "date": "2026-07-17T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 285,
+      "ctr": 0,
+      "position": 17.06,
+      "createdAt": "2026-07-20T05:40:02.019Z",
+      "updatedAt": "2026-07-20T05:40:02.019Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9899186,
+      "date": "2026-07-18T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 217,
+      "ctr": 0,
+      "position": 16.73,
+      "createdAt": "2026-07-23T05:50:01.350Z",
+      "updatedAt": "2026-07-23T05:50:01.350Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9899187,
+      "date": "2026-07-19T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 274,
+      "ctr": 0,
+      "position": 16.67,
+      "createdAt": "2026-07-23T05:50:01.350Z",
+      "updatedAt": "2026-07-23T05:50:01.350Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9899188,
+      "date": "2026-07-20T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 237,
+      "ctr": 0,
+      "position": 18.5,
+      "createdAt": "2026-07-23T05:50:01.350Z",
+      "updatedAt": "2026-07-23T05:50:01.350Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9951402,
+      "date": "2026-07-21T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 316,
+      "ctr": 0.01,
+      "position": 15.76,
+      "createdAt": "2026-07-26T06:00:02.546Z",
+      "updatedAt": "2026-07-26T06:00:02.546Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9951403,
+      "date": "2026-07-22T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 203,
+      "ctr": 0.01,
+      "position": 25.64,
+      "createdAt": "2026-07-26T06:00:02.546Z",
+      "updatedAt": "2026-07-26T06:00:02.546Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 9951404,
+      "date": "2026-07-23T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 220,
+      "ctr": 0.01,
+      "position": 22.37,
+      "createdAt": "2026-07-26T06:00:02.546Z",
+      "updatedAt": "2026-07-26T06:00:02.546Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10011171,
+      "date": "2026-07-24T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 278,
+      "ctr": 0,
+      "position": 19.98,
+      "createdAt": "2026-07-29T06:10:00.961Z",
+      "updatedAt": "2026-07-29T06:10:00.961Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10011172,
+      "date": "2026-07-25T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 406,
+      "ctr": 0,
+      "position": 13.09,
+      "createdAt": "2026-07-29T06:10:00.961Z",
+      "updatedAt": "2026-07-29T06:10:00.961Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10011173,
+      "date": "2026-07-26T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 296,
+      "ctr": 0,
+      "position": 16.86,
+      "createdAt": "2026-07-29T06:10:00.961Z",
+      "updatedAt": "2026-07-29T06:10:00.961Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10065690,
+      "date": "2026-07-27T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 268,
+      "ctr": 0.01,
+      "position": 18.58,
+      "createdAt": "2026-08-01T06:20:01.055Z",
+      "updatedAt": "2026-08-01T06:20:01.055Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10065691,
+      "date": "2026-07-28T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 245,
+      "ctr": 0.01,
+      "position": 13.87,
+      "createdAt": "2026-08-01T06:20:01.055Z",
+      "updatedAt": "2026-08-01T06:20:01.055Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10065692,
+      "date": "2026-07-29T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 116,
+      "ctr": 0.01,
+      "position": 19.68,
+      "createdAt": "2026-08-01T06:20:01.055Z",
+      "updatedAt": "2026-08-01T06:20:01.055Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10118034,
+      "date": "2026-07-30T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 128,
+      "ctr": 0.02,
+      "position": 29.23,
+      "createdAt": "2026-08-04T06:30:01.110Z",
+      "updatedAt": "2026-08-04T06:30:01.110Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10118038,
+      "date": "2026-07-31T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 204,
+      "ctr": 0,
+      "position": 23.17,
+      "createdAt": "2026-08-04T06:30:01.110Z",
+      "updatedAt": "2026-08-04T06:30:01.110Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10118039,
+      "date": "2026-08-01T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 163,
+      "ctr": 0.01,
+      "position": 25.21,
+      "createdAt": "2026-08-04T06:30:01.110Z",
+      "updatedAt": "2026-08-04T06:30:01.110Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10118040,
+      "date": "2026-08-02T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 284,
+      "ctr": 0,
+      "position": 18.67,
+      "createdAt": "2026-08-04T06:30:01.110Z",
+      "updatedAt": "2026-08-04T06:30:01.110Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10173872,
+      "date": "2026-08-03T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 213,
+      "ctr": 0.01,
+      "position": 25.14,
+      "createdAt": "2026-08-07T06:40:00.663Z",
+      "updatedAt": "2026-08-07T06:40:00.663Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10173873,
+      "date": "2026-08-04T00:00:00.000Z",
+      "clicks": 4,
+      "impressions": 245,
+      "ctr": 0.02,
+      "position": 14.37,
+      "createdAt": "2026-08-07T06:40:00.663Z",
+      "updatedAt": "2026-08-07T06:40:00.663Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10226112,
+      "date": "2026-08-05T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 134,
+      "ctr": 0.01,
+      "position": 35.43,
+      "createdAt": "2026-08-10T06:50:02.228Z",
+      "updatedAt": "2026-08-10T06:50:02.228Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10226113,
+      "date": "2026-08-06T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 105,
+      "ctr": 0,
+      "position": 30.57,
+      "createdAt": "2026-08-10T06:50:02.228Z",
+      "updatedAt": "2026-08-10T06:50:02.228Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10226114,
+      "date": "2026-08-07T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 119,
+      "ctr": 0,
+      "position": 27.92,
+      "createdAt": "2026-08-10T06:50:02.228Z",
+      "updatedAt": "2026-08-10T06:50:02.228Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10226115,
+      "date": "2026-08-08T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 110,
+      "ctr": 0.01,
+      "position": 27.71,
+      "createdAt": "2026-08-10T06:50:02.228Z",
+      "updatedAt": "2026-08-10T06:50:02.228Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10279230,
+      "date": "2026-08-09T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 253,
+      "ctr": 0.01,
+      "position": 17.66,
+      "createdAt": "2026-08-13T07:00:01.387Z",
+      "updatedAt": "2026-08-13T07:00:01.387Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10279231,
+      "date": "2026-08-10T00:00:00.000Z",
+      "clicks": 3,
+      "impressions": 181,
+      "ctr": 0.02,
+      "position": 19.48,
+      "createdAt": "2026-08-13T07:00:01.387Z",
+      "updatedAt": "2026-08-13T07:00:01.387Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10327433,
+      "date": "2026-08-11T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 222,
+      "ctr": 0.01,
+      "position": 16.41,
+      "createdAt": "2026-08-16T07:10:01.152Z",
+      "updatedAt": "2026-08-16T07:10:01.152Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10327434,
+      "date": "2026-08-12T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 141,
+      "ctr": 0,
+      "position": 30.22,
+      "createdAt": "2026-08-16T07:10:01.152Z",
+      "updatedAt": "2026-08-16T07:10:01.152Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10327435,
+      "date": "2026-08-13T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 130,
+      "ctr": 0,
+      "position": 40.49,
+      "createdAt": "2026-08-16T07:10:01.152Z",
+      "updatedAt": "2026-08-16T07:10:01.152Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10327436,
+      "date": "2026-08-14T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 148,
+      "ctr": 0,
+      "position": 28.92,
+      "createdAt": "2026-08-16T07:10:01.152Z",
+      "updatedAt": "2026-08-16T07:10:01.152Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10382398,
+      "date": "2026-08-15T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 293,
+      "ctr": 0,
+      "position": 24.76,
+      "createdAt": "2026-08-19T07:20:01.525Z",
+      "updatedAt": "2026-08-19T07:20:01.525Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10382399,
+      "date": "2026-08-16T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 467,
+      "ctr": 0,
+      "position": 23.22,
+      "createdAt": "2026-08-19T07:20:01.525Z",
+      "updatedAt": "2026-08-19T07:20:01.525Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10422225,
+      "date": "2026-08-17T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 397,
+      "ctr": 0.01,
+      "position": 28.92,
+      "createdAt": "2026-08-22T07:30:01.101Z",
+      "updatedAt": "2026-08-22T07:30:01.101Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10422226,
+      "date": "2026-08-18T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 531,
+      "ctr": 0,
+      "position": 23.57,
+      "createdAt": "2026-08-22T07:30:01.101Z",
+      "updatedAt": "2026-08-22T07:30:01.101Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10422227,
+      "date": "2026-08-19T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 448,
+      "ctr": 0,
+      "position": 20.45,
+      "createdAt": "2026-08-22T07:30:01.101Z",
+      "updatedAt": "2026-08-22T07:30:01.101Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10422228,
+      "date": "2026-08-20T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 314,
+      "ctr": 0,
+      "position": 28.68,
+      "createdAt": "2026-08-22T07:30:01.101Z",
+      "updatedAt": "2026-08-22T07:30:01.101Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10463518,
+      "date": "2026-08-21T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 287,
+      "ctr": 0,
+      "position": 28.15,
+      "createdAt": "2026-08-25T07:40:06.839Z",
+      "updatedAt": "2026-08-25T07:40:06.839Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10463519,
+      "date": "2026-08-22T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 252,
+      "ctr": 0,
+      "position": 27.59,
+      "createdAt": "2026-08-25T07:40:06.839Z",
+      "updatedAt": "2026-08-25T07:40:06.839Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10517112,
+      "date": "2026-08-23T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 396,
+      "ctr": 0,
+      "position": 21.78,
+      "createdAt": "2026-08-28T07:50:01.346Z",
+      "updatedAt": "2026-08-28T07:50:01.346Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10517113,
+      "date": "2026-08-24T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 355,
+      "ctr": 0.01,
+      "position": 18.81,
+      "createdAt": "2026-08-28T07:50:01.346Z",
+      "updatedAt": "2026-08-28T07:50:01.346Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10517114,
+      "date": "2026-08-25T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 495,
+      "ctr": 0,
+      "position": 16.89,
+      "createdAt": "2026-08-28T07:50:01.346Z",
+      "updatedAt": "2026-08-28T07:50:01.346Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10517115,
+      "date": "2026-08-26T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 303,
+      "ctr": 0,
+      "position": 26.54,
+      "createdAt": "2026-08-28T07:50:01.346Z",
+      "updatedAt": "2026-08-28T07:50:01.346Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10562916,
+      "date": "2026-08-27T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 316,
+      "ctr": 0.01,
+      "position": 31.71,
+      "createdAt": "2026-08-31T08:10:02.385Z",
+      "updatedAt": "2026-08-31T08:10:02.385Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10562917,
+      "date": "2026-08-28T00:00:00.000Z",
+      "clicks": 4,
+      "impressions": 253,
+      "ctr": 0.02,
+      "position": 21.52,
+      "createdAt": "2026-08-31T08:10:02.385Z",
+      "updatedAt": "2026-08-31T08:10:02.385Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10613074,
+      "date": "2026-08-29T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 218,
+      "ctr": 0,
+      "position": 29.47,
+      "createdAt": "2026-09-03T08:20:02.089Z",
+      "updatedAt": "2026-09-03T08:20:02.089Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10613075,
+      "date": "2026-08-30T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 378,
+      "ctr": 0,
+      "position": 21.44,
+      "createdAt": "2026-09-03T08:20:02.089Z",
+      "updatedAt": "2026-09-03T08:20:02.089Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10613076,
+      "date": "2026-08-31T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 422,
+      "ctr": 0,
+      "position": 22.18,
+      "createdAt": "2026-09-03T08:20:02.089Z",
+      "updatedAt": "2026-09-03T08:20:02.089Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10660235,
+      "date": "2026-09-01T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 520,
+      "ctr": 0,
+      "position": 14.65,
+      "createdAt": "2026-09-06T08:30:03.391Z",
+      "updatedAt": "2026-09-06T08:30:03.391Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10660239,
+      "date": "2026-09-02T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 219,
+      "ctr": 0,
+      "position": 21.23,
+      "createdAt": "2026-09-06T08:30:03.391Z",
+      "updatedAt": "2026-09-06T08:30:03.391Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10660240,
+      "date": "2026-09-03T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 220,
+      "ctr": 0.01,
+      "position": 18.8,
+      "createdAt": "2026-09-06T08:30:03.391Z",
+      "updatedAt": "2026-09-06T08:30:03.391Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10660241,
+      "date": "2026-09-04T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 276,
+      "ctr": 0.01,
+      "position": 20.12,
+      "createdAt": "2026-09-06T08:30:03.391Z",
+      "updatedAt": "2026-09-06T08:30:03.391Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10708572,
+      "date": "2026-09-05T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 190,
+      "ctr": 0,
+      "position": 18.86,
+      "createdAt": "2026-09-09T08:40:00.679Z",
+      "updatedAt": "2026-09-09T08:40:00.679Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10708573,
+      "date": "2026-09-06T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 384,
+      "ctr": 0,
+      "position": 16.53,
+      "createdAt": "2026-09-09T08:40:00.679Z",
+      "updatedAt": "2026-09-09T08:40:00.679Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10750032,
+      "date": "2026-09-07T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 331,
+      "ctr": 0,
+      "position": 16.07,
+      "createdAt": "2026-09-12T08:50:04.158Z",
+      "updatedAt": "2026-09-12T08:50:04.158Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10750033,
+      "date": "2026-09-08T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 352,
+      "ctr": 0,
+      "position": 15.62,
+      "createdAt": "2026-09-12T08:50:04.158Z",
+      "updatedAt": "2026-09-12T08:50:04.158Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10750034,
+      "date": "2026-09-09T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 236,
+      "ctr": 0.01,
+      "position": 18.19,
+      "createdAt": "2026-09-12T08:50:04.158Z",
+      "updatedAt": "2026-09-12T08:50:04.158Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10789790,
+      "date": "2026-09-10T00:00:00.000Z",
+      "clicks": 4,
+      "impressions": 147,
+      "ctr": 0.03,
+      "position": 18.29,
+      "createdAt": "2026-09-15T09:00:01.295Z",
+      "updatedAt": "2026-09-15T09:00:01.295Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10789791,
+      "date": "2026-09-11T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 166,
+      "ctr": 0,
+      "position": 17.2,
+      "createdAt": "2026-09-15T09:00:01.295Z",
+      "updatedAt": "2026-09-15T09:00:01.295Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10789792,
+      "date": "2026-09-12T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 263,
+      "ctr": 0,
+      "position": 15.84,
+      "createdAt": "2026-09-15T09:00:01.295Z",
+      "updatedAt": "2026-09-15T09:00:01.295Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10831395,
+      "date": "2026-09-13T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 177,
+      "ctr": 0,
+      "position": 19.01,
+      "createdAt": "2026-09-18T09:10:03.265Z",
+      "updatedAt": "2026-09-18T09:10:03.265Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10831396,
+      "date": "2026-09-14T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 292,
+      "ctr": 0,
+      "position": 16.46,
+      "createdAt": "2026-09-18T09:10:03.265Z",
+      "updatedAt": "2026-09-18T09:10:03.265Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10831397,
+      "date": "2026-09-15T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 428,
+      "ctr": 0,
+      "position": 12.88,
+      "createdAt": "2026-09-18T09:10:03.265Z",
+      "updatedAt": "2026-09-18T09:10:03.265Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10871047,
+      "date": "2026-09-16T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 243,
+      "ctr": 0,
+      "position": 15.98,
+      "createdAt": "2026-09-21T09:20:05.550Z",
+      "updatedAt": "2026-09-21T09:20:05.550Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10871048,
+      "date": "2026-09-17T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 197,
+      "ctr": 0.01,
+      "position": 16.94,
+      "createdAt": "2026-09-21T09:20:05.550Z",
+      "updatedAt": "2026-09-21T09:20:05.550Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10871049,
+      "date": "2026-09-18T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 231,
+      "ctr": 0,
+      "position": 14.84,
+      "createdAt": "2026-09-21T09:20:05.550Z",
+      "updatedAt": "2026-09-21T09:20:05.550Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10924299,
+      "date": "2026-09-19T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 179,
+      "ctr": 0,
+      "position": 23.66,
+      "createdAt": "2026-09-24T09:30:20.442Z",
+      "updatedAt": "2026-09-24T09:30:20.442Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10924300,
+      "date": "2026-09-20T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 205,
+      "ctr": 0,
+      "position": 16.86,
+      "createdAt": "2026-09-24T09:30:20.442Z",
+      "updatedAt": "2026-09-24T09:30:20.442Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10924301,
+      "date": "2026-09-21T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 196,
+      "ctr": 0.01,
+      "position": 15.72,
+      "createdAt": "2026-09-24T09:30:20.442Z",
+      "updatedAt": "2026-09-24T09:30:20.442Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10967427,
+      "date": "2026-09-22T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 290,
+      "ctr": 0.01,
+      "position": 10.18,
+      "createdAt": "2026-09-27T09:40:21.851Z",
+      "updatedAt": "2026-09-27T09:40:21.851Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10967428,
+      "date": "2026-09-23T00:00:00.000Z",
+      "clicks": 4,
+      "impressions": 172,
+      "ctr": 0.02,
+      "position": 11.89,
+      "createdAt": "2026-09-27T09:40:21.851Z",
+      "updatedAt": "2026-09-27T09:40:21.851Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 10967429,
+      "date": "2026-09-24T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 142,
+      "ctr": 0.01,
+      "position": 12.61,
+      "createdAt": "2026-09-27T09:40:21.851Z",
+      "updatedAt": "2026-09-27T09:40:21.851Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11015395,
+      "date": "2026-09-25T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 289,
+      "ctr": 0,
+      "position": 7.73,
+      "createdAt": "2026-09-30T10:05:00.371Z",
+      "updatedAt": "2026-09-30T10:05:00.371Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11015396,
+      "date": "2026-09-26T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 155,
+      "ctr": 0,
+      "position": 14.57,
+      "createdAt": "2026-09-30T10:05:00.371Z",
+      "updatedAt": "2026-09-30T10:05:00.371Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11015397,
+      "date": "2026-09-27T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 295,
+      "ctr": 0,
+      "position": 8.87,
+      "createdAt": "2026-09-30T10:05:00.371Z",
+      "updatedAt": "2026-09-30T10:05:00.371Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11065650,
+      "date": "2026-09-28T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 185,
+      "ctr": 0.01,
+      "position": 13.9,
+      "createdAt": "2026-10-03T10:10:01.099Z",
+      "updatedAt": "2026-10-03T10:10:01.099Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11065652,
+      "date": "2026-09-29T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 174,
+      "ctr": 0.01,
+      "position": 8.97,
+      "createdAt": "2026-10-03T10:10:01.099Z",
+      "updatedAt": "2026-10-03T10:10:01.099Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11120718,
+      "date": "2026-09-30T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 194,
+      "ctr": 0.01,
+      "position": 15.27,
+      "createdAt": "2026-10-06T10:20:02.497Z",
+      "updatedAt": "2026-10-06T10:20:02.497Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11120722,
+      "date": "2026-10-01T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 231,
+      "ctr": 0,
+      "position": 10.34,
+      "createdAt": "2026-10-06T10:20:02.497Z",
+      "updatedAt": "2026-10-06T10:20:02.497Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11120723,
+      "date": "2026-10-02T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 248,
+      "ctr": 0,
+      "position": 13.89,
+      "createdAt": "2026-10-06T10:20:02.497Z",
+      "updatedAt": "2026-10-06T10:20:02.497Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11120724,
+      "date": "2026-10-03T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 143,
+      "ctr": 0.01,
+      "position": 15.9,
+      "createdAt": "2026-10-06T10:20:02.497Z",
+      "updatedAt": "2026-10-06T10:20:02.497Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11187942,
+      "date": "2026-10-04T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 187,
+      "ctr": 0,
+      "position": 13.36,
+      "createdAt": "2026-10-09T10:30:05.448Z",
+      "updatedAt": "2026-10-09T10:30:05.448Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11187943,
+      "date": "2026-10-05T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 217,
+      "ctr": 0,
+      "position": 19.95,
+      "createdAt": "2026-10-09T10:30:05.448Z",
+      "updatedAt": "2026-10-09T10:30:05.448Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11187944,
+      "date": "2026-10-06T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 150,
+      "ctr": 0.01,
+      "position": 16.05,
+      "createdAt": "2026-10-09T10:30:05.448Z",
+      "updatedAt": "2026-10-09T10:30:05.448Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11240131,
+      "date": "2026-10-07T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 225,
+      "ctr": 0,
+      "position": 13.15,
+      "createdAt": "2026-10-12T10:40:01.833Z",
+      "updatedAt": "2026-10-12T10:40:01.833Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11240132,
+      "date": "2026-10-08T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 204,
+      "ctr": 0.01,
+      "position": 13.33,
+      "createdAt": "2026-10-12T10:40:01.833Z",
+      "updatedAt": "2026-10-12T10:40:01.833Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11240133,
+      "date": "2026-10-09T00:00:00.000Z",
+      "clicks": 4,
+      "impressions": 200,
+      "ctr": 0.02,
+      "position": 12.28,
+      "createdAt": "2026-10-12T10:40:01.833Z",
+      "updatedAt": "2026-10-12T10:40:01.833Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11308989,
+      "date": "2026-10-10T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 109,
+      "ctr": 0.02,
+      "position": 17.38,
+      "createdAt": "2026-10-15T10:50:02.055Z",
+      "updatedAt": "2026-10-15T10:50:02.055Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11308990,
+      "date": "2026-10-11T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 116,
+      "ctr": 0,
+      "position": 18.03,
+      "createdAt": "2026-10-15T10:50:02.055Z",
+      "updatedAt": "2026-10-15T10:50:02.055Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11308991,
+      "date": "2026-10-12T00:00:00.000Z",
+      "clicks": 4,
+      "impressions": 198,
+      "ctr": 0.02,
+      "position": 15.27,
+      "createdAt": "2026-10-15T10:50:02.055Z",
+      "updatedAt": "2026-10-15T10:50:02.055Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11375741,
+      "date": "2026-10-13T00:00:00.000Z",
+      "clicks": 6,
+      "impressions": 455,
+      "ctr": 0.01,
+      "position": 9.25,
+      "createdAt": "2026-10-18T11:01:19.529Z",
+      "updatedAt": "2026-10-18T11:01:19.529Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11375742,
+      "date": "2026-10-14T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 152,
+      "ctr": 0.01,
+      "position": 23.17,
+      "createdAt": "2026-10-18T11:01:19.529Z",
+      "updatedAt": "2026-10-18T11:01:19.529Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11375743,
+      "date": "2026-10-15T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 176,
+      "ctr": 0.01,
+      "position": 18.8,
+      "createdAt": "2026-10-18T11:01:19.529Z",
+      "updatedAt": "2026-10-18T11:01:19.529Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11375744,
+      "date": "2026-10-16T00:00:00.000Z",
+      "clicks": 0,
+      "impressions": 165,
+      "ctr": 0,
+      "position": 15.12,
+      "createdAt": "2026-10-18T11:01:19.529Z",
+      "updatedAt": "2026-10-18T11:01:19.529Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11449765,
+      "date": "2026-10-17T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 148,
+      "ctr": 0.01,
+      "position": 21.78,
+      "createdAt": "2026-10-21T11:10:03.303Z",
+      "updatedAt": "2026-10-21T11:10:03.303Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11449766,
+      "date": "2026-10-18T00:00:00.000Z",
+      "clicks": 4,
+      "impressions": 136,
+      "ctr": 0.03,
+      "position": 18.56,
+      "createdAt": "2026-10-21T11:10:03.303Z",
+      "updatedAt": "2026-10-21T11:10:03.303Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11521596,
+      "date": "2026-10-19T00:00:00.000Z",
+      "clicks": 4,
+      "impressions": 239,
+      "ctr": 0.02,
+      "position": 10.75,
+      "createdAt": "2026-10-24T11:20:01.353Z",
+      "updatedAt": "2026-10-24T11:20:01.353Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11521597,
+      "date": "2026-10-20T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 212,
+      "ctr": 0.01,
+      "position": 17.86,
+      "createdAt": "2026-10-24T11:20:01.353Z",
+      "updatedAt": "2026-10-24T11:20:01.353Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11521598,
+      "date": "2026-10-21T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 178,
+      "ctr": 0.01,
+      "position": 19.39,
+      "createdAt": "2026-10-24T11:20:01.353Z",
+      "updatedAt": "2026-10-24T11:20:01.353Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11521599,
+      "date": "2026-10-22T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 153,
+      "ctr": 0.01,
+      "position": 31.02,
+      "createdAt": "2026-10-24T11:20:01.353Z",
+      "updatedAt": "2026-10-24T11:20:01.353Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11576171,
+      "date": "2026-10-23T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 190,
+      "ctr": 0.01,
+      "position": 22.69,
+      "createdAt": "2026-10-27T11:30:03.639Z",
+      "updatedAt": "2026-10-27T11:30:03.639Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11576172,
+      "date": "2026-10-24T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 191,
+      "ctr": 0.01,
+      "position": 23.52,
+      "createdAt": "2026-10-27T11:30:03.639Z",
+      "updatedAt": "2026-10-27T11:30:03.639Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11576173,
+      "date": "2026-10-25T00:00:00.000Z",
+      "clicks": 1,
+      "impressions": 186,
+      "ctr": 0.01,
+      "position": 26.74,
+      "createdAt": "2026-10-27T11:30:03.639Z",
+      "updatedAt": "2026-10-27T11:30:03.639Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11634468,
+      "date": "2026-10-26T00:00:00.000Z",
+      "clicks": 4,
+      "impressions": 307,
+      "ctr": 0.01,
+      "position": 17.77,
+      "createdAt": "2026-10-30T11:40:03.377Z",
+      "updatedAt": "2026-10-30T11:40:03.377Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11634469,
+      "date": "2026-10-27T00:00:00.000Z",
+      "clicks": 5,
+      "impressions": 294,
+      "ctr": 0.02,
+      "position": 21.03,
+      "createdAt": "2026-10-30T11:40:03.377Z",
+      "updatedAt": "2026-10-30T11:40:03.377Z",
+      "orgWebsiteId": 41420
+     },
+     {
+      "id": 11634470,
+      "date": "2026-10-28T00:00:00.000Z",
+      "clicks": 2,
+      "impressions": 291,
+      "ctr": 0.01,
+      "position": 18.05,
+      "createdAt": "2026-10-30T11:40:03.377Z",
+      "updatedAt": "2026-10-30T11:40:03.377Z",
+      "orgWebsiteId": 41420
+     }
+    ]
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/organization/website-metrics-history?period=all",
+   "status": 200,
+   "resBody": {
+    "data": {
+     "last": {
+      "id": 63887,
+      "date": "2026-10-25T18:17:33.818Z",
+      "domainRating": 42,
+      "backlinks": 465,
+      "refdomains": 32,
+      "dofollowBacklinks": 450,
+      "dofollowRefdomains": 31,
+      "orgWebsiteId": 41420,
+      "createdAt": "2026-10-25T18:17:33.818Z",
+      "updatedAt": "2026-10-25T18:17:33.818Z"
+     },
+     "previous": {
+      "id": 58791,
+      "date": "2026-10-10T15:19:01.299Z",
+      "domainRating": 36,
+      "backlinks": 465,
+      "refdomains": 32,
+      "dofollowBacklinks": 450,
+      "dofollowRefdomains": 31,
+      "orgWebsiteId": 41420,
+      "createdAt": "2026-10-10T15:19:01.299Z",
+      "updatedAt": "2026-10-10T15:19:01.299Z"
+     },
+     "history": [
+      {
+       "id": 34174,
+       "date": "2026-06-27T05:57:38.110Z",
+       "domainRating": 28,
+       "backlinks": 903,
+       "refdomains": 16,
+       "dofollowBacklinks": 894,
+       "dofollowRefdomains": 8,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-06-27T05:57:38.111Z",
+       "updatedAt": "2026-06-27T05:57:38.111Z"
+      },
+      {
+       "id": 34266,
+       "date": "2026-06-27T16:02:40.180Z",
+       "domainRating": 28,
+       "backlinks": 904,
+       "refdomains": 17,
+       "dofollowBacklinks": 895,
+       "dofollowRefdomains": 8,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-06-27T16:02:40.180Z",
+       "updatedAt": "2026-06-27T16:02:40.180Z"
+      },
+      {
+       "id": 43402,
+       "date": "2026-08-07T15:11:02.331Z",
+       "domainRating": 28,
+       "backlinks": 2,
+       "refdomains": 2,
+       "dofollowBacklinks": 1,
+       "dofollowRefdomains": 1,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T15:11:02.331Z",
+       "updatedAt": "2026-08-07T15:11:02.331Z"
+      },
+      {
+       "id": 50264,
+       "date": "2026-09-07T18:01:00.601Z",
+       "domainRating": 33,
+       "backlinks": 375,
+       "refdomains": 21,
+       "dofollowBacklinks": 357,
+       "dofollowRefdomains": 20,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-09-07T18:01:00.601Z",
+       "updatedAt": "2026-09-07T18:01:00.601Z"
+      },
+      {
+       "id": 56503,
+       "date": "2026-10-09T15:12:48.913Z",
+       "domainRating": 35,
+       "backlinks": 465,
+       "refdomains": 32,
+       "dofollowBacklinks": 450,
+       "dofollowRefdomains": 31,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-10-09T15:12:48.913Z",
+       "updatedAt": "2026-10-09T15:12:48.913Z"
+      },
+      {
+       "id": 58791,
+       "date": "2026-10-10T15:19:01.299Z",
+       "domainRating": 36,
+       "backlinks": 465,
+       "refdomains": 32,
+       "dofollowBacklinks": 450,
+       "dofollowRefdomains": 31,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-10-10T15:19:01.299Z",
+       "updatedAt": "2026-10-10T15:19:01.299Z"
+      },
+      {
+       "id": 63887,
+       "date": "2026-10-25T18:17:33.818Z",
+       "domainRating": 42,
+       "backlinks": 465,
+       "refdomains": 32,
+       "dofollowBacklinks": 450,
+       "dofollowRefdomains": 31,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-10-25T18:17:33.818Z",
+       "updatedAt": "2026-10-25T18:17:33.818Z"
+      }
+     ]
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/gsc/metrics/pages?page=1&limit=10",
+   "status": 200,
+   "resBody": {
+    "data": [
+     {
+      "id": 95728986,
+      "page": "https://vaultio.co/",
+      "clicks": 154,
+      "impressions": 14719,
+      "ctr": 0.01,
+      "position": 9.4,
+      "createdAt": "2026-10-30T11:40:05.642Z",
+      "updatedAt": "2026-10-30T11:40:05.642Z",
+      "orgWebsiteId": 41420,
+      "isBlgArticle": false,
+      "clickShare": 60.2
+     },
+     {
+      "id": 95728987,
+      "page": "http://vaultio.co/",
+      "clicks": 19,
+      "impressions": 2568,
+      "ctr": 0.01,
+      "position": 2.73,
+      "createdAt": "2026-10-30T11:40:05.642Z",
+      "updatedAt": "2026-10-30T11:40:05.642Z",
+      "orgWebsiteId": 41420,
+      "isBlgArticle": false,
+      "clickShare": 7.4
+     },
+     {
+      "id": 95728988,
+      "page": "https://vaultio.co/About",
+      "clicks": 8,
+      "impressions": 383,
+      "ctr": 0.02,
+      "position": 5.66,
+      "createdAt": "2026-10-30T11:40:05.642Z",
+      "updatedAt": "2026-10-30T11:40:05.642Z",
+      "orgWebsiteId": 41420,
+      "isBlgArticle": false,
+      "clickShare": 3.1
+     },
+     {
+      "id": 95728989,
+      "page": "https://vaultio.co/city/solvang/meta-ads",
+      "clicks": 6,
+      "impressions": 165,
+      "ctr": 0.04,
+      "position": 5.05,
+      "createdAt": "2026-10-30T11:40:05.642Z",
+      "updatedAt": "2026-10-30T11:40:05.642Z",
+      "orgWebsiteId": 41420,
+      "isBlgArticle": false,
+      "clickShare": 2.3
+     },
+     {
+      "id": 95728990,
+      "page": "https://vaultio.co/city/ventura",
+      "clicks": 4,
+      "impressions": 291,
+      "ctr": 0.01,
+      "position": 24.15,
+      "createdAt": "2026-10-30T11:40:05.642Z",
+      "updatedAt": "2026-10-30T11:40:05.642Z",
+      "orgWebsiteId": 41420,
+      "isBlgArticle": false,
+      "clickShare": 1.6
+     },
+     {
+      "id": 95728993,
+      "page": "https://vaultio.co/city/goleta/seo",
+      "clicks": 3,
+      "impressions": 770,
+      "ctr": 0,
+      "position": 12.78,
+      "createdAt": "2026-10-30T11:40:05.642Z",
+      "updatedAt": "2026-10-30T11:40:05.642Z",
+      "orgWebsiteId": 41420,
+      "isBlgArticle": false,
+      "clickShare": 1.2
+     },
+     {
+      "id": 95728992,
+      "page": "https://vaultio.co/Mentorship",
+      "clicks": 3,
+      "impressions": 20,
+      "ctr": 0.15,
+      "position": 4.6,
+      "createdAt": "2026-10-30T11:40:05.642Z",
+      "updatedAt": "2026-10-30T11:40:05.642Z",
+      "orgWebsiteId": 41420,
+      "isBlgArticle": false,
+      "clickShare": 1.2
+     },
+     {
+      "id": 95728991,
+      "page": "https://vaultio.co/BuildersMarketing",
+      "clicks": 3,
+      "impressions": 64,
+      "ctr": 0.05,
+      "position": 7.66,
+      "createdAt": "2026-10-30T11:40:05.642Z",
+      "updatedAt": "2026-10-30T11:40:05.642Z",
+      "orgWebsiteId": 41420,
+      "isBlgArticle": false,
+      "clickShare": 1.2
+     },
+     {
+      "id": 95729001,
+      "page": "https://vaultio.co/city/ventura/seo",
+      "clicks": 2,
+      "impressions": 1640,
+      "ctr": 0,
+      "position": 27.39,
+      "createdAt": "2026-10-30T11:40:05.642Z",
+      "updatedAt": "2026-10-30T11:40:05.642Z",
+      "orgWebsiteId": 41420,
+      "isBlgArticle": false,
+      "clickShare": 0.8
+     },
+     {
+      "id": 95729000,
+      "page": "https://vaultio.co/city/thousand-oaks/web-design",
+      "clicks": 2,
+      "impressions": 565,
+      "ctr": 0,
+      "position": 26.27,
+      "createdAt": "2026-10-30T11:40:05.642Z",
+      "updatedAt": "2026-10-30T11:40:05.642Z",
+      "orgWebsiteId": 41420,
+      "isBlgArticle": false,
+      "clickShare": 0.8
+     }
+    ],
+    "pagination": {
+     "page": 1,
+     "limit": 10,
+     "total": 700,
+     "totalPages": 70
+    },
+    "hasBlgArticles": true
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/gsc/metrics/queries?page=1&limit=10",
+   "status": 200,
+   "resBody": {
+    "data": [
+     {
+      "query": "vaultio",
+      "clicks": 90,
+      "impressions": 645,
+      "ctr": 0.14,
+      "position": 2.09,
+      "isBlgKeyword": true
+     },
+     {
+      "query": "goleta seo company",
+      "clicks": 3,
+      "impressions": 474,
+      "ctr": 0.01,
+      "position": 11.71,
+      "isBlgKeyword": false
+     },
+     {
+      "query": "meta solvang",
+      "clicks": 3,
+      "impressions": 107,
+      "ctr": 0.03,
+      "position": 4.83,
+      "isBlgKeyword": false
+     },
+     {
+      "query": "local seo thousand oaks",
+      "clicks": 2,
+      "impressions": 43,
+      "ctr": 0.05,
+      "position": 3.65,
+      "isBlgKeyword": true
+     },
+     {
+      "query": "top rated businesses near me",
+      "clicks": 2,
+      "impressions": 2,
+      "ctr": 1,
+      "position": 1,
+      "isBlgKeyword": false
+     },
+     {
+      "query": "ai automation in chicago",
+      "clicks": 1,
+      "impressions": 2,
+      "ctr": 0.5,
+      "position": 9,
+      "isBlgKeyword": false
+     },
+     {
+      "query": "marketing agency near me",
+      "clicks": 1,
+      "impressions": 958,
+      "ctr": 0,
+      "position": 1.23,
+      "isBlgKeyword": false
+     },
+     {
+      "query": "local businesses near me",
+      "clicks": 1,
+      "impressions": 14,
+      "ctr": 0.07,
+      "position": 1.14,
+      "isBlgKeyword": false
+     },
+     {
+      "query": "ai receptionist near me",
+      "clicks": 1,
+      "impressions": 9,
+      "ctr": 0.11,
+      "position": 11.67,
+      "isBlgKeyword": false
+     },
+     {
+      "query": "7 figure local",
+      "clicks": 1,
+      "impressions": 9,
+      "ctr": 0.11,
+      "position": 4.89,
+      "isBlgKeyword": false
+     }
+    ],
+    "pagination": {
+     "page": 1,
+     "limit": 10,
+     "total": 826,
+     "totalPages": 83
+    },
+    "hasBlgKeywords": true
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/gsc/metrics/countries?&period=all",
+   "status": 200,
+   "resBody": [
+    {
+     "country": "us",
+     "total": {
+      "clicks": 172,
+      "impressions": 34256,
+      "avgPosition": 23.3
+     },
+     "first": {
+      "clicks": 1,
+      "impressions": 51,
+      "position": 41.8
+     },
+     "last": {
+      "clicks": 1,
+      "impressions": 174,
+      "position": 17.7
+     }
+    },
+    {
+     "country": "in",
+     "total": {
+      "clicks": 35,
+      "impressions": 383,
+      "avgPosition": 30.9
+     },
+     "first": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 9.5
+     },
+     "last": {
+      "clicks": 0,
+      "impressions": 4,
+      "position": 12.4
+     }
+    },
+    {
+     "country": "pk",
+     "total": {
+      "clicks": 8,
+      "impressions": 127,
+      "avgPosition": 21
+     },
+     "first": {
+      "clicks": 1,
+      "impressions": 2,
+      "position": 3.3
+     },
+     "last": {
+      "clicks": 0,
+      "impressions": 2,
+      "position": 18.3
+     }
+    },
+    {
+     "country": "ng",
+     "total": {
+      "clicks": 2,
+      "impressions": 102,
+      "avgPosition": 6.2
+     },
+     "first": {
+      "clicks": 0,
+      "impressions": 2,
+      "position": 4
+     },
+     "last": {
+      "clicks": 0,
+      "impressions": 2,
+      "position": 17.6
+     }
+    },
+    {
+     "country": "si",
+     "total": {
+      "clicks": 2,
+      "impressions": 6,
+      "avgPosition": 2.2
+     },
+     "first": {
+      "clicks": 1,
+      "impressions": 1,
+      "position": 1.7
+     },
+     "last": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 3
+     }
+    },
+    {
+     "country": "ph",
+     "total": {
+      "clicks": 2,
+      "impressions": 96,
+      "avgPosition": 28.3
+     },
+     "first": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 29.6
+     },
+     "last": {
+      "clicks": 0,
+      "impressions": 2,
+      "position": 12
+     }
+    },
+    {
+     "country": "dz",
+     "total": {
+      "clicks": 2,
+      "impressions": 21,
+      "avgPosition": 17.5
+     },
+     "first": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 15.9
+     },
+     "last": {
+      "clicks": 1,
+      "impressions": 2,
+      "position": 5.8
+     }
+    },
+    {
+     "country": "za",
+     "total": {
+      "clicks": 2,
+      "impressions": 33,
+      "avgPosition": 17.5
+     },
+     "first": {
+      "clicks": 1,
+      "impressions": 2,
+      "position": 1.5
+     },
+     "last": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 14.3
+     }
+    },
+    {
+     "country": "gb",
+     "total": {
+      "clicks": 2,
+      "impressions": 665,
+      "avgPosition": 41.4
+     },
+     "first": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 72.3
+     },
+     "last": {
+      "clicks": 0,
+      "impressions": 4,
+      "position": 23.8
+     }
+    },
+    {
+     "country": "gt",
+     "total": {
+      "clicks": 2,
+      "impressions": 5,
+      "avgPosition": 14.2
+     },
+     "first": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 31
+     },
+     "last": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 35
+     }
+    },
+    {
+     "country": "cn",
+     "total": {
+      "clicks": 2,
+      "impressions": 22,
+      "avgPosition": 12.2
+     },
+     "first": {
+      "clicks": 0,
+      "impressions": 4,
+      "position": 9.5
+     },
+     "last": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 15.7
+     }
+    },
+    {
+     "country": "nz",
+     "total": {
+      "clicks": 1,
+      "impressions": 8,
+      "avgPosition": 23
+     },
+     "first": {
+      "clicks": 1,
+      "impressions": 2,
+      "position": 1.5
+     },
+     "last": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 48
+     }
+    },
+    {
+     "country": "ru",
+     "total": {
+      "clicks": 1,
+      "impressions": 38,
+      "avgPosition": 17.7
+     },
+     "first": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 35
+     },
+     "last": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 8.9
+     }
+    },
+    {
+     "country": "pa",
+     "total": {
+      "clicks": 1,
+      "impressions": 4,
+      "avgPosition": 8.3
+     },
+     "first": {
+      "clicks": 1,
+      "impressions": 2,
+      "position": 2
+     },
+     "last": null
+    },
+    {
+     "country": "es",
+     "total": {
+      "clicks": 1,
+      "impressions": 66,
+      "avgPosition": 13.2
+     },
+     "first": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 13.4
+     },
+     "last": {
+      "clicks": 0,
+      "impressions": 1,
+      "position": 10.4
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

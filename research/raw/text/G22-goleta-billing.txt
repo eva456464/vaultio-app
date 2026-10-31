@@ -1,0 +1,33 @@
+Subscription
+Your plan, add-ons, payment details and invoices.
+
+Email me my invoices
+Active Subscription
+Subscription details and billing information
+
+Current Plan
+Grow
+Next invoice
+$99.00 on Nov 4
+Status
+Active
+Pause billing
+Cancel subscription
+Ready to scale? Daily Instagram & Facebook posts, 3 more posting languages, 5x more tracked prompts, unlimited seats — all in the Scale plan.
+See what Scale offers
+Payment History
+View and download your invoices
+Invoice ID	Billing Date	Amount	Status	Invoice PDF
+in_1UN1DOLiGzfLlQttMKNILNzA	Oct 4, 2026	$99.00	
+Paid
+Download
+in_1UC8vlLiGzfLlQttDNZY5oZx	Sep 4, 2026	$99.00	
+Paid
+Download
+in_1U0u8rLiGzfLlQtt4NxRgqFp	Aug 4, 2026	$99.00	
+Paid
+Download
+in_1U0sjXLiGzfLlQttH79LXaZM	Aug 4, 2026	$0.00	
+Paid
+Download
+

@@ -942,6 +942,80 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/whitelabel/setup",
+   "status": 200,
+   "resBody": {
+    "config": {
+     "id": 1018,
+     "organizationId": 29411,
+     "domain": "app.vaultio.co",
+     "brandName": "Vaultio",
+     "primaryColor": "#E94545",
+     "secondaryColor": "#000000",
+     "logo": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/whitelabel/vaultio/vaultio_favicon.png",
+     "favicon": "https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/whitelabel/vaultio/vaultio_favicon.png",
+     "sendingDomain": "app.vaultio.co",
+     "defaultLanguage": "en",
+     "googleClientId": null,
+     "supabaseRedirectConfigured": false,
+     "wantsWhitelabel": true,
+     "createdAt": "2026-07-12T11:55:26.433Z",
+     "updatedAt": "2026-10-10T18:08:34.675Z"
+    },
+    "appDomain": {
+     "ok": true,
+     "data": {
+      "domain": "app.vaultio.co",
+      "verified": true,
+      "misconfigured": false,
+      "recommendedCname": "cf1fa72d4a49c931.vercel-dns-016.com.",
+      "verification": []
+     }
+    },
+    "emailDomain": {
+     "ok": true,
+     "data": {
+      "id": "e930ceac-5c67-458b-a8f8-de00f2db6090",
+      "name": "app.vaultio.co",
+      "status": "verified",
+      "region": "us-east-1",
+      "records": [
+       {
+        "record": "DKIM",
+        "name": "resend._domainkey.app",
+        "value": "p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDOxyJOmZRKQ+wSCv2NYfKjSLAfUzMcWGy0Zlsk4h2GEDz+vxgovIzs3UtQN3e9FFM0kawic3oSjRERm6COTaQJPprboxZk/O3fbYz3xq86+/jbppbFDp6LNtIp6pK/TLGhXlNywGg9xyKx81tlM1J/NuRWmUhPwDKVN7Q25HsBpQIDAQAB",
+        "type": "TXT",
+        "status": "verified",
+        "ttl": "Auto"
+       },
+       {
+        "record": "SPF",
+        "name": "send.app",
+        "type": "MX",
+        "ttl": "Auto",
+        "status": "verified",
+        "value": "feedback-smtp.us-east-1.amazonses.com",
+        "priority": 10
+       },
+       {
+        "record": "SPF",
+        "name": "send.app",
+        "value": "v=spf1 include:amazonses.com ~all",
+        "type": "TXT",
+        "ttl": "Auto",
+        "status": "verified"
+       }
+      ]
+     }
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

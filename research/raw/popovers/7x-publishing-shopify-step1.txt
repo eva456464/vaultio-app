@@ -1,0 +1,15 @@
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 10
+
+Before you start
+Just one quick check — it prevents almost every problem later on.
+
+I can sign in to Shopify as the store owner (or my account is allowed to create apps)
+Not sure? Here's how Shopify permissions work
+The setup takes about 10 minutes and we'll guide you through every click. Your store, theme and products are never touched — this connection can only read and publish blog posts.
+Continue
+View detailed instructions
+

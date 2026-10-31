@@ -1,0 +1,20 @@
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 3 of 6
+
+Add your API key
+Create a .env.local file in your project and add this single server-side variable.
+ENVIRONMENT VARIABLE
+BABYLOVEGROWTH_BLOG_API_KEY=[REDACTED]
+
+API KEY
+[REDACTED]
+
+Regenerate API Key
+Important: Keep this key server-side only. Never expose it with a NEXT_PUBLIC_ prefix or in client components.
+Back
+Continue
+View detailed instructions
+

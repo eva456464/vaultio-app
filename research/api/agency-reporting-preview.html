@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Vaultio — https://vaultio.co</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<style>
+  :root {
+    --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --accent: #E94545;
+    --accent-text: #d63f3f;
+
+    /* Body text, then the two steps down it fades through: labels, then asides. */
+    --ink: #15171c;
+    --muted: #656c7a;
+    --faint: #99a0ad;
+    --line: #e4e6eb;
+    --wash: #f3f4f7;
+
+    /* A figure that rose, one that fell, and the middle severity, each with its badge tint. */
+    --good: #1d6b4a;
+    --good-wash: #eef4f0;
+    --bad: #9a5340;
+    --bad-wash: #fbeae6;
+    --warn: #8a6320;
+    --warn-wash: #fdf3e2;
+  }
+
+  @page { size: A4; margin: 13mm; }
+  * { box-sizing: border-box; }
+  /* On screen there is no @page, so the dashboard preview would render edge to edge
+     and look nothing like the PDF it is previewing. */
+  @media screen { body { padding: 13mm; } }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 12.5px; line-height: 1.5;
+    color: var(--ink); background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 780px; margin: 0 auto; }
+  h2 {
+    margin: 0; font-family: var(--font-sans);
+    font-size: 21px; font-weight: 700; letter-spacing: -.02em;
+  }
+  /* Stands in wherever a table, a list or a whole section has nothing to show. */
+  .empty { margin: 0; font-size: 11.5px; color: var(--faint); font-style: italic; }
+
+  .head { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+  .logo { max-height: 42px; max-width: 210px; }
+  .wordmark {
+    margin: 0; font-size: 19px; font-weight: 700;
+    letter-spacing: -.02em; color: var(--accent-text);
+  }
+  .head-meta { text-align: right; }
+  .site { margin: 0; font-size: 14px; font-weight: 600; }
+  .range {
+    margin: 2px 0 0; font-family: var(--font-sans);
+    font-size: 11px; color: var(--muted);
+  }
+  .rule { height: 3px; background: var(--accent); margin-top: 13px; }
+
+  .summary { padding: 26px 0 22px; }
+  .eyebrow {
+    margin: 0 0 8px; font-family: var(--font-sans);
+    font-size: 10px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted);
+  }
+  .headline {
+    margin: 0; font-family: var(--font-sans);
+    font-size: 50px; font-weight: 700; line-height: 1; letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  /* Section-level, so it does not compete with the hero figure. */
+  .sub { margin: 11px 0 0; max-width: 56ch; font-size: 13px; color: var(--muted); }
+  .sub strong { color: var(--ink); font-weight: 600; }
+  .note { margin: 3px 0 0; max-width: 56ch; font-size: 11.5px; color: var(--faint); }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); margin-top: 22px;
+  }
+  /* A section that is only tiles has no hero text to sit clear of. */
+  .summary > .stats:first-child { margin-top: 0; }
+  /* Fewer than four metrics must still fill the row rather than leave a gap: the grid
+     draws its own dividing lines, so an odd tile out shows the gap as a grey panel. */
+  .stats.of-1 { grid-template-columns: 1fr; }
+  .stats.of-2 { grid-template-columns: repeat(2, 1fr); }
+  .stats.of-3 { grid-template-columns: repeat(3, 1fr); }
+  /* Five or six wrap onto three columns: six across an A4 column is 118px a tile. */
+  .stats.of-5, .stats.of-6 { grid-template-columns: repeat(3, 1fr); }
+  .stat { background: #fff; padding: 12px 14px 13px; }
+  .stat-label {
+    margin: 0; font-family: var(--font-sans);
+    font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+  }
+  .stat-value {
+    margin: 5px 0 0; font-size: 22px; font-weight: 600; letter-spacing: -.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-sub { margin: 4px 0 0; font-size: 10.5px; line-height: 1.35; color: var(--faint); }
+  .stat-sub strong { color: var(--muted); font-weight: 600; }
+  .delta { font-family: var(--font-sans); font-size: 10.5px; color: var(--faint); }
+  /* Inherits the arrow's colour by default, which would paint the qualifier green on a
+     rise; it is context, not news. */
+  .delta-vs { color: var(--faint); font-weight: 400; }
+  .up { color: var(--good); }
+  .down { color: var(--bad); }
+
+  .block { padding-top: 26px; break-inside: avoid; page-break-inside: avoid; }
+  /* The rule belongs to whatever follows the hero, so a report that is only the hero
+     does not end on a divider with nothing under it. */
+  .summary + .block, .block + .block { border-top: 1px solid var(--line); margin-top: 26px; }
+  .block-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 14px; margin-bottom: 14px;
+  }
+  .channel {
+    font-family: var(--font-sans);
+    font-size: 9.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--accent-text);
+  }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  /* Names both chart lines and the axis each one is read off. */
+  .legend {
+    display: flex; align-items: center; gap: 6px; flex: none;
+    font-family: var(--font-sans);
+    font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+  }
+  .legend .key { width: 9px; height: 3px; }
+  .legend .key + .key { margin-left: 8px; }
+  /* Under a section rather than beside its heading, where there is room for two dates. */
+  .legend-foot { margin-top: 13px; }
+  .legend-foot .key { height: 9px; }
+
+  .countries { margin: 0; padding: 0; list-style: none; }
+  .country-row {
+    display: grid; grid-template-columns: 118px 1fr 58px 56px;
+    align-items: center; gap: 11px; padding: 5px 0;
+  }
+  /* Without a comparison there is no delta column, and the totals would otherwise stop
+     short of the edge every other section lines up with. */
+  .countries.no-delta .country-row { grid-template-columns: 118px 1fr 58px; }
+  .country-label { font-size: 12px; overflow-wrap: anywhere; }
+  /* The leftovers are a total, not a market, so they are stated rather than drawn. */
+  .country-row.is-other { border-top: 1px solid var(--line); margin-top: 4px; padding-top: 9px; }
+  .country-row.is-other .country-label,
+  .country-row.is-other .country-value { color: var(--faint); }
+  .country-bars { display: flex; flex-direction: column; gap: 3px; }
+  .country-bar { height: 9px; }
+  .country-value {
+    text-align: right; font-size: 12.5px; font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .country-delta {
+    text-align: right; font-variant-numeric: tabular-nums;
+    font-family: var(--font-sans); font-size: 10.5px;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { text-align: right; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 12.5px; }
+  th {
+    font-family: var(--font-sans);
+    font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); font-weight: 400; border-bottom-color: var(--ink);
+  }
+  th:first-child, td:first-child { text-align: left; }
+  tbody tr:last-child td { border-bottom: 0; }
+  /* Paths are long and arbitrary, so they wrap rather than widen the numeric columns. */
+  .page-path { overflow-wrap: anywhere; padding-right: 14px; }
+  /* Keywords and prompts are strings someone typed into a search box, so they keep the
+     typewriter face. Everything else moved off it — a report set in mono reads as output. */
+  .keyword, .article-keyword, .prompt-text { font-family: var(--font-mono); }
+  .keyword { overflow-wrap: anywhere; padding-right: 14px; }
+  /* Under the keyword rather than in its own column: most rows have no volume to show. */
+  .keyword-volume {
+    display: block; margin-top: 2px; font-family: var(--font-sans);
+    font-size: 10px; color: var(--faint);
+  }
+  /* Source stays on one line so the subreddit reads as part of it, not as a wrap. */
+  .thread-source {
+    white-space: nowrap; padding-right: 16px; font-family: var(--font-sans);
+    font-size: 11px; color: var(--muted);
+  }
+  .thread-title { text-align: left; overflow-wrap: anywhere; padding-right: 16px; }
+  th.thread-head { text-align: left; }
+  .article-title { overflow-wrap: anywhere; padding-right: 14px; font-weight: 500; }
+  .article-keyword {
+    display: block; margin-top: 2px; font-weight: 400;
+    font-size: 10px; color: var(--faint);
+  }
+  .link-domain { overflow-wrap: anywhere; padding-right: 14px; }
+  .prev { color: var(--faint); }
+
+  /* The rating curve is its own panel, not the full-width chart the search section uses.
+     It carries both classes, so it has to be stated before the one it narrows. */
+  .trend-chart { margin-bottom: 6px; }
+  .trend-value {
+    font-family: var(--font-sans);
+    font-size: 15px; font-weight: 700; fill: var(--ink);
+  }
+  /* Sets the label above the link-quality panel clear of the chart over it. */
+  .authority-gap { margin-top: 22px; }
+  .chart { width: 100%; height: auto; display: block; margin-bottom: 14px; }
+  .stats + .chart { margin-top: 18px; }
+  .chart .grid { stroke: var(--line); stroke-width: 1; }
+  .chart .axis { font-family: var(--font-sans); font-size: 10px; fill: var(--faint); }
+
+  .ai-cols { margin-top: 20px; align-items: start; }
+  /* Brand names run far longer than "DR 30+", so this row needs its own label column. */
+  .ai-cols .bar-row { grid-template-columns: 104px 1fr 40px; }
+  .ai-cols .bar-label { overflow-wrap: anywhere; }
+  .bar-row.is-you .bar-label { font-weight: 600; color: var(--ink); }
+  .prompts { margin: 0; padding: 0; list-style: none; }
+  .prompt-row {
+    display: grid; grid-template-columns: 1fr 52px; align-items: center; gap: 10px;
+    padding: 7px 0; border-top: 1px solid var(--line);
+  }
+  .prompt-row:first-child { border-top: 0; }
+  .prompt-text { font-size: 10.5px; line-height: 1.4; overflow-wrap: anywhere; }
+  .prompt-score {
+    text-align: center; padding: 2px 0; border-radius: 3px; background: var(--good-wash);
+    font-size: 10.5px; font-weight: 600; color: var(--good);
+  }
+  /* A question nobody named the brand for is not a score, it is a gap. */
+  .prompt-score.none { background: var(--wash); color: var(--faint); }
+
+  .issues { margin: 0; padding: 0; list-style: none; }
+  .issue-row {
+    display: grid; grid-template-columns: 62px 1fr 48px; align-items: center; gap: 12px;
+    padding: 8px 0; border-top: 1px solid var(--line);
+  }
+  .issue-row:first-child { border-top: 0; }
+  /* Fixed issues carry no badge, so the row loses its first column rather than an indent. */
+  .issue-row.no-severity { grid-template-columns: 1fr 48px; }
+  .severity {
+    text-align: center; padding: 2px 0; border-radius: 3px; font-family: var(--font-sans);
+    font-size: 9px; letter-spacing: .08em; text-transform: uppercase;
+  }
+  .severity.high { background: var(--bad-wash); color: var(--bad); }
+  .severity.medium { background: var(--warn-wash); color: var(--warn); }
+  .severity.low { background: var(--wash); color: var(--muted); }
+  .issue-label { font-size: 12.5px; overflow-wrap: anywhere; }
+  .issue-count {
+    text-align: right; font-size: 12.5px; font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bars { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .bar-row { display: grid; grid-template-columns: 74px 1fr 46px; align-items: center; gap: 10px; }
+  .bar-label { font-family: var(--font-sans); font-size: 10px; color: var(--muted); }
+  .bar-track { height: 7px; background: var(--wash); position: relative; overflow: hidden; }
+  .bar-fill { position: absolute; top: 0; bottom: 0; left: 0; background: var(--accent-text); }
+  .bar-value {
+    font-family: var(--font-sans);
+    font-size: 10.5px; text-align: right; color: var(--muted); font-variant-numeric: tabular-nums;
+  }
+
+  .foot {
+    margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--line);
+    font-size: 10.5px; color: var(--faint);
+  }
+  .foot p { margin: 0 0 3px; }</style>
+</head>
+<body>
+<main class="page">
+<header class="head">
+  <img class="logo" src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/whitelabel/vaultio/vaultio_favicon.png" alt="Vaultio" />
+  <div class="head-meta">
+    <p class="site">https://vaultio.co</p>
+    <p class="range">Sep 1, 2026 – Sep 30, 2026</p>
+  </div>
+</header>
+<div class="rule"></div>
+
+<section class="summary">
+  <div class="stats of-6"><div class="stat">
+      <p class="stat-label">Ad spend saved</p>
+      <p class="stat-value">$29.7</p>
+      <p class="stat-sub">What this traffic would cost in Google Ads.</p>
+    </div><div class="stat">
+      <p class="stat-label">Backlink cost saved</p>
+      <p class="stat-value">$4.3K</p>
+      <p class="stat-sub">For getting <strong>19</strong> backlinks</p>
+    </div><div class="stat">
+      <p class="stat-label">Impressions</p>
+      <p class="stat-value">6.3K</p>
+      <p class="stat-sub">How often your articles showed up in Google.</p>
+    </div><div class="stat">
+      <p class="stat-label">Visitors from articles</p>
+      <p class="stat-value">11</p>
+      <p class="stat-sub">Across <strong>8</strong> articles</p>
+    </div><div class="stat">
+      <p class="stat-label">Visitors from AI</p>
+      <p class="stat-value">25</p>
+      <p class="stat-sub">ChatGPT, Gemini, Claude...</p>
+    </div><div class="stat">
+      <p class="stat-label">Your site's authority</p>
+      <p class="stat-value">42</p>
+      <p class="stat-sub">Domain rating</p>
+    </div></div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <h2>Google search</h2>
+    <span class="legend">
+      <span class="key" style="background:#d63f3f"></span>Clicks (left)
+      <span class="key" style="background:#8e97a8"></span>Impressions (right)
+    </span>
+  </div>
+  <div class="stats of-3"><div class="stat">
+      <p class="stat-label">Total clicks</p>
+      <p class="stat-value">35</p>
+      <span class="delta up">&#9650; 16.7% <span class="delta-vs">vs last period</span></span>
+    </div><div class="stat">
+      <p class="stat-label">Total impressions</p>
+      <p class="stat-value">7,348</p>
+      <span class="delta down">&#9660; 12.6% <span class="delta-vs">vs last period</span></span>
+    </div><div class="stat">
+      <p class="stat-label">Average position</p>
+      <p class="stat-value">15.4</p>
+      <span class="delta up">&#9650; 8.4 places gained <span class="delta-vs">vs last period</span></span>
+    </div></div>
+  <svg class="chart" viewBox="0 0 720 200" role="img" aria-label="Organic clicks and impressions over the period">
+  <line x1="46" y1="162" x2="670" y2="162" class="grid" />
+  <text x="38" y="166" class="axis" text-anchor="end">0</text>
+  <text x="678" y="166" class="axis" text-anchor="start">0</text>
+  <line x1="46" y1="87" x2="670" y2="87" class="grid" />
+  <text x="38" y="91" class="axis" text-anchor="end">2</text>
+  <text x="678" y="91" class="axis" text-anchor="start">300</text>
+  <line x1="46" y1="12" x2="670" y2="12" class="grid" />
+  <text x="38" y="16" class="axis" text-anchor="end">4</text>
+  <text x="678" y="16" class="axis" text-anchor="start">600</text>
+  <polygon points="46,162 46,162 67.5,124.5 89,87 110.6,87 132.1,162 153.6,162 175.1,124.5 196.6,162 218.1,87 239.7,12 261.2,162 282.7,162 304.2,162 325.7,162 347.2,87 368.8,162 390.3,87 411.8,124.5 433.3,162 454.8,124.5 476.3,124.5 497.9,87 519.4,12 540.9,87 562.4,124.5 583.9,162 605.4,124.5 627,87 648.5,87 670,87 670,162" fill="#E94545" fill-opacity="0.16" />
+  <polyline points="46,32 67.5,107.3 89,107 110.6,93 132.1,114.5 153.6,66 175.1,79.3 196.6,74 218.1,103 239.7,125.3 261.2,120.5 282.7,96.3 304.2,117.8 325.7,89 347.2,55 368.8,101.3 390.3,112.8 411.8,104.3 433.3,117.3 454.8,110.8 476.3,113 497.9,89.5 519.4,119 540.9,126.5 562.4,89.8 583.9,123.3 605.4,88.3 627,115.8 648.5,118.5 670,113.5" fill="none" stroke="#8e97a8" stroke-width="1.5"
+    stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="46,162 67.5,124.5 89,87 110.6,87 132.1,162 153.6,162 175.1,124.5 196.6,162 218.1,87 239.7,12 261.2,162 282.7,162 304.2,162 325.7,162 347.2,87 368.8,162 390.3,87 411.8,124.5 433.3,162 454.8,124.5 476.3,124.5 497.9,87 519.4,12 540.9,87 562.4,124.5 583.9,162 605.4,124.5 627,87 648.5,87 670,87" fill="none" stroke="#d63f3f" stroke-width="2"
+    stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="670" cy="87" r="3.5" fill="#d63f3f" />
+  <text x="46" y="182" class="axis" text-anchor="start">Sep 1</text>
+  <text x="347.2" y="182" class="axis" text-anchor="middle">Sep 15</text>
+  <text x="670" y="182" class="axis" text-anchor="end">Sep 30</text>
+</svg>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <h2>Where your visitors are</h2>
+    <span class="channel">Organic clicks</span>
+  </div>
+  <ul class="countries">
+      <li class="country-row">
+        <span class="country-label">United States</span>
+        <span class="country-bars"><span class="country-bar" style="width:64.0%;background:#c9ccd3"></span><span class="country-bar" style="width:100.0%;background:#d63f3f"></span></span>
+        <span class="country-value">25</span>
+        <span class="country-delta"><span class="up">+9</span></span>
+      </li>
+      <li class="country-row">
+        <span class="country-label">India</span>
+        <span class="country-bars"><span class="country-bar" style="width:8.0%;background:#c9ccd3"></span><span class="country-bar" style="width:20.0%;background:#d63f3f"></span></span>
+        <span class="country-value">5</span>
+        <span class="country-delta"><span class="up">+3</span></span>
+      </li>
+      <li class="country-row">
+        <span class="country-label">Pakistan</span>
+        <span class="country-bars"><span class="country-bar" style="width:4.0%;background:#c9ccd3"></span><span class="country-bar" style="width:8.0%;background:#d63f3f"></span></span>
+        <span class="country-value">2</span>
+        <span class="country-delta"><span class="up">+1</span></span>
+      </li>
+      <li class="country-row">
+        <span class="country-label">Dominican Republic</span>
+        <span class="country-bars"><span class="country-bar" style="width:0.6%;background:#c9ccd3"></span><span class="country-bar" style="width:4.0%;background:#d63f3f"></span></span>
+        <span class="country-value">1</span>
+        <span class="country-delta"><span class="up">+1</span></span>
+      </li>
+      <li class="country-row">
+        <span class="country-label">Thailand</span>
+        <span class="country-bars"><span class="country-bar" style="width:0.6%;background:#c9ccd3"></span><span class="country-bar" style="width:4.0%;background:#d63f3f"></span></span>
+        <span class="country-value">1</span>
+        <span class="country-delta"><span class="up">+1</span></span>
+      </li>
+      <li class="country-row">
+        <span class="country-label">Egypt</span>
+        <span class="country-bars"><span class="country-bar" style="width:0.6%;background:#c9ccd3"></span><span class="country-bar" style="width:4.0%;background:#d63f3f"></span></span>
+        <span class="country-value">1</span>
+        <span class="country-delta"><span class="up">+1</span></span>
+      </li></ul>
+  <div class="legend legend-foot">
+    <span class="key" style="background:#c9ccd3"></span>Aug 2, 2026 – Aug 31, 2026
+    <span class="key" style="background:#d63f3f"></span>Sep 1, 2026 – Sep 30, 2026
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <h2>Pages doing the work</h2>
+    <span class="channel">Last 12 months &middot; as of Oct 30, 2026</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Page</th>
+        <th>Clicks</th>
+        <th>Impressions</th>
+        <th>Avg position</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="page-path">/ (home)</td>
+        <td>173</td>
+        <td>17,287</td>
+        <td>8.4</td>
+      </tr>
+      <tr>
+        <td class="page-path">/About</td>
+        <td>8</td>
+        <td>383</td>
+        <td>5.7</td>
+      </tr>
+      <tr>
+        <td class="page-path">/city/solvang/meta-ads</td>
+        <td>6</td>
+        <td>165</td>
+        <td>5.0</td>
+      </tr>
+      <tr>
+        <td class="page-path">/city/ventura</td>
+        <td>4</td>
+        <td>291</td>
+        <td>24.1</td>
+      </tr>
+      <tr>
+        <td class="page-path">/city/goleta/seo</td>
+        <td>3</td>
+        <td>770</td>
+        <td>12.8</td>
+      </tr>
+      <tr>
+        <td class="page-path">/Mentorship</td>
+        <td>3</td>
+        <td>20</td>
+        <td>4.6</td>
+      </tr>
+      <tr>
+        <td class="page-path">/BuildersMarketing</td>
+        <td>3</td>
+        <td>64</td>
+        <td>7.7</td>
+      </tr>
+      <tr>
+        <td class="page-path">/city/ventura/seo</td>
+        <td>2</td>
+        <td>1,640</td>
+        <td>27.4</td>
+      </tr></tbody>
+  </table>
+  <p class="note">Top 8 of 55 pages earning clicks.</p>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <h2>Keywords bringing visitors</h2>
+    <span class="channel">Last 12 months &middot; as of Oct 30, 2026</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Keyword</th>
+        <th>Clicks</th>
+        <th>Impressions</th>
+        <th>Avg position</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="keyword">vaultio</td>
+        <td>90</td>
+        <td>645</td>
+        <td>2.1</td>
+      </tr>
+      <tr>
+        <td class="keyword">goleta seo company</td>
+        <td>3</td>
+        <td>474</td>
+        <td>11.7</td>
+      </tr>
+      <tr>
+        <td class="keyword">meta solvang</td>
+        <td>3</td>
+        <td>107</td>
+        <td>4.8</td>
+      </tr>
+      <tr>
+        <td class="keyword">local seo thousand oaks</td>
+        <td>2</td>
+        <td>43</td>
+        <td>3.6</td>
+      </tr>
+      <tr>
+        <td class="keyword">top rated businesses near me</td>
+        <td>2</td>
+        <td>2</td>
+        <td>1.0</td>
+      </tr>
+      <tr>
+        <td class="keyword">ai automation in chicago</td>
+        <td>1</td>
+        <td>2</td>
+        <td>9.0</td>
+      </tr>
+      <tr>
+        <td class="keyword">ai receptionist near me</td>
+        <td>1</td>
+        <td>9</td>
+        <td>11.7</td>
+      </tr>
+      <tr>
+        <td class="keyword">7 figure local</td>
+        <td>1</td>
+        <td>9</td>
+        <td>4.9</td>
+      </tr></tbody>
+  </table>
+  <p class="note">Top 8 of 19 keywords earning clicks.</p>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <h2>Content that landed</h2>
+    <span class="channel">30 articles published this period</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Article &amp; top keyword</th>
+        <th>Published</th>
+        <th>Visitors</th><th>Avg position</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="article-title">Ship Verifiable LLM Citations: 3 Architectures, Tests, Tactics<span class="article-keyword">llm citations</span></td>
+        <td class="prev">Sep 17, 2026</td>
+        <td>1</td><td>8.3</td>
+      </tr>
+      <tr>
+        <td class="article-title">Shortlist: Click Fraud Protection Vendors That Restore Smart Bidding<span class="article-keyword">click fraud protection</span></td>
+        <td class="prev">Sep 1, 2026</td>
+        <td>0</td><td>25.0</td>
+      </tr>
+      <tr>
+        <td class="article-title">Add 10–15 Jobs a Month with Power Washing SEO for Contractors<span class="article-keyword">power washing seo</span></td>
+        <td class="prev">Sep 2, 2026</td>
+        <td>0</td><td>23.0</td>
+      </tr>
+      <tr>
+        <td class="article-title">Contractors: Fix GBP, Publish Your Top 3 Service Area SEO Pages<span class="article-keyword">service area business seo</span></td>
+        <td class="prev">Sep 3, 2026</td>
+        <td>0</td><td>33.5</td>
+      </tr>
+      <tr>
+        <td class="article-title">Book More Home Service Jobs in 90 Days for Contractors with GBP, Reviews, Ads<span class="article-keyword">home service marketing</span></td>
+        <td class="prev">Sep 4, 2026</td>
+        <td>0</td><td>18.6</td>
+      </tr></tbody>
+  </table>
+  
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <h2>Authority</h2>
+    <span class="channel">Since Jun 2026</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p class="eyebrow">Domain rating</p>
+      <svg class="chart trend-chart" viewBox="0 0 340 130" role="img"
+  aria-label="From DR 28 to DR 33">
+  <polygon points="4,96 4,76.4 114.7,76.4 225.3,76.4 336,72.9 336,96" fill="#E94545" fill-opacity="0.14" />
+  <polyline points="4,76.4 114.7,76.4 225.3,76.4 336,72.9" fill="none" stroke="#d63f3f" stroke-width="2"
+    stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="336" cy="72.9" r="3.5" fill="#d63f3f" />
+  <text x="4" y="67.4" class="trend-value">DR 28</text>
+  <text x="336" y="60.900000000000006" class="trend-value" text-anchor="end">DR 33</text>
+  <text x="4" y="118" class="axis" text-anchor="start">Jun 2026</text>
+  <text x="114.7" y="118" class="axis" text-anchor="middle">Jun 2026</text>
+  <text x="336" y="118" class="axis" text-anchor="end">Sep 2026</text>
+</svg>
+      <p class="note">Up 5 points since Jun 2026, from 19 links across 19 referring domains.</p>
+      <p class="eyebrow authority-gap">Link quality</p>
+      <ul class="bars"><li class="bar-row">
+      <span class="bar-label">DR 30+</span>
+      <span class="bar-track"><span class="bar-fill" style="width:58%"></span></span>
+      <span class="bar-value">58%</span>
+    </li><li class="bar-row">
+      <span class="bar-label">DR 20-29</span>
+      <span class="bar-track"><span class="bar-fill" style="width:42%"></span></span>
+      <span class="bar-value">42%</span>
+    </li><li class="bar-row">
+      <span class="bar-label">DR 10-19</span>
+      <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
+      <span class="bar-value">0%</span>
+    </li><li class="bar-row">
+      <span class="bar-label">DR 0-9</span>
+      <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
+      <span class="bar-value">0%</span>
+    </li></ul>
+    </div>
+    <div>
+      <p class="eyebrow">Strongest links earned</p>
+      <table><tbody>
+      <tr>
+        <td class="link-domain">monobot.ai</td>
+        <td>DR 59</td>
+      </tr>
+      <tr>
+        <td class="link-domain">wallsneedlove.com</td>
+        <td>DR 51</td>
+      </tr>
+      <tr>
+        <td class="link-domain">bigeyedeers.co.uk</td>
+        <td>DR 45</td>
+      </tr>
+      <tr>
+        <td class="link-domain">droxy.ai</td>
+        <td>DR 43</td>
+      </tr>
+      <tr>
+        <td class="link-domain">lahvaclc.com</td>
+        <td>DR 42</td>
+      </tr>
+      <tr>
+        <td class="link-domain">rendimension.com</td>
+        <td>DR 39</td>
+      </tr>
+      <tr>
+        <td class="link-domain">digitalfractal.com</td>
+        <td>DR 37</td>
+      </tr>
+      <tr>
+        <td class="link-domain">noleggioqui.it</td>
+        <td>DR 36</td>
+      </tr></tbody></table>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <h2>Site health</h2>
+    <span class="channel">Audited Sep 27, 2026</span>
+  </div>
+  <div class="cols"><div>
+      <p class="eyebrow">Fixed &mdash; 0 this period</p>
+      <p class="empty">We have not logged any fixes in this period.</p>
+    </div><div>
+      <p class="eyebrow">Still open &mdash; 5 across 20 pages</p>
+      <ul class="issues"><li class="issue-row">
+      <span class="severity medium">Medium</span>
+      <span class="issue-label">Meta description is not relevant to the page content</span>
+      <span class="issue-count">2</span>
+    </li><li class="issue-row">
+      <span class="severity low">Low</span>
+      <span class="issue-label">Image is too large</span>
+      <span class="issue-count">3</span>
+    </li></ul>
+    </div></div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <h2>Where people mentioned you</h2>
+    <span class="channel">1 new &middot; 28 total</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Source</th>
+        <th class="thread-head">Thread</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="thread-source">Reddit &middot; r/AskMarketing</td>
+        <td class="thread-title">Any affordable SEO agencies that actually work for small businesses?</td>
+        <td class="prev">Sep 14, 2026</td>
+      </tr></tbody>
+  </table>
+  
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <h2>AI search visibility</h2>
+    <span class="channel">Run of Sep 20, 2026</span>
+  </div>
+  <p class="sub">We ask 10 questions across 2 assistants and count how often you are named. This run: <strong>1 of 20 answers (5%)</strong>, against 57% in Jun 2026.</p>
+  <div class="cols ai-cols">
+    <div>
+      <p class="eyebrow">Share of answers naming you</p>
+      <svg class="chart trend-chart" viewBox="0 0 340 130" role="img"
+  aria-label="From 57% to 5%">
+  <polygon points="4,96 4,56.1 114.7,87.6 225.3,96 336,92.5 336,96" fill="#E94545" fill-opacity="0.14" />
+  <polyline points="4,56.1 114.7,87.6 225.3,96 336,92.5" fill="none" stroke="#d63f3f" stroke-width="2"
+    stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="336" cy="92.5" r="3.5" fill="#d63f3f" />
+  <text x="4" y="47.1" class="trend-value">57%</text>
+  <text x="336" y="80.5" class="trend-value" text-anchor="end">5%</text>
+  <text x="4" y="118" class="axis" text-anchor="start">Jun 2026</text>
+  <text x="114.7" y="118" class="axis" text-anchor="middle">Jul 2026</text>
+  <text x="336" y="118" class="axis" text-anchor="end">Sep 2026</text>
+</svg>
+    </div>
+    <div>
+      <p class="eyebrow">By assistant</p>
+      <ul class="bars"><li class="bar-row">
+      <span class="bar-label">ChatGPT</span>
+      <span class="bar-track"><span class="bar-fill" style="width:10%"></span></span>
+      <span class="bar-value" title="10 answers">10%</span>
+    </li><li class="bar-row">
+      <span class="bar-label">Claude</span>
+      <span class="bar-track"><span class="bar-fill" style="width:0%"></span></span>
+      <span class="bar-value" title="10 answers">0%</span>
+    </li></ul>
+    </div>
+  </div>
+  <div class="cols ai-cols">
+    <div>
+      <p class="eyebrow">Share of voice against the market</p>
+      <ul class="bars"><li class="bar-row">
+      <span class="bar-label">Google</span>
+      <span class="bar-track"><span class="bar-fill" style="width:60%"></span></span>
+      <span class="bar-value">60%</span>
+    </li><li class="bar-row">
+      <span class="bar-label">Google Search Console</span>
+      <span class="bar-track"><span class="bar-fill" style="width:15%"></span></span>
+      <span class="bar-value">15%</span>
+    </li><li class="bar-row">
+      <span class="bar-label">ChatGPT</span>
+      <span class="bar-track"><span class="bar-fill" style="width:10%"></span></span>
+      <span class="bar-value">10%</span>
+    </li><li class="bar-row">
+      <span class="bar-label">ES Studios</span>
+      <span class="bar-track"><span class="bar-fill" style="width:10%"></span></span>
+      <span class="bar-value">10%</span>
+    </li><li class="bar-row">
+      <span class="bar-label">Facebook</span>
+      <span class="bar-track"><span class="bar-fill" style="width:10%"></span></span>
+      <span class="bar-value">10%</span>
+    </li><li class="bar-row is-you">
+      <span class="bar-label">Vaultio</span>
+      <span class="bar-track"><span class="bar-fill" style="width:5%"></span></span>
+      <span class="bar-value">5%</span>
+    </li></ul>
+    </div>
+    <div>
+      <p class="eyebrow">Prompt by prompt</p>
+      <ul class="prompts"><li class="prompt-row">
+      <span class="prompt-text">what do users say about local SEO services for contractors</span>
+      <span class="prompt-score">1 of 2</span>
+    </li><li class="prompt-row">
+      <span class="prompt-text">How do I rank higher on Google?</span>
+      <span class="prompt-score none">0 of 2</span>
+    </li><li class="prompt-row">
+      <span class="prompt-text">My business isn’t showing up in search</span>
+      <span class="prompt-score none">0 of 2</span>
+    </li><li class="prompt-row">
+      <span class="prompt-text">Best marketing for plumbers</span>
+      <span class="prompt-score none">0 of 2</span>
+    </li><li class="prompt-row">
+      <span class="prompt-text">Tools for ranking on ChatGPT as a contractor</span>
+      <span class="prompt-score none">0 of 2</span>
+    </li><li class="prompt-row">
+      <span class="prompt-text">cheapest HVAC marketing agencies 2026</span>
+      <span class="prompt-score none">0 of 2</span>
+    </li></ul>
+    </div>
+  </div>
+</section>
+<footer class="foot"><p>These are estimates: ad spend saved prices search visits at what the same clicks would cost in Google Ads, and backlink cost saved uses a domain-rating tier scale.</p><p>Search Console data through Oct 28, 2026.</p></footer>
+</main>
+</body>
+</html>

@@ -1842,6 +1842,1741 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/status",
+   "status": 200,
+   "resBody": {
+    "message": "GA4 integration status",
+    "data": {
+     "connected": true,
+     "selectedGa4Property": "properties/534109473",
+     "ga4InitialSyncCompleted": true
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/traffic-pages?range=all&page=1&limit=10",
+   "status": 200,
+   "resBody": {
+    "message": "Traffic pages fetched successfully",
+    "data": [
+     {
+      "page": "/",
+      "activeUsers": 1084,
+      "percentage": 44.6,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/About",
+      "activeUsers": 72,
+      "percentage": 3,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/ClientOnboarding",
+      "activeUsers": 31,
+      "percentage": 1.3,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/WhoWeHelp",
+      "activeUsers": 29,
+      "percentage": 1.2,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/cities",
+      "activeUsers": 28,
+      "percentage": 1.2,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/Blog",
+      "activeUsers": 26,
+      "percentage": 1.1,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/Guarantee",
+      "activeUsers": 25,
+      "percentage": 1,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/MetaAds",
+      "activeUsers": 17,
+      "percentage": 0.7,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/FAQ",
+      "activeUsers": 14,
+      "percentage": 0.6,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": false
+     },
+     {
+      "page": "/Blog/role-of-trust-signals-in-lead-capture",
+      "activeUsers": 14,
+      "percentage": 0.6,
+      "topSource": "Direct",
+      "topSourceIsAi": false,
+      "isBlgArticle": true
+     }
+    ],
+    "pagination": {
+     "page": 1,
+     "limit": 10,
+     "total": 735,
+     "totalPages": 74
+    },
+    "hasBlgArticles": true,
+    "totalActiveUsers": 2433
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/channel-breakdown?range=all",
+   "status": 200,
+   "resBody": {
+    "message": "Channel breakdown fetched successfully",
+    "data": [
+     {
+      "channelGroup": "Direct",
+      "activeUsers": 1666,
+      "percentage": 67.5
+     },
+     {
+      "channelGroup": "Other",
+      "activeUsers": 489,
+      "percentage": 19.8
+     },
+     {
+      "channelGroup": "Organic search",
+      "activeUsers": 293,
+      "percentage": 11.9
+     },
+     {
+      "channelGroup": "LLM referrers",
+      "activeUsers": 20,
+      "percentage": 0.8
+     },
+     {
+      "channelGroup": "Paid",
+      "activeUsers": 0,
+      "percentage": 0
+     }
+    ],
+    "total": 2468
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/overall-overview?range=all",
+   "status": 200,
+   "resBody": {
+    "message": "Overall overview fetched successfully",
+    "data": {
+     "totalActiveUsers": 2468,
+     "totalSessions": "[REDACTED]",
+     "aiActiveUsers": 26,
+     "topChannelGroup": "Direct"
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/channel-timeseries?range=all",
+   "status": 200,
+   "resBody": {
+    "message": "Channel timeseries fetched successfully",
+    "data": [
+     {
+      "date": "2026-04-21",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-04-22",
+      "Direct": 9,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-04-23",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-04-24",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-04-25",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-04-26",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-04-27",
+      "Direct": 12,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-04-28",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 5,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-04-29",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-04-30",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-01",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-02",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-03",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-05-04",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-05",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-06",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-07",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 2,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-05-08",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-09",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-10",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 5,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-11",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-12",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-05-13",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-14",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-15",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-16",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-17",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-18",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-19",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-20",
+      "Direct": 17,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-21",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-22",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-23",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-24",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-25",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-26",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-27",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-28",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-05-29",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-30",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-05-31",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-01",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-02",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-06-03",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 5,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-04",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-05",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-06",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-07",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-06-08",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-09",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 6,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-10",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-11",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-12",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-13",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-14",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-15",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-16",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-17",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-18",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-19",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-20",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-21",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-06-22",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-23",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-24",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-25",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-26",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-27",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-28",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-29",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-06-30",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-01",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-02",
+      "Direct": 12,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 5,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-03",
+      "Direct": 8,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-04",
+      "Direct": 10,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-05",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-06",
+      "Direct": 10,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 5,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-07",
+      "Direct": 10,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-08",
+      "Direct": 13,
+      "Paid": 0,
+      "Organic search": 5,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-09",
+      "Direct": 24,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-10",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-11",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-12",
+      "Direct": 24,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-13",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 4,
+      "LLM referrers": 2
+     },
+     {
+      "date": "2026-07-14",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-07-15",
+      "Direct": 15,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-16",
+      "Direct": 12,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-17",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-18",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-19",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-20",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-21",
+      "Direct": 10,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-22",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-23",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-24",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-25",
+      "Direct": 13,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-26",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-27",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 5,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-28",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 8,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-29",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-30",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-07-31",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-01",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-02",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-08-03",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-04",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 6,
+      "Other": 3,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-08-05",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-06",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-07",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-08",
+      "Direct": 25,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-09",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-10",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-11",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-12",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-13",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-14",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-15",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-16",
+      "Direct": 12,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-17",
+      "Direct": 13,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-18",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-19",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-20",
+      "Direct": 8,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-21",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-22",
+      "Direct": 22,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-23",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-24",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-25",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-08-26",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-27",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 5,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-28",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-29",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-30",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-08-31",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-01",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-02",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-03",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-04",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-05",
+      "Direct": 14,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-06",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-07",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-08",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-09",
+      "Direct": 11,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-10",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-11",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-12",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-13",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-14",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-15",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-16",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-17",
+      "Direct": 682,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 167,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-18",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-19",
+      "Direct": 20,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-20",
+      "Direct": 13,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-21",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-22",
+      "Direct": 12,
+      "Paid": 0,
+      "Organic search": 5,
+      "Other": 7,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-23",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-24",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-25",
+      "Direct": 2,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-26",
+      "Direct": 1,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-27",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-09-28",
+      "Direct": 4,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-29",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-09-30",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-01",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-02",
+      "Direct": 11,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-03",
+      "Direct": 26,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-04",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-05",
+      "Direct": 8,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 12,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-06",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-07",
+      "Direct": 11,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-08",
+      "Direct": 14,
+      "Paid": 0,
+      "Organic search": 6,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-09",
+      "Direct": 23,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-10",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 3,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-10-11",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-12",
+      "Direct": 9,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-13",
+      "Direct": 9,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-14",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-15",
+      "Direct": 10,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-16",
+      "Direct": 10,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-17",
+      "Direct": 21,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-18",
+      "Direct": 10,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-19",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 0,
+      "LLM referrers": 1
+     },
+     {
+      "date": "2026-10-20",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 4,
+      "Other": 2,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-21",
+      "Direct": 3,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 0,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-22",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-23",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-24",
+      "Direct": 8,
+      "Paid": 0,
+      "Organic search": 1,
+      "Other": 3,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-25",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-26",
+      "Direct": 6,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 4,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-27",
+      "Direct": 8,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-28",
+      "Direct": 7,
+      "Paid": 0,
+      "Organic search": 3,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-29",
+      "Direct": 5,
+      "Paid": 0,
+      "Organic search": 2,
+      "Other": 1,
+      "LLM referrers": 0
+     },
+     {
+      "date": "2026-10-30",
+      "Direct": 0,
+      "Paid": 0,
+      "Organic search": 0,
+      "Other": 0,
+      "LLM referrers": 0
+     }
+    ]
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

@@ -1,0 +1,90 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/ai-visibility/533740",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Tracked prompts",
+  "H3: #1 sianamarketing.com 33%",
+  "H3: #2 clutch.co 11%",
+  "H3: #3 goodfirms.co 11%",
+  "H3: #4 getlocalpresence.com 11%",
+  "H3: #5 helloroketto.com 11%",
+  "H3: #6 contractorplus.app 11%",
+  "H3: #7 pipelineon.com 11%"
+ ],
+ "buttons": [
+  "Go back [icon:lucide-arrow-left] -> /dashboard/ai-visibility?tab=prompts",
+  "Claude",
+  "ChatGPT",
+  "#1 sianamarketing.com 33% [icon:lucide-chevron-down]",
+  "#2 clutch.co 11% [icon:lucide-chevron-down]",
+  "#3 goodfirms.co 11% [icon:lucide-chevron-down]",
+  "#4 getlocalpresence.com 11% [icon:lucide-chevron-down]",
+  "#5 helloroketto.com 11% [icon:lucide-chevron-down]",
+  "#6 contractorplus.app 11% [icon:lucide-chevron-down]",
+  "#7 pipelineon.com 11% [icon:lucide-chevron-down]"
+ ],
+ "tabs": [
+  "Claude [selected]",
+  "ChatGPT"
+ ],
+ "inputs": [],
+ "tables": [
+  {
+   "headers": [
+    "#",
+    "Brand",
+    "Mentioned in",
+    "Visibility",
+    "Sentiment"
+   ],
+   "rows": 10,
+   "sample": [
+    [
+     "#1",
+     "Clutch",
+     "2/2",
+     "100%",
+     "Neutral"
+    ],
+    [
+     "#2",
+     "Google Business Profile",
+     "1/2",
+     "50%",
+     "Positive"
+    ],
+    [
+     "#3",
+     "Goodfirms",
+     "1/2",
+     "50%",
+     "Neutral"
+    ],
+    [
+     "#4",
+     "WebFX",
+     "1/2",
+     "50%",
+     "Positive"
+    ]
+   ]
+  }
+ ],
+ "icons": [
+  "lucide-arrow-left",
+  "lucide-info",
+  "lucide-chevron-down"
+ ],
+ "images": [
+  "Claude | https://app.vaultio.co/logos/claude-ai-icon.svg",
+  "ChatGPT | https://app.vaultio.co/_next/image?url=%2Flogos%2Fchatgpt-logo.png&w=32&q=75",
+  "sianamarketing.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dsianamarketing.com%26default%3Ddata%253Aimage%252Fsvg%2",
+  "clutch.co | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dclutch.co%26default%3Ddata%253Aimage%252Fsvg%252Bxml%25",
+  "goodfirms.co | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dgoodfirms.co%26default%3Ddata%253Aimage%252Fsvg%252Bxml",
+  "getlocalpresence.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dgetlocalpresence.com%26default%3Ddata%253Aimage%252Fsvg",
+  "helloroketto.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dhelloroketto.com%26default%3Ddata%253Aimage%252Fsvg%252",
+  "contractorplus.app | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dcontractorplus.app%26default%3Ddata%253Aimage%252Fsvg%2",
+  "pipelineon.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dpipelineon.com%26default%3Ddata%253Aimage%252Fsvg%252Bx"
+ ],
+ "charts": 0
+}

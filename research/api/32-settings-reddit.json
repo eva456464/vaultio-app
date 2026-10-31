@@ -109,6 +109,26 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/reddit/configuration",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/reddit/subreddits",
+   "status": 200,
+   "resBody": "[omitted third-party/analytics body]",
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": true
   }
  ]
 }

@@ -1,0 +1,9 @@
+{
+ "u": "/en/dashboard/geo-audit",
+ "cap": [
+  "GET https://api.babylovegrowth.ai/api/geo-audit/share-link?orgWebsiteId=41420 200"
+ ],
+ "pop": [
+  "Dialog\nShare site health check\nSend this read-only link to a client or teammate. Anyone with it can view your Health score and audit issues — no account needed.\nhttps://www.babylovegrowth.ai/geo-audit/public/share/[REDACTED-share-token]\nCopy link\nThe link always shows your latest audit results.\nPreview link\nClose"
+ ]
+}

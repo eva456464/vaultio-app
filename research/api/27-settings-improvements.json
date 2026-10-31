@@ -436,6 +436,25 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/article-improvements/settings",
+   "status": 200,
+   "resBody": {
+    "improvementsEnabled": true,
+    "improvementWeekdays": [
+     1,
+     3
+    ],
+    "improvementsAutoPublish": false,
+    "gscConnected": true,
+    "hasUpdateCapableIntegration": false
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

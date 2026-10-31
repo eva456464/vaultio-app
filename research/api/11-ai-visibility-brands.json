@@ -77,6 +77,1982 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/overall-insights",
+   "status": 200,
+   "resBody": {
+    "visibilityScore": 0,
+    "totalMentions": 0,
+    "totalAnswers": 20,
+    "totalPrompts": 10,
+    "topSource": {
+     "domain": "sianamarketing.com",
+     "count": 3,
+     "urls": [
+      {
+       "url": "https://www.sianamarketing.com/resources/top-local-seo-agencies-for-contractors",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://www.sianamarketing.com/resources/best-seo-agencies-for-contractors",
+       "sourceType": "resource_page"
+      },
+      {
+       "url": "https://www.sianamarketing.com/resources/best-local-seo-agencies-for-general-contractors",
+       "sourceType": "resource_page"
+      }
+     ]
+    },
+    "topMentionedBrand": {
+     "brandName": "Google",
+     "count": 14,
+     "brandUrl": ""
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/prompts",
+   "status": 200,
+   "resBody": [
+    {
+     "id": 407332,
+     "orgWebsiteId": 41420,
+     "prompt": "How can contractors get more local leads?",
+     "intent": "awareness",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407333,
+     "orgWebsiteId": 41420,
+     "prompt": "Why am I losing jobs to competitors?",
+     "intent": "awareness",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407334,
+     "orgWebsiteId": 41420,
+     "prompt": "How do I rank higher on Google?",
+     "intent": "awareness",
+     "isActive": true,
+     "lastCheckedAt": "2026-10-20T03:54:40.461Z",
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-10-20T03:54:40.461Z",
+     "tierLabel": "Other",
+     "providers": [
+      "openai",
+      "anthropic"
+     ],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407335,
+     "orgWebsiteId": 41420,
+     "prompt": "Ways to get found by more customers?",
+     "intent": "awareness",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407336,
+     "orgWebsiteId": 41420,
+     "prompt": "My business isn’t showing up in search",
+     "intent": "awareness",
+     "isActive": true,
+     "lastCheckedAt": "2026-10-20T03:54:58.416Z",
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-10-20T03:54:58.416Z",
+     "tierLabel": "Other",
+     "providers": [
+      "openai",
+      "anthropic"
+     ],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407337,
+     "orgWebsiteId": 41420,
+     "prompt": "How do I capture leads faster?",
+     "intent": "awareness",
+     "isActive": false,
+     "lastCheckedAt": "2026-06-27T06:00:24.251Z",
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-07-07T04:04:24.483Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407338,
+     "orgWebsiteId": 41420,
+     "prompt": "Why are my inquiries not turning into jobs?",
+     "intent": "awareness",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407339,
+     "orgWebsiteId": 41420,
+     "prompt": "Tips for boosting my home service bookings",
+     "intent": "awareness",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407340,
+     "orgWebsiteId": 41420,
+     "prompt": "Best lead generation tools for contractors?",
+     "intent": "research",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407342,
+     "orgWebsiteId": 41420,
+     "prompt": "Top solutions for increasing home service leads",
+     "intent": "research",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407343,
+     "orgWebsiteId": 41420,
+     "prompt": "Compare local SEO tools for service businesses",
+     "intent": "research",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407347,
+     "orgWebsiteId": 41420,
+     "prompt": "How do contractors boost online visibility?",
+     "intent": "research",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407348,
+     "orgWebsiteId": 41420,
+     "prompt": "vaultio.co vs Scorpion for lead generation",
+     "intent": "consideration",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-07-07T04:03:20.098Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407349,
+     "orgWebsiteId": 41420,
+     "prompt": "Is vaultio.co better than Npdigital?",
+     "intent": "consideration",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407350,
+     "orgWebsiteId": 41420,
+     "prompt": "vaultio.co or Payperlead for contractors?",
+     "intent": "consideration",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407351,
+     "orgWebsiteId": 41420,
+     "prompt": "Compare vaultio.co and Contractorindependence",
+     "intent": "consideration",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407352,
+     "orgWebsiteId": 41420,
+     "prompt": "vaultio.co vs Rynoss for home services",
+     "intent": "consideration",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407353,
+     "orgWebsiteId": 41420,
+     "prompt": "Key differences: vaultio.co vs Surmarketing",
+     "intent": "consideration",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407354,
+     "orgWebsiteId": 41420,
+     "prompt": "Should I choose vaultio.co or Stonesystems?",
+     "intent": "consideration",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407355,
+     "orgWebsiteId": 41420,
+     "prompt": "vaultio.co vs 805seo for Google rankings",
+     "intent": "consideration",
+     "isActive": false,
+     "lastCheckedAt": "2026-06-27T06:00:39.079Z",
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-07-07T04:03:24.352Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407356,
+     "orgWebsiteId": 41420,
+     "prompt": "vaultio.co review for contractors",
+     "intent": "evaluation",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407357,
+     "orgWebsiteId": 41420,
+     "prompt": "Is vaultio.co worth it for plumbers?",
+     "intent": "evaluation",
+     "isActive": false,
+     "lastCheckedAt": "2026-06-27T06:00:42.618Z",
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-07-07T04:03:34.857Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407358,
+     "orgWebsiteId": 41420,
+     "prompt": "vaultio.co features and benefits",
+     "intent": "evaluation",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407359,
+     "orgWebsiteId": 41420,
+     "prompt": "How does vaultio.co capture leads?",
+     "intent": "evaluation",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407360,
+     "orgWebsiteId": 41420,
+     "prompt": "vaultio.co pros and cons",
+     "intent": "evaluation",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407361,
+     "orgWebsiteId": 41420,
+     "prompt": "Can vaultio.co grow my business?",
+     "intent": "evaluation",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407362,
+     "orgWebsiteId": 41420,
+     "prompt": "vaultio.co money-back guarantee explained",
+     "intent": "evaluation",
+     "isActive": false,
+     "lastCheckedAt": null,
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-06-27T05:57:03.898Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407346,
+     "orgWebsiteId": 41420,
+     "prompt": "Best marketing for plumbers",
+     "intent": "research",
+     "isActive": true,
+     "lastCheckedAt": "2026-10-20T03:55:17.124Z",
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-10-20T03:55:17.124Z",
+     "tierLabel": "Other",
+     "providers": [
+      "openai",
+      "anthropic"
+     ],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407344,
+     "orgWebsiteId": 41420,
+     "prompt": "What’s the fastest way to capture leads?",
+     "intent": "research",
+     "isActive": false,
+     "lastCheckedAt": "2026-06-27T06:00:21.608Z",
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-07-07T04:03:04.870Z",
+     "tierLabel": "Other",
+     "providers": [],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407345,
+     "orgWebsiteId": 41420,
+     "prompt": "Tools for ranking on ChatGPT as a contractor",
+     "intent": "research",
+     "isActive": true,
+     "lastCheckedAt": "2026-10-20T03:55:35.376Z",
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-10-20T03:55:35.376Z",
+     "tierLabel": "Other",
+     "providers": [
+      "anthropic",
+      "openai"
+     ],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 533740,
+     "orgWebsiteId": 41420,
+     "prompt": "what do users say about local SEO services for contractors",
+     "intent": "mofu",
+     "isActive": true,
+     "lastCheckedAt": "2026-10-20T03:55:49.253Z",
+     "createdAt": "2026-08-23T03:29:33.377Z",
+     "updatedAt": "2026-10-20T03:55:49.253Z",
+     "tierLabel": "Comparison",
+     "providers": [
+      "anthropic",
+      "openai"
+     ],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 533741,
+     "orgWebsiteId": 41420,
+     "prompt": "is Scorpion worth it for getting more plumbing leads",
+     "intent": "mofu",
+     "isActive": true,
+     "lastCheckedAt": "2026-10-20T03:56:13.927Z",
+     "createdAt": "2026-08-23T03:29:33.377Z",
+     "updatedAt": "2026-10-20T03:57:32.254Z",
+     "tierLabel": "Comparison",
+     "providers": [
+      "anthropic",
+      "openai"
+     ],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 533742,
+     "orgWebsiteId": 41420,
+     "prompt": "what is local SEO for home service businesses",
+     "intent": "tofu",
+     "isActive": true,
+     "lastCheckedAt": "2026-10-20T03:56:30.794Z",
+     "createdAt": "2026-08-23T03:29:33.377Z",
+     "updatedAt": "2026-10-20T03:56:30.794Z",
+     "tierLabel": "Learning",
+     "providers": [
+      "openai",
+      "anthropic"
+     ],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 407341,
+     "orgWebsiteId": 41420,
+     "prompt": "What helps contractors rank on Google?",
+     "intent": "research",
+     "isActive": true,
+     "lastCheckedAt": "2026-10-20T03:56:48.120Z",
+     "createdAt": "2026-06-27T05:57:03.898Z",
+     "updatedAt": "2026-10-20T03:56:48.120Z",
+     "tierLabel": "Other",
+     "providers": [
+      "openai",
+      "anthropic"
+     ],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 556092,
+     "orgWebsiteId": 41420,
+     "prompt": "local SEO services for plumbing contractors in Ventura County",
+     "intent": "bofu",
+     "isActive": true,
+     "lastCheckedAt": "2026-10-20T03:57:02.861Z",
+     "createdAt": "2026-09-06T18:45:02.571Z",
+     "updatedAt": "2026-10-20T03:57:02.861Z",
+     "tierLabel": "Buying intent",
+     "providers": [
+      "openai",
+      "anthropic"
+     ],
+     "providersWithMentions": [],
+     "sentiment": null
+    },
+    {
+     "id": 598774,
+     "orgWebsiteId": 41420,
+     "prompt": "cheapest HVAC marketing agencies in Ventura County 2026",
+     "intent": "bofu",
+     "isActive": true,
+     "lastCheckedAt": "2026-10-20T03:57:32.238Z",
+     "createdAt": "2026-10-05T19:42:41.908Z",
+     "updatedAt": "2026-10-20T03:57:32.238Z",
+     "tierLabel": "Buying intent",
+     "providers": [
+      "anthropic",
+      "openai"
+     ],
+     "providersWithMentions": [],
+     "sentiment": null
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned",
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "Google",
+     "count": 14,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 60.71,
+      "positive": 3,
+      "neutral": 11,
+      "negative": 0,
+      "classifiedMentions": 14
+     }
+    },
+    {
+     "brandName": "Google Search Console",
+     "count": 3,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 3,
+      "negative": 0,
+      "classifiedMentions": 3
+     }
+    },
+    {
+     "brandName": "Google Business Profile",
+     "count": 3,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 66.67,
+      "positive": 1,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 3
+     }
+    },
+    {
+     "brandName": "Yelp",
+     "count": 3,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 3,
+      "negative": 0,
+      "classifiedMentions": 3
+     }
+    },
+    {
+     "brandName": "Clutch",
+     "count": 3,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 3,
+      "negative": 0,
+      "classifiedMentions": 3
+     }
+    },
+    {
+     "brandName": "Scorpion",
+     "count": 3,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 66.67,
+      "positive": 1,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 3
+     }
+    },
+    {
+     "brandName": "Google Maps",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "BBB",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Facebook",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "ChatGPT",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Xofu",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 75,
+      "positive": 1,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "BrightLocal",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 2,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Hook Agency",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "HomeAdvisor",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Thumbtack",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned?promptId=407336",
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "Google",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Google Maps",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Google Business Profile",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Google Search Console",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Googlebot",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned?promptId=407334",
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "Google",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Google Search Console",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Google Keyword Planner",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Ubersuggest",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Google My Business",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Google Analytics",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned?promptId=407345",
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "ChatGPT",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Xofu",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 75,
+      "positive": 1,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "KIME",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Morningscore",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Nightwatch",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Omnia",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "BrightLocal",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Google",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Local Falcon",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "MentionedOn",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Beamtrace",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Local Dominator",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Gemini",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Claude",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Grok",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned?promptId=407346",
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "Google",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 75,
+      "positive": 1,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Facebook",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Yelp",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "BBB",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "BuildZoom",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Nextdoor",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Instagram",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned?promptId=407341",
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "Google",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 75,
+      "positive": 1,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Yelp",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "HomeAdvisor",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Thumbtack",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Houzz",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned?promptId=533742",
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "Google",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 75,
+      "positive": 1,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Yelp",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "BBB",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Apple Maps",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Bing Places",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "HomeAdvisor",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Thumbtack",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned?promptId=533740",
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "Clutch",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Google Business Profile",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Goodfirms",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "WebFX",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Pearl Lemon",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Funnel Boost Media",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Hook Agency",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Google",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "HigherVisibility",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Scorpion",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "iLocal",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 0,
+      "positive": 0,
+      "neutral": 0,
+      "negative": 1,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "BrightLocal",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Moz Local",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Reddit",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned?promptId=533741",
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "Scorpion",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Clutch",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Google Local Services Ads",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Google Ads",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned?promptId=556092",
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "Google",
+     "count": 2,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 2,
+      "negative": 0,
+      "classifiedMentions": 2
+     }
+    },
+    {
+     "brandName": "Ranking SB",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "ES Studios",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Boostcliques",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "SocialCali",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 0,
+      "positive": 0,
+      "neutral": 0,
+      "negative": 1,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Bullberry",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "QuantiMedia",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Plumbing Marketers",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Eric Scott Studios",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "12AM Agency",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Colm FitzGerald Solutions",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "LocalisedSEO",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Rohring Results",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "OxCon Labs",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "5D3 Media",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/llm-visibility/brands-mentioned?promptId=598774",
+   "status": 200,
+   "resBody": [
+    {
+     "brandName": "Besson Digital",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Explore HVAC",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Lockard Design Co.",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Lokal Media House",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Red Barn Media Group",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "CI Web Group",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Landon Scales",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "QuantiMedia",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "AirWorks Solutions",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Footbridge Media",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 100,
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Mediagistic",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Outdooit",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    },
+    {
+     "brandName": "Hook Agency",
+     "count": 1,
+     "brandUrl": "",
+     "sentiment": {
+      "score": 50,
+      "positive": 0,
+      "neutral": 1,
+      "negative": 0,
+      "classifiedMentions": 1
+     }
+    }
+   ],
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

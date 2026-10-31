@@ -1,0 +1,14 @@
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 6
+
+Before you connect
+Make sure you can ship a small code change — the blog lives inside your own Next.js project.
+Important: This integration only allows us to publish blog posts to your site.
+
+I have a Next.js (App Router) project I can edit and deploy
+Continue
+View detailed instructions
+

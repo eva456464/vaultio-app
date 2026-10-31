@@ -175,6 +175,333 @@
     ]
    },
    "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai\"/api/geo-audit/data?orgWebsiteId=41420\"",
+   "status": 0,
+   "resBody": "",
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/geo-audit/data?orgWebsiteId=41420",
+   "status": 200,
+   "resBody": {
+    "averageGeoScore": 96,
+    "averagePageSpeed": 100,
+    "llmOptimizationScore": 98,
+    "technicalSeoScore": 98,
+    "overallScore": 98,
+    "robotsTxt": {
+     "status": "ok"
+    },
+    "sitemap": {
+     "status": "ok"
+    },
+    "llmTxt": {
+     "status": "ok"
+    },
+    "pages": [
+     {
+      "url": "https://vaultio.co",
+      "geoScore": 95,
+      "issueCount": 1,
+      "issues": [
+       {
+        "id": 11789072,
+        "geoAuditId": 127269,
+        "issueType": "image_large",
+        "description": "Image is too large (Image: https://images.unsplash.com/photo-1635424709961-f3a150459ad4?w=1800&q=70&auto=format&fit=crop)",
+        "pageId": 6385626,
+        "severity": "LOW",
+        "action": {
+         "fix": "https://images.unsplash.com/photo-1635424709961-f3a150459ad4?w=1800&q=70&auto=format&fit=crop",
+         "before": null,
+         "message": "Resize the image to be less than 100KB",
+         "occurrences": 1
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T16:05:39.100Z",
+        "page": {
+         "id": 6385626,
+         "url": "https://vaultio.co"
+        }
+       }
+      ]
+     },
+     {
+      "url": "https://vaultio.co/CaseStudies",
+      "geoScore": 90,
+      "issueCount": 1,
+      "issues": [
+       {
+        "id": 11789071,
+        "geoAuditId": 127269,
+        "issueType": "meta_description_irrelevant",
+        "description": "Meta description is not relevant to the page content",
+        "pageId": 6385628,
+        "severity": "MEDIUM",
+        "action": {
+         "fix": "Vaultio client case studies are coming soon. Contact us to discuss client results and learn how our AI-powered marketing can support your business.",
+         "before": "Real results from home service businesses using Vaultio's AI-powered marketing — see how plumbers, HVAC pros, and contractors grow revenue. Book a call.",
+         "message": "Update the meta description to accurately reflect the page content and include relevant keywords"
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T16:05:35.837Z",
+        "page": {
+         "id": 6385628,
+         "url": "https://vaultio.co/CaseStudies"
+        }
+       }
+      ]
+     },
+     {
+      "url": "https://vaultio.co/cities",
+      "geoScore": 90,
+      "issueCount": 1,
+      "issues": [
+       {
+        "id": 11789095,
+        "geoAuditId": 127269,
+        "issueType": "meta_description_irrelevant",
+        "description": "Meta description is not relevant to the page content",
+        "pageId": 6385633,
+        "severity": "MEDIUM",
+        "action": {
+         "fix": "Explore Vaultio’s home service marketing in 27 US markets. Find your city to view web design, SEO, AI Search, Google Ads, and Meta Ads services.",
+         "before": "Vaultio serves home service contractors across 38+ California markets — find your city and see how we generate leads with web design, SEO, and paid ads.",
+         "message": "Update the meta description to accurately reflect the page content and include relevant keywords"
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T16:06:03.735Z",
+        "page": {
+         "id": 6385633,
+         "url": "https://vaultio.co/cities"
+        }
+       }
+      ]
+     },
+     {
+      "url": "https://vaultio.co/ConcreteMarketing",
+      "geoScore": 85,
+      "issueCount": 2,
+      "issues": [
+       {
+        "id": 11789199,
+        "geoAuditId": 127269,
+        "issueType": "meta_description_irrelevant",
+        "description": "Meta description is not relevant to the page content",
+        "pageId": 6385670,
+        "severity": "MEDIUM",
+        "action": {
+         "fix": "Get more high-value concrete leads for driveways, patios and decorative projects with targeted Google and Meta Ads. Launch your site in 8 days.",
+         "before": "Concrete and masonry marketing for driveways, patios and decorative concrete via Google Ads & AI SEO. Top 3 on Google in 3 months or we work free.",
+         "message": "Update the meta description to accurately reflect the page content and include relevant keywords"
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T16:06:20.214Z",
+        "page": {
+         "id": 6385670,
+         "url": "https://vaultio.co/ConcreteMarketing"
+        }
+       },
+       {
+        "id": 11789200,
+        "geoAuditId": 127269,
+        "issueType": "image_large",
+        "description": "Image is too large (Image: https://images.unsplash.com/photo-1574757987642-5755f0839101?w=1024&q=65)",
+        "pageId": 6385670,
+        "severity": "LOW",
+        "action": {
+         "fix": "https://images.unsplash.com/photo-1574757987642-5755f0839101?w=1024&q=65",
+         "before": null,
+         "message": "Resize the image to be less than 100KB",
+         "occurrences": 1
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T16:06:20.214Z",
+        "page": {
+         "id": 6385670,
+         "url": "https://vaultio.co/ConcreteMarketing"
+        }
+       }
+      ]
+     },
+     {
+      "url": "https://vaultio.co/TreeServiceMarketing",
+      "geoScore": 95,
+      "issueCount": 1,
+      "issues": [
+       {
+        "id": 11789201,
+        "geoAuditId": 127269,
+        "issueType": "image_large",
+        "description": "Image is too large (Image: https://images.unsplash.com/photo-1754322449185-31f56117ed87?w=1024&q=65)",
+        "pageId": 6385671,
+        "severity": "LOW",
+        "action": {
+         "fix": "https://images.unsplash.com/photo-1754322449185-31f56117ed87?w=1024&q=65",
+         "before": null,
+         "message": "Resize the image to be less than 100KB",
+         "occurrences": 1
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T16:06:22.372Z",
+        "page": {
+         "id": 6385671,
+         "url": "https://vaultio.co/TreeServiceMarketing"
+        }
+       }
+      ]
+     },
+     {
+      "url": "https://vaultio.co/SepticServiceMarketing",
+      "geoScore": 95,
+      "issueCount": 1,
+      "issues": [
+       {
+        "id": 11789197,
+        "geoAuditId": 127269,
+        "issueType": "image_large",
+        "description": "Image is too large (Image: https://images.unsplash.com/photo-1757191462487-6c6c0fe97edd?w=1024&q=65)",
+        "pageId": 6385672,
+        "severity": "LOW",
+        "action": {
+         "fix": "https://images.unsplash.com/photo-1757191462487-6c6c0fe97edd?w=1024&q=65",
+         "before": null,
+         "message": "Resize the image to be less than 100KB",
+         "occurrences": 1
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T16:06:18.800Z",
+        "page": {
+         "id": 6385672,
+         "url": "https://vaultio.co/SepticServiceMarketing"
+        }
+       }
+      ]
+     },
+     {
+      "url": "https://vaultio.co/GutterCleaningMarketing",
+      "geoScore": 95,
+      "issueCount": 1,
+      "issues": [
+       {
+        "id": 11789230,
+        "geoAuditId": 127269,
+        "issueType": "image_large",
+        "description": "Image is too large (Image: https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1024&q=65)",
+        "pageId": 6385674,
+        "severity": "LOW",
+        "action": {
+         "fix": "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1024&q=65",
+         "before": null,
+         "message": "Resize the image to be less than 100KB",
+         "occurrences": 1
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T16:06:38.884Z",
+        "page": {
+         "id": 6385674,
+         "url": "https://vaultio.co/GutterCleaningMarketing"
+        }
+       }
+      ]
+     },
+     {
+      "url": "https://vaultio.co/DrywallMarketing",
+      "geoScore": 90,
+      "issueCount": 1,
+      "issues": [
+       {
+        "id": 11789229,
+        "geoAuditId": 127269,
+        "issueType": "meta_description_irrelevant",
+        "description": "Meta description is not relevant to the page content",
+        "pageId": 6385677,
+        "severity": "MEDIUM",
+        "action": {
+         "fix": "Get more high-value drywall leads for basement finishes, additions, and renovations. Launch in 8 days with geo-targeted marketing from Vaultio.",
+         "before": "Drywall marketing for repairs, finishing and basement projects via Google Ads & AI SEO. Top 3 on Google in 3 months or we work free.",
+         "message": "Update the meta description to accurately reflect the page content and include relevant keywords"
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T16:06:36.064Z",
+        "page": {
+         "id": 6385677,
+         "url": "https://vaultio.co/DrywallMarketing"
+        }
+       }
+      ]
+     },
+     {
+      "url": "https://vaultio.co/InsulationMarketing",
+      "geoScore": 95,
+      "issueCount": 1,
+      "issues": [
+       {
+        "id": 11789258,
+        "geoAuditId": 127269,
+        "issueType": "image_large",
+        "description": "Image is too large (Image: https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1024&q=65)",
+        "pageId": 6385679,
+        "severity": "LOW",
+        "action": {
+         "fix": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1024&q=65",
+         "before": null,
+         "message": "Resize the image to be less than 100KB",
+         "occurrences": 1
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T16:07:05.351Z",
+        "page": {
+         "id": 6385679,
+         "url": "https://vaultio.co/InsulationMarketing"
+        }
+       }
+      ]
+     },
+     {
+      "url": "https://vaultio.co/AutoDetailingMarketing",
+      "geoScore": 95,
+      "issueCount": 1,
+      "issues": [
+       {
+        "id": 11789259,
+        "geoAuditId": 127269,
+        "issueType": "image_large",
+        "description": "Image is too large (Image: https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1024&q=65)",
+        "pageId": 6385685,
+        "severity": "LOW",
+        "action": {
+         "fix": "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1024&q=65",
+         "before": null,
+         "message": "Resize the image to be less than 100KB",
+         "occurrences": 1
+        },
+        "fixedAt": null,
+        "createdAt": "2026-10-27T16:07:08.304Z",
+        "page": {
+         "id": 6385685,
+         "url": "https://vaultio.co/AutoDetailingMarketing"
+        }
+       }
+      ]
+     }
+    ],
+    "auditDate": "2026-10-27T16:05:08.621Z",
+    "nextScheduledAuditAt": "2026-11-03T16:07:08.323Z",
+    "pagesAudited": 20,
+    "inProgress": false
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

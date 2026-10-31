@@ -1,0 +1,20 @@
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 4 of 6
+
+Configure next.config
+Allow remote article images so Next.js can optimize them.
+ADD TO NEXT.CONFIG.TS
+images: {
+  remotePatterns: [
+    { protocol: "https", hostname: "*" },
+  ],
+},
+
+Add the images key inside your existing Next.js config object. Replace * with your specific image host for tighter security.
+Back
+Continue
+View detailed instructions
+

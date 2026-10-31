@@ -1,0 +1,59 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/socials?tab=reddit",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Reddit",
+  "H3: Help finishing pressure/soft wash trailer.",
+  "H3: What do you use to wash your house?",
+  "H3: House exterior cleaning/ pressure washing recommendations?",
+  "H3: House wash suggestions",
+  "H3: Overwhelmed with the never ending Projects",
+  "H3: Step by step guide on how to open a pressure washing business - make $2k a week with $2k startup cost",
+  "H3: Company only scraping 20% off exterior before painting. Im worried",
+  "H3: Pressure Washing Newbie Questions",
+  "H3: Find more Reddit opportunities"
+ ],
+ "buttons": [
+  "Manage keywords [icon:lucide-settings2] -> /en/dashboard/settings/reddit",
+  "To reply",
+  "Replied",
+  "Help finishing pressure/soft wash trailer. -> https://reddit.com/r/pressurewashing/comments/1vfovdp/help_finishing_pressuresoft_wash_trailer/",
+  "Copy & open [icon:lucide-arrow-right]",
+  "(More actions) [icon:lucide-ellipsis-vertical]",
+  "What do you use to wash your house? -> https://www.reddit.com/r/homeowners/comments/tsa2cx/what_do_you_use_to_wash_your_house/",
+  "Draft a reply [icon:lucide-sparkles]",
+  "House exterior cleaning/ pressure washing recommendations? -> https://www.reddit.com/r/Gwinnett/comments/1p7nmxn/house_exterior_cleaning_pressure_washing/",
+  "House wash suggestions -> https://reddit.com/r/diynz/comments/ko3g64/house_wash_suggestions/",
+  "Overwhelmed with the never ending Projects -> https://reddit.com/r/HomeImprovement/comments/1vmo5p2/overwhelmed_with_the_never_ending_projects/",
+  "Step by step guide on how to open a pressure washing business - make $2k a week  -> https://reddit.com/r/sweatystartup/comments/uo5quz/step_by_step_guide_on_how_to_open_a_pressure/",
+  "Company only scraping 20% off exterior before painting. Im worried -> https://reddit.com/r/HomeImprovement/comments/1vfpaz2/company_only_scraping_20_off_exterior_before/",
+  "Pressure Washing Newbie Questions -> https://reddit.com/r/HomeImprovement/comments/1vc2fa7/pressure_washing_newbie_questions/",
+  "(Previous page) [icon:lucide-chevron-left] [disabled]",
+  "1",
+  "(Next page) [icon:lucide-chevron-right] [disabled]",
+  "(Dismiss) [icon:lucide-x]",
+  "Upgrade to Reddit+"
+ ],
+ "tabs": [
+  "To reply [selected]",
+  "Replied"
+ ],
+ "inputs": [],
+ "tables": [],
+ "icons": [
+  "lucide-settings2",
+  "lucide-sparkles",
+  "lucide-arrow-right",
+  "lucide-ellipsis-vertical",
+  "lucide-search",
+  "lucide-chevron-left",
+  "lucide-chevron-right",
+  "lucide-x",
+  "lucide-check"
+ ],
+ "images": [
+  " | https://app.vaultio.co/logos/chatgpt-logo.svg",
+  " | https://app.vaultio.co/logos/claude-ai-icon.svg"
+ ],
+ "charts": 0
+}

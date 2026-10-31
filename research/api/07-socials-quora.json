@@ -1,5 +1,5 @@
 {
- "page": "https://app.vaultio.co/en/dashboard/socials?tab=quora",
+ "page": "https://app.vaultio.co/en/dashboard/ai-visibility?tab=prompts",
  "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
  "calls": [
   {
@@ -1137,6 +1137,2102 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/quora/configuration",
+   "status": 200,
+   "resBody": {
+    "message": "OK",
+    "data": {
+     "keywords": [
+      {
+       "id": 45455,
+       "orgWebsiteId": 41420,
+       "keyword": "best seo services in california",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+       "createdAt": "2026-08-07T01:30:00.827Z"
+      },
+      {
+       "id": 45456,
+       "orgWebsiteId": 41420,
+       "keyword": "top seo companies for contractors",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+       "createdAt": "2026-08-07T01:30:00.830Z"
+      },
+      {
+       "id": 45457,
+       "orgWebsiteId": 41420,
+       "keyword": "best digital marketing for contractors",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:26.583Z",
+       "createdAt": "2026-08-07T01:30:00.833Z"
+      },
+      {
+       "id": 45458,
+       "orgWebsiteId": 41420,
+       "keyword": "top lead response tools for home services",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+       "createdAt": "2026-08-07T01:30:00.835Z"
+      },
+      {
+       "id": 45459,
+       "orgWebsiteId": 41420,
+       "keyword": "best online marketing strategies in ventura county",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:26.584Z",
+       "createdAt": "2026-08-07T01:30:00.837Z"
+      },
+      {
+       "id": 45460,
+       "orgWebsiteId": 41420,
+       "keyword": "top contractor marketing services in thousand oaks",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.839Z"
+      },
+      {
+       "id": 45461,
+       "orgWebsiteId": 41420,
+       "keyword": "best local seo for home service businesses",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.842Z"
+      },
+      {
+       "id": 45462,
+       "orgWebsiteId": 41420,
+       "keyword": "top ai solutions for small businesses",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.844Z"
+      },
+      {
+       "id": 45463,
+       "orgWebsiteId": 41420,
+       "keyword": "best visibility tools for contractors",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.846Z"
+      },
+      {
+       "id": 45464,
+       "orgWebsiteId": 41420,
+       "keyword": "top lead generation services in ventura county",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.850Z"
+      },
+      {
+       "id": 45465,
+       "orgWebsiteId": 41420,
+       "keyword": "best website optimization for contractors",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.853Z"
+      },
+      {
+       "id": 45466,
+       "orgWebsiteId": 41420,
+       "keyword": "top search ranking services in thousand oaks",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.855Z"
+      },
+      {
+       "id": 45467,
+       "orgWebsiteId": 41420,
+       "keyword": "best home service marketing strategies",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.857Z"
+      },
+      {
+       "id": 45468,
+       "orgWebsiteId": 41420,
+       "keyword": "top seo tools for contractors",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.860Z"
+      },
+      {
+       "id": 45469,
+       "orgWebsiteId": 41420,
+       "keyword": "best home improvement advertising in california",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.862Z"
+      }
+     ],
+     "maxKeywords": 5,
+     "replyInstructions": "Write like a real person with firsthand experience. Keep the response easy to read and avoid generic AI phrasing.",
+     "nextRunAt": "2026-08-14T00:00:00.000Z"
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/quora/relevant-posts?page=1&limit=100&filter=all",
+   "status": 200,
+   "resBody": {
+    "message": "OK",
+    "data": {
+     "posts": [
+      {
+       "id": 112665,
+       "quoraPostId": 121342,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 98,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:41.432Z",
+       "updatedAt": "2026-08-07T08:23:41.432Z",
+       "quoraPost": {
+        "id": 121342,
+        "quoraId": "what-are-the-top-methods-for-home-service-lead-generation",
+        "question": "How do I boost home service lead generation effectively?",
+        "author": "Ethen Peterson",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/What-are-the-top-methods-for-home-service-lead-generation",
+        "createdAt": "2026-08-07T08:23:35.837Z",
+        "postCreatedAt": "2024-07-11T16:57:32.642Z",
+        "updatedAt": "2026-08-07T08:23:36.858Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112629,
+       "quoraPostId": 121298,
+       "quoraMonitoringKeywordId": 45456,
+       "opportunityScore": 97,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:49.278Z",
+       "updatedAt": "2026-08-07T08:22:49.278Z",
+       "quoraPost": {
+        "id": 121298,
+        "quoraId": "are-seo-services-for-contractors-really-helpful",
+        "question": "Are SEO services for contractors really helpful?",
+        "author": "Zation Pro",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/Are-SEO-services-for-contractors-really-helpful",
+        "createdAt": "2026-08-07T08:22:43.897Z",
+        "postCreatedAt": "2022-09-03T05:14:50.631Z",
+        "updatedAt": "2026-08-07T21:36:31.797Z"
+       },
+       "monitoringKeyword": {
+        "id": 45456,
+        "orgWebsiteId": 41420,
+        "keyword": "top seo companies for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+        "createdAt": "2026-08-07T01:30:00.830Z"
+       }
+      },
+      {
+       "id": 112666,
+       "quoraPostId": 121343,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 97,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:41.432Z",
+       "updatedAt": "2026-08-07T08:23:41.432Z",
+       "quoraPost": {
+        "id": 121343,
+        "quoraId": "how-can-i-optimize-my-website-to-attract-more-leads-for-my-home-service-business",
+        "question": "How can I optimize my website to attract more leads for my home service business?",
+        "author": "Amrita Bhanwara",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/How-can-I-optimize-my-website-to-attract-more-leads-for-my-home-service-business",
+        "createdAt": "2026-08-07T08:23:35.837Z",
+        "postCreatedAt": "2020-09-22T13:39:32.204Z",
+        "updatedAt": "2026-08-07T08:23:36.859Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112698,
+       "quoraPostId": 121380,
+       "quoraMonitoringKeywordId": 45456,
+       "opportunityScore": 97,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:57.803Z",
+       "updatedAt": "2026-08-07T08:23:57.803Z",
+       "quoraPost": {
+        "id": 121380,
+        "quoraId": "how-do-contractor-seo-services-help",
+        "question": "How do contractor SEO services help?",
+        "author": "Bytelogic India",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/How-do-contractor-SEO-services-help",
+        "createdAt": "2026-08-07T08:23:54.269Z",
+        "postCreatedAt": "2021-11-09T06:15:02.879Z",
+        "updatedAt": "2026-08-07T21:36:31.795Z"
+       },
+       "monitoringKeyword": {
+        "id": 45456,
+        "orgWebsiteId": 41420,
+        "keyword": "top seo companies for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+        "createdAt": "2026-08-07T01:30:00.830Z"
+       }
+      },
+      {
+       "id": 112589,
+       "quoraPostId": 75703,
+       "quoraMonitoringKeywordId": 45457,
+       "opportunityScore": 96,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.608Z",
+       "updatedAt": "2026-08-07T08:22:28.608Z",
+       "quoraPost": {
+        "id": 75703,
+        "quoraId": "what-innovative-digital-marketing-strategies-can-i-employ-to-reach-out-to-construction-contractors-and-builders",
+        "question": "What innovative digital marketing strategies can I employ to reach out to construction contractors and builders?",
+        "author": "Lakhshya Verma",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 3,
+        "url": "https://www.quora.com/What-innovative-digital-marketing-strategies-can-I-employ-to-reach-out-to-construction-contractors-and-builders",
+        "createdAt": "2026-08-06T12:13:21.132Z",
+        "postCreatedAt": "2017-05-12T08:03:32.220Z",
+        "updatedAt": "2026-08-07T08:22:24.706Z"
+       },
+       "monitoringKeyword": {
+        "id": 45457,
+        "orgWebsiteId": 41420,
+        "keyword": "best digital marketing for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.583Z",
+        "createdAt": "2026-08-07T01:30:00.833Z"
+       }
+      },
+      {
+       "id": 112676,
+       "quoraPostId": 121355,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 95,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:44.162Z",
+       "updatedAt": "2026-08-07T08:23:44.162Z",
+       "quoraPost": {
+        "id": 121355,
+        "quoraId": "which-is-the-best-seo-company-in-san-francisco-california",
+        "question": "Which is the best SEO company in San Francisco, California?",
+        "author": "Doris Castro",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 4,
+        "url": "https://www.quora.com/Which-is-the-best-SEO-company-in-San-Francisco-California",
+        "createdAt": "2026-08-07T08:23:39.392Z",
+        "postCreatedAt": "2020-07-10T04:18:51.162Z",
+        "updatedAt": "2026-08-07T08:23:41.399Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112664,
+       "quoraPostId": 121341,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 94,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:41.432Z",
+       "updatedAt": "2026-08-07T08:23:41.432Z",
+       "quoraPost": {
+        "id": 121341,
+        "quoraId": "what-is-the-best-way-for-a-local-home-improvement-business-to-generate-leads",
+        "question": "What is the best way for a local home improvement business to generate leads?",
+        "author": "Levi Thornton",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 6,
+        "url": "https://www.quora.com/What-is-the-best-way-for-a-local-home-improvement-business-to-generate-leads",
+        "createdAt": "2026-08-07T08:23:35.837Z",
+        "postCreatedAt": "2015-07-07T04:30:36.005Z",
+        "updatedAt": "2026-08-07T08:23:36.858Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112592,
+       "quoraPostId": 24800,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 92,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:31.962Z",
+       "updatedAt": "2026-08-07T08:22:31.962Z",
+       "quoraPost": {
+        "id": 24800,
+        "quoraId": "which-company-provide-best-seo-search-engine-optimization-services-in-the-california",
+        "question": "Which company provide best SEO(Search Engine Optimization) services in the California?",
+        "author": "Tori Bose",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 13,
+        "url": "https://www.quora.com/Which-company-provide-best-SEO-Search-Engine-Optimization-services-in-the-California",
+        "createdAt": "2026-08-05T12:30:34.949Z",
+        "postCreatedAt": "2025-09-06T14:57:15.265Z",
+        "updatedAt": "2026-08-07T08:22:28.154Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112574,
+       "quoraPostId": 31866,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 90,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.322Z",
+       "updatedAt": "2026-08-07T08:22:28.322Z",
+       "quoraPost": {
+        "id": 31866,
+        "quoraId": "what-are-the-most-effective-strategies-for-home-improvement-lead-generation",
+        "question": "What are the most effective strategies for home improvement lead generation?",
+        "author": "Moaaz Nagori",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 6,
+        "url": "https://www.quora.com/What-are-the-most-effective-strategies-for-home-improvement-lead-generation",
+        "createdAt": "2026-08-05T14:19:26.502Z",
+        "postCreatedAt": "2024-12-12T14:12:25.500Z",
+        "updatedAt": "2026-08-07T16:05:32.283Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112675,
+       "quoraPostId": 121353,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:44.162Z",
+       "updatedAt": "2026-08-07T08:23:44.162Z",
+       "quoraPost": {
+        "id": 121353,
+        "quoraId": "what-is-the-role-of-an-seo-company-in-california",
+        "question": "What is the role of an SEO company in California?",
+        "author": "MOHD OSMAN QURESHI",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/What-is-the-role-of-an-SEO-company-in-California",
+        "createdAt": "2026-08-07T08:23:39.392Z",
+        "postCreatedAt": "2024-01-18T06:13:16.633Z",
+        "updatedAt": "2026-08-07T08:23:41.399Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112587,
+       "quoraPostId": 75785,
+       "quoraMonitoringKeywordId": 45457,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.608Z",
+       "updatedAt": "2026-08-07T08:22:28.608Z",
+       "quoraPost": {
+        "id": 75785,
+        "quoraId": "is-digital-marketing-or-traditional-marketing-the-best-for-roofing-contractors",
+        "question": "Is digital marketing or traditional marketing the best for roofing contractors?",
+        "author": "Mark Mehling",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/Is-digital-marketing-or-traditional-marketing-the-best-for-roofing-contractors",
+        "createdAt": "2026-08-06T12:14:10.625Z",
+        "postCreatedAt": "2020-07-10T11:40:01.347Z",
+        "updatedAt": "2026-08-07T08:22:25.241Z"
+       },
+       "monitoringKeyword": {
+        "id": 45457,
+        "orgWebsiteId": 41420,
+        "keyword": "best digital marketing for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.583Z",
+        "createdAt": "2026-08-07T01:30:00.833Z"
+       }
+      },
+      {
+       "id": 112572,
+       "quoraPostId": 121258,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.322Z",
+       "updatedAt": "2026-08-07T08:22:28.322Z",
+       "quoraPost": {
+        "id": 121258,
+        "quoraId": "what-email-automation-strategy-works-best-for-a-home-services-provider-business",
+        "question": "What email automation strategy works best for a home services provider business?",
+        "author": "William Baptist",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/What-email-automation-strategy-works-best-for-a-home-services-provider-business",
+        "createdAt": "2026-08-07T08:22:23.493Z",
+        "postCreatedAt": "2023-11-28T00:56:25.326Z",
+        "updatedAt": "2026-08-07T08:22:25.683Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112674,
+       "quoraPostId": 121356,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:44.162Z",
+       "updatedAt": "2026-08-07T08:23:44.162Z",
+       "quoraPost": {
+        "id": 121356,
+        "quoraId": "how-do-i-get-started-with-seo-services-in-california",
+        "question": "How do I get started with SEO services in California?",
+        "author": "Renuka Akter",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/How-do-I-get-started-with-SEO-services-in-California",
+        "createdAt": "2026-08-07T08:23:39.392Z",
+        "postCreatedAt": "2020-07-10T17:35:48.380Z",
+        "updatedAt": "2026-08-07T08:23:41.400Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112593,
+       "quoraPostId": 121261,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:31.962Z",
+       "updatedAt": "2026-08-07T08:22:31.962Z",
+       "quoraPost": {
+        "id": 121261,
+        "quoraId": "who-is-the-best-seo-company-in-south-california",
+        "question": "Who is the best SEO company in South California?",
+        "author": "Trenton Lang",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/Who-is-the-best-SEO-company-in-South-California",
+        "createdAt": "2026-08-07T08:22:26.781Z",
+        "postCreatedAt": "2026-04-15T01:05:48.303Z",
+        "updatedAt": "2026-08-07T08:22:28.328Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112594,
+       "quoraPostId": 121262,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:31.962Z",
+       "updatedAt": "2026-08-07T08:22:31.962Z",
+       "quoraPost": {
+        "id": 121262,
+        "quoraId": "what-is-a-good-bay-area-based-company-that-can-help-me-do-seo-for-my-website",
+        "question": "What is a good Bay Area-based company that can help me do SEO for my website?",
+        "author": "Vinny LaBarbera",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/What-is-a-good-Bay-Area-based-company-that-can-help-me-do-SEO-for-my-website",
+        "createdAt": "2026-08-07T08:22:26.781Z",
+        "postCreatedAt": "2011-01-14T19:57:57.268Z",
+        "updatedAt": "2026-08-07T08:22:28.328Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112584,
+       "quoraPostId": 121248,
+       "quoraMonitoringKeywordId": 45459,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.556Z",
+       "updatedAt": "2026-08-07T08:22:28.556Z",
+       "quoraPost": {
+        "id": 121248,
+        "quoraId": "what-is-the-hardest-part-about-convincing-a-traditional-business-owner-to-trust-an-online-marketing-strategy",
+        "question": "What is the hardest part about convincing a traditional business owner to trust an online marketing strategy?",
+        "author": "Digital Meta Monk",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/What-is-the-hardest-part-about-convincing-a-traditional-business-owner-to-trust-an-online-marketing-strategy",
+        "createdAt": "2026-08-07T08:22:22.264Z",
+        "postCreatedAt": "2026-06-19T08:13:09.613Z",
+        "updatedAt": "2026-08-07T08:22:23.160Z"
+       },
+       "monitoringKeyword": {
+        "id": 45459,
+        "orgWebsiteId": 41420,
+        "keyword": "best online marketing strategies in ventura county",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.584Z",
+        "createdAt": "2026-08-07T01:30:00.837Z"
+       }
+      },
+      {
+       "id": 112697,
+       "quoraPostId": 11866,
+       "quoraMonitoringKeywordId": 45456,
+       "opportunityScore": 79,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:57.803Z",
+       "updatedAt": "2026-08-07T08:23:57.803Z",
+       "quoraPost": {
+        "id": 11866,
+        "quoraId": "what-is-the-best-seo-service-provider-in-boston",
+        "question": "What is the best SEO service provider in Boston?",
+        "author": "Bhuvi T",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/What-is-the-best-SEO-service-provider-in-Boston",
+        "createdAt": "2026-08-05T08:20:51.091Z",
+        "postCreatedAt": "2022-04-07T13:02:04.803Z",
+        "updatedAt": "2026-08-07T20:51:29.014Z"
+       },
+       "monitoringKeyword": {
+        "id": 45456,
+        "orgWebsiteId": 41420,
+        "keyword": "top seo companies for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+        "createdAt": "2026-08-07T01:30:00.830Z"
+       }
+      },
+      {
+       "id": 112704,
+       "quoraPostId": 66029,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 79,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:24:13.941Z",
+       "updatedAt": "2026-08-07T08:24:13.941Z",
+       "quoraPost": {
+        "id": 66029,
+        "quoraId": "what-are-the-most-effective-lead-generation-tactics-for-service-based-businesses",
+        "question": "What are the most effective lead generation tactics for service-based businesses?",
+        "author": "Supriya Mathur",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/What-are-the-most-effective-lead-generation-tactics-for-service-based-businesses",
+        "createdAt": "2026-08-06T09:24:54.252Z",
+        "postCreatedAt": "2025-12-19T11:44:55.965Z",
+        "updatedAt": "2026-08-07T19:14:57.500Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112628,
+       "quoraPostId": 20417,
+       "quoraMonitoringKeywordId": 45456,
+       "opportunityScore": 79,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:49.278Z",
+       "updatedAt": "2026-08-07T08:22:49.278Z",
+       "quoraPost": {
+        "id": 20417,
+        "quoraId": "which-company-is-the-best-for-local-seo-in-texas",
+        "question": "Which company is the best for Local SEO in Texas?",
+        "author": "Lincoln Downs",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/Which-company-is-the-best-for-Local-SEO-in-Texas",
+        "createdAt": "2026-08-05T11:23:28.982Z",
+        "postCreatedAt": "2026-04-19T14:08:57.691Z",
+        "updatedAt": "2026-08-08T08:39:49.198Z"
+       },
+       "monitoringKeyword": {
+        "id": 45456,
+        "orgWebsiteId": 41420,
+        "keyword": "top seo companies for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+        "createdAt": "2026-08-07T01:30:00.830Z"
+       }
+      },
+      {
+       "id": 112588,
+       "quoraPostId": 76509,
+       "quoraMonitoringKeywordId": 45457,
+       "opportunityScore": 79,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.608Z",
+       "updatedAt": "2026-08-07T08:22:28.608Z",
+       "quoraPost": {
+        "id": 76509,
+        "quoraId": "can-a-digital-marketing-agency-help-contractors-with-social-media-marketing",
+        "question": "Can a digital marketing agency help contractors with social media marketing?",
+        "author": "Mary John",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/Can-a-digital-marketing-agency-help-contractors-with-social-media-marketing",
+        "createdAt": "2026-08-06T12:19:55.600Z",
+        "postCreatedAt": "2023-05-18T18:23:23.141Z",
+        "updatedAt": "2026-08-07T08:22:24.706Z"
+       },
+       "monitoringKeyword": {
+        "id": 45457,
+        "orgWebsiteId": 41420,
+        "keyword": "best digital marketing for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.583Z",
+        "createdAt": "2026-08-07T01:30:00.833Z"
+       }
+      },
+      {
+       "id": 112630,
+       "quoraPostId": 121299,
+       "quoraMonitoringKeywordId": 45456,
+       "opportunityScore": 78,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:49.278Z",
+       "updatedAt": "2026-08-07T08:22:49.278Z",
+       "quoraPost": {
+        "id": 121299,
+        "quoraId": "what-is-the-best-seo-company-with-a-strong-background-and-good-reviews",
+        "question": "What is the best SEO company with a strong background and good reviews?",
+        "author": "Deepti Panwar",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 3,
+        "url": "https://www.quora.com/What-is-the-best-SEO-company-with-a-strong-background-and-good-reviews",
+        "createdAt": "2026-08-07T08:22:43.897Z",
+        "postCreatedAt": "2023-01-27T15:04:54.947Z",
+        "updatedAt": "2026-08-07T08:22:45.410Z"
+       },
+       "monitoringKeyword": {
+        "id": 45456,
+        "orgWebsiteId": 41420,
+        "keyword": "top seo companies for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+        "createdAt": "2026-08-07T01:30:00.830Z"
+       }
+      },
+      {
+       "id": 112667,
+       "quoraPostId": 31863,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 77,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:41.432Z",
+       "updatedAt": "2026-08-07T08:23:41.432Z",
+       "quoraPost": {
+        "id": 31863,
+        "quoraId": "im-generating-hundreds-of-home-improvement-leads-all-around-the-country-weekly-through-online-marketing-techniques-how-can-i-pass-the-leads-to-contractors-and-collect-10-without-them-taking-advantage-of-me-by-not",
+        "question": "Im generating hundreds of home improvement leads all around the country weekly through online marketing techniques, how can I pass the le...",
+        "author": "Federbondii",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 4,
+        "url": "https://www.quora.com/Im-generating-hundreds-of-home-improvement-leads-all-around-the-country-weekly-through-online-marketing-techniques-how-can-I-pass-the-leads-to-contractors-and-collect-10-without-them-taking-advantage-of-me-by-not",
+        "createdAt": "2026-08-05T14:19:26.502Z",
+        "postCreatedAt": "2026-05-26T13:13:33.811Z",
+        "updatedAt": "2026-08-07T14:17:23.088Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112590,
+       "quoraPostId": 121255,
+       "quoraMonitoringKeywordId": 45457,
+       "opportunityScore": 76,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.608Z",
+       "updatedAt": "2026-08-07T08:22:28.608Z",
+       "quoraPost": {
+        "id": 121255,
+        "quoraId": "how-do-you-market-your-construction-business",
+        "question": "How do you market your construction business?",
+        "author": "Abhishek Badiger",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 8,
+        "url": "https://www.quora.com/How-do-you-market-your-construction-business",
+        "createdAt": "2026-08-07T08:22:22.727Z",
+        "postCreatedAt": "2020-10-27T10:20:58.798Z",
+        "updatedAt": "2026-08-07T08:22:25.241Z"
+       },
+       "monitoringKeyword": {
+        "id": 45457,
+        "orgWebsiteId": 41420,
+        "keyword": "best digital marketing for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.583Z",
+        "createdAt": "2026-08-07T01:30:00.833Z"
+       }
+      },
+      {
+       "id": 112591,
+       "quoraPostId": 2660,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 75,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:31.962Z",
+       "updatedAt": "2026-08-07T08:22:31.962Z",
+       "quoraPost": {
+        "id": 2660,
+        "quoraId": "what-are-the-best-seo-services-offered-by-agencies-in-los-angeles",
+        "question": "What are the best SEO services offered by agencies in Los Angeles?",
+        "author": "Rodrigo Kimball",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 10,
+        "url": "https://www.quora.com/What-are-the-best-SEO-services-offered-by-agencies-in-Los-Angeles",
+        "createdAt": "2026-08-04T21:22:17.565Z",
+        "postCreatedAt": "2025-11-06T14:14:58.741Z",
+        "updatedAt": "2026-08-07T20:51:47.919Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112677,
+       "quoraPostId": 121359,
+       "quoraMonitoringKeywordId": 45459,
+       "opportunityScore": 74,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:44.162Z",
+       "updatedAt": "2026-08-07T08:23:44.162Z",
+       "quoraPost": {
+        "id": 121359,
+        "quoraId": "what-is-the-best-way-to-advertise-a-new-online-service-business-where-do-you-begin-to-smm",
+        "question": "What is the best way to advertise a new online service (business)? Where do you begin to SMM?",
+        "author": "Rotem Shaul",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 14,
+        "url": "https://www.quora.com/What-is-the-best-way-to-advertise-a-new-online-service-business-Where-do-you-begin-to-SMM",
+        "createdAt": "2026-08-07T08:23:40.226Z",
+        "postCreatedAt": "2026-05-21T21:35:17.424Z",
+        "updatedAt": "2026-08-07T08:23:41.979Z"
+       },
+       "monitoringKeyword": {
+        "id": 45459,
+        "orgWebsiteId": 41420,
+        "keyword": "best online marketing strategies in ventura county",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.584Z",
+        "createdAt": "2026-08-07T01:30:00.837Z"
+       }
+      },
+      {
+       "id": 112585,
+       "quoraPostId": 121254,
+       "quoraMonitoringKeywordId": 45459,
+       "opportunityScore": 74,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.556Z",
+       "updatedAt": "2026-08-07T08:22:28.556Z",
+       "quoraPost": {
+        "id": 121254,
+        "quoraId": "what-can-outsourced-marketing-agencies-do-that-we-cant-do-in-house",
+        "question": "What can outsourced marketing agencies do that we can't do in house?",
+        "author": "Tim Ventura",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 15,
+        "url": "https://www.quora.com/What-can-outsourced-marketing-agencies-do-that-we-cant-do-in-house",
+        "createdAt": "2026-08-07T08:22:22.264Z",
+        "postCreatedAt": "2019-07-02T19:58:13.660Z",
+        "updatedAt": "2026-08-07T08:22:24.705Z"
+       },
+       "monitoringKeyword": {
+        "id": 45459,
+        "orgWebsiteId": 41420,
+        "keyword": "best online marketing strategies in ventura county",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.584Z",
+        "createdAt": "2026-08-07T01:30:00.837Z"
+       }
+      },
+      {
+       "id": 112725,
+       "quoraPostId": 121414,
+       "quoraMonitoringKeywordId": 45456,
+       "opportunityScore": 73,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:24:19.200Z",
+       "updatedAt": "2026-08-07T08:24:19.200Z",
+       "quoraPost": {
+        "id": 121414,
+        "quoraId": "which-is-the-best-seo-company-for-affordable-seo-services-in-the-usa",
+        "question": "Which is the best SEO company for affordable SEO services in the USA?",
+        "author": "Rankspark",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 17,
+        "url": "https://www.quora.com/Which-is-the-best-SEO-company-for-affordable-SEO-services-in-the-USA",
+        "createdAt": "2026-08-07T08:24:16.629Z",
+        "postCreatedAt": "2025-09-06T04:54:10.393Z",
+        "updatedAt": "2026-08-07T08:24:17.764Z"
+       },
+       "monitoringKeyword": {
+        "id": 45456,
+        "orgWebsiteId": 41420,
+        "keyword": "top seo companies for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+        "createdAt": "2026-08-07T01:30:00.830Z"
+       }
+      }
+     ],
+     "total": 27,
+     "hasMore": false
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/quora/configuration",
+   "status": 200,
+   "resBody": {
+    "message": "OK",
+    "data": {
+     "keywords": [
+      {
+       "id": 45455,
+       "orgWebsiteId": 41420,
+       "keyword": "best seo services in california",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+       "createdAt": "2026-08-07T01:30:00.827Z"
+      },
+      {
+       "id": 45456,
+       "orgWebsiteId": 41420,
+       "keyword": "top seo companies for contractors",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+       "createdAt": "2026-08-07T01:30:00.830Z"
+      },
+      {
+       "id": 45457,
+       "orgWebsiteId": 41420,
+       "keyword": "best digital marketing for contractors",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:26.583Z",
+       "createdAt": "2026-08-07T01:30:00.833Z"
+      },
+      {
+       "id": 45458,
+       "orgWebsiteId": 41420,
+       "keyword": "top lead response tools for home services",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+       "createdAt": "2026-08-07T01:30:00.835Z"
+      },
+      {
+       "id": 45459,
+       "orgWebsiteId": 41420,
+       "keyword": "best online marketing strategies in ventura county",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:26.584Z",
+       "createdAt": "2026-08-07T01:30:00.837Z"
+      },
+      {
+       "id": 45460,
+       "orgWebsiteId": 41420,
+       "keyword": "top contractor marketing services in thousand oaks",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.839Z"
+      },
+      {
+       "id": 45461,
+       "orgWebsiteId": 41420,
+       "keyword": "best local seo for home service businesses",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.842Z"
+      },
+      {
+       "id": 45462,
+       "orgWebsiteId": 41420,
+       "keyword": "top ai solutions for small businesses",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.844Z"
+      },
+      {
+       "id": 45463,
+       "orgWebsiteId": 41420,
+       "keyword": "best visibility tools for contractors",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.846Z"
+      },
+      {
+       "id": 45464,
+       "orgWebsiteId": 41420,
+       "keyword": "top lead generation services in ventura county",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.850Z"
+      },
+      {
+       "id": 45465,
+       "orgWebsiteId": 41420,
+       "keyword": "best website optimization for contractors",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.853Z"
+      },
+      {
+       "id": 45466,
+       "orgWebsiteId": 41420,
+       "keyword": "top search ranking services in thousand oaks",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.855Z"
+      },
+      {
+       "id": 45467,
+       "orgWebsiteId": 41420,
+       "keyword": "best home service marketing strategies",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.857Z"
+      },
+      {
+       "id": 45468,
+       "orgWebsiteId": 41420,
+       "keyword": "top seo tools for contractors",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.860Z"
+      },
+      {
+       "id": 45469,
+       "orgWebsiteId": 41420,
+       "keyword": "best home improvement advertising in california",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.862Z"
+      }
+     ],
+     "maxKeywords": 5,
+     "replyInstructions": "Write like a real person with firsthand experience. Keep the response easy to read and avoid generic AI phrasing.",
+     "nextRunAt": "2026-08-14T00:00:00.000Z"
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/quora/relevant-posts?page=1&limit=100&filter=all",
+   "status": 200,
+   "resBody": {
+    "message": "OK",
+    "data": {
+     "posts": [
+      {
+       "id": 112665,
+       "quoraPostId": 121342,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 98,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:41.432Z",
+       "updatedAt": "2026-08-07T08:23:41.432Z",
+       "quoraPost": {
+        "id": 121342,
+        "quoraId": "what-are-the-top-methods-for-home-service-lead-generation",
+        "question": "How do I boost home service lead generation effectively?",
+        "author": "Ethen Peterson",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/What-are-the-top-methods-for-home-service-lead-generation",
+        "createdAt": "2026-08-07T08:23:35.837Z",
+        "postCreatedAt": "2024-07-11T16:57:32.642Z",
+        "updatedAt": "2026-08-07T08:23:36.858Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112629,
+       "quoraPostId": 121298,
+       "quoraMonitoringKeywordId": 45456,
+       "opportunityScore": 97,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:49.278Z",
+       "updatedAt": "2026-08-07T08:22:49.278Z",
+       "quoraPost": {
+        "id": 121298,
+        "quoraId": "are-seo-services-for-contractors-really-helpful",
+        "question": "Are SEO services for contractors really helpful?",
+        "author": "Zation Pro",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/Are-SEO-services-for-contractors-really-helpful",
+        "createdAt": "2026-08-07T08:22:43.897Z",
+        "postCreatedAt": "2022-09-03T05:14:50.631Z",
+        "updatedAt": "2026-08-07T21:36:31.797Z"
+       },
+       "monitoringKeyword": {
+        "id": 45456,
+        "orgWebsiteId": 41420,
+        "keyword": "top seo companies for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+        "createdAt": "2026-08-07T01:30:00.830Z"
+       }
+      },
+      {
+       "id": 112666,
+       "quoraPostId": 121343,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 97,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:41.432Z",
+       "updatedAt": "2026-08-07T08:23:41.432Z",
+       "quoraPost": {
+        "id": 121343,
+        "quoraId": "how-can-i-optimize-my-website-to-attract-more-leads-for-my-home-service-business",
+        "question": "How can I optimize my website to attract more leads for my home service business?",
+        "author": "Amrita Bhanwara",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/How-can-I-optimize-my-website-to-attract-more-leads-for-my-home-service-business",
+        "createdAt": "2026-08-07T08:23:35.837Z",
+        "postCreatedAt": "2020-09-22T13:39:32.204Z",
+        "updatedAt": "2026-08-07T08:23:36.859Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112698,
+       "quoraPostId": 121380,
+       "quoraMonitoringKeywordId": 45456,
+       "opportunityScore": 97,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:57.803Z",
+       "updatedAt": "2026-08-07T08:23:57.803Z",
+       "quoraPost": {
+        "id": 121380,
+        "quoraId": "how-do-contractor-seo-services-help",
+        "question": "How do contractor SEO services help?",
+        "author": "Bytelogic India",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/How-do-contractor-SEO-services-help",
+        "createdAt": "2026-08-07T08:23:54.269Z",
+        "postCreatedAt": "2021-11-09T06:15:02.879Z",
+        "updatedAt": "2026-08-07T21:36:31.795Z"
+       },
+       "monitoringKeyword": {
+        "id": 45456,
+        "orgWebsiteId": 41420,
+        "keyword": "top seo companies for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+        "createdAt": "2026-08-07T01:30:00.830Z"
+       }
+      },
+      {
+       "id": 112589,
+       "quoraPostId": 75703,
+       "quoraMonitoringKeywordId": 45457,
+       "opportunityScore": 96,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.608Z",
+       "updatedAt": "2026-08-07T08:22:28.608Z",
+       "quoraPost": {
+        "id": 75703,
+        "quoraId": "what-innovative-digital-marketing-strategies-can-i-employ-to-reach-out-to-construction-contractors-and-builders",
+        "question": "What innovative digital marketing strategies can I employ to reach out to construction contractors and builders?",
+        "author": "Lakhshya Verma",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 3,
+        "url": "https://www.quora.com/What-innovative-digital-marketing-strategies-can-I-employ-to-reach-out-to-construction-contractors-and-builders",
+        "createdAt": "2026-08-06T12:13:21.132Z",
+        "postCreatedAt": "2017-05-12T08:03:32.220Z",
+        "updatedAt": "2026-08-07T08:22:24.706Z"
+       },
+       "monitoringKeyword": {
+        "id": 45457,
+        "orgWebsiteId": 41420,
+        "keyword": "best digital marketing for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.583Z",
+        "createdAt": "2026-08-07T01:30:00.833Z"
+       }
+      },
+      {
+       "id": 112676,
+       "quoraPostId": 121355,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 95,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:44.162Z",
+       "updatedAt": "2026-08-07T08:23:44.162Z",
+       "quoraPost": {
+        "id": 121355,
+        "quoraId": "which-is-the-best-seo-company-in-san-francisco-california",
+        "question": "Which is the best SEO company in San Francisco, California?",
+        "author": "Doris Castro",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 4,
+        "url": "https://www.quora.com/Which-is-the-best-SEO-company-in-San-Francisco-California",
+        "createdAt": "2026-08-07T08:23:39.392Z",
+        "postCreatedAt": "2020-07-10T04:18:51.162Z",
+        "updatedAt": "2026-08-07T08:23:41.399Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112664,
+       "quoraPostId": 121341,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 94,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:41.432Z",
+       "updatedAt": "2026-08-07T08:23:41.432Z",
+       "quoraPost": {
+        "id": 121341,
+        "quoraId": "what-is-the-best-way-for-a-local-home-improvement-business-to-generate-leads",
+        "question": "What is the best way for a local home improvement business to generate leads?",
+        "author": "Levi Thornton",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 6,
+        "url": "https://www.quora.com/What-is-the-best-way-for-a-local-home-improvement-business-to-generate-leads",
+        "createdAt": "2026-08-07T08:23:35.837Z",
+        "postCreatedAt": "2015-07-07T04:30:36.005Z",
+        "updatedAt": "2026-08-07T08:23:36.858Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112592,
+       "quoraPostId": 24800,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 92,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:31.962Z",
+       "updatedAt": "2026-08-07T08:22:31.962Z",
+       "quoraPost": {
+        "id": 24800,
+        "quoraId": "which-company-provide-best-seo-search-engine-optimization-services-in-the-california",
+        "question": "Which company provide best SEO(Search Engine Optimization) services in the California?",
+        "author": "Tori Bose",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 13,
+        "url": "https://www.quora.com/Which-company-provide-best-SEO-Search-Engine-Optimization-services-in-the-California",
+        "createdAt": "2026-08-05T12:30:34.949Z",
+        "postCreatedAt": "2025-09-06T14:57:15.265Z",
+        "updatedAt": "2026-08-07T08:22:28.154Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112574,
+       "quoraPostId": 31866,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 90,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.322Z",
+       "updatedAt": "2026-08-07T08:22:28.322Z",
+       "quoraPost": {
+        "id": 31866,
+        "quoraId": "what-are-the-most-effective-strategies-for-home-improvement-lead-generation",
+        "question": "What are the most effective strategies for home improvement lead generation?",
+        "author": "Moaaz Nagori",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 6,
+        "url": "https://www.quora.com/What-are-the-most-effective-strategies-for-home-improvement-lead-generation",
+        "createdAt": "2026-08-05T14:19:26.502Z",
+        "postCreatedAt": "2024-12-12T14:12:25.500Z",
+        "updatedAt": "2026-08-07T16:05:32.283Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112675,
+       "quoraPostId": 121353,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:44.162Z",
+       "updatedAt": "2026-08-07T08:23:44.162Z",
+       "quoraPost": {
+        "id": 121353,
+        "quoraId": "what-is-the-role-of-an-seo-company-in-california",
+        "question": "What is the role of an SEO company in California?",
+        "author": "MOHD OSMAN QURESHI",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/What-is-the-role-of-an-SEO-company-in-California",
+        "createdAt": "2026-08-07T08:23:39.392Z",
+        "postCreatedAt": "2024-01-18T06:13:16.633Z",
+        "updatedAt": "2026-08-07T08:23:41.399Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112587,
+       "quoraPostId": 75785,
+       "quoraMonitoringKeywordId": 45457,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.608Z",
+       "updatedAt": "2026-08-07T08:22:28.608Z",
+       "quoraPost": {
+        "id": 75785,
+        "quoraId": "is-digital-marketing-or-traditional-marketing-the-best-for-roofing-contractors",
+        "question": "Is digital marketing or traditional marketing the best for roofing contractors?",
+        "author": "Mark Mehling",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/Is-digital-marketing-or-traditional-marketing-the-best-for-roofing-contractors",
+        "createdAt": "2026-08-06T12:14:10.625Z",
+        "postCreatedAt": "2020-07-10T11:40:01.347Z",
+        "updatedAt": "2026-08-07T08:22:25.241Z"
+       },
+       "monitoringKeyword": {
+        "id": 45457,
+        "orgWebsiteId": 41420,
+        "keyword": "best digital marketing for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.583Z",
+        "createdAt": "2026-08-07T01:30:00.833Z"
+       }
+      },
+      {
+       "id": 112572,
+       "quoraPostId": 121258,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.322Z",
+       "updatedAt": "2026-08-07T08:22:28.322Z",
+       "quoraPost": {
+        "id": 121258,
+        "quoraId": "what-email-automation-strategy-works-best-for-a-home-services-provider-business",
+        "question": "What email automation strategy works best for a home services provider business?",
+        "author": "William Baptist",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/What-email-automation-strategy-works-best-for-a-home-services-provider-business",
+        "createdAt": "2026-08-07T08:22:23.493Z",
+        "postCreatedAt": "2023-11-28T00:56:25.326Z",
+        "updatedAt": "2026-08-07T08:22:25.683Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112674,
+       "quoraPostId": 121356,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:44.162Z",
+       "updatedAt": "2026-08-07T08:23:44.162Z",
+       "quoraPost": {
+        "id": 121356,
+        "quoraId": "how-do-i-get-started-with-seo-services-in-california",
+        "question": "How do I get started with SEO services in California?",
+        "author": "Renuka Akter",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/How-do-I-get-started-with-SEO-services-in-California",
+        "createdAt": "2026-08-07T08:23:39.392Z",
+        "postCreatedAt": "2020-07-10T17:35:48.380Z",
+        "updatedAt": "2026-08-07T08:23:41.400Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112593,
+       "quoraPostId": 121261,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:31.962Z",
+       "updatedAt": "2026-08-07T08:22:31.962Z",
+       "quoraPost": {
+        "id": 121261,
+        "quoraId": "who-is-the-best-seo-company-in-south-california",
+        "question": "Who is the best SEO company in South California?",
+        "author": "Trenton Lang",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/Who-is-the-best-SEO-company-in-South-California",
+        "createdAt": "2026-08-07T08:22:26.781Z",
+        "postCreatedAt": "2026-04-15T01:05:48.303Z",
+        "updatedAt": "2026-08-07T08:22:28.328Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112594,
+       "quoraPostId": 121262,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:31.962Z",
+       "updatedAt": "2026-08-07T08:22:31.962Z",
+       "quoraPost": {
+        "id": 121262,
+        "quoraId": "what-is-a-good-bay-area-based-company-that-can-help-me-do-seo-for-my-website",
+        "question": "What is a good Bay Area-based company that can help me do SEO for my website?",
+        "author": "Vinny LaBarbera",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/What-is-a-good-Bay-Area-based-company-that-can-help-me-do-SEO-for-my-website",
+        "createdAt": "2026-08-07T08:22:26.781Z",
+        "postCreatedAt": "2011-01-14T19:57:57.268Z",
+        "updatedAt": "2026-08-07T08:22:28.328Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112584,
+       "quoraPostId": 121248,
+       "quoraMonitoringKeywordId": 45459,
+       "opportunityScore": 80,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.556Z",
+       "updatedAt": "2026-08-07T08:22:28.556Z",
+       "quoraPost": {
+        "id": 121248,
+        "quoraId": "what-is-the-hardest-part-about-convincing-a-traditional-business-owner-to-trust-an-online-marketing-strategy",
+        "question": "What is the hardest part about convincing a traditional business owner to trust an online marketing strategy?",
+        "author": "Digital Meta Monk",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 1,
+        "url": "https://www.quora.com/What-is-the-hardest-part-about-convincing-a-traditional-business-owner-to-trust-an-online-marketing-strategy",
+        "createdAt": "2026-08-07T08:22:22.264Z",
+        "postCreatedAt": "2026-06-19T08:13:09.613Z",
+        "updatedAt": "2026-08-07T08:22:23.160Z"
+       },
+       "monitoringKeyword": {
+        "id": 45459,
+        "orgWebsiteId": 41420,
+        "keyword": "best online marketing strategies in ventura county",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.584Z",
+        "createdAt": "2026-08-07T01:30:00.837Z"
+       }
+      },
+      {
+       "id": 112697,
+       "quoraPostId": 11866,
+       "quoraMonitoringKeywordId": 45456,
+       "opportunityScore": 79,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:57.803Z",
+       "updatedAt": "2026-08-07T08:23:57.803Z",
+       "quoraPost": {
+        "id": 11866,
+        "quoraId": "what-is-the-best-seo-service-provider-in-boston",
+        "question": "What is the best SEO service provider in Boston?",
+        "author": "Bhuvi T",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/What-is-the-best-SEO-service-provider-in-Boston",
+        "createdAt": "2026-08-05T08:20:51.091Z",
+        "postCreatedAt": "2022-04-07T13:02:04.803Z",
+        "updatedAt": "2026-08-07T20:51:29.014Z"
+       },
+       "monitoringKeyword": {
+        "id": 45456,
+        "orgWebsiteId": 41420,
+        "keyword": "top seo companies for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+        "createdAt": "2026-08-07T01:30:00.830Z"
+       }
+      },
+      {
+       "id": 112704,
+       "quoraPostId": 66029,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 79,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:24:13.941Z",
+       "updatedAt": "2026-08-07T08:24:13.941Z",
+       "quoraPost": {
+        "id": 66029,
+        "quoraId": "what-are-the-most-effective-lead-generation-tactics-for-service-based-businesses",
+        "question": "What are the most effective lead generation tactics for service-based businesses?",
+        "author": "Supriya Mathur",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/What-are-the-most-effective-lead-generation-tactics-for-service-based-businesses",
+        "createdAt": "2026-08-06T09:24:54.252Z",
+        "postCreatedAt": "2025-12-19T11:44:55.965Z",
+        "updatedAt": "2026-08-07T19:14:57.500Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112628,
+       "quoraPostId": 20417,
+       "quoraMonitoringKeywordId": 45456,
+       "opportunityScore": 79,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:49.278Z",
+       "updatedAt": "2026-08-07T08:22:49.278Z",
+       "quoraPost": {
+        "id": 20417,
+        "quoraId": "which-company-is-the-best-for-local-seo-in-texas",
+        "question": "Which company is the best for Local SEO in Texas?",
+        "author": "Lincoln Downs",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/Which-company-is-the-best-for-Local-SEO-in-Texas",
+        "createdAt": "2026-08-05T11:23:28.982Z",
+        "postCreatedAt": "2026-04-19T14:08:57.691Z",
+        "updatedAt": "2026-08-08T08:39:49.198Z"
+       },
+       "monitoringKeyword": {
+        "id": 45456,
+        "orgWebsiteId": 41420,
+        "keyword": "top seo companies for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+        "createdAt": "2026-08-07T01:30:00.830Z"
+       }
+      },
+      {
+       "id": 112588,
+       "quoraPostId": 76509,
+       "quoraMonitoringKeywordId": 45457,
+       "opportunityScore": 79,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.608Z",
+       "updatedAt": "2026-08-07T08:22:28.608Z",
+       "quoraPost": {
+        "id": 76509,
+        "quoraId": "can-a-digital-marketing-agency-help-contractors-with-social-media-marketing",
+        "question": "Can a digital marketing agency help contractors with social media marketing?",
+        "author": "Mary John",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 2,
+        "url": "https://www.quora.com/Can-a-digital-marketing-agency-help-contractors-with-social-media-marketing",
+        "createdAt": "2026-08-06T12:19:55.600Z",
+        "postCreatedAt": "2023-05-18T18:23:23.141Z",
+        "updatedAt": "2026-08-07T08:22:24.706Z"
+       },
+       "monitoringKeyword": {
+        "id": 45457,
+        "orgWebsiteId": 41420,
+        "keyword": "best digital marketing for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.583Z",
+        "createdAt": "2026-08-07T01:30:00.833Z"
+       }
+      },
+      {
+       "id": 112630,
+       "quoraPostId": 121299,
+       "quoraMonitoringKeywordId": 45456,
+       "opportunityScore": 78,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:49.278Z",
+       "updatedAt": "2026-08-07T08:22:49.278Z",
+       "quoraPost": {
+        "id": 121299,
+        "quoraId": "what-is-the-best-seo-company-with-a-strong-background-and-good-reviews",
+        "question": "What is the best SEO company with a strong background and good reviews?",
+        "author": "Deepti Panwar",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 3,
+        "url": "https://www.quora.com/What-is-the-best-SEO-company-with-a-strong-background-and-good-reviews",
+        "createdAt": "2026-08-07T08:22:43.897Z",
+        "postCreatedAt": "2023-01-27T15:04:54.947Z",
+        "updatedAt": "2026-08-07T08:22:45.410Z"
+       },
+       "monitoringKeyword": {
+        "id": 45456,
+        "orgWebsiteId": 41420,
+        "keyword": "top seo companies for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+        "createdAt": "2026-08-07T01:30:00.830Z"
+       }
+      },
+      {
+       "id": 112667,
+       "quoraPostId": 31863,
+       "quoraMonitoringKeywordId": 45458,
+       "opportunityScore": 77,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:41.432Z",
+       "updatedAt": "2026-08-07T08:23:41.432Z",
+       "quoraPost": {
+        "id": 31863,
+        "quoraId": "im-generating-hundreds-of-home-improvement-leads-all-around-the-country-weekly-through-online-marketing-techniques-how-can-i-pass-the-leads-to-contractors-and-collect-10-without-them-taking-advantage-of-me-by-not",
+        "question": "Im generating hundreds of home improvement leads all around the country weekly through online marketing techniques, how can I pass the le...",
+        "author": "Federbondii",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 4,
+        "url": "https://www.quora.com/Im-generating-hundreds-of-home-improvement-leads-all-around-the-country-weekly-through-online-marketing-techniques-how-can-I-pass-the-leads-to-contractors-and-collect-10-without-them-taking-advantage-of-me-by-not",
+        "createdAt": "2026-08-05T14:19:26.502Z",
+        "postCreatedAt": "2026-05-26T13:13:33.811Z",
+        "updatedAt": "2026-08-07T14:17:23.088Z"
+       },
+       "monitoringKeyword": {
+        "id": 45458,
+        "orgWebsiteId": 41420,
+        "keyword": "top lead response tools for home services",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+        "createdAt": "2026-08-07T01:30:00.835Z"
+       }
+      },
+      {
+       "id": 112590,
+       "quoraPostId": 121255,
+       "quoraMonitoringKeywordId": 45457,
+       "opportunityScore": 76,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.608Z",
+       "updatedAt": "2026-08-07T08:22:28.608Z",
+       "quoraPost": {
+        "id": 121255,
+        "quoraId": "how-do-you-market-your-construction-business",
+        "question": "How do you market your construction business?",
+        "author": "Abhishek Badiger",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 8,
+        "url": "https://www.quora.com/How-do-you-market-your-construction-business",
+        "createdAt": "2026-08-07T08:22:22.727Z",
+        "postCreatedAt": "2020-10-27T10:20:58.798Z",
+        "updatedAt": "2026-08-07T08:22:25.241Z"
+       },
+       "monitoringKeyword": {
+        "id": 45457,
+        "orgWebsiteId": 41420,
+        "keyword": "best digital marketing for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.583Z",
+        "createdAt": "2026-08-07T01:30:00.833Z"
+       }
+      },
+      {
+       "id": 112591,
+       "quoraPostId": 2660,
+       "quoraMonitoringKeywordId": 45455,
+       "opportunityScore": 75,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:31.962Z",
+       "updatedAt": "2026-08-07T08:22:31.962Z",
+       "quoraPost": {
+        "id": 2660,
+        "quoraId": "what-are-the-best-seo-services-offered-by-agencies-in-los-angeles",
+        "question": "What are the best SEO services offered by agencies in Los Angeles?",
+        "author": "Rodrigo Kimball",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 10,
+        "url": "https://www.quora.com/What-are-the-best-SEO-services-offered-by-agencies-in-Los-Angeles",
+        "createdAt": "2026-08-04T21:22:17.565Z",
+        "postCreatedAt": "2025-11-06T14:14:58.741Z",
+        "updatedAt": "2026-08-07T20:51:47.919Z"
+       },
+       "monitoringKeyword": {
+        "id": 45455,
+        "orgWebsiteId": 41420,
+        "keyword": "best seo services in california",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+        "createdAt": "2026-08-07T01:30:00.827Z"
+       }
+      },
+      {
+       "id": 112677,
+       "quoraPostId": 121359,
+       "quoraMonitoringKeywordId": 45459,
+       "opportunityScore": 74,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:23:44.162Z",
+       "updatedAt": "2026-08-07T08:23:44.162Z",
+       "quoraPost": {
+        "id": 121359,
+        "quoraId": "what-is-the-best-way-to-advertise-a-new-online-service-business-where-do-you-begin-to-smm",
+        "question": "What is the best way to advertise a new online service (business)? Where do you begin to SMM?",
+        "author": "Rotem Shaul",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 14,
+        "url": "https://www.quora.com/What-is-the-best-way-to-advertise-a-new-online-service-business-Where-do-you-begin-to-SMM",
+        "createdAt": "2026-08-07T08:23:40.226Z",
+        "postCreatedAt": "2026-05-21T21:35:17.424Z",
+        "updatedAt": "2026-08-07T08:23:41.979Z"
+       },
+       "monitoringKeyword": {
+        "id": 45459,
+        "orgWebsiteId": 41420,
+        "keyword": "best online marketing strategies in ventura county",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.584Z",
+        "createdAt": "2026-08-07T01:30:00.837Z"
+       }
+      },
+      {
+       "id": 112585,
+       "quoraPostId": 121254,
+       "quoraMonitoringKeywordId": 45459,
+       "opportunityScore": 74,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:22:28.556Z",
+       "updatedAt": "2026-08-07T08:22:28.556Z",
+       "quoraPost": {
+        "id": 121254,
+        "quoraId": "what-can-outsourced-marketing-agencies-do-that-we-cant-do-in-house",
+        "question": "What can outsourced marketing agencies do that we can't do in house?",
+        "author": "Tim Ventura",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 15,
+        "url": "https://www.quora.com/What-can-outsourced-marketing-agencies-do-that-we-cant-do-in-house",
+        "createdAt": "2026-08-07T08:22:22.264Z",
+        "postCreatedAt": "2019-07-02T19:58:13.660Z",
+        "updatedAt": "2026-08-07T08:22:24.705Z"
+       },
+       "monitoringKeyword": {
+        "id": 45459,
+        "orgWebsiteId": 41420,
+        "keyword": "best online marketing strategies in ventura county",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:26.584Z",
+        "createdAt": "2026-08-07T01:30:00.837Z"
+       }
+      },
+      {
+       "id": 112725,
+       "quoraPostId": 121414,
+       "quoraMonitoringKeywordId": 45456,
+       "opportunityScore": 73,
+       "suggestedComment": null,
+       "markedAsCommentedAt": null,
+       "discardedAt": null,
+       "orgWebsiteId": 41420,
+       "createdAt": "2026-08-07T08:24:19.200Z",
+       "updatedAt": "2026-08-07T08:24:19.200Z",
+       "quoraPost": {
+        "id": 121414,
+        "quoraId": "which-is-the-best-seo-company-for-affordable-seo-services-in-the-usa",
+        "question": "Which is the best SEO company for affordable SEO services in the USA?",
+        "author": "Rankspark",
+        "followers": 0,
+        "viewCount": 0,
+        "answerCount": 17,
+        "url": "https://www.quora.com/Which-is-the-best-SEO-company-for-affordable-SEO-services-in-the-USA",
+        "createdAt": "2026-08-07T08:24:16.629Z",
+        "postCreatedAt": "2025-09-06T04:54:10.393Z",
+        "updatedAt": "2026-08-07T08:24:17.764Z"
+       },
+       "monitoringKeyword": {
+        "id": 45456,
+        "orgWebsiteId": 41420,
+        "keyword": "top seo companies for contractors",
+        "isActive": true,
+        "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+        "createdAt": "2026-08-07T01:30:00.830Z"
+       }
+      }
+     ],
+     "total": 27,
+     "hasMore": false
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

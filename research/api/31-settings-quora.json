@@ -222,6 +222,145 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/quora/configuration",
+   "status": 200,
+   "resBody": {
+    "message": "OK",
+    "data": {
+     "keywords": [
+      {
+       "id": 45455,
+       "orgWebsiteId": 41420,
+       "keyword": "best seo services in california",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:27.793Z",
+       "createdAt": "2026-08-07T01:30:00.827Z"
+      },
+      {
+       "id": 45456,
+       "orgWebsiteId": 41420,
+       "keyword": "top seo companies for contractors",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:27.810Z",
+       "createdAt": "2026-08-07T01:30:00.830Z"
+      },
+      {
+       "id": 45457,
+       "orgWebsiteId": 41420,
+       "keyword": "best digital marketing for contractors",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:26.583Z",
+       "createdAt": "2026-08-07T01:30:00.833Z"
+      },
+      {
+       "id": 45458,
+       "orgWebsiteId": 41420,
+       "keyword": "top lead response tools for home services",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:26.586Z",
+       "createdAt": "2026-08-07T01:30:00.835Z"
+      },
+      {
+       "id": 45459,
+       "orgWebsiteId": 41420,
+       "keyword": "best online marketing strategies in ventura county",
+       "isActive": true,
+       "lastGoogleCheckedAt": "2026-08-07T08:21:26.584Z",
+       "createdAt": "2026-08-07T01:30:00.837Z"
+      },
+      {
+       "id": 45460,
+       "orgWebsiteId": 41420,
+       "keyword": "top contractor marketing services in thousand oaks",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.839Z"
+      },
+      {
+       "id": 45461,
+       "orgWebsiteId": 41420,
+       "keyword": "best local seo for home service businesses",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.842Z"
+      },
+      {
+       "id": 45462,
+       "orgWebsiteId": 41420,
+       "keyword": "top ai solutions for small businesses",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.844Z"
+      },
+      {
+       "id": 45463,
+       "orgWebsiteId": 41420,
+       "keyword": "best visibility tools for contractors",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.846Z"
+      },
+      {
+       "id": 45464,
+       "orgWebsiteId": 41420,
+       "keyword": "top lead generation services in ventura county",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.850Z"
+      },
+      {
+       "id": 45465,
+       "orgWebsiteId": 41420,
+       "keyword": "best website optimization for contractors",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.853Z"
+      },
+      {
+       "id": 45466,
+       "orgWebsiteId": 41420,
+       "keyword": "top search ranking services in thousand oaks",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.855Z"
+      },
+      {
+       "id": 45467,
+       "orgWebsiteId": 41420,
+       "keyword": "best home service marketing strategies",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.857Z"
+      },
+      {
+       "id": 45468,
+       "orgWebsiteId": 41420,
+       "keyword": "top seo tools for contractors",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.860Z"
+      },
+      {
+       "id": 45469,
+       "orgWebsiteId": 41420,
+       "keyword": "best home improvement advertising in california",
+       "isActive": false,
+       "lastGoogleCheckedAt": null,
+       "createdAt": "2026-08-07T01:30:00.862Z"
+      }
+     ],
+     "maxKeywords": 5,
+     "replyInstructions": "Write like a real person with firsthand experience. Keep the response easy to read and avoid generic AI phrasing.",
+     "nextRunAt": "2026-08-14T00:00:00.000Z"
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

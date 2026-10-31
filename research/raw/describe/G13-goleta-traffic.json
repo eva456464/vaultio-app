@@ -1,0 +1,107 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/analytics/ga4",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: All traffic",
+  "H3: Channel performance"
+ ],
+ "buttons": [
+  "All time [icon:lucide-calendar-days]",
+  "All channels [icon:lucide-chevron-down]",
+  "Direct",
+  "Organic Search",
+  "Other",
+  "Paid",
+  "AI Search",
+  "Channel",
+  "Active Users ↓",
+  "Share",
+  "Vaultio articles only",
+  "(Active Users explanation) [icon:lucide-info]",
+  "(Page Share explanation) [icon:lucide-info]",
+  "(Top Source explanation) [icon:lucide-info]",
+  "Homepage [icon:lucide-external-link] -> https://goletapressurewashing.com/",
+  "/about [icon:lucide-external-link] -> https://goletapressurewashing.com/about",
+  "/contact [icon:lucide-external-link] -> https://goletapressurewashing.com/contact",
+  "/blog/window-screen-cleaning [icon:lucide-external-link] -> https://goletapressurewashing.com/blog/window-screen-cleaning",
+  "/services/solar-panel-cleaning [icon:lucide-external-link] -> https://goletapressurewashing.com/services/solar-panel-cleaning",
+  "/blog/algae-on-stucco-removal [icon:lucide-external-link] -> https://goletapressurewashing.com/blog/algae-on-stucco-removal",
+  "/services/gutter-cleaning [icon:lucide-external-link] -> https://goletapressurewashing.com/services/gutter-cleaning",
+  "/blog/efflorescence-on-pavers [icon:lucide-external-link] -> https://goletapressurewashing.com/blog/efflorescence-on-pavers",
+  "/services/roof-cleaning [icon:lucide-external-link] -> https://goletapressurewashing.com/services/roof-cleaning",
+  "/blog/driveway-mold-removal [icon:lucide-external-link] -> https://goletapressurewashing.com/blog/driveway-mold-removal",
+  "Previous [icon:lucide-chevron-left] [disabled]",
+  "Next [icon:lucide-chevron-right]"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Reporting period",
+   "value": "All time",
+   "checked": "closed"
+  },
+  {
+   "tag": "INPUT",
+   "type": "text",
+   "name": "",
+   "placeholder": "Search pages...",
+   "label": "Search pages",
+   "value": "",
+   "checked": null
+  }
+ ],
+ "tables": [
+  {
+   "headers": [
+    "Page",
+    "Active Users",
+    "Page Share",
+    "Top Source"
+   ],
+   "rows": 10,
+   "sample": [
+    [
+     "Homepage",
+     "404",
+     "58%",
+     "Direct"
+    ],
+    [
+     "/about",
+     "17",
+     "2.4%",
+     "Not set"
+    ],
+    [
+     "/contact",
+     "16",
+     "2.3%",
+     "Direct"
+    ],
+    [
+     "/blog/window-screen-cleaning Vaultio article",
+     "15",
+     "2.2%",
+     "Direct"
+    ]
+   ]
+  }
+ ],
+ "icons": [
+  "lucide-calendar-days",
+  "lucide-info",
+  "lucide-chevron-down",
+  "lucide-search",
+  "lucide-external-link",
+  "lucide-chevron-left",
+  "lucide-chevron-right"
+ ],
+ "images": [
+  " | https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/whitelabel/vaultio/vaultio_favicon.png"
+ ],
+ "charts": 2
+}

@@ -1753,6 +1753,1646 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/status",
+   "status": 200,
+   "resBody": {
+    "message": "GA4 integration status",
+    "data": {
+     "connected": true,
+     "selectedGa4Property": "properties/534109473",
+     "ga4InitialSyncCompleted": true
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/ai-overview?range=all",
+   "status": 200,
+   "resBody": {
+    "message": "AI overview fetched successfully",
+    "data": {
+     "aiActiveUsers": 26,
+     "aiSessions": "[REDACTED]",
+     "topSource": "chatgpt",
+     "aiSourcesCount": 4
+    }
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/ai-sources-timeseries?range=all",
+   "status": 200,
+   "resBody": {
+    "message": "AI sources timeseries fetched successfully",
+    "data": [
+     {
+      "date": "2026-04-21",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-04-22",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-04-23",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-04-24",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-04-25",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-04-26",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-04-27",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-04-28",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-04-29",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-04-30",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-01",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-02",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-03",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-04",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-05",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-06",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-07",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-08",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-09",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-10",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-11",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-12",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-13",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-14",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-15",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-16",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-17",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-18",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-19",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-20",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-21",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-22",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-23",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-24",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-25",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-26",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-27",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-28",
+      "chatgpt": 0,
+      "copilot": 2,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-29",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-30",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-05-31",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-01",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-02",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 1,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-03",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-04",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-05",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-06",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-07",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-08",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-09",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-10",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-11",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-12",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-13",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-14",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-15",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-16",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-17",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-18",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-19",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-20",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-21",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-22",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-23",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-24",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-25",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-26",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-27",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-28",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-29",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-06-30",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-01",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-02",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-03",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-04",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-05",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-06",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-07",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-08",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-09",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-10",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-11",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-12",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-13",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 4
+     },
+     {
+      "date": "2026-07-14",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 1
+     },
+     {
+      "date": "2026-07-15",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-16",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-17",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-18",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-19",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-20",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-21",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-22",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-23",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-24",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-25",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-26",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-27",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-28",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-29",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-30",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-07-31",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-01",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-02",
+      "chatgpt": 2,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-03",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-04",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-05",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-06",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-07",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-08",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-09",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-10",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-11",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-12",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-13",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-14",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-15",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-16",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-17",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-18",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-19",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-20",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-21",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-22",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-23",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-24",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-25",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-26",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-27",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-28",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-29",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-30",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-08-31",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-01",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-02",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-03",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-04",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-05",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-06",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-07",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-08",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-09",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-10",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-11",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-12",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-13",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-14",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-15",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-16",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 2,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-17",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-18",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-19",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-20",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-21",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-22",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-23",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-24",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-25",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-26",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 1,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-27",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-28",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-29",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-09-30",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-01",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-02",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-03",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-04",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-05",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-06",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-07",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-08",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-09",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-10",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-11",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-12",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-13",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-14",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-15",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-16",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-17",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-18",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-19",
+      "chatgpt": 1,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-20",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-21",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-22",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-23",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-24",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-25",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-26",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-27",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-28",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-29",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     },
+     {
+      "date": "2026-10-30",
+      "chatgpt": 0,
+      "copilot": 0,
+      "gemini": 0,
+      "perplexity": 0
+     }
+    ]
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/ai-pages?range=all&page=1&limit=10",
+   "status": 200,
+   "resBody": {
+    "message": "AI pages fetched successfully",
+    "data": [
+     {
+      "page": "/",
+      "activeUsers": 11,
+      "percentage": 44,
+      "topSource": "ChatGPT",
+      "isBlgArticle": false
+     },
+     {
+      "page": "/About",
+      "activeUsers": 3,
+      "percentage": 12,
+      "topSource": "ChatGPT",
+      "isBlgArticle": false
+     },
+     {
+      "page": "/AIReceptionist",
+      "activeUsers": 1,
+      "percentage": 4,
+      "topSource": "Perplexity",
+      "isBlgArticle": false
+     },
+     {
+      "page": "/B2BOutreach",
+      "activeUsers": 1,
+      "percentage": 4,
+      "topSource": "ChatGPT",
+      "isBlgArticle": false
+     },
+     {
+      "page": "/Blog",
+      "activeUsers": 1,
+      "percentage": 4,
+      "topSource": "Gemini",
+      "isBlgArticle": false
+     },
+     {
+      "page": "/Blog/llm-citations",
+      "activeUsers": 1,
+      "percentage": 4,
+      "topSource": "Gemini",
+      "isBlgArticle": true
+     },
+     {
+      "page": "/Blog/website-design-home-services",
+      "activeUsers": 1,
+      "percentage": 4,
+      "topSource": "ChatGPT",
+      "isBlgArticle": false
+     },
+     {
+      "page": "/CarpetCleanersMarketing",
+      "activeUsers": 1,
+      "percentage": 4,
+      "topSource": "Gemini",
+      "isBlgArticle": false
+     },
+     {
+      "page": "/GarageDoorsMarketing",
+      "activeUsers": 1,
+      "percentage": 4,
+      "topSource": "ChatGPT",
+      "isBlgArticle": false
+     },
+     {
+      "page": "/HomeSecurityMarketing",
+      "activeUsers": 1,
+      "percentage": 4,
+      "topSource": "ChatGPT",
+      "isBlgArticle": false
+     }
+    ],
+    "pagination": {
+     "page": 1,
+     "limit": 10,
+     "total": 13,
+     "totalPages": 2
+    },
+    "hasBlgArticles": true,
+    "totalActiveUsers": 25
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/ai-source-page-mapping?range=all",
+   "status": 200,
+   "resBody": {
+    "message": "AI source-page mapping fetched successfully",
+    "data": [
+     {
+      "source": "chatgpt",
+      "totalActiveUsers": 15,
+      "pages": [
+       {
+        "page": "/",
+        "activeUsers": 9,
+        "percentage": 60
+       },
+       {
+        "page": "/GarageDoorsMarketing",
+        "activeUsers": 1,
+        "percentage": 6.7
+       },
+       {
+        "page": "/Blog/website-design-home-services",
+        "activeUsers": 1,
+        "percentage": 6.7
+       },
+       {
+        "page": "/About",
+        "activeUsers": 1,
+        "percentage": 6.7
+       },
+       {
+        "page": "/HomeSecurityMarketing",
+        "activeUsers": 1,
+        "percentage": 6.7
+       }
+      ]
+     },
+     {
+      "source": "gemini",
+      "totalActiveUsers": 4,
+      "pages": [
+       {
+        "page": "/",
+        "activeUsers": 1,
+        "percentage": 25
+       },
+       {
+        "page": "/Blog",
+        "activeUsers": 1,
+        "percentage": 25
+       },
+       {
+        "page": "/CarpetCleanersMarketing",
+        "activeUsers": 1,
+        "percentage": 25
+       },
+       {
+        "page": "/Blog/llm-citations",
+        "activeUsers": 1,
+        "percentage": 25
+       }
+      ]
+     },
+     {
+      "source": "perplexity",
+      "totalActiveUsers": 4,
+      "pages": [
+       {
+        "page": "/",
+        "activeUsers": 1,
+        "percentage": 25
+       },
+       {
+        "page": "/About",
+        "activeUsers": 1,
+        "percentage": 25
+       },
+       {
+        "page": "/RoofersMarketing",
+        "activeUsers": 1,
+        "percentage": 25
+       },
+       {
+        "page": "/AIReceptionist",
+        "activeUsers": 1,
+        "percentage": 25
+       }
+      ]
+     },
+     {
+      "source": "copilot",
+      "totalActiveUsers": 2,
+      "pages": [
+       {
+        "page": "/About",
+        "activeUsers": 1,
+        "percentage": 50
+       },
+       {
+        "page": "/MetaAds",
+        "activeUsers": 1,
+        "percentage": 50
+       }
+      ]
+     }
+    ]
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/ga4/ai-sources?range=all",
+   "status": 200,
+   "resBody": {
+    "message": "AI sources fetched successfully",
+    "data": [
+     {
+      "source": "chatgpt",
+      "activeUsers": 15,
+      "percentage": 60
+     },
+     {
+      "source": "gemini",
+      "activeUsers": 4,
+      "percentage": 16
+     },
+     {
+      "source": "perplexity",
+      "activeUsers": 4,
+      "percentage": 16
+     },
+     {
+      "source": "copilot",
+      "activeUsers": 2,
+      "percentage": 8
+     }
+    ],
+    "total": 25
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

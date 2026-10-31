@@ -1,0 +1,7 @@
+{
+ "u": "/en/dashboard/geo-audit",
+ "cap": [],
+ "pop": [
+  "What we check\nWhat we check\nWe read your site the way Google and AI assistants do. Here is every problem we look for.\nYour homepage + up to 20 pages\nChecked every 7 days\nLast checked Oct 27, 2026\nCrawler files\nWhole site\nThe files that tell Google and AI bots what they may read and where your pages are.\nrobots.txt missing\nrobots.txt blocks search engines\nSitemap missing\nSitemap can't be read\nllms.txt missing\nNot served over HTTPS\nTechnical SEO\nEach page we check\nThe basics search engines need to understand each page and show it in results.\nMissing page title\nTitle too long or short\nMore than one title tag\nSame title on other pages\nTitle doesn't match the page\nMissing meta description\nDescription too long or short\nMore than one description tag\nSame description on other pages\nDescription doesn't match the page\nNo main heading (H1)\nMore than one H1\nNo canonical tag\nMore than one canonical tag\nCanonical points to another site\nBroken links\nSlow page\nImages over 100 KB\nImages without alt text\nWeak alt text\nBroken images\nUnknown image format\nAI readiness\nEach page we check\nWhat helps ChatGPT, Perplexity and Gemini understand and quote your pages.\nNo structured data\nStructured data needs fixing\nCustomer questions not answered\nDone\nClose"
+ ]
+}

@@ -123,6 +123,30 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/product-catalog/status",
+   "status": 200,
+   "resBody": {
+    "shopifyConnected": false,
+    "storeName": null,
+    "creationSource": null,
+    "woocommerceConnected": false,
+    "siteUrl": null,
+    "productCount": 0,
+    "shopifyProductCount": 0,
+    "woocommerceProductCount": 0,
+    "manualProductCount": 0,
+    "feed": null,
+    "lastSyncAt": null,
+    "lastSyncStatus": null,
+    "lastSyncError": null
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }

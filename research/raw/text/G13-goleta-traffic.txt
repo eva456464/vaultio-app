@@ -1,0 +1,118 @@
+All traffic
+Analyze your site traffic across Google and AI search.
+
+All time
+Active users
+
+645
+Total active users in this period
+Sessions
+
+744
+Total sessions in this period
+Top channel
+
+Direct
+Channel with most users
+Users from AI searches
+
+7
+Users who came from AI searches
+Channel performance
+Compare which channels drive the most traffic to your site
+All channels
+
+Direct
+
+Organic Search
+
+Other
+
+Paid
+
+AI Search
+Aug 8
+Aug 15
+Aug 23
+Aug 31
+Sep 7
+Sep 14
+Sep 22
+Sep 30
+Oct 7
+Oct 14
+Oct 22
+Oct 30
+0
+6
+12
+18
+24
+Channel Breakdown
+Channel
+Active Users ↓
+Share
+Direct
+293
+45.4%
+Organic Search
+197
+30.5%
+Other
+123
+19.1%
+Paid
+26
+4.0%
+AI Search
+6
+0.9%
+Top pages
+Pages with the highest number of active users during the selected period
+
+Vaultio articles only
+Page	
+Active Users
+
+Page Share
+
+Top Source
+
+Homepage
+404	58%	
+Direct
+/about
+17	2.4%	
+Not set
+/contact
+16	2.3%	
+Direct
+/blog/window-screen-cleaning
+Vaultio article
+15	2.2%	
+Direct
+/services/solar-panel-cleaning
+12	1.7%	
+Direct
+/blog/algae-on-stucco-removal
+Vaultio article
+11	1.6%	
+Google
+/services/gutter-cleaning
+11	1.6%	
+Direct
+/blog/efflorescence-on-pavers
+Vaultio article
+11	1.6%	
+Google
+/services/roof-cleaning
+11	1.6%	
+Direct
+/blog/driveway-mold-removal
+Vaultio article
+10	1.4%	
+Google
+Showing 1–10 of 83 items
+Previous
+Next
+

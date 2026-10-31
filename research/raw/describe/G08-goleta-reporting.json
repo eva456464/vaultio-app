@@ -1,0 +1,167 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/reporting",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: Client reporting",
+  "H2: SECTIONS"
+ ],
+ "buttons": [
+  "Monthly email Off [icon:lucide-calendar-clock]",
+  "Download PDF [icon:lucide-download]",
+  "Previous month Sep 1 – Sep 30, 2026 [icon:lucide-calendar-days]",
+  "A4",
+  "Fit",
+  "Achievements Everything earned so far",
+  "(Achievements)",
+  "Summary line One line on Google traffic",
+  "(Summary line)",
+  "Search totals The headline Google numbers",
+  "(Search totals)",
+  "Search chart Google visits day by day",
+  "(Search chart)",
+  "Countries Where visitors came from",
+  "(Countries)",
+  "Top pages Pages with the most visits",
+  "(Top pages)",
+  "Keywords What people searched for",
+  "(Keywords)",
+  "Authority Sites linking to this one",
+  "(Authority)",
+  "Content that landed New articles that did best",
+  "(Content that landed)",
+  "Site health Problems found on the site",
+  "(Site health)",
+  "Where people mentioned you Reddit and Quora answers",
+  "(Where people mentioned you)",
+  "AI search visibility Mentions in AI assistants",
+  "(AI search visibility)"
+ ],
+ "tabs": [],
+ "inputs": [
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Period",
+   "value": "Previous month Sep 1 – Sep 30, 2026",
+   "checked": "closed"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Achievements",
+   "value": "",
+   "checked": "true"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Summary line",
+   "value": "",
+   "checked": "true"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Search totals",
+   "value": "",
+   "checked": "true"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Search chart",
+   "value": "",
+   "checked": "true"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Countries",
+   "value": "",
+   "checked": "true"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Top pages",
+   "value": "",
+   "checked": "true"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Keywords",
+   "value": "",
+   "checked": "true"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Authority",
+   "value": "",
+   "checked": "true"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Content that landed",
+   "value": "",
+   "checked": "true"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Site health",
+   "value": "",
+   "checked": "true"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "Where people mentioned you",
+   "value": "",
+   "checked": "true"
+  },
+  {
+   "tag": "BUTTON",
+   "type": "button",
+   "name": "",
+   "placeholder": "",
+   "label": "AI search visibility",
+   "value": "",
+   "checked": "true"
+  }
+ ],
+ "tables": [],
+ "icons": [
+  "lucide-calendar-clock",
+  "lucide-download",
+  "lucide-calendar-days"
+ ],
+ "images": [],
+ "charts": 0
+}

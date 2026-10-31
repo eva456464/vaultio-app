@@ -1,0 +1,65 @@
+Client reporting
+Build a branded PDF for this client from the data already in this workspace.
+
+Monthly email
+Off
+Download PDF
+
+Previous month
+Sep 1 – Sep 30, 2026
+preview is current
+A4
+Fit
+SECTIONS
+12 of 12 on
+
+Achievements
+Everything earned so far
+
+The big picture: everything this site has earned since you started working on it. These are running totals, not just this period.
+
+Summary line
+One line on Google traffic
+
+
+Search totals
+The headline Google numbers
+
+
+Search chart
+Google visits day by day
+
+
+Countries
+Where visitors came from
+
+
+Top pages
+Pages with the most visits
+
+
+Keywords
+What people searched for
+
+
+Authority
+Sites linking to this one
+
+
+Content that landed
+New articles that did best
+
+
+Site health
+Problems found on the site
+
+
+Where people mentioned you
+Reddit and Quora answers
+
+
+AI search visibility
+Mentions in AI assistants
+
+
+

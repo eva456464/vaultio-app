@@ -1,0 +1,14 @@
+Publishing
+Connect your website so finished articles publish automatically.
+
+Back
+Step 1 of 7
+
+This is a developer integration
+The BabyLoveGrowth API lets you fetch your articles programmatically and push them to any CMS or backend, using code you write.
+
+I can write code (Node.js, Python, cURL…) to call a REST API
+Continue
+View detailed instructions
+Delete
+

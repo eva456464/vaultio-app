@@ -1,0 +1,34 @@
+{
+ "url": "https://app.vaultio.co/en/dashboard/ai-visibility",
+ "title": "Vaultio - Get Google and ChatGPT Traffic on Autopilot",
+ "headings": [
+  "H1: AI visibility overview"
+ ],
+ "buttons": [
+  "Brand mentions 0 /20 answers [icon:lucide-info]",
+  "Top AI sources Websites AI models relied on most when answering questions Source [icon:lucide-info] -> /dashboard/ai-visibility?tab=sources",
+  "(See all brands) -> /dashboard/ai-visibility?tab=brands-mentioned"
+ ],
+ "tabs": [],
+ "inputs": [],
+ "tables": [],
+ "icons": [
+  "lucide-info"
+ ],
+ "images": [
+  "ChatGPT | https://app.vaultio.co/_next/image?url=%2Flogos%2Fchatgpt-logo.png&w=48&q=75",
+  "Gemini | https://app.vaultio.co/logos/gemini.svg",
+  "Claude | https://app.vaultio.co/logos/claude-ai-icon.svg",
+  "yelp.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dyelp.com%26default%3Ddata%253Aimage%252Fsvg%252Bxml%253",
+  "santabarbarasoftwash.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dsantabarbarasoftwash.com%26default%3Ddata%253Aimage%252",
+  "thumbtack.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dthumbtack.com%26default%3Ddata%253Aimage%252Fsvg%252Bxm",
+  "angi.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dangi.com%26default%3Ddata%253Aimage%252Fsvg%252Bxml%253",
+  "alohawindowbros.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dalohawindowbros.com%26default%3Ddata%253Aimage%252Fsvg%",
+  "airtasker.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dairtasker.com%26default%3Ddata%253Aimage%252Fsvg%252Bxm",
+  "en.wikipedia.org | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Den.wikipedia.org%26default%3Ddata%253Aimage%252Fsvg%252",
+  "timetoshinesb.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dtimetoshinesb.com%26default%3Ddata%253Aimage%252Fsvg%25",
+  "mastercleanusa.net | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dmastercleanusa.net%26default%3Ddata%253Aimage%252Fsvg%2",
+  "purepressureca.com | https://app.vaultio.co/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fsz%3D64%26domain%3Dpurepressureca.com%26default%3Ddata%253Aimage%252Fsvg%2"
+ ],
+ "charts": 2
+}

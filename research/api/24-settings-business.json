@@ -219,6 +219,86 @@
    "status": 0,
    "resBody": null,
    "thirdParty": true
+  },
+  {
+   "kind": "manual-get",
+   "method": "GET",
+   "url": "https://api.babylovegrowth.ai/api/organization/business-profile",
+   "status": 200,
+   "resBody": {
+    "data": {
+     "servicesOffered": [
+      {
+       "kind": "product_line",
+       "name": "Vaultio System",
+       "sourceUrl": "https://vaultio.co/SaaSTools",
+       "amount": "449",
+       "priceType": "from",
+       "currency": "USD",
+       "period": "month",
+       "unit": ""
+      },
+      {
+       "kind": "service",
+       "name": "Meta Ads Management",
+       "sourceUrl": "https://vaultio.co/MetaAds",
+       "amount": "500",
+       "priceType": "fixed",
+       "currency": "USD",
+       "period": "month",
+       "unit": ""
+      },
+      {
+       "kind": "service",
+       "name": "Google Ads Management",
+       "sourceUrl": "https://vaultio.co/GoogleAds",
+       "amount": "500",
+       "priceType": "fixed",
+       "currency": "USD",
+       "period": "month",
+       "unit": ""
+      },
+      {
+       "kind": "service",
+       "name": "Local Service Ads",
+       "sourceUrl": "https://vaultio.co/DFYServices",
+       "amount": "500",
+       "priceType": "fixed",
+       "currency": "USD",
+       "period": "month",
+       "unit": ""
+      },
+      {
+       "kind": "service",
+       "name": "AI SEO",
+       "sourceUrl": "https://vaultio.co/AISEO",
+       "amount": "449",
+       "priceType": "fixed",
+       "currency": "USD",
+       "period": "month",
+       "unit": ""
+      },
+      {
+       "kind": "service",
+       "name": "Web Design",
+       "sourceUrl": "https://vaultio.co/DFYServices",
+       "amount": "449",
+       "priceType": "fixed",
+       "currency": "USD",
+       "period": "month",
+       "unit": ""
+      }
+     ],
+     "servicesOfferedUpdatedAt": "2026-10-21T23:29:02.554Z",
+     "servicesOfferedSource": "user",
+     "positioning": "Vaultio integrates proprietary AI for ultra-fast lead response, guarantees measurable job bookings each month with a money-back offer, and offers transparent, tailored service packages deployed exclusively for home service contractors rather than generic digital marketing agencies.",
+     "businessType": "B2B Services"
+    },
+    "message": "Business profile fetched successfully"
+   },
+   "reqHeaders": {},
+   "reqBody": null,
+   "thirdParty": false
   }
  ]
 }
