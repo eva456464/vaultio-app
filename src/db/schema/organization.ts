@@ -141,6 +141,8 @@ export type CtaSettings = {
   map?: { enabled: boolean; lat?: number; lng?: number; address?: string; placeName?: string; mapsUrl?: string; imageUrl?: string };
   links?: { enabled: boolean; items: { label: string; url: string }[] };
   contact?: { enabled: boolean; email?: string; phone?: string; whatsapp?: string };
+  /** A short paragraph promoting the business, before the FAQ. */
+  promo?: { enabled: boolean };
 };
 
 export type OnboardingStatus = "not_started" | "in_progress" | "completed";
@@ -216,6 +218,8 @@ export const orgWebsites = pgTable(
 
     // Visual settings
     imageInstructions: text("image_instructions"),
+    // How the brand should look in images (mood, light, palette); guides every generated image.
+    imageMood: text("image_mood"),
     heroImageStyle: text("hero_image_style").notNull().default("realistic_with_title"),
     bodyImageStyle: text("body_image_style").notNull().default("realistic"),
     infographicStyle: text("infographic_style").notNull().default("editorial"),

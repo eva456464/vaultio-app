@@ -34,18 +34,18 @@ Ground rules that apply to everything below:
 | Add a website (onboarding) | `/onboarding/website` | Built; onboarding progress shows on Overview |
 | Overview | `/dashboard/overview` | Built: daily agent activity, planned actions, agents waiting for keys, achievements, what we learned (brand profile), traffic sources card |
 | Blog content: calendar | `/dashboard/content-plan` | Built: change topic, instructions, delete, add keywords |
-| Blog content: article | `/dashboard/articles/[id]` | Built: article, sources, FAQ, quality checks, publish now, export |
+| Blog content: article | `/dashboard/articles/[id]` | Built: article with images and CTA cards, cover image panel (regenerate, up to 5 times), sources, FAQ, quality checks, publish now, export |
 | Blog content: improvements | `/dashboard/content-plan/improvements` | Empty state only (agent not built) |
 | Site health | `/dashboard/geo-audit` + public share page | Built |
 | AI visibility (overview, prompts, brands, sources, prompt detail) | `/dashboard/ai-visibility` | Built |
 | Reporting | `/dashboard/reporting` | Built: sections, live preview, Download PDF, monthly email |
-| Settings: Account, Business, Branding, Competitors, Saved pages, Writing, Schedule, Publishing, Analytics | `/dashboard/settings/*` | Built |
+| Settings: Account, Business, Branding, Competitors, Saved pages, Writing, Visuals, Schedule, Publishing, Analytics | `/dashboard/settings/*` | Built (Visuals: the infographic style is saved but infographics aren't generated yet) |
 | Site traffic: All traffic, AI search traffic, Google traffic | `/dashboard/analytics/ga4`, `/ai-traffic`, `/google-traffic` | Built: KPIs, channel / AI-model / Google charts, breakdowns, countries, top pages and searches with search, "brand articles only" and paging; connect state until Google is connected |
 | Clients (agency) | `/clients` | Built |
 | Invoices (agency) | `/clients/invoices` | Built; empty until billing exists |
 | Backlinks | `/dashboard/backlink-exchange` | **Placeholder** |
 | Socials (Reddit, Quora) | `/dashboard/socials` | **Placeholder** |
-| Settings: Team members, Billing, White label, Product catalog, Visual, Improvements, Reddit, Quora | `/dashboard/settings/*` | **Placeholder** |
+| Settings: Team members, Billing, White label, Product catalog, Improvements, Reddit, Quora | `/dashboard/settings/*` | **Placeholder** |
 | Agency settings: Profile, Branding, Hosting, Members, Talk with team | `/clients/settings/*` | **Placeholder** |
 
 ### Agents
@@ -58,8 +58,9 @@ Ground rules that apply to everything below:
 | AI visibility check (Claude, plus ChatGPT and Gemini when keyed) | Built |
 | Publishing: content API, webhook, WordPress, auto-publish | Built |
 | Monthly client report email | Built (Resend) |
+| Article images, CTA cards, promo paragraph, YouTube video | Built (OpenAI or Gemini images; Claude for scenes, wording and the video search) |
 | Google Analytics sync, AI traffic report, Google rankings check (Search Console) | Built |
-| Backlink exchange, content improvements, Reddit / Quora, images | Not built |
+| Backlink exchange, content improvements, Reddit / Quora, infographics | Not built |
 
 ### How it was checked
 
@@ -82,20 +83,25 @@ These are written against the providers' documentation but have not run live yet
 - Resend email sending.
 - WordPress publishing against a real site.
 - Google: the real consent screen, Analytics Admin/Data and Search Console APIs (response shapes from Google's docs).
+- Image generation with OpenAI (`gpt-image-1`) and Gemini (`gemini-2.5-flash-image`); the request shapes could not be
+  checked against current docs from this workspace, so the model names are configurable.
+- The promo paragraph and the YouTube video search (they need real Claude answers).
+- Uploading images to a real WordPress media library.
 
 The first live run on the Mac should be watched; fixes are expected to be small (field names,
 limits).
 
 ## Still to build, in recommended order
 
-1. **Images**: hero and in-article images for articles; Settings → Visual.
-2. **Content improvements**: agent that refreshes older articles; Improvements tab and settings.
-3. **Backlinks**: backlink exchange matcher between client sites, Backlinks page, credits.
-4. **Socials**: Reddit and Quora agents, Socials page, their settings (also fills the report's
+1. **Content improvements**: agent that refreshes older articles; Improvements tab and settings
+   (can reuse the article update path built for cover regeneration).
+2. **Backlinks**: backlink exchange matcher between client sites, Backlinks page, credits.
+3. **Socials**: Reddit and Quora agents, Socials page, their settings (also fills the report's
    community section).
-5. **Team and billing**: Team members (invites), Billing with Stripe, invoices, White label settings.
-6. **Agency settings**: profile, branding, custom domain hosting, members, talk with team.
-7. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
+4. **Team and billing**: Team members (invites), Billing with Stripe, invoices, White label settings.
+5. **Agency settings**: profile, branding, custom domain hosting, members, talk with team.
+6. **More publishing platforms**: Shopify, Webflow, Wix, Ghost, Framer, hosted blog.
+7. **Infographics**: one chart-style image per article in the Editorial or Classic style.
 8. **Product catalog** settings.
 9. **Translations** for the other languages.
 10. **Production launch**: hosting for the web app and the worker, managed Postgres, then point
@@ -114,7 +120,7 @@ Smaller follow-ups:
 | Anthropic and DataForSEO keys in the Mac `.env` | Agents that write and research | **Not saved**: the hidden key pop-ups ran at 07:44 UTC but all three came back empty (skipped or timed out). Needs to be redone with someone at the Mac |
 | Google Cloud OAuth client (`GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`) | Google Analytics + Search Console (built, waiting for this) | Not started; steps were sent in chat. Redirect URIs: `/api/integrations/google/callback` and `/api/auth/callback/google` on each app address |
 | Resend account + verified sender (`RESEND_API_KEY`, `REPORT_FROM_EMAIL`) | Monthly report emails | Not started |
-| OpenAI / Gemini keys (optional) | ChatGPT and Gemini in AI visibility | Optional |
+| OpenAI or Gemini key | Article images (and ChatGPT / Gemini in AI visibility) | Not started; without one, articles have no images |
 | Vaultio logo files | Replace the placeholder "V" mark | Received (dragon mark, `research/assets/vaultio_favicon.png` on the `research` branch); not yet used in the app |
 | Stripe account | Billing | Later |
 | Hosting accounts (web, worker, Postgres) | Production launch | Later |
@@ -137,7 +143,8 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Settings: account, business, branding, competitors, writing, schedule, saved pages | `main` 9150e0e |
 | Client reports and monthly email agent; brand colour fix | `main` b7531ad |
 | This status document, dev fixtures | `main` c783eed |
-| Google Analytics + Search Console: connection, sync agents, Site traffic pages, Settings → Analytics | `main` |
+| Google Analytics + Search Console: connection, sync agents, Site traffic pages, Settings → Analytics | `main` c614000 |
+| Article images, Settings → Visuals, CTA cards, promo paragraph, YouTube video, WordPress media upload and post updates | `main` |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

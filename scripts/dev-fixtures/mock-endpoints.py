@@ -1,7 +1,8 @@
-import base64, json, sys
+import base64, json, re, sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 LOG = open('/tmp/mock-endpoints.log', 'a')
 class H(BaseHTTPRequestHandler):
+    media_id = 500
     def reply(self, code, body):
         data = json.dumps(body).encode()
         self.send_response(code); self.send_header('content-type', 'application/json'); self.send_header('content-length', str(len(data))); self.end_headers(); self.wfile.write(data)
@@ -19,10 +20,20 @@ class H(BaseHTTPRequestHandler):
             ok = self.headers.get('authorization') == 'Bearer test-token-123'
             payload = self.body(); LOG.write('webhook ' + json.dumps({k: payload.get(k) for k in ('id', 'title', 'slug')}) + '\n'); LOG.flush()
             return self.reply(200, {'success': True, 'link': f"http://sunnyroofing.test/blog/{payload.get('slug')}"} if ok else {'success': False, 'error': 'Bad token'})
-        if self.path == '/wp-json/wp/v2/posts':
+        if self.path.startswith('/wp-json/wp/v2/media'):
             if not self.wp_ok(): return self.reply(401, {'message': 'Invalid credentials'})
-            payload = self.body(); LOG.write('wordpress ' + json.dumps({k: payload.get(k) for k in ('title', 'slug', 'status')}) + '\n'); LOG.flush()
-            return self.reply(201, {'id': 99, 'link': f"http://localhost:4300/{payload.get('slug')}/"})
+            n = int(self.headers.get('content-length') or 0); data = self.rfile.read(n)
+            H.media_id += 1
+            LOG.write('wordpress-media ' + json.dumps({'id': H.media_id, 'bytes': len(data), 'type': self.headers.get('content-type'), 'disposition': self.headers.get('content-disposition'), 'query': self.path.split('?', 1)[-1][:120]}) + '\n'); LOG.flush()
+            return self.reply(201, {'id': H.media_id, 'source_url': f"http://localhost:4300/wp-content/uploads/{H.media_id}.webp"})
+        post = re.match(r'^/wp-json/wp/v2/posts(?:/(\d+))?$', self.path)
+        if post:
+            if not self.wp_ok(): return self.reply(401, {'message': 'Invalid credentials'})
+            payload = self.body()
+            post_id = int(post.group(1)) if post.group(1) else 99
+            images = re.findall(r'<img[^>]+src="([^"]+)"', payload.get('content') or '')
+            LOG.write(('wordpress-update ' if post.group(1) else 'wordpress ') + json.dumps({'id': post_id, **{k: payload.get(k) for k in ('title', 'slug', 'status', 'featured_media')}, 'images': images, 'cards': (payload.get('content') or '').count('vaultio-cta')}) + '\n'); LOG.flush()
+            return self.reply(200 if post.group(1) else 201, {'id': post_id, 'link': f"http://localhost:4300/{payload.get('slug')}/"})
         self.reply(404, {})
     def log_message(self, *a): pass
 ThreadingHTTPServer(('127.0.0.1', int(sys.argv[1])), H).serve_forever()

@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { db } from "@/db";
 import { competitors, orgWebsites, user } from "@/db/schema";
+import { BODY_STYLES, COVER_STYLES, INFOGRAPHIC_STYLES } from "@/lib/visuals";
 import { getAppContext } from "../context";
 
 type Result = { ok: true } | { error: string };
@@ -161,6 +162,62 @@ export async function updateProfileName(name: string): Promise<Result> {
   const value = name.trim();
   if (!value || value.length > 80) return { error: "Enter your name" };
   await db.update(user).set({ name: value, updatedAt: new Date() }).where(eq(user.id, context.user.id));
+  refresh();
+  return { ok: true };
+}
+
+const httpUrl = z
+  .string()
+  .trim()
+  .max(500)
+  .refine((value) => /^https?:\/\/[^\s]+\.[^\s]+/.test(value), "Use a full link starting with https://");
+
+const visualsSchema = z
+  .object({
+    rules: z.array(z.string().trim().min(1).max(300)).max(20),
+    heroImageStyle: z.enum(COVER_STYLES),
+    bodyImageStyle: z.enum(BODY_STYLES),
+    infographicStyle: z.enum(INFOGRAPHIC_STYLES),
+    imageMood: z.string().trim().max(600, "Keep the image description under 600 characters"),
+    links: z.object({ enabled: z.boolean(), items: z.array(z.object({ label: z.string().trim().min(1, "Add the button text").max(40), url: httpUrl })).max(5) }),
+    map: z.object({ enabled: z.boolean(), address: z.string().trim().max(200), mapsUrl: z.union([httpUrl, z.literal("")]) }),
+    contact: z.object({
+      enabled: z.boolean(),
+      phone: z.string().trim().max(40),
+      whatsapp: z.string().trim().max(40),
+      email: z.union([z.string().trim().email("Enter a valid email"), z.literal("")]),
+    }),
+    promo: z.object({ enabled: z.boolean() }),
+    youtube: z.object({ enabled: z.boolean(), channel: z.string().trim().max(100) }),
+  })
+  .refine((value) => !value.map.enabled || value.map.address, { message: "Add the business address to show the map card" })
+  .refine((value) => !value.contact.enabled || value.contact.phone || value.contact.whatsapp || value.contact.email, {
+    message: "Add a phone, WhatsApp or email to show the contact card",
+  });
+
+export async function updateVisuals(input: z.input<typeof visualsSchema>): Promise<Result> {
+  const site = await requireAdminSite();
+  const parsed = visualsSchema.safeParse(input);
+  if (!parsed.success) return fail(parsed.error);
+  const { rules, imageMood, links, map, contact, promo, youtube, ...styles } = parsed.data;
+  await db
+    .update(orgWebsites)
+    .set({
+      ...styles,
+      imageInstructions: rules.length ? rules.join("\n") : null,
+      imageMood: imageMood || null,
+      ctaSettings: {
+        ...site.ctaSettings,
+        links,
+        map: { ...site.ctaSettings?.map, enabled: map.enabled, address: map.address || undefined, mapsUrl: map.mapsUrl || undefined },
+        contact: { enabled: contact.enabled, phone: contact.phone || undefined, whatsapp: contact.whatsapp || undefined, email: contact.email || undefined },
+        promo,
+      },
+      includeYoutube: youtube.enabled,
+      youtubeChannel: youtube.channel || null,
+      updatedAt: new Date(),
+    })
+    .where(eq(orgWebsites.id, site.id));
   refresh();
   return { ok: true };
 }

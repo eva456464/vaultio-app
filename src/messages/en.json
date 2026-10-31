@@ -461,7 +461,8 @@
       "statistics": "Statistics and data points",
       "semanticKeywords": "Semantic keywords",
       "metaTags": "Optimized meta tags",
-      "jsonLd": "JSON-LD schema"
+      "jsonLd": "JSON-LD schema",
+      "imageAltTexts": "Image alt texts"
     },
     "publishedUrl": "Published URL",
     "publishedUrlHint": "Live URL of the published article",
@@ -487,7 +488,21 @@
     "why": "Why this article",
     "publishNow": "Publish now",
     "publishFailed": "Could not publish: {error}",
-    "noPublishing": "Connect a publishing integration in Settings › Publishing first."
+    "noPublishing": "Connect a publishing integration in Settings › Publishing first.",
+    "cover": {
+      "title": "Cover image",
+      "alt": "Alt text: {text}",
+      "none": "This article has no cover image yet.",
+      "noProvider": "Cover images need an image provider (OPENAI_API_KEY or GEMINI_API_KEY).",
+      "generate": "Generate cover",
+      "regenerate": "Regenerate cover",
+      "working": "Creating image…",
+      "remaining": "{count, plural, =0 {No regenerations left} one {# regeneration left} other {# regenerations left}}",
+      "done": "New cover saved.",
+      "updatedLive": "New cover saved and sent to your site.",
+      "publishFailed": "New cover saved, but updating your site failed: {errors}",
+      "settings": "Change image styles in Visuals"
+    }
   },
   "siteHealth": {
     "title": "Site health",
@@ -875,6 +890,134 @@
         "admin": "Only workspace admins can connect data sources.",
         "notConfigured": "Google connections aren't set up on this server yet (GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET).",
         "product": "Unknown data source."
+      }
+    },
+    "visual": {
+      "subtitle": "How the article looks and where you want to send readers to your website.",
+      "noProvider": "Images need an image provider: set OPENAI_API_KEY or GEMINI_API_KEY. Until then articles are published without images.",
+      "optional": "Optional",
+      "writingLink": "Writing rules are in Writing",
+      "rules": "Image instructions",
+      "rulesHint": "Anything every generated image should show or avoid: people, products, scale, mood, text inside images.",
+      "rulePlaceholder": "Add a rule, e.g. \"Never show faces\"",
+      "where": {
+        "top": "Top of the article",
+        "body": "Inside the article body",
+        "afterSummary": "Right after the summary",
+        "end": "End of the article",
+        "beforeFaq": "Before the FAQ"
+      },
+      "cover": {
+        "title": "Cover image style",
+        "hint": "Pick a style that best fits your article. You can always change it later"
+      },
+      "body": {
+        "title": "Body image style",
+        "hint": "Pick a style that best fits your article. You can always change it later"
+      },
+      "infographic": {
+        "title": "Infographic style",
+        "hint": "When an article has a section worth charting, such as steps, figures or a comparison, it gets one infographic made from that section. Choose the look.",
+        "soon": "Coming soon: your choice is saved and used once infographics are generated."
+      },
+      "styles": {
+        "realistic_with_title": [
+          "Realistic with title",
+          "A lifelike photo of what the article is about, with your title designed into the image like a magazine cover."
+        ],
+        "3d_illustration": [
+          "3D illustration",
+          "Stylized 3D illustration with depth and dimension."
+        ],
+        "sketch_with_title": [
+          "Sketch with title",
+          "Hand-drawn sketch look, like pencil or ink on paper. Your title sits in the center in your brand color."
+        ],
+        "sketch": [
+          "Sketch",
+          "Hand-drawn sketch look, like pencil or ink on paper. No title included."
+        ],
+        "watercolor_with_title": [
+          "Watercolor with title",
+          "Soft, painted watercolor look. Your title sits in the center in your brand color."
+        ],
+        "realistic": [
+          "Realistic",
+          "A lifelike photo of what the article is about. No title included."
+        ]
+      },
+      "bodyStyles": {
+        "realistic": [
+          "Realistic",
+          "Natural, lifelike photos that illustrate the article"
+        ],
+        "sketch": [
+          "Sketch",
+          "Hand-drawn sketches that explain the topic visually"
+        ]
+      },
+      "infographicStyles": {
+        "editorial": [
+          "Editorial",
+          "A magazine-style sheet with illustrations drawn for the article's content"
+        ],
+        "classic": [
+          "Classic",
+          "A typeset layout of cards and charts under a photo or sketch header"
+        ]
+      },
+      "mood": "How your brand should look in images",
+      "moodHint": "A short description of your visual mood and style. Guides every generated image.",
+      "moodPlaceholder": "e.g. Warm, minimal, natural light, earthy tones; real people, no stock-photo feel.",
+      "brandNote": "Colors and style adapt to your brand.",
+      "editBranding": "Edit branding",
+      "sampleTitle": "Your article title",
+      "ctas": {
+        "title": "Calls to action (CTAs)",
+        "hint": "Where you want to send readers of the articles to your website."
+      },
+      "link": {
+        "name": "Link card",
+        "description": "A card which drives article readers to specific page.",
+        "pagesHint": "Add pages to which you want to drive readers. If empty, it links to your homepage.",
+        "buttonText": "Button text",
+        "page": "Page",
+        "buttonPlaceholder": "Book a session",
+        "pagePlaceholder": "https://yourwebsite.com/book",
+        "addPage": "Add a page",
+        "removePage": "Remove page",
+        "look": "Card look",
+        "lookTitle": "Ready to take the next step?",
+        "lookPitch": "Talk to our team and get a plan tailored to your goals.",
+        "lookButton": "Get started",
+        "lookNote": "The wording changes with each article."
+      },
+      "map": {
+        "name": "Map card",
+        "description": "A card that shows your business location.",
+        "address": "Business address",
+        "addressPlaceholder": "123 Main St, Santa Barbara, CA",
+        "mapsUrl": "Google Maps link (optional)",
+        "needs": "Add your business address to turn this on."
+      },
+      "contact": {
+        "name": "Contact card",
+        "description": "A card which drives article readers to contact you.",
+        "phone": "Phone",
+        "whatsapp": "WhatsApp",
+        "email": "Email",
+        "needs": "Add a phone, WhatsApp, or email to turn this on."
+      },
+      "promo": {
+        "name": "Promo paragraph",
+        "description": "A text paragraph which promotes your business at the end of the article."
+      },
+      "youtube": {
+        "title": "YouTube video",
+        "hint": "Embed one relevant video per article. Add your channel handle to only use your own videos.",
+        "toggle": "Include a video",
+        "channel": "Channel handle (optional)",
+        "channelPlaceholder": "@yourchannel"
       }
     }
   },

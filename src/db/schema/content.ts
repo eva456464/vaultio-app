@@ -1,6 +1,7 @@
 // Keyword research, the content plan (calendar), generated articles and improvements.
 import {
   boolean,
+  customType,
   date,
   index,
   integer,
@@ -107,7 +108,19 @@ export type ArticleMedia = {
   identifier?: string;
   selected?: boolean;
   thumbnailUrl?: string;
+  /** What the image shows (from the writer's image plan); reused when the image is regenerated. */
+  scene?: string;
 };
+
+/** CTA and video blocks placed in an article; the HTML renderer turns their markers into cards. */
+export type ArticleBlock =
+  | { kind: "link"; title: string; pitch: string; buttonLabel: string; buttonUrl: string }
+  | { kind: "contact"; title: string; pitch: string; phone?: string; whatsapp?: string; email?: string }
+  | { kind: "map"; title: string; address: string; mapsUrl: string }
+  | { kind: "video"; title: string; videoId: string };
+
+/** Where an article was delivered, so later updates change the same post instead of creating another. */
+export type ArticleDeliveries = { wordpress?: { postId: number; featuredMediaId?: number; uploads: Record<string, { id: number; url: string }> } };
 
 export type QualityCheck = { key: string; passed: boolean; detail?: string };
 
@@ -155,9 +168,38 @@ export const articles = pgTable(
     isHappyFeedback: boolean("is_happy_feedback"),
     feedbackComment: text("feedback_comment"),
     aiImageRegenerationCount: integer("ai_image_regeneration_count").notNull().default(0),
+    blocks: jsonb("blocks").$type<ArticleBlock[]>().notNull().default([]),
+    deliveries: jsonb("deliveries").$type<ArticleDeliveries>().notNull().default({}),
     ...timestamps,
   },
   (t) => [index("articles_site_idx").on(t.orgWebsiteId)],
+);
+
+const bytea = customType<{ data: Buffer; driverData: Buffer }>({ dataType: () => "bytea" });
+
+/**
+ * Images Vaultio generated or received, served publicly at /media/<id>.<ext> (ids are random,
+ * so they can't be guessed). Stored in Postgres so there is no separate file storage to run.
+ */
+export const mediaAssets = pgTable(
+  "media_assets",
+  {
+    id: text("id").primaryKey(),
+    orgWebsiteId: integer("org_website_id")
+      .notNull()
+      .references(() => orgWebsites.id, { onDelete: "cascade" }),
+    articleId: integer("article_id").references(() => articles.id, { onDelete: "set null" }),
+    kind: text("kind").$type<"hero" | "body" | "upload">().notNull(),
+    mimeType: text("mime_type").notNull(),
+    width: integer("width"),
+    height: integer("height"),
+    sizeBytes: integer("size_bytes").notNull(),
+    data: bytea("data").notNull(),
+    prompt: text("prompt"),
+    model: text("model"),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [index("media_assets_site_idx").on(t.orgWebsiteId)],
 );
 
 export const articleImprovements = pgTable("article_improvements", {

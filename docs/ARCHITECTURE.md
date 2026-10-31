@@ -90,7 +90,7 @@ Everything the agents do goes through one path, so work is never silently droppe
 | Milestones engine | built |
 | Publishing: content API (`/api/integrations/v1/articles`, `X-API-Key`), signed webhook, WordPress (application password); auto-publish after writing and "Publish now" | built |
 | Other platforms (Shopify, Webflow, Wix, Ghost, Framer, hosted blog...) | next phase |
-| Hero / body images | next phase |
+| Article images (cover in one of 6 styles, up to 2 body images), CTA cards (link, map, contact), promo paragraph, YouTube video | built |
 | AI visibility: weekly + at onboarding, asks each prompt to Claude (web search), ChatGPT and Gemini when keyed; mentions, brands with sentiment, cited sources; Overview / Prompts / Brands / Sources pages | built |
 | Client reports: Reporting page with section switches and live preview, print-to-PDF, monthly email with a stored snapshot behind a share link (`/api/reports/shared/<token>`) | built |
 | Google Analytics + Search Console: per-site connection, daily GA4 sync (channels, pages, AI assistants), Search Console sync every 3 days, Site traffic pages | built |
@@ -127,6 +127,23 @@ first run backfills history (GA4 from the property's creation, at most 5 years; 
 16 months); later runs re-fetch the last few days, which Google may still revise. A period is the last
 N days including today (`src/lib/traffic.ts`); Search Console periods end on its latest day of data.
 
+### Article images and CTA cards
+
+After the text is written, the writer asks Claude for an image plan (a concrete scene for the cover
+and for up to two sections, with alt texts) and builds each image prompt from Settings → Visuals:
+the cover or body style, the brand colours, the image mood and the image rules. Images come from
+OpenAI's image model or Gemini (`src/server/ai/images.ts`), are converted to WebP with sharp and stored
+in Postgres (`media_assets`), served publicly at `/media/<random id>.webp`. CTA cards are worded per
+article by Claude and placed as marked markdown blocks (readable as plain markdown);
+`renderArticleHtml` turns them into cards with inline styles in the client's brand colour. A YouTube
+video is found with Claude's web search (optionally only from the client's channel). Any failure in
+this step is recorded on the article and never stops it from being written.
+
+Publishing to WordPress copies the images into the site's media library (the cover becomes the
+featured image) and remembers the post and uploads, so a regenerated cover updates the same post.
+Images live in Postgres to avoid running separate file storage; move them to object storage
+(S3, R2, Supabase) if volume grows.
+
 ### Client reports
 
 `src/server/reports/data.ts` gathers one site's numbers for a period (Search Console, authority,
@@ -143,6 +160,7 @@ Sections without data are switched off rather than shown with invented numbers.
 | Database | `DATABASE_URL` (Supabase, Neon, RDS...) |
 | Auth | `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, optional `GOOGLE_CLIENT_ID/SECRET` |
 | Article writing, topic research, AI prompts | `ANTHROPIC_API_KEY` |
+| Article images | `OPENAI_API_KEY` or `GEMINI_API_KEY` (optional `IMAGE_PROVIDER`, `OPENAI_IMAGE_MODEL`, `GEMINI_IMAGE_MODEL`), plus `APP_URL` reachable by client sites |
 | Keyword volumes, SERPs, competitors, domain rating | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
 | AI visibility checks | `OPENAI_API_KEY`, `GEMINI_API_KEY` (plus Anthropic) |
 | GA4 + Search Console | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`: a Google Cloud OAuth client with the Analytics Data, Analytics Admin and Search Console APIs |

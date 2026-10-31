@@ -14,6 +14,7 @@ import { db } from "@/db";
 import { agentJobRuns, articles, competitors, contentPlanItems, keywordClusters, llmAnswers, llmPrompts, orgWebsites } from "@/db/schema";
 import { setAssistantProvider, type AssistantProvider } from "@/server/ai/assistants";
 import { setAiProvider, type AiProvider } from "@/server/ai/claude";
+import { setImageProvider, type ImageProvider } from "@/server/ai/images";
 import { runOnboarding } from "@/server/agents/orchestrator";
 import { runAgentJob } from "@/server/agents/runner";
 import { siteDay } from "@/server/agents/schedule";
@@ -62,6 +63,22 @@ const standInAi: AiProvider = {
       }
       return { answers } as never;
     }
+    if (system.includes("plan the pictures")) {
+      return {
+        cover: { scene: "A sunlit Santa Barbara house with a new terracotta tile roof", altText: "House with a new tile roof in Santa Barbara" },
+        body: [
+          { heading: "Roof lifespan by material", scene: "Samples of asphalt shingle, metal panel and clay tile side by side", altText: "Asphalt, metal and tile roofing samples" },
+          { heading: "Signs you need a new roof", scene: "Close-up of curling, worn asphalt shingles", altText: "Curling asphalt shingles on an old roof" },
+        ],
+      } as never;
+    }
+    if (system.includes("call-to-action cards")) {
+      return {
+        link: { pageIndex: 0, title: "Not sure how long yours has left?", pitch: "Sunny Roofing inspects roofs across Santa Barbara for free and tells you honestly what it needs." },
+        contact: { title: "Talk to a local roofer", pitch: "Questions about your roof? Call or message the Sunny Roofing team." },
+        map: null,
+      } as never;
+    }
     if (system.includes("SEO metadata")) {
       return { title: "How Long Does a Roof Last? Lifespan by Material", slug: "how-long-does-a-roof-last", metaDescription: "Asphalt shingles last 20 to 30 years, tile and metal much longer. See lifespans by material and the signs a roof needs replacing.", faq: [{ question: "How long does a shingle roof last?", answer: "Usually 20 to 30 years." }], whyThisStructure: ["Answer first", "Material table", "FAQ"], characteristics: ["Cites sources", "Local angle", "Checklist"], semanticKeywords: ["asphalt shingles", "roof lifespan", "metal roof"] } as never;
     }
@@ -82,7 +99,10 @@ const standInAi: AiProvider = {
   async answer(question) {
     return { ...(await standInAi.research({ system: "", prompt: question })), model: "stand-in" };
   },
-  async research() {
+  async research(request) {
+    if (request.system.includes("YouTube video")) {
+      return { notes: "https://www.youtube.com/watch?v=Ab3dEf5GhIj\nHow long does a roof last? Materials compared", sources: [{ url: "https://www.youtube.com/watch?v=Ab3dEf5GhIj", title: "How long does a roof last? Materials compared" }] };
+    }
     return {
       notes: "Asphalt shingles last 20–30 years (https://www.nachi.org/life-expectancy.htm). NRCA guidance on repair vs replace (https://www.nrca.net/).",
       sources: [
@@ -115,6 +135,19 @@ const standInSeo: SeoDataProvider = {
   },
 };
 
+/** Draws a plain test picture (colour from the prompt) instead of calling an image model. */
+const standInImages: ImageProvider = {
+  available: () => true,
+  async generate({ prompt, shape }) {
+    const sharp = (await import("sharp")).default;
+    const hue = [...prompt].reduce((sum, char) => sum + char.charCodeAt(0), 0) % 360;
+    const [width, height] = shape === "wide" ? [1536, 864] : [1536, 1024];
+    const label = (prompt.match(/title "([^"]+)"/)?.[1] ?? prompt.split("\n")[0]!.slice(0, 60)).replace(/[<&>]/g, "");
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect width="100%" height="100%" fill="hsl(${hue},45%,55%)"/><text x="50%" y="50%" font-size="44" text-anchor="middle" fill="white" font-family="sans-serif">${label}</text></svg>`;
+    return { bytes: await sharp(Buffer.from(svg)).png().toBuffer(), mimeType: "image/png", model: "stand-in" };
+  },
+};
+
 const standInAssistants: AssistantProvider = {
   available: () => ["anthropic", "openai", "google"],
   async ask(id, question) {
@@ -135,6 +168,7 @@ async function main() {
   setAiProvider(standInAi);
   setSeoDataProvider(standInSeo);
   setAssistantProvider(standInAssistants);
+  setImageProvider(standInImages);
 
   const [site] = await db.select().from(orgWebsites).where(eq(orgWebsites.id, siteId));
   if (!site) throw new Error("Site not found");
@@ -158,7 +192,7 @@ async function main() {
   const plan = await db.select({ day: contentPlanItems.scheduledFor, title: contentPlanItems.plannedTitle, status: contentPlanItems.generationStatus }).from(contentPlanItems).where(and(eq(contentPlanItems.orgWebsiteId, siteId), gte(contentPlanItems.scheduledFor, today)));
   console.log(`plan: ${plan.length} items`, plan.slice(0, 3));
   const [article] = await db.select().from(articles).where(eq(articles.orgWebsiteId, siteId));
-  console.log("article:", article && { id: article.id, title: article.title, words: article.wordCount, internal: article.internalLinksCount, external: article.externalLinksCount, checks: article.qualityChecks.filter((c) => c.passed).length + "/" + article.qualityChecks.length, sources: article.sources.length });
+  console.log("article:", article && { id: article.id, title: article.title, words: article.wordCount, internal: article.internalLinksCount, external: article.externalLinksCount, checks: article.qualityChecks.filter((c) => c.passed).length + "/" + article.qualityChecks.length, sources: article.sources.length, images: article.media.length, blocks: article.blocks.map((b) => b.kind) });
   process.exit(0);
 }
 

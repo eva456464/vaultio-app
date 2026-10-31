@@ -2,10 +2,12 @@ import { ArrowLeft, Check, ExternalLink, FileText, Link2, Link as LinkIcon, Quot
 import { notFound } from "next/navigation";
 import { getFormatter, getTranslations } from "next-intl/server";
 import { ArticleExportMenu } from "@/components/content/article-export-menu";
+import { CoverImagePanel } from "@/components/content/cover-image-panel";
 import { PublishButton } from "@/components/content/publish-button";
 import { Link } from "@/i18n/navigation";
 import { withHeadingIds } from "@/lib/article-html";
 import { cn } from "@/lib/utils";
+import { images } from "@/server/ai/images";
 import { getAppContext } from "@/server/context";
 import { getArticle } from "@/server/queries/content";
 
@@ -21,7 +23,8 @@ function Panel({ title, hint, children }: { title: string; hint?: string; childr
 
 export default async function ArticlePage({ params }: PageProps<"/[locale]/dashboard/articles/[id]">) {
   const { id } = await params;
-  const site = (await getAppContext())!.site!;
+  const context = (await getAppContext())!;
+  const site = context.site!;
   const row = await getArticle(site.id, Number(id));
   if (!row) notFound();
   const { article } = row;
@@ -30,6 +33,7 @@ export default async function ArticlePage({ params }: PageProps<"/[locale]/dashb
   const passed = article.qualityChecks.filter((check) => check.passed).length;
   const minutes = Math.max(1, Math.round((article.wordCount ?? 0) / 225));
   const rationale = article.generationRationale ?? {};
+  const cover = article.media.find((item) => item.identifier === "hero_image");
 
   return (
     <>
@@ -52,7 +56,7 @@ export default async function ArticlePage({ params }: PageProps<"/[locale]/dashb
           <h1 className="mt-4 font-heading text-[34px] font-semibold leading-tight tracking-[-0.03em] text-ink md:text-[38px]">{article.title}</h1>
           {article.heroImageUrl && (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={article.heroImageUrl} alt="" className="mt-8 aspect-[16/9] w-full rounded-2xl object-cover" />
+            <img src={article.heroImageUrl} alt={cover?.altText ?? ""} className="mt-8 aspect-[16/9] w-full rounded-2xl object-cover" />
           )}
           {site.includeToc && toc.length > 2 && (
             <nav className="mt-8 rounded-2xl bg-canvas p-5">
@@ -74,6 +78,16 @@ export default async function ArticlePage({ params }: PageProps<"/[locale]/dashb
             <Settings2 className="size-4" />
             {t("customize")}
           </Link>
+
+          <CoverImagePanel
+            articleId={article.id}
+            imageUrl={article.heroImageUrl}
+            altText={cover?.altText ?? null}
+            remaining={Math.max(0, 5 - article.aiImageRegenerationCount)}
+            canEdit={context.member?.role === "admin"}
+            available={images.available()}
+            published={Boolean(article.publishedUrl)}
+          />
 
           <details className="group rounded-2xl border border-line bg-white p-5" open>
             <summary className="flex cursor-pointer list-none items-center gap-2">

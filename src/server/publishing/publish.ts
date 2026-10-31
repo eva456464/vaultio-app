@@ -1,9 +1,10 @@
 /** Delivers finished articles to the client's site through its publishing integrations. */
 import { and, eq, inArray, isNull } from "drizzle-orm";
 import { db } from "@/db";
-import { apiKeys, articles, contentPlanItems, integrations, orgWebsites } from "@/db/schema";
+import { apiKeys, articles, contentPlanItems, integrations, orgWebsites, type ArticleDeliveries } from "@/db/schema";
 import { logActivity } from "../agents/activity";
 import { decryptJson } from "../crypto";
+import { loadMedia, mediaIdFromUrl } from "../media";
 
 type Article = typeof articles.$inferSelect;
 type Site = typeof orgWebsites.$inferSelect;
@@ -15,6 +16,7 @@ export type WebhookCredentials = { token: string };
 export type WordpressCredentials = { username: string; appPassword: string };
 
 export type DeliveryResult = { ok: true; url: string | null } | { ok: false; error: string };
+type WordpressDelivery = NonNullable<ArticleDeliveries["wordpress"]>;
 
 export function articleUrl(site: Site, slug: string) {
   return `${new URL(site.url).origin}${site.blogPath.replace(/\/$/, "")}/${slug}`;
@@ -36,7 +38,7 @@ export function webhookPayload(article: Article, site: Site) {
     jsonLd: article.jsonLd,
     faqJsonLd: article.faqJsonLd,
     heroImageUrl: article.heroImageUrl,
-    heroImageAlt: null,
+    heroImageAlt: article.media.find((item) => item.identifier === "hero_image")?.altText ?? null,
     featureImageEnabled: Boolean(article.heroImageUrl),
     createdAt: article.createdAt.toISOString(),
     lang: site.selectedLanguage,
@@ -66,27 +68,69 @@ export async function deliverWebhook(url: string, credentials: WebhookCredential
   }
 }
 
-export async function deliverWordpress(siteUrl: string, credentials: WordpressCredentials, article: Article, categoryId?: number): Promise<DeliveryResult> {
+const wordpressAuth = (credentials: WordpressCredentials) => `Basic ${Buffer.from(`${credentials.username}:${credentials.appPassword.replace(/\s+/g, "")}`).toString("base64")}`;
+
+/** Uploads one of our images to the WordPress media library (once per image). */
+async function uploadToWordpress(api: string, credentials: WordpressCredentials, mediaId: string, name: string, altText: string, uploads: WordpressDelivery["uploads"]) {
+  if (uploads[mediaId]) return uploads[mediaId];
+  const media = await loadMedia(mediaId);
+  if (!media) return null;
+  const response = await fetch(`${api}/media?${new URLSearchParams({ alt_text: altText, title: name })}`, {
+    method: "POST",
+    headers: { authorization: wordpressAuth(credentials), "content-type": media.mimeType, "content-disposition": `attachment; filename="${name}.webp"` },
+    body: new Uint8Array(media.data),
+    signal: AbortSignal.timeout(120_000),
+  });
+  const body = (await response.json().catch(() => null)) as { id?: number; source_url?: string } | null;
+  if (!response.ok || !body?.id || !body.source_url) return null;
+  uploads[mediaId] = { id: body.id, url: body.source_url };
+  return uploads[mediaId];
+}
+
+/**
+ * Creates the post (or updates the one created before). Images are copied into the site's media
+ * library first: the cover becomes the featured image and body images point at the copies.
+ */
+export async function deliverWordpress(
+  siteUrl: string,
+  credentials: WordpressCredentials,
+  article: Article,
+  categoryId?: number,
+): Promise<DeliveryResult & { delivery?: WordpressDelivery }> {
+  const api = `${siteUrl.replace(/\/$/, "")}/wp-json/wp/v2`;
+  const previous = article.deliveries.wordpress;
+  const uploads: WordpressDelivery["uploads"] = { ...(previous?.uploads ?? {}) };
   try {
-    const response = await fetch(`${siteUrl.replace(/\/$/, "")}/wp-json/wp/v2/posts`, {
+    let content = article.htmlContent ?? "";
+    let featuredMediaId: number | undefined;
+    const heroId = article.heroImageUrl ? mediaIdFromUrl(article.heroImageUrl) : null;
+    if (heroId) {
+      const hero = article.media.find((item) => item.identifier === "hero_image");
+      featuredMediaId = (await uploadToWordpress(api, credentials, heroId, article.slug, hero?.altText ?? article.title, uploads))?.id;
+    }
+    for (const item of article.media.filter((entry) => entry.identifier !== "hero_image")) {
+      const id = mediaIdFromUrl(item.url);
+      const copy = id ? await uploadToWordpress(api, credentials, id, `${article.slug}-${item.identifier ?? id}`, item.altText ?? "", uploads) : null;
+      if (copy) content = content.split(item.url).join(copy.url);
+    }
+
+    const response = await fetch(previous?.postId ? `${api}/posts/${previous.postId}` : `${api}/posts`, {
       method: "POST",
-      headers: {
-        authorization: `Basic ${Buffer.from(`${credentials.username}:${credentials.appPassword.replace(/\s+/g, "")}`).toString("base64")}`,
-        "content-type": "application/json",
-      },
+      headers: { authorization: wordpressAuth(credentials), "content-type": "application/json" },
       body: JSON.stringify({
         title: article.title,
         slug: article.slug,
-        content: article.htmlContent ?? "",
+        content,
         excerpt: article.metaDescription ?? "",
         status: "publish",
+        ...(featuredMediaId ? { featured_media: featuredMediaId } : {}),
         ...(categoryId ? { categories: [categoryId] } : {}),
       }),
       signal: AbortSignal.timeout(120_000),
     });
-    const body = (await response.json().catch(() => null)) as { link?: string; message?: string } | null;
+    const body = (await response.json().catch(() => null)) as { id?: number; link?: string; message?: string } | null;
     if (!response.ok) return { ok: false, error: body?.message ?? `WordPress returned HTTP ${response.status}` };
-    return { ok: true, url: body?.link ?? null };
+    return { ok: true, url: body?.link ?? null, delivery: { postId: body?.id ?? previous?.postId ?? 0, featuredMediaId, uploads } };
   } catch (error) {
     return { ok: false, error: (error as Error).message };
   }
@@ -95,12 +139,14 @@ export async function deliverWordpress(siteUrl: string, credentials: WordpressCr
 /**
  * Publishes one article through every connected integration. Sites that pull
  * articles through the content API count as published as soon as the article exists.
+ * With `update`, an already published article is sent again (same WordPress post, same webhook id).
  */
-export async function publishArticle(siteId: number, articleId: number) {
+export async function publishArticle(siteId: number, articleId: number, options: { update?: boolean } = {}) {
   const [site] = await db.select().from(orgWebsites).where(eq(orgWebsites.id, siteId));
   const [article] = await db.select().from(articles).where(and(eq(articles.id, articleId), eq(articles.orgWebsiteId, siteId)));
   if (!site || !article) throw new Error("Article not found");
-  if (article.publishedUrl) return { published: true, url: article.publishedUrl, errors: [] as string[] };
+  const updating = Boolean(article.publishedUrl && options.update);
+  if (article.publishedUrl && !updating) return { published: true, url: article.publishedUrl, errors: [] as string[] };
 
   const connections = await db
     .select()
@@ -114,10 +160,17 @@ export async function publishArticle(siteId: number, articleId: number) {
   for (const connection of connections) {
     if (!connection.credentialsEncrypted) continue;
     const config = connection.config as { url?: string; siteUrl?: string; categoryId?: number };
-    const result =
-      connection.type === "webhook"
-        ? await deliverWebhook(config.url!, decryptJson<WebhookCredentials>(connection.credentialsEncrypted), webhookPayload(article, site))
-        : await deliverWordpress(config.siteUrl!, decryptJson<WordpressCredentials>(connection.credentialsEncrypted), article, config.categoryId);
+    let result: DeliveryResult;
+    if (connection.type === "webhook") {
+      result = await deliverWebhook(config.url!, decryptJson<WebhookCredentials>(connection.credentialsEncrypted), webhookPayload(article, site));
+    } else {
+      const wordpress = await deliverWordpress(config.siteUrl!, decryptJson<WordpressCredentials>(connection.credentialsEncrypted), article, config.categoryId);
+      if (wordpress.ok && wordpress.delivery) {
+        article.deliveries = { ...article.deliveries, wordpress: wordpress.delivery };
+        await db.update(articles).set({ deliveries: article.deliveries }).where(eq(articles.id, article.id));
+      }
+      result = wordpress;
+    }
     await db
       .update(integrations)
       .set(result.ok ? { status: "connected", lastError: null, connectedAt: connection.connectedAt ?? new Date(), updatedAt: new Date() } : { status: "error", lastError: result.error, updatedAt: new Date() })
@@ -129,6 +182,7 @@ export async function publishArticle(siteId: number, articleId: number) {
   }
 
   if (!delivered && !apiKey) return { published: false, url: null, errors };
+  if (updating) return { published: true, url: article.publishedUrl, errors };
 
   const publishedUrl = url ?? articleUrl(site, article.slug);
   await db.update(articles).set({ publishedUrl, publishedAt: new Date(), updatedAt: new Date() }).where(eq(articles.id, article.id));
