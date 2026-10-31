@@ -87,7 +87,8 @@ Everything the agents do goes through one path, so work is never silently droppe
 | Article writer (Claude web research with real sources → article in the brand voice → meta, FAQ, JSON-LD, quality checks) | built |
 | Competitor content-gap scan, domain rating | built (DataForSEO) |
 | Milestones engine | built |
-| Publishing integrations (WordPress, Next.js, Webflow, Shopify, API...) | next phase |
+| Publishing: content API (`/api/integrations/v1/articles`, `X-API-Key`), signed webhook, WordPress (application password); auto-publish after writing and "Publish now" | built |
+| Other platforms (Shopify, Webflow, Wix, Ghost, Framer, hosted blog...) | next phase |
 | Hero / body images | next phase |
 | AI visibility checks (ChatGPT, Claude, Gemini) | next phase |
 | GA4 + Search Console sync | needs a Google Cloud OAuth app |

@@ -14,6 +14,7 @@ import {
   type QualityCheck,
 } from "@/db/schema";
 import { ai, type ResearchSource } from "@/server/ai/claude";
+import { publishArticle } from "@/server/publishing/publish";
 import { logActivity } from "../activity";
 import type { JobContext, Site } from "./types";
 
@@ -248,6 +249,11 @@ export async function writeArticle({ site, runDate }: JobContext) {
     .update(contentPlanItems)
     .set({ articleId: article!.id, generationStatus: "generated", updatedAt: new Date() })
     .where(eq(contentPlanItems.id, item.plan.id));
-  await logActivity(site.id, "articleWritten", { title: meta.title, articleId: article!.id });
-  return { articleId: article!.id, words: wordCount, sources: citedSources.length };
+  let published = false;
+  if (site.autoPublish) {
+    const result = await publishArticle(site.id, article!.id);
+    published = result.published;
+  }
+  if (!published) await logActivity(site.id, "articleWritten", { title: meta.title, articleId: article!.id });
+  return { articleId: article!.id, words: wordCount, sources: citedSources.length, published };
 }

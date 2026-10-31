@@ -2,6 +2,7 @@ import { ArrowLeft, Check, ExternalLink, FileText, Link2, Link as LinkIcon, Quot
 import { notFound } from "next/navigation";
 import { getFormatter, getTranslations } from "next-intl/server";
 import { ArticleExportMenu } from "@/components/content/article-export-menu";
+import { PublishButton } from "@/components/content/publish-button";
 import { Link } from "@/i18n/navigation";
 import { withHeadingIds } from "@/lib/article-html";
 import { cn } from "@/lib/utils";
@@ -150,15 +151,7 @@ export default async function ArticlePage({ params }: PageProps<"/[locale]/dashb
           </Panel>
 
           <div className="grid grid-cols-2 gap-2">
-            <span
-              className={cn(
-                "flex h-11 items-center justify-center gap-1.5 rounded-full text-sm font-medium",
-                article.publishedUrl ? "bg-[#22A06B] text-white" : "bg-[#EEF4FF] text-[#2A5BD7]",
-              )}
-            >
-              {article.publishedUrl && <Check className="size-4" />}
-              {article.publishedUrl ? t("statusPublished") : t("statusReady")}
-            </span>
+            <PublishButton articleId={article.id} published={Boolean(article.publishedUrl)} />
             <ArticleExportMenu articleId={article.id} />
           </div>
         </aside>

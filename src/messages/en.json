@@ -481,7 +481,10 @@
     "exportHtml": "Export as HTML",
     "statusPublished": "Published",
     "statusReady": "Ready to publish",
-    "why": "Why this article"
+    "why": "Why this article",
+    "publishNow": "Publish now",
+    "publishFailed": "Could not publish: {error}",
+    "noPublishing": "Connect a publishing integration in Settings › Publishing first."
   },
   "siteHealth": {
     "title": "Site health",
@@ -599,5 +602,102 @@
       "invalid_structured_data": "Structured data can't be read"
     },
     "publicFooter": "Site health report by {brand}"
+  },
+  "settings": {
+    "title": "Settings",
+    "groups": {
+      "account": "Account",
+      "business": "Business & brand",
+      "articles": "Articles",
+      "integrations": "Integrations",
+      "socials": "Socials"
+    },
+    "sections": {
+      "account": "Account",
+      "team-members": "Team members",
+      "billing": "Billing",
+      "white-label": "White label",
+      "business": "Business details",
+      "branding": "Branding",
+      "competitors": "Competitors",
+      "product-catalog": "Product catalog",
+      "saved-pages": "Saved pages",
+      "writing": "Writing",
+      "visual": "Visuals",
+      "schedule": "Schedule",
+      "improvements": "Improvements",
+      "publishing": "Publishing",
+      "analytics": "Analytics",
+      "reddit": "Reddit",
+      "quora": "Quora"
+    },
+    "publishing": {
+      "title": "Publishing",
+      "subtitle": "Connect your website so finished articles go live automatically.",
+      "autoPublish": "Publish articles automatically",
+      "autoPublishHint": "When on, each article is published as soon as it is written. When off, articles wait for you to publish them.",
+      "developers": "For developers",
+      "platforms": "Website platforms",
+      "status": {
+        "connected": "Connected",
+        "pending": "Awaiting test",
+        "error": "Action needed",
+        "off": "Not connected"
+      },
+      "connect": "Connect",
+      "manage": "Manage",
+      "disconnect": "Disconnect",
+      "save": "Save",
+      "cancel": "Cancel",
+      "api": {
+        "name": "API",
+        "description": "Fetch your articles with your own code and publish them anywhere, for example a Next.js or headless site.",
+        "generate": "Generate API key",
+        "regenerate": "Replace key",
+        "revoke": "Revoke key",
+        "active": "Active key {prefix}… · last used {lastUsed}",
+        "neverUsed": "never",
+        "newKey": "Copy your key now. It won't be shown again.",
+        "copy": "Copy",
+        "copied": "Copied",
+        "docs": "Send it in the X-API-Key header:",
+        "note": "Articles count as published as soon as they are written, because your site pulls them from the API."
+      },
+      "webhook": {
+        "name": "Webhook",
+        "description": "We POST each new article as JSON to your endpoint, authenticated with a bearer token.",
+        "url": "Endpoint URL",
+        "urlPlaceholder": "https://yoursite.com/api/blog-webhook",
+        "token": "Bearer token (8+ characters)",
+        "test": "Send test request",
+        "testOk": "Your endpoint accepted the test.",
+        "testLink": "It replied with {link}.",
+        "expect": "Reply with HTTP 200 and JSON such as {example}."
+      },
+      "wordpress": {
+        "name": "WordPress",
+        "description": "Publish to self-hosted or WordPress.com Business sites with an application password.",
+        "siteUrl": "WordPress site URL",
+        "username": "WordPress username",
+        "appPassword": "Application password",
+        "help": "Create one in WordPress under Users › Profile › Application passwords.",
+        "verified": "Credentials verified. The first article will confirm publishing."
+      },
+      "comingSoon": "Coming soon",
+      "otherPlatforms": [
+        "Shopify",
+        "Webflow",
+        "Wix",
+        "Ghost",
+        "Framer",
+        "Lovable",
+        "GoHighLevel",
+        "Duda",
+        "BigCommerce",
+        "Hosted blog"
+      ],
+      "lastError": "Last error: {error}"
+    },
+    "comingSoon": "This settings section is being rebuilt."
   }
 }
