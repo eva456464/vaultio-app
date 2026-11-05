@@ -4,7 +4,7 @@ import { db } from "@/db";
 import { geoAuditIssues, geoAuditPages, geoAudits, geoAuditSelectedPages, orgWebsites, sitePages } from "@/db/schema";
 import { AGENT_SCHEDULE, isDueOn, siteDay } from "../agents/schedule";
 
-export type AuditIssue = { id: number; issueType: string; severity: "low" | "medium" | "high"; description: string; action: string | null; pageUrl: string | null };
+export type AuditIssue = { id: number; issueType: string; severity: "low" | "medium" | "high"; description: string; action: string | null; pageUrl: string | null; fixed: boolean };
 
 export type SiteHealthReport = NonNullable<Awaited<ReturnType<typeof loadReport>>>;
 
@@ -22,6 +22,7 @@ async function loadReport(auditId: number) {
     description: issue.description,
     action: issue.action,
     pageUrl: issue.pageId ? (pageUrl.get(issue.pageId) ?? null) : null,
+    fixed: Boolean(issue.fixedAt),
   }));
   return {
     audit: {
@@ -36,7 +37,12 @@ async function loadReport(auditId: number) {
       completedAt: (audit.completedAt ?? audit.updatedAt).toISOString(),
       shareToken: audit.shareToken,
     },
-    pages: pages.map((page) => ({ url: page.url, geoScore: page.geoScore ?? 0, issues: issues.filter((issue) => issue.pageUrl === page.url).length })),
+    pages: pages.map((page) => ({
+      url: page.url,
+      geoScore: page.geoScore ?? 0,
+      issues: issues.filter((issue) => issue.pageUrl === page.url && !issue.fixed).length,
+      speed: page.speedMetrics ?? null,
+    })),
     issues,
   };
 }

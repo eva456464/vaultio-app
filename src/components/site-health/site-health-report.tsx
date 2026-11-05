@@ -1,13 +1,18 @@
 "use client";
 
-import { Check, ChevronDown, Copy, Sparkles, X } from "lucide-react";
+import { Check, ChevronDown, Copy, Gauge as GaugeIcon, Loader2, RefreshCw, Sparkles, X } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { createContext, useContext, useMemo, useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { categoryOf, scoreLabel, SEVERITY_ORDER } from "@/lib/site-health";
+import { validateIssueFix } from "@/server/actions/site-health";
 import type { AuditIssue, SiteHealthReport } from "@/server/queries/site-health";
+
+/** "Validate fix" is offered in the dashboard, not on the public share page. */
+const CanValidate = createContext(false);
 
 const SEVERITY_STYLE = {
   high: "bg-[#FBEAE6] text-[#9A3412]",
@@ -55,11 +60,14 @@ function MetricTile({ label, value }: { label: string; value: number | null }) {
   );
 }
 
-export function SiteHealthReportView({ report, nextCheck, siteUrl }: { report: SiteHealthReport; nextCheck?: string; siteUrl: string }) {
+export function SiteHealthReportView({ report, nextCheck, siteUrl, canValidate = false }: { report: SiteHealthReport; nextCheck?: string; siteUrl: string; canValidate?: boolean }) {
   const t = useTranslations("siteHealth");
   const format = useFormatter();
   const [mode, setMode] = useState<"issue" | "page">("issue");
-  const { audit, issues, pages } = report;
+  const { audit, pages } = report;
+  // Issues confirmed fixed with "Validate fix" leave the list (and the scores).
+  const issues = report.issues.filter((issue) => !issue.fixed);
+  const fixedCount = report.issues.length - issues.length;
 
   const byType = useMemo(() => {
     const groups = new Map<string, AuditIssue[]>();
@@ -69,6 +77,7 @@ export function SiteHealthReportView({ report, nextCheck, siteUrl }: { report: S
   const affectedPages = new Set(issues.map((issue) => issue.pageUrl ?? "site")).size;
 
   return (
+    <CanValidate.Provider value={canValidate}>
     <div className="space-y-8">
       <section className="card grid gap-6 p-5 md:p-7 lg:grid-cols-[auto_1fr]">
         <Gauge score={audit.overallScore} />
@@ -111,6 +120,7 @@ export function SiteHealthReportView({ report, nextCheck, siteUrl }: { report: S
             <h2 className="text-[22px] font-semibold tracking-[-0.44px] text-ink">{t("issuesTitle")}</h2>
             <p className="mt-1 text-[15px] text-ink-secondary">
               {issues.length ? t("issuesSummary", { types: byType.length, pages: affectedPages }) : t("noIssues")}
+              {fixedCount > 0 && <span className="ml-2 text-success">· {t("fixedCount", { count: fixedCount })}</span>}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -150,7 +160,7 @@ export function SiteHealthReportView({ report, nextCheck, siteUrl }: { report: S
                 {[{ url: "site", geoScore: null as number | null }, ...pages].map((page) => {
                   const pageIssues = issues.filter((issue) => (issue.pageUrl ?? "site") === page.url);
                   if (page.url === "site" && pageIssues.length === 0) return null;
-                  return <PageRow key={page.url} url={page.url} score={page.geoScore} issues={pageIssues} />;
+                  return <PageRow key={page.url} url={page.url} score={page.geoScore} issues={pageIssues} speed={"speed" in page ? page.speed : null} />;
                 })}
               </ul>
             )}
@@ -158,6 +168,49 @@ export function SiteHealthReportView({ report, nextCheck, siteUrl }: { report: S
         )}
       </section>
     </div>
+    </CanValidate.Provider>
+  );
+}
+
+function ValidateButton({ issueId }: { issueId: number }) {
+  const t = useTranslations("siteHealth.validate");
+  const router = useRouter();
+  const [busy, startBusy] = useTransition();
+  const [message, setMessage] = useState<string | null>(null);
+  if (!useContext(CanValidate)) return null;
+  return (
+    <span className="inline-flex flex-wrap items-center gap-2">
+      <button
+        type="button"
+        disabled={busy}
+        onClick={() =>
+          startBusy(async () => {
+            setMessage(null);
+            const result = await validateIssueFix(issueId);
+            if ("error" in result) return setMessage(t("failed"));
+            if (result.fixed) router.refresh();
+            else setMessage(t("stillThere", { description: result.description ?? "" }));
+          })
+        }
+        className="inline-flex items-center gap-1 rounded-full border border-control bg-white px-2.5 py-0.5 text-xs font-medium text-ink hover:bg-canvas disabled:opacity-60"
+      >
+        {busy ? <Loader2 className="size-3 animate-spin" /> : <RefreshCw className="size-3" />}
+        {busy ? t("checking") : t("button")}
+      </button>
+      {message && <span className="text-xs text-[#9A3412]">{message}</span>}
+    </span>
+  );
+}
+
+function SpeedChip({ speed }: { speed: NonNullable<SiteHealthReport["pages"][number]["speed"]> }) {
+  const t = useTranslations("siteHealth.speed");
+  const tone = speed.performance >= 90 ? "bg-success-bg text-success" : speed.performance >= 50 ? "bg-[#FDF3E2] text-[#8A6320]" : "bg-[#FBEAE6] text-[#9A3412]";
+  const details = [speed.lcpMs !== null ? t("lcp", { value: (speed.lcpMs / 1000).toFixed(1) }) : null, speed.cls !== null ? t("cls", { value: speed.cls }) : null, speed.tbtMs !== null ? t("tbt", { value: speed.tbtMs }) : null].filter(Boolean).join(" · ");
+  return (
+    <span title={`${t("title")}: ${details}`} className={cn("hidden items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium sm:inline-flex", tone)}>
+      <GaugeIcon className="size-3" />
+      {t("score", { score: speed.performance })}
+    </span>
   );
 }
 
@@ -191,9 +244,10 @@ function IssueGroup({ type, group }: { type: string; group: AuditIssue[] }) {
           )}
           <ul className="space-y-1.5 text-sm">
             {group.map((issue) => (
-              <li key={issue.id} className="flex flex-wrap gap-x-2 text-ink-secondary">
+              <li key={issue.id} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-ink-secondary">
                 {issue.pageUrl && <span className="font-medium text-ink">{issue.pageUrl}</span>}
                 <span>{issue.description}</span>
+                <ValidateButton issueId={issue.id} />
               </li>
             ))}
           </ul>
@@ -203,7 +257,7 @@ function IssueGroup({ type, group }: { type: string; group: AuditIssue[] }) {
   );
 }
 
-function PageRow({ url, score, issues }: { url: string; score: number | null; issues: AuditIssue[] }) {
+function PageRow({ url, score, issues, speed }: { url: string; score: number | null; issues: AuditIssue[]; speed: SiteHealthReport["pages"][number]["speed"] | null }) {
   const t = useTranslations("siteHealth");
   const [open, setOpen] = useState(false);
   return (
@@ -217,6 +271,7 @@ function PageRow({ url, score, issues }: { url: string; score: number | null; is
           <span className="grid size-10 shrink-0 place-items-center rounded-full bg-canvas text-xs text-ink-secondary">—</span>
         )}
         <span className="min-w-0 flex-1 truncate text-[15px] text-ink">{url === "site" ? t("wholeSite") : url}</span>
+        {speed && <SpeedChip speed={speed} />}
         <span className="text-sm text-ink-secondary">{t("issuesOnPage", { count: issues.length })}</span>
         <ChevronDown className={cn("size-4 text-ink-secondary transition-transform", open && "rotate-180")} />
       </button>
@@ -228,6 +283,7 @@ function PageRow({ url, score, issues }: { url: string; score: number | null; is
               <span>
                 <span className="font-medium text-ink">{t(`issueNames.${issue.issueType}` as "issueNames.missing_title")}</span>
                 <span className="block text-ink-secondary">{issue.description} {issue.action}</span>
+                <span className="mt-1 block"><ValidateButton issueId={issue.id} /></span>
               </span>
             </li>
           ))}

@@ -141,6 +141,13 @@
       "when": 1793921198878,
       "tag": "0019_onboarding_wizard",
       "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1793922352450,
+      "tag": "0020_site_health_depth",
+      "breakpoints": true
     }
   ]
 }

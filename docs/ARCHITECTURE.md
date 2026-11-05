@@ -149,6 +149,17 @@ The agency setup (`/onboarding/agency/[step]`, `organizations.agencySetupStep`) 
 white-label branding and domain forms and the team invitation; `agencyMode` records white label or
 branded reports only.
 
+### Site health audit
+
+`src/server/site-health/`: `checks.ts` holds the checks as pure functions over parsed pages (tested
+in `scripts/test-site-health.ts`), `probe.ts` checks each link and image once per audit (HEAD, or a
+one-byte GET; 404/410/5xx and unknown domains count as broken, 401/403/429 don't, since sites block
+bots), `pagespeed.ts` calls PageSpeed Insights (mobile; keyless at low volume, `PAGESPEED_API_KEY`
+raises the quota) for the homepage and the next four pages, `audit.ts` runs the weekly audit and
+`validateIssue` ("Validate fix"), which re-checks one issue on the live site, marks it fixed and
+recalculates the page and audit scores. The page speed tile is the PageSpeed average when it ran,
+otherwise the server response time.
+
 ### Writing rules and the plagiarism check
 
 Settings → Writing / Visuals rules are stored as text (`articleInstructions`, `imageInstructions`, one

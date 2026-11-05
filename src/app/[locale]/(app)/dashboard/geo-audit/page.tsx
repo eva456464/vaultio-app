@@ -29,7 +29,7 @@ export default async function SiteHealthPage() {
       />
       <PageBody>
         {report ? (
-          <SiteHealthReportView report={report} nextCheck={nextCheckDay} siteUrl={site.url} />
+          <SiteHealthReportView report={report} nextCheck={nextCheckDay} siteUrl={site.url} canValidate />
         ) : (
           <section className="card flex flex-col items-center px-6 py-16 text-center">
             <span className="grid size-14 place-items-center rounded-2xl bg-canvas text-ink-subtle">

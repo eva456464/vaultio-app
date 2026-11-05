@@ -96,6 +96,17 @@ export type PageFacts = {
   iconUrl: string | null;
   themeColor: string | null;
   platform: string | null;
+  /** How many <title>, meta description and canonical tags the page has (more than one confuses search engines). */
+  titleTags: number;
+  descriptionTags: number;
+  canonicals: string[];
+  images: { src: string | null; alt: string | null }[];
+  /** Every http(s) link in the body, absolute, without fragments. */
+  links: string[];
+  /** H2 and H3 headings. */
+  headings: string[];
+  /** The start of the visible text (for checking that the title and description match the page). */
+  text: string;
 };
 
 export function parsePage(html: string, pageUrl: string): PageFacts {
@@ -117,6 +128,12 @@ export function parsePage(html: string, pageUrl: string): PageFacts {
   const canonicalTag = links.find((tag) => (attr(tag, "rel") ?? "").toLowerCase() === "canonical");
 
   const images = tags(body, "img");
+  const head = html.match(/<head[\s\S]*?<\/head>/i)?.[0] ?? html.slice(0, html.search(/<body/i) > 0 ? html.search(/<body/i) : html.length);
+  const allLinks = new Set<string>();
+  for (const tag of tags(body, "a")) {
+    const href = resolve(attr(tag, "href"));
+    if (href && /^https?:/i.test(href)) allLinks.add(href.split("#")[0]!);
+  }
   const jsonLdTypes: string[] = [];
   for (const block of html.match(/<script[^>]+application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi) ?? []) {
     const json = block.replace(/^<script[^>]*>|<\/script>$/gi, "");
@@ -164,6 +181,13 @@ export function parsePage(html: string, pageUrl: string): PageFacts {
     iconUrl: resolve(iconTag ? attr(iconTag, "href") : null),
     themeColor: meta(html, "theme-color"),
     platform,
+    titleTags: (head.match(/<title[\s>]/gi) ?? []).length,
+    descriptionTags: tags(head, "meta").filter((tag) => (attr(tag, "name") ?? "").toLowerCase() === "description").length,
+    canonicals: links.filter((tag) => (attr(tag, "rel") ?? "").toLowerCase() === "canonical").map((tag) => resolve(attr(tag, "href"))).filter((href): href is string => Boolean(href)),
+    images: images.map((tag) => ({ src: resolve(attr(tag, "src") ?? attr(tag, "data-src")), alt: attr(tag, "alt") })),
+    links: [...allLinks],
+    headings: (body.match(/<h[23]\b[\s\S]*?<\/h[23]>/gi) ?? []).map(textOf).filter(Boolean),
+    text: textOf(body).slice(0, 4000),
   };
 }
 

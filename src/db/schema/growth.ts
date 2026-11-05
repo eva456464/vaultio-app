@@ -97,8 +97,15 @@ export const geoAuditPages = pgTable("geo_audit_pages", {
   url: text("url").notNull(),
   geoScore: integer("geo_score"),
   pageSpeed: integer("page_speed"),
+  /** Kept to re-check "same title / description on other pages" when a fix is validated. */
+  title: text("title"),
+  metaDescription: text("meta_description"),
+  /** PageSpeed Insights (mobile): Core Web Vitals and other lab metrics. */
+  speedMetrics: jsonb("speed_metrics").$type<SpeedMetrics>(),
   ...timestamps,
 });
+
+export type SpeedMetrics = { performance: number; fcpMs: number | null; lcpMs: number | null; tbtMs: number | null; cls: number | null; speedIndexMs: number | null };
 
 export const geoAuditIssues = pgTable("geo_audit_issues", {
   id: serial("id").primaryKey(),

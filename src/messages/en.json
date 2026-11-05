@@ -1097,30 +1097,47 @@
       "intro": "Your homepage and up to 20 pages · Checked every week",
       "crawler": [
         "robots.txt missing",
+        "robots.txt blocks search engines",
         "AI crawlers blocked in robots.txt",
-        "Sitemap missing or unreadable",
-        "llms.txt missing"
+        "Sitemap missing",
+        "Sitemap can't be read",
+        "llms.txt missing",
+        "Not served over HTTPS"
       ],
       "technical": [
         "Missing page title",
         "Title too long or too short",
+        "More than one title tag",
+        "Same title on other pages",
+        "Title doesn't match the page",
         "Missing meta description",
-        "Meta description too long",
+        "Description too long or too short",
+        "More than one description tag",
+        "Same description on other pages",
+        "Description doesn't match the page",
         "No main heading (H1)",
         "More than one H1",
         "No canonical tag",
+        "More than one canonical tag",
+        "Canonical points to another site",
+        "Broken links",
+        "Slow page (PageSpeed, mobile)",
+        "Images over 100 KB",
+        "Images without alt text",
+        "Weak alt text",
+        "Broken images",
+        "Unknown image format",
         "Page set to noindex",
         "No mobile viewport tag",
         "Page language not declared",
         "Missing Open Graph tags",
-        "Slow response",
         "Broken or unreachable page",
-        "Images without alt text",
         "Thin content"
       ],
       "ai": [
         "No structured data (JSON-LD)",
-        "Structured data can't be read"
+        "Structured data can't be read",
+        "Customer questions not answered"
       ]
     },
     "issueNames": {
@@ -1148,9 +1165,41 @@
       "thin_content": "Thin content",
       "missing_structured_data": "No structured data",
       "invalid_structured_data": "Structured data can't be read",
-      "short_meta_description": "Meta description too short"
+      "short_meta_description": "Meta description too short",
+      "robots_blocks_search": "robots.txt blocks search engines",
+      "sitemap_unreadable": "Sitemap can't be read",
+      "multiple_titles": "More than one title tag",
+      "duplicate_title": "Same title on other pages",
+      "title_mismatch": "Title doesn't match the page",
+      "multiple_meta_descriptions": "More than one description tag",
+      "duplicate_meta_description": "Same description on other pages",
+      "description_mismatch": "Description doesn't match the page",
+      "multiple_canonicals": "More than one canonical tag",
+      "canonical_other_site": "Canonical points to another site",
+      "broken_links": "Broken links",
+      "slow_page": "Slow page",
+      "large_images": "Images over 100 KB",
+      "weak_alt_text": "Weak alt text",
+      "broken_images": "Broken images",
+      "unknown_image_format": "Unknown image format",
+      "unanswered_questions": "Customer questions not answered"
     },
-    "publicFooter": "Site health report by {brand}"
+    "publicFooter": "Site health report by {brand}",
+    "validate": {
+      "button": "Validate fix",
+      "checking": "Checking...",
+      "fixed": "Fixed",
+      "stillThere": "Still there: {description}",
+      "failed": "We couldn't check this right now. Try again in a minute."
+    },
+    "speed": {
+      "score": "Speed {score}",
+      "lcp": "LCP {value}s",
+      "cls": "CLS {value}",
+      "tbt": "TBT {value} ms",
+      "title": "PageSpeed (mobile)"
+    },
+    "fixedCount": "{count, plural, one {# fixed} other {# fixed}}"
   },
   "settings": {
     "title": "Settings",

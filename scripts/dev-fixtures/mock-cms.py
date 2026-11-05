@@ -82,6 +82,21 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/test/files":
             return self.reply({"files": sorted(DAV_FILES)})
 
+        # ---------------- PageSpeed Insights (Lighthouse, mobile): the homepage is fast, other pages slower
+        if path == "/pagespeed":
+            target = parse_qs(urlparse(self.path).query).get("url", [""])[0]
+            home = urlparse(target).path in ("", "/")
+            score = 0.92 if home else 0.41
+            audits = {
+                "first-contentful-paint": {"numericValue": 1200 if home else 3100},
+                "largest-contentful-paint": {"numericValue": 1900 if home else 5200},
+                "total-blocking-time": {"numericValue": 90 if home else 640},
+                "cumulative-layout-shift": {"numericValue": 0.02 if home else 0.21},
+                "speed-index": {"numericValue": 1800 if home else 4900},
+            }
+            LOG.append({"pagespeed": target})
+            return self.reply({"lighthouseResult": {"categories": {"performance": {"score": score}}, "audits": audits}})
+
         # ---------------- Ghost
         if path.startswith("/ghost/api/admin/"):
             if path == "/ghost/api/admin/site/":

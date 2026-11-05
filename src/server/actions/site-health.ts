@@ -6,6 +6,7 @@ import { db } from "@/db";
 import { geoAuditSelectedPages, sitePages } from "@/db/schema";
 import { MAX_AUDIT_PAGES } from "@/lib/site-health";
 import { getAppContext } from "../context";
+import { validateIssue } from "../site-health/audit";
 
 /** Saves the pages the weekly audit checks (the homepage is always included). */
 export async function saveAuditPages(urls: string[]) {
@@ -21,4 +22,18 @@ export async function saveAuditPages(urls: string[]) {
   });
   revalidatePath("/[locale]/dashboard/geo-audit", "page");
   return { saved: chosen.length };
+}
+
+/** "Validate fix": checks one issue again on the live site (any member can ask). */
+export async function validateIssueFix(issueId: number): Promise<{ fixed: boolean; description?: string } | { error: string }> {
+  const context = await getAppContext();
+  if (!context?.site) throw new Error("No site selected");
+  try {
+    const result = await validateIssue(context.site.id, issueId);
+    revalidatePath("/[locale]/dashboard/geo-audit", "page");
+    return result;
+  } catch (error) {
+    console.error("[site health] validate fix failed:", (error as Error).message);
+    return { error: "failed" };
+  }
 }
