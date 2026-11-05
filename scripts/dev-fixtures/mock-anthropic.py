@@ -20,8 +20,34 @@ def text_of(content):
     return " ".join(part.get("text", "") for part in content if isinstance(part, dict))
 
 
+def instruction_review(context):
+    """Settings → Writing / Visuals review: splits the request, maps known settings, flags what can't be done."""
+    request = context.rsplit("Request:", 1)[-1].strip()
+    review = {"rules": [], "otherRules": [], "removeRules": [], "settings": [], "unsupported": [], "summary": ""}
+    parts = [part.strip(" .") for part in re.split(r"\.\s+|;\s+|\s+and\s+|\n", request) if part.strip(" .")]
+    for part in parts:
+        lower = part.lower()
+        if "table of contents" in lower:
+            review["settings"].append({"key": "includeToc", "value": not ("no " in lower or "remove" in lower or "without" in lower)})
+        elif "guarantee" in lower or "rank" in lower and "top" in lower:
+            review["unsupported"].append({"request": part, "reason": "Rankings depend on Google; a rule can't promise a position."})
+        elif "image" in lower or "photo" in lower:
+            review["otherRules"].append(part[0].upper() + part[1:] + ".")
+        else:
+            review["rules"].append(part[0].upper() + part[1:] + ".")
+    existing = re.findall(r"^(\d+)\. (.+)$", context.split("Request:")[0], re.M)
+    for index, rule in existing:
+        if "exclamation" in rule.lower() and "exclamation" in request.lower():
+            review["removeRules"].append(int(index))
+    if len(parts) > 1 or review["settings"] or review["unsupported"]:
+        review["summary"] = "Split your request into separate rules and switched the matching setting instead of adding a rule for it."
+    return review
+
+
 def sample(schema, name, context):
     kind = schema.get("type")
+    if kind == "object" and "otherRules" in schema.get("properties", {}):
+        return instruction_review(context)
     if "anyOf" in schema:
         return sample(schema["anyOf"][0], name, context)
     if kind == "object":

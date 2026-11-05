@@ -22,6 +22,7 @@ import { safeColor } from "@/server/brand";
 import { linkedProducts, productCard, productsBrief, productsForArticle } from "@/server/catalog/articles";
 import { createInfographic } from "@/server/infographics";
 import { linksIn, qualityChecks } from "@/server/articles/checks";
+import { cachedFetcher, checkOriginality, paragraphs } from "@/server/articles/originality";
 import { allowedArticleType, asEnglishType, ENGLISH_NAMES, formatInternalLinks, LENGTH_RANGES, RECOMMENDED_TITLES } from "@/lib/writing";
 import { renderArticleHtml } from "@/server/markdown";
 import { publishArticle } from "@/server/publishing/publish";
@@ -80,6 +81,8 @@ export function writingSystemPrompt(site: Site) {
     .filter(Boolean)
     .join("\n\n");
 }
+
+const RephraseSchema = z.object({ paragraphs: z.array(z.object({ index: z.number().int(), text: z.string() })) });
 
 const MetaSchema = z.object({
   title: z.string(),
@@ -204,7 +207,7 @@ async function writeFor(site: Site, item: PlanRow, runDate: string, rewrite?: Re
     .from(sitePages)
     .where(and(eq(sitePages.orgWebsiteId, site.id), ne(sitePages.url, `${new URL(site.url).origin}/`)))
     .limit(200);
-  const markdownBody = await ai.generateText({
+  let markdownBody = await ai.generateText({
     effort: "high",
     system: writingSystemPrompt(site),
     prompt: [
@@ -218,6 +221,35 @@ async function writeFor(site: Site, item: PlanRow, runDate: string, rewrite?: Re
       productsBrief(featured),
     ].join("\n"),
   });
+
+  // 2b. Plagiarism check against the research sources and the pages ranking for the keyword; copied
+  // paragraphs are rewritten in the article's own words once, then checked again.
+  const siteOrigin = new URL(site.url).origin;
+  const compareWith = [...research.sources.map((source) => source.url), ...(item.plan.research?.serp ?? []).map((result) => result.url)].filter(
+    (url) => /^https?:\/\//.test(url) && !url.startsWith(siteOrigin),
+  );
+  const fetchPage = cachedFetcher();
+  let originality = compareWith.length ? await checkOriginality(markdownBody, compareWith, fetchPage).catch(() => null) : null;
+  if (originality?.copiedParagraphs.length) {
+    try {
+      const prose = paragraphs(markdownBody);
+      const rewritten = await ai.generateObject({
+        schema: RephraseSchema,
+        effort: "low",
+        system:
+          "These paragraphs from a blog article match text on other websites too closely. Rewrite each one in your own words, in the same language and tone, at a similar length. " +
+          "Keep every fact, number and markdown link exactly as it is. Return each paragraph with its number.",
+        prompt: originality.copiedParagraphs.map((index) => `[${index}] ${prose[index]}`).join("\n\n"),
+      });
+      for (const paragraph of rewritten.paragraphs) {
+        const original = prose[paragraph.index];
+        if (original && paragraph.text.trim() && originality.copiedParagraphs.includes(paragraph.index)) markdownBody = markdownBody.replace(original, paragraph.text.trim());
+      }
+      originality = await checkOriginality(markdownBody, compareWith, fetchPage).catch(() => originality);
+    } catch (error) {
+      visualErrors.push(`originality: ${(error as Error).message}`);
+    }
+  }
   const featuredProducts = linkedProducts(markdownBody, featured);
 
   // 3. Meta, FAQ and rationale
@@ -370,7 +402,7 @@ async function writeFor(site: Site, item: PlanRow, runDate: string, rewrite?: Re
         semanticKeywords: meta.semanticKeywords,
         ...(visualErrors.length ? { visualErrors } : {}),
       },
-      qualityChecks: qualityChecks({ markdown, title: meta.title, metaDescription: meta.metaDescription, internal, external, keyword, semantic: meta.semanticKeywords, media }),
+      qualityChecks: qualityChecks({ markdown, title: meta.title, metaDescription: meta.metaDescription, internal, external, keyword, semantic: meta.semanticKeywords, media, originality }),
     };
 
   if (rewrite) {

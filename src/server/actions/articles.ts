@@ -2,14 +2,34 @@
 
 import { and, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
+import { after } from "next/server";
 import { db } from "@/db";
-import { articles, backlinkCreditLedger, contentPlanItems, keywordClusters, seedKeywords } from "@/db/schema";
+import { articles, backlinkCreditLedger, contentPlanItems, keywordClusters, orgWebsites, seedKeywords } from "@/db/schema";
 import { siteDay } from "../agents/schedule";
 import { rerunAgentJob } from "../agents/queue";
 import { images } from "../ai/images";
 import { createArticleImages } from "../articles/visuals";
 import { getAppContext } from "../context";
+import { reviseInstructions } from "../instructions";
 import { publishArticle, unpublishArticle } from "../publishing/publish";
+
+/**
+ * Feedback and regeneration requests also teach the writer: after the response, the reviewer keeps what
+ * applies to every future article (or image) as a rule, shown in Settings → Writing / Visuals.
+ */
+function learnFrom(siteId: number, request: string | null | undefined, source: "feedback" | "regenerate", article: { id: number; title: string }) {
+  const text = request?.trim();
+  if (!text || text.length < 8) return;
+  after(async () => {
+    try {
+      // Read the site again: rules may have changed since the request started.
+      const [site] = await db.select().from(orgWebsites).where(eq(orgWebsites.id, siteId));
+      if (site) await reviseInstructions(site, "writing", text, source, article);
+    } catch (error) {
+      console.error("[instructions] learning from", source, "failed", error);
+    }
+  });
+}
 
 /** Cover regenerations allowed per article (each one is a paid image request). */
 const MAX_COVER_REGENERATIONS = 5;
@@ -74,6 +94,7 @@ export async function sendArticleFeedback(articleId: number, input: { happy: boo
       .set({ isHappyFeedback: input.happy, feedbackComment: input.comment?.trim().slice(0, 2000) || null, updatedAt: new Date() })
       .where(eq(articles.id, article.id));
     if (first) await db.insert(backlinkCreditLedger).values({ orgWebsiteId: site.id, delta: 1, reason: "article_feedback" });
+    learnFrom(site.id, input.comment, "feedback", { id: article.id, title: article.title });
     refreshArticle();
     return { ok: true, credit: first };
   } catch (error) {
@@ -125,6 +146,8 @@ export async function regenerateArticle(articleId: number, input: { instructions
         .where(eq(contentPlanItems.id, item.id));
     });
     await rerunAgentJob(site.id, "regenerateArticle", siteDay(new Date(), site.timeZone));
+    // The feedback step usually sent the same text a moment ago; it is already being learned from.
+    if (!clusterId && instructions !== article.feedbackComment?.trim()) learnFrom(site.id, instructions, "regenerate", { id: article.id, title: article.title });
     refreshArticle();
     return { ok: true };
   } catch (error) {

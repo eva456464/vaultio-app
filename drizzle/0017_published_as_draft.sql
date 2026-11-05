@@ -1,0 +1,1 @@
+ALTER TABLE "articles" ADD COLUMN "published_as_draft" boolean DEFAULT false NOT NULL;

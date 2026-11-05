@@ -95,7 +95,6 @@ export async function removeCompetitor(id: number) {
 }
 
 const writingSchema = z.object({
-  rules: z.array(z.string().trim().min(1).max(300)).max(40),
   englishType: z.enum(ENGLISH_TYPES),
   articleLength: z.enum(ARTICLE_LENGTHS),
   allowedArticleTypes: z.array(z.enum(SELECTABLE_ARTICLE_TYPES)).min(1, "Allow at least one article type"),
@@ -120,14 +119,13 @@ export async function updateWriting(input: z.input<typeof writingSchema>): Promi
   const site = await requireAdminSite();
   const parsed = writingSchema.safeParse(input);
   if (!parsed.success) return fail(parsed.error);
-  const { rules, authorName, articleDisclaimer, allowedArticleTypes, ...rest } = parsed.data;
+  const { authorName, articleDisclaimer, allowedArticleTypes, ...rest } = parsed.data;
   await db
     .update(orgWebsites)
     .set({
       ...rest,
       // All four allowed = automatic (the planner picks by search intent).
       allowedArticleTypes: allowedArticleTypes.length === SELECTABLE_ARTICLE_TYPES.length ? [] : allowedArticleTypes,
-      articleInstructions: rules.length ? rules.join("\n") : null,
       authorName: authorName || null,
       articleDisclaimer: articleDisclaimer || null,
       updatedAt: new Date(),
@@ -182,7 +180,6 @@ const httpUrl = z
 
 const visualsSchema = z
   .object({
-    rules: z.array(z.string().trim().min(1).max(300)).max(20),
     heroImageStyle: z.enum(COVER_STYLES),
     bodyImageStyle: z.enum(BODY_STYLES),
     infographicStyle: z.enum(INFOGRAPHIC_STYLES),
@@ -208,12 +205,11 @@ export async function updateVisuals(input: z.input<typeof visualsSchema>): Promi
   const site = await requireAdminSite();
   const parsed = visualsSchema.safeParse(input);
   if (!parsed.success) return fail(parsed.error);
-  const { rules, imageMood, links, map, contact, promo, youtube, ...styles } = parsed.data;
+  const { imageMood, links, map, contact, promo, youtube, ...styles } = parsed.data;
   await db
     .update(orgWebsites)
     .set({
       ...styles,
-      imageInstructions: rules.length ? rules.join("\n") : null,
       imageMood: imageMood || null,
       ctaSettings: {
         ...site.ctaSettings,

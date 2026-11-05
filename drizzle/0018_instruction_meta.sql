@@ -1,0 +1,1 @@
+ALTER TABLE "org_websites" ADD COLUMN "instruction_meta" jsonb DEFAULT '{"writing":[],"images":[],"history":[],"unsupported":[]}'::jsonb NOT NULL;

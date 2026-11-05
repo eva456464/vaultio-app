@@ -37,14 +37,14 @@ Ground rules that apply to everything below:
 | Sign in / Sign up / Forgot password | `/sign-in`, `/sign-up`, `/forgot-password`, `/reset-password` | Built (reset emails need Resend; on an agency domain they carry the agency's brand, domain and sender) |
 | Add a website (onboarding) | `/onboarding/website` | Built; onboarding progress shows on Overview |
 | Overview | `/dashboard/overview` | Built: daily agent activity, planned actions, agents waiting for keys, achievements, what we learned (brand profile), traffic sources card |
-| Blog content: calendar | `/dashboard/content-plan` | Built: change topic, instructions, delete, add keywords |
+| Blog content: calendar | `/dashboard/content-plan` | Built: drag a topic to another future day, choose a topic for an empty day (from the plan's unused topics or your own), change topic, instructions, delete, add keywords; status per day (queued, generating, ready, published, draft), where each topic came from (Google keywords or an AI assistant's answers that didn't mention the site), "content engine running / stopped" banner, editing locked while an article is being written |
 | Blog content: article | `/dashboard/articles/[id]` | Built: article with images and CTA cards, cover image panel (regenerate, up to 5 AI images per article), sources, FAQ, quality checks, publish now / re-publish / unpublish, export, feedback (a backlink credit for the first one) with "regenerate with instructions" or "pick a new topic" |
 | Article editor | `/dashboard/articles/[id]?edit=1` | Built: title, rich text (toolbar, "/" insert menu, links, tables, YouTube, alignment), images (alt text, caption, suggested, upload, AI image with side-by-side review), cards kept as blocks, slug and meta description, live counts; AI edits on selected text (rewrite, improve, longer, shorter, simplify, grammar, list, table, add keyword, add internal link, custom) with versions to accept; AI tables; an AI assistant chat that proposes block changes to accept or reject; Save & Close re-renders the article and recomputes counts, FAQ, schema and checks |
 | Blog content: improvements | `/dashboard/content-plan/improvements` + `/[id]` | Built: opportunities with evidence, status, discard, how it works; review page with per-change approve/reject, safety flags, publish, impact; existing WordPress posts marked as such, with their kept elements, post data and an "Edit in WordPress" link |
 | Site health | `/dashboard/geo-audit` + public share page | Built |
 | AI visibility (overview, prompts, brands, sources, prompt detail) | `/dashboard/ai-visibility` | Built |
 | Reporting | `/dashboard/reporting` | Built: sections, live preview, Download PDF, monthly email |
-| Settings: Account, Business, Branding, Competitors, Saved pages, Writing, Visuals, Schedule, Improvements, Publishing, Analytics | `/dashboard/settings/*` | Built (Visuals includes the infographic switch and style) |
+| Settings: Account, Business, Branding, Competitors, Saved pages, Writing, Visuals, Schedule, Improvements, Publishing, Analytics | `/dashboard/settings/*` | Built (Visuals includes the infographic switch and style). Writing and image instructions are reviewed by Claude when added: split into one rule per line, conflicting rules removed, matching settings switched (e.g. "no table of contents"), image remarks moved to Visuals, requests that can't be done explained; "What changed", recent changes, edit and remove. Article feedback and regeneration requests become rules too ("From your feedback on …") |
 | Settings: Publishing | `/dashboard/settings/publishing` | Built: auto-publish, API, webhook, blog hosting, WordPress, Shopify, Webflow, Wix, Ghost, BigCommerce, GoHighLevel, and the platforms that pull articles: Framer (plugin), Lovable (one prompt) and Duda (RSS feed), each with a step-by-step setup guide |
 | Site traffic: All traffic, AI search traffic, Google traffic | `/dashboard/analytics/ga4`, `/ai-traffic`, `/google-traffic` | Built: KPIs, channel / AI-model / Google charts, breakdowns, countries, top pages and searches with search, "brand articles only" and paging; connect state until Google is connected |
 | Clients (agency) | `/clients` | Built |
@@ -64,7 +64,7 @@ Ground rules that apply to everything below:
 | Agent | Status |
 |---|---|
 | Website analysis, sitemap sync, site health audit, milestones | Built, no keys needed |
-| Brand profile, AI prompts, content plan, topic research, article writer | Built (Claude) |
+| Brand profile, AI prompts, content plan, topic research, article writer | Built (Claude). The writer runs a plagiarism check against the pages it researched and the pages ranking for the keyword (8-word overlaps); copied paragraphs are rewritten once and the result shows in the article's quality checks |
 | Competitors, keyword research, competitor gap scan, domain rating | Built (DataForSEO) |
 | AI visibility check (Claude, plus ChatGPT and Gemini when keyed) | Built |
 | Publishing: content API, webhook, WordPress, Shopify, Webflow, Wix, Ghost, BigCommerce, GoHighLevel, hosted blog, auto-publish | Built (publish or save as draft per platform; republishing updates the same post). Framer, Lovable and Duda fetch published articles themselves (content API or RSS feed) |
@@ -311,6 +311,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Publishing to BigCommerce and GoHighLevel; Framer plugin, Lovable prompt and Duda RSS feed | `main` d844cbc |
 | Article editor with AI editing and the assistant; feedback, regenerate, new topic, unpublish, re-publish | `main` a712603 |
 | Parity with the reference's current docs and fixes from checking the vendors' docs: writing options, backlink rules, Site health scoring, image/ChatGPT models, platform fixes | `main` 6c92f07 |
+| Content calendar (move, plan a day, sources, statuses, engine banner), topics from AI-assistant citations, AI-reviewed writing and image instructions, plagiarism check | `main` (this commit) |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

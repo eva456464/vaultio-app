@@ -61,9 +61,13 @@ export function articleFields(site: Site, article: Article, input: ContentInput)
       : article.faqJsonLd;
   const semantic = (article.generationSettings as { semanticKeywords?: string[] } | null)?.semanticKeywords;
   const checks = qualityChecks({ markdown, title, metaDescription, internal, external, keyword: "", semantic: semantic ?? [], media: media.filter((item) => item.type !== "video") });
-  // Without the writer's related terms, keep that check's earlier result.
+  // Without the writer's related terms, keep that check's earlier result; the plagiarism check (which
+  // fetches the source pages) also keeps the writer's result.
   const previousSemantic = article.qualityChecks.find((check) => check.key === "semanticKeywords");
-  const qualityChecksNow = semantic ? checks : checks.map((check) => (check.key === "semanticKeywords" && previousSemantic ? previousSemantic : check));
+  const previousPlagiarism = article.qualityChecks.find((check) => check.key === "plagiarism");
+  const kept = semantic ? checks : checks.map((check) => (check.key === "semanticKeywords" && previousSemantic ? previousSemantic : check));
+  const jsonLdAt = kept.findIndex((check) => check.key === "jsonLd");
+  const qualityChecksNow = previousPlagiarism ? [...kept.slice(0, jsonLdAt), previousPlagiarism, ...kept.slice(jsonLdAt)] : kept;
   return {
     title,
     metaDescription,

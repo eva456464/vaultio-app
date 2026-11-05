@@ -132,6 +132,23 @@ first run backfills history (GA4 from the property's creation, at most 5 years; 
 16 months); later runs re-fetch the last few days, which Google may still revise. A period is the last
 N days including today (`src/lib/traffic.ts`); Search Console periods end on its latest day of data.
 
+### Writing rules and the plagiarism check
+
+Settings → Writing / Visuals rules are stored as text (`articleInstructions`, `imageInstructions`, one
+rule per line, which the writer and image prompts read) plus `instructionMeta` (where each rule came
+from, the last 20 changes, requests that can't be done). `src/server/instructions.ts` sends each new
+request to Claude with the current rules: it returns rules to add (and rules for the other list),
+rules it replaces, settings to switch (only from a fixed list of keys and values), requests the
+agents can't do and a short explanation. Article feedback and regeneration requests go through the
+same review after the response (`after()`), keeping only what applies to future articles. Without
+the Claude key the text is kept as written and marked "Review pending".
+
+The writer compares its draft with the research sources and the pages ranking for the keyword
+(`src/server/articles/originality.ts`): 8-word runs found on a page count as matching text. Over 6 %
+on one page, or a paragraph that's mostly matching text, fails the check; those paragraphs are
+rewritten once and checked again. The result is the "Plagiarism check" quality item; it is left out
+when no page could be read, and kept as it was after edits in the editor.
+
 ### Article images and CTA cards
 
 After the text is written, the writer asks Claude for an image plan (a concrete scene for the cover

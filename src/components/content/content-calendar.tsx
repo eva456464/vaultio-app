@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRightLeft, Check, ChevronLeft, ChevronRight, MapPin, Package, Pencil, Plus, Search, Trash2 } from "lucide-react";
+import { ArrowRightLeft, Check, ChevronLeft, ChevronRight, GripVertical, LoaderCircle, MapPin, Package, Pause, Pencil, Plus, Search, Trash2 } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { useMemo, useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
@@ -8,8 +8,9 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { setTopicProducts } from "@/server/actions/catalog";
-import { addKeywords, changeTopic, deleteTopic, setTopicInstructions } from "@/server/actions/content";
-import type { AlternativeTopic, CalendarItem } from "@/server/queries/content";
+import { useRouter } from "@/i18n/navigation";
+import { addKeywords, changeTopic, deleteTopic, moveTopic, planTopicOn, setTopicInstructions } from "@/server/actions/content";
+import type { AlternativeTopic, CalendarItem, TopicSource } from "@/server/queries/content";
 import { ProductPicker } from "./product-picker";
 
 const WEEKDAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] as const;
@@ -73,8 +74,26 @@ export function ContentToolbar({ calendar }: { calendar: Calendar }) {
   );
 }
 
-export function ContentCalendar({ calendar, alternatives }: { calendar: Calendar; alternatives: AlternativeTopic[] }) {
+export function ContentCalendar({ calendar, alternatives, paused = false, canEdit = true }: { calendar: Calendar; alternatives: AlternativeTopic[]; paused?: boolean; canEdit?: boolean }) {
   const t = useTranslations("content");
+  const router = useRouter();
+  const [dragging, setDragging] = useState<number | null>(null);
+  const [over, setOver] = useState<string | null>(null);
+  const [moving, startMoving] = useTransition();
+  const [notice, setNotice] = useState<{ ok: boolean; text: string } | null>(null);
+  const [choosing, setChoosing] = useState<string | null>(null);
+  const drop = (day: string) => {
+    const id = dragging;
+    setDragging(null);
+    setOver(null);
+    if (id === null) return;
+    if (day <= calendar.today) return setNotice({ ok: false, text: t("calendar.moveToFutureOnly") });
+    startMoving(async () => {
+      const result = await moveTopic(id, day).catch((error: Error) => ({ error: error.message }));
+      setNotice("error" in result && result.error ? { ok: false, text: result.error } : { ok: true, text: t("calendar.rescheduled") });
+      router.refresh();
+    });
+  };
   const byDay = useMemo(() => {
     const map = new Map<string, CalendarItem[]>();
     for (const item of calendar.items) map.set(item.day, [...(map.get(item.day) ?? []), item]);
@@ -83,6 +102,11 @@ export function ContentCalendar({ calendar, alternatives }: { calendar: Calendar
 
   return (
     <div className="overflow-x-auto">
+      {(notice || moving) && (
+        <p role="status" className={cn("mb-3 text-sm", moving ? "text-ink-secondary" : notice?.ok ? "text-success" : "text-[#9A3412]")}>
+          {moving ? t("calendar.rescheduling") : notice?.text}
+        </p>
+      )}
       <div className="min-w-[980px]">
         <div className="grid grid-cols-7 pb-3">
           {WEEKDAYS.map((day) => (
@@ -99,7 +123,21 @@ export function ContentCalendar({ calendar, alternatives }: { calendar: Calendar
             return (
               <div
                 key={day}
-                className={cn("relative min-h-[300px] border-b border-r border-line p-5", isToday && "outline outline-2 -outline-offset-2 outline-[#2A76F6]")}
+                onDragOver={(event) => {
+                  if (dragging === null || day <= calendar.today) return;
+                  event.preventDefault();
+                  setOver(day);
+                }}
+                onDragLeave={() => setOver((current) => (current === day ? null : current))}
+                onDrop={(event) => {
+                  event.preventDefault();
+                  drop(day);
+                }}
+                className={cn(
+                  "group/day relative min-h-[300px] border-b border-r border-line p-5",
+                  isToday && "outline outline-2 -outline-offset-2 outline-[#2A76F6]",
+                  over === day && "bg-[#EEF4FF]",
+                )}
               >
                 <div className="mb-3 flex items-center gap-2">
                   <span
@@ -114,41 +152,104 @@ export function ContentCalendar({ calendar, alternatives }: { calendar: Calendar
                 </div>
                 <div className={cn("space-y-3", past && !isToday && "opacity-55")}>
                   {(byDay.get(day) ?? []).map((item) => (
-                    <CalendarCard key={item.id} item={item} alternatives={alternatives} />
+                    <CalendarCard
+                      key={item.id}
+                      item={item}
+                      alternatives={alternatives}
+                      paused={paused}
+                      canEdit={canEdit}
+                      onDragStart={() => setDragging(item.id)}
+                      onDragEnd={() => {
+                        setDragging(null);
+                        setOver(null);
+                      }}
+                    />
                   ))}
+                  {canEdit && !past && !isToday && !(byDay.get(day) ?? []).length && (
+                    <button
+                      type="button"
+                      onClick={() => setChoosing(day)}
+                      className="hidden w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-line py-6 text-xs font-medium text-ink-secondary hover:border-ink/30 hover:text-ink group-hover/day:flex focus-visible:flex"
+                    >
+                      <Plus className="size-3.5" /> {t("calendar.chooseTopic")}
+                    </button>
+                  )}
                 </div>
               </div>
             );
           })}
         </div>
       </div>
+      {choosing && <ChangeTopicDialog day={choosing} alternatives={alternatives} onClose={() => setChoosing(null)} />}
     </div>
   );
 }
 
-function StatusPill({ status }: { status: CalendarItem["status"] }) {
+const SOURCE_BADGE: Record<TopicSource, { letter: string; color: string } | null> = {
+  google: { letter: "G", color: "#4285F4" },
+  chatgpt: { letter: "C", color: "#10A37F" },
+  claude: { letter: "A", color: "#D97757" },
+  gemini: { letter: "G", color: "#8E75F0" },
+  perplexity: { letter: "P", color: "#20808D" },
+  user: null,
+};
+
+function SourceBadge({ source }: { source: TopicSource }) {
+  const t = useTranslations("content.sources");
+  const badge = SOURCE_BADGE[source];
+  if (!badge) return null;
+  return (
+    <span title={t(source as "google")} aria-label={t(source as "google")} className="grid size-4 shrink-0 place-items-center rounded-full text-[9px] font-bold text-white" style={{ background: badge.color }}>
+      {badge.letter}
+    </span>
+  );
+}
+
+function StatusPill({ status }: { status: CalendarItem["status"] | "paused" }) {
   const t = useTranslations("content.status");
   const style = {
     published: "border-success-border bg-success-bg text-success",
+    draft: "border-success-border bg-white text-success",
     ready: "border-[#C9DBFB] bg-[#EEF4FF] text-[#2A5BD7]",
+    generating: "border-[#E4D7FB] bg-[#F5F0FF] text-[#6B3FD4]",
     queued: "border-[#F5DFA5] bg-[#FEFCE8] text-[#8A6320]",
+    paused: "border-line bg-canvas text-ink-secondary",
   }[status];
   return (
-    <span className={cn("inline-flex items-center gap-1 rounded border px-1.5 py-0.5 text-[10px] font-semibold uppercase", style)}>
-      {status === "published" ? <Check className="size-3" /> : <span className="size-1.5 rounded-full bg-current" />}
+    <span title={status === "generating" || status === "draft" ? t(`tooltips.${status}`) : undefined} className={cn("inline-flex items-center gap-1 rounded border px-1.5 py-0.5 text-[10px] font-semibold uppercase", style)}>
+      {status === "published" || status === "draft" ? <Check className="size-3" /> : status === "generating" ? <LoaderCircle className="size-3 animate-spin" /> : status === "paused" ? <Pause className="size-3" /> : <span className="size-1.5 rounded-full bg-current" />}
       {t(status)}
     </span>
   );
 }
 
-function CalendarCard({ item, alternatives }: { item: CalendarItem; alternatives: AlternativeTopic[] }) {
+function CalendarCard({
+  item,
+  alternatives,
+  paused,
+  canEdit,
+  onDragStart,
+  onDragEnd,
+}: {
+  item: CalendarItem;
+  alternatives: AlternativeTopic[];
+  paused: boolean;
+  canEdit: boolean;
+  onDragStart: () => void;
+  onDragEnd: () => void;
+}) {
   const t = useTranslations("content");
   const [dialog, setDialog] = useState<"change" | "instructions" | "delete" | null>(null);
   const typeLabel = item.articleType ? t(`articleTypes.${item.articleType}` as "articleTypes.guide_explainer") : null;
+  const status = item.status === "queued" && paused ? "paused" : item.status;
+  const movable = canEdit && item.status === "queued";
 
   const body = (
     <>
-      <StatusPill status={item.status} />
+      <div className="flex items-center justify-between gap-2">
+        <StatusPill status={status} />
+        <SourceBadge source={item.source} />
+      </div>
       <p className="mt-3 line-clamp-3 text-[15px] font-medium leading-snug text-ink">{item.title}</p>
       {item.status === "queued" && (
         <div className="mt-2 space-y-0.5 text-xs text-ink-secondary">
@@ -186,8 +287,26 @@ function CalendarCard({ item, alternatives }: { item: CalendarItem; alternatives
     );
   }
 
+  if (item.status === "generating" || !canEdit) {
+    return (
+      <div title={item.status === "generating" ? t("calendar.editLocked") : undefined} className="rounded-lg border border-line bg-white p-3">
+        {body}
+      </div>
+    );
+  }
+
   return (
-    <div className="group relative rounded-lg border border-line bg-white p-3">
+    <div
+      draggable={movable}
+      onDragStart={(event) => {
+        event.dataTransfer.effectAllowed = "move";
+        onDragStart();
+      }}
+      onDragEnd={onDragEnd}
+      title={movable ? t("calendar.dragToReschedule") : undefined}
+      className={cn("group relative rounded-lg border border-line bg-white p-3", movable && "cursor-grab active:cursor-grabbing")}
+    >
+      {movable && <GripVertical aria-hidden className="absolute left-0.5 top-1/2 hidden size-3.5 -translate-y-1/2 text-ink-subtle group-hover:block" />}
       {body}
       <div className="absolute right-2 top-2 hidden items-center gap-0.5 rounded-lg border border-line bg-white p-0.5 shadow-sm group-hover:flex group-focus-within:flex">
         <IconButton label={t("actions.changeTopic")} onClick={() => setDialog("change")}>
@@ -215,18 +334,29 @@ function IconButton({ label, onClick, children }: { label: string; onClick: () =
   );
 }
 
-function ChangeTopicDialog({ item, alternatives, onClose }: { item: CalendarItem; alternatives: AlternativeTopic[]; onClose: () => void }) {
+/** "Change topic" for a planned day, or "Choose topic" for an empty one: an unused topic or the user's own. */
+function ChangeTopicDialog({ item, day, alternatives, onClose }: { item?: CalendarItem; day?: string; alternatives: AlternativeTopic[]; onClose: () => void }) {
   const t = useTranslations("content");
   const tCommon = useTranslations("common");
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<number | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
   const filtered = alternatives.filter((topic) => topic.keyword.includes(query.trim().toLowerCase()));
+  const own = query.trim().length >= 3 && !alternatives.some((topic) => topic.keyword === query.trim().toLowerCase());
+  const submit = (choice: number | { topic: string }) =>
+    startTransition(async () => {
+      const result = await (item ? changeTopic(item.id, choice).then(() => ({ ok: true })) : planTopicOn(day!, choice)).catch((failure: Error) => ({ error: failure.message }));
+      if ("error" in result && result.error) return setError(result.error);
+      router.refresh();
+      onClose();
+    });
   return (
     <Dialog open onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-2xl">
-        <DialogTitle>{t("changeTopic.title")}</DialogTitle>
-        <DialogDescription>{t("changeTopic.subtitle")}</DialogDescription>
+        <DialogTitle>{item ? t("changeTopic.title") : t("changeTopic.titleCreate")}</DialogTitle>
+        <DialogDescription>{item ? t("changeTopic.subtitle") : t("changeTopic.subtitleCreate")}</DialogDescription>
         <label className="mt-5 flex h-11 items-center gap-2 rounded-control border border-control px-3">
           <Search className="size-4 text-ink-subtle" />
           <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t("changeTopic.search")} className="flex-1 bg-transparent text-sm outline-none" />
@@ -259,18 +389,17 @@ function ChangeTopicDialog({ item, alternatives, onClose }: { item: CalendarItem
             </table>
           )}
         </div>
+        {error && <p className="mt-3 text-sm text-[#9A3412]">{error}</p>}
         <DialogFooter>
           <DialogClose asChild>
             <Button variant="outline" size="lg">{tCommon("cancel")}</Button>
           </DialogClose>
-          <Button
-            size="lg"
-            disabled={selected === null || pending}
-            onClick={() => startTransition(async () => {
-              await changeTopic(item.id, selected!);
-              onClose();
-            })}
-          >
+          {own && selected === null && (
+            <Button variant="outline" size="lg" disabled={pending} onClick={() => submit({ topic: query })}>
+              {t("changeTopic.useOwn", { topic: query.trim() })}
+            </Button>
+          )}
+          <Button size="lg" disabled={selected === null || pending} onClick={() => submit(selected!)}>
             {t("changeTopic.confirm")}
           </Button>
         </DialogFooter>

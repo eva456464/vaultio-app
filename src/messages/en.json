@@ -421,7 +421,14 @@
     "status": {
       "published": "Published",
       "ready": "Ready",
-      "queued": "Queued"
+      "queued": "Queued",
+      "generating": "Generating",
+      "draft": "Published as draft",
+      "paused": "Paused",
+      "tooltips": {
+        "generating": "Your article is being written by the content agent.",
+        "draft": "The article was written and saved as a draft on your site."
+      }
     },
     "readyHint": "Written and waiting to be published",
     "difficulty": "Difficulty: {value}",
@@ -444,14 +451,17 @@
     "changeTopic": {
       "title": "Choose an alternative topic",
       "subtitle": "Pick another keyword from your research for this day.",
-      "search": "Search topics",
+      "search": "Search or type your own topic (e.g. 'teeth whitening')",
       "empty": "No other topics are available yet. Your agents add more during keyword research.",
       "columns": {
         "keyword": "Keyword",
         "volume": "Volume",
         "difficulty": "Difficulty"
       },
-      "confirm": "Use this topic"
+      "confirm": "Use this topic",
+      "titleCreate": "Choose a topic",
+      "subtitleCreate": "Pick a topic from your research for this day, or type your own.",
+      "useOwn": "Use “{topic}”"
     },
     "instructions": {
       "title": "Article instructions",
@@ -677,7 +687,39 @@
       "builder": "Not changed: this post is built with {builder}, which keeps its own copy of the page, so editing the post wouldn't change what visitors see."
     },
     "emptyPlan": "Your content plan is empty. Your agents create it after keyword research finishes.",
-    "productsChip": "{count, plural, one {# product} other {# products}}"
+    "productsChip": "{count, plural, one {# product} other {# products}}",
+    "sources": {
+      "google": "Topic planned from keyword research",
+      "chatgpt": "Topic planned from ChatGPT citations analysis",
+      "claude": "Topic planned from Claude citations analysis",
+      "gemini": "Topic planned from Gemini citations analysis",
+      "perplexity": "Topic planned from Perplexity citations analysis",
+      "user": "Your own topic"
+    },
+    "calendar": {
+      "rescheduled": "Content plan rescheduled",
+      "rescheduling": "Rescheduling content plan…",
+      "moveToFutureOnly": "You can move posts only to future dates",
+      "dragToReschedule": "Drag to reschedule",
+      "editLocked": "This article is already being generated, so it can no longer be changed.",
+      "chooseTopic": "Choose topic"
+    },
+    "engine": {
+      "label": "Content engine",
+      "running": "Running",
+      "stopped": "Stopped",
+      "stoppedHint": "Paused until the website has an active plan. Planned topics wait until then.",
+      "messages": {
+        "opportunities": "Searching for new content opportunities",
+        "articles": "Generating SEO-optimized articles tailored to your website's niche and audience",
+        "keywords": "Finding keywords with search volume and keyword difficulty",
+        "competitors": "Researching which topics perform for your competitors",
+        "research": "Doing deep research for the next scheduled topic",
+        "outlines": "Analyzing the outlines of the top 10 Google results for the next topic",
+        "internalLinks": "Finding internal links to your pillar and money pages",
+        "citations": "Analyzing which content AI assistants cite"
+      }
+    }
   },
   "article": {
     "back": "Back to articles",
@@ -695,6 +737,7 @@
       "statistics": "Statistics and data points",
       "semanticKeywords": "Semantic keywords",
       "metaTags": "Optimized meta tags",
+      "plagiarism": "Plagiarism check",
       "jsonLd": "JSON-LD schema",
       "imageAltTexts": "Image alt texts"
     },
@@ -1346,10 +1389,6 @@
     },
     "writing": {
       "title": "Writing",
-      "rules": "Writing instructions",
-      "rulesHint": "Rules every article follows.",
-      "rulePlaceholder": "Add a rule, e.g. \"Never use the word leverage\"",
-      "add": "Add",
       "language": "Language & length",
       "englishType": "English type",
       "english": {
@@ -1488,11 +1527,6 @@
     "visual": {
       "subtitle": "How the article looks and where you want to send readers to your website.",
       "noProvider": "Images need an image provider: set OPENAI_API_KEY or GEMINI_API_KEY. Until then articles are published without images.",
-      "optional": "Optional",
-      "writingLink": "Writing rules are in Writing",
-      "rules": "Image instructions",
-      "rulesHint": "Anything every generated image should show or avoid: people, products, scale, mood, text inside images.",
-      "rulePlaceholder": "Add a rule, e.g. \"Never show faces\"",
       "where": {
         "top": "Top of the article",
         "body": "Inside the article body",
@@ -2248,6 +2282,132 @@
         "manual": "Manual"
       },
       "shared": "Every language of this website shares one product catalog: changes here apply to all of them."
+    },
+    "instructions": {
+      "writing": {
+        "label": "Writing instructions",
+        "description": "Anything every future article should do or avoid: words, claims, topics, audience, tone, facts about your business.",
+        "placeholder": "Add a rule, e.g. \"Never use the word leverage\"",
+        "emptyTitle": "No writing instructions yet",
+        "emptyDescription": "This is optional. Add your brand guidelines, words or claims to avoid, preferred tone, target audience, or anything you want every future article to include.",
+        "examples": {
+          "1": "Never use exclamation marks",
+          "2": "Never promise guaranteed results",
+          "3": "Explain every technical term in plain words"
+        },
+        "workingHint": "We're turning this into writing rules. This usually takes under 10 seconds.",
+        "otherLink": "Image rules are in Visuals"
+      },
+      "images": {
+        "label": "Image instructions",
+        "description": "Anything every generated image should show or avoid: people, products, scale, mood, text inside images.",
+        "placeholder": "Add a rule, e.g. \"Never show faces\"",
+        "emptyTitle": "No image instructions yet",
+        "emptyDescription": "This is optional. Add any preferences for generated images, e.g. people, products, scale, mood, text inside images, style, or anything to avoid.",
+        "examples": {
+          "1": "Bright, natural daylight in every image",
+          "2": "Simple scenes with one clear subject",
+          "3": "Calm, natural colours in every image"
+        },
+        "workingHint": "We're turning this into image rules. This usually takes under 10 seconds.",
+        "otherLink": "Writing rules are in Writing"
+      },
+      "optional": "Optional",
+      "showExamples": "See example rules",
+      "hideExamples": "Hide example rules",
+      "add": "Add",
+      "ruleMenu": "Rule options",
+      "edit": "Edit",
+      "remove": "Remove",
+      "close": "Close",
+      "dismissUnsupported": "Got it, hide this",
+      "showHistory": "Recent changes ({count})",
+      "hideHistory": "Hide recent changes",
+      "source": {
+        "feedback": "From your feedback",
+        "feedbackWithArticle": "From your feedback on “{title}”",
+        "regenerate": "From a regeneration",
+        "regenerateWithArticle": "From regenerating “{title}”"
+      },
+      "historySource": {
+        "edit": "Edited by you",
+        "feedback": "From your feedback",
+        "regenerate": "From a regeneration"
+      },
+      "error": "We couldn't review that right now. Please try again.",
+      "retry": "Try again",
+      "result": {
+        "title": "What changed",
+        "titleNoChange": "Noted, nothing to change",
+        "removed": "Removed",
+        "settingHint": "changed in your settings",
+        "field": {
+          "writing": "Writing",
+          "images": "Images"
+        },
+        "addedTo": "{count, plural, one {# rule added to {field}} other {# rules added to {field}}}",
+        "removedLines": "{count, plural, one {# rule removed} other {# rules removed}}",
+        "unsupportedBelow": "{count, plural, one {# can't be done, explained below} other {# can't be done, explained below}}"
+      },
+      "settingLabels": {
+        "on": "on",
+        "off": "off",
+        "unknown": "Setting",
+        "includeTldr": "Summary block",
+        "summaryStyle": "Summary style",
+        "includeToc": "Table of contents",
+        "includePerspective": "Author perspective",
+        "includeRecommendedReads": "Recommended reads",
+        "includeSourcesSection": "Sources section",
+        "includeCitation": "External citations",
+        "includeInternalLinks": "Internal links",
+        "mentionCompetitorsIfRelevant": "Mention competitors",
+        "includeJsonLd": "Schema markup",
+        "includeFaqJsonLd": "FAQ schema markup",
+        "articleLength": "Article length",
+        "englishType": "English variant",
+        "useWwwInLinks": "www in internal links",
+        "useTrailingSlashInLinks": "Trailing slash in internal links",
+        "includeYoutube": "YouTube video",
+        "includeInfographic": "Infographic",
+        "bodyImageStyle": "Body image style",
+        "heroImageStyle": "Cover style",
+        "infographicStyle": "Infographic style",
+        "values": {
+          "dynamic": "Dynamic",
+          "short": "Short",
+          "medium": "Medium",
+          "long": "Long",
+          "tldr": "TL;DR",
+          "key_takeaways": "Key takeaways",
+          "american": "American English",
+          "british": "British English",
+          "australian": "Australian English",
+          "canadian": "Canadian English",
+          "south_african": "South African English",
+          "realistic": "Realistic",
+          "sketch": "Sketch",
+          "3d_illustration": "3D illustration",
+          "editorial": "Editorial",
+          "classic": "Classic",
+          "sketch_with_title": "Sketch with title",
+          "realistic_with_title": "Realistic with title",
+          "watercolor_with_title": "Watercolor with title"
+        }
+      },
+      "working": "Adding your instruction…",
+      "pendingBadge": "Reviewing…",
+      "pendingReviewBadge": "Review pending",
+      "pendingReviewTooltip": "Not reviewed yet: your text is used as written until the reviewer turns it into one rule per line.",
+      "addedAt": "Added {time}",
+      "justNow": "just now",
+      "newChip": "New",
+      "editHint": "Enter to save · Esc to cancel",
+      "longHint": "Long requests are split into rules of up to {max} characters.",
+      "tooLong": "You've reached the {max, number}-character limit. Remove or shorten a rule to add this one.",
+      "editLine": "Edit this rule",
+      "showUnsupported": "{count, plural, one {# request we couldn't do} other {# requests we couldn't do}}",
+      "hideUnsupported": "Hide what we couldn't do"
     }
   },
   "aiVisibility": {

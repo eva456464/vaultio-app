@@ -52,6 +52,21 @@ export function Toggle({ id, label, checked, onChange, disabled, extra }: { id: 
   );
 }
 
+/**
+ * Form state that starts again from the saved values when they change on the server (e.g. a reviewed
+ * writing rule switched a setting); unsaved edits are kept while the saved values stay the same.
+ */
+export function useServerState<T>(initial: T) {
+  const [form, setForm] = useState(initial);
+  const [saved, setSaved] = useState(() => JSON.stringify(initial));
+  const next = JSON.stringify(initial);
+  if (next !== saved) {
+    setSaved(next);
+    setForm(initial);
+  }
+  return [form, setForm] as const;
+}
+
 /** Editable list of short strings (audience segments, rules...). */
 export function ListInput({ id, items, onChange, placeholder, disabled }: { id: string; items: string[]; onChange: (items: string[]) => void; placeholder: string; disabled?: boolean }) {
   const t = useTranslations("settings.business");

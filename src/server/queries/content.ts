@@ -10,12 +10,16 @@ import { effectiveProductIds } from "../catalog/matching";
 
 const iso = (date: Date) => formatISO(date, { representation: "date" });
 
-export type CalendarStatus = "published" | "ready" | "queued";
+export type CalendarStatus = "queued" | "generating" | "ready" | "published" | "draft";
+/** Where the topic came from: keyword research, an AI assistant's citations, or the user. */
+export type TopicSource = "google" | "chatgpt" | "claude" | "gemini" | "perplexity" | "user";
+const SOURCES: Record<string, TopicSource> = { citation_chatgpt: "chatgpt", citation_claude: "claude", citation_gemini: "gemini", citation_perplexity: "perplexity", user: "user" };
 
 export type CalendarItem = {
   id: number;
   day: string;
   status: CalendarStatus;
+  source: TopicSource;
   title: string;
   keyword: string | null;
   searchVolume: number | null;
@@ -42,7 +46,8 @@ export async function getContentCalendar(site: Site, month: string | undefined) 
   const rows = await db
     .select({
       plan: contentPlanItems,
-      article: { id: articles.id, title: articles.title, publishedUrl: articles.publishedUrl, type: articles.articleType, featuredProducts: articles.featuredProducts },
+      article: { id: articles.id, title: articles.title, publishedUrl: articles.publishedUrl, publishedAsDraft: articles.publishedAsDraft, type: articles.articleType, featuredProducts: articles.featuredProducts },
+      creationSource: keywordClusters.creationSource,
       keyword: seedKeywords.value,
       volume: seedKeywords.avgSearchVolume,
       difficulty: seedKeywords.keywordDifficulty,
@@ -68,7 +73,12 @@ export async function getContentCalendar(site: Site, month: string | undefined) 
   const items: CalendarItem[] = rows.map((row) => ({
     id: row.plan.id,
     day: row.plan.scheduledFor,
-    status: row.article?.publishedUrl ? "published" : row.article?.id ? "ready" : "queued",
+    status: row.plan.regenerationRequest || (["researching", "generating"].includes(row.plan.generationStatus) && !row.article?.id)
+      ? "generating"
+      : row.article?.publishedUrl
+        ? row.article.publishedAsDraft ? "draft" : "published"
+        : row.article?.id ? "ready" : "queued",
+    source: SOURCES[row.creationSource ?? ""] ?? "google",
     title: row.article?.title ?? row.plan.plannedTitle ?? row.keyword ?? "",
     keyword: row.keyword,
     searchVolume: row.volume,

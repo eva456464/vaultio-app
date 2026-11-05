@@ -271,7 +271,7 @@ async function sendArticle(siteId: number, articleId: number, options: { update?
   }
 
   if (options.asDraft) {
-    await db.update(articles).set({ publishedUrl: null, publishedAt: null, updatedAt: new Date() }).where(eq(articles.id, article.id));
+    await db.update(articles).set({ publishedUrl: null, publishedAt: null, publishedAsDraft: false, updatedAt: new Date() }).where(eq(articles.id, article.id));
     await db.update(contentPlanItems).set({ generationStatus: "generated", updatedAt: new Date() }).where(eq(contentPlanItems.articleId, article.id));
     await logActivity(siteId, "articleUnpublished", { title: article.title, articleId: article.id });
     return { published: false, url: null, errors };
@@ -282,10 +282,10 @@ async function sendArticle(siteId: number, articleId: number, options: { update?
   if (updating) return { published: true, url: article.publishedUrl, errors };
 
   const publishedUrl = url ?? articleUrl(site, article.slug);
-  await db.update(articles).set({ publishedUrl, publishedAt: new Date(), updatedAt: new Date() }).where(eq(articles.id, article.id));
+  const draftOnly = !live && !pulled;
+  await db.update(articles).set({ publishedUrl, publishedAt: new Date(), publishedAsDraft: draftOnly, updatedAt: new Date() }).where(eq(articles.id, article.id));
   await db.update(contentPlanItems).set({ generationStatus: "published", updatedAt: new Date() }).where(eq(contentPlanItems.articleId, article.id));
   // Only drafts were saved (and nothing pulls articles through the API): say so instead of "published".
-  const draftOnly = !live && !pulled;
   await logActivity(siteId, draftOnly ? "articleSentAsDraft" : "articlePublished", { title: article.title, articleId: article.id, publishedUrl });
   return { published: true, draft: draftOnly, url: publishedUrl, errors };
 }

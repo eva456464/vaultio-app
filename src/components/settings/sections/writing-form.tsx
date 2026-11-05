@@ -1,14 +1,13 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import type { ReactNode } from "react";
 import { ARTICLE_LENGTHS, ENGLISH_TYPES, SELECTABLE_ARTICLE_TYPES, type ArticleLength, type EnglishType } from "@/lib/writing";
 import { cn } from "@/lib/utils";
 import { updateWriting } from "@/server/actions/settings";
-import { Field, inputClass, ListInput, SettingsCard, Toggle, useSave } from "../form-kit";
+import { Field, inputClass, SettingsCard, Toggle, useSave, useServerState } from "../form-kit";
 
 export type WritingSettings = {
-  rules: string[];
   englishType: EnglishType;
   articleLength: ArticleLength;
   allowedArticleTypes: (typeof SELECTABLE_ARTICLE_TYPES)[number][];
@@ -29,9 +28,9 @@ export type WritingSettings = {
   articleDisclaimer: string;
 };
 
-export function WritingForm({ canEdit, initial, isEnglish }: { canEdit: boolean; initial: WritingSettings; isEnglish: boolean }) {
+export function WritingForm({ canEdit, initial, isEnglish, instructions }: { canEdit: boolean; initial: WritingSettings; isEnglish: boolean; instructions: ReactNode }) {
   const t = useTranslations("settings.writing");
-  const [form, setForm] = useState(initial);
+  const [form, setForm] = useServerState(initial);
   const set = <K extends keyof WritingSettings>(key: K, value: WritingSettings[K]) => setForm((current) => ({ ...current, [key]: value }));
   const { button } = useSave(() => updateWriting(form));
   const toggles: [keyof WritingSettings, string][] = [
@@ -48,9 +47,7 @@ export function WritingForm({ canEdit, initial, isEnglish }: { canEdit: boolean;
 
   return (
     <div className="space-y-6">
-      <SettingsCard title={t("rules")} hint={t("rulesHint")}>
-        <ListInput id="rules" items={form.rules} onChange={(rules) => set("rules", rules)} placeholder={t("rulePlaceholder")} disabled={!canEdit} />
-      </SettingsCard>
+      {instructions}
       <SettingsCard title={t("language")}>
         <div className="grid gap-4 sm:grid-cols-2">
           {isEnglish && (

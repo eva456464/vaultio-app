@@ -376,7 +376,7 @@ const PlanSchema = z.object({
 /** Chooses `count` topics from unused keyword clusters and schedules them from `startDay`. */
 export async function planTopics(site: Site, count: number, startDay: string) {
   const candidates = await db
-    .select({ id: keywordClusters.id, keyword: seedKeywords.value, volume: keywordClusters.totalSearchVolume, difficulty: seedKeywords.keywordDifficulty, intent: keywordClusters.averageIntent, type: seedKeywords.articleType })
+    .select({ id: keywordClusters.id, keyword: seedKeywords.value, volume: keywordClusters.totalSearchVolume, difficulty: seedKeywords.keywordDifficulty, intent: keywordClusters.averageIntent, type: seedKeywords.articleType, source: keywordClusters.creationSource })
     .from(keywordClusters)
     .innerJoin(seedKeywords, eq(seedKeywords.id, keywordClusters.seedKeywordId))
     .where(and(eq(keywordClusters.orgWebsiteId, site.id), eq(keywordClusters.isUsed, false)))
@@ -401,8 +401,8 @@ export async function planTopics(site: Site, count: number, startDay: string) {
       `Language: ${site.selectedLanguage}`,
       `Pick ${count} topics.`,
       "",
-      "Candidate clusters (id | keyword | monthly searches | difficulty | intent):",
-      ...candidates.map((c) => `${c.id} | ${c.keyword} | ${c.volume ?? 0} | ${c.difficulty ?? "?"} | ${c.intent ?? "?"}`),
+      "Candidate clusters (id | keyword | monthly searches | difficulty | intent). Ones marked [AI citation] answer questions AI assistants currently answer without naming this business: include a few of them.",
+      ...candidates.map((c) => `${c.id} | ${c.keyword} | ${c.volume ?? 0} | ${c.difficulty ?? "?"} | ${c.intent ?? "?"}${c.source.startsWith("citation_") ? " | [AI citation]" : ""}`),
       "",
       "Existing pages:",
       ...pages.map((p) => `${p.url}${p.title ? ` — ${p.title}` : ""}`),

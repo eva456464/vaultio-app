@@ -120,6 +120,20 @@
       "when": 1793919404066,
       "tag": "0016_writing_options",
       "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1793919855582,
+      "tag": "0017_published_as_draft",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1793920130568,
+      "tag": "0018_instruction_meta",
+      "breakpoints": true
     }
   ]
 }

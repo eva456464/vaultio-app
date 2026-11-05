@@ -181,6 +181,8 @@ export const articles = pgTable(
     faq: jsonb("faq").$type<{ question: string; answer: string }[]>().notNull().default([]),
     publishedUrl: text("published_url"),
     publishedAt: timestamp("published_at", { withTimezone: true }),
+    /** Published only as drafts on the website's platforms (nothing pulls the articles). */
+    publishedAsDraft: boolean("published_as_draft").notNull().default(false),
     lastUrlCheckAt: timestamp("last_url_check_at", { withTimezone: true }),
     isHappyFeedback: boolean("is_happy_feedback"),
     feedbackComment: text("feedback_comment"),

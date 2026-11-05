@@ -176,10 +176,33 @@ export type CtaSettings = {
 
 export type OnboardingStatus = "not_started" | "in_progress" | "completed";
 
-/** A customer website in one language. Called a "client" in agency mode. */
+/** Writing and image rules: where each came from, what each review changed, and requests the agents can't do. */
+export type InstructionField = "writing" | "images";
+export type InstructionSource = "edit" | "feedback" | "regenerate";
+export type InstructionRule = { text: string; source: InstructionSource; articleId?: number; articleTitle?: string; addedAt: string; pendingReview?: boolean };
+export type InstructionChange = {
+  at: string;
+  field: InstructionField;
+  source: InstructionSource;
+  request: string;
+  added: string[];
+  removed: string[];
+  settings: { key: string; from: string; to: string }[];
+  unsupported: number;
+  /** The reviewer's one-paragraph explanation (empty for edits by hand). */
+  summary: string;
+};
+export type InstructionMeta = {
+  writing: InstructionRule[];
+  images: InstructionRule[];
+  history: InstructionChange[];
+  unsupported: { field: InstructionField; request: string; reason: string; at: string }[];
+};
+
 export const EXCHANGE_CATEGORIES = ["standard", "cbd", "adult", "gambling", "excluded"] as const;
 export type ExchangeCategory = (typeof EXCHANGE_CATEGORIES)[number];
 
+/** A customer website in one language. Called a "client" in agency mode. */
 export const orgWebsites = pgTable(
   "org_websites",
   {
@@ -225,6 +248,8 @@ export const orgWebsites = pgTable(
 
     // Writing settings
     articleInstructions: text("article_instructions"),
+    /** Where each writing/image rule came from, recent changes and requests that couldn't be done (Settings → Writing / Visuals). */
+    instructionMeta: jsonb("instruction_meta").$type<InstructionMeta>().notNull().default({ writing: [], images: [], history: [], unsupported: [] }),
     articleDisclaimer: text("article_disclaimer"),
     englishType: text("english_type").notNull().default("american"),
     articleLengthTarget: integer("article_length_target").notNull().default(2000),

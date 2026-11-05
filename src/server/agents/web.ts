@@ -70,7 +70,8 @@ function meta(html: string, key: string) {
   return null;
 }
 
-function textOf(fragment: string) {
+/** Visible text of a page (scripts, styles and markup removed). */
+export function textOf(fragment: string) {
   return decodeEntities(fragment.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " "))
     .replace(/\s+/g, " ")
     .trim();

@@ -2,7 +2,7 @@
 import { and, eq } from "drizzle-orm";
 import { z } from "zod/v4";
 import { db } from "@/db";
-import { llmAnswers, llmPrompts, type LlmBrandMention, type LlmSource } from "@/db/schema";
+import { keywordClusters, llmAnswers, llmPrompts, seedKeywords, type LlmBrandMention, type LlmProvider, type LlmSource } from "@/db/schema";
 import { assistants, type AssistantAnswer } from "@/server/ai/assistants";
 import { ai } from "@/server/ai/claude";
 import { logActivity } from "../activity";
@@ -114,5 +114,57 @@ export async function aiVisibilityCheck({ site }: JobContext) {
   }
 
   await logActivity(site.id, "aiVisibilityCheck", { count: prompts.length, total: mentions });
-  return { prompts: prompts.length, answers: answersStored, mentions };
+  const topics = await citationTopics(site, checkedAt).catch((error: Error) => {
+    console.error("[visibility] citation topics:", error.message);
+    return 0;
+  });
+  return { prompts: prompts.length, answers: answersStored, mentions, citationTopics: topics };
+}
+
+const CitationTopicsSchema = z.object({ topics: z.array(z.object({ keyword: z.string(), provider: z.enum(["openai", "anthropic", "google", "perplexity"]) })) });
+const CITATION_SOURCE: Record<LlmProvider, string> = { openai: "citation_chatgpt", anthropic: "citation_claude", google: "citation_gemini", perplexity: "citation_perplexity" };
+
+/**
+ * Turns this week's AI answers that don't mention the business into article topics the assistants
+ * would cite (up to 5 new ones), marked with the assistant they came from for the content plan.
+ */
+async function citationTopics(site: Site, checkedAt: Date) {
+  const missed = await db
+    .select({ prompt: llmPrompts.prompt, provider: llmAnswers.llmProvider, sources: llmAnswers.sources })
+    .from(llmAnswers)
+    .innerJoin(llmPrompts, eq(llmPrompts.id, llmAnswers.promptId))
+    .where(and(eq(llmAnswers.orgWebsiteId, site.id), eq(llmAnswers.checkedAt, checkedAt), eq(llmAnswers.orgWebsiteMentioned, false)))
+    .limit(60);
+  if (!missed.length) return 0;
+  const existing = await db
+    .select({ keyword: seedKeywords.value })
+    .from(keywordClusters)
+    .innerJoin(seedKeywords, eq(seedKeywords.id, keywordClusters.seedKeywordId))
+    .where(eq(keywordClusters.orgWebsiteId, site.id));
+  const known = new Set(existing.map((row) => row.keyword.toLowerCase()));
+  const result = await ai.generateObject({
+    schema: CitationTopicsSchema,
+    effort: "low",
+    system:
+      "You plan blog articles that AI assistants would cite when answering questions. For questions where the assistant didn't mention the business, " +
+      "propose up to 5 search-style article topics (2–6 words, lowercase, in the site's language) the business could publish to be cited next time. " +
+      "Base them on what the cited pages cover. Give each the assistant whose answer it targets. No brand names.",
+    prompt: [
+      `Business: ${site.brandName ?? site.url} — ${site.positioning ?? site.description ?? ""}`,
+      `Language: ${site.selectedLanguage}`,
+      "Answers that didn't mention the business:",
+      ...missed.map((row) => `- [${row.provider}] ${row.prompt} — cited: ${row.sources.slice(0, 5).map((source) => source.domain).join(", ") || "none"}`),
+      known.size ? `Already planned (don't repeat): ${[...known].slice(0, 80).join("; ")}` : "",
+    ].join("\n"),
+  });
+  let added = 0;
+  for (const topic of result.topics.slice(0, 5)) {
+    const keyword = topic.keyword.trim().toLowerCase().slice(0, 120);
+    if (keyword.length < 3 || known.has(keyword)) continue;
+    known.add(keyword);
+    const [seed] = await db.insert(seedKeywords).values({ value: keyword, languageCode: site.selectedLanguage, articleType: "guide_explainer" }).returning();
+    await db.insert(keywordClusters).values({ orgWebsiteId: site.id, seedKeywordId: seed!.id, keywords: [{ keyword }], creationSource: CITATION_SOURCE[topic.provider], isUsed: false });
+    added++;
+  }
+  return added;
 }

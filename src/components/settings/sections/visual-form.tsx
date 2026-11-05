@@ -1,16 +1,15 @@
 "use client";
 
-import { ArrowRight, ArrowUpRight, Check, Contact, Link2, MapPin, Megaphone, Palette, PanelTop, Plus, SquarePlay, Trash2 } from "lucide-react";
+import { ArrowRight, Check, Contact, Link2, MapPin, Megaphone, Palette, PanelTop, Plus, SquarePlay, Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useState, type CSSProperties, type ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { BODY_STYLES, COVER_STYLES, hasTitle, INFOGRAPHIC_STYLES, type BodyStyle, type CoverStyle, type InfographicStyle } from "@/lib/visuals";
 import { updateVisuals } from "@/server/actions/settings";
-import { inputClass, ListInput, Toggle, useSave } from "../form-kit";
+import { inputClass, Toggle, useSave, useServerState } from "../form-kit";
 
 export type VisualSettings = {
-  rules: string[];
   heroImageStyle: CoverStyle;
   bodyImageStyle: BodyStyle;
   infographicStyle: InfographicStyle;
@@ -143,9 +142,23 @@ function CtaRow({ icon, name, where, description, enabled, onToggle, canToggle, 
   );
 }
 
-export function VisualForm({ canEdit, initial, brandColor, brandName, imagesAvailable }: { canEdit: boolean; initial: VisualSettings; brandColor: string; brandName: string; imagesAvailable: boolean }) {
+export function VisualForm({
+  canEdit,
+  initial,
+  brandColor,
+  brandName,
+  imagesAvailable,
+  instructions,
+}: {
+  canEdit: boolean;
+  initial: VisualSettings;
+  brandColor: string;
+  brandName: string;
+  imagesAvailable: boolean;
+  instructions: ReactNode;
+}) {
   const t = useTranslations("settings.visual");
-  const [form, setForm] = useState(initial);
+  const [form, setForm] = useServerState(initial);
   const set = <K extends keyof VisualSettings>(key: K, value: VisualSettings[K]) => setForm((current) => ({ ...current, [key]: value }));
   // Rows left completely empty are dropped rather than reported as errors.
   const { button } = useSave(() => updateVisuals({ ...form, links: { ...form.links, items: form.links.items.filter((item) => item.label.trim() || item.url.trim()) } }));
@@ -158,23 +171,7 @@ export function VisualForm({ canEdit, initial, brandColor, brandName, imagesAvai
       <p className="-mt-4 text-[15px] text-ink-secondary">{t("subtitle")}</p>
       {!imagesAvailable && <p className="rounded-xl bg-[#FDF3E2] p-3 text-sm text-[#8A6320]">{t("noProvider")}</p>}
 
-      <Section
-        title={
-          <>
-            {t("rules")}
-            <span className="rounded-full bg-canvas px-2 py-0.5 text-xs font-medium text-ink-secondary">{t("optional")}</span>
-          </>
-        }
-        hint={t("rulesHint")}
-        badge={
-          <Link href="/dashboard/settings/writing" className="inline-flex items-center gap-1 text-sm text-ink-secondary hover:text-ink">
-            {t("writingLink")}
-            <ArrowUpRight className="size-3.5" />
-          </Link>
-        }
-      >
-        <ListInput id="image-rules" items={form.rules} onChange={(rules) => set("rules", rules)} placeholder={t("rulePlaceholder")} disabled={!canEdit} />
-      </Section>
+      {instructions}
 
       <Section title={t("cover.title")} hint={t("cover.hint")} badge={<Where label={t("where.top")} />}>
         <div className="grid gap-3 lg:grid-cols-2" role="radiogroup" aria-label={t("cover.title")}>
