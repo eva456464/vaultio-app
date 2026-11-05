@@ -128,8 +128,16 @@ export async function getAlternativeTopics(siteId: number): Promise<AlternativeT
 
 export async function getArticle(siteId: number, articleId: number) {
   const [row] = await db
-    .select({ article: articles, keyword: seedKeywords.value, volume: seedKeywords.avgSearchVolume, difficulty: seedKeywords.keywordDifficulty })
+    .select({
+      article: articles,
+      keyword: seedKeywords.value,
+      volume: seedKeywords.avgSearchVolume,
+      difficulty: seedKeywords.keywordDifficulty,
+      planItemId: contentPlanItems.id,
+      regenerating: sql<boolean>`${contentPlanItems.regenerationRequest} is not null`,
+    })
     .from(articles)
+    .leftJoin(contentPlanItems, eq(contentPlanItems.articleId, articles.id))
     .leftJoin(keywordClusters, eq(keywordClusters.id, articles.keywordClusterId))
     .leftJoin(seedKeywords, eq(seedKeywords.id, keywordClusters.seedKeywordId))
     .where(and(eq(articles.orgWebsiteId, siteId), eq(articles.id, articleId)));

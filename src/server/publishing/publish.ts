@@ -108,6 +108,7 @@ export async function deliverWordpress(
   credentials: WordpressCredentials,
   article: Article,
   categoryId?: number,
+  status: "publish" | "draft" = "publish",
 ): Promise<DeliveryResult & { delivery?: WordpressDelivery }> {
   const api = `${siteUrl.replace(/\/$/, "")}/wp-json/wp/v2`;
   const previous = article.deliveries.wordpress;
@@ -134,7 +135,7 @@ export async function deliverWordpress(
         slug: article.slug,
         content,
         excerpt: article.metaDescription ?? "",
-        status: "publish",
+        status,
         ...(featuredMediaId ? { featured_media: featuredMediaId } : {}),
         ...(categoryId ? { categories: [categoryId] } : {}),
       }),
@@ -154,6 +155,18 @@ export async function deliverWordpress(
  * With `update`, an already published article is sent again (same WordPress post, same webhook id).
  */
 export async function publishArticle(siteId: number, articleId: number, options: { update?: boolean } = {}) {
+  return sendArticle(siteId, articleId, options);
+}
+
+/**
+ * Takes a published article down: posts it was sent to become drafts on their platforms, and the
+ * hosted blog, API, Framer, Lovable and Duda stop showing it. It can be published again later.
+ */
+export async function unpublishArticle(siteId: number, articleId: number) {
+  return sendArticle(siteId, articleId, { update: true, asDraft: true });
+}
+
+async function sendArticle(siteId: number, articleId: number, options: { update?: boolean; asDraft?: boolean }) {
   const [site] = await db.select().from(orgWebsites).where(eq(orgWebsites.id, siteId));
   const [article] = await db.select().from(articles).where(and(eq(articles.id, articleId), eq(articles.orgWebsiteId, siteId)));
   if (!site || !article) throw new Error("Article not found");
@@ -176,7 +189,9 @@ export async function publishArticle(siteId: number, articleId: number, options:
   };
   for (const connection of connections) {
     if (!connection.credentialsEncrypted && connection.type !== "hosted_blog") continue;
-    const config = connection.config as Record<string, unknown>;
+    // Unpublishing turns earlier posts into drafts; platforms it never reached are left alone.
+    if (options.asDraft && !article.deliveries[connection.type as keyof ArticleDeliveries]) continue;
+    const config: Record<string, unknown> = { ...(connection.config as Record<string, unknown>), ...(options.asDraft ? { mode: "draft" } : {}) };
     const secret = <T,>() => decryptJson<T>(connection.credentialsEncrypted!);
     const post = postInput(article);
     let result: DeliveryResult;
@@ -187,7 +202,7 @@ export async function publishArticle(siteId: number, articleId: number, options:
         result = await deliverWebhook(config.url as string, secret<WebhookCredentials>(), webhookPayload(article, site));
         break;
       case "wordpress": {
-        const wordpress = await deliverWordpress(config.siteUrl as string, secret<WordpressCredentials>(), article, config.categoryId as number | undefined);
+        const wordpress = await deliverWordpress(config.siteUrl as string, secret<WordpressCredentials>(), article, config.categoryId as number | undefined, options.asDraft ? "draft" : "publish");
         if (wordpress.ok && wordpress.delivery) await remember({ wordpress: wordpress.delivery });
         result = wordpress;
         break;
@@ -253,6 +268,13 @@ export async function publishArticle(siteId: number, articleId: number, options:
       if (!draft) live = true;
       url ??= result.url;
     } else errors.push(`${connection.type}: ${result.error}`);
+  }
+
+  if (options.asDraft) {
+    await db.update(articles).set({ publishedUrl: null, publishedAt: null, updatedAt: new Date() }).where(eq(articles.id, article.id));
+    await db.update(contentPlanItems).set({ generationStatus: "generated", updatedAt: new Date() }).where(eq(contentPlanItems.articleId, article.id));
+    await logActivity(siteId, "articleUnpublished", { title: article.title, articleId: article.id });
+    return { published: false, url: null, errors };
   }
 
   const pulled = Boolean(apiKey) || connections.some((connection) => (PULL_TYPES as readonly string[]).includes(connection.type) && connection.status === "connected");

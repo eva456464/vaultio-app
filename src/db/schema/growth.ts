@@ -60,7 +60,7 @@ export const backlinkCreditLedger = pgTable("backlink_credit_ledger", {
     .references(() => orgWebsites.id, { onDelete: "cascade" }),
   backlinkId: integer("backlink_id").references(() => backlinks.id, { onDelete: "set null" }),
   delta: integer("delta").notNull(),
-  reason: text("reason").$type<"signup_bonus" | "link_given" | "link_received" | "purchase" | "adjustment">().notNull(),
+  reason: text("reason").$type<"signup_bonus" | "link_given" | "link_received" | "purchase" | "adjustment" | "article_feedback">().notNull(),
   ...timestamps,
 });
 

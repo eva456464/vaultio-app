@@ -55,6 +55,8 @@ export const ACTIVITY_TYPES = [
   "articleSentAsDraft",
   "catalogSynced",
   "productsMatched",
+  "articleRegenerated",
+  "articleUnpublished",
 ] as const;
 export type ActivityType = (typeof ACTIVITY_TYPES)[number];
 

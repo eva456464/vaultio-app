@@ -3,10 +3,9 @@ import { and, eq } from "drizzle-orm";
 import { db } from "@/db";
 import { articleImprovements, articles, orgWebsites } from "@/db/schema";
 import { logActivity } from "../agents/activity";
-import { safeColor } from "../brand";
-import { renderArticleHtml } from "../markdown";
+import { saveArticleContent } from "../articles/save";
 import { publishArticle } from "../publishing/publish";
-import { applyChanges, extractFaq, linksIn } from "./sections";
+import { applyChanges } from "./sections";
 import { applyWordpressChanges } from "./wordpress/blocks";
 import { getPost, updatePost, wordpressConnection } from "./wordpress/client";
 
@@ -63,34 +62,8 @@ export async function publishImprovement(siteId: number, improvementId: number, 
 
   const applied = applyChanges(improvement.originalContent, changes);
   const title = applied.title ?? article.title;
-  const metaDescription = applied.metaDescription ?? article.metaDescription;
   const markdown = applied.markdown;
-  const origin = new URL(site.url).origin;
-  const links = linksIn(markdown);
-  const internal = links.filter((url) => url.startsWith(origin)).length;
-  const faq = extractFaq(markdown) ?? article.faq;
-  const jsonLd = article.jsonLd && typeof article.jsonLd === "object" ? { ...(article.jsonLd as Record<string, unknown>), headline: title, description: metaDescription, dateModified: new Date().toISOString() } : article.jsonLd;
-  const faqJsonLd = article.faqJsonLd && faq.length
-    ? { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map((entry) => ({ "@type": "Question", name: entry.question, acceptedAnswer: { "@type": "Answer", text: entry.answer } })) }
-    : article.faqJsonLd;
-
-  await db
-    .update(articles)
-    .set({
-      title,
-      metaDescription,
-      content: markdown,
-      htmlContent: renderArticleHtml(markdown, { blocks: article.blocks, accentColor: safeColor(site.brandColor) }),
-      outline: (markdown.match(/^## .+$/gm) ?? []).map((heading) => heading.slice(3)),
-      faq,
-      jsonLd,
-      faqJsonLd,
-      wordCount: markdown.replace(/<!--[\s\S]*?-->/g, " ").replace(/[#*_>`|[\]()-]/g, " ").split(/\s+/).filter(Boolean).length,
-      internalLinksCount: internal,
-      externalLinksCount: links.length - internal,
-      updatedAt: new Date(),
-    })
-    .where(eq(articles.id, article.id));
+  await saveArticleContent(site, article, { markdown, title, metaDescription: applied.metaDescription ?? article.metaDescription ?? undefined });
   const result = await publishArticle(siteId, article.id, { update: true });
   await db
     .update(articleImprovements)

@@ -21,7 +21,7 @@ import { improveArticle, improvementScan } from "./jobs/improvements";
 import { backlinkCheck, joinBacklinkExchange } from "../backlinks/exchange";
 import { quoraSearch, redditSearch } from "../community/agent";
 import { aiVisibilityCheck } from "./jobs/visibility";
-import { writeArticle } from "./jobs/writer";
+import { regenerateArticle, writeArticle } from "./jobs/writer";
 import { catalogSync, productMatching } from "./jobs/catalog";
 import type { JobHandler } from "./jobs/types";
 import type { AgentJobName } from "./queue";
@@ -46,6 +46,7 @@ export const JOB_REGISTRY: Record<AgentJobName, Registration> = {
   planFirstMonth: { requires: ["keywordData", "llm"], handler: planFirstMonth },
   topicResearch: { requires: ["llm"], handler: topicResearch },
   writeArticle: { requires: ["llm"], handler: writeArticle },
+  regenerateArticle: { requires: ["llm"], handler: regenerateArticle },
   competitorGapScan: { requires: ["keywordData"], handler: competitorGapScan },
   domainRatingCheck: { requires: ["authorityData"], handler: domainRatingCheck },
   monthlyReport: { requires: ["email"], handler: monthlyReport },

@@ -4,6 +4,8 @@ import type { ArticleBlock } from "@/db/schema";
 
 const BLOCK_MARKER = /<!-- vaultio:block (\d+) -->[\s\S]*?<!-- \/vaultio:block -->/g;
 const BLOCK_TOKEN = /<p>VAULTIOBLOCK(\d+)X<\/p>/g;
+/** An image alone in its paragraph with a title (its caption from the editor) becomes a figure. */
+const CAPTIONED_IMAGE = /<p><img((?:(?! title=)[^>])*) title="([^"]+)"([^>]*?)\s*\/?><\/p>/g;
 
 const esc = (value: string) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const safeHref = (url: string) => (/^(https?:|tel:|mailto:)/i.test(url) ? esc(url) : "#");
@@ -49,9 +51,11 @@ export function renderArticleHtml(markdown: string, options: { blocks?: ArticleB
   const html = marked.parse(prepared, { async: false, gfm: true }) as string;
   const clean = sanitizeHtml(html, {
     allowedTags: [...sanitizeHtml.defaults.allowedTags, "img", "h1", "h2", "h3", "h4", "table", "thead", "tbody", "tr", "th", "td"],
-    allowedAttributes: { a: ["href", "title", "rel", "target"], img: ["src", "alt", "title", "loading"], "*": ["id"] },
+    allowedAttributes: { a: ["href", "title", "rel", "target"], img: ["src", "alt", "title", "loading"], p: ["style"], h1: ["style"], h2: ["style"], h3: ["style"], h4: ["style"], th: ["align"], td: ["align"], "*": ["id"] },
+    // Only alignment survives from inline styles (set in the article editor).
+    allowedStyles: { "*": { "text-align": [/^(left|center|right)$/] } },
     transformTags: { img: (tagName, attribs) => ({ tagName, attribs: { ...attribs, loading: "lazy" } }) },
-  });
+  }).replace(CAPTIONED_IMAGE, (_whole, before: string, caption: string, after: string) => `<figure><img${before}${after} /><figcaption>${caption}</figcaption></figure>`);
   const accent = options.accentColor && /^#[0-9a-f]{3,8}$/i.test(options.accentColor) ? options.accentColor : "#111827";
   return blocks.length ? clean.replace(BLOCK_TOKEN, (whole, index: string) => (blocks[Number(index)] ? blockHtml(blocks[Number(index)]!, accent) : whole)) : clean;
 }

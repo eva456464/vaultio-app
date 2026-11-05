@@ -1,0 +1,1 @@
+ALTER TABLE "content_plan_items" ADD COLUMN "regeneration_request" jsonb;

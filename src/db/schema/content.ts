@@ -72,6 +72,7 @@ export type TopicResearch = {
 };
 
 export type GenerationStatus = "queued" | "researching" | "generating" | "generated" | "published" | "failed";
+export type RegenerationRequest = { articleId: number; instructions: string | null; reason: "content" | "topic"; requestedAt: string };
 
 export const contentPlanItems = pgTable(
   "content_plan_items",
@@ -88,6 +89,8 @@ export const contentPlanItems = pgTable(
     generationStatus: text("generation_status").$type<GenerationStatus>().notNull().default("queued"),
     userInstruction: text("user_instruction"),
     supportUrl: text("support_url"),
+    /** Set from the article page ("Regenerate", or a new topic picked in the feedback flow); the regenerateArticle job rewrites the article in place. */
+    regenerationRequest: jsonb("regeneration_request").$type<RegenerationRequest>(),
     /** Products the agent matched to this topic, and the ones chosen by hand (used when productsCustomized). */
     proposedProductIds: jsonb("proposed_product_ids").$type<number[]>().notNull().default([]),
     selectedProductIds: jsonb("selected_product_ids").$type<number[]>().notNull().default([]),
@@ -332,3 +335,22 @@ export const products = pgTable(
 
 /** A product as featured in an article (kept as it was when the article was written). */
 export type FeaturedProduct = { id: number; name: string; url: string; imageUrl: string | null; price: string | null; currency: string | null };
+
+/** A proposal from the article assistant: replace one block of the article (checked against its text before applying). */
+export type AssistantProposal = { blockIndex: number; originalText: string; html: string; reason: string; status?: "accepted" | "rejected" };
+
+/** The AI article assistant's conversation for one article (shared by the workspace's editors). */
+export const articleAssistantMessages = pgTable(
+  "article_assistant_messages",
+  {
+    id: serial("id").primaryKey(),
+    articleId: integer("article_id")
+      .notNull()
+      .references(() => articles.id, { onDelete: "cascade" }),
+    role: text("role").$type<"user" | "assistant">().notNull(),
+    content: text("content").notNull(),
+    proposals: jsonb("proposals").$type<AssistantProposal[]>().notNull().default([]),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [index("article_assistant_article_idx").on(t.articleId, t.createdAt)],
+);

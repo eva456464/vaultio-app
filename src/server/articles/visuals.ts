@@ -183,7 +183,7 @@ export async function findVideo(site: Site, input: { title: string; keyword: str
 }
 
 /** Markdown for a block: readable on its own, and marked so renderArticleHtml can turn it into a card. */
-function blockMarkdown(block: ArticleBlock, index: number) {
+export function blockMarkdown(block: ArticleBlock, index: number) {
   const body = (() => {
     switch (block.kind) {
       case "link":

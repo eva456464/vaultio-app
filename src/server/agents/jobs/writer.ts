@@ -1,9 +1,10 @@
 /** Article writer: researches today's planned topic and writes a cited, brand-voiced article. */
-import { and, eq, inArray, isNull, ne, sql } from "drizzle-orm";
+import { and, eq, inArray, isNotNull, isNull, ne, sql } from "drizzle-orm";
 import { z } from "zod/v4";
 import { db } from "@/db";
 import {
   articles,
+  backlinks,
   contentPlanItems,
   keywordClusters,
   mediaAssets,
@@ -12,7 +13,6 @@ import {
   type ArticleBlock,
   type ArticleMedia,
   type ArticleType,
-  type QualityCheck,
 } from "@/db/schema";
 import { ai, type ResearchSource } from "@/server/ai/claude";
 import { images } from "@/server/ai/images";
@@ -21,6 +21,7 @@ import { placeBacklinks, recordPlacements, type Placement } from "@/server/backl
 import { safeColor } from "@/server/brand";
 import { linkedProducts, productCard, productsBrief, productsForArticle } from "@/server/catalog/articles";
 import { createInfographic } from "@/server/infographics";
+import { linksIn, qualityChecks } from "@/server/articles/checks";
 import { renderArticleHtml } from "@/server/markdown";
 import { publishArticle } from "@/server/publishing/publish";
 import { logActivity } from "../activity";
@@ -94,39 +95,54 @@ const slugify = (text: string) =>
     .replace(/^-|-$/g, "")
     .slice(0, 80);
 
-function linksIn(markdown: string) {
-  return [...markdown.matchAll(/\[[^\]]+\]\((https?:\/\/[^)\s]+)\)/g)].map((match) => match[1]!);
-}
-
-function qualityChecks(input: { markdown: string; title: string; metaDescription: string; internal: number; external: number; keyword: string; semantic: string[]; media: ArticleMedia[] }): QualityCheck[] {
-  const firstParagraph = input.markdown.split(/\n\s*\n/).find((block) => block.trim() && !block.startsWith("#")) ?? "";
-  const h2s = (input.markdown.match(/^## /gm) ?? []).length;
-  const statistics = (input.markdown.match(/\d+(\.\d+)?\s?%|\$\s?\d|\b\d{2,}\b/g) ?? []).length;
-  const body = input.markdown.toLowerCase();
-  return [
-    { key: "answerFirst", passed: firstParagraph.split(/\s+/).length <= 90 },
-    { key: "credibleSources", passed: input.external >= 2, detail: `${input.external} source links` },
-    { key: "optimalStructure", passed: h2s >= 4, detail: `${h2s} sections` },
-    { key: "internalLinks", passed: input.internal >= 2, detail: `${input.internal} internal links` },
-    { key: "statistics", passed: statistics >= 3 },
-    { key: "semanticKeywords", passed: input.semantic.filter((term) => body.includes(term.toLowerCase())).length >= Math.min(5, input.semantic.length) },
-    { key: "metaTags", passed: input.title.length <= 65 && input.metaDescription.length >= 70 && input.metaDescription.length <= 160 },
-    { key: "jsonLd", passed: true },
-    ...(input.media.length ? [{ key: "imageAltTexts", passed: input.media.every((item) => item.altText?.trim()), detail: `${input.media.length} images` }] : []),
-  ];
-}
-
-export async function writeArticle({ site, runDate }: JobContext) {
-  const [item] = await db
+const planRows = () =>
+  db
     .select({ plan: contentPlanItems, keyword: seedKeywords.value, cluster: keywordClusters })
     .from(contentPlanItems)
     .innerJoin(keywordClusters, eq(keywordClusters.id, contentPlanItems.keywordClusterId))
-    .innerJoin(seedKeywords, eq(seedKeywords.id, keywordClusters.seedKeywordId))
+    .innerJoin(seedKeywords, eq(seedKeywords.id, keywordClusters.seedKeywordId));
+type PlanRow = Awaited<ReturnType<typeof planRows>>[number];
+type Article = typeof articles.$inferSelect;
+/** Rewriting an existing article (from the article page) instead of writing a new one. */
+type Rewrite = { article: Article; instructions: string | null };
+
+export async function writeArticle({ site, runDate }: JobContext) {
+  const [item] = await planRows()
     .where(and(eq(contentPlanItems.orgWebsiteId, site.id), eq(contentPlanItems.scheduledFor, runDate), isNull(contentPlanItems.articleId)))
     .limit(1);
   if (!item) return { written: false, reason: "No article planned for today" };
+  return writeFor(site, item, runDate);
+}
 
+/**
+ * Rewrites articles the user asked to regenerate (with their instructions, or on a new topic). The
+ * article keeps its id, address and platform posts; a published one is updated where it lives.
+ */
+export async function regenerateArticle({ site, runDate }: JobContext) {
+  const results = [];
+  // Requests made while this runs are picked up by the next pass.
+  for (let pass = 0; pass < 5; pass++) {
+    const [item] = await planRows()
+      .where(and(eq(contentPlanItems.orgWebsiteId, site.id), isNotNull(contentPlanItems.regenerationRequest)))
+      .limit(1);
+    if (!item) break;
+    const request = item.plan.regenerationRequest!;
+    const [article] = await db.select().from(articles).where(and(eq(articles.id, request.articleId), eq(articles.orgWebsiteId, site.id)));
+    await db.update(contentPlanItems).set({ regenerationRequest: null, updatedAt: new Date() }).where(eq(contentPlanItems.id, item.plan.id));
+    if (!article) continue;
+    try {
+      results.push(await writeFor(site, item, runDate, { article, instructions: request.instructions }));
+    } catch (error) {
+      await db.update(contentPlanItems).set({ generationStatus: "generated", updatedAt: new Date() }).where(eq(contentPlanItems.id, item.plan.id));
+      throw error;
+    }
+  }
+  return results.length ? { regenerated: results } : { regenerated: [], reason: "Nothing to regenerate" };
+}
+
+async function writeFor(site: Site, item: PlanRow, runDate: string, rewrite?: Rewrite) {
   const keyword = item.keyword;
+  const instructions = [item.plan.userInstruction, rewrite?.instructions ? `Changes requested for this new version of the article: ${rewrite.instructions}` : null].filter(Boolean).join("\n");
   const articleType = (item.plan.articleType ?? "guide_explainer") as ArticleType;
   await db.update(contentPlanItems).set({ generationStatus: "generating", updatedAt: new Date() }).where(eq(contentPlanItems.id, item.plan.id));
   await db
@@ -154,7 +170,7 @@ export async function writeArticle({ site, runDate }: JobContext) {
       `Topic / target keyword: "${keyword}" (${site.selectedLanguage})`,
       `Planned title: ${item.plan.plannedTitle ?? keyword}`,
       `Business context: ${site.brandName ?? site.url} — ${site.positioning ?? site.description ?? ""}`,
-      item.plan.userInstruction ? `Instructions from the business: ${item.plan.userInstruction}` : "",
+      instructions ? `Instructions from the business: ${instructions}` : "",
       item.plan.supportUrl ? `Reference URL from the business: ${item.plan.supportUrl}` : "",
       competingPages ? `Pages currently ranking on Google:\n${competingPages}` : "",
     ].join("\n"),
@@ -173,7 +189,7 @@ export async function writeArticle({ site, runDate }: JobContext) {
       `Write ${ARTICLE_TYPE_GUIDE[articleType]} targeting the keyword "${keyword}".`,
       `Working title: ${item.plan.plannedTitle ?? keyword}`,
       item.cluster.keywords.length > 1 ? `Related searches to cover naturally: ${item.cluster.keywords.slice(1, 12).map((k) => k.keyword).join(", ")}` : "",
-      item.plan.userInstruction ? `Instructions for this article: ${item.plan.userInstruction}` : "",
+      instructions ? `Instructions for this article: ${instructions}` : "",
       `\nResearch notes:\n${research.notes}`,
       `\nSources you may cite (use these URLs only):\n${research.sources.map((s) => `- ${s.title}: ${s.url}`).join("\n")}`,
       site.includeInternalLinks && linkable.length ? `\nInternal pages you may link to:\n${linkable.map((p) => `- ${p.url}${p.title ? ` (${p.title})` : ""}`).join("\n")}` : "",
@@ -291,9 +307,7 @@ export async function writeArticle({ site, runDate }: JobContext) {
       }
     : null;
 
-  const [article] = await db
-    .insert(articles)
-    .values({
+  const values = {
       orgWebsiteId: site.id,
       keywordClusterId: item.cluster.id,
       title: meta.title,
@@ -326,8 +340,28 @@ export async function writeArticle({ site, runDate }: JobContext) {
         ...(visualErrors.length ? { visualErrors } : {}),
       },
       qualityChecks: qualityChecks({ markdown, title: meta.title, metaDescription: meta.metaDescription, internal, external, keyword, semantic: meta.semanticKeywords, media }),
-    })
-    .returning();
+    };
+
+  if (rewrite) {
+    // Same row, address and platform posts; a published article keeps its slug so links don't break.
+    const previous = rewrite.article;
+    const { orgWebsiteId: _site, ...fields } = values;
+    void _site;
+    await db
+      .update(articles)
+      .set({ ...fields, slug: previous.publishedUrl ? previous.slug : values.slug, aiImageRegenerationCount: 0, updatedAt: new Date() })
+      .where(eq(articles.id, previous.id));
+    if (mediaIds.length) await db.update(mediaAssets).set({ articleId: previous.id }).where(inArray(mediaAssets.id, mediaIds));
+    // Exchange links that never went live are replaced; live ones stay (the daily check follows them).
+    await db.delete(backlinks).where(and(eq(backlinks.articleId, previous.id), isNull(backlinks.becameOnlineAt)));
+    await recordPlacements(site, previous.id, placements);
+    await db.update(contentPlanItems).set({ articleId: previous.id, generationStatus: "generated", updatedAt: new Date() }).where(eq(contentPlanItems.id, item.plan.id));
+    const result = previous.publishedUrl ? await publishArticle(site.id, previous.id, { update: true }) : null;
+    await logActivity(site.id, "articleRegenerated", { title: meta.title, articleId: previous.id, publishedUrl: previous.publishedUrl ?? undefined });
+    return { articleId: previous.id, words: wordCount, regenerated: true, publishErrors: result?.errors ?? [] };
+  }
+
+  const [article] = await db.insert(articles).values(values).returning();
 
   if (mediaIds.length) await db.update(mediaAssets).set({ articleId: article!.id }).where(inArray(mediaAssets.id, mediaIds));
   await recordPlacements(site, article!.id, placements);

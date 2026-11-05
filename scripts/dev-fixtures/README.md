@@ -198,3 +198,16 @@ The dashboard translation script can be tried without Claude:
 ```bash
 npx tsx --tsconfig tsconfig.json scripts/translate-messages.ts fr --pseudo --out /tmp/messages
 ```
+
+## Anthropic stand-in (`mock-anthropic.py`)
+
+Answers the Messages API with canned replies so AI features can be clicked through without a
+Claude key: structured answers are built from the request's JSON schema (the article editor's
+fields get sensible text), streamed answers return a short sample article.
+
+```bash
+python3 scripts/dev-fixtures/mock-anthropic.py 4950
+```
+
+Run the app and the worker with `ANTHROPIC_API_KEY=test ANTHROPIC_BASE_URL=http://localhost:4950`.
+Requests are listed at `GET /test/log`. Articles written this way are placeholders, not real output.

@@ -92,6 +92,20 @@
       "when": 1793483654862,
       "tag": "0012_product_catalog",
       "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1793917108569,
+      "tag": "0013_article_editor",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1793918015737,
+      "tag": "0014_article_regeneration",
+      "breakpoints": true
     }
   ]
 }

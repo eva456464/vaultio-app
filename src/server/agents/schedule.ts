@@ -41,6 +41,8 @@ export const AGENT_JOBS = [
   "quoraSearch",
   "catalogSync",
   "productMatching",
+  // On demand from the article page (no schedule).
+  "regenerateArticle",
 ] as const;
 export type AgentJob = (typeof AGENT_JOBS)[number];
 

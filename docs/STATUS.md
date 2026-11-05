@@ -38,7 +38,8 @@ Ground rules that apply to everything below:
 | Add a website (onboarding) | `/onboarding/website` | Built; onboarding progress shows on Overview |
 | Overview | `/dashboard/overview` | Built: daily agent activity, planned actions, agents waiting for keys, achievements, what we learned (brand profile), traffic sources card |
 | Blog content: calendar | `/dashboard/content-plan` | Built: change topic, instructions, delete, add keywords |
-| Blog content: article | `/dashboard/articles/[id]` | Built: article with images and CTA cards, cover image panel (regenerate, up to 5 times), sources, FAQ, quality checks, publish now, export |
+| Blog content: article | `/dashboard/articles/[id]` | Built: article with images and CTA cards, cover image panel (regenerate, up to 5 AI images per article), sources, FAQ, quality checks, publish now / re-publish / unpublish, export, feedback (a backlink credit for the first one) with "regenerate with instructions" or "pick a new topic" |
+| Article editor | `/dashboard/articles/[id]?edit=1` | Built: title, rich text (toolbar, "/" insert menu, links, tables, YouTube, alignment), images (alt text, caption, suggested, upload, AI image with side-by-side review), cards kept as blocks, slug and meta description, live counts; AI edits on selected text (rewrite, improve, longer, shorter, simplify, grammar, list, table, add keyword, add internal link, custom) with versions to accept; AI tables; an AI assistant chat that proposes block changes to accept or reject; Save & Close re-renders the article and recomputes counts, FAQ, schema and checks |
 | Blog content: improvements | `/dashboard/content-plan/improvements` + `/[id]` | Built: opportunities with evidence, status, discard, how it works; review page with per-change approve/reject, safety flags, publish, impact; existing WordPress posts marked as such, with their kept elements, post data and an "Edit in WordPress" link |
 | Site health | `/dashboard/geo-audit` + public share page | Built |
 | AI visibility (overview, prompts, brands, sources, prompt detail) | `/dashboard/ai-visibility` | Built |
@@ -93,6 +94,14 @@ Ground rules that apply to everything below:
   address) in the browser, then publishing an article to all of them and republishing it (each
   updated the same post), against a local mock (`scripts/dev-fixtures/mock-cms.py`); the hosted
   blog on a local test domain from DNS setup to live, with its pages, sitemap, robots and RSS.
+- Article editor, in a browser (`scripts/test-editor.ts` for the conversions): typing, the "/" menu,
+  tables (rows, header), YouTube, links, an image caption, slug and meta, Save & Close (caption shown
+  as a figure, card and video kept, "re-publish" asked because pushed platforms are connected); AI
+  edits on a paragraph and on part of a sentence, "try another", the AI table, the assistant's
+  proposal accepted and its conversation kept and cleared, against a local Anthropic stand-in
+  (`scripts/dev-fixtures/mock-anthropic.py`). Unpublish (posts turned into drafts on BigCommerce and
+  GoHighLevel, gone from feeds), re-publish, feedback with a credit, regeneration with instructions and
+  with a typed new topic run by the worker (same article id and address).
 - More publishing platforms, in a browser against the local mock (`scripts/dev-fixtures/mock-cms.py`):
   BigCommerce (store hash taken from a pasted store address, wrong token, wrong WebDAV password, then
   connected with cover images; the WebDAV login is checked with digest authentication and the check
@@ -187,6 +196,8 @@ These are written against the providers' documentation but have not run live yet
   Shopify's documentation, which couldn't be fetched from this workspace to double-check, API version
   set by `SHOPIFY_API_VERSION`), WooCommerce's REST API on a real store, and real Google Merchant Center
   and Facebook feeds; product matching with real Claude.
+- AI editing with real Claude (selection edits, tables, the assistant's block proposals) and
+  regeneration with real research and writing; the stand-in only returns canned answers.
 - BigCommerce, GoHighLevel, Duda, Framer and Lovable against real accounts: written from their
   documented APIs and help pages, which couldn't be fetched from this workspace to double-check.
   Least certain: GoHighLevel's list response keys and which post fields it requires, BigCommerce's
@@ -288,6 +299,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Product catalog: Shopify, WooCommerce, feeds and files; catalog sync and product matching agents; products in articles | `main` 096b5b4 |
 | More languages: language sites (36 content languages), Scale's included languages and the language add-on, infographic fonts for more scripts, dashboard translation script | `main` 2281efb |
 | Publishing to BigCommerce and GoHighLevel; Framer plugin, Lovable prompt and Duda RSS feed | `main` d844cbc |
+| Article editor with AI editing and the assistant; feedback, regenerate, new topic, unpublish, re-publish | `main` (this commit) |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

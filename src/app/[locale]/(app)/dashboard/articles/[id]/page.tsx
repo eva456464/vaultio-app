@@ -1,8 +1,12 @@
-import { ArrowLeft, Check, ExternalLink, FileText, Link2, Link as LinkIcon, Package, Quote, Settings2, Sparkles, X } from "lucide-react";
+import { desc, eq } from "drizzle-orm";
+import { ArrowLeft, Check, ExternalLink, FileText, Link2, Link as LinkIcon, Package, Quote, Settings2, Sparkles, SquarePen, X } from "lucide-react";
 import { notFound } from "next/navigation";
 import { getFormatter, getTranslations } from "next-intl/server";
 import { ArticleExportMenu } from "@/components/content/article-export-menu";
 import { CoverImagePanel } from "@/components/content/cover-image-panel";
+import { ArticleEditor } from "@/components/content/editor/article-editor";
+import { db } from "@/db";
+import { mediaAssets } from "@/db/schema";
 import { PublishButton } from "@/components/content/publish-button";
 import { Link } from "@/i18n/navigation";
 import { withHeadingIds } from "@/lib/article-html";
@@ -10,7 +14,10 @@ import { formatPrice } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
 import { images } from "@/server/ai/images";
 import { getAppContext } from "@/server/context";
-import { getArticle } from "@/server/queries/content";
+import { markdownToEditorHtml } from "@/server/articles/document";
+import { mediaUrl } from "@/server/media";
+import { getAlternativeTopics, getArticle } from "@/server/queries/content";
+import { ArticleFeedback } from "@/components/content/article-feedback";
 
 function Panel({ title, hint, children }: { title: string; hint?: string; children: React.ReactNode }) {
   return (
@@ -22,14 +29,45 @@ function Panel({ title, hint, children }: { title: string; hint?: string; childr
   );
 }
 
-export default async function ArticlePage({ params }: PageProps<"/[locale]/dashboard/articles/[id]">) {
+export default async function ArticlePage({ params, searchParams }: PageProps<"/[locale]/dashboard/articles/[id]">) {
   const { id } = await params;
+  const query = await searchParams;
   const context = (await getAppContext())!;
   const site = context.site!;
   const row = await getArticle(site.id, Number(id));
   if (!row) notFound();
   const { article } = row;
-  const [t, format] = await Promise.all([getTranslations("article"), getFormatter()]);
+  const canEdit = context.member?.role === "admin";
+
+  if (query.edit && canEdit && article.content && !row.regenerating) {
+    // Images this article or the site already has, offered when an image is replaced.
+    const recent = await db
+      .select({ id: mediaAssets.id, articleId: mediaAssets.articleId, kind: mediaAssets.kind })
+      .from(mediaAssets)
+      .where(eq(mediaAssets.orgWebsiteId, site.id))
+      .orderBy(desc(mediaAssets.createdAt))
+      .limit(24);
+    const suggested = [
+      ...article.media.filter((item) => item.type !== "video").map((item) => ({ url: item.url, altText: item.altText ?? "" })),
+      ...recent.filter((item) => item.kind !== "infographic").map((item) => ({ url: mediaUrl(item.id), altText: "" })),
+    ].filter((item, index, all) => all.findIndex((other) => other.url === item.url) === index);
+    return (
+      <ArticleEditor
+        articleId={article.id}
+        initial={{ title: article.title, html: markdownToEditorHtml(article.content, article.blocks), metaDescription: article.metaDescription ?? "", slug: article.slug }}
+        cards={article.blocks.map((block) => ({ kind: block.kind, title: block.kind === "product" ? block.name : block.title }))}
+        keyword={row.keyword ? { value: row.keyword, volume: row.volume, difficulty: row.difficulty } : null}
+        suggestedImages={suggested}
+        aiImagesRemaining={Math.max(0, 5 - article.aiImageRegenerationCount)}
+        imagesAvailable={images.available()}
+        aiAvailable={Boolean(process.env.ANTHROPIC_API_KEY)}
+        siteOrigin={new URL(site.url).origin}
+        readUrl={`/dashboard/articles/${article.id}`}
+      />
+    );
+  }
+
+  const [t, format, alternatives] = await Promise.all([getTranslations("article"), getFormatter(), canEdit && row.planItemId ? getAlternativeTopics(site.id) : Promise.resolve([])]);
   const { html, toc } = withHeadingIds(article.htmlContent ?? "");
   const passed = article.qualityChecks.filter((check) => check.passed).length;
   const minutes = Math.max(1, Math.round((article.wordCount ?? 0) / 225));
@@ -47,7 +85,22 @@ export default async function ArticlePage({ params }: PageProps<"/[locale]/dashb
           <p className="truncate text-[15px] font-semibold text-ink">{article.title}</p>
         </div>
         <p className="hidden text-sm text-ink-secondary md:block">{t("stats", { words: article.wordCount ?? 0, minutes })}</p>
+        {canEdit && article.content && !row.regenerating && (
+          <Link href={`/dashboard/articles/${article.id}?edit=1`} className="inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white hover:bg-ink/90">
+            <SquarePen className="size-4" /> {t("edit")}
+          </Link>
+        )}
       </div>
+      {row.regenerating && (
+        <p role="status" className="mx-4 mt-4 flex items-center gap-2 rounded-xl border border-line bg-canvas px-4 py-3 text-sm text-ink md:mx-8">
+          <Sparkles className="size-4 text-brand" /> {t("regeneratingBanner")}
+        </p>
+      )}
+      {query.saved && (
+        <p role="status" className="mx-4 mt-4 rounded-xl border border-success-border bg-success-bg px-4 py-3 text-sm text-success md:mx-8">
+          {query.saved === "republish" ? t("savedRepublish") : t("saved")}
+        </p>
+      )}
 
       <div className="grid gap-8 px-4 py-8 md:px-8 xl:grid-cols-[minmax(0,1fr)_360px]">
         <article className="card mx-auto w-full max-w-[860px] px-6 py-10 md:px-14">
@@ -85,7 +138,7 @@ export default async function ArticlePage({ params }: PageProps<"/[locale]/dashb
             imageUrl={article.heroImageUrl}
             altText={cover?.altText ?? null}
             remaining={Math.max(0, 5 - article.aiImageRegenerationCount)}
-            canEdit={context.member?.role === "admin"}
+            canEdit={canEdit}
             available={images.available()}
             published={Boolean(article.publishedUrl)}
           />
@@ -190,9 +243,11 @@ export default async function ArticlePage({ params }: PageProps<"/[locale]/dashb
           </Panel>
 
           <div className="grid grid-cols-2 gap-2">
-            <PublishButton articleId={article.id} published={Boolean(article.publishedUrl)} />
+            <PublishButton articleId={article.id} published={Boolean(article.publishedUrl)} canEdit={canEdit} />
             <ArticleExportMenu articleId={article.id} />
           </div>
+
+          {canEdit && !row.regenerating && <ArticleFeedback articleId={article.id} alreadyGiven={article.isHappyFeedback !== null} alternatives={alternatives} canRegenerate={Boolean(row.planItemId)} />}
         </aside>
       </div>
     </>
