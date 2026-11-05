@@ -311,7 +311,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Publishing to BigCommerce and GoHighLevel; Framer plugin, Lovable prompt and Duda RSS feed | `main` d844cbc |
 | Article editor with AI editing and the assistant; feedback, regenerate, new topic, unpublish, re-publish | `main` a712603 |
 | Parity with the reference's current docs and fixes from checking the vendors' docs: writing options, backlink rules, Site health scoring, image/ChatGPT models, platform fixes | `main` 6c92f07 |
-| Content calendar (move, plan a day, sources, statuses, engine banner), topics from AI-assistant citations, AI-reviewed writing and image instructions, plagiarism check | `main` (this commit) |
+| Content calendar (move, plan a day, sources, statuses, engine banner), topics from AI-assistant citations, AI-reviewed writing and image instructions, plagiarism check | `main` 92bf14a |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
