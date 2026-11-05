@@ -15,16 +15,34 @@ export const FIELDS: ManagedCollectionFieldInput[] = [
   { id: "source", name: "Original address", type: "link" },
 ];
 
-/** Plugin data kept on the collection. The key is visible to this Framer project's editors. */
-export const DATA = { apiKey: "apiKey", apiBase: "apiBase", synced: "synced" } as const;
+/**
+ * Plugin data kept on the collection (Framer allows 2 kB per entry): the API address and the time of
+ * the newest article imported. The API key is a secret, so it stays in this browser (localStorage),
+ * as Framer recommends; another editor enters it once on their computer.
+ */
+export const DATA = { apiBase: "apiBase", lastSync: "lastUpdatedAt" } as const;
+const keyStorage = (collection: ManagedCollection) => `vaultio-api-key:${collection.id}`;
+
+export function rememberKey(collection: ManagedCollection, apiKey: string) {
+  try {
+    localStorage.setItem(keyStorage(collection), apiKey);
+  } catch {
+    // Storage blocked: the key is asked for again next time.
+  }
+}
 
 export type Connection = { apiBase: string; apiKey: string };
 export type Progress = { done: number; total: number };
 export type SyncResult = { added: number; updated: number; removed: number; unchanged: number };
 
-export async function storedConnection(collection: ManagedCollection): Promise<Connection | null> {
-  const [apiKey, apiBase] = await Promise.all([collection.getPluginData(DATA.apiKey), collection.getPluginData(DATA.apiBase)]);
-  return apiKey && apiBase ? { apiKey, apiBase } : null;
+export async function storedConnection(collection: ManagedCollection): Promise<{ apiKey: string | null; apiBase: string | null }> {
+  let apiKey: string | null = null;
+  try {
+    apiKey = localStorage.getItem(keyStorage(collection));
+  } catch {
+    apiKey = null;
+  }
+  return { apiKey, apiBase: await collection.getPluginData(DATA.apiBase) };
 }
 
 function itemOf(article: Article, usedSlugs: Set<string>): ManagedCollectionItemInput {
@@ -57,14 +75,9 @@ export async function syncArticles(collection: ManagedCollection, connection: Co
   await collection.setFields(FIELDS);
   const summaries = await listPublished(connection.apiBase, connection.apiKey);
   const existing = new Set(await collection.getItemIds());
-  let synced: Record<string, string> = {};
-  try {
-    synced = JSON.parse((await collection.getPluginData(DATA.synced)) ?? "{}") as Record<string, string>;
-  } catch {
-    synced = {};
-  }
-
-  const stale = summaries.filter((summary) => !existing.has(String(summary.id)) || synced[summary.id] !== summary.updated_at);
+  // Articles changed since the newest one imported last time, and any not in the collection yet.
+  const lastSync = (await collection.getPluginData(DATA.lastSync)) ?? "";
+  const stale = summaries.filter((summary) => !existing.has(String(summary.id)) || summary.updated_at > lastSync);
   const usedSlugs = new Set(summaries.filter((summary) => !stale.includes(summary)).map((summary) => summary.slug));
   const items: ManagedCollectionItemInput[] = [];
   const gone = new Set<string>();
@@ -85,9 +98,8 @@ export async function syncArticles(collection: ManagedCollection, connection: Co
   // Newest first, like the blog.
   await collection.setItemOrder(summaries.map((summary) => String(summary.id)).filter((id) => live.has(id)));
 
-  const next = Object.fromEntries(summaries.filter((summary) => live.has(String(summary.id))).map((summary) => [summary.id, summary.updated_at]));
-  // A very large blog may not fit in plugin data; then the next sync fetches every article again.
-  await collection.setPluginData(DATA.synced, JSON.stringify(next)).catch(() => undefined);
+  const newest = summaries.reduce((latest, summary) => (summary.updated_at > latest ? summary.updated_at : latest), lastSync);
+  if (newest) await collection.setPluginData(DATA.lastSync, newest);
 
   const added = stale.filter((summary) => !existing.has(String(summary.id)) && live.has(String(summary.id))).length;
   const updated = stale.filter((summary) => existing.has(String(summary.id)) && live.has(String(summary.id))).length;

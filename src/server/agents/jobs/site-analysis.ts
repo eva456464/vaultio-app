@@ -96,11 +96,13 @@ function pageIssues(facts: PageFacts, status: number, ms: number, isHome: boolea
     add("http_error", "high", `The page returns HTTP ${status}.`, "Fix the page or redirect it to a working URL.");
     return issues;
   }
-  if (!facts.title) add("missing_title", "high", "The page has no title tag.", "Add a unique, descriptive title of 30–60 characters.");
-  else if (facts.title.length > 65) add("long_title", "low", `The title is ${facts.title.length} characters and may be cut off in results.`, "Shorten the title to about 60 characters.");
-  else if (facts.title.length < 15) add("short_title", "low", "The title is very short.", "Describe the page's topic in 30–60 characters.");
-  if (!facts.metaDescription) add("missing_meta_description", "medium", "The page has no meta description.", "Add a 120–160 character summary of the page.");
-  else if (facts.metaDescription.length > 170) add("long_meta_description", "low", "The meta description is longer than 160 characters.", "Trim the meta description to about 155 characters.");
+  // Titles of 45–60 characters and descriptions of 150–160 show in full and use the space well.
+  if (!facts.title) add("missing_title", "high", "The page has no title tag.", "Add a unique, descriptive title of 45–60 characters.");
+  else if (facts.title.length > 60) add("long_title", "low", `The title is ${facts.title.length} characters and may be cut off in results.`, "Shorten the title to 45–60 characters.");
+  else if (facts.title.length < 45) add("short_title", "low", `The title is only ${facts.title.length} characters.`, "Describe the page's topic in 45–60 characters.");
+  if (!facts.metaDescription) add("missing_meta_description", "medium", "The page has no meta description.", "Add a 150–160 character summary of the page.");
+  else if (facts.metaDescription.length > 160) add("long_meta_description", "low", `The meta description is ${facts.metaDescription.length} characters, more than 160.`, "Trim the meta description to 150–160 characters.");
+  else if (facts.metaDescription.length < 150) add("short_meta_description", "low", `The meta description is only ${facts.metaDescription.length} characters.`, "Expand the meta description to 150–160 characters.");
   if (facts.h1s.length === 0) add("missing_h1", "medium", "The page has no H1 heading.", "Add one H1 that states the page's main topic.");
   else if (facts.h1s.length > 1) add("multiple_h1", "low", `The page has ${facts.h1s.length} H1 headings.`, "Keep a single H1 and use H2/H3 for sections.");
   if (facts.imagesMissingAlt > 0) add("images_missing_alt", facts.imagesMissingAlt > 3 ? "medium" : "low", `${facts.imagesMissingAlt} of ${facts.imagesTotal} images have no alt text.`, "Describe each meaningful image in its alt attribute.");
@@ -205,7 +207,11 @@ export async function siteHealthAudit({ site }: JobContext) {
         averagePageSpeed,
         llmOptimizationScore,
         technicalSeoScore,
-        overallScore: Math.round(averageGeoScore * 0.4 + technicalSeoScore * 0.3 + llmOptimizationScore * 0.3),
+        // Health score: page speed 20%, LLM optimization 40%, technical SEO 40% (without a speed reading, the other two 50/50).
+        overallScore:
+          averagePageSpeed === null
+            ? Math.round(llmOptimizationScore * 0.5 + technicalSeoScore * 0.5)
+            : Math.round(averagePageSpeed * 0.2 + llmOptimizationScore * 0.4 + technicalSeoScore * 0.4),
         robotsTxt: { status: robotsOk ? "ok" : "missing" },
         sitemap: { status: sitemapOk ? "ok" : "missing" },
         llmsTxt: { status: llmsOk ? "ok" : "missing" },

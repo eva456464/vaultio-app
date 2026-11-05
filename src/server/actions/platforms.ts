@@ -13,7 +13,7 @@ import { requestOrigin } from "../invites";
 import { dudaFeedUrl } from "../publishing/feeds";
 import { normalizeStoreHash, verifyBigCommerce, verifyWebdav } from "../publishing/platforms/bigcommerce";
 import type { PublishMode } from "../publishing/platforms/common";
-import { verifyGhost } from "../publishing/platforms/ghost";
+import { findGhostAuthor, verifyGhost } from "../publishing/platforms/ghost";
 import { inspectGhl, type GhlChoice } from "../publishing/platforms/gohighlevel";
 import { inspectShopify, normalizeShop, type ShopifyChoice, type ShopifyCredentials } from "../publishing/platforms/shopify";
 import { listWebflow, mapWebflowFields, type WebflowChoice } from "../publishing/platforms/webflow";
@@ -58,7 +58,12 @@ const httpsUrl = z
 
 // ------------------------------------------------------------------ Ghost
 
-const ghostSchema = z.object({ siteUrl: httpsUrl, adminKey: z.string().trim().regex(/^[0-9a-f]{12,}:[0-9a-f]{32,}$/i, "Paste the Admin API key (it looks like 6489…:a1b2…)"), mode });
+const ghostSchema = z.object({
+  siteUrl: httpsUrl,
+  adminKey: z.string().trim().regex(/^[0-9a-f]{12,}:[0-9a-f]{32,}$/i, "Paste the Admin API key (it looks like 6489…:a1b2…)"),
+  authorEmail: z.union([z.literal(""), z.string().trim().email("Enter the email of a Ghost staff user")]).optional(),
+  mode,
+});
 
 export async function connectGhost(input: z.input<typeof ghostSchema>): Promise<Result> {
   const site = await requireAdminSite();
@@ -66,7 +71,14 @@ export async function connectGhost(input: z.input<typeof ghostSchema>): Promise<
   if (!parsed.success) return { error: parsed.error.issues[0]!.message };
   const check = await verifyGhost(parsed.data.siteUrl, parsed.data.adminKey);
   if (!check.ok) return { error: check.error };
-  await store(site.id, "ghost", { siteUrl: parsed.data.siteUrl, mode: parsed.data.mode, siteTitle: check.siteTitle }, { adminKey: parsed.data.adminKey });
+  const author = parsed.data.authorEmail ? await findGhostAuthor(parsed.data.siteUrl, parsed.data.adminKey, parsed.data.authorEmail) : null;
+  if (author && !author.ok) return { error: author.error };
+  await store(
+    site.id,
+    "ghost",
+    { siteUrl: parsed.data.siteUrl, mode: parsed.data.mode, siteTitle: check.siteTitle, authorId: author?.ok ? author.id : null, authorName: author?.ok ? author.name : null },
+    { adminKey: parsed.data.adminKey },
+  );
   return { ok: true };
 }
 

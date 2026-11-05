@@ -87,7 +87,7 @@ class Handler(BaseHTTPRequestHandler):
         m = re.match(r"^/v6/domains/([^/]+)/config$", path)
         if m:
             ready = m.group(1) in DNS_READY
-            return self.reply({"configuredBy": "CNAME" if ready else None, "misconfigured": not ready, "recommendedCNAME": [{"rank": 1, "value": "mock4f2a.vercel-dns-016.com."}, {"rank": 2, "value": "cname.vercel-dns.com."}]})
+            return self.reply({"configuredBy": "CNAME" if ready else None, "misconfigured": not ready, "recommendedCNAME": [{"rank": 1, "value": "mock4f2a.vercel-dns-016.com."}, {"rank": 2, "value": "cname.vercel-dns.com."}], "recommendedIPv4": [{"rank": 1, "value": ["76.76.21.21"]}]})
         # Resend
         if path == "/domains" and method == "POST":
             name = self.body()["name"]

@@ -15,10 +15,10 @@ async function start() {
 
   // "Sync" from Framer's CMS: run without a panel when the plugin is already set up.
   if (framer.mode === "syncManagedCollection") {
-    const connection = await storedConnection(collection);
-    if (connection) {
+    const stored = await storedConnection(collection);
+    if (stored.apiKey && stored.apiBase) {
       try {
-        const result = await syncArticles(collection, connection);
+        const result = await syncArticles(collection, { apiKey: stored.apiKey, apiBase: stored.apiBase });
         framer.closePlugin(summary(result), { variant: "success" });
       } catch (error) {
         framer.notify(error instanceof Error ? error.message : "The import failed", { variant: "error" });
@@ -35,7 +35,7 @@ async function start() {
       <App collection={collection} initial={connection} onDone={(result) => framer.closePlugin(summary(result), { variant: "success" })} />
     </React.StrictMode>,
   );
-  await framer.showUI({ width: 300, height: connection ? 330 : 390, resizable: false });
+  await framer.showUI({ width: 300, height: connection.apiKey ? 330 : 390, resizable: false });
 }
 
 start().catch((error: unknown) => {

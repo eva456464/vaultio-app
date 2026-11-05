@@ -1,5 +1,5 @@
 /** Article writer: researches today's planned topic and writes a cited, brand-voiced article. */
-import { and, eq, inArray, isNotNull, isNull, ne, sql } from "drizzle-orm";
+import { and, desc, eq, inArray, isNotNull, isNull, ne, sql } from "drizzle-orm";
 import { z } from "zod/v4";
 import { db } from "@/db";
 import {
@@ -22,6 +22,7 @@ import { safeColor } from "@/server/brand";
 import { linkedProducts, productCard, productsBrief, productsForArticle } from "@/server/catalog/articles";
 import { createInfographic } from "@/server/infographics";
 import { linksIn, qualityChecks } from "@/server/articles/checks";
+import { allowedArticleType, asEnglishType, ENGLISH_NAMES, formatInternalLinks, LENGTH_RANGES, RECOMMENDED_TITLES } from "@/lib/writing";
 import { renderArticleHtml } from "@/server/markdown";
 import { publishArticle } from "@/server/publishing/publish";
 import { logActivity } from "../activity";
@@ -42,8 +43,10 @@ export function writingSystemPrompt(site: Site) {
     .map(([key, value]) => `- ${key.replaceAll("_", " ")}: ${value}`)
     .join("\n");
   const rules = [
-    `Write in ${site.selectedLanguage === "en" ? `${site.englishType === "british" ? "British" : "American"} English` : `the language with code "${site.selectedLanguage}"`}.`,
-    `Target length: about ${site.articleLengthTarget} words.`,
+    `Write in ${site.selectedLanguage === "en" ? ENGLISH_NAMES[asEnglishType(site.englishType)] : `the language with code "${site.selectedLanguage}"`}.`,
+    site.articleLength === "dynamic"
+      ? "Length: whatever the search intent needs to be the most complete answer, matching or beating the depth of the pages that rank (usually 1,200–2,800 words)."
+      : `Length: ${LENGTH_RANGES[site.articleLength].join("–")} words.`,
     "Answer first: the opening paragraph directly answers the main question in 2–3 sentences, then expands.",
     site.includeTldr
       ? site.summaryStyle === "key_takeaways"
@@ -51,8 +54,10 @@ export function writingSystemPrompt(site: Site) {
         : 'After the opening paragraph add "**TL;DR:**" followed by 3–5 bullet points.'
       : null,
     "Structure with ## and ### headings (no # heading; the title is set separately). Use lists and a markdown table where they make the content easier to scan.",
-    "Every statistic, figure or factual claim that is not common knowledge must come from the research notes and be linked inline to its source URL with a markdown link. Never invent numbers, studies, quotes or sources.",
-    site.includeInternalLinks ? "Link naturally to 3–6 of the listed internal pages where they genuinely help the reader, using descriptive anchor text. Use only the listed URLs." : null,
+    site.includeCitation
+      ? "Every statistic, figure or factual claim that is not common knowledge must come from the research notes and be linked inline to its source URL with a markdown link. Never invent numbers, studies, quotes or sources."
+      : "Base every statistic, figure or factual claim on the research notes, but don't link to external websites. Never invent numbers, studies, quotes or sources.",
+    site.includeInternalLinks ? "Link naturally to up to 10 of the listed internal pages (aim for at least 5 when they fit) where they genuinely help the reader, using descriptive anchor text. Use only the listed URLs." : null,
     site.includePerspective ? `Write from the perspective of ${site.brandName ?? "the business"} where it adds credibility, without turning the article into an advert.` : null,
     "Mention the business and its offers at most twice, where they are a natural next step for the reader.",
     site.mentionCompetitorsIfRelevant ? null : "Do not name competitors.",
@@ -106,6 +111,23 @@ type Article = typeof articles.$inferSelect;
 /** Rewriting an existing article (from the article page) instead of writing a new one. */
 type Rewrite = { article: Article; instructions: string | null };
 
+/** Up to three of the website's published articles closest to this topic (shared words in the title). */
+async function recommendedReads(site: Site, input: { keyword: string; title: string; exclude?: number }) {
+  const words = (text: string) => new Set(text.toLowerCase().split(/[^\p{L}\p{N}]+/u).filter((word) => word.length > 3));
+  const topic = words(`${input.keyword} ${input.title}`);
+  const published = await db
+    .select({ id: articles.id, title: articles.title, url: articles.publishedUrl })
+    .from(articles)
+    .where(and(eq(articles.orgWebsiteId, site.id), isNotNull(articles.publishedUrl)))
+    .orderBy(desc(articles.publishedAt))
+    .limit(200);
+  return published
+    .filter((entry) => entry.id !== input.exclude && entry.url)
+    .map((entry) => ({ title: entry.title, url: entry.url!, score: [...words(entry.title)].filter((word) => topic.has(word)).length }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3);
+}
+
 export async function writeArticle({ site, runDate }: JobContext) {
   const [item] = await planRows()
     .where(and(eq(contentPlanItems.orgWebsiteId, site.id), eq(contentPlanItems.scheduledFor, runDate), isNull(contentPlanItems.articleId)))
@@ -143,7 +165,7 @@ export async function regenerateArticle({ site, runDate }: JobContext) {
 async function writeFor(site: Site, item: PlanRow, runDate: string, rewrite?: Rewrite) {
   const keyword = item.keyword;
   const instructions = [item.plan.userInstruction, rewrite?.instructions ? `Changes requested for this new version of the article: ${rewrite.instructions}` : null].filter(Boolean).join("\n");
-  const articleType = (item.plan.articleType ?? "guide_explainer") as ArticleType;
+  const articleType = allowedArticleType((item.plan.articleType ?? "guide_explainer") as ArticleType, site.allowedArticleTypes);
   await db.update(contentPlanItems).set({ generationStatus: "generating", updatedAt: new Date() }).where(eq(contentPlanItems.id, item.plan.id));
   await db
     .update(keywordClusters)
@@ -161,7 +183,7 @@ async function writeFor(site: Site, item: PlanRow, runDate: string, rewrite?: Re
   const competingPages = (item.plan.research?.serp ?? []).slice(0, 10).map((r) => `${r.position}. ${r.title} — ${r.url}`).join("\n");
   const research = await ai.research({
     effort: "medium",
-    maxSearches: 6,
+    maxSearches: 10,
     system:
       "You research topics for a business blog. Find authoritative, recent sources (official bodies, standards organisations, industry associations, " +
       "peer-reviewed or reputable publications) and concrete facts and statistics. Report what you found as concise notes, each fact followed by its source URL. " +
@@ -273,14 +295,23 @@ async function writeFor(site: Site, item: PlanRow, runDate: string, rewrite?: Re
   }
   body = placeBlocks(body, blocks);
 
-  // 5. Assemble
+  // 5. Assemble: Sources just before the FAQ, then recommended reads and the disclaimer at the end.
   const origin = new URL(site.url).origin;
-  const citedSources: ResearchSource[] = research.sources.filter((source) => markdownBody.includes(source.url));
+  body = formatInternalLinks(body, site.url, { www: site.useWwwInLinks, trailingSlash: site.useTrailingSlashInLinks });
+  const citedSources: ResearchSource[] = site.includeCitation ? research.sources.filter((source) => markdownBody.includes(source.url)) : [];
+  if (site.includeSourcesSection && citedSources.length) {
+    const sources = `## Sources\n\n${citedSources.map((s) => `- [${s.title}](${s.url})`).join("\n")}\n\n`;
+    const faq = body.search(/^##\s+(faq|frequently asked)/im);
+    body = faq >= 0 ? `${body.slice(0, faq)}${sources}${body.slice(faq)}` : `${body}\n\n${sources.trim()}`;
+  }
+  const recommended = site.includeRecommendedReads ? await recommendedReads(site, { keyword, title: meta.title, exclude: rewrite?.article.id }) : [];
   const appendix = [
-    site.includeSourcesSection && citedSources.length ? `\n\n## Sources\n\n${citedSources.map((s) => `- [${s.title}](${s.url})`).join("\n")}` : "",
+    recommended.length
+      ? `\n\n## ${RECOMMENDED_TITLES[site.selectedLanguage.split("-")[0]!] ?? RECOMMENDED_TITLES.en}\n\n${recommended.map((entry) => `- [${entry.title}](${entry.url})`).join("\n")}`
+      : "",
     site.articleDisclaimer ? `\n\n---\n\n*${site.articleDisclaimer}*` : "",
   ].join("");
-  const markdown = `${body}${appendix}\n`;
+  const markdown = `${body.trim()}${appendix}\n`;
   const links = linksIn(markdownBody);
   const internal = links.filter((url) => url.startsWith(origin)).length;
   const external = links.length - internal;
@@ -316,7 +347,7 @@ async function writeFor(site: Site, item: PlanRow, runDate: string, rewrite?: Re
       languageCode: site.selectedLanguage,
       articleType,
       content: markdown,
-      htmlContent: renderArticleHtml(markdown, { blocks, accentColor: safeColor(site.brandColor) }),
+      htmlContent: renderArticleHtml(markdown, { blocks, accentColor: safeColor(site.brandColor), toc: site.includeToc ? site.selectedLanguage : null }),
       heroImageUrl: hero?.url ?? null,
       media,
       blocks,

@@ -85,7 +85,9 @@ export const userSettings = pgTable("user_settings", {
 });
 
 export type WhitelabelEmailRecord = {
-  record: "DKIM" | "SPF" | "MX";
+  record: "DKIM" | "SPF" | "MX" | "Tracking";
+  /** MX records only. */
+  priority?: number;
   name: string;
   value: string;
   type: string;
@@ -175,6 +177,9 @@ export type CtaSettings = {
 export type OnboardingStatus = "not_started" | "in_progress" | "completed";
 
 /** A customer website in one language. Called a "client" in agency mode. */
+export const EXCHANGE_CATEGORIES = ["standard", "cbd", "adult", "gambling", "excluded"] as const;
+export type ExchangeCategory = (typeof EXCHANGE_CATEGORIES)[number];
+
 export const orgWebsites = pgTable(
   "org_websites",
   {
@@ -223,6 +228,10 @@ export const orgWebsites = pgTable(
     articleDisclaimer: text("article_disclaimer"),
     englishType: text("english_type").notNull().default("american"),
     articleLengthTarget: integer("article_length_target").notNull().default(2000),
+    /** "dynamic" adapts to search intent; the others are word ranges (see ARTICLE_LENGTHS). */
+    articleLength: text("article_length").$type<"dynamic" | "short" | "medium" | "long">().notNull().default("dynamic"),
+    /** Article types the planner may choose; empty means all (automatic, by search intent). */
+    allowedArticleTypes: jsonb("allowed_article_types").$type<string[]>().notNull().default([]),
     authorName: text("author_name"),
     includePerspective: boolean("include_perspective").notNull().default(true),
     includeToc: boolean("include_toc").notNull().default(true),
@@ -264,6 +273,8 @@ export const orgWebsites = pgTable(
 
     // Backlinks
     backlinksEnabled: boolean("backlinks_enabled").notNull().default(true),
+    /** Exchange niche: CBD, adult and gambling sites only exchange within their category; excluded niches don't take part. Set by the brand analysis. */
+    exchangeCategory: text("exchange_category").$type<ExchangeCategory>().notNull().default("standard"),
     domainRating: integer("domain_rating"),
     minBacklinkGiverDomainRating: integer("min_backlink_giver_domain_rating"),
 

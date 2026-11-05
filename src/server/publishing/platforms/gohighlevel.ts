@@ -81,10 +81,11 @@ export async function deliverGhl(config: GhlConfig, credentials: GhlCredentials,
       publishedAt,
     };
     const result = previous?.postId
-      ? await call<{ data?: GhlPost; blogPost?: GhlPost } & GhlPost & GhlError>(`${API()}/blogs/posts/${previous.postId}`, { method: "PUT", headers: headers(credentials.token), body: JSON.stringify(fields) })
-      : await call<{ data?: GhlPost; blogPost?: GhlPost } & GhlPost & GhlError>(`${API()}/blogs/posts`, { method: "POST", headers: headers(credentials.token), body: JSON.stringify(fields) });
+      ? await call<{ data?: GhlPost; blogPost?: GhlPost; updatedBlogPost?: GhlPost } & GhlPost & GhlError>(`${API()}/blogs/posts/${previous.postId}`, { method: "PUT", headers: headers(credentials.token), body: JSON.stringify(fields) })
+      : await call<{ data?: GhlPost; blogPost?: GhlPost; updatedBlogPost?: GhlPost } & GhlPost & GhlError>(`${API()}/blogs/posts`, { method: "POST", headers: headers(credentials.token), body: JSON.stringify(fields) });
     if (result.status === 404 && previous?.postId) return deliverGhl(config, credentials, post);
-    const saved = result.body?.data ?? result.body?.blogPost ?? result.body;
+    // Create answers with the post under "data" (or "blogPost"), update under "updatedBlogPost".
+    const saved = result.body?.updatedBlogPost ?? result.body?.data ?? result.body?.blogPost ?? result.body;
     const postId = saved?._id ?? saved?.id ?? previous?.postId;
     if (result.status >= 400 || !postId) return { ok: false, error: errorOf(result.body, result.status) };
     // GoHighLevel doesn't return the post's public address (it depends on the funnel or website the blog is on).

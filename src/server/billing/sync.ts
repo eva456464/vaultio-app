@@ -174,8 +174,13 @@ export async function handleStripeEvent(event: Stripe.Event) {
     case "customer.subscription.paused":
     case "customer.subscription.resumed":
     case "customer.subscription.trial_will_end":
+    // Plan changes made with "pending if incomplete": applied once paid, dropped if never paid.
+    case "customer.subscription.pending_update_applied":
+    case "customer.subscription.pending_update_expired":
       await syncSubscription(event.data.object);
       return;
+    case "invoice.payment_action_required":
+    case "invoice.finalization_failed":
     case "invoice.created":
     case "invoice.finalized":
     case "invoice.paid":

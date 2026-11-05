@@ -45,7 +45,33 @@ function blockHtml(block: ArticleBlock, accent: string) {
  * Markdown to sanitized HTML for articles and AI answers. With `blocks`, the article's marked
  * CTA and video sections become cards; without them they render as plain markdown.
  */
-export function renderArticleHtml(markdown: string, options: { blocks?: ArticleBlock[]; accentColor?: string } = {}) {
+/** "Table of contents" in the article's language (English when not listed). */
+const TOC_TITLES: Record<string, string> = {
+  en: "Table of contents", es: "Índice", fr: "Sommaire", de: "Inhaltsverzeichnis", nl: "Inhoudsopgave", pt: "Índice", it: "Indice", pl: "Spis treści",
+  sv: "Innehåll", da: "Indhold", no: "Innhold", fi: "Sisällys", cs: "Obsah", sk: "Obsah", ro: "Cuprins", hu: "Tartalomjegyzék", tr: "İçindekiler",
+  el: "Περιεχόμενα", ru: "Содержание", uk: "Зміст", ja: "目次", ko: "목차", zh: "目录", ar: "المحتويات", he: "תוכן העניינים", hi: "विषय-सूची",
+};
+
+/** Adds ids to the H2 headings and a linked list of them before the first one. */
+function withTableOfContents(html: string, language: string) {
+  const used = new Set<string>();
+  const entries: { id: string; text: string }[] = [];
+  const out = html.replace(/<h2>([\s\S]*?)<\/h2>/g, (_whole, inner: string) => {
+    const text = inner.replace(/<[^>]+>/g, "").trim();
+    let id = text.toLowerCase().replace(/&[a-z#0-9]+;/g, "").replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "") || "section";
+    while (used.has(id)) id = `${id}-2`;
+    used.add(id);
+    entries.push({ id, text });
+    return `<h2 id="${id}">${inner}</h2>`;
+  });
+  if (entries.length < 3) return html;
+  const title = TOC_TITLES[language.split("-")[0]!.toLowerCase()] ?? TOC_TITLES.en;
+  const nav = `<nav class="vaultio-toc" aria-label="${esc(title)}"><p><strong>${esc(title)}</strong></p><ol>${entries.map((entry) => `<li><a href="#${entry.id}">${entry.text}</a></li>`).join("")}</ol></nav>\n`;
+  const first = out.indexOf('<h2 id="');
+  return `${out.slice(0, first)}${nav}${out.slice(first)}`;
+}
+
+export function renderArticleHtml(markdown: string, options: { blocks?: ArticleBlock[]; accentColor?: string; toc?: string | null } = {}) {
   const blocks = options.blocks ?? [];
   const prepared = blocks.length ? markdown.replace(BLOCK_MARKER, (whole, index: string) => (blocks[Number(index)] ? `\n\nVAULTIOBLOCK${index}X\n\n` : whole)) : markdown;
   const html = marked.parse(prepared, { async: false, gfm: true }) as string;
@@ -57,5 +83,6 @@ export function renderArticleHtml(markdown: string, options: { blocks?: ArticleB
     transformTags: { img: (tagName, attribs) => ({ tagName, attribs: { ...attribs, loading: "lazy" } }) },
   }).replace(CAPTIONED_IMAGE, (_whole, before: string, caption: string, after: string) => `<figure><img${before}${after} /><figcaption>${caption}</figcaption></figure>`);
   const accent = options.accentColor && /^#[0-9a-f]{3,8}$/i.test(options.accentColor) ? options.accentColor : "#111827";
-  return blocks.length ? clean.replace(BLOCK_TOKEN, (whole, index: string) => (blocks[Number(index)] ? blockHtml(blocks[Number(index)]!, accent) : whole)) : clean;
+  const withCards = blocks.length ? clean.replace(BLOCK_TOKEN, (whole, index: string) => (blocks[Number(index)] ? blockHtml(blocks[Number(index)]!, accent) : whole)) : clean;
+  return options.toc ? withTableOfContents(withCards, options.toc) : withCards;
 }

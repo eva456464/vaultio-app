@@ -222,10 +222,14 @@ minus 25 (or its minimum giver rating); a site whose balance is not positive rec
 article is written, partner pages from up to 15 eligible sites are offered to Claude, which may add
 at most two links by rewriting one sentence each; an edit is kept only if the sentence exists, carries
 exactly that link and reads the same without it. Repeats to the same site within 30 days and links
-back to a site that linked here in the last 90 days are avoided.
+back to a site that linked here in the last 90 days are avoided. Sites still on a free trial receive
+no links. Each site has an exchange category from the brand analysis (`org_websites.exchange_category`):
+CBD, adult and gambling sites exchange only within their category; illegal drugs, pharma/supplements
+and crypto ("excluded") don't take part, and the Backlinks page says so.
 
 `backlinkCheck` (daily, per giving site) fetches each published article and finds each link:
-a live dofollow link earns the giver its domain rating (max 25) and costs the receiver the giver's
+a live dofollow link earns the giver its domain rating (max 20, or 10 for a giver on a platform
+address such as *.myshopify.com) and costs the receiver the giver's
 rating; a nofollow or missing link earns nothing, and a credited link that turns nofollow or
 disappears is reversed. Receivers see "Agent got you a backlink" the first time a link goes live.
 Buying credits needs billing and isn't built.

@@ -16,18 +16,30 @@ async function askClaude(question: string): Promise<AssistantAnswer> {
   return { provider: "anthropic", model: result.model, answer: result.notes, sources: result.sources };
 }
 
+/**
+ * ChatGPT with web search, as people use it: the Responses API with the web_search tool. Sources are
+ * the url_citation annotations on the answer (plus the searched pages when listed).
+ */
 async function askChatGPT(question: string): Promise<AssistantAnswer> {
-  const model = process.env.OPENAI_VISIBILITY_MODEL ?? "gpt-4o-mini";
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+  const model = process.env.OPENAI_VISIBILITY_MODEL ?? "gpt-5.4-mini";
+  const base = (process.env.OPENAI_API_BASE ?? "https://api.openai.com/v1").replace(/\/$/, "");
+  const response = await fetch(`${base}/responses`, {
     method: "POST",
     headers: { authorization: `Bearer ${process.env.OPENAI_API_KEY}`, "content-type": "application/json" },
-    body: JSON.stringify({ model, messages: [{ role: "user", content: question }] }),
-    signal: AbortSignal.timeout(120_000),
+    body: JSON.stringify({ model, input: question, tools: [{ type: "web_search" }], include: ["web_search_call.action.sources"] }),
+    signal: AbortSignal.timeout(180_000),
   });
-  if (!response.ok) throw new Error(`OpenAI returned HTTP ${response.status}`);
-  const json = (await response.json()) as { choices?: { message?: { content?: string } }[] };
-  const answer = json.choices?.[0]?.message?.content ?? "";
-  return { provider: "openai", model, answer, sources: urlsIn(answer) };
+  const json = (await response.json().catch(() => ({}))) as {
+    output?: { type?: string; content?: { type?: string; text?: string; annotations?: { type?: string; url?: string; title?: string }[] }[]; action?: { sources?: { url?: string; title?: string }[] } }[];
+    error?: { message?: string };
+  };
+  if (!response.ok) throw new Error(`OpenAI: ${json.error?.message ?? `HTTP ${response.status}`}`);
+  const parts = (json.output ?? []).flatMap((item) => (item.type === "message" ? (item.content ?? []) : [])).filter((part) => part.type === "output_text");
+  const answer = parts.map((part) => part.text ?? "").join("\n");
+  const cited = parts.flatMap((part) => part.annotations ?? []).filter((note) => note.type === "url_citation" && note.url).map((note) => ({ url: note.url!, title: note.title ?? "" }));
+  const searched = (json.output ?? []).flatMap((item) => item.action?.sources ?? []).filter((source) => source.url).map((source) => ({ url: source.url!, title: source.title ?? "" }));
+  const sources = [...cited, ...searched].filter((source, index, all) => all.findIndex((other) => other.url === source.url) === index);
+  return { provider: "openai", model, answer, sources: sources.length ? sources : urlsIn(answer) };
 }
 
 async function askGemini(question: string): Promise<AssistantAnswer> {

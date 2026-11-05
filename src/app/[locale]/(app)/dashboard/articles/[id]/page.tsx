@@ -112,7 +112,7 @@ export default async function ArticlePage({ params, searchParams }: PageProps<"/
             // eslint-disable-next-line @next/next/no-img-element
             <img src={article.heroImageUrl} alt={cover?.altText ?? ""} className="mt-8 aspect-[16/9] w-full rounded-2xl object-cover" />
           )}
-          {site.includeToc && toc.length > 2 && (
+          {site.includeToc && toc.length > 2 && !html.includes("vaultio-toc") && (
             <nav className="mt-8 rounded-2xl bg-canvas p-5">
               <p className="text-sm font-semibold text-ink">{t("toc")}</p>
               <ol className="mt-2 space-y-1.5 text-sm">

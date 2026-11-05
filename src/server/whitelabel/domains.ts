@@ -60,7 +60,14 @@ async function vercel<T>(path: string, init: RequestInit = {}): Promise<{ status
 }
 
 type VercelProjectDomain = { name?: string; verified?: boolean; verification?: { type: string; domain: string; value: string; reason?: string }[]; error?: { code?: string; message?: string } };
-type VercelDomainConfig = { misconfigured?: boolean; recommendedCNAME?: { rank: number; value: string }[]; cnames?: string[] };
+type VercelDomainConfig = { misconfigured?: boolean; recommendedCNAME?: { rank: number; value: string }[]; recommendedIPv4?: { rank: number; value: string[] }[]; cnames?: string[] };
+
+/** A root domain (example.com, example.co.uk) can't have a CNAME record: it points with A records instead. */
+export function isApexDomain(domain: string) {
+  const labels = domain.toLowerCase().split(".");
+  if (labels.length === 2) return true;
+  return labels.length === 3 && /^(co|com|org|net|ac|gov|edu|ltd|plc)$/.test(labels[1]!) && labels[2]!.length === 2;
+}
 
 const project = () => encodeURIComponent(process.env.VERCEL_PROJECT_ID!);
 
@@ -75,8 +82,9 @@ async function checkOnVercel(domain: string): Promise<HostingCheck> {
   }
   const config = await vercel<VercelDomainConfig>(`/v6/domains/${encodeURIComponent(domain)}/config`);
   const cname = [...(config.body.recommendedCNAME ?? [])].sort((a, b) => a.rank - b.rank)[0]?.value ?? "cname.vercel-dns.com.";
+  const ips = [...(config.body.recommendedIPv4 ?? [])].sort((a, b) => a.rank - b.rank)[0]?.value ?? ["76.76.21.21"];
   const records: WhitelabelDnsRecord[] = [
-    { type: "CNAME", name: domain, value: cname },
+    ...(isApexDomain(domain) ? ips.map((ip) => ({ type: "A", name: domain, value: ip })) : [{ type: "CNAME", name: domain, value: cname }]),
     ...(current.body.verification ?? []).map((item) => ({ type: item.type, name: item.domain, value: item.value })),
   ];
   const verified = Boolean(current.body.verified) && config.body.misconfigured === false;
@@ -91,8 +99,11 @@ const manualTarget = () => trimDot(process.env.CUSTOM_DOMAIN_CNAME || hostOf(pro
 export async function connectHostingDomain(domain: string): Promise<HostingCheck> {
   if (vercelConfigured()) {
     const added = await vercel<VercelProjectDomain>(`/v10/projects/${project()}/domains`, { method: "POST", body: JSON.stringify({ name: domain }) });
-    // 409: already on this project (e.g. saved again) — carry on and check it.
-    if (added.status >= 400 && added.status !== 409) return { verified: false, records: [], error: added.body.error?.message ?? `Vercel returned HTTP ${added.status}` };
+    if (added.status === 409) {
+      // 409 means the domain is in use: fine if it's on this project already (saved again), not if another project has it.
+      const ours = await vercel<VercelProjectDomain>(`/v9/projects/${project()}/domains/${encodeURIComponent(domain)}`);
+      if (ours.status >= 400) return { verified: false, records: [], error: added.body.error?.message ?? "This domain is already used by another Vercel project. Remove it there first." };
+    } else if (added.status >= 400) return { verified: false, records: [], error: added.body.error?.message ?? `Vercel returned HTTP ${added.status}` };
   }
   return checkHostingDomain(domain);
 }
@@ -135,7 +146,7 @@ type ResendDomain = { id?: string; name?: string; status?: string; records?: (Wh
 const toEmailDomain = (domain: ResendDomain): EmailDomain => ({
   id: domain.id!,
   status: domain.status ?? "not_started",
-  records: (domain.records ?? []).map((record) => ({ record: record.record, name: record.name, value: record.value, type: record.type, status: record.status, ttl: record.ttl })),
+  records: (domain.records ?? []).map((record) => ({ record: record.record, name: record.name, value: record.value, type: record.type, status: record.status, ttl: record.ttl, ...(record.priority !== undefined ? { priority: record.priority } : {}) })),
 });
 
 export async function createEmailDomain(name: string): Promise<EmailDomain> {

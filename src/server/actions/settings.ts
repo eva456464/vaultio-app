@@ -3,6 +3,7 @@
 import { and, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
+import { ARTICLE_LENGTHS, ENGLISH_TYPES, SELECTABLE_ARTICLE_TYPES } from "@/lib/writing";
 import { db } from "@/db";
 import { competitors, orgWebsites, user } from "@/db/schema";
 import { BODY_STYLES, COVER_STYLES, INFOGRAPHIC_STYLES } from "@/lib/visuals";
@@ -95,8 +96,13 @@ export async function removeCompetitor(id: number) {
 
 const writingSchema = z.object({
   rules: z.array(z.string().trim().min(1).max(300)).max(40),
-  englishType: z.enum(["american", "british"]),
-  articleLengthTarget: z.number().int().min(800).max(5000),
+  englishType: z.enum(ENGLISH_TYPES),
+  articleLength: z.enum(ARTICLE_LENGTHS),
+  allowedArticleTypes: z.array(z.enum(SELECTABLE_ARTICLE_TYPES)).min(1, "Allow at least one article type"),
+  includeRecommendedReads: z.boolean(),
+  includeCitation: z.boolean(),
+  useWwwInLinks: z.boolean(),
+  useTrailingSlashInLinks: z.boolean(),
   includeTldr: z.boolean(),
   summaryStyle: z.enum(["tldr", "key_takeaways"]),
   includeToc: z.boolean(),
@@ -114,11 +120,13 @@ export async function updateWriting(input: z.input<typeof writingSchema>): Promi
   const site = await requireAdminSite();
   const parsed = writingSchema.safeParse(input);
   if (!parsed.success) return fail(parsed.error);
-  const { rules, authorName, articleDisclaimer, ...rest } = parsed.data;
+  const { rules, authorName, articleDisclaimer, allowedArticleTypes, ...rest } = parsed.data;
   await db
     .update(orgWebsites)
     .set({
       ...rest,
+      // All four allowed = automatic (the planner picks by search intent).
+      allowedArticleTypes: allowedArticleTypes.length === SELECTABLE_ARTICLE_TYPES.length ? [] : allowedArticleTypes,
       articleInstructions: rules.length ? rules.join("\n") : null,
       authorName: authorName || null,
       articleDisclaimer: articleDisclaimer || null,

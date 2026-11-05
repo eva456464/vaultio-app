@@ -68,7 +68,7 @@ def shopify_node(product):
         "onlineStoreUrl": f"https://shop.sunnyroofing.test/products/{product['handle']}" if live else None,
         "description": product["description"], "variantsCount": {"count": product["variants"]},
         "priceRangeV2": {"minVariantPrice": {"amount": product["price"], "currencyCode": "USD"}},
-        "featuredImage": {"url": f"{BASE}/images/{product['image']}.png"} if product["image"] else None,
+        "featuredMedia": {"preview": {"image": {"url": f"{BASE}/images/{product['image']}.png"}}} if product["image"] else None,
     }
 
 

@@ -43,9 +43,10 @@ function CopyValue({ value }: { value: string }) {
   );
 }
 
-export function Records({ records, intro }: { records: { type: string; name: string; value: string; status?: string }[]; intro: string }) {
+export function Records({ records, intro }: { records: { type: string; name: string; value: string; status?: string; priority?: number }[]; intro: string }) {
   const t = useTranslations("settings.whiteLabel");
   const withStatus = records.some((record) => record.status);
+  const withPriority = records.some((record) => record.priority !== undefined);
   return (
     <div className="mt-3 rounded-xl border border-line bg-canvas p-3">
       <p className="mb-2 text-xs text-ink-secondary">{intro}</p>
@@ -56,6 +57,7 @@ export function Records({ records, intro }: { records: { type: string; name: str
               <th className="py-1.5 pr-3 font-medium">{t("columns.type")}</th>
               <th className="py-1.5 pr-3 font-medium">{t("columns.name")}</th>
               <th className="py-1.5 pr-3 font-medium">{t("columns.value")}</th>
+              {withPriority && <th className="py-1.5 pr-3 font-medium">{t("columns.priority")}</th>}
               {withStatus && <th className="py-1.5 font-medium">{t("columns.status")}</th>}
             </tr>
           </thead>
@@ -75,6 +77,7 @@ export function Records({ records, intro }: { records: { type: string; name: str
                     <CopyValue value={record.value} />
                   </span>
                 </td>
+                {withPriority && <td className="py-2 pr-3">{record.priority ?? ""}</td>}
                 {withStatus && <td className="py-2 font-sans">{record.status === "verified" ? <StatusBadge state="verified" /> : <StatusBadge state="pending" />}</td>}
               </tr>
             ))}

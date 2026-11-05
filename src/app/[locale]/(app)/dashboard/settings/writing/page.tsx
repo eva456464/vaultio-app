@@ -1,4 +1,5 @@
-import { WritingForm } from "@/components/settings/sections/writing-form";
+import { WritingForm, type WritingSettings } from "@/components/settings/sections/writing-form";
+import { asEnglishType, SELECTABLE_ARTICLE_TYPES } from "@/lib/writing";
 import { SettingsTitle } from "@/components/settings/settings-title";
 import { getAppContext } from "@/server/context";
 
@@ -14,8 +15,13 @@ export default async function WritingSettingsPage() {
         isEnglish={site.selectedLanguage === "en"}
         initial={{
           rules: (site.articleInstructions ?? "").split("\n").map((rule) => rule.trim()).filter(Boolean),
-          englishType: site.englishType === "british" ? "british" : "american",
-          articleLengthTarget: site.articleLengthTarget,
+          englishType: asEnglishType(site.englishType),
+          articleLength: site.articleLength,
+          allowedArticleTypes: site.allowedArticleTypes.length ? (site.allowedArticleTypes as WritingSettings["allowedArticleTypes"]) : [...SELECTABLE_ARTICLE_TYPES],
+          includeRecommendedReads: site.includeRecommendedReads,
+          includeCitation: site.includeCitation,
+          useWwwInLinks: site.useWwwInLinks,
+          useTrailingSlashInLinks: site.useTrailingSlashInLinks,
           includeTldr: site.includeTldr,
           summaryStyle: site.summaryStyle === "key_takeaways" ? "key_takeaways" : "tldr",
           includeToc: site.includeToc,

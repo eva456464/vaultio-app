@@ -867,7 +867,8 @@
       "images_missing_alt": "Images without alt text",
       "thin_content": "Thin content",
       "missing_structured_data": "No structured data",
-      "invalid_structured_data": "Structured data can't be read"
+      "invalid_structured_data": "Structured data can't be read",
+      "short_meta_description": "Meta description too short"
     },
     "publicFooter": "Site health report by {brand}"
   },
@@ -979,7 +980,9 @@
         "siteUrlHint": "The API URL shown in your Ghost custom integration, e.g. https://yourblog.ghost.io.",
         "adminKey": "Admin API key",
         "adminKeyHint": "In Ghost: Settings → Integrations → Add custom integration, then copy the Admin API key.",
-        "summary": "Publishing to {site}"
+        "summary": "Publishing to {site}",
+        "authorEmail": "Author (optional)",
+        "authorEmailHint": "The email of a Ghost staff user to credit articles to. Leave empty to use the integration's default."
       },
       "webflow": {
         "name": "Webflow",
@@ -1117,7 +1120,7 @@
             "title": "Your RSS feed address",
             "body": "Copy this address. You'll paste it into Duda in the next step.",
             "create": "Create feed address",
-            "tip": "Change limit=10 at the end of the address to show more or fewer articles (up to 100).",
+            "tip": "Change limit=10 at the end of the address to show more or fewer articles (up to 300).",
             "regenerate": "Create a new address",
             "regenerateHint": "A new address turns the old one off. If you already added it to Duda, replace it there.",
             "regenerateConfirm": "Create a new feed address? The current one stops working."
@@ -1351,10 +1354,12 @@
       "englishType": "English type",
       "english": {
         "american": "American",
-        "british": "British"
+        "british": "British",
+        "australian": "Australian/New Zealand",
+        "canadian": "Canadian",
+        "south_african": "South African"
       },
       "length": "Article length",
-      "words": "About {count} words",
       "structure": "What every article includes",
       "tldr": "Summary at the top",
       "summaryStyle": {
@@ -1371,7 +1376,40 @@
       "author": "Author name",
       "authorPlaceholder": "Shown as the article author",
       "disclaimer": "Disclaimer",
-      "disclaimerPlaceholder": "Added at the end of every article (optional)"
+      "disclaimerPlaceholder": "Added at the end of every article (optional)",
+      "lengths": {
+        "dynamic": "Dynamic (adapts to search intent)",
+        "short": "1,200 – 1,600 words",
+        "medium": "1,700 – 2,300 words",
+        "long": "2,400 – 2,800 words"
+      },
+      "recommendedReads": "Recommended reads (links to your related articles)",
+      "citations": "Link to the sources cited",
+      "articleTypes": "Article types",
+      "articleTypesHint": "The types the planner may choose. With all four, it picks by search intent.",
+      "types": {
+        "guide_explainer": {
+          "label": "Explainer",
+          "hint": "Explains a topic, concept or process in depth."
+        },
+        "guide_how_to": {
+          "label": "How-to guide",
+          "hint": "Walks readers through a task step by step."
+        },
+        "listicle_educational": {
+          "label": "Listicle",
+          "hint": "Tips, ideas or examples in a numbered list."
+        },
+        "listicle_comparison": {
+          "label": "Product listicle",
+          "hint": "Compares options so readers can choose, with you first."
+        }
+      },
+      "typesAutomatic": "All types allowed: chosen automatically by search intent.",
+      "typesCount": "{count, plural, one {# type allowed} other {# types allowed}}",
+      "linkFormat": "Internal link format",
+      "useWww": "Add “www” to links to your pages",
+      "useTrailingSlash": "Add a trailing slash to links to your pages"
     },
     "schedule": {
       "title": "Schedule",
@@ -1924,7 +1962,8 @@
         "type": "Type",
         "name": "Name",
         "value": "Value",
-        "status": "Status"
+        "status": "Status",
+        "priority": "Priority"
       },
       "copy": "Copy",
       "copied": "Copied",
@@ -2730,7 +2769,7 @@
         ],
         [
           "Earn credits",
-          "When one of your articles gives a live backlink, you earn credits equal to your domain rating, up to 25 per backlink."
+          "When one of your articles gives a live backlink, you earn credits equal to your domain rating, up to 20 per backlink (up to 10 for websites on a platform address such as yourstore.myshopify.com)."
         ],
         [
           "Spend credits",
@@ -2743,7 +2782,15 @@
       ],
       "placementTitle": "Where are backlinks placed?",
       "placement": "Links are added inside new articles published by sites in the network, only where the linked page genuinely helps the reader. They are normal (dofollow) links in the text, and they count once we've seen them live on the page."
-    }
+    },
+    "ineligibleNote": "This website's industry can't take part in the backlink exchange (illegal drugs, pharmaceuticals and supplements, and crypto are excluded), so it doesn't give or receive exchange links.",
+    "categoryNote": "Websites in the {category} category exchange links only with other {category} websites.",
+    "categories": {
+      "cbd": "CBD",
+      "adult": "adult",
+      "gambling": "gambling"
+    },
+    "trialNote": "Backlinks start once your plan is paid: websites on a free trial don't receive exchange links yet."
   },
   "socials": {
     "reddit": {

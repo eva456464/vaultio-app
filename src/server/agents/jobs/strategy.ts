@@ -2,6 +2,7 @@
 import { addDays, formatISO, getDay } from "date-fns";
 import { and, desc, eq, gte, inArray, isNull, lte, sql } from "drizzle-orm";
 import { z } from "zod/v4";
+import { allowedArticleType } from "@/lib/writing";
 import { db } from "@/db";
 import {
   competitors as competitorsTable,
@@ -108,6 +109,7 @@ const ProfileSchema = z.object({
   brandVoice: z.object(Object.fromEntries(VOICE_KEYS.map((key) => [key, z.string()])) as Record<(typeof VOICE_KEYS)[number], z.ZodString>),
   seedTopics: z.array(z.string()),
   primaryCountryCode: z.string(),
+  exchangeCategory: z.enum(["standard", "cbd", "adult", "gambling", "excluded"]),
 });
 
 
@@ -153,7 +155,8 @@ export async function buildBrandProfile({ site }: JobContext) {
       "servicesOffered: up to 20 offers with prices only when the site states them (amount as a plain number string). " +
       "brandVoice: one or two sentences per dimension describing how the site writes. " +
       "seedTopics: 10 to 20 search phrases potential customers type into Google before they would buy, in the site's language, not containing the brand name. " +
-      "primaryCountryCode: ISO 3166-1 alpha-2 country the business mainly serves.",
+      "primaryCountryCode: ISO 3166-1 alpha-2 country the business mainly serves. " +
+      "exchangeCategory: 'excluded' if the business sells or promotes illegal drugs, pharmaceuticals or supplements, or crypto; 'cbd', 'adult' or 'gambling' for those industries; otherwise 'standard' (tobacco and vaping are standard).",
     prompt: `Website: ${site.url}\nContent language: ${site.selectedLanguage}\n\nPages:\n${siteText}`,
   });
 
@@ -162,6 +165,7 @@ export async function buildBrandProfile({ site }: JobContext) {
     .set({
       brandName: site.brandName ?? profile.brandName,
       industry: profile.industry,
+      exchangeCategory: profile.exchangeCategory,
       businessType: profile.businessType,
       positioning: profile.positioning.slice(0, 500),
       description: profile.description,
@@ -419,7 +423,7 @@ export async function planTopics(site: Site, count: number, startDay: string) {
         scheduledFor: days[index]!,
         keywordClusterId: topic.clusterId,
         plannedTitle: topic.title,
-        articleType: topic.articleType,
+        articleType: allowedArticleType(topic.articleType, site.allowedArticleTypes),
         whyThisTopic: topic.whyThisTopic.slice(0, 3),
         generationStatus: "queued",
       });

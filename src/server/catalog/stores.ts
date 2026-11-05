@@ -23,14 +23,14 @@ type ShopifyProduct = {
   id: string;
   title: string;
   handle: string;
-  status: "ACTIVE" | "DRAFT" | "ARCHIVED";
+  status: "ACTIVE" | "UNLISTED" | "DRAFT" | "ARCHIVED";
   vendor: string | null;
   productType: string | null;
   onlineStoreUrl: string | null;
   description: string | null;
   variantsCount: { count: number } | null;
   priceRangeV2: { minVariantPrice: { amount: string; currencyCode: string } } | null;
-  featuredImage: { url: string } | null;
+  featuredMedia: { preview: { image: { url: string } | null } | null } | null;
 };
 
 const SHOP_QUERY = `query { shop { name currencyCode primaryDomain { url } } products(first: 1) { nodes { id } } }`;
@@ -41,7 +41,7 @@ const PRODUCTS_QUERY = `query Catalog($cursor: String) {
       id title handle status vendor productType onlineStoreUrl description(truncateAt: 1000)
       variantsCount { count }
       priceRangeV2 { minVariantPrice { amount currencyCode } }
-      featuredImage { url }
+      featuredMedia { preview { image { url } } }
     }
   }
 }`;
@@ -69,13 +69,14 @@ export async function shopifyProducts(shop: string, credentials: ShopifyCredenti
     for (const node of page.products.nodes) {
       if (node.status === "ARCHIVED") continue;
       const price = node.priceRangeV2?.minVariantPrice;
-      const live = node.status === "ACTIVE";
+      // Unlisted products are live, just not listed in the store: their link works.
+      const live = node.status === "ACTIVE" || node.status === "UNLISTED";
       products.push({
         externalId: node.id,
         name: node.title,
         description: plain(node.description),
         url: node.onlineStoreUrl ?? (live ? `${storeUrl}/products/${node.handle}` : null),
-        imageUrl: node.featuredImage?.url ?? null,
+        imageUrl: node.featuredMedia?.preview?.image?.url ?? null,
         price: price ? parsePrice(price.amount).price : null,
         currency: price?.currencyCode ?? null,
         brand: node.vendor || null,

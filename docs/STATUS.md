@@ -94,6 +94,11 @@ Ground rules that apply to everything below:
   address) in the browser, then publishing an article to all of them and republishing it (each
   updated the same post), against a local mock (`scripts/dev-fixtures/mock-cms.py`); the hosted
   blog on a local test domain from DNS setup to live, with its pages, sitemap, robots and RSS.
+- Changes from the 5 November web check (the reference's current docs and the vendors' docs, read by a
+  separate research session; notes on the `web-check` branch): Writing settings (article types, length
+  mode, citations, recommended reads, link format, English variants) saved in a browser and covered by
+  `scripts/test-writing.ts`; Ghost author lookup, GoHighLevel update response and the Wix cover import
+  against the CMS mock; the Framer plugin's sync again with its new storage.
 - Article editor, in a browser (`scripts/test-editor.ts` for the conversions): typing, the "/" menu,
   tables (rows, header), YouTube, links, an image caption, slug and meta, Save & Close (caption shown
   as a figure, card and video kept, "re-publish" asked because pushed platforms are connected); AI
@@ -196,6 +201,11 @@ These are written against the providers' documentation but have not run live yet
   Shopify's documentation, which couldn't be fetched from this workspace to double-check, API version
   set by `SHOPIFY_API_VERSION`), WooCommerce's REST API on a real store, and real Google Merchant Center
   and Facebook feeds; product matching with real Claude.
+- OpenAI: `gpt-image-1` was shut down on 23 October 2026; images now use `gpt-image-2.5-sunburst`
+  (then `gpt-image-2.5-flare`), names taken from OpenAI's SDK, not tried live. ChatGPT visibility
+  answers now use the Responses API with web search (`gpt-5.4-mini`) so they cite real sources.
+- Wix covers are imported into the site's Media Manager first; the exact way the draft post references
+  the imported file is the best reading of Wix's schema, not tried live.
 - AI editing with real Claude (selection edits, tables, the assistant's block proposals) and
   regeneration with real research and writing; the stand-in only returns canned answers.
 - BigCommerce, GoHighLevel, Duda, Framer and Lovable against real accounts: written from their
@@ -260,7 +270,7 @@ Smaller follow-ups:
 | Stripe account (`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`) | Billing (built, waiting for this) | Not started. Then: run `scripts/stripe-setup.ts`; add the webhook endpoint `https://<app domain>/api/stripe/webhook`; turn on plan switching and cancellation in Stripe's customer portal settings |
 | Price of the language add-on (`vaultio_language_monthly`) | Websites on Grow can add languages only once it has a price; Scale's 3 included languages work without it | Waiting for a decision (no reference price was seen) |
 | Dashboard translations | Run `npx tsx --tsconfig tsconfig.json scripts/translate-messages.ts` once the Claude key is in `.env`, check the result, commit `src/messages/*.json` | Waiting for the Claude key |
-| Prices for Reddit+, Quora+ and backlink credits (and how many credits) | No reference price was seen, so these aren't on sale until set in `scripts/stripe-prices.json` | Waiting for a decision. Grow $99/mo ($59/mo yearly), Scale $399/mo ($199/mo yearly), +30 prompts $49/mo and +50 prompts $89/mo are copied from the reference |
+| Prices for Reddit+, Quora+ and backlink credits (and how many credits) | No reference price was seen, so these aren't on sale until set in `scripts/stripe-prices.json` | Waiting for a decision. Grow $99/mo ($59/mo yearly), Scale $399/mo ($239/mo yearly, $2,872 a year, as on the reference pricing page on 5 November 2026), +30 prompts $49/mo and +50 prompts $89/mo are copied from the reference |
 | Vercel project token (`VERCEL_TOKEN`, `VERCEL_PROJECT_ID`) if the app is hosted on Vercel | Agencies' own domains get HTTPS automatically | Waiting for the hosting decision |
 | Booking link and support email (`SUPPORT_BOOKING_URL`, `SUPPORT_EMAIL`) | Agency settings → Talk with team | Not set |
 | Which workspaces aren't billed | Vaultio's own workspace should be exempt: `update organizations set billing_exempt = true where id = …` | Waiting for the production database |
@@ -300,6 +310,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | More languages: language sites (36 content languages), Scale's included languages and the language add-on, infographic fonts for more scripts, dashboard translation script | `main` 2281efb |
 | Publishing to BigCommerce and GoHighLevel; Framer plugin, Lovable prompt and Duda RSS feed | `main` d844cbc |
 | Article editor with AI editing and the assistant; feedback, regenerate, new topic, unpublish, re-publish | `main` a712603 |
+| Parity with the reference's current docs and fixes from checking the vendors' docs: writing options, backlink rules, Site health scoring, image/ChatGPT models, platform fixes | `main` (this commit) |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

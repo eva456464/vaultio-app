@@ -21,6 +21,7 @@ function standInCollection() {
   let order: string[] = [];
   let fields: ManagedCollectionFieldInput[] = [];
   const collection = {
+    id: "collection-1",
     name: "Blog",
     async getItemIds() {
       return [...items.keys()];
@@ -68,9 +69,9 @@ async function main() {
   check(second.added === 0 && second.updated === 0 && second.unchanged === published.length, "a second run changes nothing");
 
   if (published.length) {
-    const synced = JSON.parse(stand.data.get(DATA.synced)!) as Record<string, string>;
-    synced[published[0]!.id] = "2000-01-01T00:00:00.000Z";
-    await stand.collection.setPluginData(DATA.synced, JSON.stringify(synced));
+    // Pretend the newest article changed after the last import.
+    const newest = published.reduce((latest, article) => (article.updated_at > latest ? article.updated_at : latest), "");
+    await stand.collection.setPluginData(DATA.lastSync, new Date(new Date(newest).getTime() - 1000).toISOString());
     await stand.collection.addItems([{ id: "999999999", slug: "removed-article", fieldData: {} }]);
     const third = await syncArticles(stand.collection, connection);
     check(third.updated === 1 && third.removed === 1 && !stand.items.has("999999999"), "a changed article is fetched again and a removed one is taken out");

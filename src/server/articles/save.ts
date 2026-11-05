@@ -70,7 +70,7 @@ export function articleFields(site: Site, article: Article, input: ContentInput)
     ...(input.slug ? { slug: input.slug } : {}),
     content: markdown,
     blocks,
-    htmlContent: renderArticleHtml(markdown, { blocks, accentColor: safeColor(site.brandColor) }),
+    htmlContent: renderArticleHtml(markdown, { blocks, accentColor: safeColor(site.brandColor), toc: site.includeToc ? article.languageCode : null }),
     outline: (markdown.match(/^## .+$/gm) ?? []).map((heading) => heading.slice(3).trim()),
     faq,
     jsonLd,

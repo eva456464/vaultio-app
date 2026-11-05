@@ -2,8 +2,11 @@
  * The backlink exchange between sites on this Vaultio installation.
  *
  * - Joining gives 100 credits. Giving a live dofollow link earns the giver its domain rating
- *   (max 25); receiving one spends the giver's domain rating. Balances may go negative; while a
- *   site's balance is not positive it receives no new links.
+ *   (max 20, or 10 from a site on a platform address such as *.myshopify.com); receiving one spends
+ *   the giver's domain rating. Balances may go negative; while a site's balance is not positive it
+ *   receives no new links. Sites on a free trial receive none until their plan is paid.
+ * - Niches: CBD, adult and gambling sites exchange only within their own category; illegal drugs,
+ *   pharma/supplements and crypto don't take part (category set by the brand analysis).
  * - A site receives links from sites whose domain rating is at least its own minus 25 (or its
  *   minimum giver rating, if set), so links come from comparable or stronger sites.
  * - Links are placed by the article writer, only where Claude finds a partner page that genuinely
@@ -19,16 +22,27 @@ import { logActivity } from "../agents/activity";
 import type { JobContext, Site } from "../agents/jobs/types";
 import { fetchText } from "../agents/web";
 import { CREDIT_SUBSCRIBER_MIN_RATING } from "@/lib/billing";
-import { creditSubscriberSiteIds } from "../billing/entitlements";
+import { creditSubscriberSiteIds, trialingSiteIds } from "../billing/entitlements";
 
 export const STARTING_CREDITS = 100;
-export const MAX_EARN_PER_LINK = 25;
+export const MAX_EARN_PER_LINK = 20;
+/** Sites on a hosting platform's address (not their own domain) earn less per link. */
+export const MAX_EARN_PLATFORM_HOST = 10;
+const PLATFORM_HOSTS = [
+  "myshopify.com", "wixsite.com", "webflow.io", "ghost.io", "wordpress.com", "blogspot.com", "squarespace.com", "framer.website", "framer.app", "framer.ai",
+  "lovable.app", "netlify.app", "vercel.app", "github.io", "carrd.co", "weebly.com", "godaddysites.com", "mystrikingly.com", "square.site", "webnode.page", "hubspotpagebuilder.com",
+];
+export const onPlatformHost = (url: string) => {
+  const host = hostOf(url);
+  return PLATFORM_HOSTS.some((platform) => host === platform || host.endsWith(`.${platform}`));
+};
 const MATCH_BAND = 25;
 const MAX_LINKS_PER_ARTICLE = 2;
 const REPEAT_DAYS = 30;
 const RECIPROCAL_DAYS = 90;
 
-export const earnedFor = (giverRating: number | null) => Math.min(Math.max(giverRating ?? 0, 1), MAX_EARN_PER_LINK);
+export const earnedFor = (giverRating: number | null, giverUrl?: string) =>
+  Math.min(Math.max(giverRating ?? 0, 1), giverUrl && onPlatformHost(giverUrl) ? MAX_EARN_PLATFORM_HOST : MAX_EARN_PER_LINK);
 export const spentFor = (giverRating: number | null) => Math.max(giverRating ?? 0, 1);
 export const hostOf = (url: string) => {
   try {
@@ -69,7 +83,7 @@ type TargetPage = { siteId: number; domain: string; url: string; title: string }
 
 /** Partner pages this site may link to in a new article, best partners first. */
 export async function partnerPages(site: Site): Promise<TargetPage[]> {
-  if (!site.backlinksEnabled || !(await hasJoined(site.id))) return [];
+  if (!site.backlinksEnabled || site.exchangeCategory === "excluded" || !(await hasJoined(site.id))) return [];
   const giverRating = site.domainRating ?? 0;
   const partners = await db
     .select()
@@ -82,8 +96,13 @@ export async function partnerPages(site: Site): Promise<TargetPage[]> {
     .where(and(or(eq(backlinks.sourceOrgWebsiteId, site.id), eq(backlinks.targetOrgWebsiteId, site.id)), gte(backlinks.createdAt, since(RECIPROCAL_DAYS))));
 
   const subscribers = await creditSubscriberSiteIds();
+  const trialing = await trialingSiteIds();
   const eligible: { site: typeof partners[number]; balance: number; received: number }[] = [];
   for (const partner of partners) {
+    // Same niche only; excluded niches never take part.
+    if (partner.exchangeCategory === "excluded" || partner.exchangeCategory !== site.exchangeCategory) continue;
+    // No links to sites still on a free trial.
+    if (trialing.has(partner.id)) continue;
     if (giverRating < matchFloor(partner)) continue;
     // Backlink credit subscribers only receive links from sites rated 20 or more.
     if (subscribers.has(partner.id) && giverRating < CREDIT_SUBSCRIBER_MIN_RATING) continue;
@@ -259,7 +278,7 @@ export async function backlinkCheck({ site }: JobContext) {
       await db.update(backlinks).set({ isBacklinkPresent: true, followType: "dofollow", url: publishedUrl, becameOnlineAt: link.becameOnlineAt ?? now, lastCrawledAt: now, updatedAt: now }).where(eq(backlinks.id, link.id));
       if (!isCredited) {
         await db.insert(backlinkCreditLedger).values([
-          { orgWebsiteId: site.id, backlinkId: link.id, delta: earnedFor(giverRating), reason: "link_given" },
+          { orgWebsiteId: site.id, backlinkId: link.id, delta: earnedFor(giverRating, site.url), reason: "link_given" },
           { orgWebsiteId: link.targetOrgWebsiteId, backlinkId: link.id, delta: -spentFor(giverRating), reason: "link_received" },
         ]);
         // Announced once, the first time the link goes live (not again after a nofollow fix).
@@ -270,7 +289,7 @@ export async function backlinkCheck({ site }: JobContext) {
     // Missing or nofollow: no credit while it lasts; a credited link is reversed.
     if (isCredited) {
       await db.insert(backlinkCreditLedger).values([
-        { orgWebsiteId: site.id, backlinkId: link.id, delta: -earnedFor(giverRating), reason: "adjustment" },
+        { orgWebsiteId: site.id, backlinkId: link.id, delta: -earnedFor(giverRating, site.url), reason: "adjustment" },
         { orgWebsiteId: link.targetOrgWebsiteId, backlinkId: link.id, delta: spentFor(giverRating), reason: "adjustment" },
       ]);
     }

@@ -2,14 +2,14 @@ import type { ManagedCollection } from "framer-plugin";
 import { useState, type FormEvent } from "react";
 import { checkConnection, normalizeApiBase } from "./api";
 import { BRAND_NAME, DEFAULT_API_BASE } from "./brand";
-import { DATA, syncArticles, type Connection, type Progress, type SyncResult } from "./sync";
+import { DATA, rememberKey, syncArticles, type Progress, type SyncResult } from "./sync";
 
-type Props = { collection: ManagedCollection; initial: Connection | null; onDone: (result: SyncResult) => void };
+type Props = { collection: ManagedCollection; initial: { apiKey: string | null; apiBase: string | null }; onDone: (result: SyncResult) => void };
 
 export function App({ collection, initial, onDone }: Props) {
-  const [apiKey, setApiKey] = useState(initial?.apiKey ?? "");
-  const [apiBase, setApiBase] = useState(initial?.apiBase ?? DEFAULT_API_BASE);
-  const [showAddress, setShowAddress] = useState(!DEFAULT_API_BASE || (initial ? initial.apiBase !== DEFAULT_API_BASE : false));
+  const [apiKey, setApiKey] = useState(initial.apiKey ?? "");
+  const [apiBase, setApiBase] = useState(initial.apiBase ?? DEFAULT_API_BASE);
+  const [showAddress, setShowAddress] = useState(!DEFAULT_API_BASE || Boolean(initial.apiBase && initial.apiBase !== DEFAULT_API_BASE));
   const [progress, setProgress] = useState<Progress | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -23,7 +23,7 @@ export function App({ collection, initial, onDone }: Props) {
     setError(null);
     try {
       await checkConnection(connection.apiBase, connection.apiKey);
-      await collection.setPluginData(DATA.apiKey, connection.apiKey);
+      rememberKey(collection, connection.apiKey);
       await collection.setPluginData(DATA.apiBase, connection.apiBase);
       onDone(await syncArticles(collection, connection, setProgress));
     } catch (failure) {

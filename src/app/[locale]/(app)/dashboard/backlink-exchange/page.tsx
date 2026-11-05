@@ -3,6 +3,7 @@ import { CreditsDialog, ExchangeToggle, ExternalTitle, LinkTable, PoolChart, Sta
 import { PageBody, PageHeader } from "@/components/shell/app-shell";
 import { KpiCard, SectionCard } from "@/components/traffic/parts";
 import { cn } from "@/lib/utils";
+import { trialingSiteIds } from "@/server/billing/entitlements";
 import { getAppContext } from "@/server/context";
 import { getBacklinksPage } from "@/server/queries/backlinks";
 
@@ -22,7 +23,7 @@ function Sparkline({ points }: { points: number[] }) {
 export default async function BacklinksPage() {
   const context = (await getAppContext())!;
   const site = context.site!;
-  const [t, format, data] = await Promise.all([getTranslations("backlinks"), getFormatter(), getBacklinksPage(site)]);
+  const [t, format, data, trialing] = await Promise.all([getTranslations("backlinks"), getFormatter(), getBacklinksPage(site), trialingSiteIds()]);
   const day = (iso: string) => format.dateTime(new Date(iso), { dateStyle: "medium", timeZone: site.timeZone });
   const usd = (value: number) => format.number(value, { style: "currency", currency: "USD", maximumFractionDigits: 0 });
   const canEdit = context.member?.role === "admin";
@@ -40,7 +41,10 @@ export default async function BacklinksPage() {
         }
       />
       <PageBody>
+        {site.exchangeCategory === "excluded" && <p className="rounded-xl bg-[#FDF3E2] p-3 text-sm text-[#8A6320]">{t("ineligibleNote")}</p>}
+        {["cbd", "adult", "gambling"].includes(site.exchangeCategory) && <p className="rounded-xl bg-[#EEF4FF] p-3 text-sm text-[#2A5BD7]">{t("categoryNote", { category: t(`categories.${site.exchangeCategory as "cbd"}`) })}</p>}
         {!data.enabled && <p className="rounded-xl bg-[#FDF3E2] p-3 text-sm text-[#8A6320]">{t("offNote")}</p>}
+        {data.enabled && trialing.has(site.id) && <p className="rounded-xl bg-[#EEF4FF] p-3 text-sm text-[#2A5BD7]">{t("trialNote")}</p>}
         {data.enabled && data.balance <= 0 && <p className="rounded-xl bg-[#EEF4FF] p-3 text-sm text-[#2A5BD7]">{t("negativeNote")}</p>}
 
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

@@ -5,6 +5,7 @@ import sanitizeHtml from "sanitize-html";
 import { z } from "zod/v4";
 import { db } from "@/db";
 import { articleAssistantMessages, articles, keywordClusters, seedKeywords, sitePages, type AssistantProposal } from "@/db/schema";
+import { asEnglishType, ENGLISH_NAMES } from "@/lib/writing";
 import { ai } from "../ai/claude";
 import { getAppContext } from "../context";
 
@@ -40,7 +41,7 @@ function editorSystem({ site, article, keyword }: Loaded) {
     .join("; ");
   return [
     `You edit a blog article for ${site.brandName ?? new URL(site.url).hostname} (${site.url}).`,
-    `Article: "${article.title}". Language code: ${article.languageCode}${site.selectedLanguage === "en" ? ` (${site.englishType === "british" ? "British" : "American"} English)` : ""}.`,
+    `Article: "${article.title}". Language code: ${article.languageCode}${site.selectedLanguage === "en" ? ` (${ENGLISH_NAMES[asEnglishType(site.englishType)]})` : ""}.`,
     keyword ? `Target keyword: ${keyword}.${semantic.length ? ` Related terms: ${semantic.join(", ")}.` : ""}` : null,
     voice ? `Brand voice: ${voice}.` : null,
     site.articleInstructions ? `Writing rules from the client:\n${site.articleInstructions}` : null,

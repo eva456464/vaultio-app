@@ -14,8 +14,9 @@ setup.
   Updated, Main keyword, Language, Original address. Field ids never change, so pages bound to them
   keep working.
 
-The key and API address are saved as plugin data on the collection, which the project's editors
-can read.
+The API address and the time of the newest imported article are saved as plugin data on the
+collection (Framer allows 2 kB per entry). The API key is a secret, so it stays in the editor's
+browser (localStorage), as Framer recommends: another editor enters it once on their own computer.
 
 ## Build and publish
 

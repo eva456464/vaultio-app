@@ -5,7 +5,7 @@
 import { createHmac } from "node:crypto";
 import { call, describeError, type Delivered, type PostInput, type PublishMode } from "./common";
 
-export type GhostConfig = { siteUrl: string; mode: PublishMode; siteTitle?: string };
+export type GhostConfig = { siteUrl: string; mode: PublishMode; siteTitle?: string; authorId?: string | null; authorName?: string | null };
 export type GhostCredentials = { adminKey: string };
 
 const b64url = (value: Buffer | string) => Buffer.from(value).toString("base64url");
@@ -28,6 +28,21 @@ type GhostError = { errors?: { message?: string; context?: string }[] };
 type GhostPost = { id: string; url?: string; updated_at?: string };
 
 const errorOf = (body: GhostError | null, status: number) => body?.errors?.[0]?.context || body?.errors?.[0]?.message || `Ghost returned HTTP ${status}`;
+
+/** The staff user posts are credited to, found by email (Ghost authors must be staff users). */
+export async function findGhostAuthor(siteUrl: string, adminKey: string, email: string): Promise<{ ok: true; id: string; name: string } | { ok: false; error: string }> {
+  try {
+    const users = await call<{ users?: { id: string; name?: string; email?: string }[] } & GhostError>(
+      `${api(siteUrl)}/users/?filter=${encodeURIComponent(`email:'${email.replace(/'/g, "")}'`)}&fields=id,name,email`,
+      { headers: headers(adminKey) },
+    );
+    const user = users.body?.users?.find((entry) => entry.email?.toLowerCase() === email.toLowerCase()) ?? users.body?.users?.[0];
+    if (users.status >= 400 || !user) return { ok: false, error: `No Ghost staff user has the email ${email}` };
+    return { ok: true, id: user.id, name: user.name ?? email };
+  } catch (error) {
+    return { ok: false, error: describeError(error) };
+  }
+}
 
 export async function verifyGhost(siteUrl: string, adminKey: string): Promise<{ ok: true; siteTitle: string } | { ok: false; error: string }> {
   try {
@@ -54,6 +69,7 @@ export async function deliverGhost(config: GhostConfig, credentials: GhostCreden
       meta_description: post.excerpt || null,
       feature_image: post.heroUrl,
       feature_image_alt: post.heroUrl ? post.heroAlt.slice(0, 190) : null,
+      ...(config.authorId ? { authors: [{ id: config.authorId }] } : {}),
       // Ghost writes its own Article schema; the FAQ schema is added alongside it.
       codeinjection_head: post.faqJsonLd ? `<script type="application/ld+json">${JSON.stringify(post.faqJsonLd).replace(/</g, "\\u003c")}</script>` : null,
     };

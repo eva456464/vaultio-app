@@ -96,7 +96,7 @@ function Footer({ pending, onCancel, submit, disabled }: { pending: boolean; onC
 
 function GhostForm({ onDone }: { onDone: () => void }) {
   const t = useTranslations("settings.publishing");
-  const [form, setForm] = useState({ siteUrl: "", adminKey: "", mode: "publish" as Mode });
+  const [form, setForm] = useState({ siteUrl: "", adminKey: "", authorEmail: "", mode: "publish" as Mode });
   const { error, pending, run } = useAction();
   return (
     <form className="mt-5 space-y-4" onSubmit={(event) => { event.preventDefault(); run(() => connectGhost(form), onDone); }}>
@@ -105,6 +105,9 @@ function GhostForm({ onDone }: { onDone: () => void }) {
       </Field>
       <Field label={t("ghost.adminKey")} hint={t("ghost.adminKeyHint")}>
         <input className={field} type="password" autoComplete="off" value={form.adminKey} onChange={(e) => setForm({ ...form, adminKey: e.target.value })} required />
+      </Field>
+      <Field label={t("ghost.authorEmail")} hint={t("ghost.authorEmailHint")}>
+        <input className={field} type="email" value={form.authorEmail} onChange={(e) => setForm({ ...form, authorEmail: e.target.value })} placeholder="editor@yourblog.com" />
       </Field>
       <ModePicker value={form.mode} onChange={(mode) => setForm({ ...form, mode })} />
       {error && <p className="text-sm text-[#9A3412]">{error}</p>}

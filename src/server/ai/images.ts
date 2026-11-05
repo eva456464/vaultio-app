@@ -21,19 +21,33 @@ function chosen(): "openai" | "google" | null {
   return null;
 }
 
+/**
+ * gpt-image-1 was shut down on 23 October 2026; OpenAI's SDK names gpt-image-2.5-sunburst and
+ * gpt-image-2.5-flare as its replacements. OPENAI_IMAGE_MODEL picks one; otherwise each is tried in turn.
+ */
+const OPENAI_IMAGE_MODELS = () => [...new Set([process.env.OPENAI_IMAGE_MODEL, "gpt-image-2.5-sunburst", "gpt-image-2.5-flare"].filter((model): model is string => Boolean(model)))];
+
 async function generateWithOpenAI(prompt: string, shape: ImageShape): Promise<GeneratedImage> {
-  const model = process.env.OPENAI_IMAGE_MODEL ?? "gpt-image-1";
-  const response = await fetch("https://api.openai.com/v1/images/generations", {
-    method: "POST",
-    headers: { authorization: `Bearer ${process.env.OPENAI_API_KEY}`, "content-type": "application/json" },
-    body: JSON.stringify({ model, prompt, size: OPENAI_SIZE[shape], quality: process.env.OPENAI_IMAGE_QUALITY ?? "medium", n: 1, output_format: "png" }),
-    signal: AbortSignal.timeout(180_000),
-  });
-  const json = (await response.json().catch(() => ({}))) as { data?: { b64_json?: string }[]; error?: { message?: string } };
-  if (!response.ok) throw new Error(`OpenAI image: ${json.error?.message ?? `HTTP ${response.status}`}`);
-  const b64 = json.data?.[0]?.b64_json;
-  if (!b64) throw new Error("OpenAI image: no image returned");
-  return { bytes: Buffer.from(b64, "base64"), mimeType: "image/png", model };
+  let lastError = "";
+  for (const model of OPENAI_IMAGE_MODELS()) {
+    const response = await fetch("https://api.openai.com/v1/images/generations", {
+      method: "POST",
+      headers: { authorization: `Bearer ${process.env.OPENAI_API_KEY}`, "content-type": "application/json" },
+      body: JSON.stringify({ model, prompt, size: OPENAI_SIZE[shape], quality: process.env.OPENAI_IMAGE_QUALITY ?? "medium", n: 1, output_format: "png" }),
+      signal: AbortSignal.timeout(180_000),
+    });
+    const json = (await response.json().catch(() => ({}))) as { data?: { b64_json?: string }[]; error?: { message?: string; code?: string } };
+    // An unknown or retired model: try the next one.
+    if (!response.ok && (response.status === 404 || json.error?.code === "model_not_found" || /model/i.test(json.error?.message ?? ""))) {
+      lastError = json.error?.message ?? `HTTP ${response.status}`;
+      continue;
+    }
+    if (!response.ok) throw new Error(`OpenAI image: ${json.error?.message ?? `HTTP ${response.status}`}`);
+    const b64 = json.data?.[0]?.b64_json;
+    if (!b64) throw new Error("OpenAI image: no image returned");
+    return { bytes: Buffer.from(b64, "base64"), mimeType: "image/png", model };
+  }
+  throw new Error(`OpenAI image: no available model (${lastError})`);
 }
 
 async function generateWithGemini(prompt: string, shape: ImageShape): Promise<GeneratedImage> {

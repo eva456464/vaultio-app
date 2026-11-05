@@ -25,7 +25,8 @@ export const unauthorized = (request: Request) => NextResponse.json({ error: "In
  * Browsers may only call the content API from the platforms that need it (the Framer plugin runs
  * in Framer's editor). CONTENT_API_CORS_ORIGINS replaces the list; "*." matches any subdomain.
  */
-const DEFAULT_CORS_ORIGINS = ["https://*.framercdn.com", "https://*.framer.com", "https://localhost:5173"];
+// Framer serves plugins from <pluginId>(-<version>).plugins.framercdn.com, and https://localhost:5173 in development.
+const DEFAULT_CORS_ORIGINS = ["https://*.plugins.framercdn.com", "https://localhost:5173"];
 
 function allowedOrigin(origin: string) {
   const patterns = process.env.CONTENT_API_CORS_ORIGINS?.split(",").map((value) => value.trim()).filter(Boolean) ?? DEFAULT_CORS_ORIGINS;

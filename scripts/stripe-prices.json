@@ -8,7 +8,7 @@
     ] },
     { "name": "Scale plan", "prices": [
       { "lookupKey": "vaultio_scale_monthly", "amount": 39900, "interval": "month" },
-      { "lookupKey": "vaultio_scale_yearly", "amount": 238800, "interval": "year" }
+      { "lookupKey": "vaultio_scale_yearly", "amount": 287200, "interval": "year" }
     ] },
     { "name": "AI visibility: 30 more prompts", "prices": [{ "lookupKey": "vaultio_prompts_30_monthly", "amount": 4900, "interval": "month" }] },
     { "name": "AI visibility: 50 more prompts", "prices": [{ "lookupKey": "vaultio_prompts_50_monthly", "amount": 8900, "interval": "month" }] },

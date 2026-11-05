@@ -18,7 +18,7 @@ export async function GET(request: Request) {
     .innerJoin(orgWebsites, eq(orgWebsites.id, integrations.orgWebsiteId))
     .where(and(eq(integrations.type, "duda"), eq(integrations.status, "connected"), sql`${integrations.config}->>'tokenHash' = ${sha256(key)}`));
   if (!row) return new Response("Invalid feed key", { status: 401 });
-  const limit = Math.min(100, Math.max(1, Number(params.get("limit")) || 10));
+  const limit = Math.min(300, Math.max(1, Number(params.get("limit")) || 10));
   const rows = await db
     .select()
     .from(articles)

@@ -45,6 +45,16 @@ export async function creditSubscriberSiteIds() {
   return new Set(rows.flatMap((row) => (row.siteId ? [row.siteId] : [])));
 }
 
+/** Websites whose plan is still in its free trial (they receive no exchange links yet). */
+export async function trialingSiteIds() {
+  if (!billingEnabled()) return new Set<number>();
+  const rows = await db
+    .select({ siteId: subscriptions.orgWebsiteId })
+    .from(subscriptions)
+    .where(and(eq(subscriptions.type, "main"), eq(subscriptions.status, "trialing")));
+  return new Set(rows.flatMap((row) => (row.siteId ? [row.siteId] : [])));
+}
+
 export async function siteEntitlements(siteId: number): Promise<Entitlements> {
   if (!billingEnabled()) return base("off", null);
   const [site] = await db

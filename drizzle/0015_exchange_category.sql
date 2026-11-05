@@ -1,0 +1,1 @@
+ALTER TABLE "org_websites" ADD COLUMN "exchange_category" text DEFAULT 'standard' NOT NULL;

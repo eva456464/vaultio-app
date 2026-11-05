@@ -88,6 +88,10 @@ class Handler(BaseHTTPRequestHandler):
                 return self.reply({"site": {"title": "Mock Ghost Blog", "url": f"http://localhost:{PORT}/", "version": "5.0"}})
             if not ghost_ok(auth):
                 return self.reply({"errors": [{"message": "Authorization failed", "context": "Invalid token"}]}, 401)
+            if path == "/ghost/api/admin/users/":
+                email = re.search(r"email:'([^']+)'", parse_qs(urlparse(self.path).query).get("filter", [""])[0])
+                users = [{"id": "staff-1", "name": "Dana Editor", "email": "dana@mockghost.test"}]
+                return self.reply({"users": [u for u in users if email and u["email"] == email.group(1)]})
             m = re.match(r"^/ghost/api/admin/posts/(?:([0-9a-f]+)/)?$", path)
             if m and method == "GET" and not m.group(1):
                 return self.reply({"posts": []})
@@ -101,7 +105,7 @@ class Handler(BaseHTTPRequestHandler):
                     return self.reply({"errors": [{"message": "Saving failed! Someone else is editing this post."}]}, 409)
                 post = {"id": post_id, "slug": data["slug"], "status": data["status"], "url": f"http://localhost:{PORT}/{data['slug']}/", "updated_at": time.strftime("%Y-%m-%dT%H:%M:%S.000Z", time.gmtime(time.time() + len(LOG))), "title": data["title"]}
                 GHOST_POSTS[post_id] = post
-                LOG.append({"platform": "ghost", "method": method, "title": data["title"], "status": data["status"], "html_chars": len(data.get("html") or ""), "feature_image": data.get("feature_image")})
+                LOG.append({"platform": "ghost", "method": method, "title": data["title"], "status": data["status"], "html_chars": len(data.get("html") or ""), "feature_image": data.get("feature_image"), "authors": data.get("authors")})
                 return self.reply({"posts": [post]})
 
         # ---------------- Webflow
@@ -154,6 +158,14 @@ class Handler(BaseHTTPRequestHandler):
             if auth != "wix-test-key-0123456789" or self.headers.get("wix-site-id") != "01c24d92-2ba6-48bd-90cd-87e33d2e9957":
                 return self.reply({"message": "UNAUTHENTICATED", "details": {"applicationError": {"description": "Invalid API key or site"}}}, 401)
             sub = path[len("/wix"):]
+            if sub == "/site-media/v1/files/import" and method == "POST":
+                data = self.body()
+                file_id = f"wixfile-{len(LOG) + 1}"
+                LOG.append({"platform": "wix-media", "op": "import", "url": data.get("url")})
+                return self.reply({"file": {"id": file_id, "url": f"https://static.wixstatic.com/media/{file_id}.webp", "operationStatus": "PENDING"}})
+            if sub == "/site-media/v1/files/get-file-by-id":
+                file_id = parse_qs(urlparse(self.path).query).get("fileId", [""])[0]
+                return self.reply({"file": {"id": file_id, "url": f"https://static.wixstatic.com/media/{file_id}.webp", "operationStatus": "READY"}})
             if sub == "/members/v1/members/query":
                 return self.reply({"members": [{"id": "member-owner-1", "profile": {"nickname": "Owner"}}]})
             m = re.match(r"^/blog/v3/draft-posts(?:/([a-z0-9-]+))?$", sub)
@@ -166,7 +178,7 @@ class Handler(BaseHTTPRequestHandler):
                 draft = data["draftPost"]
                 nodes = draft.get("richContent", {}).get("nodes", [])
                 WIX_POSTS[post_id] = draft
-                LOG.append({"platform": "wix", "method": method, "title": draft.get("title"), "publish": data.get("publish", data.get("action")), "node_types": sorted({n["type"] for n in nodes}), "member": draft.get("memberId")})
+                LOG.append({"platform": "wix", "method": method, "title": draft.get("title"), "publish": data.get("publish", data.get("action")), "node_types": sorted({n["type"] for n in nodes}), "member": draft.get("memberId"), "hero_image": (draft.get("heroImage") or {}).get("id")})
                 return self.reply({"draftPost": {"id": post_id, "url": {"base": "https://www.sunnyroofing-wix.test", "path": f"/post/{draft.get('seoSlug', 'post')}"}}})
         # ---------------- BigCommerce (REST v2 blog + store, WebDAV with digest auth)
         if path.startswith("/bigcommerce/stores/"):
@@ -247,7 +259,8 @@ class Handler(BaseHTTPRequestHandler):
                     return self.reply({"statusCode": 422, "message": [f"{key} should not be empty" for key in missing]}, 422)
                 GHL_POSTS[post_id] = {**data, "_id": post_id}
                 LOG.append({"platform": "gohighlevel", "method": method, "id": post_id, "title": data["title"], "status": data["status"], "urlSlug": data["urlSlug"], "blogId": data["blogId"], "author": data.get("author"), "categories": data.get("categories"), "imageUrl": bool(data.get("imageUrl"))})
-                return self.reply({"data": GHL_POSTS[post_id]}, 201 if method == "POST" else 200)
+                # As documented: create returns the post under "data", update under "updatedBlogPost".
+                return self.reply({"data": GHL_POSTS[post_id]} if method == "POST" else {"updatedBlogPost": GHL_POSTS[post_id]}, 201 if method == "POST" else 200)
         return self.reply({"message": f"No mock route {method} {path}"}, 404)
 
     def do_GET(self):

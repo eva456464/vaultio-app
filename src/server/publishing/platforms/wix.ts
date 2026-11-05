@@ -143,10 +143,45 @@ export async function verifyWix(siteId: string, credentials: WixCredentials): Pr
 }
 
 type DraftPost = { id: string; url?: { base?: string; path?: string } };
+type WixFile = { id?: string; url?: string; operationStatus?: string };
+
+/**
+ * Copies the cover into the site's Media Manager (Wix images are referenced by their Wix file):
+ * import by URL, then wait until Wix has processed it. A failure leaves the post without a cover.
+ */
+async function importCover(config: WixConfig, credentials: WixCredentials, post: PostInput) {
+  if (!post.heroUrl) return null;
+  try {
+    const imported = await call<{ file?: WixFile } & WixError>(`${base()}/site-media/v1/files/import`, {
+      method: "POST",
+      headers: headers(config, credentials),
+      body: JSON.stringify({ url: post.heroUrl, mimeType: "image/webp", displayName: `${post.slug.slice(0, 80)}.webp` }),
+    });
+    let file = imported.body?.file;
+    for (let attempt = 0; file?.id && file.operationStatus !== "READY" && attempt < 10; attempt++) {
+      if (file.operationStatus === "FAILED") return null;
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const current = await call<{ file?: WixFile }>(`${base()}/site-media/v1/files/get-file-by-id?fileId=${encodeURIComponent(file.id)}`, { headers: headers(config, credentials) });
+      file = current.body?.file ?? file;
+    }
+    return file?.id && file.operationStatus === "READY" ? { id: file.id, url: file.url ?? "", altText: post.heroAlt } : null;
+  } catch {
+    return null;
+  }
+}
 
 export async function deliverWix(config: WixConfig, credentials: WixCredentials, post: PostInput, previous?: { postId: string }): Promise<Delivered<{ postId: string }>> {
   try {
-    const draftPost = { title: post.title, excerpt: post.excerpt, memberId: config.memberId, seoSlug: post.slug, richContent: markdownToRicos(post.markdown) };
+    // Wix limits titles to 200 characters and slugs to 100.
+    const cover = await importCover(config, credentials, post);
+    const draftPost = {
+      title: post.title.slice(0, 200),
+      excerpt: post.excerpt.slice(0, 500),
+      memberId: config.memberId,
+      seoSlug: post.slug.slice(0, 100).replace(/-+$/, ""),
+      richContent: markdownToRicos(post.markdown),
+      ...(cover ? { heroImage: cover, media: { wixMedia: { image: cover }, displayed: true, custom: true, altText: post.heroAlt } } : {}),
+    };
     const publish = config.mode === "publish";
     const result = previous?.postId
       ? await call<{ draftPost?: DraftPost } & WixError>(`${base()}/blog/v3/draft-posts/${previous.postId}?fieldsets=URL`, {

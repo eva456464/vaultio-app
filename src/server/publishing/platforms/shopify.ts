@@ -9,7 +9,7 @@ import { call, describeError, type Delivered, type PostInput, type PublishMode }
 export type ShopifyConfig = { shop: string; blogId: string; blogTitle: string; blogHandle: string; storeUrl: string; author: string; mode: PublishMode };
 export type ShopifyCredentials = { clientId?: string; clientSecret?: string; accessToken?: string };
 
-const API_VERSION = () => process.env.SHOPIFY_API_VERSION ?? "2025-10";
+const API_VERSION = () => process.env.SHOPIFY_API_VERSION ?? "2026-10";
 /** Development only: SHOPIFY_API_BASE points every store at a local mock. */
 const origin = (shop: string) => process.env.SHOPIFY_API_BASE?.replace(/\/$/, "") ?? `https://${shop}`;
 

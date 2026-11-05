@@ -1,0 +1,2 @@
+ALTER TABLE "org_websites" ADD COLUMN "article_length" text DEFAULT 'dynamic' NOT NULL;--> statement-breakpoint
+ALTER TABLE "org_websites" ADD COLUMN "allowed_article_types" jsonb DEFAULT '[]'::jsonb NOT NULL;
