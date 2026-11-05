@@ -9,7 +9,8 @@ export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;
   const requested = params.get("locale");
   const locale = hasLocale(routing.locales, requested) ? requested : routing.defaultLocale;
-  const back = (query: string) => NextResponse.redirect(new URL(`/${locale}/dashboard/settings/analytics?${query}`, request.url));
+  const fromOnboarding = params.get("from") === "onboarding";
+  const back = (query: string) => NextResponse.redirect(new URL(fromOnboarding ? `/${locale}/onboarding/search-console?${query}` : `/${locale}/dashboard/settings/analytics?${query}`, request.url));
 
   const product = params.get("product");
   if (product !== "ga4" && product !== "gsc") return back("error=product");
@@ -18,5 +19,5 @@ export async function GET(request: Request) {
   if (context.member?.role !== "admin") return back("error=admin");
   if (!googleConfigured()) return back("error=notConfigured");
 
-  return NextResponse.redirect(authorizeUrl(product, signState({ siteId: context.site.id, product, userId: context.user.id, locale })));
+  return NextResponse.redirect(authorizeUrl(product, signState({ siteId: context.site.id, product, userId: context.user.id, locale, ...(fromOnboarding ? { returnTo: "onboarding" as const } : {}) })));
 }

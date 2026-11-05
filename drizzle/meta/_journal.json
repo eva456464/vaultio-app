@@ -134,6 +134,13 @@
       "when": 1793920130568,
       "tag": "0018_instruction_meta",
       "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1793921198878,
+      "tag": "0019_onboarding_wizard",
+      "breakpoints": true
     }
   ]
 }

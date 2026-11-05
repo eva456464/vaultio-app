@@ -15,7 +15,9 @@ export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;
   const state = verifyState(params.get("state"));
   const back = (query: string) => {
-    const response = NextResponse.redirect(new URL(`/${state?.locale ?? "en"}/dashboard/settings/analytics?${query}`, request.url));
+    // The onboarding wizard's Search Console step comes back to the wizard to pick the property.
+    const page = state?.returnTo === "onboarding" ? "onboarding/search-console" : "dashboard/settings/analytics";
+    const response = NextResponse.redirect(new URL(`/${state?.locale ?? "en"}/${page}?${query}`, request.url));
     // Land on the site the connection was started for, even if another tab switched sites meanwhile.
     if (state) response.cookies.set(SELECTED_SITE_COOKIE, String(state.siteId), { path: "/", sameSite: "lax", httpOnly: true, maxAge: 60 * 60 * 24 * 365 });
     return response;

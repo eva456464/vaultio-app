@@ -132,6 +132,23 @@ first run backfills history (GA4 from the property's creation, at most 5 years; 
 16 months); later runs re-fetch the last few days, which Google may still revise. A period is the last
 N days including today (`src/lib/traffic.ts`); Search Console periods end on its latest day of data.
 
+### Onboarding wizard
+
+Adding a website creates it with `onboardingStatus = "not_started"`; `/onboarding/[step]` walks
+through market, business, competitors, brand, Search Console, survey and plan
+(`src/server/onboarding/wizard.ts`, `src/server/actions/onboarding.ts`). Each step stores its answer
+and `lastCompletedOnboardingStep = "wizard:<step>"`; steps that don't apply are skipped (no Google
+app keys, survey already answered or an agency adding a client, no billing or already on a plan).
+The dashboard sends a website still in the wizard back to it. The last step starts the onboarding
+agents (`beginOnboarding`); with billing on, that happens when Stripe Checkout returns to
+`/onboarding/plan?checkout=…`. `onboardingAnswers` tells the agents what the owner confirmed: the
+brand profile keeps the description and audiences, competitor discovery keeps the chosen
+competitors, a "Global" market adds no target country, and the example article sets the voice.
+
+The agency setup (`/onboarding/agency/[step]`, `organizations.agencySetupStep`) reuses the
+white-label branding and domain forms and the team invitation; `agencyMode` records white label or
+branded reports only.
+
 ### Writing rules and the plagiarism check
 
 Settings → Writing / Visuals rules are stored as text (`articleInstructions`, `imageInstructions`, one

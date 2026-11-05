@@ -41,7 +41,7 @@ export function redirectUri() {
 
 // ------------------------------------------------------------------ OAuth state
 
-export type OAuthState = { siteId: number; product: GoogleProduct; userId: string; locale: string; exp: number; nonce: string };
+export type OAuthState = { siteId: number; product: GoogleProduct; userId: string; locale: string; exp: number; nonce: string; returnTo?: "onboarding" };
 
 const stateKey = () => createHash("sha256").update(`vaultio-google-state:${process.env.BETTER_AUTH_SECRET ?? ""}`).digest();
 

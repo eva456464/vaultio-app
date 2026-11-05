@@ -70,7 +70,7 @@ async function swapPrice(stripeSubscriptionId: string, priceId: string, upgrade:
  * Starts Stripe Checkout for a plan (with a free trial the first time) or an add-on. Choosing
  * another option of an add-on the site already has changes that subscription instead.
  */
-export async function startCheckout(choice: { plan: Plan; interval: Interval } | { addon: AddonId }): Promise<Redirect> {
+export async function startCheckout(choice: { plan: Plan; interval: Interval } | { addon: AddonId }, options: { returnTo?: "onboarding" } = {}): Promise<Redirect> {
   const context = await requireBillingAdmin();
   const site = context.site;
   const isPlan = "plan" in choice;
@@ -97,7 +97,8 @@ export async function startCheckout(choice: { plan: Plan; interval: Interval } |
 
     const hadPlan = isPlan && (await db.select({ id: subscriptions.id }).from(subscriptions).where(and(eq(subscriptions.orgWebsiteId, site.id), eq(subscriptions.type, "main"))).limit(1)).length > 0;
     const metadata = { organizationId: String(context.organization.id), orgWebsiteId: String(site.id), orgWebsiteUrl: site.url, subscriptionType: type, ...(isPlan ? { plan: choice.plan } : { addonId: choice.addon }) };
-    const base = `${await requestOrigin()}/${await getLocale()}/dashboard/settings/billing`;
+    // From the onboarding wizard's last step, Stripe sends the owner back to the wizard to start the agents.
+    const base = `${await requestOrigin()}/${await getLocale()}/${options.returnTo === "onboarding" ? "onboarding/plan" : "dashboard/settings/billing"}`;
     const session = await stripe().checkout.sessions.create({
       mode: "subscription",
       customer: await customerOf(context),

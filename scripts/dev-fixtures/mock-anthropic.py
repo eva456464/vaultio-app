@@ -48,6 +48,17 @@ def sample(schema, name, context):
     kind = schema.get("type")
     if kind == "object" and "otherRules" in schema.get("properties", {}):
         return instruction_review(context)
+    if kind == "object" and sorted(schema.get("properties", {})) == ["brandName", "description", "targetAudience"]:
+        # Onboarding wizard: the business described from the website's text.
+        title = re.search(r"<title>([^<|]+)", context) or re.search(r"### \S+\n([^.|]+)", context)
+        name = (title.group(1).strip() if title else "The business")
+        return {
+            "brandName": name,
+            "description": f"{name} repairs and replaces roofs for homeowners in Santa Barbara and Goleta, with free inspections and a 10-year workmanship warranty.",
+            "targetAudience": ["Homeowners with roof leaks", "Homeowners planning a roof replacement", "Property managers"],
+        }
+    if kind == "object" and list(schema.get("properties", {})) == ["brandDescription"]:
+        return {"brandDescription": "Clean and trustworthy: deep blue accents on white, bright daylight photos of real homes and crews."}
     if "anyOf" in schema:
         return sample(schema["anyOf"][0], name, context)
     if kind == "object":

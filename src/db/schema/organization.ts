@@ -28,6 +28,12 @@ export const organizations = pgTable("organizations", {
   creatorId: text("creator_id").references(() => user.id, { onDelete: "set null" }),
   isAgency: boolean("is_agency").notNull().default(false),
   acquisitionChannel: text("acquisition_channel"),
+  /** The survey's follow-up answer (a friend's email, a LinkedIn creator, or "other" text). */
+  acquisitionDetail: text("acquisition_detail"),
+  /** Agency setup wizard: the next step to show, or "done". Null for workspaces that aren't agencies. */
+  agencySetupStep: text("agency_setup_step"),
+  /** "whitelabel": clients log in on the agency's domain; "reports": only reports carry the agency brand. */
+  agencyMode: text("agency_mode").$type<"whitelabel" | "reports">(),
   stripeCustomerId: text("stripe_customer_id"),
   // Not billed (e.g. the platform owner's own workspace): agents run on Scale limits without a subscription.
   billingExempt: boolean("billing_exempt").notNull().default(false),
@@ -176,6 +182,17 @@ export type CtaSettings = {
 
 export type OnboardingStatus = "not_started" | "in_progress" | "completed";
 
+/** What the owner confirmed in the onboarding wizard; the onboarding agents keep these instead of guessing. */
+export type OnboardingAnswers = {
+  /** "global": no single target country. */
+  market?: "country" | "global";
+  business?: boolean;
+  competitors?: boolean;
+  brand?: boolean;
+  /** An article whose voice the writer should follow. */
+  voiceExampleUrl?: string;
+};
+
 /** Writing and image rules: where each came from, what each review changed, and requests the agents can't do. */
 export type InstructionField = "writing" | "images";
 export type InstructionSource = "edit" | "feedback" | "regenerate";
@@ -218,6 +235,7 @@ export const orgWebsites = pgTable(
     creationSource: text("creation_source").notNull().default("web_app"),
     onboardingStatus: text("onboarding_status").$type<OnboardingStatus>().notNull().default("not_started"),
     lastCompletedOnboardingStep: text("last_completed_onboarding_step"),
+    onboardingAnswers: jsonb("onboarding_answers").$type<OnboardingAnswers>().notNull().default({}),
     onboardingCompletedAt: timestamp("onboarding_completed_at", { withTimezone: true }),
     isHidden: boolean("is_hidden").notNull().default(false),
     detectedPlatform: text("detected_platform"),

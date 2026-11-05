@@ -40,7 +40,19 @@ export async function siteMarket(site: Site): Promise<Market> {
 const KEY_PAGE_HINTS = /about|service|pricing|price|product|solution|who-we-are|what-we-do|feature|team/i;
 
 /** Readable text from the homepage and a few key pages, for the brand profile. */
-async function collectSiteText(site: Site, maxChars = 24_000) {
+/** Readable text of one page (e.g. the article the owner picked as an example of their voice). */
+async function collectPageText(url: string, maxChars = 8000) {
+  const page = await fetchText(url);
+  if (page.status >= 400) return "";
+  return page.html
+    .replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<nav[\s\S]*?<\/nav>|<footer[\s\S]*?<\/footer>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, maxChars);
+}
+
+export async function collectSiteText(site: Site, maxChars = 24_000) {
   const home = await fetchText(site.url);
   const facts = parsePage(home.html, home.url);
   const keyPages = facts.internalLinks.filter((url) => KEY_PAGE_HINTS.test(new URL(url).pathname)).slice(0, 5);
@@ -144,6 +156,9 @@ async function languageSeedTopics(site: Site) {
 export async function buildBrandProfile({ site }: JobContext) {
   if (site.primaryOrgWebsiteId) return languageSeedTopics(site);
   const siteText = await collectSiteText(site);
+  // An article the owner picked in onboarding sets the voice.
+  const voiceUrl = site.onboardingAnswers.voiceExampleUrl;
+  const voiceText = voiceUrl ? await collectPageText(voiceUrl).catch(() => "") : "";
   const profile = await ai.generateObject({
     schema: ProfileSchema,
     effort: "medium",
@@ -157,9 +172,18 @@ export async function buildBrandProfile({ site }: JobContext) {
       "seedTopics: 10 to 20 search phrases potential customers type into Google before they would buy, in the site's language, not containing the brand name. " +
       "primaryCountryCode: ISO 3166-1 alpha-2 country the business mainly serves. " +
       "exchangeCategory: 'excluded' if the business sells or promotes illegal drugs, pharmaceuticals or supplements, or crypto; 'cbd', 'adult' or 'gambling' for those industries; otherwise 'standard' (tobacco and vaping are standard).",
-    prompt: `Website: ${site.url}\nContent language: ${site.selectedLanguage}\n\nPages:\n${siteText}`,
+    prompt: [
+      `Website: ${site.url}\nContent language: ${site.selectedLanguage}`,
+      site.onboardingAnswers.business && site.description ? `The owner describes the business as: ${site.description}` : "",
+      voiceText ? `Base brandVoice on this article the owner picked as an example of their voice (${voiceUrl}):\n${voiceText}` : "",
+      `Pages:\n${siteText}`,
+    ]
+      .filter(Boolean)
+      .join("\n\n"),
   });
 
+  // What the owner confirmed in the onboarding wizard stays as they wrote it.
+  const confirmed = site.onboardingAnswers.business;
   await db
     .update(orgWebsites)
     .set({
@@ -168,8 +192,8 @@ export async function buildBrandProfile({ site }: JobContext) {
       exchangeCategory: profile.exchangeCategory,
       businessType: profile.businessType,
       positioning: profile.positioning.slice(0, 500),
-      description: profile.description,
-      targetAudience: profile.targetAudience.slice(0, 20),
+      description: confirmed && site.description ? site.description : profile.description,
+      targetAudience: confirmed && site.targetAudience.length ? site.targetAudience : profile.targetAudience.slice(0, 20),
       servicesOffered: profile.servicesOffered.slice(0, 20).map((offer) => ({
         kind: offer.kind,
         name: offer.name,
@@ -191,7 +215,7 @@ export async function buildBrandProfile({ site }: JobContext) {
     .select({ id: targetLocations.id })
     .from(targetLocations)
     .where(and(eq(targetLocations.orgWebsiteId, site.id), eq(targetLocations.kind, "country")));
-  if (locationCode && hasCountry.length === 0) {
+  if (locationCode && hasCountry.length === 0 && !site.onboardingAnswers.market) {
     await db.insert(targetLocations).values({
       orgWebsiteId: site.id,
       locationCode,
@@ -205,7 +229,8 @@ export async function buildBrandProfile({ site }: JobContext) {
 
 // ------------------------------------------------------------- Competitors
 
-export async function findCompetitors({ site }: JobContext) {
+/** Competitor domains for a site, best first: who shares its Google keywords, else who ranks for its seed topics. */
+export async function discoverCompetitors(site: Site, limit = 10) {
   const market = await siteMarket(site);
   const domain = siteDomain(site);
   const found = new Map<string, { organicTraffic: number | null; score: number }>();
@@ -225,7 +250,17 @@ export async function findCompetitors({ site }: JobContext) {
     }
   }
 
-  const top = [...found.entries()].sort((a, b) => b[1].score - a[1].score).slice(0, 10);
+  return [...found.entries()].sort((a, b) => b[1].score - a[1].score).slice(0, limit);
+}
+
+export async function findCompetitors({ site }: JobContext) {
+  // Competitors the owner confirmed in the onboarding wizard are kept as they are.
+  if (site.onboardingAnswers.competitors) {
+    const [row] = await db.select({ count: sql<number>`count(*)::int` }).from(competitorsTable).where(eq(competitorsTable.orgWebsiteId, site.id));
+    await logActivity(site.id, "competitorsFound", { count: row?.count ?? 0 });
+    return { competitors: row?.count ?? 0, confirmed: true };
+  }
+  const top = await discoverCompetitors(site);
   const existing = new Set(
     (await db.select({ url: competitorsTable.url }).from(competitorsTable).where(eq(competitorsTable.orgWebsiteId, site.id))).map((row) => row.url),
   );

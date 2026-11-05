@@ -35,7 +35,8 @@ Ground rules that apply to everything below:
 | Page | Route | Status |
 |---|---|---|
 | Sign in / Sign up / Forgot password | `/sign-in`, `/sign-up`, `/forgot-password`, `/reset-password` | Built (reset emails need Resend; on an agency domain they carry the agency's brand, domain and sender) |
-| Add a website (onboarding) | `/onboarding/website` | Built; onboarding progress shows on Overview |
+| Add a website (onboarding wizard) | `/onboarding/website`, `/onboarding/[step]` | Built: address check (social profiles, site-builder addresses and unknown domains refused), market and language (detected from the site), business description and audiences (written by Claude from the site, edited by the owner; "We couldn't reach …" with Restart onboarding), competitors (suggested from keyword data, add/remove, optional), brand colours (found on the site), the look of images, an example article for the voice and the cover style, Search Console (optional), "How did you hear about us?" (once per workspace) and the plan with its free trial (when billing is on). The onboarding agents keep what the owner confirmed; progress shows on Overview |
+| Agency setup | `/onboarding/agency/[step]` | Built: "Setting up for your clients?" on the first step, then agency website (prefills name and colours), white label or branded reports only, branding, hosting and sending domains with DNS records, invite the team, book a call |
 | Overview | `/dashboard/overview` | Built: daily agent activity, planned actions, agents waiting for keys, achievements, what we learned (brand profile), traffic sources card |
 | Blog content: calendar | `/dashboard/content-plan` | Built: drag a topic to another future day, choose a topic for an empty day (from the plan's unused topics or your own), change topic, instructions, delete, add keywords; status per day (queued, generating, ready, published, draft), where each topic came from (Google keywords or an AI assistant's answers that didn't mention the site), "content engine running / stopped" banner, editing locked while an article is being written |
 | Blog content: article | `/dashboard/articles/[id]` | Built: article with images and CTA cards, cover image panel (regenerate, up to 5 AI images per article), sources, FAQ, quality checks, publish now / re-publish / unpublish, export, feedback (a backlink credit for the first one) with "regenerate with instructions" or "pick a new topic" |
@@ -312,6 +313,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Article editor with AI editing and the assistant; feedback, regenerate, new topic, unpublish, re-publish | `main` a712603 |
 | Parity with the reference's current docs and fixes from checking the vendors' docs: writing options, backlink rules, Site health scoring, image/ChatGPT models, platform fixes | `main` 6c92f07 |
 | Content calendar (move, plan a day, sources, statuses, engine banner), topics from AI-assistant citations, AI-reviewed writing and image instructions, plagiarism check | `main` 92bf14a |
+| Onboarding wizard (market, business, competitors, brand, Search Console, survey, plan) and agency setup wizard | `main` (this commit) |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
