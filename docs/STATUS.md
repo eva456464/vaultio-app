@@ -299,7 +299,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Product catalog: Shopify, WooCommerce, feeds and files; catalog sync and product matching agents; products in articles | `main` 096b5b4 |
 | More languages: language sites (36 content languages), Scale's included languages and the language add-on, infographic fonts for more scripts, dashboard translation script | `main` 2281efb |
 | Publishing to BigCommerce and GoHighLevel; Framer plugin, Lovable prompt and Duda RSS feed | `main` d844cbc |
-| Article editor with AI editing and the assistant; feedback, regenerate, new topic, unpublish, re-publish | `main` (this commit) |
+| Article editor with AI editing and the assistant; feedback, regenerate, new topic, unpublish, re-publish | `main` a712603 |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
