@@ -346,12 +346,12 @@ each platform can publish immediately or save drafts (`src/server/publishing/pla
 |---|---|---|
 | WordPress | site URL, username, application password | REST post, images copied to the media library |
 | Ghost | site URL, Admin API key (short-lived HS256 token) | Admin API post from HTML, cover image, FAQ schema in the head |
-| Webflow | API token → site → CMS collection | collection item; body, summary and cover fields mapped when connecting |
+| Webflow | API token → site → CMS collection → "Map your collection fields" (each field gets an article part allowed for its type: Rich Text → body; Plain Text → summary, SEO title, meta description, cover alt text, author, target keyword; Image → cover; Date → publish date; a body field and every required field must be mapped; suggestions by field name) | collection item from the mapping (older connections use the automatic body/summary/cover map) |
 | Shopify | store + Dev Dashboard app Client ID/secret (client-credentials token) or an Admin API token | GraphQL `articleCreate` / `articleUpdate` on the chosen blog |
 | Wix | Site ID + account API key (author = a site member) | draft post from Ricos JSON converted from the markdown, then published |
 | BigCommerce | store hash + store-level API account token (Content: Modify); optional WebDAV login | REST v2 blog post at `/blog/<slug>/` ("-2"… when taken; an update keeps the address); with WebDAV the cover is copied to `product_images/uploaded_images/` (digest auth) and used as the thumbnail, otherwise it opens the post body |
 | GoHighLevel | Location ID + Private Integration token (seven blog scopes) → blog, author, categories | API v2 blog post (`rawHTML`, cover URL, free slug checked first; an update keeps slug and date). GoHighLevel doesn't return the post's address |
-| Webhook / API | see above | JSON payload / pulled by the client |
+| Webhook / API | see above | JSON payload / pulled by the client. A `link` in the webhook's answer becomes the article address only when it is on the website's or the webhook's domain (or a subdomain) and loads. "Send test" sends the oldest article |
 
 When every delivery was a draft (and nothing pulls the articles) the activity says the article was
 sent as a draft instead of published.

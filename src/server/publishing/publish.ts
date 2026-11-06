@@ -1,7 +1,7 @@
 /** Delivers finished articles to the client's site through its publishing integrations. */
 import { and, eq, inArray, isNull } from "drizzle-orm";
 import { db } from "@/db";
-import { apiKeys, articles, contentPlanItems, integrations, orgWebsites, type ArticleDeliveries } from "@/db/schema";
+import { apiKeys, articles, contentPlanItems, integrations, keywordClusters, orgWebsites, type ArticleDeliveries } from "@/db/schema";
 import { logActivity } from "../agents/activity";
 import { decryptJson } from "../crypto";
 import { loadMedia, mediaIdFromUrl } from "../media";
@@ -58,7 +58,25 @@ export function webhookPayload(article: Article, site: Site) {
   };
 }
 
-export async function deliverWebhook(url: string, credentials: WebhookCredentials, payload: unknown): Promise<DeliveryResult> {
+/**
+ * The article address a webhook answers with is kept only when it's on the website's domain (or a
+ * subdomain), or on the webhook's own domain, and it loads; otherwise the usual address is used.
+ */
+async function acceptedLink(link: unknown, siteUrl: string | undefined, webhookUrl: string) {
+  if (typeof link !== "string" || !/^https?:\/\//i.test(link)) return null;
+  try {
+    const host = new URL(link).hostname.replace(/^www\./, "");
+    const allowed = [new URL(webhookUrl).hostname.replace(/^www\./, ""), ...(siteUrl ? [new URL(siteUrl).hostname.replace(/^www\./, "")] : [])];
+    if (!allowed.some((domain) => host === domain || host.endsWith(`.${domain}`))) return null;
+    const response = await fetch(link, { method: "GET", redirect: "follow", signal: AbortSignal.timeout(15_000) });
+    await response.body?.cancel();
+    return response.ok ? link : null;
+  } catch {
+    return null;
+  }
+}
+
+export async function deliverWebhook(url: string, credentials: WebhookCredentials, payload: unknown, siteUrl?: string): Promise<DeliveryResult> {
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -75,7 +93,7 @@ export async function deliverWebhook(url: string, credentials: WebhookCredential
     }
     if (!response.ok) return { ok: false, error: body?.error ?? `Webhook returned HTTP ${response.status}` };
     if (body?.success === false) return { ok: false, error: body.error ?? "Webhook reported a failure" };
-    return { ok: true, url: typeof body?.link === "string" ? body.link : null };
+    return { ok: true, url: await acceptedLink(body?.link, siteUrl, url) };
   } catch (error) {
     return { ok: false, error: (error as Error).message };
   }
@@ -188,19 +206,24 @@ async function sendArticle(siteId: number, articleId: number, options: { update?
     article.deliveries = { ...article.deliveries, ...deliveries };
     await db.update(articles).set({ deliveries: article.deliveries }).where(eq(articles.id, article.id));
   };
+  // The article's target keyword (its cluster's main keyword), for platforms with a field for it.
+  const [cluster] = article.keywordClusterId
+    ? await db.select({ keywords: keywordClusters.keywords }).from(keywordClusters).where(eq(keywordClusters.id, article.keywordClusterId)).limit(1)
+    : [];
+  const keyword = cluster?.keywords[0]?.keyword ?? null;
   for (const connection of connections) {
     if (!connection.credentialsEncrypted && connection.type !== "hosted_blog") continue;
     // Unpublishing turns earlier posts into drafts; platforms it never reached are left alone.
     if (options.asDraft && !article.deliveries[connection.type as keyof ArticleDeliveries]) continue;
     const config: Record<string, unknown> = { ...(connection.config as Record<string, unknown>), ...(options.asDraft ? { mode: "draft" } : {}) };
     const secret = <T,>() => decryptJson<T>(connection.credentialsEncrypted!);
-    const post = postInput(article);
+    const post = { ...postInput(article), author: site.authorName ?? site.brandName, keyword };
     let result: DeliveryResult;
     // Platforms set to "save as draft" don't make the article live.
     let draft = false;
     switch (connection.type) {
       case "webhook":
-        result = await deliverWebhook(config.url as string, secret<WebhookCredentials>(), webhookPayload(article, site));
+        result = await deliverWebhook(config.url as string, secret<WebhookCredentials>(), webhookPayload(article, site), site.url);
         break;
       case "wordpress": {
         const wordpress = await deliverWordpress(config.siteUrl as string, secret<WordpressCredentials>(), article, config.categoryId as number | undefined, options.asDraft ? "draft" : "publish");

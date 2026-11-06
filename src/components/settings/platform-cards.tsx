@@ -6,6 +6,7 @@ import { useState, useTransition, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import { partsForType, type ArticlePart } from "@/lib/webflow-fields";
 import {
   checkHostedBlog,
   connectBigCommerce,
@@ -16,6 +17,7 @@ import {
   connectWix,
   loadGhlBlogs,
   loadShopifyBlogs,
+  loadWebflowFields,
   loadWebflowSites,
   removeHostedBlog,
   setPublishMode,
@@ -120,13 +122,19 @@ function GhostForm({ onDone }: { onDone: () => void }) {
 
 type WebflowSites = { id: string; name: string; baseUrl: string | null; collections: { id: string; name: string; slug: string }[] }[];
 
+type WebflowFieldInfo = { slug: string; type: string; name: string; required: boolean };
+
 function WebflowForm({ onDone }: { onDone: () => void }) {
   const t = useTranslations("settings.publishing");
   const [token, setToken] = useState("");
   const [sites, setSites] = useState<WebflowSites | null>(null);
   const [choice, setChoice] = useState({ siteId: "", collectionId: "", mode: "publish" as Mode });
+  // Step 2: "Map your collection fields" (slug and title are always the article's).
+  const [fields, setFields] = useState<WebflowFieldInfo[] | null>(null);
+  const [mapping, setMapping] = useState<Record<string, ArticlePart>>({});
   const { error, pending, run } = useAction();
   const site = sites?.find((entry) => entry.id === choice.siteId);
+  const hasBody = Object.values(mapping).includes("body");
   return (
     <form
       className="mt-5 space-y-4"
@@ -138,13 +146,20 @@ function WebflowForm({ onDone }: { onDone: () => void }) {
             const first = result.choice.sites[0];
             setChoice({ ...choice, siteId: first?.id ?? "", collectionId: first?.collections.find((c) => /blog|post|article/i.test(c.name))?.id ?? first?.collections[0]?.id ?? "" });
           });
-        else run(() => connectWebflow({ token, ...choice }), onDone);
+        else if (!fields)
+          run(() => loadWebflowFields(token, choice.collectionId), (result) => {
+            setFields(result.fields);
+            setMapping(result.suggested);
+          });
+        else run(() => connectWebflow({ token, ...choice, mapping }), onDone);
       }}
     >
-      <Field label={t("webflow.token")} hint={t("webflow.tokenHint")}>
-        <input className={field} type="password" autoComplete="off" value={token} disabled={Boolean(sites)} onChange={(e) => setToken(e.target.value)} required />
-      </Field>
-      {sites && (
+      {!fields && (
+        <Field label={t("webflow.token")} hint={t("webflow.tokenHint")}>
+          <input className={field} type="password" autoComplete="off" value={token} disabled={Boolean(sites)} onChange={(e) => setToken(e.target.value)} required />
+        </Field>
+      )}
+      {sites && !fields && (
         <>
           <Field label={t("webflow.site")}>
             <select className={field} value={choice.siteId} onChange={(e) => setChoice({ ...choice, siteId: e.target.value, collectionId: sites.find((s) => s.id === e.target.value)?.collections[0]?.id ?? "" })}>
@@ -159,8 +174,55 @@ function WebflowForm({ onDone }: { onDone: () => void }) {
           <ModePicker value={choice.mode} onChange={(mode) => setChoice({ ...choice, mode })} />
         </>
       )}
+      {fields && (
+        <div className="space-y-3">
+          <p className="text-sm font-semibold text-ink">{t("webflow.mapTitle")}</p>
+          <p className="text-sm text-ink-secondary">{t("webflow.mapHint")}</p>
+          <ul className="divide-y divide-line rounded-xl border border-line">
+            <li className="flex items-center justify-between gap-3 px-3 py-2 text-sm"><span className="text-ink">Name</span><span className="text-ink-secondary">{t("webflow.parts.title")}</span></li>
+            <li className="flex items-center justify-between gap-3 px-3 py-2 text-sm"><span className="text-ink">Slug</span><span className="text-ink-secondary">{t("webflow.parts.slug")}</span></li>
+            {fields.map((entry) => {
+              const options = partsForType(entry.type);
+              return (
+                <li key={entry.slug} className="flex items-center justify-between gap-3 px-3 py-2 text-sm">
+                  <span className="min-w-0 truncate text-ink">
+                    {entry.name} <span className="text-xs text-ink-subtle">({entry.type}{entry.required ? `, ${t("webflow.required")}` : ""})</span>
+                  </span>
+                  <select
+                    aria-label={entry.name}
+                    value={mapping[entry.slug] ?? ""}
+                    disabled={!options.length}
+                    onChange={(e) =>
+                      setMapping((current) => {
+                        const next = { ...current };
+                        if (e.target.value) next[entry.slug] = e.target.value as ArticlePart;
+                        else delete next[entry.slug];
+                        return next;
+                      })
+                    }
+                    className="h-9 rounded-control border border-control px-2 text-sm"
+                  >
+                    <option value="">{t("webflow.parts.none")}</option>
+                    {options.map((part) => (
+                      <option key={part} value={part}>
+                        {t(`webflow.parts.${part}`)}
+                      </option>
+                    ))}
+                  </select>
+                </li>
+              );
+            })}
+          </ul>
+          {!hasBody && <p className="text-sm text-[#9A3412]">{t("webflow.needBody")}</p>}
+        </div>
+      )}
       {error && <p className="text-sm text-[#9A3412]">{error}</p>}
-      <Footer pending={pending} onCancel={onDone} submit={sites ? t("connect") : t("webflow.loadSites")} disabled={Boolean(sites) && !choice.collectionId} />
+      <Footer
+        pending={pending}
+        onCancel={onDone}
+        submit={!sites ? t("webflow.loadSites") : !fields ? t("webflow.continue") : t("connect")}
+        disabled={(Boolean(sites) && !choice.collectionId) || (Boolean(fields) && !hasBody)}
+      />
     </form>
   );
 }

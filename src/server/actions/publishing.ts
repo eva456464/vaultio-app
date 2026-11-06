@@ -1,6 +1,6 @@
 "use server";
 
-import { and, desc, eq, isNull } from "drizzle-orm";
+import { and, asc, eq, isNull } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { db } from "@/db";
@@ -74,11 +74,12 @@ export async function testWebhook(): Promise<DeliveryResult> {
   const site = await requireAdminSite();
   const [connection] = await db.select().from(integrations).where(and(eq(integrations.orgWebsiteId, site.id), eq(integrations.type, "webhook")));
   if (!connection?.credentialsEncrypted) return { ok: false, error: "Save the webhook first" };
-  const [latest] = await db.select().from(articles).where(eq(articles.orgWebsiteId, site.id)).orderBy(desc(articles.createdAt)).limit(1);
-  const payload = latest
-    ? webhookPayload(latest, site)
+  // The test sends the first (oldest) article, as the reference product does.
+  const [oldest] = await db.select().from(articles).where(eq(articles.orgWebsiteId, site.id)).orderBy(asc(articles.createdAt)).limit(1);
+  const payload = oldest
+    ? webhookPayload(oldest, site)
     : { id: 0, title: "Test article from Vaultio", slug: "test-article-from-vaultio", content_html: "<p>Webhook test.</p>", content_markdown: "Webhook test.", languageCode: site.selectedLanguage, createdAt: new Date().toISOString() };
-  const result = await deliverWebhook((connection.config as { url: string }).url, decryptJson(connection.credentialsEncrypted), payload);
+  const result = await deliverWebhook((connection.config as { url: string }).url, decryptJson(connection.credentialsEncrypted), payload, site.url);
   await db
     .update(integrations)
     .set(result.ok ? { status: "connected", lastError: null, connectedAt: new Date(), updatedAt: new Date() } : { status: "error", lastError: result.error, updatedAt: new Date() })

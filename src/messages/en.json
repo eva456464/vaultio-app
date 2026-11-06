@@ -1392,8 +1392,26 @@
         "loadSites": "Find my sites",
         "site": "Webflow site",
         "collection": "Blog collection",
-        "fields": "Fields used: body {body}{summary, select, none {} other {, summary {summary}}}{image, select, none {} other {, cover image {image}}}.",
-        "summary": "Publishing to {collection} on {site}"
+        "summary": "Publishing to {collection} on {site}",
+        "continue": "Continue",
+        "mapTitle": "Map your collection fields",
+        "mapHint": "Choose what each field of your collection receives. The article body needs a Rich Text field; required fields need a match.",
+        "required": "required",
+        "needBody": "Map a Rich Text field to the article body.",
+        "parts": {
+          "title": "Article title",
+          "slug": "Article slug",
+          "none": "Nothing",
+          "body": "Article body",
+          "summary": "Summary",
+          "image": "Cover image",
+          "imageAlt": "Cover image alt text",
+          "metaTitle": "SEO title",
+          "metaDescription": "Meta description",
+          "publishedAt": "Publish date",
+          "author": "Author",
+          "keyword": "Target keyword"
+        }
       },
       "shopify": {
         "name": "Shopify",

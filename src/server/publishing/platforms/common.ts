@@ -12,6 +12,8 @@ export type PostInput = {
   heroUrl: string | null;
   heroAlt: string;
   faqJsonLd: unknown;
+  author?: string | null;
+  keyword?: string | null;
 };
 
 export const postInput = (article: Article): PostInput => ({

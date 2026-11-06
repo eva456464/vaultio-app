@@ -17,7 +17,7 @@ import type { PublishMode } from "../publishing/platforms/common";
 import { findGhostAuthor, verifyGhost } from "../publishing/platforms/ghost";
 import { inspectGhl, type GhlChoice } from "../publishing/platforms/gohighlevel";
 import { inspectShopify, normalizeShop, type ShopifyChoice, type ShopifyCredentials } from "../publishing/platforms/shopify";
-import { listWebflow, mapWebflowFields, type WebflowChoice } from "../publishing/platforms/webflow";
+import { ARTICLE_PARTS, checkWebflowMapping, listWebflow, mapWebflowFields, webflowFields, type WebflowChoice, type WebflowMapping } from "../publishing/platforms/webflow";
 import { verifyWix } from "../publishing/platforms/wix";
 import { checkHostingDomain, connectHostingDomain, disconnectHostingDomain, normalizeDomain, platformHosts } from "../whitelabel/domains";
 
@@ -95,7 +95,22 @@ export async function loadWebflowSites(token: string): Promise<{ ok: true; choic
   return result.ok ? result : { error: result.error };
 }
 
-const webflowSchema = z.object({ token: tokenSchema, siteId: z.string().min(1, "Choose a site"), collectionId: z.string().min(1, "Choose the blog collection"), mode });
+/** The collection's fields and a suggested mapping, for the wizard's "Map your collection fields" step. */
+export async function loadWebflowFields(token: string, collectionId: string) {
+  await requireAdminSite();
+  const parsed = tokenSchema.safeParse(token);
+  if (!parsed.success) return { error: parsed.error.issues[0]!.message };
+  const result = await webflowFields(parsed.data, collectionId);
+  return result.ok ? result : { error: result.error };
+}
+
+const webflowSchema = z.object({
+  token: tokenSchema,
+  siteId: z.string().min(1, "Choose a site"),
+  collectionId: z.string().min(1, "Choose the blog collection"),
+  mode,
+  mapping: z.record(z.string(), z.enum(ARTICLE_PARTS)).optional(),
+});
 
 export async function connectWebflow(input: z.input<typeof webflowSchema>): Promise<Result> {
   const site = await requireAdminSite();
@@ -106,12 +121,32 @@ export async function connectWebflow(input: z.input<typeof webflowSchema>): Prom
   const chosen = sites.choice.sites.find((entry) => entry.id === parsed.data.siteId);
   const collection = chosen?.collections.find((entry) => entry.id === parsed.data.collectionId);
   if (!chosen || !collection) return { error: "Choose a site and collection from the list" };
+  // The owner's mapping when given (checked against the collection), else the automatic one.
+  let mapping: WebflowMapping | undefined;
+  if (parsed.data.mapping) {
+    const available = await webflowFields(parsed.data.token, collection.id);
+    if (!available.ok) return { error: available.error };
+    const problem = checkWebflowMapping(available.fields, parsed.data.mapping);
+    if (problem) return { error: problem };
+    mapping = parsed.data.mapping;
+  }
   const fields = await mapWebflowFields(parsed.data.token, collection.id);
-  if (!fields.ok) return { error: fields.error };
+  if (!fields.ok && !mapping) return { error: fields.error };
+  const body = mapping ? Object.entries(mapping).find(([, part]) => part === "body")![0] : "";
   await store(
     site.id,
     "webflow",
-    { siteId: chosen.id, siteName: chosen.name, baseUrl: chosen.baseUrl, collectionId: collection.id, collectionName: collection.name, collectionSlug: collection.slug, fields: fields.fields, mode: parsed.data.mode },
+    {
+      siteId: chosen.id,
+      siteName: chosen.name,
+      baseUrl: chosen.baseUrl,
+      collectionId: collection.id,
+      collectionName: collection.name,
+      collectionSlug: collection.slug,
+      fields: fields.ok ? fields.fields : { body },
+      ...(mapping ? { mapping } : {}),
+      mode: parsed.data.mode,
+    },
     { token: parsed.data.token },
   );
   return { ok: true };

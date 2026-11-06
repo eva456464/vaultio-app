@@ -199,13 +199,13 @@ class Handler(BaseHTTPRequestHandler):
             if sub == "/sites/site1/collections":
                 return self.reply({"collections": [{"id": "col-team", "displayName": "Team", "slug": "team"}, {"id": "col-blog", "displayName": "Blog Posts", "slug": "blog"}]})
             if sub == "/collections/col-blog":
-                return self.reply({"id": "col-blog", "fields": [{"slug": "name", "type": "PlainText", "isRequired": True}, {"slug": "slug", "type": "PlainText", "isRequired": True}, {"slug": "post-body", "type": "RichText", "isRequired": False}, {"slug": "post-summary", "type": "PlainText"}, {"slug": "main-image", "type": "Image"}]})
-            m = re.match(r"^/collections/col-blog/items(?:/([a-z0-9-]+))?(/live)?$", sub)
+                return self.reply({"id": "col-blog", "fields": [{"slug": "name", "type": "PlainText", "isRequired": True}, {"slug": "slug", "type": "PlainText", "isRequired": True}, {"slug": "post-body", "displayName": "Post Body", "type": "RichText", "isRequired": False}, {"slug": "post-summary", "displayName": "Post Summary", "type": "PlainText"}, {"slug": "main-image", "displayName": "Main Image", "type": "Image"}, {"slug": "author-name", "displayName": "Author Name", "type": "PlainText"}, {"slug": "seo-description", "displayName": "SEO Description", "type": "PlainText"}, {"slug": "publish-date", "displayName": "Publish Date", "type": "DateTime"}, {"slug": "featured", "displayName": "Featured", "type": "Switch"}]})
+            m = re.match(r"^/collections/col-blog/items(?:/(?!live$)([a-z0-9-]+))?(/live)?$", sub)
             if m:
                 data = self.body()
                 item_id = m.group(1) or f"item-{len(WEBFLOW_ITEMS) + 1}"
                 WEBFLOW_ITEMS[item_id] = data
-                LOG.append({"platform": "webflow", "method": method, "live": bool(m.group(2)), "draft": data.get("isDraft"), "fields": sorted(data.get("fieldData", {}).keys()), "image": data.get("fieldData", {}).get("main-image")})
+                LOG.append({"platform": "webflow", "method": method, "live": bool(m.group(2)), "draft": data.get("isDraft"), "fields": sorted(data.get("fieldData", {}).keys()), "image": data.get("fieldData", {}).get("main-image"), "fieldData": {k: (v if not isinstance(v, str) or len(v) < 120 else v[:40] + "…") for k, v in data.get("fieldData", {}).items()}})
                 return self.reply({"id": item_id, "fieldData": data.get("fieldData", {})})
 
         # ---------------- Shopify
