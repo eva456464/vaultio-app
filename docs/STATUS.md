@@ -322,7 +322,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Site health: the full check list, PageSpeed Insights, broken links and images, validate fix | `main` a8f12e5 |
 | Publishing: Next.js blog package, WordPress.com, detected platform, published-articles check and blog path, hosted blog logo and colour | `main` ccf0ea2 |
 | Get started checklist, target location (country or region/city), weekly progress email, editable AI prompts, cancellation flow, end trial now, unverified blog cleanup | `main` 6ebb15c |
-| Saved pages search, set password for Google sign-ins, request a feature, 404 for invalid ids | `main` (this commit) |
+| Saved pages search, set password for Google sign-ins, request a feature, 404 for invalid ids | `main` 12dcd0f |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
