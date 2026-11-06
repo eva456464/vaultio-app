@@ -69,7 +69,7 @@ export function AuthForm({ mode, brandName, googleEnabled, invite }: { mode: Mod
         </>
       )}
 
-      <form onSubmit={onSubmit} className={googleEnabled ? "space-y-3" : "mt-6 space-y-3"}>
+      <form method="post" onSubmit={onSubmit} className={googleEnabled ? "space-y-3" : "mt-6 space-y-3"}>
         {mode === "sign-up" && (
           <input name="name" required autoComplete="name" placeholder={t("name")} className={inputClass} />
         )}

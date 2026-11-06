@@ -34,7 +34,7 @@ export function ForgotPasswordForm({ emailEnabled }: { emailEnabled: boolean }) 
       ) : sentTo ? (
         <p role="status" className="mt-6 rounded-xl bg-success-bg p-3 text-sm text-success">{t("linkSent", { email: sentTo })}</p>
       ) : (
-        <form onSubmit={onSubmit} className="mt-6 space-y-3">
+        <form method="post" onSubmit={onSubmit} className="mt-6 space-y-3">
           <input name="email" type="email" required autoComplete="email" placeholder={t("email")} aria-label={t("email")} className={inputClass} />
           {error && <p className="text-sm text-red-600">{error}</p>}
           <Button type="submit" size="lg" className="w-full" disabled={pending}>
@@ -70,7 +70,7 @@ export function ResetPasswordForm({ token }: { token: string | null }) {
       {state === "done" && <p role="status" className="mt-6 rounded-xl bg-success-bg p-3 text-sm text-success">{t("resetDone")}</p>}
       {state === "invalid" && <p role="alert" className="mt-6 rounded-xl bg-[#FDECEA] p-3 text-sm text-[#9A3412]">{t("resetInvalid")}</p>}
       {state === "idle" && (
-        <form onSubmit={onSubmit} className="mt-6 space-y-3">
+        <form method="post" onSubmit={onSubmit} className="mt-6 space-y-3">
           <input name="password" type="password" required minLength={8} autoComplete="new-password" placeholder={t("newPassword")} aria-label={t("newPassword")} className={inputClass} />
           <Button type="submit" size="lg" className="w-full" disabled={pending}>
             {t("savePassword")}

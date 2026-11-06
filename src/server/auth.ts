@@ -39,7 +39,9 @@ export const auth = betterAuth({
       }
     : undefined,
   // Agencies sign their clients in on their own domains (white label).
-  trustedOrigins: async () => {
+  trustedOrigins: async (request) => {
+    // Development only (PREVIEW_ANY_ORIGIN=1): a preview proxy signs in from its own address.
+    const preview = process.env.NODE_ENV !== "production" && process.env.PREVIEW_ANY_ORIGIN === "1" ? request?.headers.get("origin") : null;
     const rows = await db
       .select({ domain: schema.whitelabelConfigs.domain })
       .from(schema.whitelabelConfigs)
@@ -47,6 +49,7 @@ export const auth = betterAuth({
     return [
       process.env.BETTER_AUTH_URL,
       ...rows.map((row) => `https://${row.domain}`),
+      ...(preview ? [preview] : []),
     ];
   },
   databaseHooks: {
