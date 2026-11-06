@@ -318,7 +318,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Content calendar (move, plan a day, sources, statuses, engine banner), topics from AI-assistant citations, AI-reviewed writing and image instructions, plagiarism check | `main` 92bf14a |
 | Onboarding wizard (market, business, competitors, brand, Search Console, survey, plan) and agency setup wizard | `main` b8917f9 |
 | Site health: the full check list, PageSpeed Insights, broken links and images, validate fix | `main` a8f12e5 |
-| Publishing: Next.js blog package, WordPress.com, detected platform, published-articles check and blog path, hosted blog logo and colour | `main` (this commit) |
+| Publishing: Next.js blog package, WordPress.com, detected platform, published-articles check and blog path, hosted blog logo and colour | `main` ccf0ea2 |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
