@@ -64,6 +64,13 @@ def sample(schema, name, context):
     if kind == "object":
         return {key: sample(value, key, context) for key, value in schema.get("properties", {}).items()}
     if kind == "array":
+        if name == "threads" and "relevance" in schema.get("items", {}).get("properties", {}):
+            # Community threads: questions about leaks, quotes or repairs are relevant, the rest isn't.
+            rated = []
+            for index, title in re.findall(r"^\[(\d+)\] (.+)$", context, re.M):
+                relevant = re.search(r"leak|quote|repair|replace|roofer|pro\b", title, re.I)
+                rated.append({"index": int(index), "relevance": 85 if relevant else 10, "reasoning": "Asks about a roof problem the business fixes." if relevant else "Not a question the business can help with."})
+            return rated
         if name == "proposals":
             first = re.search(r"\[0\] (<p>.*?</p>)", context)
             return [{"blockIndex": 0, "html": "<p>Most roofs last 20 to 30 years, and the material matters most.</p>", "reason": "A shorter, answer-first opening."}] if first else []

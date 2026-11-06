@@ -181,7 +181,8 @@ export const llmAnswers = pgTable(
 
 export const COMMUNITY_PLATFORMS = ["reddit", "quora"] as const;
 export type CommunityPlatform = (typeof COMMUNITY_PLATFORMS)[number];
-export type CommunitySource = "google" | "web";
+/** Why a thread was found: it ranks on Google for a keyword, a web search for a keyword, or it is trending in a followed subreddit. */
+export type CommunitySource = "google" | "web" | "trending";
 
 export const communitySettings = pgTable(
   "community_settings",

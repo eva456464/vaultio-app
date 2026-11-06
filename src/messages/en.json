@@ -3602,7 +3602,9 @@
     "nextSearch": {
       "soon": "in the next few minutes",
       "day": "{date}"
-    }
+    },
+    "ranksFor": "Ranks on Google for <q>{keyword}</q>",
+    "trendingIn": "Trending in <q>r/{subreddit}</q>"
   },
   "emails": {
     "invite": {

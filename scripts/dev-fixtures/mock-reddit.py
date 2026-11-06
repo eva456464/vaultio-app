@@ -6,7 +6,7 @@ Details are deterministic fake test data; thread "rf0004" is archived so it gets
 
     python3 scripts/dev-fixtures/mock-reddit.py 4500
 """
-import hashlib, json, sys, time
+import hashlib, json, re, sys, time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
@@ -36,10 +36,24 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         url = urlparse(self.path)
-        if url.path != "/api/info":
-            return self.send_json({"error": "not found"}, 404)
         if self.headers.get("authorization") != "Bearer mock-reddit-token":
             return self.send_json({"error": "unauthorized"}, 401)
+        hot = re.match(r"^/r/([A-Za-z0-9_]+)/hot$", url.path)
+        if hot:
+            sub = hot.group(1)
+            titles = [("Weekly megathread: ask anything", True, False), (f"Is it worth fixing a leak myself or calling a pro? ({sub})", False, False),
+                      ("Look at this sunset from my roof", False, False), ("Got three quotes for a full replacement, which one would you pick?", False, False),
+                      ("[Locked] old drama thread", False, True)]
+            children = []
+            for i, (title, stickied, locked) in enumerate(titles):
+                post_id = f"hot{sub[:3].lower()}{i}"
+                children.append({"kind": "t3", "data": {"id": post_id, "subreddit": sub, "title": title, "selftext": f"Trending test post {i} in r/{sub}.",
+                                 "author": f"hot_user_{i}", "score": 40 + i * 25, "num_comments": 10 + i * 7, "created_utc": time.time() - (i + 1) * 3600,
+                                 "permalink": f"/r/{sub}/comments/{post_id}/test_post_{i}/", "stickied": stickied, "locked": locked, "archived": False,
+                                 "over_18": False, "removed_by_category": None}})
+            return self.send_json({"kind": "Listing", "data": {"children": children}})
+        if url.path != "/api/info":
+            return self.send_json({"error": "not found"}, 404)
         ids = [i.removeprefix("t3_") for i in parse_qs(url.query).get("id", [""])[0].split(",") if i]
         children = []
         for post_id in ids:

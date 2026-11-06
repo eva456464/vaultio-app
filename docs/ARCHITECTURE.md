@@ -308,7 +308,10 @@ Threads are found the way AI assistants find them: through Google. With DataForS
 without it, Claude's web search restricted to those domains. Links are reduced to the thread
 (comment permalinks and Quora answer links point back to their thread or question; profiles,
 spaces and topics are dropped). If `REDDIT_CLIENT_ID/SECRET` are set, the Reddit Data API adds
-votes, comments, post text and age, and archived, locked, removed or adult threads are dropped.
+votes, comments, post text and age, and archived, locked, removed or adult threads are dropped;
+it also adds the threads trending in the chosen subreddits (`/r/<name>/hot`, up to five subreddits,
+pinned posts skipped) on each search. Each opportunity says why it was found (`source`): "Ranks on
+Google for …" (DataForSEO), "Found for …" (web search) or "Trending in r/…".
 
 Claude rates every new thread's relevance to the business (0–100, with a one-line reason) and
 threads under 60 are not shown. The opportunity score is relevance (60%) plus reach (votes and

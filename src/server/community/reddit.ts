@@ -74,3 +74,41 @@ export async function redditDetails(ids: string[]): Promise<Map<string, RedditDe
   }
   return details;
 }
+
+export type TrendingThread = RedditDetails & { url: string; stickied: boolean };
+
+/** The hot threads of a subreddit right now (open ones only), for the "trending in r/…" source. */
+export async function redditTrending(subreddit: string, limit = 15): Promise<TrendingThread[]> {
+  if (!redditApiConfigured()) return [];
+  const bearer = await accessToken();
+  const response = await fetch(`${process.env.REDDIT_API_URL ?? "https://oauth.reddit.com"}/r/${encodeURIComponent(subreddit)}/hot?limit=${limit}&raw_json=1`, {
+    headers: { authorization: `Bearer ${bearer}`, "user-agent": USER_AGENT },
+    signal: AbortSignal.timeout(20_000),
+  });
+  if (!response.ok) throw new Error(`Reddit returned HTTP ${response.status} for r/${subreddit}`);
+  const listing = (await response.json()) as Listing;
+  return (listing.data?.children ?? []).flatMap((child) => {
+    const post = child.data;
+    const id = String(post.id ?? "");
+    const permalink = typeof post.permalink === "string" ? post.permalink : null;
+    if (!id || !permalink) return [];
+    const removed = post.removed_by_category != null || post.selftext === "[removed]" || post.selftext === "[deleted]";
+    const closed = Boolean(post.archived || post.locked || post.over_18) || removed;
+    if (closed || post.stickied) return [];
+    return [
+      {
+        id,
+        subreddit: String(post.subreddit ?? subreddit),
+        title: String(post.title ?? ""),
+        body: typeof post.selftext === "string" && post.selftext ? post.selftext.slice(0, 4000) : null,
+        author: typeof post.author === "string" && post.author !== "[deleted]" ? post.author : null,
+        upvotes: Number(post.score ?? 0),
+        numComments: Number(post.num_comments ?? 0),
+        postedAt: new Date(Number(post.created_utc ?? 0) * 1000),
+        closed,
+        stickied: false,
+        url: `https://www.reddit.com${permalink}`,
+      },
+    ];
+  });
+}

@@ -26,7 +26,7 @@ import { availableRequirements } from "../agents/capabilities";
 import { siteMarket } from "../agents/jobs/strategy";
 import type { JobContext, Site } from "../agents/jobs/types";
 import { siteEntitlements } from "../billing/entitlements";
-import { redditApiConfigured, redditDetails } from "./reddit";
+import { redditApiConfigured, redditDetails, redditTrending } from "./reddit";
 
 const PLATFORM_NAME: Record<CommunityPlatform, string> = { reddit: "Reddit", quora: "Quora" };
 /** Threads Claude rates below this are not shown. */
@@ -34,6 +34,8 @@ const MIN_RELEVANCE = 60;
 /** Replies drafted automatically per run; the rest are drafted on request ("Draft a reply"). */
 const AUTO_DRAFTS = 3;
 const MAX_CANDIDATES = 40;
+/** Followed subreddits whose trending threads are checked on each search. */
+const MAX_TRENDING_SUBREDDITS = 5;
 
 type Settings = typeof communitySettings.$inferSelect;
 
@@ -42,8 +44,8 @@ type Candidate = ThreadRef & {
   snippet: string | null;
   /** Google position for the keyword, when found through Google. */
   position: number | null;
-  keywordId: number;
-  keyword: string;
+  keywordId: number | null;
+  keyword: string | null;
   source: CommunitySource;
   body?: string | null;
   author?: string | null;
@@ -224,7 +226,7 @@ async function rateThreads(site: Site, platform: CommunityPlatform, candidates: 
           [
             `[${index}] ${candidate.subreddit ? `r/${candidate.subreddit} · ` : ""}${candidate.title}`,
             candidate.body ? `    Post: ${candidate.body.slice(0, 600).replace(/\s+/g, " ")}` : candidate.snippet ? `    Snippet: ${candidate.snippet}` : null,
-            `    Found for: "${candidate.keyword}"`,
+            candidate.keyword ? `    Found for: "${candidate.keyword}"` : `    Trending in r/${candidate.subreddit}`,
           ]
             .filter(Boolean)
             .join("\n"),
@@ -318,6 +320,36 @@ async function communitySearch(platform: CommunityPlatform, { site }: JobContext
       if (!found.has(thread.externalId)) found.set(thread.externalId, thread);
     }
     await db.update(communityKeywords).set({ lastCheckedAt: new Date(), updatedAt: new Date() }).where(eq(communityKeywords.id, keyword.id));
+  }
+  // Trending threads in the followed subreddits (needs the Reddit Data API); Claude's relevance
+  // rating below keeps only the ones the business can help with.
+  if (platform === "reddit" && subreddits.length && redditApiConfigured()) {
+    for (const subreddit of subreddits.slice(0, MAX_TRENDING_SUBREDDITS)) {
+      try {
+        for (const thread of await redditTrending(subreddit)) {
+          if (found.has(thread.id)) continue;
+          found.set(thread.id, {
+            platform: "reddit",
+            externalId: thread.id,
+            url: thread.url,
+            subreddit: thread.subreddit,
+            title: thread.title,
+            snippet: null,
+            position: null,
+            keywordId: null,
+            keyword: null,
+            source: "trending",
+            body: thread.body,
+            author: thread.author,
+            upvotes: thread.upvotes,
+            numComments: thread.numComments,
+            postedAt: thread.postedAt,
+          });
+        }
+      } catch (error) {
+        console.warn(`[community] trending r/${subreddit}:`, (error as Error).message);
+      }
+    }
   }
 
   // Skip threads this site has already seen (open, replied or marked not relevant).

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowBigUp, ArrowRight, Check, EllipsisVertical, Info, LoaderCircle, MessageSquare, Pencil, RefreshCw, Search, Sparkles, Trash2, Undo2 } from "lucide-react";
+import { ArrowBigUp, ArrowRight, Check, EllipsisVertical, Info, LoaderCircle, MessageSquare, Pencil, RefreshCw, Search, Sparkles, Trash2, TrendingUp, Undo2 } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
@@ -18,6 +18,8 @@ export type Opportunity = {
   upvotes: number | null;
   numComments: number | null;
   keyword: string | null;
+  /** Why it was found: Google ranking for the keyword, a web search for it, or trending in the subreddit. */
+  source: "google" | "web" | "trending" | null;
   reply: string | null;
   reasoning: string | null;
   repliedAt: string | null;
@@ -211,10 +213,14 @@ export function OpportunityCard({ platform, item, llmAvailable }: { platform: Co
       </div>
       {error && <p className="mt-2 text-sm text-[#9A3412]">{error}</p>}
 
-      {(item.keyword || item.reasoning) && (
+      {(item.keyword || item.reasoning || item.source === "trending") && (
         <p className="mt-4 flex items-center gap-1.5 border-t border-line pt-3 text-[13px] text-ink-secondary">
-          <Search className="size-3.5 shrink-0 text-ink-subtle" aria-hidden />
-          {item.keyword && <span>{t.rich("foundFor", { keyword: item.keyword, q: (chunks) => <strong className="font-semibold text-ink">“{chunks}”</strong> })}</span>}
+          {item.source === "trending" ? <TrendingUp className="size-3.5 shrink-0 text-ink-subtle" aria-hidden /> : <Search className="size-3.5 shrink-0 text-ink-subtle" aria-hidden />}
+          {item.source === "trending" && item.subreddit ? (
+            <span>{t.rich("trendingIn", { subreddit: item.subreddit, q: (chunks) => <strong className="font-semibold text-ink">{chunks}</strong> })}</span>
+          ) : item.keyword ? (
+            <span>{t.rich(item.source === "google" ? "ranksFor" : "foundFor", { keyword: item.keyword, q: (chunks) => <strong className="font-semibold text-ink">“{chunks}”</strong> })}</span>
+          ) : null}
           {item.reasoning && (
             <Tooltip content={`${t("whyRelevant")}: ${item.reasoning}`}>
               <button type="button" aria-label={`${t("whyRelevant")}: ${item.reasoning}`} className="text-ink-subtle hover:text-ink-secondary">
