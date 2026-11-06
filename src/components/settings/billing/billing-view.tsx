@@ -150,6 +150,11 @@ function PlanPicker({ data, site }: { data: Billed; site: string }) {
                 )}
               </p>
               <p className="text-xs text-ink-subtle">{price ? (interval === "year" ? t("choose.billedYearly", { amount: money(price.amount, price.currency) }) : t("choose.billedMonthly")) : " "}</p>
+              {price && data.volume?.percent ? (
+                <p className="mt-1 text-xs font-medium text-success">
+                  {t("choose.volumePrice", { amount: money(Math.round((monthly! * (100 - data.volume.percent)) / 100), price.currency, true), percent: data.volume.percent })}
+                </p>
+              ) : null}
               <ul className="mt-5 flex-1 space-y-2.5">
                 {features.map((feature) => (
                   <li key={feature} className="flex gap-2 text-sm text-ink">
@@ -183,6 +188,7 @@ function PlanPicker({ data, site }: { data: Billed; site: string }) {
           );
         })}
       </div>
+      {data.volume?.percent ? <p className="mt-4 text-center text-sm text-ink-secondary">{t("choose.volumeNote", { percent: data.volume.percent, count: data.volume.activeWebsites })}</p> : null}
       {data.trialDays > 0 && <p className="mt-4 text-center text-xs text-ink-subtle">{t("choose.trialNote", { days: data.trialDays })}</p>}
       {!data.isAdmin && <p className="mt-4 text-center text-sm text-ink-secondary">{t("adminOnly")}</p>}
       {error && <p className="mt-4 text-center text-sm text-[#9A3412]">{error}</p>}

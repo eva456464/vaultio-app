@@ -455,6 +455,18 @@ onboarding, milestones and the backlink check run; the Overview says the agents 
 Without `STRIPE_SECRET_KEY` billing is off (nothing billed, base limits). Workspaces with
 `organizations.billing_exempt` (e.g. Vaultio's own) aren't billed and get Scale limits.
 
+Volume discount (`VOLUME_TIERS`, `src/server/billing/volume.ts`): a new website's plan checkout gets
+an automatic discount by how many other websites of the workspace already have an active, paid plan —
+2–4: 10%, 5–8: 12%, 9–14: 15%, 15+: 20% (so the second website is full price and the discount starts
+with the third). It's a Stripe coupon (`vaultio-volume-<percent>`, "forever"), created the first time
+it's needed and applied with `discounts` (Checkout then takes no promotion codes). The plan cards and
+the onboarding plan step show the discounted price.
+
+Seats (`src/server/billing/seats.ts`): members plus pending invitations. Grow includes one seat; once
+any website of the workspace is on Scale they're unlimited. Agencies, exempt workspaces and billing
+off have no limit. Settings → Team members shows "1 of 1 seat used" and turns "Add member" off when
+full; `inviteMember` checks it too.
+
 ### Languages
 
 A website written in several languages has one org website per language: the first is the primary
@@ -474,6 +486,14 @@ Scale plan includes 3 languages per website (the oldest three); others need the 
 (`vaultio_language_monthly`, bought on the language's Billing page; no trial). A language that isn't
 covered keeps its data but its agents pause, like a website without a plan. With billing off or for an
 exempt workspace, languages are free.
+
+The free languages follow the plan (`src/server/billing/languages.ts`, run from the Stripe sync):
+during a Scale **trial** they're locked (the Add languages dialog and the language's Billing page say
+so; a language can be added at the regular price, or "Skip trial & unlock free languages" ends the
+trial now). When the trial converts, the oldest three become free and any paid add-ons of those
+languages end at once (no refund). When the website **leaves Scale**, its free languages that aren't
+paid separately are marked `complimentary_paused_at` and their Billing page offers "Keep this language"
+(the add-on) or going back to Scale, either of which clears the mark.
 
 Infographics: Latin, Cyrillic, Greek and Vietnamese use the bundled fonts; for Chinese, Japanese, Korean,
 Thai, Devanagari and a few other scripts the renderer fetches a font with just the characters of that

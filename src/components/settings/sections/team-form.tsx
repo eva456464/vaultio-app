@@ -5,6 +5,7 @@ import { Check, Copy, Crown, EllipsisVertical, Link2, Mail, Plus, Shield, Trash2
 import { useLocale, useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
@@ -261,12 +262,20 @@ export function TeamForm({ data }: { data: TeamData }) {
         <div className="flex flex-wrap items-center justify-between gap-3 p-5 md:p-6">
           <h2 className="font-sans text-[16px] font-semibold text-ink">{t("membersTitle")}</h2>
           {data.isAdmin && (
-            <Button onClick={() => setInviting(true)}>
-              <Plus />
-              {t("addMember")}
-            </Button>
+            <div className="flex flex-wrap items-center gap-3">
+              {data.seats.limit !== null && <span className="text-sm text-ink-secondary">{t("seats", { used: data.seats.used, limit: data.seats.limit })}</span>}
+              <Button onClick={() => setInviting(true)} disabled={data.seats.full}>
+                <Plus />
+                {t("addMember")}
+              </Button>
+            </div>
           )}
         </div>
+        {data.isAdmin && data.seats.full && (
+          <p className="mx-5 mb-4 rounded-xl bg-canvas p-3 text-sm text-ink-secondary md:mx-6">
+            {t.rich("seatsFull", { link: (chunks) => <Link href="/dashboard/settings/billing" className="font-medium text-ink underline underline-offset-2">{chunks}</Link> })}
+          </p>
+        )}
         {data.isAdmin && !data.emailEnabled && <p className="mx-5 mb-4 rounded-xl bg-[#EEF4FF] p-3 text-sm text-[#2A5BD7] md:mx-6">{t("noEmail")}</p>}
         {(notice || error) && (
           <p role="status" className={cn("mx-5 mb-4 text-sm md:mx-6", error ? "text-[#9A3412]" : "text-success")}>

@@ -6,10 +6,11 @@ import { and, eq, sql } from "drizzle-orm";
 import type Stripe from "stripe";
 import { db } from "@/db";
 import { backlinkCreditLedger, invoices, organizationMembers, organizations, orgWebsites, subscriptions, user, userSettings, type SubscriptionStatus, type SubscriptionType } from "@/db/schema";
-import { addonOfLookupKey, planOfLookupKey } from "@/lib/billing";
+import { addonOfLookupKey, LANGUAGE_ADDON, LIVE_STATUSES, planOfLookupKey } from "@/lib/billing";
 import { logActivity } from "../agents/activity";
 import { sendEmail } from "../email";
 import { emailConfigured } from "../invites";
+import { clearPausedLanguages, familyIds, pauseFreeLanguages, unlockFreeLanguages } from "./languages";
 import { priceCatalog, stripe } from "./stripe";
 
 const idOf = (value: string | { id: string } | null | undefined) => (typeof value === "string" ? value : (value?.id ?? null));
@@ -72,6 +73,7 @@ export async function syncSubscription(subscription: Stripe.Subscription) {
     pausedAt: subscription.pause_collection ? new Date() : null,
     updatedAt: new Date(),
   };
+  const [previous] = await db.select({ plan: subscriptions.plan, status: subscriptions.status }).from(subscriptions).where(eq(subscriptions.stripeSubscriptionId, subscription.id));
   const [row] = await db
     .insert(subscriptions)
     .values(values)
@@ -81,7 +83,26 @@ export async function syncSubscription(subscription: Stripe.Subscription) {
       set: { ...values, pausedAt: subscription.pause_collection ? sql`coalesce(${subscriptions.pausedAt}, now())` : null },
     })
     .returning();
+  await followLanguages(row!, previous ?? null);
   return row!;
+}
+
+/** Scale's free languages follow the website's plan (see ./languages). */
+async function followLanguages(row: typeof subscriptions.$inferSelect, previous: { plan: string | null; status: string } | null) {
+  if (!row.orgWebsiteId) return;
+  try {
+    if (row.type === LANGUAGE_ADDON.type) {
+      if (row.status === "active") await clearPausedLanguages([row.orgWebsiteId]);
+      return;
+    }
+    if (row.type !== "main") return;
+    const onScale = row.plan === "scale" && !row.pausedAt;
+    if (onScale && row.status === "active" && previous?.status === "trialing") await unlockFreeLanguages(row.orgWebsiteId);
+    else if (onScale && row.status === "active") await clearPausedLanguages(await familyIds(row.orgWebsiteId));
+    if (previous?.plan === "scale" && row.plan !== "scale" && LIVE_STATUSES.has(row.status)) await pauseFreeLanguages(row.orgWebsiteId);
+  } catch (error) {
+    console.error("[billing] language follow-up failed:", (error as Error).message);
+  }
 }
 
 const INVOICE_STATUSES = new Set(["draft", "open", "paid", "void", "uncollectible"]);

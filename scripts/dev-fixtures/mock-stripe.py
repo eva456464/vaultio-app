@@ -20,7 +20,7 @@ PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 4600
 SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", "whsec_test")
 WEBHOOK = os.environ.get("APP_WEBHOOK_URL", "http://localhost:3000/api/stripe/webhook")
 BASE = f"http://localhost:{PORT}"
-DB = {"products": {}, "prices": {}, "customers": {}, "sessions": {}, "subscriptions": {}, "invoices": {}}
+DB = {"products": {}, "prices": {}, "customers": {}, "sessions": {}, "subscriptions": {}, "invoices": {}, "coupons": {}}
 COUNTER = [0]
 LOCK = threading.Lock()
 LOG = []
@@ -119,6 +119,15 @@ def make_invoice(sub_id, amount, reason):
     return invoice
 
 
+def discounted(sub, amount):
+    """The amount after the subscription's percent-off coupons."""
+    for coupon_id in sub.get("discount_coupons", []):
+        coupon = DB["coupons"].get(coupon_id)
+        if coupon and coupon.get("percent_off"):
+            amount = round(amount * (100 - float(coupon["percent_off"])) / 100)
+    return amount
+
+
 def create_subscription(session):
     price_id = session["line_items"][0]["price"]
     price = DB["prices"][price_id]
@@ -133,8 +142,11 @@ def create_subscription(session):
         "trial_end": start + trial_days * 86400 if trial_days else None, "created": start, "latest_invoice": None,
         "items": {"object": "list", "data": [{"id": new_id("si"), "object": "subscription_item", "price": price_id, "quantity": 1,
                                                "current_period_start": start, "current_period_end": start + (trial_days or period_days) * 86400}]},
+        "discount_coupons": [entry["coupon"] for entry in session.get("discounts") or [] if entry.get("coupon")],
     }
-    invoice = make_invoice(sub_id, 0 if trial_days else price["unit_amount"], "subscription_create")
+    sub = DB["subscriptions"][sub_id]
+    sub["discounts"] = [f"di_{coupon}" for coupon in sub["discount_coupons"]]
+    invoice = make_invoice(sub_id, 0 if trial_days else discounted(sub, price["unit_amount"]), "subscription_create")
     return sub_id, invoice
 
 
@@ -175,6 +187,7 @@ class Handler(BaseHTTPRequestHandler):
                 html = (f"<html><body style='font-family:sans-serif;padding:40px'><h1>Mock Stripe Checkout</h1>"
                         f"<p>{DB['products'][price['product']]['name']}: ${price['unit_amount']/100:.2f}/{price['recurring']['interval']}"
                         f"{f' after a {trial}-day free trial' if trial else ''}</p>"
+                        + "".join(f"<p>Discount: {DB['coupons'][d['coupon']]['percent_off']:g}% off ({d['coupon']})</p>" for d in session.get("discounts") or [] if d.get("coupon") in DB["coupons"]) +
                         f"<form method='post' action='/checkout/{session['id']}/pay'><button id='pay'>Pay</button></form>"
                         f"<a href='{session['cancel_url']}'>Back</a></body></html>")
                 return self.reply(html, 200, "text/html")
@@ -187,6 +200,12 @@ class Handler(BaseHTTPRequestHandler):
             if not self.authorized():
                 return self.reply({"error": {"message": "Invalid API key"}}, 401)
             expand = params.get("expand", [])
+            match = re.match(r"^/v1/coupons/([^/]+)$", path)
+            if match:
+                coupon = DB["coupons"].get(match.group(1))
+                if not coupon:
+                    return self.reply({"error": {"type": "invalid_request_error", "code": "resource_missing", "message": f"No such coupon: '{match.group(1)}'"}}, 404)
+                return self.reply(coupon)
             if path == "/v1/prices":
                 keys = params.get("lookup_keys", [])
                 data = [price_obj(p["id"], "data.product" in expand) for p in DB["prices"].values() if p["lookup_key"] in keys and (params.get("active") != "true" or p["active"])]
@@ -200,6 +219,22 @@ class Handler(BaseHTTPRequestHandler):
             match = re.match(r"^/v1/subscriptions/([^/]+)$", path)
             if match and match.group(1) in DB["subscriptions"]:
                 return self.reply(sub_obj(match.group(1)))
+        return self.reply({"error": {"message": f"No such route {path}"}}, 404)
+
+    def do_DELETE(self):
+        path, params = self.params()
+        with LOCK:
+            if not self.authorized():
+                return self.reply({"error": {"message": "Invalid API key"}}, 401)
+            match = re.match(r"^/v1/subscriptions/([^/]+)$", path)
+            if match and match.group(1) in DB["subscriptions"]:
+                sub_id = match.group(1)
+                sub = DB["subscriptions"][sub_id]
+                sub["status"] = "canceled"
+                sub["canceled_at"] = now()
+                LOG.append({"canceled": sub_id, "prorate": params.get("prorate"), "invoice_now": params.get("invoice_now")})
+                send_later([("customer.subscription.deleted", sub_obj(sub_id))])
+                return self.reply(sub_obj(sub_id))
         return self.reply({"error": {"message": f"No such route {path}"}}, 404)
 
     def do_POST(self):
@@ -226,7 +261,7 @@ class Handler(BaseHTTPRequestHandler):
                     item["current_period_start"] = item["current_period_end"]
                     item["current_period_end"] += (365 if price["recurring"]["interval"] == "year" else 30) * 86400
                     sub["status"] = "active"
-                    invoice = make_invoice(sub_id, price["unit_amount"], "subscription_cycle")
+                    invoice = make_invoice(sub_id, discounted(sub, price["unit_amount"]), "subscription_cycle")
                     send_later([("customer.subscription.updated", sub_obj(sub_id)), ("invoice.paid", invoice)])
                 else:
                     sub["status"] = "past_due"
@@ -252,9 +287,23 @@ class Handler(BaseHTTPRequestHandler):
                 session = {"id": session_id, "object": "checkout.session", "mode": "subscription", "status": "open", "customer": params.get("customer"),
                            "client_reference_id": params.get("client_reference_id"), "line_items": params["line_items"], "metadata": params.get("metadata", {}),
                            "subscription_data": params.get("subscription_data", {}), "success_url": params["success_url"], "cancel_url": params["cancel_url"],
+                           "discounts": params.get("discounts") or [], "allow_promotion_codes": params.get("allow_promotion_codes") == "true",
                            "subscription": None, "url": f"{BASE}/checkout/{session_id}"}
+                if session["discounts"] and session["allow_promotion_codes"]:
+                    return self.reply({"error": {"type": "invalid_request_error", "message": "You may only specify one of these parameters: allow_promotion_codes, discounts."}}, 400)
+                for entry in session["discounts"]:
+                    if entry.get("coupon") not in DB["coupons"]:
+                        return self.reply({"error": {"type": "invalid_request_error", "message": f"No such coupon: '{entry.get('coupon')}'"}}, 400)
                 DB["sessions"][session_id] = session
+                LOG.append({"checkout": session_id, "discounts": session["discounts"], "allow_promotion_codes": session["allow_promotion_codes"]})
                 return self.reply(session)
+            if path == "/v1/coupons":
+                coupon = {"id": params.get("id") or new_id("co"), "object": "coupon", "percent_off": float(params["percent_off"]) if params.get("percent_off") else None,
+                          "duration": params.get("duration", "once"), "name": params.get("name"), "valid": True}
+                if coupon["id"] in DB["coupons"]:
+                    return self.reply({"error": {"type": "invalid_request_error", "message": "Coupon already exists."}}, 400)
+                DB["coupons"][coupon["id"]] = coupon
+                return self.reply(coupon)
             if path == "/v1/billing_portal/sessions":
                 return self.reply({"id": new_id("bps"), "object": "billing_portal.session", "url": f"{BASE}/portal", "return_url": params.get("return_url")})
             match = re.match(r"^/v1/subscriptions/([^/]+)$", path)
@@ -273,9 +322,10 @@ class Handler(BaseHTTPRequestHandler):
                     LOG.append({"cancellation_details": params["cancellation_details"]})
                 if "discounts" in params:
                     sub["discounts"] = params["discounts"]
+                    sub["discount_coupons"] = [entry["coupon"] for entry in params["discounts"] or [] if isinstance(entry, dict) and entry.get("coupon")]
                     LOG.append({"discounts": params["discounts"]})
                 if params.get("trial_end") == "now":
-                    amount = DB["prices"][sub["items"]["data"][0]["price"]]["unit_amount"]
+                    amount = discounted(sub, DB["prices"][sub["items"]["data"][0]["price"]]["unit_amount"])
                     sub["trial_end"] = None
                     if DECLINE[0]:
                         sub["status"] = "past_due"

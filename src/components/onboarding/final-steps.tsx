@@ -154,6 +154,7 @@ export function PlanStep({
   domain,
   plans,
   trialDays,
+  volumePercent,
   scaleHref,
   checkoutFailed,
 }: {
@@ -161,6 +162,7 @@ export function PlanStep({
   domain: string;
   plans: { plan: "grow" | "scale"; price: string | null }[];
   trialDays: number;
+  volumePercent: number;
   scaleHref: string;
   checkoutFailed: boolean;
 }) {
@@ -184,6 +186,7 @@ export function PlanStep({
           {trialDays > 0 && <span className="rounded-full bg-brand/10 px-2.5 py-1 text-xs font-semibold text-brand">{t("plan.trialBadge", { days: trialDays })}</span>}
         </div>
         {grow?.price && <p className="mt-1 text-sm text-ink-secondary">{t("plan.price", { price: grow.price })}</p>}
+        {volumePercent > 0 && <p className="mt-1 text-sm font-medium text-success">{t("plan.volume", { percent: volumePercent })}</p>}
         <ul className="mt-4 space-y-2 text-sm text-ink">
           {(t.raw("plan.features") as string[]).map((feature) => (
             <li key={feature} className="flex items-start gap-2">

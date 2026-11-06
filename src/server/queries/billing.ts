@@ -4,6 +4,7 @@ import { db } from "@/db";
 import { invoices, subscriptions, userSettings } from "@/db/schema";
 import { ADDON_IDS, ADDONS, INTERVALS, LIVE_STATUSES, PLAN_LOOKUP_KEYS, PLANS, planOfLookupKey, type AddonId, type Interval, type Plan } from "@/lib/billing";
 import { billingEnabled, priceCatalog, type CatalogPrice } from "../billing/stripe";
+import { volumeDiscount } from "../billing/volume";
 import type { AppContext } from "../context";
 
 type Row = typeof subscriptions.$inferSelect;
@@ -68,6 +69,8 @@ export async function getBillingPage(context: AppContext) {
     mode: "billed" as const,
     prices,
     trialDays: rows.some((row) => row.type === "main") ? 0 : Number(process.env.BILLING_TRIAL_DAYS ?? 3),
+    // Shown on the plan cards while the website has no plan yet.
+    volume: main ? null : await volumeDiscount(organization.id, site.id),
     main: main && mainPlan ? { ...describe(main), plan: mainPlan.plan, interval: mainPlan.interval, live: LIVE_STATUSES.has(main.status) && !main.pausedAt } : null,
     addons,
     invoices: siteInvoices.map((invoice) => ({

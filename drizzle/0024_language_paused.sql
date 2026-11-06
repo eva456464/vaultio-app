@@ -1,0 +1,1 @@
+ALTER TABLE "org_websites" ADD COLUMN "complimentary_paused_at" timestamp with time zone;

@@ -4,7 +4,7 @@ import { CircleCheck, Languages, LoaderCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
-import { openBillingPortal, startLanguageCheckout } from "@/server/actions/billing";
+import { endTrialNow, openBillingPortal, startLanguageCheckout } from "@/server/actions/billing";
 import { selectSite } from "@/server/actions/site";
 import { CheckoutReturn } from "./billing-view";
 
@@ -13,9 +13,12 @@ export type LanguageBillingData = {
   language: string;
   website: string;
   primaryId: number;
-  coverage: "included" | "addon" | "none";
+  coverage: "included" | "addon" | "locked" | "paused" | "none";
   primaryPlan: "grow" | "scale" | null;
   primaryActive: boolean;
+  /** The website's plan subscription while it is on a free trial (to end the trial early). */
+  trialSubscriptionId: number | null;
+  freeLanguages: number;
   price: string | null;
   isAdmin: boolean;
 };
@@ -24,7 +27,18 @@ export type LanguageBillingData = {
 export function LanguageBilling({ data, locale, checkoutSession }: { data: LanguageBillingData; locale: string; checkoutSession: string | null }) {
   const t = useTranslations("settings.billing.language");
   const [error, setError] = useState<string | null>(null);
+  const [confirmSkip, setConfirmSkip] = useState(false);
+  const [skipped, setSkipped] = useState(false);
   const [pending, startTransition] = useTransition();
+  const skipTrial = () =>
+    startTransition(async () => {
+      const result = await endTrialNow(data.trialSubscriptionId!);
+      if ("error" in result) {
+        if (result.invoiceUrl) window.location.href = result.invoiceUrl;
+        else setError(result.error === "payment" ? t("skipFailed") : result.error);
+      } else setSkipped(true);
+      setConfirmSkip(false);
+    });
   const go = (action: () => Promise<{ ok: true; url: string } | { ok: true; changed: true } | { error: string }>) =>
     startTransition(async () => {
       const result = await action();
@@ -39,7 +53,11 @@ export function LanguageBilling({ data, locale, checkoutSession }: { data: Langu
         ? t("included", { website: data.website })
         : data.coverage === "addon"
           ? t("addon")
-          : !data.primaryActive
+          : data.coverage === "locked"
+            ? t("locked", { total: data.freeLanguages })
+            : data.coverage === "paused"
+              ? t("paused")
+              : !data.primaryActive
             ? t("noPlan", { website: data.website })
             : t("notCovered", { website: data.website });
 
@@ -62,10 +80,15 @@ export function LanguageBilling({ data, locale, checkoutSession }: { data: Langu
         </p>
         {data.isAdmin && data.mode === "billed" && (
           <div className="mt-4 flex flex-wrap gap-2">
-            {data.coverage === "none" && data.primaryActive && data.price && (
-              <Button disabled={pending} onClick={() => go(startLanguageCheckout)}>
+            {(data.coverage === "none" || data.coverage === "locked" || data.coverage === "paused") && data.primaryActive && data.price && (
+              <Button variant={data.coverage === "locked" ? "outline" : "primary"} disabled={pending} onClick={() => go(startLanguageCheckout)}>
                 {pending && <LoaderCircle className="animate-spin" />}
-                {t("buy", { price: data.price })}
+                {data.coverage === "paused" ? t("keep", { price: data.price }) : data.coverage === "locked" ? t("buyNow", { price: data.price }) : t("buy", { price: data.price })}
+              </Button>
+            )}
+            {data.coverage === "locked" && data.trialSubscriptionId && !skipped && (
+              <Button disabled={pending} onClick={() => setConfirmSkip(true)}>
+                {t("skipTrial")}
               </Button>
             )}
             {data.coverage === "addon" && (
@@ -73,13 +96,27 @@ export function LanguageBilling({ data, locale, checkoutSession }: { data: Langu
                 {t("manage")}
               </Button>
             )}
-            {(data.coverage === "none" || data.primaryPlan !== "scale") && (
+            {(data.coverage === "none" || data.coverage === "paused" || data.primaryPlan !== "scale") && (
               <Button variant={data.coverage === "none" && data.price ? "outline" : "primary"} disabled={pending} onClick={() => startTransition(() => selectSite(data.primaryId, locale, "/dashboard/settings/billing"))}>
                 {data.primaryActive ? t("upgrade", { website: data.website }) : t("choosePlan", { website: data.website })}
               </Button>
             )}
           </div>
         )}
+        {confirmSkip && (
+          <div className="mt-4 rounded-xl border border-line p-4 text-sm">
+            <p className="font-semibold text-ink">{t("skipTitle")}</p>
+            <p className="mt-1 text-ink-secondary">{t("skipDescription", { total: data.freeLanguages })}</p>
+            <div className="mt-3 flex gap-2">
+              <Button variant="outline" disabled={pending} onClick={() => setConfirmSkip(false)}>{t("cancel")}</Button>
+              <Button disabled={pending} onClick={skipTrial}>
+                {pending && <LoaderCircle className="animate-spin" />}
+                {t("skipConfirm")}
+              </Button>
+            </div>
+          </div>
+        )}
+        {skipped && <p className="mt-3 rounded-xl bg-success-bg p-3 text-sm text-success" role="status">{t("skipped")}</p>}
         {error && <p className="mt-3 rounded-xl bg-[#FBEAE6] p-3 text-sm text-[#9A3412]" role="alert">{error}</p>}
       </section>
     </div>

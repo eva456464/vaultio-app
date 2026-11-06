@@ -136,10 +136,16 @@ export function AddLanguageDialog({ open, onOpenChange }: { open: boolean; onOpe
               </label>
             )}
 
+            {eligibility?.trialLocked ? (
+              <div className="mt-5 rounded-xl border border-brand/30 bg-brand/[0.04] p-3 text-sm">
+                <p className="font-semibold text-ink">{t("trialLocked.title", { total: eligibility.trialLocked })}</p>
+                <p className="mt-0.5 text-ink-secondary">{t("trialLocked.body", { total: eligibility.trialLocked })}</p>
+              </div>
+            ) : null}
             <div className="mt-5 rounded-xl bg-canvas p-3 text-sm text-ink-secondary">
               {eligibility?.mode === "free" && t("pricing.free")}
               {eligibility?.mode === "plan" && t("pricing.plan", { left: eligibility.includedLeft, total: eligibility.included })}
-              {eligibility?.mode === "addon" && price && t("pricing.addon", { price })}
+              {eligibility?.mode === "addon" && price && (eligibility.trialLocked ? t("pricing.trialAddon", { price, total: eligibility.trialLocked }) : t("pricing.addon", { price }))}
               {extra > 0 && eligibility?.mode === "plan" && price && <span className="mt-1 block">{t("pricing.extra", { count: extra, price })}</span>}
             </div>
             {error && <p className="mt-3 rounded-xl bg-[#FBEAE6] p-3 text-sm text-[#9A3412]" role="alert">{error}</p>}

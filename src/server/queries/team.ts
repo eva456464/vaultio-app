@@ -3,13 +3,14 @@ import { and, asc, eq, isNull } from "drizzle-orm";
 import { db } from "@/db";
 import { memberWebsiteAccess, organizationInvitations, organizationMembers, orgWebsites, user } from "@/db/schema";
 import type { AppContext } from "../context";
+import { workspaceSeats } from "../billing/seats";
 import { emailConfigured, inviteLink, requestOrigin } from "../invites";
 import { workspaceBrand } from "../whitelabel/brand";
 
 export async function getTeam(context: AppContext) {
   const organization = context.organization!;
   const isAdmin = context.member?.role === "admin";
-  const [members, access, invites, sites, origin] = await Promise.all([
+  const [members, access, invites, sites, origin, seats] = await Promise.all([
     db
       .select({ member: organizationMembers, name: user.name, email: user.email })
       .from(organizationMembers)
@@ -34,12 +35,14 @@ export async function getTeam(context: AppContext) {
       .where(and(eq(orgWebsites.organizationId, organization.id), eq(orgWebsites.isHidden, false)))
       .orderBy(asc(orgWebsites.createdAt)),
     workspaceBrand(organization.id).then(async (own) => own?.origin ?? requestOrigin()),
+    workspaceSeats(organization),
   ]);
   const now = new Date();
   return {
     workspaceName: organization.name,
     isAdmin,
     emailEnabled: emailConfigured(),
+    seats,
     sites,
     members: members.map(({ member, name, email }) => ({
       id: member.id,

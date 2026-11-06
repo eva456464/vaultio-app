@@ -20,6 +20,8 @@ export const PLAN_LIMITS: Record<Plan, PlanLimits> = {
   grow: { prompts: 10, socialKeywords: 5, extraLanguages: 0 },
   scale: { prompts: 50, socialKeywords: 5, extraLanguages: 3 },
 };
+/** Seats (members plus pending invitations) per workspace: one on Grow, unlimited (null) once a website is on Scale. */
+export const PLAN_SEATS: Record<Plan, number | null> = { grow: 1, scale: null };
 /** Limits while billing isn't configured (development, or before launch). */
 export const UNBILLED_LIMITS: PlanLimits = { prompts: 10, socialKeywords: 5, extraLanguages: 0 };
 
@@ -61,6 +63,18 @@ export const addonOfLookupKey = (key: string | null | undefined) => Object.value
 
 /** Subscriptions that keep a website's agents running. */
 export const LIVE_STATUSES = new Set(["active", "trialing"]);
+
+/**
+ * Volume discount on a new website's plan, by how many websites already have an active (paid)
+ * plan: the second website is full price, the discount starts with the third. Applied at checkout.
+ */
+export const VOLUME_TIERS = [
+  { from: 15, percent: 20 },
+  { from: 9, percent: 15 },
+  { from: 5, percent: 12 },
+  { from: 2, percent: 10 },
+] as const;
+export const volumeDiscountPercent = (activeWebsites: number): number => VOLUME_TIERS.find((tier) => activeWebsites >= tier.from)?.percent ?? 0;
 
 /** Backlink credit subscribers only receive links from sites with at least this domain rating. */
 export const CREDIT_SUBSCRIBER_MIN_RATING = 20;

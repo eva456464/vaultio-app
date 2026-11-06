@@ -10,6 +10,7 @@ import { targetLocations } from "@/db/schema";
 import { redirect } from "@/i18n/navigation";
 import { PLAN_LOOKUP_KEYS } from "@/lib/billing";
 import { priceCatalog } from "@/server/billing/stripe";
+import { volumeDiscount } from "@/server/billing/volume";
 import { getAppContext, getBrand } from "@/server/context";
 import { beginOnboarding, WIZARD_STEPS, type WizardStep } from "@/server/onboarding/wizard";
 import { searchConsoleConnected, wizardPosition, wizardRoute, wizardSkips } from "@/server/queries/onboarding";
@@ -67,6 +68,7 @@ export default async function OnboardingStepPage({ params, searchParams }: PageP
           domain={domain}
           plans={plans}
           trialDays={Number(process.env.BILLING_TRIAL_DAYS ?? 3)}
+          volumePercent={(await volumeDiscount(context.organization.id, site.id).catch(() => null))?.percent ?? 0}
           scaleHref="/dashboard/settings/billing"
           checkoutFailed={query.checkoutFailed === "1"}
         />

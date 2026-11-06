@@ -10,6 +10,7 @@ import { ADDON_IDS, ADDONS, INTERVALS, LANGUAGE_ADDON, LIVE_STATUSES, PLAN_LOOKU
 import { rerunAgentJob } from "../agents/queue";
 import { siteDay } from "../agents/schedule";
 import { billingEnabled, priceCatalog, stripe } from "../billing/stripe";
+import { volumeCoupon, volumeDiscount } from "../billing/volume";
 import { processInvoice, syncSubscription } from "../billing/sync";
 import { getAppContext } from "../context";
 import { requestOrigin } from "../invites";
@@ -96,7 +97,17 @@ export async function startCheckout(choice: { plan: Plan; interval: Interval } |
     }
 
     const hadPlan = isPlan && (await db.select({ id: subscriptions.id }).from(subscriptions).where(and(eq(subscriptions.orgWebsiteId, site.id), eq(subscriptions.type, "main"))).limit(1)).length > 0;
-    const metadata = { organizationId: String(context.organization.id), orgWebsiteId: String(site.id), orgWebsiteUrl: site.url, subscriptionType: type, ...(isPlan ? { plan: choice.plan } : { addonId: choice.addon }) };
+    // A new website's plan gets the volume discount automatically (from the workspace's third website).
+    const volume = isPlan ? await volumeDiscount(context.organization.id, site.id) : null;
+    const coupon = volume?.percent ? await volumeCoupon(volume.percent) : null;
+    const metadata = {
+      organizationId: String(context.organization.id),
+      orgWebsiteId: String(site.id),
+      orgWebsiteUrl: site.url,
+      subscriptionType: type,
+      ...(isPlan ? { plan: choice.plan } : { addonId: choice.addon }),
+      ...(coupon ? { volumeDiscount: String(volume!.percent) } : {}),
+    };
     const locale = await getLocale();
     const base = `${await requestOrigin()}/${locale}/dashboard/settings/billing`;
     // From the onboarding wizard's plan step, Stripe sends the owner to a route that confirms and starts the agents.
@@ -106,7 +117,8 @@ export async function startCheckout(choice: { plan: Plan; interval: Interval } |
       customer: await customerOf(context),
       client_reference_id: String(site.id),
       line_items: [{ price: price.id, quantity: 1 }],
-      allow_promotion_codes: true,
+      // Stripe takes either a discount or promotion codes, not both.
+      ...(coupon ? { discounts: [{ coupon }] } : { allow_promotion_codes: true }),
       metadata,
       subscription_data: { metadata, ...(isPlan && !hadPlan && TRIAL_DAYS() > 0 ? { trial_period_days: TRIAL_DAYS() } : {}) },
       success_url: onboarding ? `${await requestOrigin()}/api/billing/onboarding-return?locale=${locale}&checkout={CHECKOUT_SESSION_ID}` : `${base}?checkout={CHECKOUT_SESSION_ID}`,

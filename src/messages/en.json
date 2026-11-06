@@ -606,7 +606,8 @@
       "cancelAnytime": "Cancel anytime.",
       "scalePrompt": "Need more volume?",
       "scaleCta": "Choose the Scale plan",
-      "checkoutFailed": "The checkout wasn't completed. You can try again."
+      "checkoutFailed": "The checkout wasn't completed. You can try again.",
+      "volume": "{percent}% volume discount for your additional website, applied at checkout."
     },
     "preview": {
       "yourWebsite": "your website",
@@ -2265,7 +2266,9 @@
       },
       "noEmail": "Email sending isn't set up: after inviting someone, copy their invite link and send it yourself.",
       "renew": "Renew invitation link",
-      "renewed": "The invitation link works for another 7 days. Copy it and send it again."
+      "renewed": "The invitation link works for another 7 days. Copy it and send it again.",
+      "seats": "{used} of {limit, plural, one {# seat} other {# seats}} used",
+      "seatsFull": "Your plan includes one seat. <link>Move a website to the Scale plan</link> for unlimited seats."
     },
     "billing": {
       "subtitle": "Your plan, add-ons, payment details and invoices.",
@@ -2294,7 +2297,9 @@
         "choose": "Choose {plan}",
         "trialNote": "Free for {days} days, then billed. Cancel anytime before the trial ends and you won't be charged.",
         "notOnSale": "Not available yet",
-        "popular": "Most popular"
+        "popular": "Most popular",
+        "volumePrice": "{amount}/month with your {percent}% volume discount",
+        "volumeNote": "You already have {count, plural, one {# active website} other {# active websites}}, so this website's plan is {percent}% off. The discount is applied automatically at checkout."
       },
       "plans": {
         "grow": {
@@ -2448,7 +2453,18 @@
         "buy": "Add this language for {price} a month",
         "manage": "Manage in Stripe",
         "upgrade": "Upgrade {website} to Scale",
-        "choosePlan": "Choose a plan for {website}"
+        "choosePlan": "Choose a plan for {website}",
+        "locked": "This is one of the {total} free languages of the Scale plan. They stay locked during the free trial and unlock automatically when it ends; until then this language is paused, or you can add it now at the regular price (no trial).",
+        "paused": "This language was included with the Scale plan and is paused since the plan changed. Keep it as a paid language to continue publishing in it.",
+        "keep": "Keep this language for {price} a month",
+        "buyNow": "Add it now for {price} a month",
+        "skipTrial": "Skip trial & unlock free languages",
+        "skipTitle": "Skip your trial now?",
+        "skipDescription": "Your trial ends immediately and the first Scale payment is charged now. As soon as it's paid, your {total} free languages unlock.",
+        "skipConfirm": "Skip trial & pay now",
+        "skipped": "Scale is active: your free languages are unlocked.",
+        "skipFailed": "The payment didn't go through, so the trial is still running.",
+        "cancel": "Cancel"
       },
       "cancelFlow": {
         "recapTitle": "Here's what you've built so far",
@@ -3660,7 +3676,8 @@
       "free": "Each new language is set up right away and starts its onboarding.",
       "plan": "{left} of {total} languages included with your Scale plan are left for this website.",
       "addon": "Each extra language is {price} a month, paid on the language's Billing page after it's added.",
-      "extra": "{count, plural, one {# language goes} other {# languages go}} beyond your plan and {count, plural, one {needs} other {need}} the language add-on ({price} a month each)."
+      "extra": "{count, plural, one {# language goes} other {# languages go}} beyond your plan and {count, plural, one {needs} other {need}} the language add-on ({price} a month each).",
+      "trialAddon": "You're on a Scale trial: new languages are charged {price} a month now, with no trial. When the trial ends, your oldest {total} languages become free and their paid subscriptions end (payments already made aren't refunded)."
     },
     "blocked": {
       "noPlan": "Choose a plan for this website before adding languages.",
@@ -3669,7 +3686,11 @@
     },
     "cancel": "Cancel",
     "add": "{count, plural, =0 {Add languages} one {Add # language} other {Add # languages}}",
-    "selected": "Selected: {languages}"
+    "selected": "Selected: {languages}",
+    "trialLocked": {
+      "title": "{total} free language slots — locked during your trial",
+      "body": "Your Scale plan includes {total} free languages. They unlock automatically when your trial ends, and your oldest {total} languages become free then, including any you pay for now."
+    }
   },
   "editor": {
     "eyebrow": "Editing article",

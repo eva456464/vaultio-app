@@ -9,6 +9,7 @@ import { memberWebsiteAccess, organizationInvitations, organizationMembers, orga
 import { getAppContext, getBrand, getSession, SELECTED_SITE_COOKIE } from "../context";
 import { senderFor } from "../email";
 import { workspaceBrand } from "../whitelabel/brand";
+import { workspaceSeats } from "../billing/seats";
 import { acceptInvitation, emailConfigured, inviteExpiry, InviteError, inviteLink, newInviteToken, requestOrigin, sendInviteEmail } from "../invites";
 
 type Result = { ok: true } | { error: string };
@@ -82,6 +83,11 @@ export async function inviteMember(input: z.input<typeof inviteSchema>): Promise
     .select()
     .from(organizationInvitations)
     .where(and(eq(organizationInvitations.organizationId, organizationId), eq(organizationInvitations.email, email), isNull(organizationInvitations.acceptedAt)));
+  // A new invitation takes a seat (Grow includes one; Scale is unlimited).
+  if (!pending || pending.expiresAt < new Date()) {
+    const seats = await workspaceSeats(context.organization!);
+    if (seats.full) return { error: `Your plan includes ${seats.limit} seat${seats.limit === 1 ? "" : "s"}. Move a website to the Scale plan for unlimited seats.` };
+  }
   const token = pending?.token ?? newInviteToken();
   if (pending) {
     await db.update(organizationInvitations).set({ role, websiteIds, expiresAt: inviteExpiry(), invitedById: context.user.id, updatedAt: new Date() }).where(eq(organizationInvitations.id, pending.id));

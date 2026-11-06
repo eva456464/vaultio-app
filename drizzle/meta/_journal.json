@@ -169,6 +169,13 @@
       "when": 1793925769417,
       "tag": "0023_feature_requests",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1793927247133,
+      "tag": "0024_language_paused",
+      "breakpoints": true
     }
   ]
 }

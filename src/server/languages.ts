@@ -36,6 +36,8 @@ export type LanguageEligibility = {
   included: number;
   includedLeft: number;
   addonPrice: { amount: number; currency: string; interval: string } | null;
+  /** On a Scale trial: the free languages (this many) are locked until the trial ends. */
+  trialLocked?: number;
 };
 
 /** What adding languages to this website costs, given its plan and the languages it already has. */
@@ -48,6 +50,10 @@ export async function languageEligibility(primary: Site): Promise<LanguageEligib
   const addonPrice = price ? { amount: price.amount, currency: price.currency, interval: price.interval ?? "month" } : null;
   if (!entitlements.active) return { mode: "blocked", reason: "noPlan", included: 0, includedLeft: 0, addonPrice };
   const included = entitlements.plan ? PLAN_LIMITS[entitlements.plan].extraLanguages : 0;
+  // During a trial the free languages are locked: new languages are charged right away (no trial).
+  if (entitlements.trialing && included > 0) {
+    return addonPrice ? { mode: "addon", included, includedLeft: 0, addonPrice, trialLocked: included } : { mode: "blocked", reason: "needsScale", included, includedLeft: 0, addonPrice, trialLocked: included };
+  }
   const includedLeft = Math.max(0, included - used);
   if (includedLeft > 0) return { mode: "plan", included, includedLeft, addonPrice };
   if (addonPrice) return { mode: "addon", included, includedLeft: 0, addonPrice };

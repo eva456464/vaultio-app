@@ -17,8 +17,13 @@ export type Entitlements = {
   dailySocial: { reddit: boolean; quora: boolean };
   addons: AddonId[];
   creditSubscriber: boolean;
-  /** Language sites: how this language is paid for. */
-  language?: { primaryId: number; coverage: "included" | "addon" | "none" };
+  /** The plan is in its free trial (Scale's free languages stay locked until it ends). */
+  trialing?: boolean;
+  /**
+   * Language sites: how this language is paid for. "locked": one of Scale's free languages, waiting
+   * for the trial to end; "paused": was free with Scale and stopped when the plan changed.
+   */
+  language?: { primaryId: number; coverage: "included" | "addon" | "locked" | "paused" | "none" };
 };
 
 const base = (mode: "off" | "exempt", plan: Plan | null): Entitlements => {
@@ -81,6 +86,7 @@ export async function siteEntitlements(siteId: number): Promise<Entitlements> {
     dailySocial: { reddit: extra("reddit") > 0, quora: extra("quora") > 0 },
     addons: addons.map((addon) => addon.id),
     creditSubscriber: addons.some((addon) => addon.id === "backlink_credits"),
+    trialing: main?.status === "trialing",
   };
 }
 
@@ -91,12 +97,14 @@ export async function siteEntitlements(siteId: number): Promise<Entitlements> {
 async function languageEntitlements(siteId: number, primaryId: number): Promise<Entitlements> {
   const primary = await siteEntitlements(primaryId);
   const family = await db
-    .select({ id: orgWebsites.id })
+    .select({ id: orgWebsites.id, pausedAt: orgWebsites.complimentaryPausedAt })
     .from(orgWebsites)
     .where(eq(orgWebsites.primaryOrgWebsiteId, primaryId))
     .orderBy(orgWebsites.createdAt, orgWebsites.id);
   const rank = family.findIndex((row) => row.id === siteId);
-  const included = primary.active && primary.plan !== null && rank >= 0 && rank < PLAN_LIMITS[primary.plan].extraLanguages;
+  const slot = primary.active && primary.plan !== null && rank >= 0 && rank < PLAN_LIMITS[primary.plan].extraLanguages;
+  // Free languages unlock when the trial ends; until then they are paid like any other.
+  const included = slot && !primary.trialing;
   const [own] = await db
     .select({ status: subscriptions.status, pausedAt: subscriptions.pausedAt })
     .from(subscriptions)
@@ -114,6 +122,6 @@ async function languageEntitlements(siteId: number, primaryId: number): Promise<
     dailySocial: { reddit: false, quora: false },
     addons: [],
     creditSubscriber: false,
-    language: { primaryId, coverage: included ? "included" : addon ? "addon" : "none" },
+    language: { primaryId, coverage: included ? "included" : addon ? "addon" : slot ? "locked" : family[rank]?.pausedAt ? "paused" : "none" },
   };
 }

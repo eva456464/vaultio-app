@@ -232,6 +232,9 @@ export const orgWebsites = pgTable(
     selectedLanguage: text("selected_language").notNull().default("en"),
     // The primary-language site that holds the main subscription, for language add-ons.
     primaryOrgWebsiteId: integer("primary_org_website_id"),
+    // A language that was included with the website's Scale plan and stopped when the plan changed
+    // (offered as "Keep this language" until it is paid for or Scale is back).
+    complimentaryPausedAt: timestamp("complimentary_paused_at", { withTimezone: true }),
     creationSource: text("creation_source").notNull().default("web_app"),
     onboardingStatus: text("onboarding_status").$type<OnboardingStatus>().notNull().default("not_started"),
     lastCompletedOnboardingStep: text("last_completed_onboarding_step"),
