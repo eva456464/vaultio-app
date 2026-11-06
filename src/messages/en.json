@@ -51,7 +51,33 @@
     "title": "Product Updates",
     "launched": "Launched",
     "requestFeature": "Request a feature",
-    "empty": "No updates yet."
+    "empty": "No updates yet.",
+    "ideaTitle": "Have an idea?",
+    "ideaBody": "Tell us what you'd like us to build next.",
+    "featureRequest": {
+      "title": "Request a feature",
+      "subtitle": "Tell us what you'd like to see next",
+      "categoryLabel": "Category",
+      "choose": "Choose a category",
+      "categories": {
+        "blogs": "Blogs",
+        "backlinks": "Backlinks",
+        "analytics": "Analytics",
+        "geo_audit": "Site health",
+        "integrations": "Integrations",
+        "other": "Other"
+      },
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "A short description of your idea",
+      "submit": "Submit request",
+      "success": "Thanks! Your feature request has been submitted.",
+      "close": "Close",
+      "errors": {
+        "category": "Please select a category",
+        "description": "Please add at least 10 characters",
+        "failed": "Something went wrong. Please try again."
+      }
+    }
   },
   "websiteSelector": {
     "website": "Website",
@@ -1761,7 +1787,10 @@
         "hint": "A short summary every Monday: articles published, new backlinks, Google clicks, AI mentions and what's coming next.",
         "weekly": "Weekly progress email for {site}",
         "noEmail": "Email sending isn't set up on this platform yet, so these emails aren't sent."
-      }
+      },
+      "setPassword": "Set password",
+      "setPasswordHint": "You sign in with Google. Add a password to also sign in with your email.",
+      "passwordSet": "Password set. You can now sign in with your email too."
     },
     "business": {
       "title": "Business details",
@@ -1917,7 +1946,12 @@
       "sitemap": "Sitemap URL",
       "sitemapPlaceholder": "Found automatically from robots.txt",
       "count": "{count, plural, one {# page} other {# pages}}",
-      "empty": "No pages yet. Your agents read your sitemap every day."
+      "empty": "No pages yet. Your agents read your sitemap every day.",
+      "searchPlaceholder": "Search by title or URL",
+      "matchCount": "{count, plural, one {# match} other {# matches}}",
+      "noResults": "No pages match \"{search}\"",
+      "noResultsHint": "Try a shorter word or part of the URL.",
+      "loadMore": "Load more"
     },
     "analytics": {
       "title": "Analytics",

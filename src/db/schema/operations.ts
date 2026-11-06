@@ -487,3 +487,13 @@ export const emailPreferences = pgTable(
   },
   (t) => [uniqueIndex("email_preferences_user_site_idx").on(t.userId, t.orgWebsiteId)],
 );
+
+/** "Request a feature" (header bell): what people asked for, for the platform owner. */
+export const featureRequests = pgTable("feature_requests", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id").references(() => user.id, { onDelete: "set null" }),
+  organizationId: integer("organization_id").references(() => organizations.id, { onDelete: "set null" }),
+  category: text("category").notNull(),
+  description: text("description").notNull(),
+  ...timestamps,
+});

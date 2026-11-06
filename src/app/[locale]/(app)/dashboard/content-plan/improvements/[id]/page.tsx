@@ -12,6 +12,7 @@ import { getImprovement } from "@/server/queries/improvements";
 
 export default async function ImprovementPage({ params }: PageProps<"/[locale]/dashboard/content-plan/improvements/[id]">) {
   const { id } = await params;
+  if (!/^\d{1,9}$/.test(id)) notFound();
   const context = (await getAppContext())!;
   const site = context.site!;
   const data = await getImprovement(site, Number(id));

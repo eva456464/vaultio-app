@@ -31,6 +31,7 @@ function Panel({ title, hint, children }: { title: string; hint?: string; childr
 
 export default async function ArticlePage({ params, searchParams }: PageProps<"/[locale]/dashboard/articles/[id]">) {
   const { id } = await params;
+  if (!/^\d{1,9}$/.test(id)) notFound();
   const query = await searchParams;
   const context = (await getAppContext())!;
   const site = context.site!;

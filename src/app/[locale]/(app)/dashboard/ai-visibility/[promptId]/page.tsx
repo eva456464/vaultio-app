@@ -11,6 +11,7 @@ import { getPromptDetail } from "@/server/queries/visibility";
 
 export default async function PromptDetailPage({ params }: PageProps<"/[locale]/dashboard/ai-visibility/[promptId]">) {
   const { promptId } = await params;
+  if (!/^\d{1,9}$/.test(promptId)) notFound();
   const site = (await getAppContext())!.site!;
   const [detail, t] = await Promise.all([getPromptDetail(site.id, Number(promptId)), getTranslations("aiVisibility")]);
   if (!detail) notFound();

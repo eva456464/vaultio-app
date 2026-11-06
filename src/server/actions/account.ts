@@ -1,10 +1,12 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
 import { db } from "@/db";
 import { emailPreferences, userSettings } from "@/db/schema";
 import { locales } from "@/i18n/routing";
 import { cancelDeletion, DeletionBlocked, requestDeletion } from "../account";
+import { auth } from "../auth";
 import { getAppContext, getSession } from "../context";
 
 type Result = { ok: true } | { error: string };
@@ -56,4 +58,16 @@ export async function setWeeklyEmail(siteId: number, enabled: boolean) {
     .onConflictDoUpdate({ target: [emailPreferences.userId, emailPreferences.orgWebsiteId], set: { weeklyProgress: enabled, updatedAt: new Date() } });
   revalidatePath("/[locale]/dashboard/settings/account", "page");
   return { ok: true as const };
+}
+
+/** "Set password" for people who signed up with Google and have no password yet. */
+export async function setAccountPassword(newPassword: string): Promise<Result> {
+  await requireUser();
+  if (newPassword.length < 8) return { error: "Use at least 8 characters" };
+  try {
+    await auth.api.setPassword({ body: { newPassword }, headers: await headers() });
+    return { ok: true };
+  } catch (error) {
+    return { error: (error as Error).message || "The password couldn't be set" };
+  }
 }

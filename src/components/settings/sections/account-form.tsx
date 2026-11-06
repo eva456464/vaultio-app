@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { locales } from "@/i18n/routing";
 import { authClient } from "@/lib/auth-client";
-import { requestAccountDeletion, setDashboardLanguage } from "@/server/actions/account";
+import { requestAccountDeletion, setAccountPassword, setDashboardLanguage } from "@/server/actions/account";
 import { updateProfileName } from "@/server/actions/settings";
 import { Field, inputClass, SettingsCard, useSave } from "../form-kit";
 
@@ -82,7 +82,7 @@ function DangerZone() {
   );
 }
 
-export function AccountForm({ name: initialName, email }: { name: string; email: string }) {
+export function AccountForm({ name: initialName, email, hasPassword = true }: { name: string; email: string; hasPassword?: boolean }) {
   const t = useTranslations("settings.account");
   const router = useRouter();
   const [name, setName] = useState(initialName);
@@ -104,12 +104,21 @@ export function AccountForm({ name: initialName, email }: { name: string; email:
           </Field>
         </div>
       </SettingsCard>
-      <SettingsCard title={t("password")}>
+      <SettingsCard title={hasPassword ? t("password") : t("setPassword")} hint={hasPassword ? undefined : t("setPasswordHint")}>
         <form
-          className="grid gap-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end"
+          className={hasPassword ? "grid gap-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end" : "grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end"}
           onSubmit={(event) => {
             event.preventDefault();
             startTransition(async () => {
+              if (!hasPassword) {
+                const result = await setAccountPassword(next);
+                setPasswordState("error" in result ? { ok: false, text: result.error } : { ok: true, text: t("passwordSet") });
+                if (!("error" in result)) {
+                  setNext("");
+                  router.refresh();
+                }
+                return;
+              }
               const result = await authClient.changePassword({ currentPassword: current, newPassword: next, revokeOtherSessions: true });
               setPasswordState(result.error ? { ok: false, text: t("passwordError") } : { ok: true, text: t("passwordChanged") });
               if (!result.error) {
@@ -119,13 +128,15 @@ export function AccountForm({ name: initialName, email }: { name: string; email:
             });
           }}
         >
-          <Field label={t("currentPassword")} htmlFor="current-password">
-            <input id="current-password" type="password" autoComplete="current-password" value={current} onChange={(e) => setCurrent(e.target.value)} className={inputClass} required />
-          </Field>
+          {hasPassword && (
+            <Field label={t("currentPassword")} htmlFor="current-password">
+              <input id="current-password" type="password" autoComplete="current-password" value={current} onChange={(e) => setCurrent(e.target.value)} className={inputClass} required />
+            </Field>
+          )}
           <Field label={t("newPassword")} htmlFor="new-password">
             <input id="new-password" type="password" autoComplete="new-password" minLength={8} value={next} onChange={(e) => setNext(e.target.value)} className={inputClass} required />
           </Field>
-          <Button type="submit" className="h-11" disabled={pending}>{t("changePassword")}</Button>
+          <Button type="submit" className="h-11" disabled={pending}>{hasPassword ? t("changePassword") : t("setPassword")}</Button>
         </form>
         {passwordState && <p className={passwordState.ok ? "text-sm text-success" : "text-sm text-[#9A3412]"}>{passwordState.text}</p>}
       </SettingsCard>

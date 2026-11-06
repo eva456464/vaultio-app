@@ -24,7 +24,7 @@ Ground rules that apply to everything below:
 | Accounts | Sign up, sign in, sessions; each sign-up gets its own workspace |
 | Agencies and clients | Agency workspace with many client sites, website selector, site mode and agency mode |
 | White label | Agencies set their name, logo, favicon and colours and connect their own hosting domain (Vercel or CNAME) and email sending domain (Resend); their clients see only the agency's brand on that domain, and invites and reports come from the agency |
-| App shell | Header, sidebar, mobile menu, product-updates bell (reads `product_updates`; no updates published yet) |
+| App shell | Header, sidebar, mobile menu, product-updates bell (reads `product_updates`; no updates published yet) with "Request a feature" (saved in `feature_requests`, emailed to `SUPPORT_EMAIL` when set) |
 | Languages | Articles in 36 languages, several per website: each extra language is a "language site" (own keywords, content plan, articles and market, started from the website's settings, shared product catalog), added from the website menu; the Scale plan includes 3, more with the language add-on. Dashboard text in `src/messages/en.json`; fr/nl/de/es/pt/it show English until `scripts/translate-messages.ts` is run (needs the Claude key) |
 | Background agents | Job queue, daily scheduler, onboarding that catches up when keys are added later, every run recorded |
 | Team | Members with Admin / Member roles and per-website access, email invitations (or a copyable link), invite acceptance page |
@@ -322,6 +322,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Site health: the full check list, PageSpeed Insights, broken links and images, validate fix | `main` a8f12e5 |
 | Publishing: Next.js blog package, WordPress.com, detected platform, published-articles check and blog path, hosted blog logo and colour | `main` ccf0ea2 |
 | Get started checklist, target location (country or region/city), weekly progress email, editable AI prompts, cancellation flow, end trial now, unverified blog cleanup | `main` 6ebb15c |
+| Saved pages search, set password for Google sign-ins, request a feature, 404 for invalid ids | `main` (this commit) |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
