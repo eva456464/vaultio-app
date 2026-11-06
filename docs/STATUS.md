@@ -321,7 +321,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Get started checklist, target location (country or region/city), weekly progress email, editable AI prompts, cancellation flow, end trial now, unverified blog cleanup | `main` 6ebb15c |
 | Saved pages search, set password for Google sign-ins, request a feature, 404 for invalid ids | `main` 12dcd0f |
 | Webflow field mapping step, webhook link rule and oldest-article test | `main` f755d26 |
-| Volume discounts, seat limits, free languages locked during a Scale trial and paused after leaving Scale | `main` (this commit) |
+| Volume discounts, seat limits, free languages locked during a Scale trial and paused after leaving Scale | `main` bd3817a |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
