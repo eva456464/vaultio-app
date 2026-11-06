@@ -73,13 +73,15 @@ async function askPerplexity(question: string): Promise<AssistantAnswer> {
     signal: AbortSignal.timeout(120_000),
   });
   const json = (await response.json().catch(() => ({}))) as {
-    choices?: { message?: { content?: string } }[];
+    choices?: { message?: { content?: string | { type?: string; text?: string }[] | null } }[];
     citations?: string[];
     search_results?: { url?: string; title?: string }[];
     error?: { message?: string };
   };
   if (!response.ok) throw new Error(`Perplexity: ${json.error?.message ?? `HTTP ${response.status}`}`);
-  const answer = json.choices?.[0]?.message?.content ?? "";
+  const content = json.choices?.[0]?.message?.content;
+  // Content is a string, or a list of chunks of which the text ones count.
+  const answer = typeof content === "string" ? content : (content ?? []).map((chunk) => (chunk.type === "text" ? (chunk.text ?? "") : "")).join("");
   const results = (json.search_results ?? []).filter((item) => item.url).map((item) => ({ url: item.url!, title: item.title ?? "" }));
   const cited = (json.citations ?? []).filter((url) => !results.some((item) => item.url === url)).map((url) => ({ url, title: "" }));
   const sources = [...results, ...cited];

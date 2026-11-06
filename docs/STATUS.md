@@ -171,7 +171,7 @@ These are written against the providers' documentation but have not run live yet
 
 - Claude: brand profile, prompts, topic research and article writing (needs `ANTHROPIC_API_KEY`).
 - DataForSEO: keyword ideas, competitors, SERPs, domain rating (field mapping from their docs).
-- ChatGPT, Gemini and Perplexity answers for AI visibility (Perplexity: Sonar chat completions with `citations` / `search_results`, tried only against a stand-in).
+- ChatGPT, Gemini and Perplexity answers for AI visibility (Perplexity: Sonar `POST /chat/completions` with `citations` / `search_results`, checked against its official SDK `@perplexity-ai/perplexity_ai` 0.41, tried only against a stand-in).
 - Resend email sending.
 - WordPress publishing against a real site.
 - Google: the real consent screen, Analytics Admin/Data and Search Console APIs (response shapes from Google's docs).
@@ -277,7 +277,7 @@ Smaller follow-ups:
 | Which workspaces aren't billed | Vaultio's own workspace should be exempt: `update organizations set billing_exempt = true where id = …` | Waiting for the production database |
 | Hosting accounts (web, worker, Postgres) | Production launch | Later |
 | Publish the Framer plugin | Clients import articles into Framer with it | Not started. In `integrations/framer-plugin`: set `VITE_API_BASE` (the production app address + `/api/integrations`) and `VITE_BRAND_NAME`, run `npm install && npm run pack`, submit `plugin.zip` at framer.com/developers (needs a Framer account), then put the marketplace link in `FRAMER_PLUGIN_URL`. Until then the Framer guide tells clients to search the Plugins menu |
-| WordPress.com app (`WPCOM_CLIENT_ID`, `WPCOM_CLIENT_SECRET`) | Clients on WordPress.com connect in one click | Not started. Create an app at developer.wordpress.com/apps with the redirect URL `https://<app domain>/api/integrations/wordpress-com/callback` (on `APP_URL`). The integration follows WordPress.com's OAuth2 and REST v1.1 API; it was tested against a stand-in because developer.wordpress.com isn't reachable from the build environment, so do one real connection and publish once the app exists |
+| WordPress.com app (`WPCOM_CLIENT_ID`, `WPCOM_CLIENT_SECRET`) | Clients on WordPress.com connect in one click | Not started. Create an app at developer.wordpress.com/apps with the redirect URL `https://<app domain>/api/integrations/wordpress-com/callback` (on `APP_URL`). The integration follows WordPress.com's OAuth2 and REST v1.1 API; it was tested against a stand-in because developer.wordpress.com isn't reachable from the build environment; the post and media requests were checked against WordPress.com's official `wpcom` SDK (7.1.1), so do one real connection and publish once the app exists |
 | Publish the Next.js blog package | Clients with a Next.js site get a ready-made blog | Not started. In `integrations/next-blog`: pick the npm name (default `vaultio-next-blog`; set `NEXT_BLOG_PACKAGE` in the app if you change it), `npm install && npm publish` (needs an npm account) |
 | Snapps API documentation or access | The reference product publishes to Snapps; Snapps' API isn't publicly documented anywhere reachable, so it isn't built | Waiting: needs Snapps' API docs (endpoint, auth, Site ID use) or a test account |
 | Leftover Blog Hosting setup for `blog.vaultio.co` in the live Babylovegrowth account | Created during research. Vaultio can now host that blog itself (Settings → Publishing → Blog hosting) once it runs in production; until then decide whether to remove the old setup | Waiting for a decision |
