@@ -96,7 +96,7 @@ Everything the agents do goes through one path, so work is never silently droppe
 | Article images (cover in one of 6 styles, up to 2 body images), CTA cards (link, map, contact), promo paragraph, YouTube video | built |
 | Article improvements: opportunity scan, section-level rewrites with safety checks, per-change review, publish/update, impact | built (Vaultio articles) |
 | Backlink exchange: join with 100 credits, contextual placement by the writer, daily live/nofollow check, credits ledger, Backlinks page | built |
-| AI visibility: weekly + at onboarding, asks each prompt to Claude (web search), ChatGPT and Gemini when keyed; mentions, brands with sentiment, cited sources; Overview / Prompts / Brands / Sources pages | built |
+| AI visibility: weekly + at onboarding, asks each prompt to Claude (web search), ChatGPT, Gemini and Perplexity when keyed; mentions, brands with sentiment, cited sources; Overview / Prompts / Brands / Sources pages | built |
 | Client reports: Reporting page with section switches and live preview, print-to-PDF, monthly email with a stored snapshot behind a share link (`/api/reports/shared/<token>`) | built |
 | Google Analytics + Search Console: per-site connection, daily GA4 sync (channels, pages, AI assistants), Search Console sync every 3 days, Site traffic pages | built |
 | Backlink exchange matcher, Reddit / Quora agents, Instagram & Facebook posting | later phases |
@@ -570,7 +570,7 @@ Sections without data are switched off rather than shown with invented numbers.
 | Article writing, topic research, AI prompts | `ANTHROPIC_API_KEY` |
 | Article images | `OPENAI_API_KEY` or `GEMINI_API_KEY` (optional `IMAGE_PROVIDER`, `OPENAI_IMAGE_MODEL`, `GEMINI_IMAGE_MODEL`), plus `APP_URL` reachable by client sites |
 | Keyword volumes, SERPs, competitors, domain rating | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
-| AI visibility checks | `OPENAI_API_KEY`, `GEMINI_API_KEY` (plus Anthropic) |
+| AI visibility checks | `OPENAI_API_KEY`, `GEMINI_API_KEY`, `PERPLEXITY_API_KEY` (Sonar API; plus Anthropic) |
 | Reddit thread details (optional) | `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`, `REDDIT_USERNAME` (Reddit Data API app; commercial use needs Reddit's approval) |
 | GA4 + Search Console | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`: a Google Cloud OAuth client with the Analytics Data, Analytics Admin and Search Console APIs |
 | Billing | `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` (webhook endpoint `/api/stripe/webhook`), optional `BILLING_TRIAL_DAYS` |

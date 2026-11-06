@@ -86,6 +86,16 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/test/wpcom":
             return self.reply({"posts": list(WPCOM_POSTS.values()), "media": WPCOM_MEDIA})
 
+        # ---------------- Perplexity (Sonar chat completions), for AI visibility
+        if path == "/perplexity/chat/completions":
+            if not auth.startswith("Bearer pplx-"):
+                return self.reply({"error": {"message": "Invalid API key"}}, 401)
+            question = (self.body().get("messages") or [{}])[-1].get("content", "")
+            LOG.append({"platform": "perplexity", "question": question[:120]})
+            return self.reply({"model": "sonar", "choices": [{"message": {"role": "assistant", "content": f"For '{question[:60]}', homeowners often compare Sunny Roofing and Coastal Roof Co. [1][2]"}}],
+                               "citations": ["https://www.sunnyroofing.test/roof-lifespan", "https://www.reddit.com/r/RoofingAdvice/comments/abc123/"],
+                               "search_results": [{"title": "How long does a roof last?", "url": "https://www.sunnyroofing.test/roof-lifespan"}]})
+
         # ---------------- WordPress.com (OAuth2 + REST v1.1)
         if path == "/wpcom/oauth2/authorize":
             q = parse_qs(urlparse(self.path).query)

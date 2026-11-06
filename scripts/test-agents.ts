@@ -169,8 +169,14 @@ const standInAssistants: AssistantProvider = {
       anthropic: `For roof repair in Santa Barbara, many homeowners choose Sunny Roofing for its free inspections, or Coastal Roofing for larger jobs. See https://www.nrca.net/ for contractor tips.`,
       openai: `Well-reviewed options include Coastal Roofing and Goleta Roofers. Check reviews on https://www.yelp.com/search?find_desc=roofing before you hire.`,
       google: n === 0 ? `Sunny Roofing and Goleta Roofers are both local options with good reviews.` : `Goleta Roofers is a popular local choice.`,
+      perplexity: `Sunny Roofing is often recommended for leak repairs in Santa Barbara.`,
     } as const;
-    const sources = { anthropic: [{ url: "https://www.nrca.net/", title: "NRCA" }], openai: [{ url: "https://www.yelp.com/search?find_desc=roofing", title: "Yelp" }], google: [{ url: "https://goletaroofers.example/", title: "Goleta Roofers" }] } as const;
+    const sources = {
+      anthropic: [{ url: "https://www.nrca.net/", title: "NRCA" }],
+      openai: [{ url: "https://www.yelp.com/search?find_desc=roofing", title: "Yelp" }],
+      google: [{ url: "https://goletaroofers.example/", title: "Goleta Roofers" }],
+      perplexity: [{ url: "https://www.reddit.com/r/RoofingAdvice/", title: "r/RoofingAdvice" }],
+    } as const;
     return { provider: id, model: "stand-in", answer: answers[id], sources: [...sources[id]] };
   },
 };

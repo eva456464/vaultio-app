@@ -1,11 +1,11 @@
 /**
  * The AI assistants whose answers we track for AI visibility. Claude is always
- * available when the Anthropic key is set; ChatGPT and Gemini join when their
- * keys are configured. Swappable for tests.
+ * available when the Anthropic key is set; ChatGPT, Gemini and Perplexity join when
+ * their keys are configured. Swappable for tests.
  */
 import { ai } from "./claude";
 
-export type AssistantId = "anthropic" | "openai" | "google";
+export type AssistantId = "anthropic" | "openai" | "google" | "perplexity";
 export type AssistantAnswer = { provider: AssistantId; model: string; answer: string; sources: { url: string; title: string }[] };
 
 const URL_PATTERN = /https?:\/\/[^\s)\]>"']+/g;
@@ -62,6 +62,30 @@ async function askGemini(question: string): Promise<AssistantAnswer> {
   return { provider: "google", model, answer, sources: grounded.length ? grounded : urlsIn(answer) };
 }
 
+/** Perplexity (Sonar API, OpenAI-style chat completions): it always searches; sources are its citations. */
+async function askPerplexity(question: string): Promise<AssistantAnswer> {
+  const model = process.env.PERPLEXITY_VISIBILITY_MODEL ?? "sonar";
+  const base = (process.env.PERPLEXITY_API_BASE ?? "https://api.perplexity.ai").replace(/\/$/, "");
+  const response = await fetch(`${base}/chat/completions`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${process.env.PERPLEXITY_API_KEY}`, "content-type": "application/json" },
+    body: JSON.stringify({ model, messages: [{ role: "user", content: question }] }),
+    signal: AbortSignal.timeout(120_000),
+  });
+  const json = (await response.json().catch(() => ({}))) as {
+    choices?: { message?: { content?: string } }[];
+    citations?: string[];
+    search_results?: { url?: string; title?: string }[];
+    error?: { message?: string };
+  };
+  if (!response.ok) throw new Error(`Perplexity: ${json.error?.message ?? `HTTP ${response.status}`}`);
+  const answer = json.choices?.[0]?.message?.content ?? "";
+  const results = (json.search_results ?? []).filter((item) => item.url).map((item) => ({ url: item.url!, title: item.title ?? "" }));
+  const cited = (json.citations ?? []).filter((url) => !results.some((item) => item.url === url)).map((url) => ({ url, title: "" }));
+  const sources = [...results, ...cited];
+  return { provider: "perplexity", model, answer, sources: sources.length ? sources : urlsIn(answer) };
+}
+
 export type AssistantProvider = { available: () => AssistantId[]; ask: (id: AssistantId, question: string) => Promise<AssistantAnswer> };
 
 export const assistants: AssistantProvider = {
@@ -70,8 +94,10 @@ export const assistants: AssistantProvider = {
       process.env.ANTHROPIC_API_KEY ? "anthropic" : null,
       process.env.OPENAI_API_KEY ? "openai" : null,
       process.env.GEMINI_API_KEY ? "google" : null,
+      process.env.PERPLEXITY_API_KEY ? "perplexity" : null,
     ].filter((id): id is AssistantId => id !== null),
-  ask: (id, question) => (id === "anthropic" ? askClaude(question) : id === "openai" ? askChatGPT(question) : askGemini(question)),
+  ask: (id, question) =>
+    id === "anthropic" ? askClaude(question) : id === "openai" ? askChatGPT(question) : id === "google" ? askGemini(question) : askPerplexity(question),
 };
 
 /** Replaces the provider (tests only). */

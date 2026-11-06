@@ -67,7 +67,7 @@ Ground rules that apply to everything below:
 | Website analysis, sitemap sync, site health audit, milestones | Built, no keys needed |
 | Brand profile, AI prompts, content plan, topic research, article writer | Built (Claude). The writer runs a plagiarism check against the pages it researched and the pages ranking for the keyword (8-word overlaps); copied paragraphs are rewritten once and the result shows in the article's quality checks |
 | Competitors, keyword research, competitor gap scan, domain rating | Built (DataForSEO) |
-| AI visibility check (Claude, plus ChatGPT and Gemini when keyed) | Built |
+| AI visibility check (Claude, plus ChatGPT, Gemini and Perplexity when keyed) | Built |
 | Publishing: content API, webhook, WordPress, Shopify, Webflow, Wix, Ghost, BigCommerce, GoHighLevel, hosted blog, auto-publish | Built (publish or save as draft per platform; republishing updates the same post). Framer, Lovable and Duda fetch published articles themselves (content API or RSS feed) |
 | Monthly client report email | Built (Resend) |
 | Article images, CTA cards, promo paragraph, YouTube video | Built (OpenAI or Gemini images; Claude for scenes, wording and the video search) |
@@ -171,7 +171,7 @@ These are written against the providers' documentation but have not run live yet
 
 - Claude: brand profile, prompts, topic research and article writing (needs `ANTHROPIC_API_KEY`).
 - DataForSEO: keyword ideas, competitors, SERPs, domain rating (field mapping from their docs).
-- ChatGPT and Gemini answers for AI visibility.
+- ChatGPT, Gemini and Perplexity answers for AI visibility (Perplexity: Sonar chat completions with `citations` / `search_results`, tried only against a stand-in).
 - Resend email sending.
 - WordPress publishing against a real site.
 - Google: the real consent screen, Analytics Admin/Data and Search Console APIs (response shapes from Google's docs).
@@ -263,6 +263,7 @@ Smaller follow-ups:
 | Google Cloud OAuth client (`GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`) | Google Analytics + Search Console (built, waiting for this) | Not started; steps were sent in chat. Redirect URIs: `/api/integrations/google/callback` and `/api/auth/callback/google` on each app address |
 | Resend account + verified sender (`RESEND_API_KEY`, `REPORT_FROM_EMAIL`) | Monthly report emails | Not started |
 | OpenAI or Gemini key | Article images (and ChatGPT / Gemini in AI visibility) | Not started; without one, articles have no images |
+| Perplexity API key (`PERPLEXITY_API_KEY`), optional | Perplexity answers in AI visibility (the reference's marketing lists Perplexity; its docs now track ChatGPT and Claude) | Not started; optional |
 | Vaultio logo files | Replace the placeholder "V" mark | Received (dragon mark, `research/assets/vaultio_favicon.png` on the `research` branch); not yet used in the app |
 | Reddit Data API app (`REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`) | Optional: votes, comment counts and dropping archived or locked threads on the Reddit page | Not started; commercial use needs Reddit's approval |
 | Stripe account (`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`) | Billing (built, waiting for this) | Not started. Then: run `scripts/stripe-setup.ts`; add the webhook endpoint `https://<app domain>/api/stripe/webhook`; turn on plan switching and cancellation in Stripe's customer portal settings |
@@ -323,6 +324,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Webflow field mapping step, webhook link rule and oldest-article test | `main` f755d26 |
 | Volume discounts, seat limits, free languages locked during a Scale trial and paused after leaving Scale | `main` bd3817a |
 | Reddit: trending threads in followed subreddits, and why each opportunity was found | `main` 56a5be6 |
+| Perplexity in AI visibility (optional key) | `main` (this commit) |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

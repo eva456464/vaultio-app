@@ -1,5 +1,5 @@
 
-export const ASSISTANT_NAMES: Record<string, string> = { anthropic: "Claude", openai: "ChatGPT", google: "Gemini" };
+export const ASSISTANT_NAMES: Record<string, string> = { anthropic: "Claude", openai: "ChatGPT", google: "Gemini", perplexity: "Perplexity" };
 
 export const PROMPT_INTENTS = ["awareness", "research", "comparison", "learning", "buying", "other"] as const;
 
