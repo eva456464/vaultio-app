@@ -248,7 +248,6 @@ Left out on purpose:
 
 Smaller follow-ups:
 
-- Use the Vaultio dragon logo in place of the "V" mark.
 - Product catalog: products in generated article images (the reference turns packshots into
   editorial visuals; Vaultio shows the real product photo in the product card instead), and a white
   label for the Shopify app name shown to store owners.
@@ -264,7 +263,6 @@ Smaller follow-ups:
 | Resend account + verified sender (`RESEND_API_KEY`, `REPORT_FROM_EMAIL`) | Monthly report emails | Not started |
 | OpenAI or Gemini key | Article images (and ChatGPT / Gemini in AI visibility) | Not started; without one, articles have no images |
 | Perplexity API key (`PERPLEXITY_API_KEY`), optional | Perplexity answers in AI visibility (the reference's marketing lists Perplexity; its docs now track ChatGPT and Claude) | Not started; optional |
-| Vaultio logo files | Replace the placeholder "V" mark | Received (dragon mark, `research/assets/vaultio_favicon.png` on the `research` branch); not yet used in the app |
 | Reddit Data API app (`REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`) | Optional: votes, comment counts and dropping archived or locked threads on the Reddit page | Not started; commercial use needs Reddit's approval |
 | Stripe account (`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`) | Billing (built, waiting for this) | Not started. Then: run `scripts/stripe-setup.ts`; add the webhook endpoint `https://<app domain>/api/stripe/webhook`; turn on plan switching and cancellation in Stripe's customer portal settings |
 | Price of the language add-on (`vaultio_language_monthly`) | Websites on Grow can add languages only once it has a price; Scale's 3 included languages work without it, and during a Scale trial new languages need it | Waiting for a decision. The reference's Scale offer says its 3 included languages are "worth $147/mo if purchased separately", i.e. $49 a month each |
@@ -325,6 +323,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Volume discounts, seat limits, free languages locked during a Scale trial and paused after leaving Scale | `main` bd3817a |
 | Reddit: trending threads in followed subreddits, and why each opportunity was found | `main` 56a5be6 |
 | Perplexity in AI visibility (optional key) | `main` 1cc9262 |
+| Vaultio dragon logo as the default logo and favicon | `main` (this commit) |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 

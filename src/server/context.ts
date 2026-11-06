@@ -29,8 +29,8 @@ const DEFAULT_BRAND: Brand = {
   name: DEFAULT_BRAND_NAME,
   accentColor: DEFAULT_BRAND_COLOR,
   secondaryColor: "#000000",
-  logoUrl: "/brand/vaultio-mark.svg",
-  faviconUrl: "/brand/vaultio-mark.svg",
+  logoUrl: "/brand/vaultio-dragon-256.png",
+  faviconUrl: "/brand/vaultio-dragon-64.png",
   organizationId: null,
 };
 
