@@ -323,7 +323,7 @@ All times 31 October 2026 (UTC). Each code commit message on `main` describes it
 | Volume discounts, seat limits, free languages locked during a Scale trial and paused after leaving Scale | `main` bd3817a |
 | Reddit: trending threads in followed subreddits, and why each opportunity was found | `main` 56a5be6 |
 | Perplexity in AI visibility (optional key) | `main` 1cc9262 |
-| Vaultio dragon logo as the default logo and favicon | `main` (this commit) |
+| Vaultio dragon logo as the default logo and favicon | `main` fb0a2b4 |
 | Clickable preview of the dashboard for the owner | Private Claude artifact (shared in chat) |
 | App set up and running on the owner's Mac at http://localhost:3001 (through a Remote Control session; no code changed there) | Owner's Mac |
 
