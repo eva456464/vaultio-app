@@ -3,6 +3,7 @@ import type { PgBoss } from "pg-boss";
 import { db } from "@/db";
 import { agentJobRuns, orgWebsites } from "@/db/schema";
 import { purgeDeletedAccounts } from "../account";
+import { purgeUnverifiedBlogs } from "../hosted-blog";
 import { siteEntitlements } from "../billing/entitlements";
 import { availableRequirements } from "./capabilities";
 import { enqueueAgentJob, ONBOARDING_STEPS, QUEUES } from "./queue";
@@ -62,6 +63,8 @@ export async function schedulerTick(boss: PgBoss, now = new Date()) {
     return 0;
   });
   if (purged) console.log(`[scheduler] deleted ${purged} account(s)`);
+  const blogs = await purgeUnverifiedBlogs(now).catch(() => 0);
+  if (blogs) console.log(`[scheduler] removed ${blogs} unverified blog hosting setup(s)`);
 
   const sites = await db
     .select({ id: orgWebsites.id, timeZone: orgWebsites.timeZone, createdAt: orgWebsites.createdAt })

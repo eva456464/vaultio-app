@@ -24,6 +24,8 @@ DB = {"products": {}, "prices": {}, "customers": {}, "sessions": {}, "subscripti
 COUNTER = [0]
 LOCK = threading.Lock()
 LOG = []
+# POST /test/decline/on makes "end trial now" fail as if the card was declined.
+DECLINE = [False]
 
 
 def new_id(prefix):
@@ -210,6 +212,10 @@ class Handler(BaseHTTPRequestHandler):
                 session.update({"status": "complete", "payment_status": "paid", "subscription": sub_id})
                 send_later([("checkout.session.completed", dict(session)), ("customer.subscription.created", sub_obj(sub_id)), ("invoice.paid", invoice)])
                 return self.redirect(session["success_url"].replace("{CHECKOUT_SESSION_ID}", session["id"]))
+            match = re.match(r"^/test/decline/(on|off)$", path)
+            if match:
+                DECLINE[0] = match.group(1) == "on"
+                return self.reply({"decline": DECLINE[0]})
             match = re.match(r"^/test/(renew|fail)/([^/]+)$", path)
             if match:
                 action, sub_id = match.groups()
@@ -262,6 +268,26 @@ class Handler(BaseHTTPRequestHandler):
                     sub["pause_collection"] = params["pause_collection"] or None
                 if "metadata" in params:
                     sub["metadata"].update(params["metadata"])
+                if "cancellation_details" in params:
+                    sub["cancellation_details"] = params["cancellation_details"]
+                    LOG.append({"cancellation_details": params["cancellation_details"]})
+                if "discounts" in params:
+                    sub["discounts"] = params["discounts"]
+                    LOG.append({"discounts": params["discounts"]})
+                if params.get("trial_end") == "now":
+                    amount = DB["prices"][sub["items"]["data"][0]["price"]]["unit_amount"]
+                    sub["trial_end"] = None
+                    if DECLINE[0]:
+                        sub["status"] = "past_due"
+                        invoice = make_invoice(sub_id, amount, "subscription_cycle")
+                        invoice["status"] = "open"
+                        invoice["paid"] = False
+                    else:
+                        sub["status"] = "active"
+                        invoice = make_invoice(sub_id, amount, "subscription_cycle")
+                    invoice["hosted_invoice_url"] = f"{BASE}/invoice/{invoice['id']}"
+                    sub["latest_invoice"] = invoice["id"]
+                    events.append(("invoice.paid" if not DECLINE[0] else "invoice.payment_failed", invoice))
                 if "items" in params:
                     item = sub["items"]["data"][0]
                     old = DB["prices"][item["price"]]["unit_amount"]
@@ -270,7 +296,7 @@ class Handler(BaseHTTPRequestHandler):
                     if params.get("proration_behavior") == "always_invoice" and new > old:
                         events.append(("invoice.paid", make_invoice(sub_id, new - old, "subscription_update")))
                 send_later([("customer.subscription.updated", sub_obj(sub_id))] + events)
-                return self.reply(sub_obj(sub_id))
+                return self.reply(sub_obj(sub_id, expand_invoice="latest_invoice" in json.dumps(params.get("expand", ""))))
         return self.reply({"error": {"message": f"No such route {path}"}}, 404)
 
     def log_message(self, *args):

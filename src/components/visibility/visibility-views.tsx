@@ -10,7 +10,7 @@ import { Tooltip as InfoTip } from "@/components/ui/tooltip";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { ASSISTANT_NAMES, PROMPT_INTENTS, scoreTier } from "@/lib/visibility";
-import { addPrompt, deletePrompt, setPromptActive } from "@/server/actions/visibility";
+import { addPrompt, deletePrompt, setPromptActive, updatePrompt } from "@/server/actions/visibility";
 import type { BrandRow, getVisibility, SourceRow } from "@/server/queries/visibility";
 
 type Data = Awaited<ReturnType<typeof getVisibility>>;
@@ -253,6 +253,7 @@ function ManagePromptsDialog({ prompts, allowance, canUpgrade }: { prompts: Data
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
   const [intent, setIntent] = useState<(typeof PROMPT_INTENTS)[number]>("buying");
+  const [editing, setEditing] = useState<{ id: number; text: string; intent: (typeof PROMPT_INTENTS)[number] } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
   const active = prompts.filter((prompt) => prompt.isActive).length;
@@ -317,8 +318,36 @@ function ManagePromptsDialog({ prompts, allowance, canUpgrade }: { prompts: Data
                 })}
                 className="h-5 w-9 shrink-0 cursor-pointer appearance-none rounded-full bg-[#D1D5DB] before:block before:size-4 before:translate-x-0.5 before:rounded-full before:bg-white before:transition-transform checked:bg-[#22A06B] checked:before:translate-x-[18px]"
               />
-              <span className="min-w-0 flex-1 text-sm text-ink">{prompt.text}</span>
-              <span className="text-xs text-ink-secondary">{t(`intents.${prompt.intent}`)}</span>
+              {editing?.id === prompt.id ? (
+                <form
+                  className="flex min-w-0 flex-1 flex-wrap gap-2"
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    startTransition(async () => {
+                      const result = await updatePrompt(prompt.id, { text: editing.text, intent: editing.intent });
+                      if ("error" in result && result.error) setError(result.error);
+                      else {
+                        setError(null);
+                        setEditing(null);
+                      }
+                    });
+                  }}
+                >
+                  <input autoFocus aria-label={t("manage.editLabel")} value={editing.text} onChange={(e) => setEditing({ ...editing, text: e.target.value })} onKeyDown={(e) => e.key === "Escape" && setEditing(null)} className="h-9 min-w-0 flex-1 rounded-control border border-control px-2.5 text-sm outline-none focus:border-ink/40" />
+                  <select aria-label={t("manage.intentLabel")} value={editing.intent} onChange={(e) => setEditing({ ...editing, intent: e.target.value as typeof intent })} className="h-9 rounded-control border border-control px-2 text-sm">
+                    {PROMPT_INTENTS.map((option) => <option key={option} value={option}>{t(`intents.${option}`)}</option>)}
+                  </select>
+                  <Button type="submit" size="sm" disabled={pending}>{t("manage.save")}</Button>
+                  <Button type="button" size="sm" variant="ghost" onClick={() => setEditing(null)}>{t("manage.cancel")}</Button>
+                </form>
+              ) : (
+                <>
+                  <button type="button" aria-label={t("manage.edit")} onClick={() => setEditing({ id: prompt.id, text: prompt.text, intent: prompt.intent as typeof intent })} className="min-w-0 flex-1 text-left text-sm text-ink hover:underline">
+                    {prompt.text}
+                  </button>
+                  <span className="text-xs text-ink-secondary">{t(`intents.${prompt.intent}`)}</span>
+                </>
+              )}
               <button type="button" aria-label={t("manage.delete")} onClick={() => startTransition(() => deletePrompt(prompt.id))} className="grid size-8 place-items-center rounded-md text-ink-subtle hover:bg-canvas hover:text-ink">
                 <Trash2 className="size-4" />
               </button>

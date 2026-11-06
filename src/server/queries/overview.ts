@@ -338,14 +338,19 @@ export async function getTrafficSources(site: Site, range: TrafficRange) {
   return { series: [...series.values()], breakdown, hasData: rows.length > 0 };
 }
 
-/** Whether articles reach the website somehow: a connected platform, a content API key or the hosted blog. */
-export async function hasPublishingConnection(siteId: number) {
-  const [connection] = await db
-    .select({ id: integrations.id })
+export type SetupChecklist = { website: { done: boolean; platform: string | null }; gsc: boolean; ga4: boolean };
+
+/** "Get started": whether articles reach the website (a platform, a content API key or the hosted blog), and Google. */
+export async function getSetupChecklist(siteId: number): Promise<SetupChecklist> {
+  const connected = await db
+    .select({ type: integrations.type })
     .from(integrations)
-    .where(and(eq(integrations.orgWebsiteId, siteId), inArray(integrations.type, [...PUBLISHING_TYPES]), eq(integrations.status, "connected")))
-    .limit(1);
-  if (connection) return true;
-  const [key] = await db.select({ id: apiKeys.id }).from(apiKeys).where(and(eq(apiKeys.orgWebsiteId, siteId), isNull(apiKeys.revokedAt))).limit(1);
-  return Boolean(key);
+    .where(and(eq(integrations.orgWebsiteId, siteId), eq(integrations.status, "connected")));
+  const publishing = connected.find((row) => (PUBLISHING_TYPES as readonly string[]).includes(row.type));
+  const [key] = publishing ? [] : await db.select({ source: apiKeys.source }).from(apiKeys).where(and(eq(apiKeys.orgWebsiteId, siteId), isNull(apiKeys.revokedAt))).limit(1);
+  return {
+    website: { done: Boolean(publishing || key), platform: publishing?.type ?? key?.source ?? null },
+    gsc: connected.some((row) => row.type === "gsc"),
+    ga4: connected.some((row) => row.type === "ga4"),
+  };
 }

@@ -152,7 +152,8 @@
       "redditSearch": "Will look for Reddit threads to reply to",
       "quoraSearch": "Will look for Quora questions to answer",
       "catalogSync": "Will sync your product catalog",
-      "productMatching": "Will match your products to upcoming articles"
+      "productMatching": "Will match your products to upcoming articles",
+      "weeklyProgress": "Will email the weekly progress summary"
     },
     "achievement": {
       "moreAchievements": "+{count} more achievements",
@@ -242,13 +243,46 @@
       "languageBody": "This language isn't covered by your website's plan. Add it as a paid language or upgrade to Scale.",
       "languageAction": "Open billing"
     },
-    "connectWebsite": {
-      "title": "Setup pending",
-      "description": "Connect your site to start publishing articles automatically to your website.",
-      "descriptionDetected": "Connect your {platform} site to start publishing articles automatically.",
-      "button": "Connect website",
-      "buttonDetected": "Connect {platform}",
-      "dismiss": "Dismiss"
+    "setupChecklist": {
+      "title": "Get started",
+      "required": "Required",
+      "optional": "Optional",
+      "dismiss": "Hide",
+      "connectWebsite": {
+        "title": "Connect your website",
+        "titleDetected": "Connect your {platform} site",
+        "body": "Connect your site so articles are published to it automatically.",
+        "button": "Connect website",
+        "buttonDetected": "Connect {platform}"
+      },
+      "connected": {
+        "title": "{platform} connected!",
+        "fallbackPlatform": "Website",
+        "manage": "Manage"
+      },
+      "items": {
+        "connectGsc": "Connect Google Search Console",
+        "connectGa4": "Connect Google Analytics",
+        "watchWalkthrough": "Watch the walkthrough video",
+        "readDocs": "Read the docs"
+      },
+      "platforms": {
+        "wordpress": "WordPress",
+        "wordpress_com": "WordPress.com",
+        "shopify": "Shopify",
+        "webflow": "Webflow",
+        "wix": "Wix",
+        "ghost": "Ghost",
+        "bigcommerce": "BigCommerce",
+        "gohighlevel": "GoHighLevel",
+        "duda": "Duda",
+        "hosted_blog": "Blog hosting",
+        "webhook": "Webhook",
+        "api": "API",
+        "framer": "Framer",
+        "lovable": "Lovable",
+        "nextjs": "Next.js Blog"
+      }
     }
   },
   "milestones": {
@@ -1373,19 +1407,18 @@
         "save": "Save",
         "live": "Your blog is live at {url}",
         "view": "View blog",
-        "pending": "Add this DNS record to finish. If you use Cloudflare, turn the proxy off (grey cloud) for this record.",
+        "pending": "Add this DNS record to finish. If you use Cloudflare, turn the proxy off (grey cloud) for this record. Setups that aren't verified within 5 days are removed.",
         "check": "Check again",
         "remove": "Stop hosting",
         "removeConfirm": "Stop hosting the blog at {domain}? Readers will no longer find the articles there.",
         "manual": "Point the subdomain at the app with this record. Your hosting provider must also serve HTTPS for it.",
         "look": {
-          "title": "Logo and colour",
+          "title": "Logo",
           "logo": "Logo",
           "noLogo": "No logo",
           "useWebsiteLogo": "Use the website's logo",
-          "accent": "Accent colour",
-          "save": "Save look",
-          "hint": "Shown in the blog's header and links. Until you set them, the blog uses your website's logo and brand colour."
+          "save": "Save logo",
+          "hint": "Shown in the blog's header. Until you upload one, the blog uses your website's logo. Its colour is your brand colour (Settings → Branding)."
         }
       },
       "pullPlatforms": "Platforms that pull your articles",
@@ -1722,7 +1755,13 @@
       "deleteConfirm": "Delete your account? You'll be signed out, and the account is deleted for good after 14 days unless you sign in and cancel.",
       "deleteScheduled": "Your account will be deleted on {date}. Sign in before then to cancel.",
       "pendingDeletion": "Your account will be deleted on {date}.",
-      "cancelDeletion": "Keep my account"
+      "cancelDeletion": "Keep my account",
+      "notifications": {
+        "title": "Notifications",
+        "hint": "A short summary every Monday: articles published, new backlinks, Google clicks, AI mentions and what's coming next.",
+        "weekly": "Weekly progress email for {site}",
+        "noEmail": "Email sending isn't set up on this platform yet, so these emails aren't sent."
+      }
     },
     "business": {
       "title": "Business details",
@@ -1758,7 +1797,21 @@
       "add": "Add",
       "blogUrl": "Blog path URL",
       "blogUrlHint": "Your blog's home page, like https://yoursite.com/blog. We check that published articles are live there.",
-      "blogUrlPlaceholder": "https://yourwebsite.com/blog"
+      "blogUrlPlaceholder": "https://yourwebsite.com/blog",
+      "targetLocation": {
+        "title": "Target location",
+        "description": "Choose the country your content should target, or leave it global. You can narrow to a specific region or city within the country.",
+        "country": "Country",
+        "global": "Global",
+        "region": "Region or city",
+        "optional": "optional",
+        "regionPlaceholder": "Start typing, e.g. California or Santa Barbara",
+        "clearRegion": "Remove region",
+        "searching": "Searching...",
+        "noResults": "No region or city found",
+        "needsData": "Narrowing to a region needs the keyword data provider (DataForSEO).",
+        "effect": "Keyword research and topic planning use this location from the next run."
+      }
     },
     "branding": {
       "title": "Branding",
@@ -2235,7 +2288,11 @@
         "pastDue": "Your last payment didn't go through. Update your payment method to keep your agents running.",
         "updatePayment": "Update payment method",
         "scaleTeaser": "Ready to scale? Track 50 buyer questions in AI assistants, with priority support.",
-        "seeScale": "See what Scale offers"
+        "seeScale": "See what Scale offers",
+        "cancelTrial": "Cancel free trial",
+        "endTrial": "End trial now",
+        "endTrialPayment": "Your card couldn't be charged to end the trial.",
+        "payInvoice": "Pay the invoice"
       },
       "statuses": {
         "active": "Active",
@@ -2340,6 +2397,53 @@
         "manage": "Manage in Stripe",
         "upgrade": "Upgrade {website} to Scale",
         "choosePlan": "Choose a plan for {website}"
+      },
+      "cancelFlow": {
+        "recapTitle": "Here's what you've built so far",
+        "recapTrial": "Your trial already put your growth agents to work for this website.",
+        "recapPaying": "These keep growing while your plan is active.",
+        "stats": {
+          "articles": "Articles written",
+          "published": "Articles published",
+          "backlinks": "Backlinks received",
+          "aiMentions": "AI answers that mention you"
+        },
+        "whatStops": [
+          "New articles stop being written and published.",
+          "No new backlinks from the exchange.",
+          "AI visibility, rankings and site health stop being checked.",
+          "Everything already published stays on your site."
+        ],
+        "continue": "Continue to cancel",
+        "keep": "Keep my plan",
+        "reasonTitle": "Before you go, what made you stop?",
+        "reasonHint": "Your answer helps us improve.",
+        "reasons": {
+          "too_expensive": "It's too expensive",
+          "missing_features": "It's missing something I need",
+          "switched_service": "I'm switching to another service",
+          "unused": "I'm not using it enough",
+          "customer_service": "I had a problem with support",
+          "too_complex": "It's too complicated",
+          "low_quality": "The results weren't good enough",
+          "other": "Something else"
+        },
+        "commentPlaceholder": "Anything else you'd like to tell us? (optional)",
+        "offerTitle": "Before you cancel",
+        "offerHint": "You can keep everything running for less, or take a break.",
+        "discountTitle": "Stay with a discount",
+        "discountBody": "Keep your plan and get the discount on your next invoices.",
+        "pauseTitle": "Pause billing instead",
+        "pauseBody": "No charges while paused; agents stop until you resume. Your content and settings stay.",
+        "cancelAnyway": "Cancel anyway",
+        "keptDiscount": "Your discount is applied",
+        "keptPaused": "Billing is paused",
+        "keptBody": "Thanks for staying. You can change this anytime on this page.",
+        "doneTrial": "Your trial is cancelled",
+        "doneTrialBody": "You won't be charged. Access continues until {date}.",
+        "donePaying": "Your subscription is cancelled",
+        "donePayingBody": "No further charges. Your plan stays active until {date}; you can keep it anytime before then.",
+        "close": "Close"
       }
     },
     "whiteLabel": {
@@ -2878,7 +2982,12 @@
       "delete": "Delete prompt",
       "activeLabel": "Active",
       "upgrade": "Track more questions with an AI prompts add-on.",
-      "upgradeAction": "See add-ons"
+      "upgradeAction": "See add-ons",
+      "edit": "Edit prompt",
+      "editLabel": "Prompt",
+      "intentLabel": "Intent",
+      "save": "Save",
+      "cancel": "Cancel"
     },
     "byPrompt": {
       "brands": "Brands by prompt",
@@ -3071,6 +3180,22 @@
       "found": "New threads found",
       "reddit": "Reddit",
       "quora": "Quora"
+    },
+    "weekly": {
+      "subject": "{site}: your week",
+      "greeting": "Hi,",
+      "intro": "Here's what your growth agents did for <b>{site}</b> in the last seven days.",
+      "published": "Articles published",
+      "backlinks": "New backlinks",
+      "clicks": "Google clicks",
+      "ai": "AI mentions",
+      "aiValue": "{mentions} of {answers} answers",
+      "health": "Site health score",
+      "publishedTitle": "Published this week",
+      "backlinksTitle": "New backlinks",
+      "upcomingTitle": "Coming up next",
+      "cta": "Open your dashboard",
+      "footer": "You get this every Monday from {brand}. <link>Turn it off</link> in your notification settings."
     }
   },
   "traffic": {

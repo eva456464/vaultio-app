@@ -338,14 +338,12 @@ export async function setupHostedBlog(input: z.input<typeof blogSchema>): Promis
 
 const LOGO_TYPES = ["image/png", "image/jpeg", "image/webp"];
 
-/** The hosted blog's logo (uploaded, or removed to use the website's) and accent colour. */
+/** The hosted blog's logo (uploaded, or removed to use the website's). */
 export async function updateHostedBlogLook(form: FormData): Promise<Result> {
   const site = await requireAdminSite();
   const [current] = await db.select().from(integrations).where(and(eq(integrations.orgWebsiteId, site.id), eq(integrations.type, "hosted_blog")));
   const config = current?.config as BlogConfig | undefined;
   if (!current || !config?.domain) return { error: "Set up the blog first" };
-  const accent = String(form.get("accent") ?? "").trim();
-  if (accent && !/^#[0-9a-f]{6}$/i.test(accent)) return { error: "Use a hex colour like #E94545" };
   let logoUrl = config.logoUrl ?? null;
   if (form.get("removeLogo") === "1") logoUrl = null;
   const file = form.get("logo");
@@ -357,7 +355,7 @@ export async function updateHostedBlogLook(form: FormData): Promise<Result> {
   }
   await db
     .update(integrations)
-    .set({ config: { ...config, logoUrl, accentColor: accent ? accent.toUpperCase() : null }, updatedAt: new Date() })
+    .set({ config: { ...config, logoUrl }, updatedAt: new Date() })
     .where(eq(integrations.id, current.id));
   refresh();
   return { ok: true };

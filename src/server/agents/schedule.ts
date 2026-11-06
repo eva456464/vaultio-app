@@ -34,6 +34,7 @@ export const AGENT_JOBS = [
   "writeArticle",
   "milestones",
   "monthlyReport",
+  "weeklyProgress",
   "improvementScan",
   "improveArticle",
   "backlinkCheck",
@@ -61,6 +62,8 @@ export const AGENT_SCHEDULE: ScheduledAgent[] = [
   { job: "writeArticle", cadence: { kind: "daily" }, requires: ["llm"] },
   { job: "milestones", cadence: { kind: "daily" }, requires: [] },
   { job: "monthlyReport", cadence: { kind: "monthly", dayOfMonth: 1 }, requires: ["email"] },
+  // Each member's weekly summary of the website (Settings → Account → Notifications).
+  { job: "weeklyProgress", cadence: { kind: "weekly", weekday: 1 }, requires: ["email"] },
   // Both do nothing unless article improvements are on; improveArticle acts on improvement days.
   { job: "improvementScan", cadence: { kind: "daily" }, requires: ["gsc"] },
   { job: "improveArticle", cadence: { kind: "daily" }, requires: ["gsc", "llm"] },

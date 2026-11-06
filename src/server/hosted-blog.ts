@@ -1,6 +1,7 @@
 /** Blogs Vaultio hosts for clients on their own subdomain (blog.example.com). */
-import { and, count, desc, eq, isNotNull, sql } from "drizzle-orm";
+import { and, count, desc, eq, isNotNull, lt, ne, sql } from "drizzle-orm";
 import { db } from "@/db";
+import { disconnectHostingDomain } from "./whitelabel/domains";
 import { articles, integrations, orgWebsites } from "@/db/schema";
 import type { HostedBlogConfig } from "./publishing/publish";
 
@@ -46,4 +47,22 @@ export async function allBlogArticles(siteId: number) {
     .from(articles)
     .where(published(siteId))
     .orderBy(desc(articles.publishedAt));
+}
+
+/** Blog hosting setups whose DNS never verified are removed after this many days (as in the reference product). */
+export const UNVERIFIED_BLOG_DAYS = 5;
+
+export async function purgeUnverifiedBlogs(now = new Date()) {
+  const cutoff = new Date(now.getTime() - UNVERIFIED_BLOG_DAYS * 86_400_000);
+  const stale = await db
+    .select({ id: integrations.id, config: integrations.config })
+    .from(integrations)
+    .where(and(eq(integrations.type, "hosted_blog"), ne(integrations.status, "connected"), lt(integrations.createdAt, cutoff)));
+  for (const row of stale) {
+    const config = row.config as BlogConfig;
+    if (config.verified) continue;
+    if (config.domain) await disconnectHostingDomain(config.domain).catch(() => undefined);
+    await db.delete(integrations).where(eq(integrations.id, row.id));
+  }
+  return stale.length;
 }

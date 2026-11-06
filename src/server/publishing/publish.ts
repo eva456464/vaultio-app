@@ -14,7 +14,7 @@ import { deliverShopify, type ShopifyConfig, type ShopifyCredentials } from "./p
 import { deliverWebflow, type WebflowConfig, type WebflowCredentials } from "./platforms/webflow";
 import { deliverWix, type WixConfig, type WixCredentials } from "./platforms/wix";
 
-export type HostedBlogConfig = { domain: string; displayName: string; verified?: boolean; logoUrl?: string | null; accentColor?: string | null };
+export type HostedBlogConfig = { domain: string; displayName: string; verified?: boolean; logoUrl?: string | null; createdAt?: string };
 export const hostedBlogUrl = (config: HostedBlogConfig, slug: string) => `https://${config.domain}/${slug}`;
 
 type Article = typeof articles.$inferSelect;

@@ -1,11 +1,11 @@
 "use server";
 
-import { and, desc, eq } from "drizzle-orm";
+import { and, count, desc, eq, isNotNull } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { getLocale } from "next-intl/server";
 import type Stripe from "stripe";
 import { db } from "@/db";
-import { organizations, subscriptions, userSettings } from "@/db/schema";
+import { articles, backlinks, llmAnswers, organizations, subscriptions, userSettings } from "@/db/schema";
 import { ADDON_IDS, ADDONS, INTERVALS, LANGUAGE_ADDON, LIVE_STATUSES, PLAN_LOOKUP_KEYS, PLANS, type AddonId, type Interval, type Plan } from "@/lib/billing";
 import { rerunAgentJob } from "../agents/queue";
 import { siteDay } from "../agents/schedule";
@@ -97,8 +97,10 @@ export async function startCheckout(choice: { plan: Plan; interval: Interval } |
 
     const hadPlan = isPlan && (await db.select({ id: subscriptions.id }).from(subscriptions).where(and(eq(subscriptions.orgWebsiteId, site.id), eq(subscriptions.type, "main"))).limit(1)).length > 0;
     const metadata = { organizationId: String(context.organization.id), orgWebsiteId: String(site.id), orgWebsiteUrl: site.url, subscriptionType: type, ...(isPlan ? { plan: choice.plan } : { addonId: choice.addon }) };
-    // From the onboarding wizard's last step, Stripe sends the owner back to the wizard to start the agents.
-    const base = `${await requestOrigin()}/${await getLocale()}/${options.returnTo === "onboarding" ? "onboarding/plan" : "dashboard/settings/billing"}`;
+    const locale = await getLocale();
+    const base = `${await requestOrigin()}/${locale}/dashboard/settings/billing`;
+    // From the onboarding wizard's plan step, Stripe sends the owner to a route that confirms and starts the agents.
+    const onboarding = options.returnTo === "onboarding";
     const session = await stripe().checkout.sessions.create({
       mode: "subscription",
       customer: await customerOf(context),
@@ -107,8 +109,8 @@ export async function startCheckout(choice: { plan: Plan; interval: Interval } |
       allow_promotion_codes: true,
       metadata,
       subscription_data: { metadata, ...(isPlan && !hadPlan && TRIAL_DAYS() > 0 ? { trial_period_days: TRIAL_DAYS() } : {}) },
-      success_url: `${base}?checkout={CHECKOUT_SESSION_ID}`,
-      cancel_url: base,
+      success_url: onboarding ? `${await requestOrigin()}/api/billing/onboarding-return?locale=${locale}&checkout={CHECKOUT_SESSION_ID}` : `${base}?checkout={CHECKOUT_SESSION_ID}`,
+      cancel_url: onboarding ? `${await requestOrigin()}/${locale}/onboarding/plan` : base,
     });
     if (!session.url) return { error: "Stripe didn't return a checkout page." };
     return { ok: true, url: session.url };
@@ -246,4 +248,85 @@ export async function setInvoiceEmails(enabled: boolean): Promise<Result> {
     .values({ userId: context.user.id, isInvoiceEmailEnabled: enabled })
     .onConflictDoUpdate({ target: userSettings.userId, set: { isInvoiceEmailEnabled: enabled, updatedAt: new Date() } });
   return { ok: true };
+}
+
+/** What the website has built so far, for "Here's what you've built" before cancelling (real counts only). */
+export async function cancellationRecap(id: number) {
+  const context = await requireBillingAdmin();
+  const row = await ownSubscription(context, id);
+  const siteId = row.orgWebsiteId ?? context.site.id;
+  const [[written], [published], [links], [mentions]] = await Promise.all([
+    db.select({ value: count() }).from(articles).where(eq(articles.orgWebsiteId, siteId)),
+    db.select({ value: count() }).from(articles).where(and(eq(articles.orgWebsiteId, siteId), isNotNull(articles.publishedUrl))),
+    db.select({ value: count() }).from(backlinks).where(and(eq(backlinks.targetOrgWebsiteId, siteId), eq(backlinks.isBacklinkPresent, true))),
+    db.select({ value: count() }).from(llmAnswers).where(and(eq(llmAnswers.orgWebsiteId, siteId), eq(llmAnswers.orgWebsiteMentioned, true))),
+  ]);
+  const subscription = await stripe().subscriptions.retrieve(row.stripeSubscriptionId).catch(() => null);
+  return {
+    articles: written?.value ?? 0,
+    published: published?.value ?? 0,
+    backlinks: links?.value ?? 0,
+    aiMentions: mentions?.value ?? 0,
+    // A one-time discount, only when the owner set one up in Stripe and it wasn't used yet.
+    offer: Boolean(process.env.RETENTION_COUPON_ID) && subscription?.metadata?.retentionOffer !== "used" && row.status !== "trialing",
+    trial: row.status === "trialing",
+  };
+}
+
+const CANCEL_REASONS = ["too_expensive", "missing_features", "switched_service", "unused", "customer_service", "too_complex", "low_quality", "other"] as const;
+
+/** Cancels at the end of the period (a trial ends without charge), with the reason Stripe keeps. */
+export async function cancelWithFeedback(id: number, reason: string, comment: string): Promise<Result> {
+  const context = await requireBillingAdmin();
+  const row = await ownSubscription(context, id);
+  const feedback = (CANCEL_REASONS as readonly string[]).includes(reason) ? (reason as (typeof CANCEL_REASONS)[number]) : "other";
+  try {
+    await syncSubscription(
+      await stripe().subscriptions.update(row.stripeSubscriptionId, {
+        cancel_at_period_end: true,
+        cancellation_details: { feedback, comment: comment.trim().slice(0, 500) || undefined },
+      }),
+    );
+    refresh();
+    return { ok: true };
+  } catch (error) {
+    return describe(error);
+  }
+}
+
+/** Takes the retention discount instead of cancelling (once per subscription). */
+export async function acceptRetentionOffer(id: number): Promise<Result> {
+  const context = await requireBillingAdmin();
+  const row = await ownSubscription(context, id);
+  const coupon = process.env.RETENTION_COUPON_ID;
+  if (!coupon) return { error: "No offer is available" };
+  try {
+    const current = await stripe().subscriptions.retrieve(row.stripeSubscriptionId);
+    if (current.metadata?.retentionOffer === "used") return { error: "This offer was already used" };
+    await syncSubscription(
+      await stripe().subscriptions.update(row.stripeSubscriptionId, { discounts: [{ coupon }], cancel_at_period_end: false, metadata: { ...current.metadata, retentionOffer: "used" } }),
+    );
+    refresh();
+    return { ok: true };
+  } catch (error) {
+    return describe(error);
+  }
+}
+
+/** "End trial now": billing starts today; a card that fails returns the invoice to pay. */
+export async function endTrialNow(id: number): Promise<{ ok: true } | { error: string; invoiceUrl?: string }> {
+  const context = await requireBillingAdmin();
+  const row = await ownSubscription(context, id);
+  if (row.status !== "trialing") return { error: "This plan isn't on a free trial" };
+  try {
+    const updated = await stripe().subscriptions.update(row.stripeSubscriptionId, { trial_end: "now", expand: ["latest_invoice"] });
+    await syncSubscription(updated);
+    const invoice = typeof updated.latest_invoice === "object" ? updated.latest_invoice : null;
+    if (invoice) await processInvoice(invoice);
+    refresh();
+    if (updated.status !== "active") return { error: "payment", invoiceUrl: invoice?.hosted_invoice_url ?? undefined };
+    return { ok: true };
+  } catch (error) {
+    return describe(error);
+  }
 }

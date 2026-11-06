@@ -54,6 +54,7 @@ export const ACTIVITY_ICONS: Record<string, LucideIcon> = {
   promptsGenerated: MessagesSquare,
   firstMonthPlanned: CalendarDays,
   monthlyReport: Mail,
+  weeklyProgress: Mail,
   reportSent: Mail,
   improveArticle: RefreshCw,
   articleImprovementPlanned: RefreshCw,

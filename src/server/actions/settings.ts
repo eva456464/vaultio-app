@@ -5,7 +5,10 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { ARTICLE_LENGTHS, ENGLISH_TYPES, SELECTABLE_ARTICLE_TYPES } from "@/lib/writing";
 import { db } from "@/db";
-import { competitors, orgWebsites, user } from "@/db/schema";
+import { competitors, orgWebsites, targetLocations, user } from "@/db/schema";
+import { LOCATION_OF_COUNTRY } from "@/lib/languages";
+import { locationName } from "../seo/dataforseo";
+import { locationSearchAvailable, searchSubLocations } from "../seo/locations";
 import { BODY_STYLES, COVER_STYLES, INFOGRAPHIC_STYLES } from "@/lib/visuals";
 import { getAppContext } from "../context";
 
@@ -260,6 +263,49 @@ export async function updateImprovements(input: z.input<typeof improvementsSchem
       improvementsAutoPublish: parsed.data.autoPublish,
       updatedAt: new Date(),
     })
+    .where(eq(orgWebsites.id, site.id));
+  refresh();
+  return { ok: true };
+}
+
+/** Regions and cities of the chosen country, for narrowing the target location. */
+export async function searchTargetRegions(country: string, query: string) {
+  await requireAdminSite();
+  if (!LOCATION_OF_COUNTRY[country.toUpperCase()]) return { available: locationSearchAvailable(), results: [] };
+  try {
+    return { available: locationSearchAvailable(), results: await searchSubLocations(country, query) };
+  } catch (error) {
+    console.error("[settings] location search failed:", (error as Error).message);
+    return { available: locationSearchAvailable(), results: [], error: true };
+  }
+}
+
+const targetSchema = z.object({
+  country: z.string(),
+  region: z.object({ locationCode: z.number().int().positive(), name: z.string().trim().min(1).max(200) }).nullable(),
+});
+
+/** Settings → Business → Target location: one country (or Global), optionally narrowed to a region or city. */
+export async function updateTargetLocation(input: z.input<typeof targetSchema>): Promise<Result> {
+  const site = await requireAdminSite();
+  const parsed = targetSchema.safeParse(input);
+  if (!parsed.success) return { error: "Choose a target location" };
+  const global = parsed.data.country === "global";
+  const countryCode = parsed.data.country.toUpperCase();
+  const locationCode = global ? null : LOCATION_OF_COUNTRY[countryCode];
+  if (!global && !locationCode) return { error: "Choose a target location" };
+  if (global && parsed.data.region) return { error: "Choose a country before a region" };
+  await db.transaction(async (tx) => {
+    await tx.delete(targetLocations).where(eq(targetLocations.orgWebsiteId, site.id));
+    if (!locationCode) return;
+    const [country] = await tx.insert(targetLocations).values({ orgWebsiteId: site.id, kind: "country", locationCode, countryCode, name: locationName(locationCode) ?? countryCode }).returning();
+    if (parsed.data.region) {
+      await tx.insert(targetLocations).values({ orgWebsiteId: site.id, kind: "city", locationCode: parsed.data.region.locationCode, countryCode, name: parsed.data.region.name, parentId: country!.id });
+    }
+  });
+  await db
+    .update(orgWebsites)
+    .set({ onboardingAnswers: { ...site.onboardingAnswers, market: global ? "global" : "country" }, updatedAt: new Date() })
     .where(eq(orgWebsites.id, site.id));
   refresh();
   return { ok: true };

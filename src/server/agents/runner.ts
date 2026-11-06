@@ -15,7 +15,7 @@ import {
   planFirstMonth,
   topicResearch,
 } from "./jobs/strategy";
-import { monthlyReport } from "./jobs/reporting";
+import { monthlyReport, weeklyProgress } from "./jobs/reporting";
 import { aiTrafficReport, analyticsSync, rankingsCheck } from "./jobs/traffic";
 import { improveArticle, improvementScan } from "./jobs/improvements";
 import { backlinkCheck, joinBacklinkExchange } from "../backlinks/exchange";
@@ -50,6 +50,7 @@ export const JOB_REGISTRY: Record<AgentJobName, Registration> = {
   competitorGapScan: { requires: ["keywordData"], handler: competitorGapScan },
   domainRatingCheck: { requires: ["authorityData"], handler: domainRatingCheck },
   monthlyReport: { requires: ["email"], handler: monthlyReport },
+  weeklyProgress: { requires: ["email"], handler: weeklyProgress },
   improvementScan: { requires: ["gsc"], handler: improvementScan },
   improveArticle: { requires: ["gsc", "llm"], handler: improveArticle },
   backlinkCheck: { requires: [], handler: backlinkCheck },

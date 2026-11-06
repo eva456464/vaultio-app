@@ -8,7 +8,19 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 import { useRouter } from "@/i18n/navigation";
 import type { AddonId, Interval, Plan } from "@/lib/billing";
 import { cn } from "@/lib/utils";
-import { changePlan, confirmCheckout, openBillingPortal, setBillingPaused, setCancelAtPeriodEnd, setInvoiceEmails, startCheckout } from "@/server/actions/billing";
+import {
+  acceptRetentionOffer,
+  cancellationRecap,
+  cancelWithFeedback,
+  changePlan,
+  confirmCheckout,
+  endTrialNow,
+  openBillingPortal,
+  setBillingPaused,
+  setCancelAtPeriodEnd,
+  setInvoiceEmails,
+  startCheckout,
+} from "@/server/actions/billing";
 import type { BillingData } from "@/server/queries/billing";
 
 type Billed = Extract<BillingData, { mode: "billed" }>;
@@ -265,12 +277,179 @@ function Tile({ icon: Icon, label, value }: { icon: typeof Package; label: strin
   );
 }
 
+const CANCEL_REASONS = ["too_expensive", "missing_features", "switched_service", "unused", "customer_service", "too_complex", "low_quality", "other"] as const;
+type Recap = Awaited<ReturnType<typeof cancellationRecap>>;
+
+/** Cancelling: what the website built so far, why they're leaving, an offer if one is set up, then confirm. */
+function CancelDialog({ id, open, onOpenChange, endDate, paused }: { id: number; open: boolean; onOpenChange: (open: boolean) => void; endDate: string; paused: boolean }) {
+  const t = useTranslations("settings.billing.cancelFlow");
+  const [step, setStep] = useState<"recap" | "reason" | "offer" | "done">("recap");
+  const [recap, setRecap] = useState<Recap | null>(null);
+  const [reason, setReason] = useState<string>("");
+  const [comment, setComment] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [kept, setKept] = useState<"discount" | "paused" | null>(null);
+  const [pending, startTransition] = useTransition();
+
+  useEffect(() => {
+    if (!open) return;
+    let live = true;
+    cancellationRecap(id).then((result) => live && setRecap(result)).catch(() => live && setRecap(null));
+    return () => {
+      live = false;
+    };
+  }, [id, open]);
+
+  const close = (next: boolean) => {
+    onOpenChange(next);
+    if (!next) {
+      setStep("recap");
+      setReason("");
+      setComment("");
+      setError(null);
+      setKept(null);
+    }
+  };
+  const cancel = () =>
+    startTransition(async () => {
+      const result = await cancelWithFeedback(id, reason, comment);
+      if ("error" in result) return setError(result.error);
+      setStep("done");
+    });
+  const stats = recap
+    ? [
+        [t("stats.articles"), recap.articles],
+        [t("stats.published"), recap.published],
+        [t("stats.backlinks"), recap.backlinks],
+        [t("stats.aiMentions"), recap.aiMentions],
+      ]
+    : [];
+
+  return (
+    <Dialog open={open} onOpenChange={close}>
+      <DialogContent className="max-w-lg">
+        {step === "recap" && (
+          <>
+            <DialogTitle className="text-xl">{t("recapTitle")}</DialogTitle>
+            <DialogDescription className="mt-1 text-sm text-ink-secondary">{recap?.trial ? t("recapTrial") : t("recapPaying")}</DialogDescription>
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              {stats.map(([label, value]) => (
+                <div key={label as string} className="rounded-xl bg-canvas p-3">
+                  <p className="text-2xl font-semibold text-ink tabular-nums">{value}</p>
+                  <p className="text-xs text-ink-secondary">{label}</p>
+                </div>
+              ))}
+            </div>
+            <ul className="mt-4 list-disc space-y-1 pl-5 text-sm text-ink-secondary">
+              {(t.raw("whatStops") as string[]).map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+            <div className="mt-6 flex flex-wrap justify-end gap-2">
+              <Button variant="outline" onClick={() => setStep("reason")} disabled={!recap}>
+                {t("continue")}
+              </Button>
+              <Button onClick={() => close(false)}>{t("keep")}</Button>
+            </div>
+          </>
+        )}
+        {step === "reason" && (
+          <>
+            <DialogTitle className="text-xl">{t("reasonTitle")}</DialogTitle>
+            <DialogDescription className="mt-1 text-sm text-ink-secondary">{t("reasonHint")}</DialogDescription>
+            <div className="mt-4 grid gap-2" role="radiogroup">
+              {CANCEL_REASONS.map((value) => (
+                <label key={value} className={cn("flex cursor-pointer items-center gap-3 rounded-xl border px-3 py-2.5 text-sm", reason === value ? "border-ink" : "border-line")}>
+                  <input type="radio" name="reason" value={value} checked={reason === value} onChange={() => setReason(value)} />
+                  {t(`reasons.${value}`)}
+                </label>
+              ))}
+            </div>
+            <textarea value={comment} onChange={(event) => setComment(event.target.value)} placeholder={t("commentPlaceholder")} rows={3} className="mt-3 w-full rounded-control border border-control p-3 text-sm" />
+            <div className="mt-5 flex flex-wrap justify-end gap-2">
+              <Button variant="ghost" onClick={() => close(false)}>
+                {t("keep")}
+              </Button>
+              <Button variant="outline" disabled={!reason || pending} onClick={() => (recap?.offer || (!recap?.trial && !paused) ? setStep("offer") : cancel())}>
+                {t("continue")}
+              </Button>
+            </div>
+          </>
+        )}
+        {step === "offer" && (
+          <>
+            <DialogTitle className="text-xl">{t("offerTitle")}</DialogTitle>
+            <DialogDescription className="mt-1 text-sm text-ink-secondary">{t("offerHint")}</DialogDescription>
+            <div className="mt-5 space-y-3">
+              {recap?.offer && (
+                <button
+                  type="button"
+                  disabled={pending}
+                  onClick={() =>
+                    startTransition(async () => {
+                      const result = await acceptRetentionOffer(id);
+                      if ("error" in result) return setError(result.error);
+                      setKept("discount");
+                      setStep("done");
+                    })
+                  }
+                  className="w-full rounded-xl border border-ink p-4 text-left ring-1 ring-ink"
+                >
+                  <span className="block text-sm font-semibold text-ink">{t("discountTitle")}</span>
+                  <span className="block text-sm text-ink-secondary">{t("discountBody")}</span>
+                </button>
+              )}
+              {!paused && !recap?.trial && (
+                <button
+                  type="button"
+                  disabled={pending}
+                  onClick={() =>
+                    startTransition(async () => {
+                      const result = await setBillingPaused(id, true);
+                      if ("error" in result) return setError(result.error);
+                      setKept("paused");
+                      setStep("done");
+                    })
+                  }
+                  className="w-full rounded-xl border border-line p-4 text-left hover:border-ink/30"
+                >
+                  <span className="block text-sm font-semibold text-ink">{t("pauseTitle")}</span>
+                  <span className="block text-sm text-ink-secondary">{t("pauseBody")}</span>
+                </button>
+              )}
+            </div>
+            <div className="mt-5 flex justify-end">
+              <Button variant="outline" className="border-[#F3B4A9] text-[#C4320A] hover:bg-[#FDECEA]" disabled={pending} onClick={cancel}>
+                {t("cancelAnyway")}
+              </Button>
+            </div>
+          </>
+        )}
+        {step === "done" && (
+          <>
+            <DialogTitle className="text-xl">{kept === "discount" ? t("keptDiscount") : kept === "paused" ? t("keptPaused") : recap?.trial ? t("doneTrial") : t("donePaying")}</DialogTitle>
+            <DialogDescription className="mt-1 text-sm text-ink-secondary">
+              {kept ? t("keptBody") : recap?.trial ? t("doneTrialBody", { date: endDate }) : t("donePayingBody", { date: endDate })}
+            </DialogDescription>
+            <div className="mt-6 flex justify-end">
+              <Button onClick={() => close(false)}>{t("close")}</Button>
+            </div>
+          </>
+        )}
+        {error && <p className="mt-3 text-sm text-[#9A3412]">{error}</p>}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 function ActivePlan({ data }: { data: Billed }) {
   const t = useTranslations("settings.billing");
   const format = useFormatter();
   const money = useMoney();
   const main = data.main!;
   const [upgrading, setUpgrading] = useState(false);
+  const [cancelling, setCancelling] = useState(false);
+  const [invoiceUrl, setInvoiceUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
   const date = (iso: string | null) => (iso ? format.dateTime(new Date(iso), { month: "short", day: "numeric", year: "numeric" }) : "—");
@@ -339,20 +518,39 @@ function ActivePlan({ data }: { data: Billed }) {
                   {t("active.keep")}
                 </Button>
               ) : (
+                <Button variant="outline" disabled={pending} className="border-[#F3B4A9] text-[#C4320A] hover:bg-[#FDECEA]" onClick={() => setCancelling(true)}>
+                  {main.status === "trialing" ? t("active.cancelTrial") : t("active.cancel")}
+                </Button>
+              )}
+              {main.status === "trialing" && !main.cancelAtPeriodEnd && (
                 <Button
-                  variant="outline"
                   disabled={pending}
-                  className="border-[#F3B4A9] text-[#C4320A] hover:bg-[#FDECEA]"
-                  onClick={() => {
-                    if (window.confirm(t("active.cancelConfirm"))) run(() => setCancelAtPeriodEnd(main.id, true));
-                  }}
+                  onClick={() =>
+                    startTransition(async () => {
+                      const result = await endTrialNow(main.id);
+                      if ("error" in result) {
+                        setError(result.error === "payment" ? t("active.endTrialPayment") : result.error);
+                        setInvoiceUrl(result.invoiceUrl ?? null);
+                      } else setError(null);
+                    })
+                  }
                 >
-                  {t("active.cancel")}
+                  {t("active.endTrial")}
                 </Button>
               )}
             </div>
           )}
-          {error && <p className="mt-3 text-sm text-[#9A3412]">{error}</p>}
+          {error && (
+            <p className="mt-3 text-sm text-[#9A3412]">
+              {error}{" "}
+              {invoiceUrl && (
+                <a href={invoiceUrl} target="_blank" rel="noreferrer" className="font-medium underline">
+                  {t("active.payInvoice")}
+                </a>
+              )}
+            </p>
+          )}
+          <CancelDialog id={main.id} open={cancelling} onOpenChange={setCancelling} endDate={date(main.trialEnd ?? main.currentPeriodEnd)} paused={main.paused} />
         </div>
       </section>
       {main.plan === "grow" && data.isAdmin && main.live && (data.prices.scale.month || data.prices.scale.year) && (

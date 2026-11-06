@@ -494,16 +494,13 @@ export type HostedBlogState = {
   records: { type: string; name: string; value: string }[];
   error: string | null;
   logoUrl: string | null;
-  accentColor: string | null;
   fallbackLogoUrl: string | null;
-  fallbackAccent: string;
 } | null;
 
-/** The blog's logo and accent colour (the website's own are used until these are set). */
+/** The blog's logo (the website's logo until one is uploaded); its colour is the brand colour from Settings → Branding. */
 function BlogLook({ blog }: { blog: NonNullable<HostedBlogState> }) {
   const t = useTranslations("settings.publishing.hostedBlog.look");
   const { error, pending, run } = useAction();
-  const [accent, setAccent] = useState(blog.accentColor ?? "");
   const logo = blog.logoUrl ?? blog.fallbackLogoUrl;
   const save = (form: FormData) => run(() => updateHostedBlogLook(form));
   return (
@@ -533,13 +530,6 @@ function BlogLook({ blog }: { blog: NonNullable<HostedBlogState> }) {
             <input type="checkbox" name="removeLogo" value="1" /> {t("useWebsiteLogo")}
           </label>
         )}
-        <label className="text-sm text-ink">
-          <span className="block text-xs font-medium text-ink-secondary">{t("accent")}</span>
-          <span className="mt-1 flex items-center gap-2">
-            <input type="color" aria-label={t("accent")} value={/^#[0-9a-f]{6}$/i.test(accent) ? accent : blog.fallbackAccent} onChange={(event) => setAccent(event.target.value)} className="size-8 cursor-pointer rounded border-0 bg-transparent p-0" />
-            <input name="accent" value={accent} onChange={(event) => setAccent(event.target.value)} placeholder={blog.fallbackAccent} className="h-9 w-28 rounded-control border border-control px-2 text-sm uppercase" />
-          </span>
-        </label>
         <Button type="submit" variant="outline" size="sm" disabled={pending} className="ml-auto">
           {pending && <LoaderCircle className="animate-spin" />}
           {t("save")}

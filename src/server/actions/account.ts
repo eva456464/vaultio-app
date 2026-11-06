@@ -2,10 +2,10 @@
 
 import { revalidatePath } from "next/cache";
 import { db } from "@/db";
-import { userSettings } from "@/db/schema";
+import { emailPreferences, userSettings } from "@/db/schema";
 import { locales } from "@/i18n/routing";
 import { cancelDeletion, DeletionBlocked, requestDeletion } from "../account";
-import { getSession } from "../context";
+import { getAppContext, getSession } from "../context";
 
 type Result = { ok: true } | { error: string };
 
@@ -43,4 +43,17 @@ export async function setDashboardLanguage(locale: string): Promise<Result> {
     .values({ userId: user.id, platformLanguage: locale })
     .onConflictDoUpdate({ target: userSettings.userId, set: { platformLanguage: locale, updatedAt: new Date() } });
   return { ok: true };
+}
+
+/** Settings → Account → Notifications: the weekly progress email for one website. */
+export async function setWeeklyEmail(siteId: number, enabled: boolean) {
+  const context = await getAppContext();
+  if (!context) throw new Error("Not signed in");
+  if (!context.sites.some((site) => site.id === siteId)) throw new Error("Website not found");
+  await db
+    .insert(emailPreferences)
+    .values({ userId: context.user.id, orgWebsiteId: siteId, weeklyProgress: enabled })
+    .onConflictDoUpdate({ target: [emailPreferences.userId, emailPreferences.orgWebsiteId], set: { weeklyProgress: enabled, updatedAt: new Date() } });
+  revalidatePath("/[locale]/dashboard/settings/account", "page");
+  return { ok: true as const };
 }

@@ -15,6 +15,7 @@ import {
   uniqueIndex,
 } from "drizzle-orm/pg-core";
 import type { TrafficRange } from "../../lib/traffic";
+import { user } from "./auth";
 import { organizations, orgWebsites } from "./organization";
 
 const timestamps = {
@@ -468,4 +469,21 @@ export const agentJobRuns = pgTable(
     ...timestamps,
   },
   (t) => [uniqueIndex("agent_job_runs_site_job_date_idx").on(t.orgWebsiteId, t.job, t.runDate)],
+);
+
+/** Email notifications per person and website (Settings → Account → Notifications); a missing row means on. */
+export const emailPreferences = pgTable(
+  "email_preferences",
+  {
+    id: serial("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    orgWebsiteId: integer("org_website_id")
+      .notNull()
+      .references(() => orgWebsites.id, { onDelete: "cascade" }),
+    weeklyProgress: boolean("weekly_progress").notNull().default(true),
+    ...timestamps,
+  },
+  (t) => [uniqueIndex("email_preferences_user_site_idx").on(t.userId, t.orgWebsiteId)],
 );

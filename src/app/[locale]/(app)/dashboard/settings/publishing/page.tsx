@@ -97,9 +97,7 @@ export default async function PublishingSettingsPage({ searchParams }: PageProps
                 records: blog.records ?? [],
                 error: blog.error ?? null,
                 logoUrl: blog.logoUrl ?? null,
-                accentColor: blog.accentColor ?? null,
                 fallbackLogoUrl: site.logoUrl,
-                fallbackAccent: /^#[0-9a-f]{6}$/i.test(site.brandColor ?? "") ? site.brandColor! : "#111827",
               }
             : null
         }

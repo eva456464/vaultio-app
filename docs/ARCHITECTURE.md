@@ -161,6 +161,17 @@ raises the quota) for the homepage and the next four pages, `audit.ts` runs the 
 recalculates the page and audit scores. The page speed tile is the PageSpeed average when it ran,
 otherwise the server response time.
 
+### Weekly progress email and notifications
+
+`weeklyProgress` (Mondays, needs email) sends each member who can see the website a summary built
+from real data only (`src/server/reports/weekly.ts`): articles published in the last seven days, new
+live backlinks, Google clicks against the week before, AI answers that mention the site, the latest
+site health score and the topics planned next. People turn it off per website in Settings → Account
+→ Notifications (`email_preferences`; no row means on).
+
+Target location (Settings → Business): one country or Global, optionally narrowed to a region or
+city from DataForSEO's location list; `siteMarket` uses the region's location code for keyword data.
+
 ### Writing rules and the plagiarism check
 
 Settings → Writing / Visuals rules are stored as text (`articleInstructions`, `imageInstructions`, one

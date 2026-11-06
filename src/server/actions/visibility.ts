@@ -49,3 +49,16 @@ export async function deletePrompt(promptId: number) {
   await db.delete(llmPrompts).where(and(eq(llmPrompts.id, promptId), eq(llmPrompts.orgWebsiteId, site.id)));
   refresh();
 }
+
+/** Rewords a tracked question (its earlier answers stay in the history). */
+export async function updatePrompt(promptId: number, input: { text: string; intent: string }) {
+  const site = await requireSite();
+  const parsed = promptSchema.safeParse(input);
+  if (!parsed.success) return { error: parsed.error.issues[0]!.message };
+  await db
+    .update(llmPrompts)
+    .set({ prompt: parsed.data.text, intent: parsed.data.intent, updatedAt: new Date() })
+    .where(and(eq(llmPrompts.id, promptId), eq(llmPrompts.orgWebsiteId, site.id)));
+  refresh();
+  return { ok: true };
+}

@@ -28,13 +28,11 @@ import type { JobContext, Site } from "./types";
 
 export const siteDomain = (site: Site) => new URL(site.url).hostname.replace(/^www\./, "");
 
+/** Where keyword data comes from: the region or city the site targets, else its country, else its language's main market. */
 export async function siteMarket(site: Site): Promise<Market> {
-  const [country] = await db
-    .select({ code: targetLocations.locationCode })
-    .from(targetLocations)
-    .where(and(eq(targetLocations.orgWebsiteId, site.id), eq(targetLocations.kind, "country")))
-    .limit(1);
-  return { locationCode: country?.code ?? DEFAULT_LOCATION[site.selectedLanguage] ?? 2840, languageCode: site.selectedLanguage };
+  const rows = await db.select({ code: targetLocations.locationCode, kind: targetLocations.kind }).from(targetLocations).where(eq(targetLocations.orgWebsiteId, site.id));
+  const chosen = rows.find((row) => row.kind === "city") ?? rows.find((row) => row.kind === "country");
+  return { locationCode: chosen?.code ?? DEFAULT_LOCATION[site.selectedLanguage] ?? 2840, languageCode: site.selectedLanguage };
 }
 
 const KEY_PAGE_HINTS = /about|service|pricing|price|product|solution|who-we-are|what-we-do|feature|team/i;

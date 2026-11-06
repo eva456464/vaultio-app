@@ -9,7 +9,6 @@ import { db } from "@/db";
 import { targetLocations } from "@/db/schema";
 import { redirect } from "@/i18n/navigation";
 import { PLAN_LOOKUP_KEYS } from "@/lib/billing";
-import { confirmCheckout } from "@/server/actions/billing";
 import { priceCatalog } from "@/server/billing/stripe";
 import { getAppContext, getBrand } from "@/server/context";
 import { beginOnboarding, WIZARD_STEPS, type WizardStep } from "@/server/onboarding/wizard";
@@ -26,14 +25,6 @@ export default async function OnboardingStepPage({ params, searchParams }: PageP
   if (site.onboardingStatus !== "not_started" || context.member?.role !== "admin") return redirect({ href: "/dashboard/overview", locale });
 
   const skips = await wizardSkips(site, context.organization);
-  // Back from Stripe Checkout: confirm the trial and start the agents.
-  if (step === "plan" && typeof query.checkout === "string") {
-    const confirmed = await confirmCheckout(query.checkout).catch(() => ({ error: "checkout" }));
-    if ("ok" in confirmed) {
-      await beginOnboarding(site.id);
-      return redirect({ href: "/dashboard/overview", locale });
-    }
-  }
   const position = wizardPosition(site, skips);
   if (!position) {
     await beginOnboarding(site.id);
@@ -77,7 +68,7 @@ export default async function OnboardingStepPage({ params, searchParams }: PageP
           plans={plans}
           trialDays={Number(process.env.BILLING_TRIAL_DAYS ?? 3)}
           scaleHref="/dashboard/settings/billing"
-          checkoutFailed={typeof query.checkout === "string"}
+          checkoutFailed={query.checkoutFailed === "1"}
         />
       );
     }

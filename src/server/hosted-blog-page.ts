@@ -16,7 +16,7 @@ export async function requireBlog(hostParam: string) {
   const blog = await blogForHost(host);
   if (!blog) notFound();
   const name = blog.config.displayName || blog.site.brandName || new URL(blog.site.url).hostname;
-  // The blog's own logo and colour (Settings → Publishing → Blog hosting), else the website's.
-  const accent = [blog.config.accentColor, blog.site.brandColor].find((color) => /^#[0-9a-f]{6}$/i.test(color ?? "")) ?? "#111827";
+  // The blog's own logo (Settings → Publishing → Blog hosting), else the website's; colour from Settings → Branding.
+  const accent = /^#[0-9a-f]{6}$/i.test(blog.site.brandColor ?? "") ? blog.site.brandColor! : "#111827";
   return { ...blog, host, name, origin: `https://${host}`, accent, logoUrl: blog.config.logoUrl ?? blog.site.logoUrl };
 }

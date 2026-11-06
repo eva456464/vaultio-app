@@ -136,6 +136,18 @@ class Handler(BaseHTTPRequestHandler):
                 return self.reply(post)
             return self.reply({"error": "not_found", "message": path}, 404)
 
+        # ---------------- DataForSEO: Google Ads locations of a country
+        m = re.match(r"^/dataforseo/v3/keywords_data/google_ads/locations/([a-z]{2})$", path)
+        if m:
+            rows = [
+                {"location_code": 21137, "location_name": "California,United States", "location_type": "State", "country_iso_code": "US"},
+                {"location_code": 1014221, "location_name": "Santa Barbara,California,United States", "location_type": "City", "country_iso_code": "US"},
+                {"location_code": 1014218, "location_name": "Santa Ana,California,United States", "location_type": "City", "country_iso_code": "US"},
+                {"location_code": 9061285, "location_name": "Santa Barbara County,California,United States", "location_type": "County", "country_iso_code": "US"},
+                {"location_code": 2840, "location_name": "United States", "location_type": "Country", "country_iso_code": "US"},
+            ]
+            return self.reply({"status_code": 20000, "tasks": [{"status_code": 20000, "result": rows}]})
+
         # ---------------- PageSpeed Insights (Lighthouse, mobile): the homepage is fast, other pages slower
         if path == "/pagespeed":
             target = parse_qs(urlparse(self.path).query).get("url", [""])[0]
