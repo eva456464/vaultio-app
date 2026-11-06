@@ -4,6 +4,7 @@ import { db } from "@/db";
 import { orgWebsites, sitePages } from "@/db/schema";
 import { logActivity } from "../activity";
 import { discoverSitemaps, fetchText, parsePage, readSitemapUrls } from "../web";
+import { checkPublishedArticles } from "../../publishing/live-check";
 import type { JobContext } from "./types";
 
 // ------------------------------------------------------------ Brand profile
@@ -76,7 +77,12 @@ export async function sitemapSync({ site, runDate }: JobContext) {
   }
 
   await logActivity(site.id, "sitemapSync", { day: runDate, count: sameSite.length });
-  return { pages: sameSite.length };
+  // With the sitemap fresh: are the latest published articles live and listed in it?
+  const live = await checkPublishedArticles(site).catch((error) => {
+    console.error("[sitemap sync] published articles check failed:", (error as Error).message);
+    return null;
+  });
+  return { pages: sameSite.length, articlesNotLive: live?.notLive.length ?? 0, articlesNotInSitemap: live?.notInSitemap.length ?? 0 };
 }
 
 // -------------------------------------------------------- Site health audit

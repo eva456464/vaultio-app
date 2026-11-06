@@ -86,6 +86,8 @@ export function summary(site: typeof orgWebsites.$inferSelect, { article, keywor
     published_url: article.publishedUrl ?? articleUrl(site, article.slug),
     seedKeyword: keyword,
     keywords,
+    // Topics for tag pages (the Next.js blog): the target keyword and up to two short related searches.
+    tags: [...new Set([keyword, ...keywords.filter((entry) => entry.split(/\s+/).length <= 3)].filter((entry): entry is string => Boolean(entry?.trim())).map((entry) => entry.trim().toLowerCase()))].slice(0, 3),
   };
 }
 

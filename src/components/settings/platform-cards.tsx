@@ -1,7 +1,7 @@
 "use client";
 
 import { ExternalLink, Globe, LoaderCircle, RefreshCw } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useState, useTransition, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
@@ -20,16 +20,18 @@ import {
   removeHostedBlog,
   setPublishMode,
   setupHostedBlog,
+  updateHostedBlogLook,
 } from "@/server/actions/platforms";
 import { disconnectIntegration } from "@/server/actions/publishing";
 import { Records } from "./white-label/hosting-form";
 
 export type PlatformConnection = { status: string; lastError: string | null; config: Record<string, unknown> } | null;
 type Mode = "publish" | "draft";
-export type Platform = "ghost" | "webflow" | "shopify" | "wix" | "bigcommerce" | "gohighlevel";
+export type Platform = "wordpress_com" | "ghost" | "webflow" | "shopify" | "wix" | "bigcommerce" | "gohighlevel";
 
 const field = "mt-1.5 h-11 w-full rounded-control border border-control bg-white px-3.5 text-sm text-ink outline-none placeholder:text-ink-subtle focus:border-ink/40";
 const BADGE: Record<Platform, { letter: string; color: string }> = {
+  wordpress_com: { letter: "W", color: "#3858E9" },
   ghost: { letter: "G", color: "#15171A" },
   webflow: { letter: "W", color: "#146EF5" },
   shopify: { letter: "S", color: "#5E8E3E" },
@@ -371,8 +373,35 @@ function GhlForm({ onDone }: { onDone: () => void }) {
   );
 }
 
+/** WordPress.com connects on its own consent screen: no keys to paste. */
+function WpcomConnect({ available }: { available: boolean }) {
+  const t = useTranslations("settings.publishing.wordpress_com");
+  const locale = useLocale();
+  return (
+    <div className="mt-5 space-y-4">
+      <ol className="list-decimal space-y-1 pl-5 text-sm text-ink-secondary">
+        {(t.raw("steps") as string[]).map((step) => (
+          <li key={step}>{step}</li>
+        ))}
+      </ol>
+      <p className="rounded-xl bg-canvas p-3 text-xs text-ink-secondary">{t("selfHosted")}</p>
+      {available ? (
+        <Button asChild>
+          <a href={`/api/integrations/wordpress-com/start?locale=${locale}`}>
+            {t("connectButton")} <ExternalLink />
+          </a>
+        </Button>
+      ) : (
+        <p className="rounded-xl bg-[#FDF3E2] p-3 text-sm text-[#8A6320]">{t("notConfigured")}</p>
+      )}
+    </div>
+  );
+}
+
 function summaryOf(platform: Platform, config: Record<string, unknown>, t: ReturnType<typeof useTranslations<"settings.publishing">>) {
   switch (platform) {
+    case "wordpress_com":
+      return t("wordpress_com.summary", { site: String(config.blogName || config.blogUrl || "") });
     case "ghost":
       return t("ghost.summary", { site: String(config.siteTitle ?? config.siteUrl ?? "") });
     case "webflow":
@@ -389,7 +418,7 @@ function summaryOf(platform: Platform, config: Record<string, unknown>, t: Retur
 }
 
 /** One website platform: status, Connect / Manage, and its connect dialog. */
-export function PlatformCard({ platform, connection, canEdit, statusPill }: { platform: Platform; connection: PlatformConnection; canEdit: boolean; statusPill: ReactNode }) {
+export function PlatformCard({ platform, connection, canEdit, statusPill, available = true, note }: { platform: Platform; connection: PlatformConnection; canEdit: boolean; statusPill: ReactNode; available?: boolean; note?: string | null }) {
   const t = useTranslations("settings.publishing");
   const [open, setOpen] = useState(false);
   const [reconnect, setReconnect] = useState(false);
@@ -401,6 +430,7 @@ export function PlatformCard({ platform, connection, canEdit, statusPill }: { pl
     setReconnect(false);
   };
   const form = {
+    wordpress_com: <WpcomConnect available={available} />,
     ghost: <GhostForm onDone={close} />,
     webflow: <WebflowForm onDone={close} />,
     shopify: <ShopifyForm onDone={close} />,
@@ -439,6 +469,7 @@ export function PlatformCard({ platform, connection, canEdit, statusPill }: { pl
             <div className="mt-5 space-y-5">
               <p className="text-sm text-ink">{summaryOf(platform, connection!.config, t)}</p>
               <ModePicker value={mode} onChange={(next) => run(() => setPublishMode(platform, next))} />
+              {note && <p className="rounded-xl bg-canvas p-3 text-xs text-ink-secondary">{note}</p>}
               {error && <p className="text-sm text-[#9A3412]">{error}</p>}
               <div className="flex flex-wrap justify-between gap-2">
                 <Button variant="outline" className="border-[#F3B4A9] text-[#C4320A] hover:bg-[#FDECEA]" disabled={pending} onClick={() => run(async () => { await disconnectIntegration(platform); return true; }, close)}>
@@ -456,7 +487,69 @@ export function PlatformCard({ platform, connection, canEdit, statusPill }: { pl
   );
 }
 
-export type HostedBlogState = { domain: string; displayName: string; verified: boolean; records: { type: string; name: string; value: string }[]; error: string | null } | null;
+export type HostedBlogState = {
+  domain: string;
+  displayName: string;
+  verified: boolean;
+  records: { type: string; name: string; value: string }[];
+  error: string | null;
+  logoUrl: string | null;
+  accentColor: string | null;
+  fallbackLogoUrl: string | null;
+  fallbackAccent: string;
+} | null;
+
+/** The blog's logo and accent colour (the website's own are used until these are set). */
+function BlogLook({ blog }: { blog: NonNullable<HostedBlogState> }) {
+  const t = useTranslations("settings.publishing.hostedBlog.look");
+  const { error, pending, run } = useAction();
+  const [accent, setAccent] = useState(blog.accentColor ?? "");
+  const logo = blog.logoUrl ?? blog.fallbackLogoUrl;
+  const save = (form: FormData) => run(() => updateHostedBlogLook(form));
+  return (
+    <form
+      className="space-y-3 border-t border-line pt-4"
+      onSubmit={(event) => {
+        event.preventDefault();
+        save(new FormData(event.currentTarget));
+      }}
+    >
+      <p className="text-sm font-semibold text-ink">{t("title")}</p>
+      <div className="flex flex-wrap items-center gap-4">
+        <span className="grid h-12 w-28 place-items-center overflow-hidden rounded-lg border border-line bg-white">
+          {logo ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={logo} alt={t("logo")} className="max-h-10 max-w-24 object-contain" />
+          ) : (
+            <span className="text-xs text-ink-subtle">{t("noLogo")}</span>
+          )}
+        </span>
+        <label className="text-sm text-ink">
+          <span className="block text-xs font-medium text-ink-secondary">{t("logo")}</span>
+          <input type="file" name="logo" accept="image/png,image/jpeg,image/webp" className="mt-1 block text-xs" />
+        </label>
+        {blog.logoUrl && (
+          <label className="flex items-center gap-1.5 text-xs text-ink-secondary">
+            <input type="checkbox" name="removeLogo" value="1" /> {t("useWebsiteLogo")}
+          </label>
+        )}
+        <label className="text-sm text-ink">
+          <span className="block text-xs font-medium text-ink-secondary">{t("accent")}</span>
+          <span className="mt-1 flex items-center gap-2">
+            <input type="color" aria-label={t("accent")} value={/^#[0-9a-f]{6}$/i.test(accent) ? accent : blog.fallbackAccent} onChange={(event) => setAccent(event.target.value)} className="size-8 cursor-pointer rounded border-0 bg-transparent p-0" />
+            <input name="accent" value={accent} onChange={(event) => setAccent(event.target.value)} placeholder={blog.fallbackAccent} className="h-9 w-28 rounded-control border border-control px-2 text-sm uppercase" />
+          </span>
+        </label>
+        <Button type="submit" variant="outline" size="sm" disabled={pending} className="ml-auto">
+          {pending && <LoaderCircle className="animate-spin" />}
+          {t("save")}
+        </Button>
+      </div>
+      <p className="text-xs text-ink-subtle">{t("hint")}</p>
+      {error && <p className="text-sm text-[#9A3412]">{error}</p>}
+    </form>
+  );
+}
 
 /** "Blog hosting": the blog Vaultio serves on the client's subdomain. */
 export function HostedBlogCard({ blog, suggestion, defaultName, canEdit, onVercel }: { blog: HostedBlogState; suggestion: string; defaultName: string; canEdit: boolean; onVercel: boolean }) {
@@ -518,6 +611,7 @@ export function HostedBlogCard({ blog, suggestion, defaultName, canEdit, onVerce
           </form>
         )}
         {error && <p className="text-sm text-[#9A3412]">{error}</p>}
+        {blog && canEdit && <BlogLook blog={blog} />}
       </div>
     </section>
   );

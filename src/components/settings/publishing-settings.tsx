@@ -74,9 +74,17 @@ export function PublishingSettings({
   brandName,
   framerPluginUrl,
   settingsUrl,
+  siteUrl,
+  nextPackage,
+  wpcomAvailable,
+  siteLanguage,
 }: {
   platforms: Record<Platform, PlatformConnection>;
-  pullKeys: { framer: PullKey; lovable: PullKey };
+  pullKeys: { framer: PullKey; lovable: PullKey; nextjs: PullKey };
+  siteUrl: string;
+  nextPackage: string;
+  wpcomAvailable: boolean;
+  siteLanguage: string;
   duda: { feedUrl: string | null } | null;
   brandName: string;
   framerPluginUrl: string | null;
@@ -127,8 +135,16 @@ export function PublishingSettings({
         <HostedBlogCard blog={hostedBlog} suggestion={blogSuggestion} defaultName={defaultBlogName} canEdit={canEdit} onVercel={onVercel} />
         <WordpressCard connection={wordpress} canEdit={canEdit} />
         <div className="grid gap-4 md:grid-cols-2">
-          {(["shopify", "webflow", "wix", "ghost", "bigcommerce", "gohighlevel"] as const).map((platform) => (
-            <PlatformCard key={platform} platform={platform} connection={platforms[platform]} canEdit={canEdit} statusPill={<StatusPill status={platforms[platform]?.status ?? "off"} />} />
+          {(["wordpress_com", "shopify", "webflow", "wix", "ghost", "bigcommerce", "gohighlevel"] as const).map((platform) => (
+            <PlatformCard
+              key={platform}
+              platform={platform}
+              connection={platforms[platform]}
+              canEdit={canEdit}
+              statusPill={<StatusPill status={platforms[platform]?.status ?? "off"} />}
+              available={platform === "wordpress_com" ? wpcomAvailable : true}
+              note={platform === "wordpress_com" && siteLanguage !== "en" ? t("wordpress_com.languageNote") : null}
+            />
           ))}
         </div>
         <p className="pt-2 text-[11px] font-medium uppercase tracking-[1.1px] text-section">{t("pullPlatforms")}</p>
@@ -140,6 +156,8 @@ export function PublishingSettings({
           brandName={brandName}
           framerPluginUrl={framerPluginUrl}
           settingsUrl={settingsUrl}
+          siteUrl={siteUrl}
+          nextPackage={nextPackage}
           statusPill={(status) => <StatusPill status={status} />}
         />
       </div>

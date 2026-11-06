@@ -9,17 +9,18 @@ import { postInput } from "./platforms/common";
 import { deliverBigCommerce, type BigCommerceConfig, type BigCommerceCredentials } from "./platforms/bigcommerce";
 import { deliverGhl, type GhlConfig, type GhlCredentials } from "./platforms/gohighlevel";
 import { deliverGhost, type GhostConfig, type GhostCredentials } from "./platforms/ghost";
+import { deliverWpcom, type WpcomConfig, type WpcomCredentials } from "./platforms/wordpress-com";
 import { deliverShopify, type ShopifyConfig, type ShopifyCredentials } from "./platforms/shopify";
 import { deliverWebflow, type WebflowConfig, type WebflowCredentials } from "./platforms/webflow";
 import { deliverWix, type WixConfig, type WixCredentials } from "./platforms/wix";
 
-export type HostedBlogConfig = { domain: string; displayName: string; verified?: boolean };
+export type HostedBlogConfig = { domain: string; displayName: string; verified?: boolean; logoUrl?: string | null; accentColor?: string | null };
 export const hostedBlogUrl = (config: HostedBlogConfig, slug: string) => `https://${config.domain}/${slug}`;
 
 type Article = typeof articles.$inferSelect;
 type Site = typeof orgWebsites.$inferSelect;
 
-export const PUBLISHING_TYPES = ["webhook", "wordpress", "ghost", "webflow", "shopify", "wix", "bigcommerce", "gohighlevel", "duda", "hosted_blog"] as const;
+export const PUBLISHING_TYPES = ["webhook", "wordpress", "wordpress_com", "ghost", "webflow", "shopify", "wix", "bigcommerce", "gohighlevel", "duda", "hosted_blog"] as const;
 /** Platforms that fetch articles themselves (RSS feed, the content API): an article counts as published once it exists. */
 export const PULL_TYPES = ["duda"] as const;
 export type PublishingType = (typeof PUBLISHING_TYPES)[number];
@@ -205,6 +206,13 @@ async function sendArticle(siteId: number, articleId: number, options: { update?
         const wordpress = await deliverWordpress(config.siteUrl as string, secret<WordpressCredentials>(), article, config.categoryId as number | undefined, options.asDraft ? "draft" : "publish");
         if (wordpress.ok && wordpress.delivery) await remember({ wordpress: wordpress.delivery });
         result = wordpress;
+        break;
+      }
+      case "wordpress_com": {
+        const wpcom = await deliverWpcom(config as WpcomConfig, secret<WpcomCredentials>(), article, article.deliveries.wordpress_com);
+        if (wpcom.ok) await remember({ wordpress_com: wpcom.delivery });
+        draft = (config as WpcomConfig).mode === "draft";
+        result = wpcom;
         break;
       }
       case "ghost": {

@@ -61,6 +61,9 @@ function ActivitySentence({ item }: { item: ActivityItem }) {
     case "reportSent":
     case "articleImprovementPlanned":
     case "articleImproved":
+    case "articleSentAsDraft":
+    case "articleRegenerated":
+    case "articleUnpublished":
       return <>{t(item.type, { title: item.title ?? "" })}</>;
     default:
       return <>{t(item.type, { count })}</>;

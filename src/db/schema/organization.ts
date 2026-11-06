@@ -182,6 +182,8 @@ export type CtaSettings = {
 
 export type OnboardingStatus = "not_started" | "in_progress" | "completed";
 
+export type ArticleLiveCheck = { checkedAt: string; total: number; notLive: string[]; notInSitemap: string[] };
+
 /** What the owner confirmed in the onboarding wizard; the onboarding agents keep these instead of guessing. */
 export type OnboardingAnswers = {
   /** "global": no single target country. */
@@ -189,8 +191,6 @@ export type OnboardingAnswers = {
   business?: boolean;
   competitors?: boolean;
   brand?: boolean;
-  /** An article whose voice the writer should follow. */
-  voiceExampleUrl?: string;
 };
 
 /** Writing and image rules: where each came from, what each review changed, and requests the agents can't do. */
@@ -323,6 +323,8 @@ export const orgWebsites = pgTable(
 
     // Blog / publishing
     blogPath: text("blog_path").notNull().default("/blog"),
+    /** Whether the latest published articles are live on the site and in its sitemap (checked daily). */
+    articleLiveCheck: jsonb("article_live_check").$type<ArticleLiveCheck>(),
 
     ...timestamps,
   },

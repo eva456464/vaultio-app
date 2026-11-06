@@ -137,6 +137,7 @@ export type ArticleDeliveries = {
   bigcommerce?: { postId: number; thumbnailPath: string | null };
   gohighlevel?: { postId: string; slug: string; publishedAt?: string };
   wix?: { postId: string };
+  wordpress_com?: { postId: number; featuredId?: number; uploads: Record<string, { id: number; url: string }> };
 };
 
 export type QualityCheck = { key: string; passed: boolean; detail?: string };

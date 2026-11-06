@@ -18,6 +18,7 @@ type Props = {
     positioning: string;
     targetAudience: string[];
     servicesOffered: ServiceOffered[];
+    blogUrl: string;
   };
 };
 
@@ -57,6 +58,9 @@ export function BusinessForm({ canEdit, initial }: Props) {
         </div>
         <Field label={t("description")} htmlFor="description">
           <textarea id="description" value={form.description} disabled={!canEdit} onChange={(e) => set("description", e.target.value)} className={`${inputClass} h-28 py-3`} />
+        </Field>
+        <Field label={t("blogUrl")} htmlFor="blog-url" hint={t("blogUrlHint")}>
+          <input id="blog-url" value={form.blogUrl} disabled={!canEdit} onChange={(e) => set("blogUrl", e.target.value)} placeholder={t("blogUrlPlaceholder")} className={inputClass} />
         </Field>
         <Field label={t("positioning")} htmlFor="positioning" hint={`${t("positioningHint")} ${t("counter", { count: form.positioning.length, max: 500 })}`}>
           <textarea id="positioning" maxLength={500} value={form.positioning} disabled={!canEdit} onChange={(e) => set("positioning", e.target.value)} className={`${inputClass} h-24 py-3`} />

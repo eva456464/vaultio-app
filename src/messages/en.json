@@ -130,7 +130,10 @@
       "quoraOpportunitiesFound": "Agent found {count, plural, one {# Quora question} other {# Quora questions}} worth answering",
       "backlinkCreditsAdded": "Added {count} backlink credits from your subscription",
       "catalogSynced": "Synced your product catalog: {count, plural, one {# product} other {# products}} from {source}",
-      "productsMatched": "Matched your products to {count, plural, one {# upcoming article} other {# upcoming articles}}"
+      "productsMatched": "Matched your products to {count, plural, one {# upcoming article} other {# upcoming articles}}",
+      "articleRegenerated": "Agent rewrote: {title}",
+      "articleSentAsDraft": "Agent wrote and saved as a draft: {title}",
+      "articleUnpublished": "Article unpublished: {title}"
     },
     "planned": {
       "sitemapSync": "Will sync your sitemap",
@@ -238,6 +241,14 @@
       "action": "Choose a plan",
       "languageBody": "This language isn't covered by your website's plan. Add it as a paid language or upgrade to Scale.",
       "languageAction": "Open billing"
+    },
+    "connectWebsite": {
+      "title": "Setup pending",
+      "description": "Connect your site to start publishing articles automatically to your website.",
+      "descriptionDetected": "Connect your {platform} site to start publishing articles automatically.",
+      "button": "Connect website",
+      "buttonDetected": "Connect {platform}",
+      "dismiss": "Dismiss"
     }
   },
   "milestones": {
@@ -1366,7 +1377,16 @@
         "check": "Check again",
         "remove": "Stop hosting",
         "removeConfirm": "Stop hosting the blog at {domain}? Readers will no longer find the articles there.",
-        "manual": "Point the subdomain at the app with this record. Your hosting provider must also serve HTTPS for it."
+        "manual": "Point the subdomain at the app with this record. Your hosting provider must also serve HTTPS for it.",
+        "look": {
+          "title": "Logo and colour",
+          "logo": "Logo",
+          "noLogo": "No logo",
+          "useWebsiteLogo": "Use the website's logo",
+          "accent": "Accent colour",
+          "save": "Save look",
+          "hint": "Shown in the blog's header and links. Until you set them, the blog uses your website's logo and brand colour."
+        }
       },
       "pullPlatforms": "Platforms that pull your articles",
       "bigcommerce": {
@@ -1592,6 +1612,88 @@
             ]
           }
         }
+      },
+      "nextjs": {
+        "name": "Next.js Blog",
+        "description": "A ready-made blog for your Next.js site: list, article pages, tags and a sitemap.",
+        "summaryNew": "Key created. The blog hasn't read any articles yet.",
+        "summary": "Your blog last read articles {lastUsed}.",
+        "keyPlaceholder": "your_key",
+        "steps": {
+          "before": {
+            "title": "Before you connect",
+            "body": "The package reads your published articles on the server and renders them on your own domain.",
+            "check1": "My site uses Next.js 15 or newer with the App Router",
+            "check2": "I can install packages and deploy changes to it",
+            "alternative": "No developer? Use Blog hosting instead: one DNS record and your blog is live on a subdomain."
+          },
+          "install": {
+            "title": "Install the package",
+            "body": "Run this in your project's folder."
+          },
+          "key": {
+            "title": "Add your API key",
+            "body": "Create a key, then add these lines to .env.local (and to your hosting's environment variables).",
+            "serverOnly": "Keep the key server-side: never give it a NEXT_PUBLIC_ prefix."
+          },
+          "images": {
+            "title": "Allow article images",
+            "body": "The blog shows images with next/image, so their host must be allowed in next.config."
+          },
+          "scaffold": {
+            "title": "Add the blog pages",
+            "body": "This copies a ready-made blog into app/blog (or src/app/blog). Existing files are kept.",
+            "items": [
+              "/blog: the list of articles",
+              "/blog/[slug]: each article with its metadata and structured data",
+              "/blog/tag/[slug]: articles by topic",
+              "/blog/sitemap.xml: submit it in Google Search Console"
+            ]
+          },
+          "done": {
+            "title": "Run it",
+            "body": "Start your site and open {url}.",
+            "connected": "Your blog has read articles with this key: it's connected.",
+            "waiting": "We haven't seen the blog read any articles yet. Open /blog once it's running.",
+            "cache": "Pages refresh once a day, so a new article can take up to a day to appear unless you redeploy."
+          }
+        }
+      },
+      "wordpress_com": {
+        "name": "WordPress.com",
+        "description": "Sites hosted on WordPress.com: connect in one click, no plugin.",
+        "summary": "Publishing to {site}.",
+        "steps": [
+          "Click Connect: WordPress.com opens.",
+          "Sign in if needed, pick the site and approve access.",
+          "You're sent back here and the card shows Connected."
+        ],
+        "selfHosted": "Running WordPress on your own hosting? Use the WordPress card (plugin) instead.",
+        "connectButton": "Connect with WordPress.com",
+        "notConfigured": "WordPress.com isn't set up on this platform yet (its app keys are missing).",
+        "languageNote": "WordPress.com tags a post's language only with the WPML or Polylang plugin (Business plan). Without one, posts use the site's default language.",
+        "result": {
+          "connected": "WordPress.com is connected.",
+          "declined": "WordPress.com wasn't connected: access wasn't approved.",
+          "expired": "That connection attempt expired. Click Connect again.",
+          "failed": "WordPress.com didn't confirm the connection. Try again.",
+          "notConfigured": "WordPress.com isn't set up on this platform yet.",
+          "admin": "Only workspace admins can connect WordPress.com."
+        }
+      },
+      "detected": {
+        "title": "{platform} detected",
+        "hints": {
+          "wordpress": "Our plugin connects your blog in about 3 clicks.",
+          "shopify": "A guided setup gets articles publishing to your store in about 3 minutes.",
+          "wix": "Paste one API key and your blog publishes itself.",
+          "webflow": "Link your CMS collection in a few guided steps.",
+          "squarespace": "We'll host your blog on your own domain: no rebuild needed.",
+          "framer": "Our Framer plugin syncs articles straight to your site.",
+          "ghost": "Paste two keys and publishing runs on autopilot.",
+          "nextjs": "Ship a ready-made blog with our package, or plug into the API."
+        },
+        "noDeveloper": "No developer needed"
       }
     },
     "save": "Save changes",
@@ -1653,7 +1755,10 @@
       "period": "Per",
       "addOffer": "Add offer",
       "remove": "Remove",
-      "add": "Add"
+      "add": "Add",
+      "blogUrl": "Blog path URL",
+      "blogUrlHint": "Your blog's home page, like https://yoursite.com/blog. We check that published articles are live there.",
+      "blogUrlPlaceholder": "https://yourwebsite.com/blog"
     },
     "branding": {
       "title": "Branding",
@@ -3236,7 +3341,15 @@
       "adult": "adult",
       "gambling": "gambling"
     },
-    "trialNote": "Backlinks start once your plan is paid: websites on a free trial don't receive exchange links yet."
+    "trialNote": "Backlinks start once your plan is paid: websites on a free trial don't receive exchange links yet.",
+    "missing": {
+      "notLive": "We could not find {count, plural, one {# of your last {total} published articles} other {# of your last {total} published articles}} on your site. Please show us where they are.",
+      "addBlogPath": "Add blog path URL",
+      "updateBlogPath": "Update blog path URL",
+      "notInSitemap": "Some articles might be missing from your sitemap, which can prevent you from receiving backlinks.",
+      "noneInSitemap": "We could not find any of your published articles in your sitemap yet. This may be why you have not received backlinks.",
+      "updateSitemap": "Update sitemap"
+    }
   },
   "socials": {
     "reddit": {

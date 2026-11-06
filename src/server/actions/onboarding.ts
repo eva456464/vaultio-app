@@ -161,7 +161,9 @@ export async function wizardSaveBrand(input: z.input<typeof brandSchema>): Promi
     brandDescription: brandDescription || null,
     // The image prompts read the look of the brand from here (Settings → Visuals).
     imageMood: site.imageMood ?? (brandDescription || null),
-    onboardingAnswers: { ...site.onboardingAnswers, brand: true, ...(voiceExampleUrl ? { voiceExampleUrl } : {}) },
+    // Settings → Branding shows the same field.
+    exampleArticleUrl: voiceExampleUrl || site.exampleArticleUrl,
+    onboardingAnswers: { ...site.onboardingAnswers, brand: true },
   });
   return { ok: true };
 }

@@ -19,6 +19,7 @@ export default async function BusinessSettingsPage() {
           positioning: site.positioning ?? "",
           targetAudience: site.targetAudience,
           servicesOffered: site.servicesOffered,
+          blogUrl: `${new URL(site.url).origin}${site.blogPath === "/" ? "" : site.blogPath}`,
         }}
       />
     </>

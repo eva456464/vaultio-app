@@ -1,0 +1,33 @@
+{
+  "name": "vaultio-next-blog",
+  "version": "0.1.0",
+  "description": "Render your published articles as a blog on your own Next.js (App Router) site: list, article pages, tags and a sitemap.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "vaultio-next-blog": "./bin/cli.mjs"
+  },
+  "files": ["dist", "bin", "template", "README.md"],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "next": ">=15",
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}

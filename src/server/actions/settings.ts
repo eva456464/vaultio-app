@@ -40,15 +40,32 @@ const businessSchema = z.object({
   positioning: z.string().trim().max(500, "Keep the positioning under 500 characters"),
   targetAudience: z.array(z.string().trim().min(1).max(120)).max(20),
   servicesOffered: z.array(offerSchema).max(20),
+  blogUrl: z.string().trim().max(300),
 });
+
+/** "Blog path URL": the blog's home page on the website; articles are expected under it. */
+function blogPathOf(siteUrl: string, value: string): string | null {
+  if (!value) return "/blog";
+  try {
+    const url = new URL(/^https?:\/\//i.test(value) ? value : `https://${value}`);
+    const sameSite = url.hostname.replace(/^www\./, "") === new URL(siteUrl).hostname.replace(/^www\./, "");
+    if (!sameSite) return null;
+    return url.pathname.replace(/\/+$/, "") || "/";
+  } catch {
+    return null;
+  }
+}
 
 export async function updateBusiness(input: z.input<typeof businessSchema>): Promise<Result> {
   const site = await requireAdminSite();
   const parsed = businessSchema.safeParse(input);
   if (!parsed.success) return fail(parsed.error);
+  const { blogUrl, ...profile } = parsed.data;
+  const blogPath = blogPathOf(site.url, blogUrl);
+  if (!blogPath) return { error: `Enter the blog's address on ${new URL(site.url).hostname}, e.g. ${new URL(site.url).origin}/blog` };
   await db
     .update(orgWebsites)
-    .set({ ...parsed.data, servicesOfferedUpdatedAt: new Date(), profileConfirmedAt: new Date(), updatedAt: new Date() })
+    .set({ ...profile, blogPath, servicesOfferedUpdatedAt: new Date(), profileConfirmedAt: new Date(), updatedAt: new Date() })
     .where(eq(orgWebsites.id, site.id));
   refresh();
   return { ok: true };

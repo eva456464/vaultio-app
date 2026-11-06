@@ -2,6 +2,7 @@ import { getFormatter, getTranslations } from "next-intl/server";
 import { CreditsDialog, ExchangeToggle, ExternalTitle, LinkTable, PoolChart, StateBadge } from "@/components/backlinks/backlinks-parts";
 import { PageBody, PageHeader } from "@/components/shell/app-shell";
 import { KpiCard, SectionCard } from "@/components/traffic/parts";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { trialingSiteIds } from "@/server/billing/entitlements";
 import { getAppContext } from "@/server/context";
@@ -27,6 +28,7 @@ export default async function BacklinksPage() {
   const day = (iso: string) => format.dateTime(new Date(iso), { dateStyle: "medium", timeZone: site.timeZone });
   const usd = (value: number) => format.number(value, { style: "currency", currency: "USD", maximumFractionDigits: 0 });
   const canEdit = context.member?.role === "admin";
+  const live = site.articleLiveCheck;
 
   return (
     <>
@@ -46,6 +48,27 @@ export default async function BacklinksPage() {
         {!data.enabled && <p className="rounded-xl bg-[#FDF3E2] p-3 text-sm text-[#8A6320]">{t("offNote")}</p>}
         {data.enabled && trialing.has(site.id) && <p className="rounded-xl bg-[#EEF4FF] p-3 text-sm text-[#2A5BD7]">{t("trialNote")}</p>}
         {data.enabled && data.balance <= 0 && <p className="rounded-xl bg-[#EEF4FF] p-3 text-sm text-[#2A5BD7]">{t("negativeNote")}</p>}
+        {/* The latest published articles must be live and in the sitemap for their links to count. */}
+        {live && live.notLive.length > 0 && (
+          <div className="flex flex-wrap items-center gap-3 rounded-xl bg-[#FDF3E2] p-3 text-sm text-[#8A6320]">
+            <span className="flex-1">{t("missing.notLive", { count: live.notLive.length, total: live.total })}</span>
+            {canEdit && (
+              <Link href="/dashboard/settings/business" className="font-medium underline">
+                {site.blogPath === "/blog" ? t("missing.addBlogPath") : t("missing.updateBlogPath")}
+              </Link>
+            )}
+          </div>
+        )}
+        {live && live.notLive.length === 0 && live.notInSitemap.length > 0 && (
+          <div className="flex flex-wrap items-center gap-3 rounded-xl bg-[#FDF3E2] p-3 text-sm text-[#8A6320]">
+            <span className="flex-1">{live.notInSitemap.length === live.total ? t("missing.noneInSitemap") : t("missing.notInSitemap")}</span>
+            {canEdit && (
+              <Link href="/dashboard/settings/saved-pages" className="font-medium underline">
+                {t("missing.updateSitemap")}
+              </Link>
+            )}
+          </div>
+        )}
 
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <KpiCard label={t("kpis.credits.label")} hint={t("kpis.credits.hint")} caption={t("kpis.credits.caption")} value={<span className={cn(data.balance < 0 && "text-[#9A3412]")}>{format.number(data.balance)}</span>} />

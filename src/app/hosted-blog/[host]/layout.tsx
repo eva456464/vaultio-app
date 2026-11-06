@@ -11,9 +11,9 @@ export default async function HostedBlogLayout({ children, params }: LayoutProps
       <header className="border-b border-[#eef0f3]">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-4">
           <Link href="/" className="flex items-center gap-3">
-            {blog.site.logoUrl && (
+            {blog.logoUrl && (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={blog.site.logoUrl} alt="" className="size-9 rounded-lg object-contain" />
+              <img src={blog.logoUrl} alt="" className="h-9 max-w-40 rounded-lg object-contain" />
             )}
             <span className="text-lg font-semibold tracking-tight text-[#111827]">{blog.name}</span>
           </Link>

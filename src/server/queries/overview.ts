@@ -6,6 +6,8 @@ import { db } from "@/db";
 import {
   agentActivities,
   agentJobRuns,
+  apiKeys,
+  integrations,
   articles,
   competitors,
   contentPlanItems,
@@ -26,6 +28,7 @@ import { JOB_REGISTRY } from "../agents/runner";
 import { plannedActions, siteDay, type AgentJob } from "../agents/schedule";
 import type { Site } from "../agents/jobs/types";
 import { communitySearchDays } from "./community";
+import { PUBLISHING_TYPES } from "../publishing/publish";
 
 const isoDay = (date: Date) => formatISO(date, { representation: "date" });
 const shiftDay = (day: string, days: number) => isoDay(addDays(new Date(`${day}T12:00:00Z`), days));
@@ -333,4 +336,16 @@ export async function getTrafficSources(site: Site, range: TrafficRange) {
   })).sort((a, b) => b.activeUsers - a.activeUsers);
 
   return { series: [...series.values()], breakdown, hasData: rows.length > 0 };
+}
+
+/** Whether articles reach the website somehow: a connected platform, a content API key or the hosted blog. */
+export async function hasPublishingConnection(siteId: number) {
+  const [connection] = await db
+    .select({ id: integrations.id })
+    .from(integrations)
+    .where(and(eq(integrations.orgWebsiteId, siteId), inArray(integrations.type, [...PUBLISHING_TYPES]), eq(integrations.status, "connected")))
+    .limit(1);
+  if (connection) return true;
+  const [key] = await db.select({ id: apiKeys.id }).from(apiKeys).where(and(eq(apiKeys.orgWebsiteId, siteId), isNull(apiKeys.revokedAt))).limit(1);
+  return Boolean(key);
 }

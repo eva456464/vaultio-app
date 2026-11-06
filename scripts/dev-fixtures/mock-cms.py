@@ -18,11 +18,13 @@ Everything received is listed at GET /test/log.
 """
 import base64, hashlib, hmac, json, re, sys, time, uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, quote, urlparse
 
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 4800
 GHOST_KEY_ID, GHOST_SECRET = "6489abcdef0123456789abcd", "1" * 64
 LOG, GHOST_POSTS, WEBFLOW_ITEMS, SHOPIFY_ARTICLES, WIX_POSTS = [], {}, {}, {}, {}
+WPCOM_POSTS, WPCOM_MEDIA = {}, []
+WPCOM_TOKEN, WPCOM_BLOG = "wpcom-token-0123456789", "4242"
 BC_HASH, BC_TOKEN, BC_POSTS, DAV_FILES = "mh5fua96uw", "bc-test-token-0123456789abcdef", {}, {}
 DAV_USER, DAV_PASSWORD, DAV_REALM, DAV_NONCE = "webdav-user", "webdav-pass", "BigCommerce WebDAV", uuid.uuid4().hex
 GHL_LOCATION, GHL_TOKEN, GHL_POSTS = "ve9EPM428h8vShlRW1KT", "pit-test-0123456789abcdef0123", {}
@@ -81,6 +83,58 @@ class Handler(BaseHTTPRequestHandler):
             return self.reply({"log": LOG})
         if path == "/test/files":
             return self.reply({"files": sorted(DAV_FILES)})
+        if path == "/test/wpcom":
+            return self.reply({"posts": list(WPCOM_POSTS.values()), "media": WPCOM_MEDIA})
+
+        # ---------------- WordPress.com (OAuth2 + REST v1.1)
+        if path == "/wpcom/oauth2/authorize":
+            q = parse_qs(urlparse(self.path).query)
+            target = f"{q['redirect_uri'][0]}?code=mock-wpcom-code&state={quote(q['state'][0], safe='')}"
+            self.send_response(302)
+            self.send_header("location", target)
+            self.end_headers()
+            return
+        if path == "/wpcom/oauth2/token" and method == "POST":
+            data = self.body()
+            if data.get("code") != "mock-wpcom-code" or data.get("grant_type") != "authorization_code" or not data.get("client_secret"):
+                return self.reply({"error": "invalid_grant", "error_description": "The code is invalid"}, 400)
+            return self.reply({"access_token": WPCOM_TOKEN, "token_type": "bearer", "blog_id": WPCOM_BLOG, "blog_url": "https://mockblog.wordpress.com", "scope": ""})
+        if path.startswith("/wpcom/rest/v1.1/sites/"):
+            if auth != f"Bearer {WPCOM_TOKEN}":
+                return self.reply({"error": "unauthorized", "message": "User cannot access this private blog."}, 403)
+            rest = path[len("/wpcom/rest/v1.1/sites/"):]
+            blog, _, sub = rest.partition("/")
+            if blog != WPCOM_BLOG:
+                return self.reply({"error": "unknown_blog", "message": "Unknown blog"}, 404)
+            if sub == "" and method == "GET":
+                return self.reply({"ID": int(WPCOM_BLOG), "name": "Mock WP.com Blog", "URL": "https://mockblog.wordpress.com", "lang": "en"})
+            if sub == "media/new" and method == "POST":
+                length = int(self.headers.get("content-length") or 0)
+                raw = self.rfile.read(length)
+                if b'name="media[]"' not in raw:
+                    return self.reply({"error": "invalid_input", "message": "No media"}, 400)
+                media_id = 900 + len(WPCOM_MEDIA)
+                WPCOM_MEDIA.append(media_id)
+                LOG.append({"wpcom_media": media_id})
+                return self.reply({"media": [{"ID": media_id, "URL": f"https://mockblog.files.wordpress.com/{media_id}.webp"}], "errors": []})
+            m = re.match(r"^posts/slug:([a-z0-9-]+)$", sub)
+            if m and method == "GET":
+                post = next((p for p in WPCOM_POSTS.values() if p["slug"] == m.group(1)), None)
+                return self.reply(post if post else {"error": "unknown_post", "message": "Unknown post"}, 200 if post else 404)
+            m = re.match(r"^posts/(new|\d+)$", sub)
+            if m and method == "POST":
+                data = self.body()
+                if m.group(1) == "new":
+                    post_id = 100 + len(WPCOM_POSTS)
+                elif int(m.group(1)) in WPCOM_POSTS:
+                    post_id = int(m.group(1))
+                else:
+                    return self.reply({"error": "unknown_post", "message": "Unknown post"}, 404)
+                post = {**WPCOM_POSTS.get(post_id, {}), "ID": post_id, "slug": data.get("slug", ""), "title": data.get("title", ""), "status": data.get("status", "publish"), "featured_image": data.get("featured_image"), "content_has_copied_images": "mockblog.files.wordpress.com" in data.get("content", ""), "URL": f"https://mockblog.wordpress.com/{data.get('slug', '')}/"}
+                WPCOM_POSTS[post_id] = post
+                LOG.append({"wpcom_post": post_id, "status": post["status"], "new": m.group(1) == "new"})
+                return self.reply(post)
+            return self.reply({"error": "not_found", "message": path}, 404)
 
         # ---------------- PageSpeed Insights (Lighthouse, mobile): the homepage is fast, other pages slower
         if path == "/pagespeed":

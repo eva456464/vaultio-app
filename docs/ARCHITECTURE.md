@@ -143,7 +143,8 @@ The dashboard sends a website still in the wizard back to it. The last step star
 agents (`beginOnboarding`); with billing on, that happens when Stripe Checkout returns to
 `/onboarding/plan?checkout=…`. `onboardingAnswers` tells the agents what the owner confirmed: the
 brand profile keeps the description and audiences, competitor discovery keeps the chosen
-competitors, a "Global" market adds no target country, and the example article sets the voice.
+competitors, a "Global" market adds no target country. The example article (also in Settings →
+Branding) sets the brand voice.
 
 The agency setup (`/onboarding/agency/[step]`, `organizations.agencySetupStep`) reuses the
 white-label branding and domain forms and the team invitation; `agencyMode` records white label or
@@ -378,6 +379,16 @@ host. The blog uses the site's logo and brand colour and shows no Vaultio brandi
 
 These platform clients follow each vendor's documented API and were tested against a local mock
 (`scripts/dev-fixtures/mock-cms.py`), not live accounts.
+
+Next.js Blog: `integrations/next-blog` is an npm package (read client + `init` scaffold that copies
+`app/blog`: list, article pages with metadata and JSON-LD, tag pages, sitemap; ISR daily). It reads the
+content API with a `nextjs` key (`BLOG_API_KEY`, `BLOG_API_URL` — brand-neutral names for white label);
+the API returns `tags` (target keyword and short related searches) and accepts a slug in
+`/articles/:id`. WordPress.com (`platforms/wordpress-com.ts`) connects with OAuth2
+(`/api/integrations/wordpress-com/start` → `/callback`, state sealed with `encryptJson`), uploads images
+to the site's media library, and creates, updates (by remembered post id or existing slug) or drafts
+posts through REST v1.1. `publishing/live-check.ts` runs after each sitemap sync: are the latest five
+published articles answering at their address and listed in the sitemap.
 
 ### White label and agency settings
 

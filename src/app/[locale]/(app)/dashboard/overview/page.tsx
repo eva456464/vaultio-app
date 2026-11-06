@@ -6,6 +6,8 @@ import { AgentActivitiesCard } from "@/components/overview/agent-activities";
 import { AchievementCelebration, OrganicWins } from "@/components/overview/milestones";
 import { TrafficSources } from "@/components/overview/traffic-sources";
 import { WhatWeLearned } from "@/components/overview/what-we-learned";
+import { ConnectWebsiteCard } from "@/components/overview/connect-website-card";
+import { PLATFORM_NAMES } from "@/lib/platforms";
 import { TRAFFIC_RANGES, type TrafficRange } from "@/lib/traffic";
 import { displayDomain } from "@/lib/utils";
 import { siteEntitlements } from "@/server/billing/entitlements";
@@ -16,6 +18,7 @@ import {
   getMilestones,
   getPlannedActions,
   getTrafficSources,
+  hasPublishingConnection,
 } from "@/server/queries/overview";
 
 function greetingKey(timeZone: string) {
@@ -29,7 +32,7 @@ export default async function OverviewPage({ searchParams }: PageProps<"/[locale
   const site = context.site!;
   const range: TrafficRange = TRAFFIC_RANGES.find((option) => option === query.range) ?? "90d";
 
-  const [day, planned, milestones, profile, traffic, brand, t, locale, entitlements, tOverview] = await Promise.all([
+  const [day, planned, milestones, profile, traffic, brand, t, locale, entitlements, tOverview, connected] = await Promise.all([
     getAgentDay(site, typeof query.date === "string" ? query.date : undefined),
     getPlannedActions(site),
     getMilestones(site.id),
@@ -40,6 +43,7 @@ export default async function OverviewPage({ searchParams }: PageProps<"/[locale
     getLocale(),
     siteEntitlements(site.id),
     getTranslations("overview.unpaid"),
+    hasPublishingConnection(site.id),
   ]);
   const firstName = context.user.name.split(" ")[0] ?? context.user.name;
 
@@ -58,6 +62,7 @@ export default async function OverviewPage({ searchParams }: PageProps<"/[locale
             </Link>
           </div>
         )}
+        {!connected && site.onboardingStatus !== "not_started" && <ConnectWebsiteCard siteId={site.id} platform={site.detectedPlatform ? (PLATFORM_NAMES[site.detectedPlatform] ?? null) : null} />}
         <div className={milestones.unseen.length ? "grid items-stretch gap-8 xl:grid-cols-[minmax(0,1fr)_520px]" : ""}>
           <AgentActivitiesCard data={day} planned={planned} />
           <AchievementCelebration unseen={milestones.unseen} brand={brand.name} />

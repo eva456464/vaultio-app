@@ -1,0 +1,1 @@
+ALTER TABLE "org_websites" ADD COLUMN "article_live_check" jsonb;

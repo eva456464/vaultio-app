@@ -156,8 +156,8 @@ async function languageSeedTopics(site: Site) {
 export async function buildBrandProfile({ site }: JobContext) {
   if (site.primaryOrgWebsiteId) return languageSeedTopics(site);
   const siteText = await collectSiteText(site);
-  // An article the owner picked in onboarding sets the voice.
-  const voiceUrl = site.onboardingAnswers.voiceExampleUrl;
+  // An article the owner picked (onboarding or Settings → Branding) sets the voice.
+  const voiceUrl = site.exampleArticleUrl;
   const voiceText = voiceUrl ? await collectPageText(voiceUrl).catch(() => "") : "";
   const profile = await ai.generateObject({
     schema: ProfileSchema,

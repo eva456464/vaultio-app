@@ -18,7 +18,7 @@ async function requireAdminSite() {
 const refresh = () => revalidatePath("/[locale]/dashboard/settings/publishing", "page");
 
 /** Who a content-API key is for: the API card itself, or a platform that reads through it. */
-const KEY_SOURCES = ["api", "framer", "lovable"] as const;
+const KEY_SOURCES = ["api", "framer", "lovable", "nextjs"] as const;
 export type ApiKeySource = (typeof KEY_SOURCES)[number];
 const activeKeys = (siteId: number, source: ApiKeySource) => and(eq(apiKeys.orgWebsiteId, siteId), eq(apiKeys.source, source), isNull(apiKeys.revokedAt));
 
@@ -121,7 +121,7 @@ export async function saveWordpress(input: { siteUrl: string; username: string; 
   return { ok: true };
 }
 
-const DISCONNECTABLE = ["webhook", "wordpress", "ghost", "webflow", "shopify", "wix", "bigcommerce", "gohighlevel", "duda", "hosted_blog"] as const;
+const DISCONNECTABLE = ["webhook", "wordpress", "wordpress_com", "ghost", "webflow", "shopify", "wix", "bigcommerce", "gohighlevel", "duda", "hosted_blog"] as const;
 
 export async function disconnectIntegration(type: (typeof DISCONNECTABLE)[number]) {
   const site = await requireAdminSite();

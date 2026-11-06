@@ -1,5 +1,5 @@
 /** Article writer: researches today's planned topic and writes a cited, brand-voiced article. */
-import { and, desc, eq, inArray, isNotNull, isNull, ne, sql } from "drizzle-orm";
+import { and, desc, eq, inArray, isNotNull, isNull, like, ne, sql } from "drizzle-orm";
 import { z } from "zod/v4";
 import { db } from "@/db";
 import {
@@ -348,7 +348,13 @@ async function writeFor(site: Site, item: PlanRow, runDate: string, rewrite?: Re
   const internal = links.filter((url) => url.startsWith(origin)).length;
   const external = links.length - internal;
   const wordCount = markdown.replace(/[#*_>`|[\]()-]/g, " ").split(/\s+/).filter(Boolean).length;
-  const slug = slugify(meta.slug || keyword);
+  // Each article on a site needs its own address: "-2", "-3"… when the slug is taken.
+  const baseSlug = slugify(meta.slug || keyword);
+  const taken = new Set(
+    (await db.select({ slug: articles.slug }).from(articles).where(and(eq(articles.orgWebsiteId, site.id), like(articles.slug, `${baseSlug}%`), rewrite ? ne(articles.id, rewrite.article.id) : undefined))).map((row) => row.slug),
+  );
+  let slug = baseSlug;
+  for (let suffix = 2; taken.has(slug); suffix++) slug = `${baseSlug}-${suffix}`;
   const publishedPath = `${origin}${site.blogPath.replace(/\/$/, "")}/${slug}`;
 
   const jsonLd = {

@@ -29,6 +29,9 @@ import {
 export const ACTIVITY_ICONS: Record<string, LucideIcon> = {
   articlePublished: FileText,
   articleWritten: FileText,
+  articleSentAsDraft: FileText,
+  articleRegenerated: RefreshCw,
+  articleUnpublished: FileText,
   writeArticle: FileText,
   topicResearched: Lightbulb,
   topicResearch: Lightbulb,

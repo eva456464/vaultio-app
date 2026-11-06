@@ -7,6 +7,7 @@ import { z } from "zod";
 import { db } from "@/db";
 import { integrations, whitelabelConfigs, type IntegrationType } from "@/db/schema";
 import { getAppContext } from "../context";
+import { storeImage } from "../media";
 import type { BlogConfig } from "../hosted-blog";
 import { encryptJson, sha256 } from "../crypto";
 import { requestOrigin } from "../invites";
@@ -21,7 +22,7 @@ import { verifyWix } from "../publishing/platforms/wix";
 import { checkHostingDomain, connectHostingDomain, disconnectHostingDomain, normalizeDomain, platformHosts } from "../whitelabel/domains";
 
 type Result = { ok: true } | { error: string };
-const PLATFORM_TYPES = ["ghost", "webflow", "shopify", "wix", "bigcommerce", "gohighlevel"] as const;
+const PLATFORM_TYPES = ["ghost", "webflow", "shopify", "wix", "bigcommerce", "gohighlevel", "wordpress_com"] as const;
 type PlatformType = (typeof PLATFORM_TYPES)[number];
 
 async function requireAdminSite() {
@@ -331,6 +332,33 @@ export async function setupHostedBlog(input: z.input<typeof blogSchema>): Promis
   const config: BlogConfig = { domain, displayName: parsed.data.displayName || site.brandName || "", ...status };
   const values = { status: status.verified ? ("connected" as const) : ("pending" as const), config, lastError: null, connectedAt: status.verified ? new Date() : null, updatedAt: new Date() };
   await db.insert(integrations).values({ orgWebsiteId: site.id, type: "hosted_blog", ...values }).onConflictDoUpdate({ target: [integrations.orgWebsiteId, integrations.type], set: values });
+  refresh();
+  return { ok: true };
+}
+
+const LOGO_TYPES = ["image/png", "image/jpeg", "image/webp"];
+
+/** The hosted blog's logo (uploaded, or removed to use the website's) and accent colour. */
+export async function updateHostedBlogLook(form: FormData): Promise<Result> {
+  const site = await requireAdminSite();
+  const [current] = await db.select().from(integrations).where(and(eq(integrations.orgWebsiteId, site.id), eq(integrations.type, "hosted_blog")));
+  const config = current?.config as BlogConfig | undefined;
+  if (!current || !config?.domain) return { error: "Set up the blog first" };
+  const accent = String(form.get("accent") ?? "").trim();
+  if (accent && !/^#[0-9a-f]{6}$/i.test(accent)) return { error: "Use a hex colour like #E94545" };
+  let logoUrl = config.logoUrl ?? null;
+  if (form.get("removeLogo") === "1") logoUrl = null;
+  const file = form.get("logo");
+  if (file instanceof File && file.size > 0) {
+    if (!LOGO_TYPES.includes(file.type)) return { error: "Use a PNG, JPEG or WebP image" };
+    if (file.size > 2 * 1024 * 1024) return { error: "The logo must be smaller than 2 MB" };
+    const stored = await storeImage({ siteId: site.id, kind: "upload", bytes: Buffer.from(await file.arrayBuffer()) });
+    logoUrl = stored.url;
+  }
+  await db
+    .update(integrations)
+    .set({ config: { ...config, logoUrl, accentColor: accent ? accent.toUpperCase() : null }, updatedAt: new Date() })
+    .where(eq(integrations.id, current.id));
   refresh();
   return { ok: true };
 }

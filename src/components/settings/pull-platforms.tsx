@@ -17,10 +17,11 @@ import { disconnectIntegration, generateApiKey, revokeApiKey } from "@/server/ac
  */
 
 export type PullKey = { prefix: string; lastUsedAt: string | null } | null;
-type PullPlatform = "framer" | "lovable" | "duda";
+type PullPlatform = "nextjs" | "framer" | "lovable" | "duda";
 type T = ReturnType<typeof useTranslations<"settings.publishing">>;
 
 const BADGE: Record<PullPlatform, { letter: string; color: string }> = {
+  nextjs: { letter: "N", color: "#000000" },
   framer: { letter: "F", color: "#0A0A0A" },
   lovable: { letter: "L", color: "#E2456F" },
   duda: { letter: "D", color: "#4B3FD8" },
@@ -116,7 +117,7 @@ function Wizard({ title, steps, onClose, footer }: { title: string; steps: Step[
 }
 
 /** Creates (or replaces) the key a platform uses and shows it once. */
-function KeyPanel({ source, current, newKey, setNewKey }: { source: "framer" | "lovable"; current: PullKey; newKey: string | null; setNewKey: (key: string) => void }) {
+function KeyPanel({ source, current, newKey, setNewKey }: { source: "framer" | "lovable" | "nextjs"; current: PullKey; newKey: string | null; setNewKey: (key: string) => void }) {
   const t = useTranslations("settings.publishing.wizard");
   const format = useFormatter();
   const { copied, copy } = useCopy();
@@ -228,6 +229,75 @@ function FramerWizard({ current, apiBaseUrl, brandName, pluginUrl, onClose }: { 
     { title: t("framer.steps.done.title"), body: t("framer.steps.done.body"), content: <Steps items={list("done")} /> },
   ];
   return <Wizard title={t("framer.name")} steps={steps} onClose={onClose} footer={current ? <RemoveButton platform="framer" name={t("framer.name")} onDone={onClose} /> : null} />;
+}
+
+function CodeBlock({ value, id, copied, onCopy, label }: { value: string; id: string; copied: string | null; onCopy: (value: string, id: string) => void; label: string }) {
+  return (
+    <div className="relative">
+      <pre className="overflow-x-auto rounded-xl border border-line bg-canvas p-3 pr-12 font-mono text-[12px] leading-relaxed text-ink">{value}</pre>
+      <button type="button" aria-label={label} onClick={() => onCopy(value, id)} className="absolute right-2 top-2 grid size-8 place-items-center rounded-lg bg-white text-ink-secondary ring-1 ring-line hover:text-ink">
+        {copied === id ? <Check className="size-4" /> : <Copy className="size-4" />}
+      </button>
+    </div>
+  );
+}
+
+function NextjsWizard({ current, apiBaseUrl, siteUrl, packageName, onClose }: { current: PullKey; apiBaseUrl: string; siteUrl: string; packageName: string; onClose: () => void }) {
+  const t = useTranslations("settings.publishing");
+  const checks = useChecklist(2, Boolean(current));
+  const [newKey, setNewKey] = useState<string | null>(null);
+  const { copied, copy } = useCopy();
+  const env = [`BLOG_API_KEY=${newKey ?? t("nextjs.keyPlaceholder")}`, `BLOG_API_URL=${apiBaseUrl}/v1`, `NEXT_PUBLIC_SITE_URL=${siteUrl}`].join("\n");
+  const config = `import type { NextConfig } from "next";\n\nconst nextConfig: NextConfig = {\n  images: { remotePatterns: [{ protocol: "https", hostname: "**" }] },\n};\n\nexport default nextConfig;`;
+  const steps: Step[] = [
+    {
+      title: t("nextjs.steps.before.title"),
+      body: t("nextjs.steps.before.body"),
+      ready: checks.all,
+      content: (
+        <>
+          <Checklist items={[t("nextjs.steps.before.check1"), t("nextjs.steps.before.check2")]} checked={checks.checked} onChange={checks.set} />
+          <Note>{t("nextjs.steps.before.alternative")}</Note>
+        </>
+      ),
+    },
+    { title: t("nextjs.steps.install.title"), body: t("nextjs.steps.install.body"), content: <CodeBlock value={`npm install ${packageName}`} id="install" copied={copied} onCopy={copy} label={t("wizard.copy")} /> },
+    {
+      title: t("nextjs.steps.key.title"),
+      body: t("nextjs.steps.key.body"),
+      ready: Boolean(current || newKey),
+      content: (
+        <>
+          <KeyPanel source="nextjs" current={current} newKey={newKey} setNewKey={setNewKey} />
+          <p className="text-xs font-medium text-ink-secondary">.env.local</p>
+          <CodeBlock value={env} id="env" copied={copied} onCopy={copy} label={t("wizard.copy")} />
+          <Note tone="warning">{t("nextjs.steps.key.serverOnly")}</Note>
+        </>
+      ),
+    },
+    { title: t("nextjs.steps.images.title"), body: t("nextjs.steps.images.body"), content: <CodeBlock value={config} id="config" copied={copied} onCopy={copy} label={t("wizard.copy")} /> },
+    {
+      title: t("nextjs.steps.scaffold.title"),
+      body: t("nextjs.steps.scaffold.body"),
+      content: (
+        <>
+          <CodeBlock value={`npx ${packageName} init`} id="init" copied={copied} onCopy={copy} label={t("wizard.copy")} />
+          <Steps items={t.raw("nextjs.steps.scaffold.items") as string[]} />
+        </>
+      ),
+    },
+    {
+      title: t("nextjs.steps.done.title"),
+      body: t("nextjs.steps.done.body", { url: `${siteUrl}/blog` }),
+      content: (
+        <>
+          {current?.lastUsedAt ? <Note>{t("nextjs.steps.done.connected")}</Note> : <Note tone="warning">{t("nextjs.steps.done.waiting")}</Note>}
+          <Note>{t("nextjs.steps.done.cache")}</Note>
+        </>
+      ),
+    },
+  ];
+  return <Wizard title={t("nextjs.name")} steps={steps} onClose={onClose} footer={current ? <RemoveButton platform="nextjs" name={t("nextjs.name")} onDone={onClose} /> : null} />;
 }
 
 function LovableWizard({ current, apiBaseUrl, brandName, settingsUrl, onClose }: { current: PullKey; apiBaseUrl: string; brandName: string; settingsUrl: string; onClose: () => void }) {
@@ -388,7 +458,7 @@ function DudaWizard({ feedUrl, connected, onClose }: { feedUrl: string | null; c
 
 function summaryOf(platform: PullPlatform, t: T, format: ReturnType<typeof useFormatter>, brandName: string, key: PullKey, duda: { feedUrl: string | null } | null) {
   if (platform === "duda") return duda ? t("duda.summary") : t("duda.description");
-  if (!key) return platform === "framer" ? t("framer.description", { brand: brandName }) : t("lovable.description");
+  if (!key) return platform === "framer" ? t("framer.description", { brand: brandName }) : t(`${platform}.description`);
   if (!key.lastUsedAt) return t(`${platform}.summaryNew`);
   return t(`${platform}.summary`, { lastUsed: format.dateTime(new Date(key.lastUsedAt), { dateStyle: "medium", timeStyle: "short" }) });
 }
@@ -401,26 +471,30 @@ export function PullPlatformCards({
   brandName,
   framerPluginUrl,
   settingsUrl,
+  siteUrl,
+  nextPackage,
   statusPill,
 }: {
   canEdit: boolean;
-  keys: { framer: PullKey; lovable: PullKey };
+  keys: { framer: PullKey; lovable: PullKey; nextjs: PullKey };
   duda: { feedUrl: string | null } | null;
   apiBaseUrl: string;
   brandName: string;
   framerPluginUrl: string | null;
   settingsUrl: string;
+  siteUrl: string;
+  nextPackage: string;
   statusPill: (status: string) => ReactNode;
 }) {
   const t = useTranslations("settings.publishing");
   const format = useFormatter();
   const [open, setOpen] = useState<PullPlatform | null>(null);
   const close = () => setOpen(null);
-  const connected = { framer: Boolean(keys.framer), lovable: Boolean(keys.lovable), duda: Boolean(duda) };
+  const connected = { nextjs: Boolean(keys.nextjs), framer: Boolean(keys.framer), lovable: Boolean(keys.lovable), duda: Boolean(duda) };
 
   return (
-    <div className="grid gap-4 md:grid-cols-3">
-      {(["framer", "lovable", "duda"] as const).map((platform) => (
+    <div className="grid gap-4 md:grid-cols-2">
+      {(["nextjs", "framer", "lovable", "duda"] as const).map((platform) => (
         <section key={platform} className="card flex flex-col p-5">
           <div className="flex items-start gap-3">
             <span aria-hidden className="grid size-10 shrink-0 place-items-center rounded-xl text-base font-bold text-white" style={{ background: BADGE[platform].color }}>
@@ -445,6 +519,7 @@ export function PullPlatformCards({
       ))}
       <Dialog open={open !== null} onOpenChange={(next) => !next && close()}>
         <DialogContent className="max-w-xl">
+          {open === "nextjs" && <NextjsWizard current={keys.nextjs} apiBaseUrl={apiBaseUrl} siteUrl={siteUrl} packageName={nextPackage} onClose={close} />}
           {open === "framer" && <FramerWizard current={keys.framer} apiBaseUrl={apiBaseUrl} brandName={brandName} pluginUrl={framerPluginUrl} onClose={close} />}
           {open === "lovable" && <LovableWizard current={keys.lovable} apiBaseUrl={apiBaseUrl} brandName={brandName} settingsUrl={settingsUrl} onClose={close} />}
           {open === "duda" && <DudaWizard feedUrl={duda?.feedUrl ?? null} connected={Boolean(duda)} onClose={close} />}
