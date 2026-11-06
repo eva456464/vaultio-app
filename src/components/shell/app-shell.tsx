@@ -9,6 +9,7 @@ import { Link } from "@/i18n/navigation";
 import type { AppContext, Brand } from "@/server/context";
 import { DeletionBanner } from "./deletion-banner";
 import { MobileNav } from "./mobile-nav";
+import { CommandPalette } from "./command-palette";
 import { ProductUpdatesBell } from "./product-updates";
 import { SIDEBAR_COOKIE, Sidebar } from "./sidebar";
 import { UserMenu } from "./user-menu";
@@ -74,6 +75,7 @@ export async function AppShell({
           />
           {mode === "agency" && <UserMenu name={context.user.name} />}
         </div>
+        <CommandPalette mode={mode} />
       </header>
       <div className="flex flex-1">
         <Sidebar mode={mode} initialCollapsed={collapsed} />

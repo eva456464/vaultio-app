@@ -3907,5 +3907,12 @@
     "topicFeedback": "The topic wasn't right.",
     "topicChanged": "Your new article is being written. It usually takes about 10 minutes.",
     "thanks": "Thanks for your feedback!"
+  },
+  "commandPalette": {
+    "title": "Go to page",
+    "placeholder": "Search pages…",
+    "empty": "No pages match your search.",
+    "navigateHint": "↑↓ to move",
+    "openHint": "to open"
   }
 }
